@@ -94,7 +94,9 @@ function HistoryGraph({countryData}) {
             }];
         let pre =[];
         for (let key in countryData) {
-            let date = new Date(key);
+            let arr = key.split('-');
+            let date = new Date(arr[0],arr[1]-1,arr[2]);
+            console.log(date)
             if((today-date)/ (1000 * 3600 * 24) <=14 ){
                 let labelName = date.getMonth().toString()+'-'+date.getDate().toString()
                 historyData[0]['dataPoints'].push({y:countryData[key][0],label:labelName});
