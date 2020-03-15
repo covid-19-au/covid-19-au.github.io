@@ -1,3 +1,3 @@
-Test site for convid19 in AU.
+Test site for covid19 in AU.
 
-[link](https://freddiewanah.github.io/2019-ncov/)
+[link](https://covid-19-au.github.io//2019-ncov/)

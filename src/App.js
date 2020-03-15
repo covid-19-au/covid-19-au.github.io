@@ -59,14 +59,14 @@ function HistoryGraph({countryData}) {
     const options = {
         pointsVisible: true,
 
-            title: 'Australia Convid-19 History Chart',
+            title: 'Australia Covid-19 History Chart',
             // subtitle: 'in millions of dollars (USD)',
 
     };
     const newOptions = {
         isStacked: true,
 
-            title: 'Australia Convid-19 New Cases vs Deaths Chart',
+            title: 'Australia Covid-19 New Cases vs Deaths Chart',
             // subtitle: 'in millions of dollars (USD)',
 
     };
@@ -418,7 +418,7 @@ function App() {
   });
   useEffect(() => {
     if (province) {
-      window.document.title = `Convid-19 Live Status | ${province.name}`;
+      window.document.title = `Covid-19 Live Status | ${province.name}`;
     }
   }, [province]);
 
