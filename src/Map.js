@@ -166,10 +166,10 @@ function Map ({ province, data, onClick }) {
       return {
           region: 'AU', // Africa
           colorAxis: { colors: [
-                  'rgb(245,236,91)',
-                  'rgb(218,221,82)',
-                  'rgb(153,195,84)',
-                  'rgb(55,125,67)' ] },
+                  '#ffc0b1',
+                  '#ff8c71',
+                  '#ef1717',
+                  '#9c0505'] },
           backgroundColor: 'white',
           datalessRegionColor: 'rgb(216,221,224)',
           defaultColor: '#f5f5f5',

@@ -140,3 +140,7 @@ h2 small {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.more {
+  font-size:70%;
+}
