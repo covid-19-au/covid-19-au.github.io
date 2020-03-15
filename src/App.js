@@ -108,7 +108,7 @@ function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
                 </div>
                 {dayjs(pubDate).format("YYYY-MM-DD HH:mm")}
             </div>
-            <a className="title" href={link}>
+            <a target="_blank" className="title" href={link}>
                 {title}
             </a>
             <div className="summary">{contentSnippet.split("&nbsp;")[0]}...</div>
