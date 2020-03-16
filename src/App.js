@@ -17,8 +17,6 @@ import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
 
 import { TwitterTimelineEmbed } from "react-twitter-embed";
-import exposureSites from "./data/exposureSites";
-
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
 ReactGA.initialize("UA-160673543-1");
@@ -320,50 +318,7 @@ function Tweets({ province }) {
 }
 
 function ExposureSites() {
-  // //data preparation
-  // let locations = [];
-  // exposureSites.forEach(site => {
-  //   let point = {
-  //     latitude: 0,
-  //     longitude: 0,
-  //     description: ""
-  //   };
-  //   if (site.Cords !== "") {
-  //     let cords = site.Cords.split(",");
-  //     point.latitude = cords[0];
-  //     point.longitude = cords[1];
-  //     point.description = site.Location;
-  //     locations.push(point);
-  //   } else {
-  //     point.latitude = 0;
-  //     point.longitude = 0;
-  //     point.description = "";
-  //     locations.push(point);
-  //   }
-  // });
-  // let data = [];
-  // for (var i = 0; i < locations.length; i++) {
-  //   var feature = {
-  //     type: "Feature",
-  //     properties: {
-  //       description: locations[i].description,
-  //       icon: "circle-15"
-  //     },
-  //     geometry: {
-  //       type: "Point",
-  //       coordinates: [locations[i].longitude, locations[i].latitude]
-  //     }
-  //   };
-  //   data.push(feature);
-  // }
-
-  return (
-    <div className="card">
-      <h2>Exposure Sites</h2>
-      {/* <div id="map"></div>
-      <script src="./mapbox.js"></script> */}
-    </div>
-  );
+  return <div></div>;
 }
 
 function Stat({

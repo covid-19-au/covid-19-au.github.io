@@ -1,33 +1,46 @@
-﻿Date,Time,Location,State,Onset of symptoms up to,Cords
-Tuesday 10/03/2020,12:30pm – 2:00pm,"Mary Miller Café, Fitzroy North",Victoria,24/3/20,"-37.776845, 144.987074"
-Tuesday 10/03/2020,8:00am – 9:30am,"No. 19 Café, Ascot Vale",Victoria,24/3/20,"-37.773059, 144.916153"
-Tuesday 10/03/2020,Arriving at 6:00am,Emirates flight EK0406 from Dubai to Melbourne,Victoria,24/3/20,"-37.672278, 144.851175"
-Monday 09/03/2020,Departing at 6:00pm,Qantas flight QF459 from Sydney to Melbourne,Victoria,23/3/20,
-Monday 09/03/2020,Departing at 12:00pm,Qantas flight QF430 from Melbourne to Sydney,Victoria,23/3/20,
-Sunday 08/03/2020,5:15pm – 11:30pm,"T20 Cricket World Cup Final, Melbourne Cricket Ground, MCC Members Level 2",Victoria,22/3/20,"-37.819814, 144.983471"
-Sunday 08/03/2020,10:00am – 4:00pm,"Myrtle Oval, Macleay Park, North Balwyn",Victoria,22/3/20,"-37.800857, 145.075181"
-Sunday 08/03/2020,8:30am – 5:00pm,"Ramsden Street Oval, Clifton Hill",Victoria,22/3/20,"-37.791837, 145.003320"
-Sunday 08/03/2020,Arrived 7:00am    ,Virgin Australia flight VA24 from Los Angeles to Melbourne,Victoria,22/3/20,
-Saturday 07/03/2020,Evening    ,AAMI Park (Rebels vs Lions rugby game),Victoria, 21/03/2020,"-37.825005, 144.983814"
-Saturday 07/03/2020,6:00pm – 10:00pm,Albert Park Hotel,Victoria,21/3/20,"-37.825005, 144.983814"
-Saturday 07/03/2020 ,2:00pm – 3:00pm,South Melbourne Market,Victoria,21/3/20,"-37.831845, 144.955896"
-Saturday 07/03/2020, 1:00pm – 6:00pm,Coles Waurn Ponds,Victoria,21/3/20,"-38.199037, 144.318418"
-Saturday 07/03/2020,Unsure,Ashburton Park,Victoria,21/3/20,"-37.863086, 145.086915"
-Saturday 07/03/2020,Arrived 7:00am,Virgin Australia flight VA24 from Los Angeles to Melbourne    ,Victoria,21/3/20,
-Friday 06/03/2020,Arrived 9am, Malaysia Airways flight MH0149 from Kuala Lumpur to Melbourne  ,Victoria,20/3/20,
-Friday 06/03/2020,6pm – 7pm,Pho Hung Vuong 2 Vietnamese Restaurant in Richmond,Victoria,20/3/20,"-37.809968, 144.995144"
-Friday 06/03/2020 ,Arrived 9:40am,Qantas flight QF94 from Los Angeles to Melbourne,Victoria,20/3/20,
-Friday 06/03/2020,8:45am – 5:00pm,Coles Waurn Ponds,Victoria,20/3/20,"-38.198995, 144.318471"
-Friday 06/03/2020,8:30am – 10:00am,South Melbourne Market,Victoria,20/3/20,"-37.831845, 144.955896"
-Friday 06/03/2020,Arrived 00:15am,Emirates flight EK404 from Singapore to Melbourne,Victoria,20/3/20,
-Thursday 5/03/2020, 7:30pm – 10:30pm,"Cinema Nova, Carlton (Movie: The Amber Light)    ",Victoria,19/3/20,"-37.797814, 144.967985"
-Thursday 5/03/2020,Departing around 5:40pm,VLine train from Southern Cross to Geelong,Victoria,19/3/20,"-37.818268, 144.952479"
-Tuesday 3/03/2020,12:30 – 3:30pm,Wine by Sam - Seymour,Victoria,17/3/20,"-37.028275, 145.143338"
-Tuesday 3/03/2020 – Thursday 5/03/2020,3/03/2020: 9:00am – 12:00pm; 4/03/2020: 11:00am – 1:00pm; 5/03/2020: 1:00pm – 4:30pm,"La Trobe University, Bundoora Campus",Victoria,17/03/2020 – 19/03/2020,"-37.720446, 145.048468"
-Monday 02/03/2020,Arrived 4:20pm,Virgin Australia flight VA682 from Perth to Melbourne,Victoria,16/3/20,
-Monday 02/03/2020,Departing around 5:40pm ,VLine train from Geelong to Southern Cross,Victoria,16/3/20,
-Monday 02/03/2020,Departing between 7:00 – 7:15pm,Metro train from Southern Cross to Camberwell,Victoria,16/3/20,"-37.826473, 145.059436"
-Monday 02/03/2020 – Friday 06/03/2020,Patients and staff that attended the clinic any time between Monday 02/03/2020 – Friday 06/03/2020,"Toorak Clinic; 575 Malvern Rd, Toorak",Victoria,14 days from visiting the clinic (16 – 20 March 2020),"-37.847949, 145.005577"
-Saturday 29/02/2020,Arrived 9:30am,United Airlines flight UA0060 from San Francisco to Melbourne ,Victoria,14/3/20,
-Saturday 29/02/2020,Arrived 10:50am,Singapore Airlines flight SQ237 from Singapore to Melbourne,Victoria,14/3/20,
-Friday 28/02/2020,10:50am (Singapore time),Malindo Air flight OD177 from Denpasar to Melbourne,Victoria,13/3/20,
+﻿id,date,time,name,state,onset of symptoms up to,coor,type
+m00001,Tuesday 10/03/2020,12:30pm – 2:00pm,"Mary Miller Café, Fitzroy North",Victoria,24/3/20,"-37.776845, 144.987074",0
+m00002,Tuesday 10/03/2020,8:00am – 9:30am,"No. 19 Café, Ascot Vale",Victoria,24/3/20,"-37.773059, 144.916153",0
+m00003,Tuesday 10/03/2020,Arriving at 6:00am,Emirates flight EK0406 from Dubai to Melbourne,Victoria,24/3/20,"-37.672278, 144.851175",0
+m00004,Monday 09/03/2020,Departing at 6:00pm,Qantas flight QF459 from Sydney to Melbourne,Victoria,23/3/20,,0
+m00005,Monday 09/03/2020,Departing at 12:00pm,Qantas flight QF430 from Melbourne to Sydney,Victoria,23/3/20,,0
+m00006,Sunday 08/03/2020,5:15pm – 11:30pm,"T20 Cricket World Cup Final, Melbourne Cricket Ground, MCC Members Level 2",Victoria,22/3/20,"-37.819814, 144.983471",0
+m00007,Sunday 08/03/2020,10:00am – 4:00pm,"Myrtle Oval, Macleay Park, North Balwyn",Victoria,22/3/20,"-37.800857, 145.075181",0
+m00008,Sunday 08/03/2020,8:30am – 5:00pm,"Ramsden Street Oval, Clifton Hill",Victoria,22/3/20,"-37.791837, 145.003320",0
+m00009,Sunday 08/03/2020,Arrived 7:00am    ,Virgin Australia flight VA24 from Los Angeles to Melbourne,Victoria,22/3/20,,0
+m00010,Saturday 07/03/2020,Evening    ,AAMI Park (Rebels vs Lions rugby game),Victoria, 21/03/2020,"-37.825005, 144.983814",0
+m00011,Saturday 07/03/2020,6:00pm – 10:00pm,Albert Park Hotel,Victoria,21/3/20,"-37.825005, 144.983814",0
+m00012,Saturday 07/03/2020 ,2:00pm – 3:00pm,South Melbourne Market,Victoria,21/3/20,"-37.831845, 144.955896",0
+m00013,Saturday 07/03/2020, 1:00pm – 6:00pm,Coles Waurn Ponds,Victoria,21/3/20,"-38.199037, 144.318418",0
+m00014,Saturday 07/03/2020,Unsure,Ashburton Park,Victoria,21/3/20,"-37.863086, 145.086915",0
+m00015,Saturday 07/03/2020,Arrived 7:00am,Virgin Australia flight VA24 from Los Angeles to Melbourne    ,Victoria,21/3/20,,0
+m00016,Friday 06/03/2020,Arrived 9am, Malaysia Airways flight MH0149 from Kuala Lumpur to Melbourne  ,Victoria,20/3/20,,0
+m00017,Friday 06/03/2020,6pm – 7pm,Pho Hung Vuong 2 Vietnamese Restaurant in Richmond,Victoria,20/3/20,"-37.809968, 144.995144",0
+m00018,Friday 06/03/2020 ,Arrived 9:40am,Qantas flight QF94 from Los Angeles to Melbourne,Victoria,20/3/20,,0
+m00019,Friday 06/03/2020,8:45am – 5:00pm,Coles Waurn Ponds,Victoria,20/3/20,"-38.198995, 144.318471",0
+m00020,Friday 06/03/2020,8:30am – 10:00am,South Melbourne Market,Victoria,20/3/20,"-37.831845, 144.955896",0
+m00021,Friday 06/03/2020,Arrived 00:15am,Emirates flight EK404 from Singapore to Melbourne,Victoria,20/3/20,,0
+m00022,Thursday 5/03/2020, 7:30pm – 10:30pm,"Cinema Nova, Carlton (Movie: The Amber Light)    ",Victoria,19/3/20,"-37.797814, 144.967985",0
+m00023,Thursday 5/03/2020,Departing around 5:40pm,VLine train from Southern Cross to Geelong,Victoria,19/3/20,"-37.818268, 144.952479",0
+m00024,Tuesday 3/03/2020,12:30 – 3:30pm,Wine by Sam - Seymour,Victoria,17/3/20,"-37.028275, 145.143338",0
+m00025,Tuesday 3/03/2020 – Thursday 5/03/2020,3/03/2020: 9:00am – 12:00pm; 4/03/2020: 11:00am – 1:00pm; 5/03/2020: 1:00pm – 4:30pm,"La Trobe University, Bundoora Campus",Victoria,17/03/2020 – 19/03/2020,"-37.720446, 145.048468",0
+m00026,Monday 02/03/2020,Arrived 4:20pm,Virgin Australia flight VA682 from Perth to Melbourne,Victoria,16/3/20,,0
+m00027,Monday 02/03/2020,Departing around 5:40pm ,VLine train from Geelong to Southern Cross,Victoria,16/3/20,,0
+m00028,Monday 02/03/2020,Departing between 7:00 – 7:15pm,Metro train from Southern Cross to Camberwell,Victoria,16/3/20,"-37.826473, 145.059436",0
+m00029,Monday 02/03/2020 – Friday 06/03/2020,Patients and staff that attended the clinic any time between Monday 02/03/2020 – Friday 06/03/2020,"Toorak Clinic; 575 Malvern Rd, Toorak",Victoria,14 days from visiting the clinic (16 – 20 March 2020),"-37.847949, 145.005577",0
+m00030,Saturday 29/02/2020,Arrived 9:30am,United Airlines flight UA0060 from San Francisco to Melbourne ,Victoria,14/3/20,,0
+m00031,Saturday 29/02/2020,Arrived 10:50am,Singapore Airlines flight SQ237 from Singapore to Melbourne,Victoria,14/3/20,,0
+m00032,Friday 28/02/2020,10:50am (Singapore time),Malindo Air flight OD177 from Denpasar to Melbourne,Victoria,13/3/20,,0
+m00033,,,The Alfred Hospital,Victoria,,"-37.845510, 144.981856",1
+m00034,,,Albury Wodonga ,Victoria,,"-36.131814, 146.879837",1
+m00035,,,Austin Hospital,Victoria,,"-37.756370, 145.059588",1
+m00036,,,Barwon Health – Geelong,Victoria,,"-38.152096, 144.365334",1
+m00037,,,Box Hill Hospital,Victoria,,"-37.813904, 145.118432",1
+m00038,,,Monash Clayton,Victoria,,"-37.920496, 145.123560",1
+m00039,,,Northern Hospital.,Victoria,,"-37.652508, 145.014533",1
+m00040,,,Peninsula Health – Frankston,Victoria,,"-38.150661, 145.128516",1
+m00041,,,The Royal Melbourne Hospital,Victoria,,"-37.798750, 144.956196",1
+m00042,,,St Vincent's Hospital Melbourne,Victoria,,"-37.807291, 144.975061",1
+m00043,,,Sunshine Hospital,Victoria,,"-37.759241, 144.816534",1
+m00044,,,Wonthaggi Hospital,Victoria,,"-38.608515, 145.580893",1
+m00045,,,Ballarat Base Hospital.,Victoria,,"-37.558656, 143.847227",1
