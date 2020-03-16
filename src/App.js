@@ -56,6 +56,21 @@ function HistoryGraph({countryData}) {
     const [newOpts, setNewOpts] = useState(null);
     useEffect(() => {
 
+        let monthTrans = {
+            0:'Jan',
+            1:'Feb',
+            2:'Mar',
+            3:'Apr',
+            4:'May',
+            5:'Jun',
+            6:'Jul',
+            7:'Aug',
+            8:'Sept',
+            9:'Oct',
+            10:'Nov',
+            11:'Dec'
+
+        };
         let historyData=[{
             type: "spline",
             name: "Confirmed",
@@ -96,9 +111,8 @@ function HistoryGraph({countryData}) {
         for (let key in countryData) {
             let arr = key.split('-');
             let date = new Date(arr[0],arr[1]-1,arr[2]);
-            console.log(date)
             if((today-date)/ (1000 * 3600 * 24) <=14 ){
-                let labelName = date.getMonth().toString()+'-'+date.getDate().toString()
+                let labelName = monthTrans[date.getMonth()]+' '+date.getDate().toString();
                 historyData[0]['dataPoints'].push({y:countryData[key][0],label:labelName});
                 historyData[1]['dataPoints'].push({y:countryData[key][2],label:labelName});
                 historyData[2]['dataPoints'].push({y:countryData[key][1],label:labelName});
@@ -112,14 +126,15 @@ function HistoryGraph({countryData}) {
             animationEnabled: true,
             height: 260,
             title:{
-                text: "Australia Covid-19 Data (last two weeks)",
+                text: "Australian COVID-19 Trend",
                 fontSize: 20,
             },
             legend: {
                 verticalAlign: "top",
             },
             toolTip:{
-                content:"{label}, {name}: {y}" ,
+                shared: true,
+                // content:"{label}, {name}: {y}" ,
             },
 
             data: historyData
@@ -136,7 +151,8 @@ function HistoryGraph({countryData}) {
                 verticalAlign: "top",
             },
             toolTip:{
-                content:"{label}, {name}: {y}" ,
+                shared: true,
+                // content:"{label}, {name}: {y}" ,
             },
         });
         // newData.push([historyData[2][0],historyData[2][1]-historyData[1][1],historyData[2][2]-historyData[1][2]])
@@ -209,6 +225,7 @@ function News({ province }) {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
+
         let parser = new Parser({
             headers:{'Access-Control-Allow-Origin':'*'}
         });
@@ -403,12 +420,30 @@ function Fallback() {
   return (
     <div className="fallback">
       <div>
-        代码仓库:{" "}
+        Forked From:{" "}
         <a href="https://github.com/shfshanyue/2019-ncov">
           shfshanyue/2019-ncov
         </a>
 
       </div>
+        <div>
+            Our GitHub:{" "}
+            <a href="https://github.com/covid-19-au/covid-19-au.github.io">
+                covid-19-au
+            </a>
+
+        </div>
+        <div>
+            Live Data Source:{" "}
+            <a href="https://www.theaustralian.com.au">
+                The Australian
+            </a>
+
+        </div>
+        <div>
+            This site is developed for non-commercial use only. The authors will not be responsible for any copyright dispute.
+            If you have any questions feel free to contact <a href="mailto:freddie.wanah@gmail.com">me</a>.
+        </div>
         <div>
 
             <a href="https://www.webfreecounter.com/" target="_blank"><img src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1" border="0" alt="hit counter"/></a>
@@ -463,8 +498,10 @@ function Header({ province }) {
   return (
     <header>
       <div className="bg"></div>
-      <h1>
- COVID-19 -- Australia Status
+      <h1 style={{
+          fontSize:'120%'
+      }}>
+          COVID-19 Real-time Report in Australia
       </h1>
       {/*<i>By Students from Monash</i>*/}
     </header>
@@ -492,11 +529,12 @@ function App() {
       {
         download: true,
         complete: function(results) {
+            console.log('requested')
           setMyData(results.data);
         }
       }
     );
-  });
+  },[province]);
   useEffect(() => {
     if (province) {
       window.document.title = `Covid-19 Live Status | ${province.name}`;
@@ -546,7 +584,7 @@ function App() {
                   setProvince(p);
                 }
               }}
-              newDate={myData}
+              newData={myData}
             />
             {/*{*/}
             {/*province ? false :*/}
