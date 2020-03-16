@@ -4,223 +4,255 @@
     "Time": "12:30pm – 2:00pm",
     "Location": "Mary Miller Café, Fitzroy North",
     "State": "Victoria",
-    "Onset of symptoms up to": "24/3/20"
+    "Onset of symptoms up to": "24/3/20",
+    "Cords": "-37.776845, 144.987074"
   },
   {
     "Date": "Tuesday 10/03/2020",
     "Time": "8:00am – 9:30am",
     "Location": "No. 19 Café, Ascot Vale",
     "State": "Victoria",
-    "Onset of symptoms up to": "24/3/20"
+    "Onset of symptoms up to": "24/3/20",
+    "Cords": "-37.773059, 144.916153"
   },
   {
     "Date": "Tuesday 10/03/2020",
     "Time": "Arriving at 6:00am",
     "Location": "Emirates flight EK0406 from Dubai to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "24/3/20"
+    "Onset of symptoms up to": "24/3/20",
+    "Cords": "-37.672278, 144.851175"
   },
   {
     "Date": "Monday 09/03/2020",
     "Time": "Departing at 6:00pm",
     "Location": "Qantas flight QF459 from Sydney to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "23/3/20"
+    "Onset of symptoms up to": "23/3/20",
+    "Cords": ""
   },
   {
     "Date": "Monday 09/03/2020",
     "Time": "Departing at 12:00pm",
     "Location": "Qantas flight QF430 from Melbourne to Sydney",
     "State": "Victoria",
-    "Onset of symptoms up to": "23/3/20"
+    "Onset of symptoms up to": "23/3/20",
+    "Cords": ""
   },
   {
     "Date": "Sunday 08/03/2020",
     "Time": "5:15pm – 11:30pm",
     "Location": "T20 Cricket World Cup Final, Melbourne Cricket Ground, MCC Members Level 2",
     "State": "Victoria",
-    "Onset of symptoms up to": "22/3/20"
+    "Onset of symptoms up to": "22/3/20",
+    "Cords": "-37.819814, 144.983471"
   },
   {
     "Date": "Sunday 08/03/2020",
     "Time": "10:00am – 4:00pm",
     "Location": "Myrtle Oval, Macleay Park, North Balwyn",
     "State": "Victoria",
-    "Onset of symptoms up to": "22/3/20"
+    "Onset of symptoms up to": "22/3/20",
+    "Cords": "-37.800857, 145.075181"
   },
   {
     "Date": "Sunday 08/03/2020",
     "Time": "8:30am – 5:00pm",
     "Location": "Ramsden Street Oval, Clifton Hill",
     "State": "Victoria",
-    "Onset of symptoms up to": "22/3/20"
+    "Onset of symptoms up to": "22/3/20",
+    "Cords": "-37.791837, 145.003320"
   },
   {
     "Date": "Sunday 08/03/2020",
     "Time": "Arrived 7:00am",
     "Location": "Virgin Australia flight VA24 from Los Angeles to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "22/3/20"
+    "Onset of symptoms up to": "22/3/20",
+    "Cords": ""
   },
   {
     "Date": "Saturday 07/03/2020",
     "Time": "Evening",
     "Location": "AAMI Park (Rebels vs Lions rugby game)",
     "State": "Victoria",
-    "Onset of symptoms up to": "21/03/2020"
+    "Onset of symptoms up to": "21/03/2020",
+    "Cords": "-37.825005, 144.983814"
   },
   {
     "Date": "Saturday 07/03/2020",
     "Time": "6:00pm – 10:00pm",
     "Location": "Albert Park Hotel",
     "State": "Victoria",
-    "Onset of symptoms up to": "21/3/20"
+    "Onset of symptoms up to": "21/3/20",
+    "Cords": "-37.825005, 144.983814"
   },
   {
     "Date": "Saturday 07/03/2020",
     "Time": "2:00pm – 3:00pm",
     "Location": "South Melbourne Market",
     "State": "Victoria",
-    "Onset of symptoms up to": "21/3/20"
+    "Onset of symptoms up to": "21/3/20",
+    "Cords": "-37.831845, 144.955896"
   },
   {
     "Date": "Saturday 07/03/2020",
     "Time": "1:00pm – 6:00pm",
     "Location": "Coles Waurn Ponds",
     "State": "Victoria",
-    "Onset of symptoms up to": "21/3/20"
+    "Onset of symptoms up to": "21/3/20",
+    "Cords": "-38.199037, 144.318418"
   },
   {
     "Date": "Saturday 07/03/2020",
     "Time": "Unsure",
     "Location": "Ashburton Park",
     "State": "Victoria",
-    "Onset of symptoms up to": "21/3/20"
+    "Onset of symptoms up to": "21/3/20",
+    "Cords": "-37.863086, 145.086915"
   },
   {
     "Date": "Saturday 07/03/2020",
     "Time": "Arrived 7:00am",
     "Location": "Virgin Australia flight VA24 from Los Angeles to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "21/3/20"
+    "Onset of symptoms up to": "21/3/20",
+    "Cords": ""
   },
   {
     "Date": "Friday 06/03/2020",
     "Time": "Arrived 9am",
     "Location": "Malaysia Airways flight MH0149 from Kuala Lumpur to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "20/3/20"
+    "Onset of symptoms up to": "20/3/20",
+    "Cords": ""
   },
   {
     "Date": "Friday 06/03/2020",
     "Time": "6pm – 7pm",
     "Location": "Pho Hung Vuong 2 Vietnamese Restaurant in Richmond",
     "State": "Victoria",
-    "Onset of symptoms up to": "20/3/20"
+    "Onset of symptoms up to": "20/3/20",
+    "Cords": "-37.809968, 144.995144"
   },
   {
     "Date": "Friday 06/03/2020",
     "Time": "Arrived 9:40am",
     "Location": "Qantas flight QF94 from Los Angeles to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "20/3/20"
+    "Onset of symptoms up to": "20/3/20",
+    "Cords": ""
   },
   {
     "Date": "Friday 06/03/2020",
     "Time": "8:45am – 5:00pm",
     "Location": "Coles Waurn Ponds",
     "State": "Victoria",
-    "Onset of symptoms up to": "20/3/20"
+    "Onset of symptoms up to": "20/3/20",
+    "Cords": "-38.198995, 144.318471"
   },
   {
     "Date": "Friday 06/03/2020",
     "Time": "8:30am – 10:00am",
     "Location": "South Melbourne Market",
     "State": "Victoria",
-    "Onset of symptoms up to": "20/3/20"
+    "Onset of symptoms up to": "20/3/20",
+    "Cords": "-37.831845, 144.955896"
   },
   {
     "Date": "Friday 06/03/2020",
     "Time": "Arrived 00:15am",
     "Location": "Emirates flight EK404 from Singapore to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "20/3/20"
+    "Onset of symptoms up to": "20/3/20",
+    "Cords": ""
   },
   {
     "Date": "Thursday 5/03/2020",
     "Time": "7:30pm – 10:30pm",
     "Location": "Cinema Nova, Carlton (Movie: The Amber Light)",
     "State": "Victoria",
-    "Onset of symptoms up to": "19/3/20"
+    "Onset of symptoms up to": "19/3/20",
+    "Cords": "-37.797814, 144.967985"
   },
   {
     "Date": "Thursday 5/03/2020",
     "Time": "Departing around 5:40pm",
     "Location": "VLine train from Southern Cross to Geelong",
     "State": "Victoria",
-    "Onset of symptoms up to": "19/3/20"
+    "Onset of symptoms up to": "19/3/20",
+    "Cords": "-37.818268, 144.952479"
   },
   {
     "Date": "Tuesday 3/03/2020",
     "Time": "12:30 – 3:30pm",
     "Location": "Wine by Sam - Seymour",
     "State": "Victoria",
-    "Onset of symptoms up to": "17/3/20"
+    "Onset of symptoms up to": "17/3/20",
+    "Cords": "-37.028275, 145.143338"
   },
   {
     "Date": "Tuesday 3/03/2020 – Thursday 5/03/2020",
     "Time": "3/03/2020: 9:00am – 12:00pm; 4/03/2020: 11:00am – 1:00pm; 5/03/2020: 1:00pm – 4:30pm",
     "Location": "La Trobe University, Bundoora Campus",
     "State": "Victoria",
-    "Onset of symptoms up to": "17/03/2020 – 19/03/2020"
+    "Onset of symptoms up to": "17/03/2020 – 19/03/2020",
+    "Cords": "-37.720446, 145.048468"
   },
   {
     "Date": "Monday 02/03/2020",
     "Time": "Arrived 4:20pm",
     "Location": "Virgin Australia flight VA682 from Perth to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "16/3/20"
+    "Onset of symptoms up to": "16/3/20",
+    "Cords": ""
   },
   {
     "Date": "Monday 02/03/2020",
     "Time": "Departing around 5:40pm",
     "Location": "VLine train from Geelong to Southern Cross",
     "State": "Victoria",
-    "Onset of symptoms up to": "16/3/20"
+    "Onset of symptoms up to": "16/3/20",
+    "Cords": ""
   },
   {
     "Date": "Monday 02/03/2020",
     "Time": "Departing between 7:00 – 7:15pm",
     "Location": "Metro train from Southern Cross to Camberwell",
     "State": "Victoria",
-    "Onset of symptoms up to": "16/3/20"
+    "Onset of symptoms up to": "16/3/20",
+    "Cords": "-37.826473, 145.059436"
   },
   {
     "Date": "Monday 02/03/2020 – Friday 06/03/2020",
     "Time": "Patients and staff that attended the clinic any time between Monday 02/03/2020 – Friday 06/03/2020",
     "Location": "Toorak Clinic; 575 Malvern Rd, Toorak",
     "State": "Victoria",
-    "Onset of symptoms up to": "14 days from visiting the clinic (16 – 20 March 2020)"
+    "Onset of symptoms up to": "14 days from visiting the clinic (16 – 20 March 2020)",
+    "Cords": "-37.847949, 145.005577"
   },
   {
     "Date": "Saturday 29/02/2020",
     "Time": "Arrived 9:30am",
     "Location": "United Airlines flight UA0060 from San Francisco to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "14/3/20"
+    "Onset of symptoms up to": "14/3/20",
+    "Cords": ""
   },
   {
     "Date": "Saturday 29/02/2020",
     "Time": "Arrived 10:50am",
     "Location": "Singapore Airlines flight SQ237 from Singapore to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "14/3/20"
+    "Onset of symptoms up to": "14/3/20",
+    "Cords": ""
   },
   {
     "Date": "Friday 28/02/2020",
     "Time": "10:50am (Singapore time)",
     "Location": "Malindo Air flight OD177 from Denpasar to Melbourne",
     "State": "Victoria",
-    "Onset of symptoms up to": "13/3/20"
+    "Onset of symptoms up to": "13/3/20",
+    "Cords": ""
   }
 ]
