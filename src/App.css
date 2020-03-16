@@ -92,6 +92,7 @@ header i {
   padding: 0 1rem 1rem;
   color: #999;
   text-align: center;
+  font-size:40%;
 }
 
 a {
@@ -139,4 +140,8 @@ h2 small {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.more {
+  font-size:70%;
 }

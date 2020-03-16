@@ -15,6 +15,8 @@ import axios from "axios";
 import Papa from "papaparse";
 
 import ReactGA from "react-ga";
+import CanvasJSReact from './assets/canvasjs.react';
+
 import {
   TwitterTimelineEmbed,
   TwitterShareButton,
@@ -27,7 +29,7 @@ import {
   TwitterVideoEmbed,
   TwitterOnAirButton
 } from "react-twitter-embed";
-
+let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
 ReactGA.initialize("UA-160673543-1");
 
@@ -46,50 +48,150 @@ const fetcher = url =>
 
 
 function HistoryGraph({countryData}) {
-    let historyData = [[{ type: 'date', label: 'Day' },'Confirmed','Deaths','Recoverd','Existing']];
+
     let newData = [[{ type: 'date', label: 'Day' },'New Cases','Deaths']];
-    for (let key in countryData) {
-        let date = new Date(key);
-        historyData.push([date,countryData[key][0],countryData[key][2],countryData[key][1],countryData[key][3]])
-    }
-    newData.push([historyData[1][0],historyData[1][1],historyData[1][3]])
-    for(let i = 2; i < historyData.length; i++) {
-        newData.push([historyData[i][0], historyData[i][1] - historyData[i - 1][1], historyData[i][2]-historyData[i-1][2]])
-    }
-    const options = {
-        pointsVisible: true,
+    let today = Date.now();
+    const [loading, setLoading] = useState(true);
+    const [options, setOptions ]= useState(null);
+    const [newOpts, setNewOpts] = useState(null);
+    useEffect(() => {
 
-            title: 'Australia Covid-19 History Chart',
-            // subtitle: 'in millions of dollars (USD)',
+        let monthTrans = {
+            0:'Jan',
+            1:'Feb',
+            2:'Mar',
+            3:'Apr',
+            4:'May',
+            5:'Jun',
+            6:'Jul',
+            7:'Aug',
+            8:'Sept',
+            9:'Oct',
+            10:'Nov',
+            11:'Dec'
 
-    };
-    const newOptions = {
-        isStacked: true,
+        };
+        let historyData=[{
+            type: "spline",
+            name: "Confirmed",
+            showInLegend: true,
+            dataPoints: []
+        },
+            {
+                type: "spline",
+                name: "Deaths",
+                showInLegend: true,
+                dataPoints: []
+            },
+            {
+                type: "spline",
+                name: "Recovered",
+                showInLegend: true,
+                dataPoints: []
+            },
+            {
+                type: "spline",
+                name: "Existing",
+                showInLegend: true,
+                dataPoints: []
+            }];
+        let newData=[{
+            type: "stackedColumn",
+            name: "New Case",
+            showInLegend: true,
+            dataPoints: []
+        },
+            {
+                type: "stackedColumn",
+                name: "Deaths",
+                showInLegend: true,
+                dataPoints: []
+            }];
+        let pre =[];
+        for (let key in countryData) {
+            let arr = key.split('-');
+            let date = new Date(arr[0],arr[1]-1,arr[2]);
+            if((today-date)/ (1000 * 3600 * 24) <=14 ){
+                let labelName = monthTrans[date.getMonth()]+' '+date.getDate().toString();
+                historyData[0]['dataPoints'].push({y:countryData[key][0],label:labelName});
+                historyData[1]['dataPoints'].push({y:countryData[key][2],label:labelName});
+                historyData[2]['dataPoints'].push({y:countryData[key][1],label:labelName});
+                historyData[3]['dataPoints'].push({y:countryData[key][3],label:labelName});
+                newData[0]['dataPoints'].push({y:countryData[key][0]-pre[0],label:labelName});
+                newData[1]['dataPoints'].push({y:countryData[key][2]-pre[2],label:labelName});
+            }
+            pre = countryData[key];
+        }
+        setOptions( {
+            animationEnabled: true,
+            height: 260,
+            title:{
+                text: "Australian COVID-19 Trend",
+                fontSize: 20,
+            },
+            legend: {
+                verticalAlign: "top",
+            },
+            toolTip:{
+                shared: true,
+                // content:"{label}, {name}: {y}" ,
+            },
 
-            title: 'Australia Covid-19 New Cases vs Deaths Chart',
-            // subtitle: 'in millions of dollars (USD)',
+            data: historyData
+        });
+        setNewOpts({
+            data: newData,
+            animationEnabled: true,
+            height: 260,
+            title: {
+                text: "Australia Convid-19 New Cases vs Deaths Chart (last two weeks)",
+                fontSize: 20,
+            },
+            legend: {
+                verticalAlign: "top",
+            },
+            toolTip:{
+                shared: true,
+                // content:"{label}, {name}: {y}" ,
+            },
+        });
+        // newData.push([historyData[2][0],historyData[2][1]-historyData[1][1],historyData[2][2]-historyData[1][2]])
+        // for(let i = 3; i < historyData.length; i++) {
+        //     newData.push([historyData[i][0], historyData[i][1] - historyData[i - 1][1], historyData[i][2]-historyData[i-1][2]])
+        // }
 
-    };
+        setLoading(false)
+    },[countryData]);
+
+
+
     return(
+        loading ? <div className="loading">Loading...</div> :
         <div className="card">
             <h2>Status Graph</h2>
-            <Chart
-                width={'100%'}
-                height={'400px'}
-                chartType="LineChart"
-                loader={<div>Loading Chart...</div>}
-                data={historyData}
-                options={options}
-                rootProps={{ 'data-testid': '3' }}
-            />
-            <Chart
-                width={'100%'}
-                height={'400px'}
-                chartType="ColumnChart"
-                data={newData}
-                options={newOptions}
+            <CanvasJSChart options = {options}
 
             />
+            <CanvasJSChart options = {newOpts}
+
+            />
+            {/*<Chart*/}
+                {/*width={'100%'}*/}
+                {/*height={'400px'}*/}
+                {/*chartType="LineChart"*/}
+                {/*loader={<div>Loading Chart...</div>}*/}
+                {/*data={historyData}*/}
+                {/*options={options}*/}
+                {/*rootProps={{ 'data-testid': '3' }}*/}
+            {/*/>*/}
+            {/*<Chart*/}
+                {/*width={'100%'}*/}
+                {/*height={'400px'}*/}
+                {/*chartType="ColumnChart"*/}
+                {/*data={newData}*/}
+                {/*options={newOptions}*/}
+
+            {/*/>*/}
 
         </div>
 
@@ -108,7 +210,7 @@ function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
                 </div>
                 {dayjs(pubDate).format("YYYY-MM-DD HH:mm")}
             </div>
-            <a target="_blank" className="title" href={link}>
+            <a href={link}  className="title" >
                 {title}
             </a>
             <div className="summary">{contentSnippet.split("&nbsp;")[0]}...</div>
@@ -119,10 +221,11 @@ function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
 function News({ province }) {
     let Parser = require('rss-parser');
 
-    const [len, setLen] = useState(8);
+    const [len, setLen] = useState(3);
     const [news, setNews] = useState([]);
 
     useEffect(() => {
+
         let parser = new Parser({
             headers:{'Access-Control-Allow-Origin':'*'}
         });
@@ -151,10 +254,11 @@ function News({ province }) {
           <div
             className="more"
             onClick={() => {
-              setLen();
+              setLen(len+2);
             }}
+
           >
-            Click for more news...
+              <i><u>Click for more news...</u></i>
           </div>
         </div>
     );
@@ -316,27 +420,41 @@ function Fallback() {
   return (
     <div className="fallback">
       <div>
-        代码仓库:{" "}
+        Forked From:{" "}
         <a href="https://github.com/shfshanyue/2019-ncov">
           shfshanyue/2019-ncov
         </a>
+
       </div>
+        <div>
+            Our GitHub:{" "}
+            <a href="https://github.com/covid-19-au/covid-19-au.github.io">
+                covid-19-au
+            </a>
+
+        </div>
+        <div>
+            Live Data Source:{" "}
+            <a href="https://www.theaustralian.com.au">
+                The Australian
+            </a>
+
+        </div>
+        <div>
+            This site is developed for non-commercial use only. The authors will not be responsible for any copyright dispute.
+            If you have any questions feel free to contact <a href="mailto:freddie.wanah@gmail.com">me</a>.
+        </div>
+        <div>
+
+            <a href="https://www.webfreecounter.com/" target="_blank"><img src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1" border="0" alt="hit counter"/></a>
+
+        </div>
     </div>
   );
 }
 
 function Area({ area, onChange, data }) {
   const renderArea = () => {
-    let translate = {
-      NSW: "New South Wales",
-      ACT: "Australian Capital Territory",
-      NT: "Northern Territory",
-      WA: "Western Australia",
-      VIC: "Victoria",
-      QLD: "Queensland",
-      SA: "South Australia",
-      TAS: "Tasmania"
-    };
     data.splice(0, 1);
     return data.map(x => (
       <div
@@ -355,10 +473,10 @@ function Area({ area, onChange, data }) {
         {/*<div className="confirmed">{ x.confirmedCount }</div>*/}
         {/*<div className="death">{ x.deadCount }</div>*/}
         {/*<div className="cured">{ x.curedCount }</div>*/}
-        <div className={"area"}>{translate[x[0]]}</div>
-        <div className="confirmed">{x[1]}</div>
-        <div className="death">{x[2]}</div>
-        <div className="cured">{x[3]}</div>
+          <div className={"area"}><strong>{x[0]}</strong></div>
+          <div className="confirmed"><strong>{x[1]}</strong></div>
+          <div className="death"><strong>{x[2]}</strong></div>
+          <div className="cured"><strong>{x[3]}</strong></div>
       </div>
     ));
   };
@@ -380,12 +498,12 @@ function Header({ province }) {
   return (
     <header>
       <div className="bg"></div>
-      <h1>
-        <small>COVID-19</small>
-        <br />
-        Australia Status · {province ? province.name : "State Details"}
+      <h1 style={{
+          fontSize:'120%'
+      }}>
+          COVID-19 Real-time Report in Australia
       </h1>
-      <i>By Students from Monash</i>
+      {/*<i>By Students from Monash</i>*/}
     </header>
   );
 }
@@ -411,11 +529,12 @@ function App() {
       {
         download: true,
         complete: function(results) {
+            console.log('requested')
           setMyData(results.data);
         }
       }
     );
-  });
+  },[province]);
   useEffect(() => {
     if (province) {
       window.document.title = `Covid-19 Live Status | ${province.name}`;
@@ -465,7 +584,7 @@ function App() {
                   setProvince(p);
                 }
               }}
-              newDate={myData}
+              newData={myData}
             />
             {/*{*/}
             {/*province ? false :*/}

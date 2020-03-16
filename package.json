@@ -89,8 +89,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build&&cp config/google3413bf25c03a27c3.html build/",
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
