@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import { Chart } from "react-google-charts";
 
-import 'echarts/lib/chart/map'
-import 'echarts/lib/component/visualMap'
 
 
 function GoogleMap ({ province, newData }) {
@@ -50,7 +48,7 @@ function GoogleMap ({ province, newData }) {
         }
 
         setMyData(temp)
-        
+
     }, [province]);
 
     // const getOption = () => {
