@@ -219,44 +219,8 @@ function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
 function News({ province }) {
   let Parser = require("rss-parser");
 
-<<<<<<< HEAD
   const [len, setLen] = useState(3);
   const [news, setNews] = useState([]);
-=======
-    useEffect(() => {
-
-        let parser = new Parser({
-            headers:{'Access-Control-Allow-Origin':'*'}
-        });
-        const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
-        parser.parseURL(CORS_PROXY + 'https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en', function(err, feed) {
-            if (err) throw err;
-            // console.log(feed.title);
-            // feed.items.forEach(function(entry) {
-            //     console.log(entry);
-            // })
-            setNews(feed.items)
-        })
-
-
-    }, []);
-
-    return (
-
-        <div className="card">
-            <h2>News Feed</h2>
-            {news
-            .slice(0, len)
-            .map(n => (
-
-              <New {...n} key={n.guid} />
-            ))}
-          <div
-            className="more"
-            onClick={() => {
-              setLen(len+2);
-            }}
->>>>>>> dev
 
   useEffect(() => {
     let parser = new Parser({
@@ -452,7 +416,7 @@ function Area({ area, onChange, data }) {
     return data.map(x => (
       <div
         className="province"
-        key={x[0]}
+        key={x.name || x.cityName}
         onClick={() => {
           // 表示在省一级
           // if (x.name) {
@@ -528,14 +492,11 @@ function App() {
   const [myData, setMyData] = useState(null);
   useEffect(() => {
     Papa.parse(
-      "https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
         complete: function(results) {
-<<<<<<< HEAD
           console.log("requested");
-=======
->>>>>>> dev
           setMyData(results.data);
         }
       }
