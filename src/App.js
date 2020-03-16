@@ -535,7 +535,7 @@ function App() {
           <Grid item xs={12}>
             <Header province={province} />
           </Grid>
-          <Grid item xs={10} sm={10} md={8} lg={6} xl={6}>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Stat
               {...{ ...all, ...overall }}
               name={province && province.name}
@@ -570,15 +570,13 @@ function App() {
               <Area area={area} onChange={setProvince} data={myData} />
             </div>
           </Grid>
-        </Grid>
-        <Grid container spacing={3} justify="center" wrap='wrap'>
-          <Grid item xs={10} sm={10} md={10} lg={4} xl={4}>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <HistoryGraph countryData={country} />
           </Grid>
-          <Grid item xs={10} sm={10} md={10} lg={4} xl={4}>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <News />
           </Grid>
-          <Grid item xs={10} sm={10} md={10} lg={4} xl={4}>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Tweets province={province} />
           </Grid>
           <Grid item xs={12}>
