@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState, Suspense, useEffect,useLayoutEffect } from "react";
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -495,6 +495,21 @@ function App() {
       window.removeEventListener("popstate", setProvinceByUrl);
     };
   }, []);
+
+    const [gspace, _setGspace] = useState(0);
+    const setGspace = () => {
+        const p = window.innerWidth;
+        _setGspace(p>1280 ? 2 : 0);
+    };
+
+    useEffect(() => {
+        setGspace();
+        window.addEventListener("resize", setGspace);
+        return () => {
+            window.removeEventListener("resize", setGspace);
+        };
+    }, []);
+
   const [myData, setMyData] = useState(null);
   useEffect(() => {
     Papa.parse(
@@ -536,105 +551,108 @@ function App() {
     return (
       <div>
 
-        <Header province={province} />
-        <Stat
-          {...{ ...all, ...overall }}
-          name={province && province.name}
-          data={myData}
-        />
-        <div className="card">
-          <h2>
-            Infection Map {province ? `· ${province.name}` : false}
-            {province ? (
-              <small onClick={() => setProvince(null)}>Return</small>
-            ) : null}
-          </h2>
-          <Suspense fallback={<div className="loading">Loading...</div>}>
-            <GoogleMap
-              province={province}
-              data={data}
-              onClick={name => {
-                const p = provincesByName[name];
-                if (p) {
-                  setProvince(p);
-                }
-              }}
-              newData={myData}
-            />
 
-          </Suspense>
-          <Area area={area} onChange={setProvince} data={myData} />
-
-        </div>
-          {/*<ConfirmedMap confirmedData = {confirmedData} hospitalData={hospitalData}/>*/}
-
-
-
-              <MbMap/>
-
-          <HistoryGraph countryData={country}/>
-        <News />
-        <Tweets province={province} />
-        {/*<Summary />*/}
-        <Fallback />
-
-        {/*<Grid container spacing={1} justify="center" wrap='wrap'>*/}
-          {/*<Grid item xs={12}>*/}
-            {/*<Header province={province} />*/}
-          {/*</Grid>*/}
-          {/*<Grid item xs={10} sm={10} md={8} lg={6} xl={6}>*/}
-            {/*<Stat*/}
-              {/*{...{ ...all, ...overall }}*/}
-              {/*name={province && province.name}*/}
-              {/*data={myData}*/}
+        {/*<Header province={province} />*/}
+        {/*<Stat*/}
+          {/*{...{ ...all, ...overall }}*/}
+          {/*name={province && province.name}*/}
+          {/*data={myData}*/}
+        {/*/>*/}
+        {/*<div className="card">*/}
+          {/*<h2>*/}
+            {/*Infection Map {province ? `· ${province.name}` : false}*/}
+            {/*{province ? (*/}
+              {/*<small onClick={() => setProvince(null)}>Return</small>*/}
+            {/*) : null}*/}
+          {/*</h2>*/}
+          {/*<Suspense fallback={<div className="loading">Loading...</div>}>*/}
+            {/*<GoogleMap*/}
+              {/*province={province}*/}
+              {/*data={data}*/}
+              {/*onClick={name => {*/}
+                {/*const p = provincesByName[name];*/}
+                {/*if (p) {*/}
+                  {/*setProvince(p);*/}
+                {/*}*/}
+              {/*}}*/}
+              {/*newData={myData}*/}
             {/*/>*/}
-            {/*<div className="card">*/}
-              {/*<h2>*/}
-                {/*Infection Map {province ? `· ${province.name}` : false}*/}
-                {/*{province ? (*/}
-                  {/*<small onClick={() => setProvince(null)}>Return</small>*/}
-                {/*) : null}*/}
-              {/*</h2>*/}
-              {/*<Suspense fallback={<div className="loading">Loading...</div>}>*/}
-                {/*<GoogleMap*/}
-                  {/*province={province}*/}
-                  {/*data={data}*/}
-                  {/*onClick={name => {*/}
-                    {/*const p = provincesByName[name];*/}
-                    {/*if (p) {*/}
-                      {/*setProvince(p);*/}
-                    {/*}*/}
-                  {/*}}*/}
-                  {/*newData={myData}*/}
-                {/*/>*/}
-                {/*/!*{*!/*/}
-                {/*/!*province ? false :*!/*/}
-                {/*/!*<div className="tip">*!/*/}
-                {/*/!*Click on the state to check state details.*!/*/}
-                {/*/!*</div>*!/*/}
-                {/*/!*}*!/*/}
-              {/*</Suspense>*/}
-              {/*<Area area={area} onChange={setProvince} data={myData} />*/}
-            {/*</div>*/}
-          {/*</Grid>*/}
-        {/*/!*</Grid>*!/*/}
-        {/*/!*<Grid container spacing={1} justify="center" wrap='wrap'>*!/*/}
-          {/*<Grid item xs={10} sm={10} md={10} lg={4} xl={4}>*/}
-            {/*<HistoryGraph countryData={country} />*/}
-          {/*</Grid>*/}
-          {/*<Grid item xs={10} sm={10} md={10} lg={4} xl={4}>*/}
-            {/*<News />*/}
-          {/*</Grid>*/}
-          {/*<Grid item xs={10} sm={10} md={10} lg={4} xl={4}>*/}
-            {/*<Tweets province={province} />*/}
-          {/*</Grid>*/}
-          {/*<Grid item xs={12}>*/}
-            {/*<ExposureSites />*/}
-          {/*</Grid>*/}
-          {/*<Grid item xs={12} >*/}
-            {/*<Fallback />*/}
-          {/*</Grid>*/}
-        {/*</Grid>*/}
+
+          {/*</Suspense>*/}
+          {/*<Area area={area} onChange={setProvince} data={myData} />*/}
+
+        {/*</div>*/}
+          {/*/!*<ConfirmedMap confirmedData = {confirmedData} hospitalData={hospitalData}/>*!/*/}
+
+
+
+              {/*<MbMap/>*/}
+
+          {/*<HistoryGraph countryData={country}/>*/}
+        {/*<News />*/}
+        {/*<Tweets province={province} />*/}
+        {/*/!*<Summary />*!/*/}
+        {/*<Fallback />*/}
+
+
+        <Grid container spacing={gspace} justify="center" wrap='wrap'>
+          <Grid item xs={12}>
+            <Header province={province} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Stat
+              {...{ ...all, ...overall }}
+              name={province && province.name}
+              data={myData}
+            />
+            <div className="card">
+              <h2>
+                Infection Map {province ? `· ${province.name}` : false}
+                {province ? (
+                  <small onClick={() => setProvince(null)}>Return</small>
+                ) : null}
+              </h2>
+              <Suspense fallback={<div className="loading">Loading...</div>}>
+                <GoogleMap
+                  province={province}
+                  data={data}
+                  onClick={name => {
+                    const p = provincesByName[name];
+                    if (p) {
+                      setProvince(p);
+                    }
+                  }}
+                  newData={myData}
+                />
+                {/*{*/}
+                {/*province ? false :*/}
+                {/*<div className="tip">*/}
+                {/*Click on the state to check state details.*/}
+                {/*</div>*/}
+                {/*}*/}
+              </Suspense>
+              <Area area={area} onChange={setProvince} data={myData} />
+            </div>
+          </Grid>
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <MbMap />
+            </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <HistoryGraph countryData={country} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <News />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Tweets province={province} />
+          </Grid>
+          <Grid item xs={12}>
+            <ExposureSites />
+          </Grid>
+          <Grid item xs={12} >
+            <Fallback />
+          </Grid>
+        </Grid>
 
       </div>
     );
