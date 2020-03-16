@@ -1,7 +1,9 @@
 # The Live Status of Novel Coronavirus in Australia
 
+> “Fear of the unknown is the greatest fear of all.”
+
 This site is to show the latest status of COVID-19 in Australia, and you can check it in [https://covid-19-au.github.io](https://covid-19-au.github.io).
-This site includes:
+This site accumulates the information from different resources including:
 * The overall affected cases in each state;
 * The trend of affected cases;
 * Some tweets and news about COVID-19;
