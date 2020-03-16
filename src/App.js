@@ -3,11 +3,14 @@ import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Chart } from "react-google-charts";
 import country from "./data/country"
+import confirmedData from "./data/mapdataCon"
+import hospitalData from "./data/mapdataHos"
+
 import all from "./data/overall";
 import provinces from "./data/area";
 import Tag from "./Tag";
+import ReactMapboxGl, {Layer, Feature, Popup} from 'react-mapbox-gl';
 
 
 import "./App.css";
@@ -35,7 +38,7 @@ ReactGA.initialize("UA-160673543-1");
 
 ReactGA.pageview(window.location.pathname + window.location.search);
 
-const Map = React.lazy(() => import("./Map"));
+const GoogleMap = React.lazy(() => import("./GoogleMap"));
 
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
@@ -442,8 +445,7 @@ function Fallback() {
 
         </div>
         <div>
-            This site is developed for non-commercial use only. The authors will not be responsible for any copyright dispute.
-            If you have any questions feel free to contact <a href="mailto:freddie.wanah@gmail.com">me</a>.
+            This site is developed by a <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">volunteer team</a> from Faculty of IT, Monash University for non-commercial use only.
         </div>
         <div>
 
@@ -452,6 +454,92 @@ function Fallback() {
         </div>
     </div>
   );
+}
+
+function ConfirmedMap(confirmedData, hospitalData) {
+    let token = "pk.eyJ1Ijoid29veXVubG9uZyIsImEiOiJjazBtM3cyM3kwMndmM2JrYmg0aXY4aHNxIn0.IjdNPocM6cBQiXBvWhDLVw"
+    const VirusMap = ReactMapboxGl({ accessToken:token,maxZoom:15,minZoom:6 });
+    const [centerItem, setCenterItem] = useState({
+        'coor':[144.9876091,-37.7741509],
+        'zoom':[8],
+    });
+
+    const markerClick = (item) =>{
+
+        let temp = item
+        temp['coor'] = [item['coor'][1],item['coor'][0]];
+        temp['tooltip'] = true
+        setCenterItem(temp)
+
+    };
+    const onDrag = (item) =>{
+        item['tooltip'] = false
+        setCenterItem(item)
+    }
+    // console.log(1,centerItem['coor'])
+    return (
+        <div className="card">
+            <h2>Status Graph</h2>
+
+        <VirusMap
+            style="mapbox://styles/mapbox/streets-v8"
+            zoom={centerItem['zoom']}
+            flyToOptions={{speed:0.8}}
+            center={centerItem['coor']}
+            onDrag={()=>onDrag(centerItem)}
+            containerStyle={{
+                height: "400px",
+                width: "100%"
+            }}>
+            <Layer
+            type="symbol"
+            id="marker"
+            key="2"
+            layout={{ "icon-image": "marker-15" }}
+            >
+
+            {
+                confirmedData['confirmedData'].map((item,index)=>(
+                    <Feature
+                        coordinates={[item['coor'][1],item['coor'][0]]}
+                        // onMouseEnter={this.onToggleHover.bind(this,'pointer')}
+                        // onMouseLeave={this.onToggleHover.bind(this,'')}
+                        onClick={()=>markerClick( item)}
+                    />
+                ))}
+        </Layer>
+            <Layer
+                type="symbol"
+                id="hospital"
+                key="1"
+                layout={{ "icon-image": "marker-15" }}
+
+            >{hospitalData['hospitalData'].map((item,index)=>(
+                        <Feature
+                            coordinates={[item['coor'][1],item['coor'][0]]}
+                            // onMouseEnter={this.onToggleHover.bind(this,'pointer')}
+                            // onMouseLeave={this.onToggleHover.bind(this,'')}
+                            onClick={()=>markerClick( item)}
+                        />
+                    ))}
+            </Layer>
+            {
+                centerItem['tooltip']&&(
+                    <Popup key={centerItem['id']} coordinates={centerItem['coor']}>
+                        <div className="mapPopup">
+                            <div>{centerItem['name']}</div>
+                            <div>{centerItem['date']}</div>
+                            <div>{centerItem['time']}</div>
+                        </div>
+                    </Popup>
+                )
+            }
+        </VirusMap>
+            <span className="due">
+        includes hospital with Fever Clinic and activities of confirmed cases (Victoria only for now).
+        </span>
+        </div>
+    );
 }
 
 function Area({ area, onChange, data }) {
@@ -526,7 +614,7 @@ function App() {
   const [myData, setMyData] = useState(null);
   useEffect(() => {
     Papa.parse(
-      "https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
         complete: function(results) {
@@ -575,7 +663,7 @@ function App() {
             ) : null}
           </h2>
           <Suspense fallback={<div className="loading">Loading...</div>}>
-            <Map
+            <GoogleMap
               province={province}
               data={data}
               onClick={name => {
@@ -586,16 +674,12 @@ function App() {
               }}
               newData={myData}
             />
-            {/*{*/}
-            {/*province ? false :*/}
-            {/*<div className="tip">*/}
-            {/*Click on the state to check state details.*/}
-            {/*</div>*/}
-            {/*}*/}
+
           </Suspense>
           <Area area={area} onChange={setProvince} data={myData} />
 
         </div>
+          {/*<ConfirmedMap confirmedData = {confirmedData} hospitalData={hospitalData}/>*/}
           <HistoryGraph countryData={country}/>
         <News />
         <Tweets province={province} />

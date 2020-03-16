@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import ReactEcharts from 'echarts-for-react/lib/core'
-import echarts from 'echarts/lib/echarts'
+
 import { Chart } from "react-google-charts";
-import * as path from 'path';
-import * as csv from 'fast-csv';
-import Papa from 'papaparse';
+
 import 'echarts/lib/chart/map'
 import 'echarts/lib/component/visualMap'
 
 
-function Map ({ province, data, onClick, newData }) {
+function GoogleMap ({ province, newData }) {
     const keys = [
         "State",
         "Confirmed",
@@ -53,25 +50,7 @@ function Map ({ province, data, onClick, newData }) {
         }
 
         setMyData(temp)
-
-        // Papa.parse("https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv", {
-        //     download: true,
-        //     complete: function(results) {
-        //
-        //     }
-        // });
-        // if (province) {
-        //   import(`echarts/map/json/province/${province.pinyin}.json`).then(map => {
-        //     echarts.registerMap(province.pinyin, map.default)
-        //     setLoading(false)
-        //   })
-        // } else {
-        //   import(`echarts/map/json/world.json`).then(map => {
-        //     echarts.registerMap('world', map.default)
-        //     setLoading(false)
-        //   })
-        // }
-
+        
     }, [province]);
 
     // const getOption = () => {
@@ -198,4 +177,4 @@ function Map ({ province, data, onClick, newData }) {
   )
 }
 
-export default Map
+export default GoogleMap

@@ -154,3 +154,11 @@ h2 small {
 .more {
   font-size:70%;
 }
+
+.mapPopup {
+  background:white;
+  color: #3f618c;
+  font-weight:400;
+  padding:5px;
+  border-radius:2px;
+}

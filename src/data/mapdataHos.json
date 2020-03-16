@@ -1,0 +1,132 @@
+[
+  {
+    "id": "m00033",
+    "date": "",
+    "time": "",
+    "name": "The Alfred Hospital",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-37.845510", "144.981856"],
+    "type": "1"
+  },
+  {
+    "id": "m00034",
+    "date": "",
+    "time": "",
+    "name": "Albury Wodonga",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-36.131814", "146.879837"],
+    "type": "1"
+  },
+  {
+    "id": "m00035",
+    "date": "",
+    "time": "",
+    "name": "Austin Hospital",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-37.756370", "145.059588"],
+    "type": "1"
+  },
+  {
+    "id": "m00036",
+    "date": "",
+    "time": "",
+    "name": "Barwon Health – Geelong",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-38.152096", "144.365334"],
+    "type": "1"
+  },
+  {
+    "id": "m00037",
+    "date": "",
+    "time": "",
+    "name": "Box Hill Hospital",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-37.813904", "145.118432"],
+    "type": "1"
+  },
+  {
+    "id": "m00038",
+    "date": "",
+    "time": "",
+    "name": "Monash Clayton",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-37.920496", "145.123560"],
+    "type": "1"
+  },
+  {
+    "id": "m00039",
+    "date": "",
+    "time": "",
+    "name": "Northern Hospital.",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-37.652508", "145.014533"],
+    "type": "1"
+  },
+  {
+    "id": "m00040",
+    "date": "",
+    "time": "",
+    "name": "Peninsula Health – Frankston",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-38.150661", "145.128516"],
+    "type": "1"
+  },
+  {
+    "id": "m00041",
+    "date": "",
+    "time": "",
+    "name": "The Royal Melbourne Hospital",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-37.798750", "144.956196"],
+    "type": "1"
+  },
+  {
+    "id": "m00042",
+    "date": "",
+    "time": "",
+    "name": "St Vincent's Hospital Melbourne",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-37.807291", "144.975061"],
+    "type": "1"
+  },
+  {
+    "id": "m00043",
+    "date": "",
+    "time": "",
+    "name": "Sunshine Hospital",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-37.759241", "144.816534"],
+    "type": "1"
+  },
+  {
+    "id": "m00044",
+    "date": "",
+    "time": "",
+    "name": "Wonthaggi Hospital",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-38.608515", "145.580893"],
+    "type": "1"
+  },
+  {
+    "id": "m00045",
+    "date": "",
+    "time": "",
+    "name": "Ballarat Base Hospital.",
+    "state": "Victoria",
+    "onset of symptoms up to": "",
+    "coor": ["-37.558656", "143.847227"],
+    "type": "1"
+  }
+]
