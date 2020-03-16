@@ -63,6 +63,7 @@ header i {
   flex: 3;
   padding: .4rem 0;
   position: relative;
+  color: #616161
 }
 
 .area.active::before {
@@ -86,6 +87,14 @@ header i {
 .cured {
   padding: .3rem 0;
   flex: 2;
+}
+
+.confirmed {
+  color: #ff0303;
+}
+
+.cured {
+  color: #00b321;
 }
 
 .fallback {
