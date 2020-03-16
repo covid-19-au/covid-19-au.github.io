@@ -416,7 +416,7 @@ function Area({ area, onChange, data }) {
     return data.map(x => (
       <div
         className="province"
-        key={x[0]}
+        key={x.name || x.cityName}
         onClick={() => {
           // 表示在省一级
           // if (x.name) {
@@ -492,10 +492,11 @@ function App() {
   const [myData, setMyData] = useState(null);
   useEffect(() => {
     Papa.parse(
-      "https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
         complete: function(results) {
+          console.log("requested");
           setMyData(results.data);
         }
       }
