@@ -17,6 +17,9 @@ import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
 
 import { TwitterTimelineEmbed } from "react-twitter-embed";
+
+import Grid from '@material-ui/core/Grid'
+
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
 ReactGA.initialize("UA-160673543-1");
@@ -150,7 +153,7 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Australia Convid-19 New Cases vs Deaths Chart (last two weeks)",
+        text: "Australia Covid-19 New Cases vs Deaths Chart (last two weeks)",
         fontSize: 20
       },
       legend: {
@@ -172,29 +175,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Status Graph</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Status Graph</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -229,8 +232,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -449,10 +452,10 @@ function Area({ area, onChange, data }) {
   return (
     <>
       <div className="province header">
-        <div className="area">State</div>
-        <div className="confirmed">Confirmed</div>
-        <div className="death">Death</div>
-        <div className="cured">Recovered</div>
+        <div className="area header">State</div>
+        <div className="confirmed header">Confirmed</div>
+        <div className="death header">Death</div>
+        <div className="cured header">Recovered</div>
       </div>
       {renderArea()}
     </>
@@ -495,7 +498,7 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function(results) {
+        complete: function (results) {
           console.log("requested");
           setMyData(results.data);
         }
@@ -515,58 +518,76 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
   if (myData) {
     return (
       <div>
-        <Header province={province} />
-        <Stat
-          {...{ ...all, ...overall }}
-          name={province && province.name}
-          data={myData}
-        />
-        <div className="card">
-          <h2>
-            Infection Map {province ? `· ${province.name}` : false}
-            {province ? (
-              <small onClick={() => setProvince(null)}>Return</small>
-            ) : null}
-          </h2>
-          <Suspense fallback={<div className="loading">Loading...</div>}>
-            <Map
-              province={province}
-              data={data}
-              onClick={name => {
-                const p = provincesByName[name];
-                if (p) {
-                  setProvince(p);
-                }
-              }}
-              newData={myData}
+        <Grid container spacing={3} justify="center" wrap='wrap'>
+          <Grid item xs={12}>
+            <Header province={province} />
+          </Grid>
+          <Grid item xs={10} sm={10} md={8} lg={6} xl={6}>
+            <Stat
+              {...{ ...all, ...overall }}
+              name={province && province.name}
+              data={myData}
             />
-            {/*{*/}
-            {/*province ? false :*/}
-            {/*<div className="tip">*/}
-            {/*Click on the state to check state details.*/}
-            {/*</div>*/}
-            {/*}*/}
-          </Suspense>
-          <Area area={area} onChange={setProvince} data={myData} />
-        </div>
-        <HistoryGraph countryData={country} />
-        <News />
-        <Tweets province={province} />
-        <ExposureSites />
-        <Fallback />
+            <div className="card">
+              <h2>
+                Infection Map {province ? `· ${province.name}` : false}
+                {province ? (
+                  <small onClick={() => setProvince(null)}>Return</small>
+                ) : null}
+              </h2>
+              <Suspense fallback={<div className="loading">Loading...</div>}>
+                <Map
+                  province={province}
+                  data={data}
+                  onClick={name => {
+                    const p = provincesByName[name];
+                    if (p) {
+                      setProvince(p);
+                    }
+                  }}
+                  newData={myData}
+                />
+                {/*{*/}
+                {/*province ? false :*/}
+                {/*<div className="tip">*/}
+                {/*Click on the state to check state details.*/}
+                {/*</div>*/}
+                {/*}*/}
+              </Suspense>
+              <Area area={area} onChange={setProvince} data={myData} />
+            </div>
+          </Grid>
+        </Grid>
+        <Grid container spacing={3} justify="center" wrap='wrap'>
+          <Grid item xs={10} sm={10} md={10} lg={4} xl={4}>
+            <HistoryGraph countryData={country} />
+          </Grid>
+          <Grid item xs={10} sm={10} md={10} lg={4} xl={4}>
+            <News />
+          </Grid>
+          <Grid item xs={10} sm={10} md={10} lg={4} xl={4}>
+            <Tweets province={province} />
+          </Grid>
+          <Grid item xs={12}>
+            <ExposureSites />
+          </Grid>
+          <Grid item xs={12} >
+            <Fallback />
+          </Grid>
+        </Grid>
       </div>
     );
   } else {
