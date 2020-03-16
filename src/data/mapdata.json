@@ -6,7 +6,7 @@
     "name": "Mary Miller Café, Fitzroy North",
     "state": "Victoria",
     "onset of symptoms up to": "24/3/20",
-    "coor": "-37.776845, 144.987074",
+    "coor": ["-37.776845", " 144.987074"],
     "type": "0"
   },
   {
@@ -16,7 +16,7 @@
     "name": "No. 19 Café, Ascot Vale",
     "state": "Victoria",
     "onset of symptoms up to": "24/3/20",
-    "coor": "-37.773059, 144.916153",
+    "coor": ["-37.773059", " 144.916153"],
     "type": "0"
   },
   {
@@ -26,7 +26,7 @@
     "name": "Emirates flight EK0406 from Dubai to Melbourne",
     "state": "Victoria",
     "onset of symptoms up to": "24/3/20",
-    "coor": "-37.672278, 144.851175",
+    "coor": ["-37.672278", " 144.851175"],
     "type": "0"
   },
   {
@@ -56,7 +56,7 @@
     "name": "T20 Cricket World Cup Final, Melbourne Cricket Ground, MCC Members Level 2",
     "state": "Victoria",
     "onset of symptoms up to": "22/3/20",
-    "coor": "-37.819814, 144.983471",
+    "coor": ["-37.819814", " 144.983471"],
     "type": "0"
   },
   {
@@ -66,7 +66,7 @@
     "name": "Myrtle Oval, Macleay Park, North Balwyn",
     "state": "Victoria",
     "onset of symptoms up to": "22/3/20",
-    "coor": "-37.800857, 145.075181",
+    "coor": ["-37.800857", " 145.075181"],
     "type": "0"
   },
   {
@@ -76,7 +76,7 @@
     "name": "Ramsden Street Oval, Clifton Hill",
     "state": "Victoria",
     "onset of symptoms up to": "22/3/20",
-    "coor": "-37.791837, 145.003320",
+    "coor": ["-37.791837", " 145.003320"],
     "type": "0"
   },
   {
@@ -96,7 +96,7 @@
     "name": "AAMI Park (Rebels vs Lions rugby game)",
     "state": "Victoria",
     "onset of symptoms up to": "21/03/2020",
-    "coor": "-37.825005, 144.983814",
+    "coor": ["-37.825005", " 144.983814"],
     "type": "0"
   },
   {
@@ -106,7 +106,7 @@
     "name": "Albert Park Hotel",
     "state": "Victoria",
     "onset of symptoms up to": "21/3/20",
-    "coor": "-37.825005, 144.983814",
+    "coor": ["-37.825005", " 144.983814"],
     "type": "0"
   },
   {
@@ -116,7 +116,7 @@
     "name": "South Melbourne Market",
     "state": "Victoria",
     "onset of symptoms up to": "21/3/20",
-    "coor": "-37.831845, 144.955896",
+    "coor": ["-37.831845", " 144.955896"],
     "type": "0"
   },
   {
@@ -126,7 +126,7 @@
     "name": "Coles Waurn Ponds",
     "state": "Victoria",
     "onset of symptoms up to": "21/3/20",
-    "coor": "-38.199037, 144.318418",
+    "coor": ["-38.199037", " 144.318418"],
     "type": "0"
   },
   {
@@ -136,7 +136,7 @@
     "name": "Ashburton Park",
     "state": "Victoria",
     "onset of symptoms up to": "21/3/20",
-    "coor": "-37.863086, 145.086915",
+    "coor": ["-37.863086", " 145.086915"],
     "type": "0"
   },
   {
@@ -166,7 +166,7 @@
     "name": "Pho Hung Vuong 2 Vietnamese Restaurant in Richmond",
     "state": "Victoria",
     "onset of symptoms up to": "20/3/20",
-    "coor": "-37.809968, 144.995144",
+    "coor": ["-37.809968", " 144.995144"],
     "type": "0"
   },
   {
@@ -186,7 +186,7 @@
     "name": "Coles Waurn Ponds",
     "state": "Victoria",
     "onset of symptoms up to": "20/3/20",
-    "coor": "-38.198995, 144.318471",
+    "coor": ["-38.198995", " 144.318471"],
     "type": "0"
   },
   {
@@ -196,7 +196,7 @@
     "name": "South Melbourne Market",
     "state": "Victoria",
     "onset of symptoms up to": "20/3/20",
-    "coor": "-37.831845, 144.955896",
+    "coor": ["-37.831845", " 144.955896"],
     "type": "0"
   },
   {
@@ -216,7 +216,7 @@
     "name": "Cinema Nova, Carlton (Movie: The Amber Light)",
     "state": "Victoria",
     "onset of symptoms up to": "19/3/20",
-    "coor": "-37.797814, 144.967985",
+    "coor": ["-37.797814", " 144.967985"],
     "type": "0"
   },
   {
@@ -226,7 +226,7 @@
     "name": "VLine train from Southern Cross to Geelong",
     "state": "Victoria",
     "onset of symptoms up to": "19/3/20",
-    "coor": "-37.818268, 144.952479",
+    "coor": ["-37.818268", " 144.952479"],
     "type": "0"
   },
   {
@@ -236,7 +236,7 @@
     "name": "Wine by Sam - Seymour",
     "state": "Victoria",
     "onset of symptoms up to": "17/3/20",
-    "coor": "-37.028275, 145.143338",
+    "coor": ["-37.028275", " 145.143338"],
     "type": "0"
   },
   {
@@ -246,7 +246,7 @@
     "name": "La Trobe University, Bundoora Campus",
     "state": "Victoria",
     "onset of symptoms up to": "17/03/2020 – 19/03/2020",
-    "coor": "-37.720446, 145.048468",
+    "coor": ["-37.720446", " 145.048468"],
     "type": "0"
   },
   {
@@ -276,7 +276,7 @@
     "name": "Metro train from Southern Cross to Camberwell",
     "state": "Victoria",
     "onset of symptoms up to": "16/3/20",
-    "coor": "-37.826473, 145.059436",
+    "coor": ["-37.826473", " 145.059436"],
     "type": "0"
   },
   {
@@ -286,7 +286,7 @@
     "name": "Toorak Clinic; 575 Malvern Rd, Toorak",
     "state": "Victoria",
     "onset of symptoms up to": "14 days from visiting the clinic (16 – 20 March 2020)",
-    "coor": "-37.847949, 145.005577",
+    "coor": ["-37.847949", " 145.005577"],
     "type": "0"
   },
   {
@@ -326,7 +326,7 @@
     "name": "The Alfred Hospital",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-37.845510, 144.981856",
+    "coor": ["-37.845510", " 144.981856"],
     "type": "1"
   },
   {
@@ -336,7 +336,7 @@
     "name": "Albury Wodonga",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-36.131814, 146.879837",
+    "coor": ["-36.131814", " 146.879837"],
     "type": "1"
   },
   {
@@ -346,7 +346,7 @@
     "name": "Austin Hospital",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-37.756370, 145.059588",
+    "coor": ["-37.756370", " 145.059588"],
     "type": "1"
   },
   {
@@ -356,7 +356,7 @@
     "name": "Barwon Health – Geelong",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-38.152096, 144.365334",
+    "coor": ["-38.152096", " 144.365334"],
     "type": "1"
   },
   {
@@ -366,7 +366,7 @@
     "name": "Box Hill Hospital",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-37.813904, 145.118432",
+    "coor": ["-37.813904", " 145.118432"],
     "type": "1"
   },
   {
@@ -376,7 +376,7 @@
     "name": "Monash Clayton",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-37.920496, 145.123560",
+    "coor": ["-37.920496", " 145.123560"],
     "type": "1"
   },
   {
@@ -386,7 +386,7 @@
     "name": "Northern Hospital.",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-37.652508, 145.014533",
+    "coor": ["-37.652508", " 145.014533"],
     "type": "1"
   },
   {
@@ -396,7 +396,7 @@
     "name": "Peninsula Health – Frankston",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-38.150661, 145.128516",
+    "coor": ["-38.150661", " 145.128516"],
     "type": "1"
   },
   {
@@ -406,7 +406,7 @@
     "name": "The Royal Melbourne Hospital",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-37.798750, 144.956196",
+    "coor": ["-37.798750", " 144.956196"],
     "type": "1"
   },
   {
@@ -416,7 +416,7 @@
     "name": "St Vincent's Hospital Melbourne",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-37.807291, 144.975061",
+    "coor": ["-37.807291", " 144.975061"],
     "type": "1"
   },
   {
@@ -426,7 +426,7 @@
     "name": "Sunshine Hospital",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-37.759241, 144.816534",
+    "coor": ["-37.759241", " 144.816534"],
     "type": "1"
   },
   {
@@ -436,7 +436,7 @@
     "name": "Wonthaggi Hospital",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-38.608515, 145.580893",
+    "coor": ["-38.608515", " 145.580893"],
     "type": "1"
   },
   {
@@ -446,7 +446,7 @@
     "name": "Ballarat Base Hospital.",
     "state": "Victoria",
     "onset of symptoms up to": "",
-    "coor": "-37.558656, 143.847227",
+    "coor": ["-37.558656", " 143.847227"],
     "type": "1"
   }
 ]
