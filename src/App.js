@@ -219,44 +219,8 @@ function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
 function News({ province }) {
   let Parser = require("rss-parser");
 
-<<<<<<< HEAD
   const [len, setLen] = useState(3);
   const [news, setNews] = useState([]);
-=======
-    useEffect(() => {
-
-        let parser = new Parser({
-            headers:{'Access-Control-Allow-Origin':'*'}
-        });
-        const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
-        parser.parseURL(CORS_PROXY + 'https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en', function(err, feed) {
-            if (err) throw err;
-            // console.log(feed.title);
-            // feed.items.forEach(function(entry) {
-            //     console.log(entry);
-            // })
-            setNews(feed.items)
-        })
-
-
-    }, []);
-
-    return (
-
-        <div className="card">
-            <h2>News Feed</h2>
-            {news
-            .slice(0, len)
-            .map(n => (
-
-              <New {...n} key={n.guid} />
-            ))}
-          <div
-            className="more"
-            onClick={() => {
-              setLen(len+2);
-            }}
->>>>>>> dev
 
   useEffect(() => {
     let parser = new Parser({
@@ -532,10 +496,6 @@ function App() {
       {
         download: true,
         complete: function(results) {
-<<<<<<< HEAD
-          console.log("requested");
-=======
->>>>>>> dev
           setMyData(results.data);
         }
       }
