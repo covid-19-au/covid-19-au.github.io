@@ -1,10 +1,15 @@
 import React from 'react'
 import './Tag.css'
 
-function Tag ({ children, number }) {
+function Tag ({ children, number,fColor ,increased }) {
+    console.log(fColor)
   return (
     <div className="tag">
-      <div className="number">
+        {
+            increased>0?<div style={{fontSize:'60%',color:`${fColor}`}}>+{increased}</div>:<div style={{fontSize:'60%'}}>&nbsp;</div>
+        }
+      <div style={{color:`${fColor}`,  fontSize: '1.2rem',
+          fontWeight: '600'}} className="number">
         { number }
       </div>
       { children }

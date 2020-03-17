@@ -335,18 +335,31 @@ function Stat({
   name,
   quanguoTrendChart,
   hbFeiHbTrendChart,
-  data
+  data,
+    countryData
 }) {
-  if (data) {
+    let confCountIncrease = 0;
+    let deadCountIncrease =0;
+    let curedCountIncrease = 0;
+  if (data&&countryData) {
     confirmedCount = 0;
 
     deadCount = 0;
     curedCount = 0;
+
+
     for (let i = 1; i < data.length; i++) {
       confirmedCount += parseInt(data[i][1]);
       deadCount += parseInt(data[i][2]);
       curedCount += parseInt(data[i][3]);
     }
+      let lastTotal = countryData[Object.keys(countryData)[Object.keys(countryData).length - 1]]
+      ;
+    console.log(lastTotal);
+    confCountIncrease = confirmedCount-lastTotal[0];
+    deadCountIncrease = deadCount-lastTotal[2];
+    curedCountIncrease = curedCount-lastTotal[1];
+
   } else {
     confirmedCount = 0;
 
@@ -361,12 +374,12 @@ function Stat({
         <span className="due">Update Hourly</span>
       </h2>
       <div className="row">
-        <Tag number={confirmedCount}>Confirmed</Tag>
+        <Tag number={confirmedCount} fColor={"#e74c3c"} increased={confCountIncrease}>Confirmed</Tag>
         {/*<Tag number={suspectedCount || '-'}>*/}
         {/*疑似*/}
         {/*</Tag>*/}
-        <Tag number={deadCount}>Deaths</Tag>
-        <Tag number={curedCount}>Recovered</Tag>
+        <Tag number={deadCount} fColor={"#a93226"} increased={deadCountIncrease}>Deaths</Tag>
+        <Tag number={curedCount} fColor={"#00b321"} increased={curedCountIncrease}>Recovered</Tag>
       </div>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
@@ -545,49 +558,6 @@ function App() {
       <div>
 
 
-        {/*<Header province={province} />*/}
-        {/*<Stat*/}
-          {/*{...{ ...all, ...overall }}*/}
-          {/*name={province && province.name}*/}
-          {/*data={myData}*/}
-        {/*/>*/}
-        {/*<div className="card">*/}
-          {/*<h2>*/}
-            {/*Infection Map {province ? `· ${province.name}` : false}*/}
-            {/*{province ? (*/}
-              {/*<small onClick={() => setProvince(null)}>Return</small>*/}
-            {/*) : null}*/}
-          {/*</h2>*/}
-          {/*<Suspense fallback={<div className="loading">Loading...</div>}>*/}
-            {/*<GoogleMap*/}
-              {/*province={province}*/}
-              {/*data={data}*/}
-              {/*onClick={name => {*/}
-                {/*const p = provincesByName[name];*/}
-                {/*if (p) {*/}
-                  {/*setProvince(p);*/}
-                {/*}*/}
-              {/*}}*/}
-              {/*newData={myData}*/}
-            {/*/>*/}
-
-          {/*</Suspense>*/}
-          {/*<Area area={area} onChange={setProvince} data={myData} />*/}
-
-        {/*</div>*/}
-          {/*/!*<ConfirmedMap confirmedData = {confirmedData} hospitalData={hospitalData}/>*!/*/}
-
-
-
-              {/*<MbMap/>*/}
-
-          {/*<HistoryGraph countryData={country}/>*/}
-        {/*<News />*/}
-        {/*<Tweets province={province} />*/}
-        {/*/!*<Summary />*!/*/}
-        {/*<Fallback />*/}
-
-
         <Grid container spacing={gspace} justify="center" wrap='wrap'>
           <Grid item xs={12}>
             <Header province={province} />
@@ -597,6 +567,7 @@ function App() {
               {...{ ...all, ...overall }}
               name={province && province.name}
               data={myData}
+              countryData={country}
             />
             <div className="card">
               <h2>
@@ -632,7 +603,7 @@ function App() {
                         color:'lightgrey'
                     }}
                     href="https://www.theaustralian.com.au">
-                    Data: @The Australians
+                    Data: @The Australian
                 </a>
             </div>
           </Grid>
@@ -642,12 +613,13 @@ function App() {
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <HistoryGraph countryData={country} />
           </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <News />
-          </Grid>
+
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Tweets province={province} />
           </Grid>
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <News />
+            </Grid>
           <Grid item xs={12}>
             <ExposureSites />
           </Grid>
