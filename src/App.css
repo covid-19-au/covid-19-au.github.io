@@ -62,7 +62,7 @@ header i {
   flex: 3;
   padding: 0.4rem 0;
   position: relative;
-  color:#212f3d ;
+  color: #212f3d;
 }
 
 .area.active::before {
@@ -82,9 +82,9 @@ header i {
 }
 
 .area.header {
-  background-color:  #d5d8dc ;
+  background-color: #d5d8dc;
   /*font-size: 80%;*/
- }
+}
 
 .confirmed,
 .death,
@@ -94,30 +94,28 @@ header i {
 }
 
 .confirmed {
-  color:  #e74c3c  ;
+  color: #e74c3c;
 }
 
 .confirmed.header {
-  background-color:  #fadbd8  ;
+  background-color: #fadbd8;
   font-size: 80%;
 }
 .cured {
   color: #00b321;
-
 }
 
 .cured.header {
-
-  background-color:  #d5f5e3 ;
+  background-color: #d5f5e3;
   font-size: 80%;
 }
 
 .death {
-  color:  #a93226  ;
+  color: #a93226;
 }
 
 .death.header {
-  background-color:  #e6b0aa  ;
+  background-color: #e6b0aa;
   font-size: 80%;
 }
 
@@ -176,14 +174,13 @@ h2 small {
 }
 
 .more {
-  font-size:70%;
+  font-size: 70%;
 }
 
 .mapPopup {
-  background:white;
+  background: white;
   color: #3f618c;
-  font-weight:400;
-  padding:5px;
-  border-radius:2px;
+  font-weight: 400;
+  padding: 5px;
+  border-radius: 2px;
 }
-

@@ -1,16 +1,16 @@
-import React, { useState, Suspense, useEffect,useLayoutEffect } from "react";
+import React, { useState, Suspense, useEffect, useLayoutEffect } from "react";
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
 import relativeTime from "dayjs/plugin/relativeTime";
 
-import country from "./data/country"
+import country from "./data/country";
 
 import all from "./data/overall";
 import provinces from "./data/area";
 import Tag from "./Tag";
 
-import MbMap from './ConfirmedMap'
+import MbMap from "./ConfirmedMap";
 import "./App.css";
 import axios from "axios";
 import Papa from "papaparse";
@@ -20,7 +20,7 @@ import CanvasJSReact from "./assets/canvasjs.react";
 
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
-import Grid from '@material-ui/core/Grid'
+import Grid from "@material-ui/core/Grid";
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -177,29 +177,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-      <div className="card">
-        <h2>Status Graph</h2>
-        <CanvasJSChart options={options} />
-        <CanvasJSChart options={newOpts} />
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="LineChart"*/}
-        {/*loader={<div>Loading Chart...</div>}*/}
-        {/*data={historyData}*/}
-        {/*options={options}*/}
-        {/*rootProps={{ 'data-testid': '3' }}*/}
-        {/*/>*/}
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="ColumnChart"*/}
-        {/*data={newData}*/}
-        {/*options={newOptions}*/}
+    <div className="card">
+      <h2>Status Graph</h2>
+      <CanvasJSChart options={options} />
+      <CanvasJSChart options={newOpts} />
+      {/*<Chart*/}
+      {/*width={'100%'}*/}
+      {/*height={'400px'}*/}
+      {/*chartType="LineChart"*/}
+      {/*loader={<div>Loading Chart...</div>}*/}
+      {/*data={historyData}*/}
+      {/*options={options}*/}
+      {/*rootProps={{ 'data-testid': '3' }}*/}
+      {/*/>*/}
+      {/*<Chart*/}
+      {/*width={'100%'}*/}
+      {/*height={'400px'}*/}
+      {/*chartType="ColumnChart"*/}
+      {/*data={newData}*/}
+      {/*options={newOptions}*/}
 
-        {/*/>*/}
-      </div>
-    );
+      {/*/>*/}
+    </div>
+  );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -234,8 +234,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function (err, feed) {
+        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function(err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -267,41 +267,7 @@ function News({ province }) {
 }
 
 function Tweets({ province }) {
-  const [len, setLen] = useState(8);
-  const [news, setNews] = useState([]);
-
-  // useEffect(() => {
-  //   fetcher(
-  //     `https://file1.dxycdn.com/2020/0130/492/3393874921745912795-115.json?t=${46341925 +
-  //       Math.random()}`
-  //   ).then(news => {
-  //     setNews(news);
-  //   });
-  // }, []);
-
   return (
-    // <div className="card">
-    //   <h2>实时动态</h2>
-    //   {news
-    //     .filter(n =>
-    //       province
-    //         ? province.provinceShortName ===
-    //           (n.provinceName && n.provinceName.slice(0, 2))
-    //         : true
-    //     )
-    //     .slice(0, len)
-    //     .map(n => (
-    //       <New {...n} key={n.id} />
-    //     ))}
-    //   <div
-    //     className="more"
-    //     onClick={() => {
-    //       setLen();
-    //     }}
-    //   >
-    //     点击查看全部动态
-    //   </div>
-    // </div>
     <div className="card">
       <h2>Twitter Feed</h2>
       <div className="centerContent">
@@ -311,7 +277,7 @@ function Tweets({ province }) {
             ownerScreenName="kLSAUPZszP2n6zX"
             slug="COVID19-Australia"
             options={{
-              tweetLimit: 5
+              height: 800
             }}
             noHeader="true"
             noFooter="true"
@@ -401,26 +367,31 @@ function Fallback() {
         </a>
       </div>
 
-        <div>
-            Our GitHub:{" "}
-            <a href="https://github.com/covid-19-au/covid-19-au.github.io">
-                covid-19-au
-            </a>
-
-        </div>
-        <div>
-            This site is developed by a <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">volunteer team</a> from Faculty of IT, Monash University for non-commercial use only.
-        </div>
-        <div>
-
-            <a href="https://www.webfreecounter.com/" target="_blank"><img src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1" border="0" alt="hit counter"/></a>
-
-        </div>
-
+      <div>
+        Our GitHub:{" "}
+        <a href="https://github.com/covid-19-au/covid-19-au.github.io">
+          covid-19-au
+        </a>
+      </div>
+      <div>
+        This site is developed by a{" "}
+        <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
+          volunteer team
+        </a>{" "}
+        from Faculty of IT, Monash University for non-commercial use only.
+      </div>
+      <div>
+        <a href="https://www.webfreecounter.com/" target="_blank">
+          <img
+            src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1"
+            border="0"
+            alt="hit counter"
+          />
+        </a>
+      </div>
     </div>
   );
 }
-
 
 function Area({ area, onChange, data }) {
   const renderArea = () => {
@@ -502,19 +473,19 @@ function App() {
     };
   }, []);
 
-    const [gspace, _setGspace] = useState(0);
-    const setGspace = () => {
-        const p = window.innerWidth;
-        _setGspace(p>1280 ? 2 : 0);
-    };
+  const [gspace, _setGspace] = useState(0);
+  const setGspace = () => {
+    const p = window.innerWidth;
+    _setGspace(p > 1280 ? 2 : 0);
+  };
 
-    useEffect(() => {
-        setGspace();
-        window.addEventListener("resize", setGspace);
-        return () => {
-            window.removeEventListener("resize", setGspace);
-        };
-    }, []);
+  useEffect(() => {
+    setGspace();
+    window.addEventListener("resize", setGspace);
+    return () => {
+      window.removeEventListener("resize", setGspace);
+    };
+  }, []);
 
   const [myData, setMyData] = useState(null);
   useEffect(() => {
@@ -522,7 +493,7 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function (results) {
+        complete: function(results) {
           // console.log("requested");
           setMyData(results.data);
         }
@@ -542,14 +513,13 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-      name: p.provinceShortName,
-      value: p.confirmedCount
-    }))
+        name: p.provinceShortName,
+        value: p.confirmedCount
+      }))
     : provincesByName[province.name].cities.map(city => ({
-      name: city.fullCityName,
-      value: city.confirmedCount
-    }));
-
+        name: city.fullCityName,
+        value: city.confirmedCount
+      }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
@@ -559,6 +529,7 @@ function App() {
 
 
         <Grid container spacing={gspace} justify="center" wrap='wrap'>
+
           <Grid item xs={12}>
             <Header province={province} />
           </Grid>
@@ -607,10 +578,8 @@ function App() {
                 </a>
             </div>
           </Grid>
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <MbMap />
-            </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <MbMap />
             <HistoryGraph countryData={country} />
           </Grid>
 
@@ -623,18 +592,15 @@ function App() {
           <Grid item xs={12}>
             <ExposureSites />
           </Grid>
-          <Grid item xs={12} >
+          <Grid item xs={12}>
             <Fallback />
           </Grid>
         </Grid>
-
       </div>
     );
   } else {
     return null;
   }
 }
-
-
 
 export default App;

@@ -13,9 +13,9 @@ class MbMap extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            lng: 144.9876091,
-            lat: -37.7741509,
-            zoom: 8
+            lng: 133.751567,
+            lat: -26.344589,
+            zoom: 2.5
         };
     }
 
@@ -26,6 +26,7 @@ class MbMap extends React.Component {
             container: this.mapContainer,
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
+            minZoom:2.5,
             zoom
         });
 
@@ -127,7 +128,7 @@ class MbMap extends React.Component {
                 </div>
 
                 <span className="due">
-        includes hospital with Fever Clinic and activities of confirmed cases (Victoria only for now).
+        includes hospital with Fever Clinic and activities of confirmed cases (Keep updating).
         </span>
             </div>
         );
