@@ -248,7 +248,7 @@ function News({ province }) {
 
   return (
     <div className="card">
-      <h2>News Feed</h2>
+      <h2 id="news">News Feed</h2>
       {news.slice(0, len).map(n => (
         <New {...n} key={n.id} />
       ))}
@@ -454,6 +454,13 @@ function Header({ province }) {
         COVID-19 Real-time Report in Australia
       </h1>
       {/*<i>By Students from Monash</i>*/}
+      <ul>
+        <li><a href="#status">Status</a></li>
+        <li><a href="#infectionMap">Infection Map</a></li>
+        <li><a href="#hospitalAndCasesMap">Hospital & Cases Map</a></li>
+        <li><a href="#statusGraph">Status Graph</a></li>
+        <li><a href="#news">News Feed</a></li>
+      </ul>
     </header>
   );
 }

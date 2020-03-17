@@ -13,6 +13,16 @@ This site accumulates the information from different resources including:
 We keep updating it from time to time.
 All the data comes from official resources such as the [Government](https://www.dhhs.vic.gov.au/), [News Group](https://www.theaustralian.com.au/) and [Wikipedia](https://www.wikipedia.org/).
 
+## Development
+To start contribute to this project, follow the following step:
+1. Clone the project: `git clone https://github.com/covid-19-au/covid-19-au.github.io.git`
+2. Switch to project directory: `cd covid-19-au.github.io/`
+3. Install node package: `npm install`
+4. Run the development server: `npm start`
+
+> JSON file explanation: 
+    > country.json: { date: [Comfirmed, Recovered, Death, Existing]}\
+    > state.json { date: {state: [Comfirmed. Death, Recovered]} }
 
 ## Team member
 This site is developed and mainteained by a volunteer team from Faculty of IT, Monash University:

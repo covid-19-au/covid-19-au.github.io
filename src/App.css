@@ -3,8 +3,27 @@
   background-color: #111;
 }
 
+header ul {
+  list-style-type: none;
+}
+
+header ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+header ul li:hover {
+  color: #808080;
+}
+
 header i {
   color: #eee;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .due {
