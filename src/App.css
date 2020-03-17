@@ -44,8 +44,7 @@ header i {
 }
 
 .province.header > div {
-  background-color: #f60;
-  color: #fcfcfc;
+  color: #000000;
 }
 
 .area,
@@ -63,6 +62,7 @@ header i {
   flex: 3;
   padding: 0.4rem 0;
   position: relative;
+  color:#212f3d ;
 }
 
 .area.active::before {
@@ -81,6 +81,11 @@ header i {
   transform: translate(0, -50%);
 }
 
+.area.header {
+  background-color:  #d5d8dc ;
+  /*font-size: 80%;*/
+ }
+
 .confirmed,
 .death,
 .cured {
@@ -88,11 +93,39 @@ header i {
   flex: 2;
 }
 
+.confirmed {
+  color:  #e74c3c  ;
+}
+
+.confirmed.header {
+  background-color:  #fadbd8  ;
+  font-size: 80%;
+}
+.cured {
+  color: #00b321;
+
+}
+
+.cured.header {
+
+  background-color:  #d5f5e3 ;
+  font-size: 80%;
+}
+
+.death {
+  color:  #a93226  ;
+}
+
+.death.header {
+  background-color:  #e6b0aa  ;
+  font-size: 80%;
+}
+
 .fallback {
   padding: 0 1rem 1rem;
   color: #999;
   text-align: center;
-  font-size: 40%;
+  font-size: 60%;
 }
 
 a {
@@ -143,5 +176,14 @@ h2 small {
 }
 
 .more {
-  font-size: 70%;
+  font-size:70%;
 }
+
+.mapPopup {
+  background:white;
+  color: #3f618c;
+  font-weight:400;
+  padding:5px;
+  border-radius:2px;
+}
+

@@ -1,14 +1,16 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState, Suspense, useEffect, useLayoutEffect } from "react";
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Chart } from "react-google-charts";
-import country from "./data/country";
+
+import country from "./data/country"
+
 import all from "./data/overall";
 import provinces from "./data/area";
 import Tag from "./Tag";
 
+import MbMap from './ConfirmedMap'
 import "./App.css";
 import axios from "axios";
 import Papa from "papaparse";
@@ -17,13 +19,16 @@ import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
 
 import { TwitterTimelineEmbed } from "react-twitter-embed";
+
+import Grid from '@material-ui/core/Grid'
+
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
 ReactGA.initialize("UA-160673543-1");
 
 ReactGA.pageview(window.location.pathname + window.location.search);
 
-const Map = React.lazy(() => import("./Map"));
+const GoogleMap = React.lazy(() => import("./GoogleMap"));
 
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
@@ -150,7 +155,7 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Australia Convid-19 New Cases vs Deaths Chart (last two weeks)",
+        text: "Australia Covid-19 New Cases vs Deaths Chart (last two weeks)",
         fontSize: 20
       },
       legend: {
@@ -172,29 +177,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Status Graph</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Status Graph</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -229,8 +234,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -382,33 +387,27 @@ function Fallback() {
           shfshanyue/2019-ncov
         </a>
       </div>
+
       <div>
         Our GitHub:{" "}
         <a href="https://github.com/covid-19-au/covid-19-au.github.io">
           covid-19-au
-        </a>
+            </a>
+
       </div>
       <div>
-        Live Data Source:{" "}
-        <a href="https://www.theaustralian.com.au">The Australian</a>
-      </div>
+        This site is developed by a <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">volunteer team</a> from Faculty of IT, Monash University for non-commercial use only.
+        </div>
       <div>
-        This site is developed for non-commercial use only. The authors will not
-        be responsible for any copyright dispute. If you have any questions feel
-        free to contact <a href="mailto:freddie.wanah@gmail.com">me</a>.
+
+        <a href="https://www.webfreecounter.com/" target="_blank"><img src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1" border="0" alt="hit counter" /></a>
+
       </div>
-      <div>
-        <a href="https://www.webfreecounter.com/" target="_blank">
-          <img
-            src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1"
-            border="0"
-            alt="hit counter"
-          />
-        </a>
-      </div>
+
     </div>
   );
 }
+
 
 function Area({ area, onChange, data }) {
   const renderArea = () => {
@@ -449,10 +448,10 @@ function Area({ area, onChange, data }) {
   return (
     <>
       <div className="province header">
-        <div className="area">State</div>
-        <div className="confirmed">Confirmed</div>
-        <div className="death">Death</div>
-        <div className="cured">Recovered</div>
+        <div className="area header">State</div>
+        <div className="confirmed header">Confirmed</div>
+        <div className="death header">Death</div>
+        <div className="cured header">Recovered</div>
       </div>
       {renderArea()}
     </>
@@ -489,14 +488,29 @@ function App() {
       window.removeEventListener("popstate", setProvinceByUrl);
     };
   }, []);
+
+  const [gspace, _setGspace] = useState(0);
+  const setGspace = () => {
+    const p = window.innerWidth;
+    _setGspace(p > 1280 ? 2 : 0);
+  };
+
+  useEffect(() => {
+    setGspace();
+    window.addEventListener("resize", setGspace);
+    return () => {
+      window.removeEventListener("resize", setGspace);
+    };
+  }, []);
+
   const [myData, setMyData] = useState(null);
   useEffect(() => {
     Papa.parse(
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function(results) {
-          console.log("requested");
+        complete: function (results) {
+          // console.log("requested");
           setMyData(results.data);
         }
       }
@@ -515,63 +529,138 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
+
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
   if (myData) {
     return (
       <div>
-        <Header province={province} />
-        <Stat
-          {...{ ...all, ...overall }}
-          name={province && province.name}
-          data={myData}
-        />
-        <div className="card">
-          <h2>
-            Infection Map {province ? `· ${province.name}` : false}
-            {province ? (
-              <small onClick={() => setProvince(null)}>Return</small>
-            ) : null}
-          </h2>
-          <Suspense fallback={<div className="loading">Loading...</div>}>
-            <Map
-              province={province}
-              data={data}
-              onClick={name => {
-                const p = provincesByName[name];
-                if (p) {
-                  setProvince(p);
-                }
-              }}
-              newData={myData}
+
+
+        {/*<Header province={province} />*/}
+        {/*<Stat*/}
+        {/*{...{ ...all, ...overall }}*/}
+        {/*name={province && province.name}*/}
+        {/*data={myData}*/}
+        {/*/>*/}
+        {/*<div className="card">*/}
+        {/*<h2>*/}
+        {/*Infection Map {province ? `· ${province.name}` : false}*/}
+        {/*{province ? (*/}
+        {/*<small onClick={() => setProvince(null)}>Return</small>*/}
+        {/*) : null}*/}
+        {/*</h2>*/}
+        {/*<Suspense fallback={<div className="loading">Loading...</div>}>*/}
+        {/*<GoogleMap*/}
+        {/*province={province}*/}
+        {/*data={data}*/}
+        {/*onClick={name => {*/}
+        {/*const p = provincesByName[name];*/}
+        {/*if (p) {*/}
+        {/*setProvince(p);*/}
+        {/*}*/}
+        {/*}}*/}
+        {/*newData={myData}*/}
+        {/*/>*/}
+
+        {/*</Suspense>*/}
+        {/*<Area area={area} onChange={setProvince} data={myData} />*/}
+
+        {/*</div>*/}
+        {/*/!*<ConfirmedMap confirmedData = {confirmedData} hospitalData={hospitalData}/>*!/*/}
+
+
+
+        {/*<MbMap/>*/}
+
+        {/*<HistoryGraph countryData={country}/>*/}
+        {/*<News />*/}
+        {/*<Tweets province={province} />*/}
+        {/*/!*<Summary />*!/*/}
+        {/*<Fallback />*/}
+
+
+        <Grid container spacing={gspace} justify="center" wrap='wrap'>
+          <Grid item xs={12}>
+            <Header province={province} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Stat
+              {...{ ...all, ...overall }}
+              name={province && province.name}
+              data={myData}
             />
-            {/*{*/}
-            {/*province ? false :*/}
-            {/*<div className="tip">*/}
-            {/*Click on the state to check state details.*/}
-            {/*</div>*/}
-            {/*}*/}
-          </Suspense>
-          <Area area={area} onChange={setProvince} data={myData} />
-        </div>
-        <HistoryGraph countryData={country} />
-        <News />
-        <Tweets province={province} />
-        <ExposureSites />
-        <Fallback />
+            <div className="card">
+              <h2>
+                Infection Map {province ? `· ${province.name}` : false}
+                {province ? (
+                  <small onClick={() => setProvince(null)}>Return</small>
+                ) : null}
+              </h2>
+              <Suspense fallback={<div className="loading">Loading...</div>}>
+                <GoogleMap
+                  province={province}
+                  data={data}
+                  onClick={name => {
+                    const p = provincesByName[name];
+                    if (p) {
+                      setProvince(p);
+                    }
+                  }}
+                  newData={myData}
+                />
+                {/*{*/}
+                {/*province ? false :*/}
+                {/*<div className="tip">*/}
+                {/*Click on the state to check state details.*/}
+                {/*</div>*/}
+                {/*}*/}
+              </Suspense>
+              <Area area={area} onChange={setProvince} data={myData} />
+              <a
+                style={{
+                  fontSize: '50%',
+                  float: 'right',
+                  color: 'lightgrey'
+                }}
+                href="https://www.theaustralian.com.au">
+                Data: @The Australians
+                </a>
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <MbMap />
+            <HistoryGraph countryData={country} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <News />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Tweets province={province} />
+          </Grid>
+          <Grid item xs={12}>
+            <ExposureSites />
+          </Grid>
+          <Grid item xs={12} >
+            <Fallback />
+          </Grid>
+        </Grid>
+
       </div>
     );
   } else {
     return null;
   }
 }
+
+
 
 export default App;
