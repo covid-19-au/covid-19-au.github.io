@@ -396,13 +396,6 @@ function Fallback() {
 
         </div>
         <div>
-            Live Data Source:{" "}
-            <a href="https://www.theaustralian.com.au">
-                The Australian
-            </a>
-
-        </div>
-        <div>
             This site is developed by a <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">volunteer team</a> from Faculty of IT, Monash University for non-commercial use only.
         </div>
         <div>
@@ -517,7 +510,7 @@ function App() {
       {
         download: true,
         complete: function (results) {
-          console.log("requested");
+          // console.log("requested");
           setMyData(results.data);
         }
       }
@@ -632,6 +625,15 @@ function App() {
                 {/*}*/}
               </Suspense>
               <Area area={area} onChange={setProvince} data={myData} />
+                <a
+                    style={{
+                      fontSize:'50%',
+                        float:'right',
+                        color:'lightgrey'
+                    }}
+                    href="https://www.theaustralian.com.au">
+                    Data: @The Australians
+                </a>
             </div>
           </Grid>
             <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
