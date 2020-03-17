@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect,useLayoutEffect } from "react";
+import React, { useState, Suspense, useEffect, useLayoutEffect } from "react";
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -388,21 +388,21 @@ function Fallback() {
         </a>
       </div>
 
-        <div>
-            Our GitHub:{" "}
-            <a href="https://github.com/covid-19-au/covid-19-au.github.io">
-                covid-19-au
+      <div>
+        Our GitHub:{" "}
+        <a href="https://github.com/covid-19-au/covid-19-au.github.io">
+          covid-19-au
             </a>
 
+      </div>
+      <div>
+        This site is developed by a <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">volunteer team</a> from Faculty of IT, Monash University for non-commercial use only.
         </div>
-        <div>
-            This site is developed by a <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">volunteer team</a> from Faculty of IT, Monash University for non-commercial use only.
-        </div>
-        <div>
+      <div>
 
-            <a href="https://www.webfreecounter.com/" target="_blank"><img src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1" border="0" alt="hit counter"/></a>
+        <a href="https://www.webfreecounter.com/" target="_blank"><img src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1" border="0" alt="hit counter" /></a>
 
-        </div>
+      </div>
 
     </div>
   );
@@ -489,19 +489,19 @@ function App() {
     };
   }, []);
 
-    const [gspace, _setGspace] = useState(0);
-    const setGspace = () => {
-        const p = window.innerWidth;
-        _setGspace(p>1280 ? 2 : 0);
-    };
+  const [gspace, _setGspace] = useState(0);
+  const setGspace = () => {
+    const p = window.innerWidth;
+    _setGspace(p > 1280 ? 2 : 0);
+  };
 
-    useEffect(() => {
-        setGspace();
-        window.addEventListener("resize", setGspace);
-        return () => {
-            window.removeEventListener("resize", setGspace);
-        };
-    }, []);
+  useEffect(() => {
+    setGspace();
+    window.addEventListener("resize", setGspace);
+    return () => {
+      window.removeEventListener("resize", setGspace);
+    };
+  }, []);
 
   const [myData, setMyData] = useState(null);
   useEffect(() => {
@@ -547,41 +547,41 @@ function App() {
 
         {/*<Header province={province} />*/}
         {/*<Stat*/}
-          {/*{...{ ...all, ...overall }}*/}
-          {/*name={province && province.name}*/}
-          {/*data={myData}*/}
+        {/*{...{ ...all, ...overall }}*/}
+        {/*name={province && province.name}*/}
+        {/*data={myData}*/}
         {/*/>*/}
         {/*<div className="card">*/}
-          {/*<h2>*/}
-            {/*Infection Map {province ? `· ${province.name}` : false}*/}
-            {/*{province ? (*/}
-              {/*<small onClick={() => setProvince(null)}>Return</small>*/}
-            {/*) : null}*/}
-          {/*</h2>*/}
-          {/*<Suspense fallback={<div className="loading">Loading...</div>}>*/}
-            {/*<GoogleMap*/}
-              {/*province={province}*/}
-              {/*data={data}*/}
-              {/*onClick={name => {*/}
-                {/*const p = provincesByName[name];*/}
-                {/*if (p) {*/}
-                  {/*setProvince(p);*/}
-                {/*}*/}
-              {/*}}*/}
-              {/*newData={myData}*/}
-            {/*/>*/}
+        {/*<h2>*/}
+        {/*Infection Map {province ? `· ${province.name}` : false}*/}
+        {/*{province ? (*/}
+        {/*<small onClick={() => setProvince(null)}>Return</small>*/}
+        {/*) : null}*/}
+        {/*</h2>*/}
+        {/*<Suspense fallback={<div className="loading">Loading...</div>}>*/}
+        {/*<GoogleMap*/}
+        {/*province={province}*/}
+        {/*data={data}*/}
+        {/*onClick={name => {*/}
+        {/*const p = provincesByName[name];*/}
+        {/*if (p) {*/}
+        {/*setProvince(p);*/}
+        {/*}*/}
+        {/*}}*/}
+        {/*newData={myData}*/}
+        {/*/>*/}
 
-          {/*</Suspense>*/}
-          {/*<Area area={area} onChange={setProvince} data={myData} />*/}
+        {/*</Suspense>*/}
+        {/*<Area area={area} onChange={setProvince} data={myData} />*/}
 
         {/*</div>*/}
-          {/*/!*<ConfirmedMap confirmedData = {confirmedData} hospitalData={hospitalData}/>*!/*/}
+        {/*/!*<ConfirmedMap confirmedData = {confirmedData} hospitalData={hospitalData}/>*!/*/}
 
 
 
-              {/*<MbMap/>*/}
+        {/*<MbMap/>*/}
 
-          {/*<HistoryGraph countryData={country}/>*/}
+        {/*<HistoryGraph countryData={country}/>*/}
         {/*<News />*/}
         {/*<Tweets province={province} />*/}
         {/*/!*<Summary />*!/*/}
@@ -625,21 +625,19 @@ function App() {
                 {/*}*/}
               </Suspense>
               <Area area={area} onChange={setProvince} data={myData} />
-                <a
-                    style={{
-                      fontSize:'50%',
-                        float:'right',
-                        color:'lightgrey'
-                    }}
-                    href="https://www.theaustralian.com.au">
-                    Data: @The Australians
+              <a
+                style={{
+                  fontSize: '50%',
+                  float: 'right',
+                  color: 'lightgrey'
+                }}
+                href="https://www.theaustralian.com.au">
+                Data: @The Australians
                 </a>
             </div>
           </Grid>
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <MbMap />
-            </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <MbMap />
             <HistoryGraph countryData={country} />
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
