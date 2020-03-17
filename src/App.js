@@ -21,6 +21,8 @@ import CanvasJSReact from "./assets/canvasjs.react";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
+import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
+import caseNews from "./data/timelinedata";
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -177,29 +179,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Status Graph</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Status Graph</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -234,8 +236,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -445,6 +447,31 @@ function Header({ province }) {
   );
 }
 
+function CaseTimeline() {
+  const timelineNews = keyBy(caseNews, "rank");
+  console.log(timelineNews["1"].title)
+  return (
+    <div className="card">
+      <Timeline lineColor={'#ddd'}>
+        <TimelineItem
+          key="001"
+          dateText={timelineNews["1"].date + " " + timelineNews["1"].time}
+          style={{ color: '#e86971' }}
+        ><a href={timelineNews["1"].url}> <h3 color="#85c1e9" >{timelineNews["1"].title}</h3></a>
+          <h4>{timelineNews["1"].source}</h4>
+        </TimelineItem>
+        <TimelineItem
+          key="002"
+          dateText={timelineNews["2"].date + " " + timelineNews["2"].time}
+          style={{ color: '#e86971' }}
+        ><a href={timelineNews["2"].url}> <h3>{timelineNews["2"].title}</h3></a>
+          <h4>{timelineNews["2"].source}</h4>
+        </TimelineItem>
+      </Timeline >
+    </div >
+  )
+}
+
 function App() {
   const [province, _setProvince] = useState(null);
   const setProvinceByUrl = () => {
@@ -480,7 +507,7 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function(results) {
+        complete: function (results) {
           // console.log("requested");
           setMyData(results.data);
         }
@@ -500,13 +527,13 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
@@ -601,6 +628,9 @@ function App() {
                 Data: @The Australians
               </a>
             </div>
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <CaseTimeline></CaseTimeline>
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <MbMap />
