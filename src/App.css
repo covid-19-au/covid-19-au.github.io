@@ -50,7 +50,8 @@ header i {
 .area,
 .confirmed,
 .death,
-.cured {
+.cured,
+.tested{
   border: 1px solid #fff;
   background-color: #f8f8f8;
   display: flex;
@@ -88,7 +89,9 @@ header i {
 
 .confirmed,
 .death,
-.cured {
+.cured,
+.tested
+{
   padding: 0.3rem 0;
   flex: 2;
 }
@@ -107,6 +110,15 @@ header i {
 
 .cured.header {
   background-color: #d5f5e3;
+  font-size: 80%;
+}
+
+.tested {
+  color: #a569bd;
+}
+
+.tested.header {
+  background-color: #bb8fce ;
   font-size: 80%;
 }
 

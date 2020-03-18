@@ -5,7 +5,7 @@ import "dayjs/locale/en-au";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 import country from "./data/country";
-
+import testedCases from "./data/testedCases"
 import all from "./data/overall";
 import provinces from "./data/area";
 import Tag from "./Tag";
@@ -321,7 +321,6 @@ function Stat({
     }
       let lastTotal = countryData[Object.keys(countryData)[Object.keys(countryData).length - 1]]
       ;
-    console.log(lastTotal);
     confCountIncrease = confirmedCount-lastTotal[0];
     deadCountIncrease = deadCount-lastTotal[2];
     curedCountIncrease = curedCount-lastTotal[1];
@@ -395,17 +394,15 @@ function Fallback() {
 
 function Area({ area, onChange, data }) {
   const renderArea = () => {
+    let latest = testedCases[Object.keys(testedCases)[Object.keys(testedCases).length - 1]]
+    console.log(latest)
+      console.log(data)
     data.splice(0, 1);
     return data.map(x => (
       <div
         className="province"
         key={x.name || x.cityName}
-        onClick={() => {
-          // 表示在省一级
-          // if (x.name) {
-          //   onChange(x)
-          // }
-        }}
+
       >
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
         {/*{ x.name || x.cityName }*/}
@@ -425,6 +422,9 @@ function Area({ area, onChange, data }) {
         <div className="cured">
           <strong>{x[3]}</strong>
         </div>
+          <div className="tested">
+              {latest[x[0]]}
+          </div>
       </div>
     ));
   };
@@ -436,8 +436,10 @@ function Area({ area, onChange, data }) {
         <div className="confirmed header">Confirmed</div>
         <div className="death header">Death</div>
         <div className="cured header">Recovered</div>
+        <div className="tested header">*Tested</div>
       </div>
       {renderArea()}
+
     </>
   );
 }
@@ -576,6 +578,9 @@ function App() {
                     href="https://www.theaustralian.com.au">
                     Data: @The Australian
                 </a>
+                <span style={{fontSize:'60%'}} className="due">
+        *Tested cases are updated daily.
+        </span>
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
