@@ -38,6 +38,10 @@ const fetcher = url =>
     return data.data.data;
   });
 
+  /**
+   * Get data from json file and compute graph for both trend graph and new case graph
+   * @param {JSON} countryData country data from json file under data directory country.json
+   */
 function HistoryGraph({ countryData }) {
   let newData = [[{ type: "date", label: "Day" }, "New Cases", "Deaths"]];
   let today = Date.now();
@@ -178,7 +182,7 @@ function HistoryGraph({ countryData }) {
     <div className="loading">Loading...</div>
   ) : (
     <div className="card">
-      <h2>Status Graph</h2>
+      <h2 id="statusGraph">Status Graph</h2>
       <CanvasJSChart options={options} />
       <CanvasJSChart options={newOpts} />
       {/*<Chart*/}
@@ -202,6 +206,13 @@ function HistoryGraph({ countryData }) {
   );
 }
 
+/**
+ * Fetch data for each single news include title, content snippet etc.
+ * @param {String} title title of the news
+ * @param {String} contentSnippet content snippet of the news
+ * @param {String} link link to the origin news source 
+ * @param {String} pubDate publish date and time
+ */
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
   return (
     <div className="new">
@@ -221,9 +232,14 @@ function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
   );
 }
 
+/**
+ * Geneate the news feed part
+ * @param {*} param0 
+ */
 function News({ province }) {
   let Parser = require("rss-parser");
 
+  // len indicate the number of news to be shown at the begining
   const [len, setLen] = useState(3);
   const [news, setNews] = useState([]);
 
@@ -269,7 +285,7 @@ function News({ province }) {
 function Tweets({ province }) {
   return (
     <div className="card">
-      <h2>Twitter Feed</h2>
+      <h2 id="twitterFeed">Twitter Feed</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
           <TwitterTimelineEmbed
@@ -335,7 +351,7 @@ function Stat({
 
   return (
     <div className="card">
-      <h2>
+      <h2 id="status">
         Status {name ? `· ${name}` : false}
         <span className="due">Update Hourly</span>
       </h2>
@@ -459,6 +475,7 @@ function Header({ province }) {
         <li><a href="#infectionMap">Infection Map</a></li>
         <li><a href="#hospitalAndCasesMap">Hospital & Cases Map</a></li>
         <li><a href="#statusGraph">Status Graph</a></li>
+        <li><a href="#twitterFeed">Twitter Feed</a></li>
         <li><a href="#news">News Feed</a></li>
       </ul>
     </header>
@@ -548,7 +565,7 @@ function App() {
               countryData={country}
             />
             <div className="card">
-              <h2>
+              <h2 id="infectionMap">
                 Infection Map {province ? `· ${province.name}` : false}
                 {province ? (
                   <small onClick={() => setProvince(null)}>Return</small>
