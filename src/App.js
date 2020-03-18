@@ -21,8 +21,7 @@ import CanvasJSReact from "./assets/canvasjs.react";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
-import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
-import caseNews from "./data/timelinedata";
+import NewsTimeline from "./NewsTimeline";
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -447,31 +446,6 @@ function Header({ province }) {
   );
 }
 
-function CaseTimeline() {
-  const timelineNews = keyBy(caseNews, "rank");
-  console.log(timelineNews["1"].title)
-  return (
-    <div className="card">
-      <Timeline lineColor={'#ddd'}>
-        <TimelineItem
-          key="001"
-          dateText={timelineNews["1"].date + " " + timelineNews["1"].time}
-          style={{ color: '#e86971' }}
-        ><a href={timelineNews["1"].url}> <h3 color="#85c1e9" >{timelineNews["1"].title}</h3></a>
-          <h4>{timelineNews["1"].source}</h4>
-        </TimelineItem>
-        <TimelineItem
-          key="002"
-          dateText={timelineNews["2"].date + " " + timelineNews["2"].time}
-          style={{ color: '#e86971' }}
-        ><a href={timelineNews["2"].url}> <h3>{timelineNews["2"].title}</h3></a>
-          <h4>{timelineNews["2"].source}</h4>
-        </TimelineItem>
-      </Timeline >
-    </div >
-  )
-}
-
 function App() {
   const [province, _setProvince] = useState(null);
   const setProvinceByUrl = () => {
@@ -630,7 +604,7 @@ function App() {
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <CaseTimeline></CaseTimeline>
+            <NewsTimeline></NewsTimeline>
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <MbMap />
