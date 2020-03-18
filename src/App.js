@@ -278,7 +278,7 @@ function Tweets({ province }) {
             ownerScreenName="kLSAUPZszP2n6zX"
             slug="COVID19-Australia"
             options={{
-              height: 400
+              height: 450
             }}
             noHeader="true"
             noFooter="true"
