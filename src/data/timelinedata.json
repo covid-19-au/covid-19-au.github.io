@@ -1,42 +1,46 @@
 [
     {
-        "url": "https://www.abc.net.au/news/2020-03-17/victoria-coronavirus-covid19-cases-rise-as-primary-school-closes/12061904",
-        "title": "Coronavirus cases in Victoria rise, as panic buying hits Melbourne soup kitchens",
-        "source": "ABC News",
-        "date": "17 March 2020",
-        "time": "11:20pm",
-        "rank": "1"
+        "updateTime": "04:00pm",
+        "rank": "0"
     },
     {
-        "url": "https://www.abc.net.au/news/2020-03-17/coronavirus-data-reveals-how-covid-19-is-spreading-in-australia/12060704",
-        "title": "Coronavirus data reveals how COVID-19 is spreading in Australia",
-        "source": "ABC News",
-        "date": "17 March 2020",
-        "time": "05:49am",
-        "rank": "5"
+        "url": "https://www.abc.net.au/news/2020-03-18/coronavirus-queensland-child-care-centre-worker-positive/12064322",
+        "title": "Queensland childcare centre worker tests positive to COVID-19",
+        "source": "ABC news",
+        "date": "18 March 2020",
+        "time": "3:13pm",
+        "rank": "3"
     },
     {
-        "url": "https://www.smh.com.au/national/coronavirus-updates-live-australia-braces-for-covid-19-impact-as-italy-death-toll-jumps-germany-closes-borders-20200316-p54aqj.html",
-        "title": "As the day unfolded: NSW, Victoria, QLD COVID-19 cases spike, Netherlands flags 'herd immunity' plan",
-        "source": "The Sydney Morning Herald",
-        "date": "17 March 2020",
-        "time": "10:03pm",
-        "rank": "2"
-    },
-    {
-        "url": "https://www.thecourier.com.au/story/6682379/coronavirus-in-victoria-confirmed-cases-and-deaths-from-covid-19/",
-        "title": "Coronavirus in Victoria: confirmed cases and deaths from COVID-19 ",
-        "source": "The Courier",
-        "date": "17 March 2020",
-        "time": "12:00pm",
+        "url": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-death-sixth-australian-dies-from-the-virus-c-750988",
+        "title": "Coronavirus death: Sixth Australian dies from the virus",
+        "source": "7news",
+        "date": "18 March 2020",
+        "time": "2:39pm",
         "rank": "4"
     },
     {
-        "url": "https://www.watoday.com.au/national/western-australia/wa-coronavirus-live-unis-move-online-as-wa-s-top-doctor-issues-warning-on-schools-20200317-p54atw.html",
-        "title": "WA coronavirus LIVE: Perth aged care worker tests positive as state confirms three new cases overnight",
-        "source": "WAtoday",
-        "date": "17 March 2020",
-        "time": "06:01pm",
-        "rank": "3"
+        "url": "https://www.abc.net.au/news/2020-03-18/coronavirus-covid-19-victoria-cases-rise-to-121/12065698",
+        "title": "Coronavirus cases in Victoria rise to 121, after 27 new cases recorded overnight",
+        "source": "ABC news",
+        "date": "18 March 2020",
+        "time": "3:51pm",
+        "rank": "1"
+    },
+    {
+        "url": "https://www.abc.net.au/news/2020-03-18/coronavirus-infections-in-nsw-spike-with-dozens-of-new-cases/12062124",
+        "title": "Coronavirus deaths in NSW rise to five after largest 24-hour spike in infections yet",
+        "source": "ABC news",
+        "date": "18 March 2020",
+        "time": "2:26pm",
+        "rank": "5"
+    },
+    {
+        "url": "https://www.abc.net.au/news/2020-03-18/virgin-australia-grounds-international-fleet-amid-coronavirus/12065864",
+        "title": "Virgin Australia grounds international fleet amid coronavirus pandemic",
+        "source": "ABC news",
+        "date": "18 March 2020",
+        "time": "3:24pm",
+        "rank": "2"
     }
 ]

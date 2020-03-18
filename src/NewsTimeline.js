@@ -2,6 +2,7 @@ import React from 'react';
 import caseNews from "./data/timelinedata";
 import keyBy from "lodash.keyby";
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
+import "./Timeline.css"
 
 function NewsTimeline() {
     const timelineNews = keyBy(caseNews, "rank");
@@ -9,7 +10,6 @@ function NewsTimeline() {
     return (
         <div className="card">
             <h2>News Timeline</h2>
-            <span className="due">Time in AEDT, updated once every 24 hours</span>
             <Timeline lineColor={'#ddd'}>
                 <TimelineItem
                     key="001"
@@ -52,6 +52,9 @@ function NewsTimeline() {
                     <h4 style={{ color: ' #5d6d7e ' }}>{timelineNews["5"].source}</h4>
                 </TimelineItem>
             </Timeline >
+            <span className="due">Time in AEDT, last updated at {timelineNews["0"].updateTime}</span>
+
+
         </div >
     )
 }
