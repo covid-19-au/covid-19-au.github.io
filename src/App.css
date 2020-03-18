@@ -196,3 +196,7 @@ h2 small {
   padding: 5px;
   border-radius: 2px;
 }
+
+.flightSearch {
+  width: 100%;
+}

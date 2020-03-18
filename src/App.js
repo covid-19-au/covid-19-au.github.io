@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/en-au";
 import relativeTime from "dayjs/plugin/relativeTime";
 
+import flights from "./data/flight";
 import country from "./data/country";
 import testedCases from "./data/testedCases"
 import all from "./data/overall";
@@ -286,6 +287,27 @@ function Tweets({ province }) {
       </div>
     </div>
   );
+}
+
+function Flights({ flights }) {
+  const [searchKey, setSearchKey] = useState('');
+
+  useEffect(() => {
+    console.log("searching...");
+  }, [searchKey])
+
+  return (
+    <div className="card">
+      <h2>Flights</h2>
+      <div className="centerContent">
+        <div className="selfCenter standardWidth">
+          <input className="flightSearch" type="text"
+          onChange={e => setSearchKey(e.target.value)}></input>
+          <div id="flightResult"></div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 function ExposureSites() {
@@ -598,6 +620,9 @@ function App() {
             <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
                 <News />
             </Grid>
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Flights flights={flights} />
+          </Grid>
           <Grid item xs={12}>
             <ExposureSites />
           </Grid>
