@@ -2,7 +2,7 @@ import React from 'react'
 import './Tag.css'
 
 function Tag ({ children, number,fColor ,increased }) {
-    console.log(fColor)
+
   return (
     <div className="tag">
         {

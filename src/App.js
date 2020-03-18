@@ -314,7 +314,7 @@ function Stat({
     curedCount = 0;
 
 
-    for (let i = 1; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
       confirmedCount += parseInt(data[i][1]);
       deadCount += parseInt(data[i][2]);
       curedCount += parseInt(data[i][3]);
@@ -395,9 +395,8 @@ function Fallback() {
 function Area({ area, onChange, data }) {
   const renderArea = () => {
     let latest = testedCases[Object.keys(testedCases)[Object.keys(testedCases).length - 1]]
-    console.log(latest)
+
       console.log(data)
-    data.splice(0, 1);
     return data.map(x => (
       <div
         className="province"
@@ -496,7 +495,12 @@ function App() {
       {
         download: true,
         complete: function(results) {
-          // console.log("requested");
+          console.log("requested");
+          results.data.splice(0,1)
+            let sortedData = results.data.sort( (a, b) => {
+                return b[1] - a[1]
+            })
+            console.log(sortedData)
           setMyData(results.data);
         }
       }
