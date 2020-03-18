@@ -228,5 +228,15 @@
     "onset of symptoms up to": "",
     "coor": ["-34.2217217", "150.9766435"],
     "type": "0"
+  },
+  {
+    "id": "m00032",
+    "date": "Saturday 14/03/2020 ",
+    "time": "18:00",
+    "name": "Murrays Bus",
+    "state": "ACT",
+    "onset of symptoms up to": "",
+    "coor": ["-34.2217217", "150.9766435"],
+    "type": "0"
   }
 ]
