@@ -198,5 +198,45 @@
     "onset of symptoms up to": "14 days from visiting the clinic (16 – 20 March 2020)",
     "coor": ["-37.847949", "145.005577"],
     "type": "0"
+  },
+  {
+    "id": "m00029",
+    "date": "Monday 16/03.2020",
+    "time": "unsure",
+    "name": "11F, 333 Collins street",
+    "state": "Victoria",
+    "onset of symptoms up to": "14 days from visiting the clinic (16 – 20 March 2020)",
+    "coor": ["-37.816564", "144.9616622"],
+    "type": "1"
+  },
+  {
+    "id": "m00030",
+    "date": "Wednesday 04/03/2020 – Friday 13/03/2020",
+    "time": "unsure",
+    "name": "Oakvale Winery - No ongoing risk",
+    "state": "NSW",
+    "onset of symptoms up to": "",
+    "coor": ["-32.7591919", "151.2523003"],
+    "type": "0"
+  },
+  {
+    "id": "m00031",
+    "date": "Friday 06/03/2020 ",
+    "time": "unsure",
+    "name": "Tumbling Waters Retreat",
+    "state": "NSW",
+    "onset of symptoms up to": "",
+    "coor": ["-34.2217217", "150.9766435"],
+    "type": "0"
+  },
+  {
+    "id": "m00032",
+    "date": "Saturday 14/03/2020 ",
+    "time": "18:00",
+    "name": "Murrays Bus",
+    "state": "ACT",
+    "onset of symptoms up to": "",
+    "coor": ["-34.2217217", "150.9766435"],
+    "type": "0"
   }
 ]

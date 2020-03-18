@@ -5,7 +5,7 @@ import "dayjs/locale/en-au";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 import country from "./data/country";
-
+import testedCases from "./data/testedCases"
 import all from "./data/overall";
 import provinces from "./data/area";
 import Tag from "./Tag";
@@ -21,6 +21,8 @@ import CanvasJSReact from "./assets/canvasjs.react";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
+import NewsTimeline from "./NewsTimeline";
+
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -177,29 +179,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Status Graph</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Status Graph</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -234,8 +236,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -301,18 +303,30 @@ function Stat({
   name,
   quanguoTrendChart,
   hbFeiHbTrendChart,
-  data
+  data,
+    countryData
 }) {
-  if (data) {
+    let confCountIncrease = 0;
+    let deadCountIncrease =0;
+    let curedCountIncrease = 0;
+  if (data&&countryData) {
     confirmedCount = 0;
 
     deadCount = 0;
     curedCount = 0;
-    for (let i = 1; i < data.length; i++) {
+
+
+    for (let i = 0; i < data.length; i++) {
       confirmedCount += parseInt(data[i][1]);
       deadCount += parseInt(data[i][2]);
       curedCount += parseInt(data[i][3]);
     }
+      let lastTotal = countryData[Object.keys(countryData)[Object.keys(countryData).length - 1]]
+      ;
+    confCountIncrease = confirmedCount-lastTotal[0];
+    deadCountIncrease = deadCount-lastTotal[2];
+    curedCountIncrease = curedCount-lastTotal[1];
+
   } else {
     confirmedCount = 0;
 
@@ -327,12 +341,12 @@ function Stat({
         <span className="due">Update Hourly</span>
       </h2>
       <div className="row">
-        <Tag number={confirmedCount}>Confirmed</Tag>
+        <Tag number={confirmedCount} fColor={"#e74c3c"} increased={confCountIncrease}>Confirmed</Tag>
         {/*<Tag number={suspectedCount || '-'}>*/}
         {/*疑似*/}
         {/*</Tag>*/}
-        <Tag number={deadCount}>Deaths</Tag>
-        <Tag number={curedCount}>Recovered</Tag>
+        <Tag number={deadCount} fColor={"#a93226"} increased={deadCountIncrease}>Deaths</Tag>
+        <Tag number={curedCount} fColor={"#00b321"} increased={curedCountIncrease}>Recovered</Tag>
       </div>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
@@ -382,17 +396,13 @@ function Fallback() {
 
 function Area({ area, onChange, data }) {
   const renderArea = () => {
-    data.splice(0, 1);
+    let latest = testedCases[Object.keys(testedCases)[Object.keys(testedCases).length - 1]]
+
     return data.map(x => (
       <div
         className="province"
         key={x.name || x.cityName}
-        onClick={() => {
-          // 表示在省一级
-          // if (x.name) {
-          //   onChange(x)
-          // }
-        }}
+
       >
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
         {/*{ x.name || x.cityName }*/}
@@ -412,6 +422,9 @@ function Area({ area, onChange, data }) {
         <div className="cured">
           <strong>{x[3]}</strong>
         </div>
+          <div className="tested">
+              {latest[x[0]]}
+          </div>
       </div>
     ));
   };
@@ -423,8 +436,10 @@ function Area({ area, onChange, data }) {
         <div className="confirmed header">Confirmed</div>
         <div className="death header">Death</div>
         <div className="cured header">Recovered</div>
+        <div className="tested header">*Tested</div>
       </div>
       {renderArea()}
+
     </>
   );
 }
@@ -482,6 +497,11 @@ function App() {
         download: true,
         complete: function(results) {
           // console.log("requested");
+          results.data.splice(0,1)
+            let sortedData = results.data.sort( (a, b) => {
+                return b[1] - a[1]
+            })
+
           setMyData(results.data);
         }
       }
@@ -500,60 +520,23 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
   if (myData) {
     return (
       <div>
-        {/*<Header province={province} />*/}
-        {/*<Stat*/}
-        {/*{...{ ...all, ...overall }}*/}
-        {/*name={province && province.name}*/}
-        {/*data={myData}*/}
-        {/*/>*/}
-        {/*<div className="card">*/}
-        {/*<h2>*/}
-        {/*Infection Map {province ? `· ${province.name}` : false}*/}
-        {/*{province ? (*/}
-        {/*<small onClick={() => setProvince(null)}>Return</small>*/}
-        {/*) : null}*/}
-        {/*</h2>*/}
-        {/*<Suspense fallback={<div className="loading">Loading...</div>}>*/}
-        {/*<GoogleMap*/}
-        {/*province={province}*/}
-        {/*data={data}*/}
-        {/*onClick={name => {*/}
-        {/*const p = provincesByName[name];*/}
-        {/*if (p) {*/}
-        {/*setProvince(p);*/}
-        {/*}*/}
-        {/*}}*/}
-        {/*newData={myData}*/}
-        {/*/>*/}
 
-        {/*</Suspense>*/}
-        {/*<Area area={area} onChange={setProvince} data={myData} />*/}
 
-        {/*</div>*/}
-        {/*/!*<ConfirmedMap confirmedData = {confirmedData} hospitalData={hospitalData}/>*!/*/}
+        <Grid container spacing={gspace} justify="center" wrap='wrap'>
 
-        {/*<MbMap/>*/}
-
-        {/*<HistoryGraph countryData={country}/>*/}
-        {/*<News />*/}
-        {/*<Tweets province={province} />*/}
-        {/*/!*<Summary />*!/*/}
-        {/*<Fallback />*/}
-
-        <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12}>
             <Header province={province} />
           </Grid>
@@ -562,6 +545,7 @@ function App() {
               {...{ ...all, ...overall }}
               name={province && province.name}
               data={myData}
+              countryData={country}
             />
             <div className="card">
               <h2>
@@ -590,28 +574,34 @@ function App() {
                 {/*}*/}
               </Suspense>
               <Area area={area} onChange={setProvince} data={myData} />
-              <a
-                style={{
-                  fontSize: "50%",
-                  float: "right",
-                  color: "lightgrey"
-                }}
-                href="https://www.theaustralian.com.au"
-              >
-                Data: @The Australians
-              </a>
+                <a
+                    style={{
+                      fontSize:'50%',
+                        float:'right',
+                        color:'lightgrey'
+                    }}
+                    href="https://www.theaustralian.com.au">
+                    Data: @The Australian
+                </a>
+                <span style={{fontSize:'60%'}} className="due">
+        *Tested cases are updated daily.
+        </span>
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <NewsTimeline></NewsTimeline>
             <MbMap />
-            <HistoryGraph countryData={country} />
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <News />
+            <HistoryGraph countryData={country} />
           </Grid>
+
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Tweets province={province} />
           </Grid>
+            {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
+                {/*<News />*/}
+            {/*</Grid>*/}
           <Grid item xs={12}>
             <ExposureSites />
           </Grid>
