@@ -15,24 +15,20 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
-
     steps:
     - uses: actions/checkout@v1
       with:
         submodules: true
-    # 使用 node:10
-    - name: use Node.js 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.x
-    - name: npm install
-      run: npm ci
-    - name: build data
-      run: node scripts/build-origin.js
-    - name: npm run build
-      run: npm run build
-    - name: deploy to master branch
-      run: npm run deploy  
+
+#    - name: use Node.js 10.x
+#      uses: actions/setup-node@v1
+#      with:
+#        node-version: 10.x
+#    - name: npm install
+#      run: npm ci
+#    - name: build data
+#      run: node scripts/build-origin.js
+#    - name: npm run build
+#      run: npm run build
+#    - name: deploy to master branch
+#      run: npm run deploy
