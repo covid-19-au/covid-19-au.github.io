@@ -201,7 +201,7 @@
     background: #e86971;
     color: #fff;
     padding: 0;
-    font-size: 12px;
+    font-size: auto;
     font-weight: bold;
     margin: 0;
     border-right-color: transparent;
