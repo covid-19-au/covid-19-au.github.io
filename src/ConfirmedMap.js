@@ -6,7 +6,7 @@ import ReactMapboxGl, {Layer, Feature, Popup} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import confirmedImg from './icon/confirmed.png'
 import hospitalImg from './icon/hospital.png'
-let token = "pk.eyJ1Ijoid29veXVubG9uZyIsImEiOiJjazBtM3cyM3kwMndmM2JrYmg0aXY4aHNxIn0.IjdNPocM6cBQiXBvWhDLVw"
+let token = process.env.REACT_APP_MAP_API
 mapboxgl.accessToken = token;
 class MbMap extends React.Component {
 
@@ -21,6 +21,8 @@ class MbMap extends React.Component {
 
     componentDidMount() {
         const { lng, lat, zoom } = this.state;
+
+
 
         const map = new mapboxgl.Map({
             container: this.mapContainer,

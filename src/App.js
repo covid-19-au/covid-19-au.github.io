@@ -21,6 +21,8 @@ import CanvasJSReact from "./assets/canvasjs.react";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
+import NewsTimeline from "./NewsTimeline";
+
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -177,29 +179,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Status Graph</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Status Graph</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -234,8 +236,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -396,7 +398,6 @@ function Area({ area, onChange, data }) {
   const renderArea = () => {
     let latest = testedCases[Object.keys(testedCases)[Object.keys(testedCases).length - 1]]
 
-      console.log(data)
     return data.map(x => (
       <div
         className="province"
@@ -495,12 +496,12 @@ function App() {
       {
         download: true,
         complete: function(results) {
-          console.log("requested");
+          // console.log("requested");
           results.data.splice(0,1)
             let sortedData = results.data.sort( (a, b) => {
                 return b[1] - a[1]
             })
-            console.log(sortedData)
+
           setMyData(results.data);
         }
       }
@@ -519,13 +520,13 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
@@ -588,16 +589,19 @@ function App() {
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <NewsTimeline></NewsTimeline>
             <MbMap />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <HistoryGraph countryData={country} />
           </Grid>
 
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Tweets province={province} />
           </Grid>
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <News />
-            </Grid>
+            {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
+                {/*<News />*/}
+            {/*</Grid>*/}
           <Grid item xs={12}>
             <ExposureSites />
           </Grid>
