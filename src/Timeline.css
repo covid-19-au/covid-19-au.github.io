@@ -178,7 +178,7 @@
     }
   }
   
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   /* For mobile phones: */
   .entry .title {
     float: left;
@@ -206,7 +206,7 @@
     margin: 0;
     border-right-color: transparent;
     -webkit-clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 75% 0%, 80% 34%, 75% 64%, 0% 64%);
     height: 50px;
     width: 100%;
     display: block;
@@ -230,6 +230,36 @@
   left: -30px;
   }
   }
-  
+  @media only screen and (max-width: 375px) {
+    /* For mobile phones with screen width under 375px: */
+    .timeline-item-date {
+      margin-left: 30px;
+      top: -11px;
+      left: 0px;
+      background: #ddd;
+      padding: 1px;
+      -webkit-clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 90% 0%, 100% 34%, 90% 64%, 0% 64%);
+      height: 52px;  
+      box-sizing: border-box;
+    }
+    
+  .timeline-item-dateinner {
+    background: #e86971;
+    color: #fff;
+    padding: 0;
+    font-size: auto;
+    font-weight: bold;
+    margin: 0;
+    border-right-color: transparent;
+    -webkit-clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 90% 0%, 100% 34%, 90% 64%, 0% 64%);
+    height: 50px;
+    width: 100%;
+    display: block;
+    line-height: 33px;
+    text-indent: 4px;
+  }
+  }
 
   
