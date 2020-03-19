@@ -9,10 +9,12 @@ const timelineNews = jsonNews["news"]
 const updateTime = jsonNews["updateTime"]
 
 const listStyles = {
-    maxHeight: 500,
+    maxHeight: 400,
     position: 'relative',
     overflow: 'auto',
-    minHeight: 500
+    minHeight: 400,
+    marginRight: 0,
+    padding: 0
 }
 
 const colourList = []
