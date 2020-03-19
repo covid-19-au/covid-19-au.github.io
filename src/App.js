@@ -139,7 +139,7 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Australian COVID-19 Trend",
+        text: "Trends for COVID-19 Cases in Australia ",
         fontSize: 20
       },
       legend: {
@@ -157,7 +157,7 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Australia Covid-19 New Cases vs Deaths Chart (last two weeks)",
+        text: "Daily new cases and deaths in Australia (2-week period)",
         fontSize: 20
       },
       legend: {
@@ -304,12 +304,12 @@ function Stat({
   quanguoTrendChart,
   hbFeiHbTrendChart,
   data,
-    countryData
+  countryData
 }) {
-    let confCountIncrease = 0;
-    let deadCountIncrease =0;
-    let curedCountIncrease = 0;
-  if (data&&countryData) {
+  let confCountIncrease = 0;
+  let deadCountIncrease = 0;
+  let curedCountIncrease = 0;
+  if (data && countryData) {
     confirmedCount = 0;
 
     deadCount = 0;
@@ -321,11 +321,11 @@ function Stat({
       deadCount += parseInt(data[i][2]);
       curedCount += parseInt(data[i][3]);
     }
-      let lastTotal = countryData[Object.keys(countryData)[Object.keys(countryData).length - 1]]
+    let lastTotal = countryData[Object.keys(countryData)[Object.keys(countryData).length - 1]]
       ;
-    confCountIncrease = confirmedCount-lastTotal[0];
-    deadCountIncrease = deadCount-lastTotal[2];
-    curedCountIncrease = curedCount-lastTotal[1];
+    confCountIncrease = confirmedCount - lastTotal[0];
+    deadCountIncrease = deadCount - lastTotal[2];
+    curedCountIncrease = curedCount - lastTotal[1];
 
   } else {
     confirmedCount = 0;
@@ -338,7 +338,7 @@ function Stat({
     <div className="card">
       <h2>
         Status {name ? `· ${name}` : false}
-        <span className="due">Update Hourly</span>
+        <span className="due">Updated Hourly</span>
       </h2>
       <div className="row">
         <Tag number={confirmedCount} fColor={"#e74c3c"} increased={confCountIncrease}>Confirmed</Tag>
@@ -379,7 +379,7 @@ function Fallback() {
         <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
           volunteer team
         </a>{" "}
-        from Faculty of IT, Monash University for non-commercial use only.
+        from the Faculty of IT, Monash University, for non-commercial use only.
       </div>
       <div>
         <a href="https://www.webfreecounter.com/" target="_blank">
@@ -422,9 +422,9 @@ function Area({ area, onChange, data }) {
         <div className="cured">
           <strong>{x[3]}</strong>
         </div>
-          <div className="tested">
-              {latest[x[0]]}
-          </div>
+        <div className="tested">
+          {latest[x[0]]}
+        </div>
       </div>
     ));
   };
@@ -436,7 +436,7 @@ function Area({ area, onChange, data }) {
         <div className="confirmed header">Confirmed</div>
         <div className="death header">Death</div>
         <div className="cured header">Recovered</div>
-        <div className="tested header">*Tested</div>
+        <div className="tested header">Tested*</div>
       </div>
       {renderArea()}
 
@@ -453,7 +453,7 @@ function Header({ province }) {
           fontSize: "120%"
         }}
       >
-        COVID-19 Real-time Report in Australia
+        COVID-19 in Australia - Real-Time Report
       </h1>
       {/*<i>By Students from Monash</i>*/}
     </header>
@@ -495,12 +495,12 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function(results) {
+        complete: function (results) {
           // console.log("requested");
-          results.data.splice(0,1)
-            let sortedData = results.data.sort( (a, b) => {
-                return b[1] - a[1]
-            })
+          results.data.splice(0, 1)
+          let sortedData = results.data.sort((a, b) => {
+            return b[1] - a[1]
+          })
 
           setMyData(results.data);
         }
@@ -574,17 +574,17 @@ function App() {
                 {/*}*/}
               </Suspense>
               <Area area={area} onChange={setProvince} data={myData} />
-                <a
-                    style={{
-                      fontSize:'50%',
-                        float:'right',
-                        color:'lightgrey'
-                    }}
-                    href="https://www.theaustralian.com.au">
-                    Data: @The Australian
+              <a
+                style={{
+                  fontSize: '50%',
+                  float: 'right',
+                  color: 'lightgrey'
+                }}
+                href="https://www.theaustralian.com.au">
+                Data: @The Australian
                 </a>
-                <span style={{fontSize:'60%'}} className="due">
-        *Tested cases are updated daily.
+              <span style={{ fontSize: '60%' }} className="due">
+                *Number of tested cases is updated daily.
         </span>
             </div>
           </Grid>
@@ -599,9 +599,9 @@ function App() {
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Tweets province={province} />
           </Grid>
-            {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
-                {/*<News />*/}
-            {/*</Grid>*/}
+          {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
+          {/*<News />*/}
+          {/*</Grid>*/}
           <Grid item xs={12}>
             <ExposureSites />
           </Grid>
