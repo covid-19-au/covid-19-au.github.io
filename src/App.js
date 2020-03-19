@@ -586,13 +586,13 @@ function App() {
               <Area area={area} onChange={setProvince} data={myData} />
               <a
                 style={{
-                  fontSize: "50%",
+                  fontSize: "55",
                   float: "right",
                   color: "lightgrey"
                 }}
-                href="https://www.theaustralian.com.au"
+                href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
               >
-                Data: @The Australian
+                Data Source
               </a>
               <span style={{ fontSize: "60%" }} className="due">
                 *Tested cases are updated daily.
