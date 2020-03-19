@@ -1,46 +1,46 @@
 [
     {
-        "updateTime": "12:58 19/03/2020",
+        "updateTime": "15:24 19/03/2020",
         "rank": "0"
     },
     {
-        "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-covid19-victoria-funding-boost-for-hospitals/12069612",
-        "title": "Coronavirus funding boost of $437m for Victorian hospitals as University of Melbourne records first COVID-19 case",
-        "source": "ABC News",
+        "url": "https://www.afr.com/markets/equity-markets/asx-to-dive-again-as-rba-prepares-to-act-20200319-p54bku",
+        "title": "ASX dips lower; RBA cuts rate to 0.25pc",
+        "source": "FINANCIAL REVIEW",
         "date": "19 March 2020",
-        "time": "12:45pm",
+        "time": "14:58pm",
         "rank": "1"
     },
     {
-        "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-covid19-cases-in-nsw-victoria-queensland-sa-wa-tasmania-act-and-nt/news-story/e8c8797238bfc27d0bc25e7fa1903ae1",
-        "title": "Coronavirus Australia: COVID-19 cases in NSW, Victoria, Queensland, SA, WA, Tasmania, ACT and NT",
-        "source": "news.com.au",
+        "url": "https://7news.com.au/lifestyle/health-wellbeing/local-coronavirus-transmission-likely-in-new-south-wales-c-752775",
+        "title": "Local coronavirus transmission likely in New South Wales",
+        "source": "7 News",
         "date": "19 March 2020",
-        "time": "09:12am",
+        "time": "14:37pm",
         "rank": "2"
     },
     {
-        "url": "https://www.canberratimes.com.au/story/6686432/coronavirus-australia-responds-to-covid-19-thursday-march-19/",
-        "title": "Coronavirus: Australia responds to COVID-19, Thursday, March 19 ",
-        "source": "The Canberra Times",
+        "url": "https://www.fbcnews.com.fj/world/australia/six-year-old-youngest-nsw-case-yet/",
+        "title": "Six-year-old youngest NSW case yet",
+        "source": "FBC NEWS",
         "date": "19 March 2020",
-        "time": "09:00am",
+        "time": "14:02pm",
         "rank": "3"
     },
     {
-        "url": "https://www.nzherald.co.nz/world/news/article.cfm?c_id=2&objectid=12317984",
-        "title": "Coronavirus: Australia cases surge to more than 500 after NSW spike",
-        "source": "New Zealand Herald",
+        "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-distribution-problems-for-supermarket-suppliers/12066684",
+        "title": "Coronavirus isn't causing Australia to run out of food — but why are shelves still bare?",
+        "source": "ABC NEWS",
         "date": "19 March 2020",
-        "time": "08:51am",
+        "time": "13:46pm",
         "rank": "4"
     },
     {
-        "url": "https://www.smh.com.au/national/it-s-not-magical-pandemic-modeller-demystifies-australia-s-coronavirus-strategy-20200318-p54bfb.html",
-        "title": "'It's not magical': Pandemic modeller demystifies Australia's coronavirus strategy",
-        "source": "The Sydney Morning Herald",
+        "url": "https://www.abc.net.au/news/2020-03-19/government-restricts-prescriptions-amid-coronavirus-panic-buying/12070682",
+        "title": "Coronavirus panic-buying prompts restrictions on paracetamol, Ventolin, prescription medicines",
+        "source": "ABC NEWS",
         "date": "19 March 2020",
-        "time": "08:39am",
+        "time": "13:37pm",
         "rank": "5"
     }
 ]
