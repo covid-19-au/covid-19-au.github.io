@@ -379,10 +379,7 @@ function Fallback() {
   return (
     <div className="fallback">
       <div>
-        Forked From:{" "}
-        <a href="https://github.com/shfshanyue/2019-ncov">
-          shfshanyue/2019-ncov
-        </a>
+          Template credits to: shfshanyue
       </div>
 
       <div>
@@ -584,19 +581,21 @@ function App() {
                 {/*}*/}
               </Suspense>
               <Area area={area} onChange={setProvince} data={myData} />
+              <div style={{paddingBottom: '1rem'}}>
               <a
                 style={{
                   fontSize: "60%",
                   float: "right",
-                  color: "lightgrey"
+                  color: "blue"
                 }}
                 href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
               >
                 @Data Source
               </a>
-              <span style={{ fontSize: "60%" }} className="due">
+              <span style={{ fontSize: "60%",float:'left' }} className="due">
                 *Tested cases are updated daily.
               </span>
+              </div>
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
