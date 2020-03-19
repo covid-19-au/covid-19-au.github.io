@@ -178,29 +178,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Status Graph</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Historical Data</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -235,8 +235,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -321,7 +321,7 @@ function Stat({
     }
     let lastTotal =
       countryData[
-        Object.keys(countryData)[Object.keys(countryData).length - 1]
+      Object.keys(countryData)[Object.keys(countryData).length - 1]
       ];
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
@@ -379,7 +379,7 @@ function Fallback() {
   return (
     <div className="fallback">
       <div>
-          Template credits to: shfshanyue
+        Template credits to: shfshanyue
       </div>
 
       <div>
@@ -412,7 +412,7 @@ function Area({ area, onChange, data }) {
   const renderArea = () => {
     let latest =
       testedCases[
-        Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+      Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
 
     return data.map(x => (
@@ -531,13 +531,13 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
@@ -557,7 +557,7 @@ function App() {
             />
             <div className="card">
               <h2>
-                Infection Map {province ? `· ${province.name}` : false}
+                Cases by State {province ? `· ${province.name}` : false}
                 {province ? (
                   <small onClick={() => setProvince(null)}>Return</small>
                 ) : null}
@@ -583,19 +583,19 @@ function App() {
               </Suspense>
               <Area area={area} onChange={setProvince} data={myData} />
 
-              <div style={{paddingBottom: '1rem'}}>
-              <a
-                style={{
-                  fontSize: "60%",
-                  float: "right",
-                  color: "blue"
-                }}
-                href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-              >
-                @Data Source
+              <div style={{ paddingBottom: '1rem' }}>
+                <a
+                  style={{
+                    fontSize: "60%",
+                    float: "right",
+                    color: "blue"
+                  }}
+                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+                >
+                  @Data Source
               </a>
-              <span style={{ fontSize: "60%",float:'left' }} className="due">
-                *Number of tested cases is updated daily.
+                <span style={{ fontSize: "60%", float: 'left' }} className="due">
+                  *Number of tested cases is updated daily.
               </span>
               </div>
             </div>
