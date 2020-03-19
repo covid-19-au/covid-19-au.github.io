@@ -594,7 +594,7 @@ function App() {
                 >
                   @Data Source
               </a>
-                <span style={{ fontSize: "60%", float: 'left' }} className="due">
+                <span style={{ fontSize: "60%", float: 'left',paddingLeft:0 }} className="due">
                   *Number of tested cases is updated daily.
               </span>
               </div>
