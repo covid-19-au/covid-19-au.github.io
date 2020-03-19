@@ -329,6 +329,21 @@ function Flights({ flights }) {
   )
 }
 
+/**
+ * About card
+ */
+function About() {
+  return (
+    <div className="card">
+      <h2>About</h2>
+      <h4>Contact Information</h4>
+      <p>Place Holder</p>
+      <h4>Data Source Information</h4>
+      <p>Place holder</p>
+    </div>
+  )
+}
+
 function ExposureSites() {
   return <div></div>;
 }
@@ -641,6 +656,9 @@ function App() {
             </Grid>
             <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Flights flights={flights} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <About />
           </Grid>
           <Grid item xs={12}>
             <ExposureSites />
