@@ -1,57 +1,71 @@
 import React from 'react';
-import caseNews from "./data/timelinedata";
-import keyBy from "lodash.keyby";
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
-import "./Timeline.css"
+import "./NewsTimeline.css"
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+
+const jsonNews = require('./data/timelinedata.json')
+const timelineNews = jsonNews["news"]
+const updateTime = jsonNews["updateTime"]
+
+const listStyles = {
+    maxHeight: 500,
+    position: 'relative',
+    overflow: 'auto',
+    minHeight: 500,
+    marginRight: 0,
+    padding: 0
+}
+
+const newestColour = "#8e44ad"
+const middleColour = "#ec7063"
+const oldestColour = "#f5b7b1"
+
+
+const newsLength = timelineNews.length
+
+const newestNews = timelineNews.slice(0, newsLength / 3)
+const middleNews = timelineNews.slice(newsLength / 3, newsLength * 2 / 3)
+const oldestNews = timelineNews.slice(newsLength * 2 / 3, newsLength)
 
 function NewsTimeline() {
-    const timelineNews = keyBy(caseNews, "rank");
+
     return (
         <div className="card">
             <h2>News Timeline</h2>
             <Timeline lineColor={'#ddd'}>
-                <TimelineItem
-                    key="001"
-                    dateText={timelineNews["1"].date + " " + timelineNews["1"].time}
-                    dateInnerStyle={{ background: '#cb4335' }}
-                    style={{ color: '#61b8ff' }}
-                ><a href={timelineNews["1"].url}> <h3 style={{ color: ' #2980b9 ' }} >{timelineNews["1"].title}</h3></a>
-                    <h4 style={{ color: ' #5d6d7e ' }}>{timelineNews["1"].source}</h4>
-                </TimelineItem>
-                <TimelineItem
-                    key="002"
-                    dateText={timelineNews["2"].date + " " + timelineNews["2"].time}
-                    dateInnerStyle={{ background: '#e74c3c' }}
-                    style={{ color: '#61b8ff' }}
-                ><a href={timelineNews["2"].url}> <h3 style={{ color: ' #2980b9 ' }}>{timelineNews["2"].title}</h3></a>
-                    <h4 style={{ color: ' #5d6d7e ' }}>{timelineNews["2"].source}</h4>
-                </TimelineItem>
-                <TimelineItem
-                    key="003"
-                    dateText={timelineNews["3"].date + " " + timelineNews["3"].time}
-                    dateInnerStyle={{ background: '#ec7063' }}
-                    style={{ color: '#61b8ff' }}
-                ><a href={timelineNews["3"].url}> <h3 style={{ color: ' #2980b9 ' }}>{timelineNews["3"].title}</h3></a>
-                    <h4 style={{ color: ' #5d6d7e ' }}>{timelineNews["3"].source}</h4>
-                </TimelineItem>
-                <TimelineItem
-                    key="004"
-                    dateText={timelineNews["4"].date + " " + timelineNews["4"].time}
-                    dateInnerStyle={{ background: '#f1948a' }}
-                    style={{ color: '#61b8ff' }}
-                ><a href={timelineNews["4"].url}> <h3 style={{ color: ' #2980b9 ' }}>{timelineNews["4"].title}</h3></a>
-                    <h4 style={{ color: ' #5d6d7e ' }}>{timelineNews["4"].source}</h4>
-                </TimelineItem>
-                <TimelineItem
-                    key="005"
-                    dateText={timelineNews["5"].date + " " + timelineNews["5"].time}
-                    dateInnerStyle={{ background: '#f5b7b1' }}
-                    style={{ color: '#61b8ff' }}
-                ><a href={timelineNews["5"].url}> <h3 style={{ color: ' #2980b9 ' }}>{timelineNews["5"].title}</h3></a>
-                    <h4 style={{ color: ' #5d6d7e ' }}>{timelineNews["5"].source}</h4>
-                </TimelineItem>
+                <List style={listStyles}>
+                    {newestNews.map(news =>
+                        <TimelineItem
+                            key={timelineNews.indexOf(news)}
+                            dateText={news.date + " " + news.time}
+                            dateInnerStyle={{ background: "#cb4335" }}>
+                            <a href={news.url}> <h4 style={{ color: ' #2980b9 ' }} >{news.title}</h4></a>
+                            <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
+                        </TimelineItem>)
+                    }
+                    {middleNews.map(news =>
+                        <TimelineItem
+                            key={timelineNews.indexOf(news)}
+                            dateText={news.date + " " + news.time}
+                            dateInnerStyle={{ background: "#ec7063" }}>
+                            <a href={news.url}> <h4 style={{ color: ' #2980b9 ' }} >{news.title}</h4></a>
+                            <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
+                        </TimelineItem>)
+                    }
+                    {oldestNews.map(news =>
+                        <TimelineItem
+                            key={timelineNews.indexOf(news)}
+                            dateText={news.date + " " + news.time}
+                            dateInnerStyle={{ background: "#f5b7b1" }}>
+                            <a href={news.url}> <h4 style={{ color: ' #2980b9 ' }} >{news.title}</h4></a>
+                            <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
+                        </TimelineItem>)
+                    }
+
+                </List>
             </Timeline >
-            <span className="due">Time in AEDT, last updated at {timelineNews["0"].updateTime}</span>
+            <span className="due">Time in AEDT, last updated at {updateTime[0].time}</span>
 
 
         </div >

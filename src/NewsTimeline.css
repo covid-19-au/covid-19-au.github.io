@@ -15,7 +15,7 @@
     content: "";
     position: absolute;
     top: 0px;
-    left: calc(33% - 40px);
+    left: calc(27% - 3px);
     bottom: 10px;
     width: 0px;
     border: 2px solid;
@@ -24,12 +24,6 @@
     content: "";
     display: table;
     clear: both;
-  }
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .timeline:before {
-      left: calc(1% + 6px);
-    }
   }
 .body-container {
     position: relative;
@@ -52,7 +46,7 @@
     background: #ddd;
     padding: 1px;
     -webkit-clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    clip-path: polygon(0% 20%, 95% 20%, 100% 50%, 95% 85%, 0% 85%);
     height: 52px;  
     box-sizing: border-box;
     width: 70%;
@@ -107,7 +101,7 @@
     background-color: #ffffff;
     border-radius: 100%;
     top: 15%;
-    right: 38px;
+    right: calc(16% - 1px);
     z-index: 99;
     box-sizing: content-box;
   }
@@ -124,6 +118,12 @@
 .entry .body h1, .entry .body h2, .entry .body h3, .entry .body h4, .entry .body h5, .entry .body h6 {
     margin: 0;
   }
+.entry .body h5{
+  font-size: 0.8em
+}
+.entry .body h4{
+  font-size: 1.1em
+}
 .entry .body p:first-child {
     margin-top: 0;
     font-weight: 400;
@@ -177,9 +177,59 @@
       transform: scale(1);
     }
   }
-  
-@media only screen and (max-width: 767px) {
-  /* For mobile phones: */
+  @media only screen and (max-width: 1366px) {
+    /* for medium screens (max-width corresponds to iPad Pro);: */
+    .timeline:before {
+      left: calc(32%);
+    }
+    .entry .body {
+      margin: 0 0 3em;
+      float: right;
+      width: 63%;
+      color: #333;
+      margin-bottom: 25px;
+    } 
+  .entry .title:before {
+    top: 0%;
+    right: 3px;
+    z-index: 99;
+  }
+  .timeline-item-date {
+    position: absolute;
+    top: -15px;
+    left: 0px;
+    background: #ddd;
+    padding: 1px;
+    -webkit-clip-path: polygon(0% 20%, 95% 20%, 100% 50%, 95% 80%, 0% 80%);
+    clip-path: polygon(0% 20%, 95% 20%, 100% 50%, 95% 80%, 0% 80%);
+    height: 52px;  
+    box-sizing: border-box;
+    width: 80%;
+  }
+.timeline-item-dateinner {
+    background: #e86971;
+    color: #fff;
+    padding: 0;
+    font-size: 'auto';
+    font-weight: bold;
+    margin: 0;
+    border-right-color: transparent;
+    -webkit-clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    height: 50px;
+    width: 100%;
+    display: block;
+    line-height: 52px;
+    text-indent: 15px;
+  }
+}
+
+
+@media only screen and (max-width: 960px) {
+  /* For small screens*/
+  .timeline:before {
+    left: calc(1% + 3px);
+  }
   .entry .title {
     float: left;
     width: 70%;
@@ -196,12 +246,13 @@
     clip-path: polygon(0% 0%, 75% 0%, 80% 34%, 75% 64%, 0% 64%);
     height: 52px;  
     box-sizing: border-box;
+    width: 45%
   }
   .timeline-item-dateinner {
     background: #e86971;
     color: #fff;
     padding: 0;
-    font-size: auto;
+    font-size: 1.2ex;
     font-weight: bold;
     margin: 0;
     border-right-color: transparent;
@@ -229,9 +280,15 @@
   position: relative;
   left: -30px;
   }
+  .entry .body h5{
+    font-size: 0.8em
   }
-  @media only screen and (max-width: 420px) {
-    /* For mobile phones with screen width under 375px: */
+  .entry .body h4{
+    font-size: 1.2em
+  }
+  }
+  @media only screen and (max-width: 600px) {
+    /* For extra small screens: */
     .timeline-item-date {
       margin-left: 30px;
       top: -11px;
@@ -242,8 +299,8 @@
       clip-path: polygon(0% 0%, 90% 0%, 100% 34%, 90% 64%, 0% 64%);
       height: 52px;  
       box-sizing: border-box;
+      width: 70%;
     }
-    
   .timeline-item-dateinner {
     background: #e86971;
     color: #fff;
@@ -260,6 +317,28 @@
     line-height: 33px;
     text-indent: 4px;
   }
+  .body-container {
+    position: relative;
+    left: -30px;
+    width: 90%;
+    margin-right: 0px
+    }
+  .timeline:before {
+    left: calc(1% + 6px);
   }
+  .entry .body h5{
+    font-size: 0.6em
+  }
+  .entry .body h4{
+    font-size: 1em
+  }
+  }
+  @media only screen and (max-width: 374px) {
+    /* For mobile phones with screen width under 374px: */
+    .timeline-item-date {
+      width: 85%;
+    }
+  }
+
 
   

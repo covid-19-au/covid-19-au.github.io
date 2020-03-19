@@ -138,7 +138,7 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Australian COVID-19 Trend",
+        text: "Trends for COVID-19 Cases in Australia ",
         fontSize: 20
       },
       legend: {
@@ -156,7 +156,7 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Australia Covid-19 New Cases vs Deaths Chart (last two weeks)",
+        text: "Daily new cases and deaths in Australia (2-week period)",
         fontSize: 20
       },
       legend: {
@@ -337,7 +337,7 @@ function Stat({
     <div className="card">
       <h2>
         Status {name ? `· ${name}` : false}
-        <span className="due">Update Hourly</span>
+        <span className="due">Updated Hourly</span>
       </h2>
       <div className="row">
         <Tag
@@ -393,7 +393,7 @@ function Fallback() {
         <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
           volunteer team
         </a>{" "}
-        from Faculty of IT, Monash University for non-commercial use only.
+        from the Faculty of IT, Monash University, for non-commercial use only.
       </div>
       <div>
         <a href="https://www.webfreecounter.com/" target="_blank">
@@ -447,7 +447,7 @@ function Area({ area, onChange, data }) {
         <div className="confirmed header">Confirmed</div>
         <div className="death header">Death</div>
         <div className="cured header">Recovered</div>
-        <div className="tested header">*Tested</div>
+        <div className="tested header">Tested*</div>
       </div>
       {renderArea()}
     </>
@@ -463,7 +463,7 @@ function Header({ province }) {
           fontSize: "120%"
         }}
       >
-        COVID-19 Real-time Report in Australia
+        COVID-19 in Australia - Real-Time Report
       </h1>
       {/*<i>By Students from Monash</i>*/}
     </header>
@@ -505,8 +505,9 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function(results) {
+        complete: function (results) {
           // console.log("requested");
+
           results.data.splice(0, 1);
           let sortedData = results.data.sort((a, b) => {
             return b[1] - a[1];
@@ -581,6 +582,7 @@ function App() {
                 {/*}*/}
               </Suspense>
               <Area area={area} onChange={setProvince} data={myData} />
+
               <div style={{paddingBottom: '1rem'}}>
               <a
                 style={{
@@ -593,7 +595,7 @@ function App() {
                 @Data Source
               </a>
               <span style={{ fontSize: "60%",float:'left' }} className="due">
-                *Tested cases are updated daily.
+                *Number of tested cases is updated daily.
               </span>
               </div>
             </div>

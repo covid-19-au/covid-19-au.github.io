@@ -1,46 +1,121 @@
-[
-    {
-        "updateTime": "20:10 19/03/2020",
-        "rank": "0"
-    },
-    {
-        "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-queensland-cases-rise-50-in-one-day/12070902",
-        "title": "Queensland's COVID-19 cases rise 50 in one day taking total to 144",
-        "source": "ABC News",
-        "date": "19 March 2020",
-        "time": "06:43pm",
-        "rank": "1"
-    },
-    {
-        "url": "https://www.9news.com.au/national/coronavirus-australia-closes-borders-non-citizens-covid-19-pandemic-scott-morrison/479bfc5a-02d1-4756-a589-04737dfce352",
-        "title": "Australia shuts borders to all non-citizens, residents and direct family members",
-        "source": "9 News",
-        "date": "19 March 2020",
-        "time": "04:24pm",
-        "rank": "2"
-    },
-    {
-        "url": "https://www.dailytelegraph.com.au/news/nsw/coronavirus-nsw-live-updates-sixth-person-dies-from-covid19-in-australia/live-coverage/2f42b6e7d478f21c7d757dbe55254d0a",
-        "title": "Coronavirus NSW live updates: Cases rise to 307",
-        "source": "Daily Telegraph",
-        "date": "19 March 2020",
-        "time": "04:20pm",
-        "rank": "3"
-    },
-    {
-        "url": "https://www.afr.com/markets/equity-markets/asx-to-dive-again-as-rba-prepares-to-act-20200319-p54bku",
-        "title": "ASX dips lower; RBA cuts rate to 0.25pc",
-        "source": "Australian Financial Review",
-        "date": "19 March 2020",
-        "time": "02:58pm",
-        "rank": "4"
-    },
-    {
-        "url": "https://7news.com.au/lifestyle/health-wellbeing/local-coronavirus-transmission-likely-in-new-south-wales-c-752775",
-        "title": "Local coronavirus transmission likely in New South Wales",
-        "source": "7 News",
-        "date": "19 March 2020",
-        "time": "02:37pm",
-        "rank": "5"
-    }
-]
+{
+    "updateTime": [
+        {
+            "time": "21:07 19/03/2020"
+        }
+    ],
+    "news": [
+        {
+            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-community-transmission-wa-as-17-new-cases/12072092",
+            "title": "WA coronavirus community transmission begins as 17 new COVID-19 cases reported",
+            "source": "ABC News",
+            "date": "19 March 2020",
+            "time": "8:29pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-queensland-cases-rise-50-in-one-day/12070902",
+            "title": "Queensland's COVID-19 cases rise 50 in one day taking total to 144",
+            "source": "ABC News",
+            "date": "19 March 2020",
+            "time": "6:43pm"
+        },
+        {
+            "url": "https://www.9news.com.au/national/coronavirus-australia-closes-borders-non-citizens-covid-19-pandemic-scott-morrison/479bfc5a-02d1-4756-a589-04737dfce352",
+            "title": "Australia shuts borders to all non-citizens, residents and direct family members",
+            "source": "9 News",
+            "date": "19 March 2020",
+            "time": "4:24pm"
+        },
+        {
+            "url": "https://www.dailytelegraph.com.au/news/nsw/coronavirus-nsw-live-updates-sixth-person-dies-from-covid19-in-australia/live-coverage/2f42b6e7d478f21c7d757dbe55254d0a",
+            "title": "Coronavirus NSW live updates: Cases rise to 307",
+            "source": "Daily Telegraph",
+            "date": "19 March 2020",
+            "time": "4:20pm"
+        },
+        {
+            "url": "https://www.afr.com/markets/equity-markets/asx-to-dive-again-as-rba-prepares-to-act-20200319-p54bku",
+            "title": "ASX dips lower; RBA cuts rate to 0.25pc",
+            "source": "FINANCIAL REVIEW",
+            "date": "19 March 2020",
+            "time": "2:58pm"
+        },
+        {
+            "url": "https://7news.com.au/lifestyle/health-wellbeing/local-coronavirus-transmission-likely-in-new-south-wales-c-752775",
+            "title": "Local coronavirus transmission likely in New South Wales",
+            "source": "7 News",
+            "date": "19 March 2020",
+            "time": "2:37pm"
+        },
+        {
+            "url": "https://www.fbcnews.com.fj/world/australia/six-year-old-youngest-nsw-case-yet/",
+            "title": "Six-year-old youngest NSW case yet",
+            "source": "FBC NEWS",
+            "date": "19 March 2020",
+            "time": "2:02pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-distribution-problems-for-supermarket-suppliers/12066684",
+            "title": "Coronavirus isn't causing Australia to run out of food — but why are shelves still bare?",
+            "source": "ABC NEWS",
+            "date": "19 March 2020",
+            "time": "1:46pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-19/government-restricts-prescriptions-amid-coronavirus-panic-buying/12070682",
+            "title": "Coronavirus panic-buying prompts restrictions on paracetamol, Ventolin, prescription medicines",
+            "source": "ABC NEWS",
+            "date": "19 March 2020",
+            "time": "1:37pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-covid19-victoria-funding-boost-for-hospitals/12069612",
+            "title": "Coronavirus funding boost of $437m for Victorian hospitals as University of Melbourne records first COVID-19 case",
+            "source": "ABC News",
+            "date": "19 March 2020",
+            "time": "12:45pm"
+        },
+        {
+            "url": "https://www.news.com.au/travel/travel-updates/health-safety/qantas-cancels-all-international-flights/news-story/14d299feb2609c9e13d45033a278f93d",
+            "title": "Qantas cancels international flights, stands down staff amid coronavirus outbreak",
+            "source": "news.com.au",
+            "date": "19 March 2020",
+            "time": "10:52am"
+        },
+        {
+            "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-covid19-cases-in-nsw-victoria-queensland-sa-wa-tasmania-act-and-nt/news-story/e8c8797238bfc27d0bc25e7fa1903ae1",
+            "title": "Coronavirus Australia: COVID-19 cases in NSW, Victoria, Queensland, SA, WA, Tasmania, ACT and NT",
+            "source": "news.com.au",
+            "date": "19 March 2020",
+            "time": "09:12am"
+        },
+        {
+            "url": "https://www.canberratimes.com.au/story/6686432/coronavirus-australia-responds-to-covid-19-thursday-march-19/",
+            "title": "Coronavirus: Australia responds to COVID-19, Thursday, March 19 ",
+            "source": "The Canberra Times",
+            "date": "19 March 2020",
+            "time": "09:00am"
+        },
+        {
+            "url": "https://www.nzherald.co.nz/world/news/article.cfm?c_id=2&objectid=12317984",
+            "title": "Coronavirus: Australia cases surge to more than 500 after NSW spike",
+            "source": "New Zealand Herald",
+            "date": "19 March 2020",
+            "time": "08:51am"
+        },
+        {
+            "url": "https://www.smh.com.au/national/it-s-not-magical-pandemic-modeller-demystifies-australia-s-coronavirus-strategy-20200318-p54bfb.html",
+            "title": "'It's not magical': Pandemic modeller demystifies Australia's coronavirus strategy",
+            "source": "The Sydney Morning Herald",
+            "date": "19 March 2020",
+            "time": "08:39am"
+        },
+        {
+            "url": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/coronavirus-covid-19-current-situation-and-case-numbers",
+            "title": "Coronavirus (COVID-19) current situation and case numbers",
+            "source": "Australian Government Department of Health",
+            "date": "19 March 2020",
+            "time": "6:30am"
+        }
+    ]
+}
