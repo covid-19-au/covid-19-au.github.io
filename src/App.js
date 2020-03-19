@@ -409,12 +409,16 @@ function Fallback() {
 }
 
 function Area({ area, onChange, data }) {
+  let totalRecovered = 0
+    for(let i = 0; i < data.length; i++){
+      totalRecovered += parseInt(data[i][3])
+    }
+
   const renderArea = () => {
     let latest =
       testedCases[
       Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
-
     return data.map(x => (
       <div className="province" key={x.name || x.cityName}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
@@ -450,6 +454,24 @@ function Area({ area, onChange, data }) {
         <div className="tested header">Tested*</div>
       </div>
       {renderArea()}
+      {totalRecovered>25?null:(
+          <div className="province" >
+          <div className={"area"}>
+              <strong>TBD</strong>
+          </div>
+          <div className="confirmed">
+          <strong>0</strong>
+          </div>
+          <div className="death">
+          <strong>0</strong>
+          </div>
+          <div className="cured">
+          <strong>21</strong>
+          </div>
+          <div className="tested">0</div>
+          </div>
+          )
+      }
     </>
   );
 }
