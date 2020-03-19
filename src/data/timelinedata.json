@@ -1,14 +1,14 @@
 [
     {
-        "updateTime": "12:47 19/03/2020",
+        "updateTime": "12:58 19/03/2020",
         "rank": "0"
     },
     {
-        "url": "https://www.afr.com/politics/federal/australian-cases-jump-24pc-in-a-day-afl-season-kicks-off-tonight-20200319-p54bkr",
-        "title": "NSW reports 40 more virus cases; Qantas says union is 'out of touch'",
-        "source": "The Australian Financial Review",
+        "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-covid19-victoria-funding-boost-for-hospitals/12069612",
+        "title": "Coronavirus funding boost of $437m for Victorian hospitals as University of Melbourne records first COVID-19 case",
+        "source": "ABC News",
         "date": "19 March 2020",
-        "time": "12:30pm",
+        "time": "12:45pm",
         "rank": "1"
     },
     {
@@ -16,31 +16,31 @@
         "title": "Coronavirus Australia: COVID-19 cases in NSW, Victoria, Queensland, SA, WA, Tasmania, ACT and NT",
         "source": "news.com.au",
         "date": "19 March 2020",
-        "time": "9:12am",
+        "time": "09:12am",
         "rank": "2"
+    },
+    {
+        "url": "https://www.canberratimes.com.au/story/6686432/coronavirus-australia-responds-to-covid-19-thursday-march-19/",
+        "title": "Coronavirus: Australia responds to COVID-19, Thursday, March 19 ",
+        "source": "The Canberra Times",
+        "date": "19 March 2020",
+        "time": "09:00am",
+        "rank": "3"
     },
     {
         "url": "https://www.nzherald.co.nz/world/news/article.cfm?c_id=2&objectid=12317984",
         "title": "Coronavirus: Australia cases surge to more than 500 after NSW spike",
         "source": "New Zealand Herald",
         "date": "19 March 2020",
-        "time": "8:51am",
-        "rank": "3"
-    },
-    {
-        "url": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-cases-continue-to-climb-nationally-and-globally-c-751496",
-        "title": "Coronavirus cases continue to climb nationally and globally",
-        "source": "7 NEWS",
-        "date": "18 March 2020",
-        "time": "8:07pm",
+        "time": "08:51am",
         "rank": "4"
     },
     {
-        "url": "https://7news.com.au/sport/rugby-union/dozens-warned-after-sydney-university-rugby-player-tests-positive-for-covid-19-c-751281",
-        "title": "Dozens warned after Sydney University rugby player tests positive for COVID-19",
-        "source": "7 NEWS",
-        "date": "18 March 2020",
-        "time": "6:55pm",
+        "url": "https://www.smh.com.au/national/it-s-not-magical-pandemic-modeller-demystifies-australia-s-coronavirus-strategy-20200318-p54bfb.html",
+        "title": "'It's not magical': Pandemic modeller demystifies Australia's coronavirus strategy",
+        "source": "The Sydney Morning Herald",
+        "date": "19 March 2020",
+        "time": "08:39am",
         "rank": "5"
     }
 ]
