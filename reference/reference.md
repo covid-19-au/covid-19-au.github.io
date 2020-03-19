@@ -9,11 +9,13 @@ The Australian: https://www.theaustralian.com.au
 ## Tested Numbers:
 
 - NSW: https://www.health.nsw.gov.au/news/Pages/default.aspx
-- VIC: https://www2.health.vic.gov.au/about/media-centre/mediareleases
+- VIC: https://www.dhhs.vic.gov.au/media-hub-coronavirus-disease-covid-19
 - QLD: https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts
 - WA: https://ww2.health.wa.gov.au/News/Media-releases-listing-page
 - SA: https://www.sahealth.sa.gov.au/wps/wcm/connect/Public+Content/SA+Health+Internet/About+us/News+and+media/all+media+releases/
 - ACT: https://www.health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19
+- NT: https://securent.nt.gov.au/alerts/coronavirus-covid-19-updates
+- TAS: https://www.dhhs.tas.gov.au/news/2020
 
 ## Hospitals and Exposure Sites
 
