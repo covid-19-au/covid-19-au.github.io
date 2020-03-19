@@ -118,6 +118,12 @@
 .entry .body h1, .entry .body h2, .entry .body h3, .entry .body h4, .entry .body h5, .entry .body h6 {
     margin: 0;
   }
+.entry .body h5{
+  font-size: 0.8em
+}
+.entry .body h4{
+  font-size: 1.1em
+}
 .entry .body p:first-child {
     margin-top: 0;
     font-weight: 400;
@@ -172,9 +178,9 @@
     }
   }
   @media only screen and (max-width: 1366px) {
-    /* for large tablets (max-width corresponds to iPad Pro;: */
+    /* for medium screens (max-width corresponds to iPad Pro);: */
     .timeline:before {
-      left: calc(32%);
+      left: calc(31%);
     }
     .entry .body {
       margin: 0 0 3em;
@@ -194,8 +200,8 @@
     left: 0px;
     background: #ddd;
     padding: 1px;
-    -webkit-clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0% 20%, 95% 20%, 100% 50%, 95% 80%, 0% 80%);
+    clip-path: polygon(0% 20%, 95% 20%, 100% 50%, 95% 80%, 0% 80%);
     height: 52px;  
     box-sizing: border-box;
     width: 80%;
@@ -219,10 +225,10 @@
   }
 
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
+@media only screen and (max-width: 960px) {
+  /* For small screens*/
   .timeline:before {
-    left: calc(1% + 6px);
+    left: calc(1% + 3px);
   }
   .entry .title {
     float: left;
@@ -275,8 +281,8 @@
   left: -30px;
   }
   }
-  @media only screen and (max-width: 420px) {
-    /* For mobile phones with screen width under 420px: */
+  @media only screen and (max-width: 600px) {
+    /* For extra small screens: */
     .timeline-item-date {
       margin-left: 30px;
       top: -11px;
@@ -311,9 +317,12 @@
     width: 90%;
     margin-right: 0px
     }
+  .timeline:before {
+    left: calc(1% + 6px);
+  }
   }
   @media only screen and (max-width: 374px) {
-    /* For mobile phones with screen width under 375px: */
+    /* For mobile phones with screen width under 374px: */
     .timeline-item-date {
       width: 85%;
     }

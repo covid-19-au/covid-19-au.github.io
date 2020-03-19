@@ -1,6 +1,6 @@
 import React from 'react';
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
-import "./Timeline.css"
+import "./NewsTimeline.css"
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
@@ -33,8 +33,8 @@ function NewsTimeline() {
                             dateText={news.date + " " + news.time}
                             dateInnerStyle={{ background: '#cb4335' }}
                             style={{ color: '#61b8ff' }}>
-                            <a href={news.url}> <h3 style={{ color: ' #2980b9 ' }} >{news.title}</h3></a>
-                            <h4 style={{ color: ' #5d6d7e ' }}>{news.source}</h4>
+                            <a href={news.url}> <h4 style={{ color: ' #2980b9 ' }} >{news.title}</h4></a>
+                            <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
                         </TimelineItem>)
                     }
                 </List>
