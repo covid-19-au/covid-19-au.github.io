@@ -46,7 +46,7 @@
     background: #ddd;
     padding: 1px;
     -webkit-clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    clip-path: polygon(0% 20%, 95% 20%, 100% 50%, 95% 85%, 0% 85%);
     height: 52px;  
     box-sizing: border-box;
     width: 70%;

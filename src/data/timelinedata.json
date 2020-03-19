@@ -6,6 +6,13 @@
     ],
     "news": [
         {
+            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-community-transmission-wa-as-17-new-cases/12072092",
+            "title": "WA coronavirus community transmission begins as 17 new COVID-19 cases reported",
+            "source": "ABC News",
+            "date": "19 March 2020",
+            "time": "8:29pm"
+        },
+        {
             "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-queensland-cases-rise-50-in-one-day/12070902",
             "title": "Queensland's COVID-19 cases rise 50 in one day taking total to 144",
             "source": "ABC News",
