@@ -252,7 +252,7 @@
     background: #e86971;
     color: #fff;
     padding: 0;
-    font-size: 1ex;
+    font-size: 1.2ex;
     font-weight: bold;
     margin: 0;
     border-right-color: transparent;
@@ -279,6 +279,12 @@
   .body-container {
   position: relative;
   left: -30px;
+  }
+  .entry .body h5{
+    font-size: 0.8em
+  }
+  .entry .body h4{
+    font-size: 1.2em
   }
   }
   @media only screen and (max-width: 600px) {

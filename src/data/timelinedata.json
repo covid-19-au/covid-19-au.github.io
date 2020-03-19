@@ -1,10 +1,31 @@
 {
     "updateTime": [
         {
-            "time": "12:58 19/03/2020"
+            "time": "21:07 19/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-queensland-cases-rise-50-in-one-day/12070902",
+            "title": "Queensland's COVID-19 cases rise 50 in one day taking total to 144",
+            "source": "ABC News",
+            "date": "19 March 2020",
+            "time": "18:43pm"
+        },
+        {
+            "url": "https://www.9news.com.au/national/coronavirus-australia-closes-borders-non-citizens-covid-19-pandemic-scott-morrison/479bfc5a-02d1-4756-a589-04737dfce352",
+            "title": "Australia shuts borders to all non-citizens, residents and direct family members",
+            "source": "9 News",
+            "date": "19 March 2020",
+            "time": "16:24pm"
+        },
+        {
+            "url": "https://www.dailytelegraph.com.au/news/nsw/coronavirus-nsw-live-updates-sixth-person-dies-from-covid19-in-australia/live-coverage/2f42b6e7d478f21c7d757dbe55254d0a",
+            "title": "Coronavirus NSW live updates: Cases rise to 307",
+            "source": "Daily Telegraph",
+            "date": "19 March 2020",
+            "time": "16:20pm"
+        },
         {
             "url": "https://www.afr.com/markets/equity-markets/asx-to-dive-again-as-rba-prepares-to-act-20200319-p54bku",
             "title": "ASX dips lower; RBA cuts rate to 0.25pc",
@@ -81,34 +102,6 @@
             "source": "The Sydney Morning Herald",
             "date": "19 March 2020",
             "time": "08:39am"
-        },
-        {
-            "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-live-updates-tougher-crowd-measures-expected-as-virus-cases-surpass-450/live-coverage/8111dfa0aa77a938681d17c79839e383",
-            "title": "Coronavirus Australia live updates: 'Disruptive' COVID-19 measures to last 'at least' six months, top doc says",
-            "source": "news.com.au",
-            "date": "18 March 2020",
-            "time": "09:20pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-18/coronavirus-vaccine-human-trial-covid19-immunity-hopes/12067024",
-            "title": "A coronavirus vaccine trial in humans has begun. When could a COVID-19 shot be available?",
-            "source": "ABC News",
-            "date": "18 March 2020",
-            "time": "05:40pm"
-        },
-        {
-            "url": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-death-sixth-australian-dies-from-the-virus-c-750988",
-            "title": "Coronavirus death: Sixth Australian dies from the virus",
-            "source": "7 News",
-            "date": "18 March 2020",
-            "time": "04:10pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-18/virgin-australia-grounds-international-fleet-amid-coronavirus/12065864",
-            "title": "Virgin Australia grounds international fleet amid coronavirus pandemic",
-            "source": "ABC News",
-            "date": "18 March 2020",
-            "time": "01:24pm"
         }
     ]
 }
