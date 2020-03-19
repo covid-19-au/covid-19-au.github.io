@@ -1,46 +1,46 @@
 [
     {
-        "updateTime": "15:24 19/03/2020",
+        "updateTime": "16:10 19/03/2020",
         "rank": "0"
+    },
+    {
+        "url": "https://health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19/latest-news",
+        "title": "The ACT confirms its 4th confirmed case of Covid-19",
+        "source": "ACT Health",
+        "date": "19 March 2020",
+        "time": "04:06pm",
+        "rank": "1"
     },
     {
         "url": "https://www.afr.com/markets/equity-markets/asx-to-dive-again-as-rba-prepares-to-act-20200319-p54bku",
         "title": "ASX dips lower; RBA cuts rate to 0.25pc",
         "source": "FINANCIAL REVIEW",
         "date": "19 March 2020",
-        "time": "14:58pm",
-        "rank": "1"
+        "time": "02:58pm",
+        "rank": "2"
     },
     {
         "url": "https://7news.com.au/lifestyle/health-wellbeing/local-coronavirus-transmission-likely-in-new-south-wales-c-752775",
         "title": "Local coronavirus transmission likely in New South Wales",
         "source": "7 News",
         "date": "19 March 2020",
-        "time": "14:37pm",
-        "rank": "2"
+        "time": "02:37pm",
+        "rank": "3"
     },
     {
         "url": "https://www.fbcnews.com.fj/world/australia/six-year-old-youngest-nsw-case-yet/",
         "title": "Six-year-old youngest NSW case yet",
         "source": "FBC NEWS",
         "date": "19 March 2020",
-        "time": "14:02pm",
-        "rank": "3"
+        "time": "02:02pm",
+        "rank": "4"
     },
     {
         "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-distribution-problems-for-supermarket-suppliers/12066684",
         "title": "Coronavirus isn't causing Australia to run out of food — but why are shelves still bare?",
         "source": "ABC NEWS",
         "date": "19 March 2020",
-        "time": "13:46pm",
-        "rank": "4"
-    },
-    {
-        "url": "https://www.abc.net.au/news/2020-03-19/government-restricts-prescriptions-amid-coronavirus-panic-buying/12070682",
-        "title": "Coronavirus panic-buying prompts restrictions on paracetamol, Ventolin, prescription medicines",
-        "source": "ABC NEWS",
-        "date": "19 March 2020",
-        "time": "13:37pm",
+        "time": "01:46pm",
         "rank": "5"
     }
 ]
