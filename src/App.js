@@ -460,15 +460,15 @@ function Area({ area, onChange, data }) {
               <strong>TBD</strong>
           </div>
           <div className="confirmed">
-          <strong>0</strong>
+          <strong></strong>
           </div>
           <div className="death">
-          <strong>0</strong>
+          <strong></strong>
           </div>
           <div className="cured">
           <strong>21</strong>
           </div>
-          <div className="tested">0</div>
+          <div className="tested"></div>
           </div>
           )
       }
