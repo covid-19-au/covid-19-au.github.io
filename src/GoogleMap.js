@@ -143,10 +143,12 @@ function GoogleMap ({ province, newData }) {
       return {
           region: 'AU', // Africa
           colorAxis: { colors: [
+                    '#ffefef',
                   '#ffc0b1',
                   '#ff8c71',
                   '#ef1717',
-                  '#9c0505'] },
+                  // '#9c0505'
+              ] },
           backgroundColor: 'white',
           datalessRegionColor: 'rgb(216,221,224)',
           defaultColor: '#f5f5f5',

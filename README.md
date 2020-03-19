@@ -21,6 +21,7 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 * Han Wang: freddie.wanah@gmail.com
 * Chao Wu:  cwuu0025@student.monash.edu 
 * Paldeep Singh: psin49@student.monash.edu 
+* Boxuan Lu: bluu0010@student.monash.edu
 
 ### PM
 * Chunyang Chen: Chunyang.Chen@monash.edu
@@ -31,6 +32,9 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 * Jinghan Zhang jzha0314@student.monash.edu
 * Richard Yang ryan28@student.monash.edu
 
+### News Collection
+* Dabao Wang dwan178@student.monash.edu
+* Mahesh Hase mhas0033@student.monash.edu
 
 ## Contact
 You can contact us by:
