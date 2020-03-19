@@ -289,11 +289,30 @@ function Tweets({ province }) {
   );
 }
 
+/**
+ * User can search using flight number
+ * @param {JSON} flights flights information 
+ */
 function Flights({ flights }) {
   const [searchKey, setSearchKey] = useState('');
-
   useEffect(() => {
-    console.log("searching...");
+    document.getElementById("flightResult").innerHTML = "";
+    if (searchKey === '') {
+      document.getElementById("flightResult").innerHTML = "";
+      return;
+    }
+    for (var i = 0; i < flights.length; i++) {
+      let flight = flights[i];
+      let flightNo = flight.flightNo;
+      if (flightNo.includes(searchKey)) {
+        document.getElementById("flightResult").innerHTML += flight.flightNo + ", ";
+        document.getElementById("flightResult").innerHTML += flight.airline + ", ";
+        document.getElementById("flightResult").innerHTML += flight.path + ", ";
+        document.getElementById("flightResult").innerHTML += flight.dateArrival + ", ";
+        document.getElementById("flightResult").innerHTML += flight.closeContactRow + ", ";
+        document.getElementById("flightResult").innerHTML += flight.sourceState + "<br />";
+      }
+    }
   }, [searchKey])
 
   return (
