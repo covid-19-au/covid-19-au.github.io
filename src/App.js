@@ -8,12 +8,14 @@ import country from "./data/country";
 import testedCases from "./data/testedCases";
 import all from "./data/overall";
 import provinces from "./data/area";
+import information from "./data/info";
 import Tag from "./Tag";
 
 import MbMap from "./ConfirmedMap";
 import "./App.css";
 import axios from "axios";
 import Papa from "papaparse";
+import uuid from "react-uuid";
 
 import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
@@ -492,6 +494,78 @@ function Header({ province }) {
   );
 }
 
+function Information() {
+    return (
+        <div className="card">
+            <h2>Information</h2>
+            {information.map(info => (
+                <div className="row" key={uuid()}>
+                    <div>
+                        {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                        <h3>{info.name}</h3>
+                        <div>
+                            {/* First block of text */}
+                            {info.text.text_1.map(t1 => (
+                                <p key={uuid()}>{t1}</p>
+                            ))}
+
+                            {/* First Unordered List */}
+                            {info.text.ulist_1 ? (
+                                <ul>
+                                    {info.text.ulist_1.map(ul1 => (
+                                        <li key={uuid()}>{ul1}</li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                ""
+                            )}
+
+                            {/* First Ordered List */}
+                            {info.text.olist_1 ? (
+                                <ol>
+                                    {info.text.olist_1.map(ol1 => (
+                                        <li key={uuid()}>{ol1}</li>
+                                    ))}
+                                </ol>
+                            ) : (
+                                ""
+                            )}
+
+                            {/* Second Block of text */}
+                            {info.text.text_2.map(t2 => (
+                                <p key={uuid()}>{t2}</p>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+            <h2>How to properly wash your hands</h2>
+            <img
+                src="https://www.who.int/gpsc/media/how_to_handwash_lge.gif"
+                alt="How to wash hands - Coronavirus"
+            />
+            <h2>If you're still concerned</h2>
+            <p>
+                Call the Coronavirus Health Information Line for advice. If you
+                require translating or interpreting services, call 131 450.
+            </p>
+            <p>
+                Call this line if you are seeking information on coronavirus
+                (COVID-19). The line operates 24 hours a day, seven days a week.{" "}
+            </p>
+            <ul>
+                <li>
+                    <a href="tel:1800020080">1800 020 080</a>
+                </li>
+            </ul>
+        </div>
+    );
+}
+
 function App() {
   const [province, _setProvince] = useState(null);
   const setProvinceByUrl = () => {
@@ -632,6 +706,9 @@ function App() {
 
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Tweets province={province} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10}>
+            <Information />
           </Grid>
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
           {/*<News />*/}
