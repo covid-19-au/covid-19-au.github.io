@@ -6,6 +6,41 @@
     ],
     "news": [
         {
+            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-australia-live-updates-covid-19-latest-news/12072680",
+            "title": "NSW has confirmed 75 new COVID-19 cases in the past day, bringing the state's total to 382",
+            "source": "ABC News",
+            "date": "20 March 2020",
+            "time": "1:46pm"
+        },
+        {
+            "url": "https://www.sbs.com.au/news/naplan-tests-cancelled-for-2020-amid-concerns-over-coronavirus-spread",
+            "title": "NAPLAN tests cancelled for 2020 amid concerns over coronavirus spread",
+            "source": "SBSNews",
+            "date": "20 March 2020",
+            "time": "1:25pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-australia-live-updates-covid-19-latest-news/12072680",
+            "title": "NT records second case of COVID-19",
+            "source": "ABCNews",
+            "date": "20 March 2020",
+            "time": "12:32pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-20/student-tests-positive-to-covid-19-at-unley-high/12074128",
+            "title": "Unley High School student tests positive for COVID-19 after close contact with infected teacher",
+            "source": "ABCNews",
+            "date": "20 March 2020",
+            "time": "12:08pm"
+        },
+        {
+            "url": "https://www.sbs.com.au/news/professional-cleaners-under-pressure-to-help-control-coronavirus-spread-in-australia",
+            "title": "Professional cleaners under pressure to help control coronavirus spread in Australia",
+            "source": "SBSNews",
+            "date": "20 March 2020",
+            "time": "11:56am"
+        },
+        {
             "url": "https://www.sbs.com.au/news/seventh-australian-dies-of-covid-19-as-cases-spike",
             "title": "Seventh Australian dies of COVID-19 as cases spike",
             "source": "SBSNews",
@@ -81,34 +116,6 @@
             "source": "7 News",
             "date": "19 March 2020",
             "time": "02:37pm"
-        },
-        {
-            "url": "https://www.fbcnews.com.fj/world/australia/six-year-old-youngest-nsw-case-yet/",
-            "title": "Six-year-old youngest NSW case yet",
-            "source": "FBC News",
-            "date": "19 March 2020",
-            "time": "02:02pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-distribution-problems-for-supermarket-suppliers/12066684",
-            "title": "Coronavirus isn't causing Australia to run out of food — but why are shelves still bare?",
-            "source": "ABC News",
-            "date": "19 March 2020",
-            "time": "01:46pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-19/government-restricts-prescriptions-amid-coronavirus-panic-buying/12070682",
-            "title": "Coronavirus panic-buying prompts restrictions on paracetamol, Ventolin, prescription medicines",
-            "source": "ABC News",
-            "date": "19 March 2020",
-            "time": "01:37pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-covid19-victoria-funding-boost-for-hospitals/12069612",
-            "title": "Coronavirus funding boost of $437m for Victorian hospitals as University of Melbourne records first COVID-19 case",
-            "source": "ABC News",
-            "date": "19 March 2020",
-            "time": "12:45pm"
         }
     ]
 }
