@@ -517,7 +517,7 @@ function App() {
   const [myData, setMyData] = useState(null);
   useEffect(() => {
     Papa.parse(
-      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output= csv",
       {
         download: true,
         complete: function (results) {
@@ -619,7 +619,7 @@ function App() {
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <NewsTimeline></NewsTimeline>
+            <Tweets province={province} />
             <HistoryGraph countryData={country} />
           </Grid>
 
@@ -628,8 +628,7 @@ function App() {
           </Grid>
 
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-
-            <Tweets province={province} />
+            <NewsTimeline></NewsTimeline>
           </Grid>
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
           {/*<News />*/}
