@@ -294,7 +294,7 @@ function Tweets({ province }) {
  * @param {JSON} flights flights information
  */
 function Flights({ flights }) {
-  console.log(flights);
+  // console.log(flights);
   const [searchKey, setSearchKey] = useState("");
   const [flightResult, setFlightResult] = useState([]);
   useEffect(() => {
@@ -351,7 +351,7 @@ function Flights({ flights }) {
             <div className="area header">Route</div>
             <div className="area header">Arrival</div>
             <div className="area header">Close Contact Row</div>
-            <div className="area header">Source State</div>
+            {/* <div className="area header">Source State</div> */}
           </div>
           {flightResult.length ? (
             flightResult.map(flight => (
@@ -361,7 +361,7 @@ function Flights({ flights }) {
                 <div className="area">{flight.path}</div>
                 <div className="area">{flight.dateArrival}</div>
                 <div className="area">{flight.closeContactRow}</div>
-                <div className="area">{flight.sourceState}</div>
+                {/* <div className="area">{flight.sourceState}</div> */}
               </div>
             ))
           ) : (
