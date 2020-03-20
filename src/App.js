@@ -295,34 +295,61 @@ function Tweets({ province }) {
  */
 function Flights({ flights }) {
   const [searchKey, setSearchKey] = useState('');
+  const [flightResult, setflightResult] = useState([]);
   useEffect(() => {
-    document.getElementById("flightResult").innerHTML = "";
+    // initialize the search result
+    setflightResult([]);
+    // clear search result
     if (searchKey === '') {
-      document.getElementById("flightResult").innerHTML = "";
+      setflightResult([]);
       return;
     }
     for (var i = 0; i < flights.length; i++) {
       let flight = flights[i];
       let flightNo = flight.flightNo;
       if (flightNo.includes(searchKey)) {
-        document.getElementById("flightResult").innerHTML += flight.flightNo + ", ";
-        document.getElementById("flightResult").innerHTML += flight.airline + ", ";
-        document.getElementById("flightResult").innerHTML += flight.path + ", ";
-        document.getElementById("flightResult").innerHTML += flight.dateArrival + ", ";
-        document.getElementById("flightResult").innerHTML += flight.closeContactRow + ", ";
-        document.getElementById("flightResult").innerHTML += flight.sourceState + "<br />";
+        setflightResult(flightResult => [...flightResult, flight]);
       }
     }
-  }, [searchKey])
+  }, [searchKey]);
+
+  if (flightResult.length !== 0) {
+    sortFlight();
+  }
+
+  /**
+   * Sort flight search result using arrival date from latest to oldest
+   */
+  function sortFlight() {
+    console.log("sorting...")
+    console.log(flightResult);
+  }
 
   return (
     <div className="card">
       <h2>Flights</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-          <input className="flightSearch" type="text"
+          <input className="flightSearch" type="text" placeholder="Search by flight number"
           onChange={e => setSearchKey(e.target.value)}></input>
-          <div id="flightResult"></div>
+          <div className="flightInfo header">
+            <div className="area header">Flight No</div>
+            <div className="area header">Airline</div>
+            <div className="area header">Route</div>
+            <div className="area header">Arrival</div>
+            <div className="area header">Close Contact Row</div>
+            <div className="area header">Source State</div>
+          </div>
+         {flightResult.length ? flightResult.map(flight => 
+           <div className="flightInfo header">
+             <div className="area">{flight.flightNo}</div>
+             <div className="area">{flight.airline}</div>
+             <div className="area">{flight.path}</div>
+             <div className="area">{flight.dateArrival}</div>
+             <div className="area">{flight.closeContactRow}</div>
+             <div className="area">{flight.sourceState}</div>
+           </div>
+         ) : <></>}
         </div>
       </div>
     </div>
@@ -588,8 +615,6 @@ function App() {
   if (myData) {
     return (
       <div>
-
-
         <Grid container spacing={gspace} justify="center" wrap='wrap'>
 
           <Grid item xs={12}>

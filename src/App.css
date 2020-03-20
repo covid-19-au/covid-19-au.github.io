@@ -38,11 +38,13 @@ header i {
   padding-right: 1rem;
 }
 
+.flightInfo,
 .province {
   display: flex;
   text-align: center;
 }
 
+.flightInfo
 .province.header > div {
   color: #000000;
 }
