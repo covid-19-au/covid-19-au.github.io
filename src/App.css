@@ -196,3 +196,23 @@ h2 small {
   padding: 5px;
   border-radius: 2px;
 }
+
+.formatImage {
+    width: 100%;
+}
+
+.navBar {
+    justify-content: space-around;
+    border-bottom: white 1px solid ;
+}
+
+.navItems {
+    margin: 0.5rem 0;
+    padding: 2px 8px 2px 8px;
+    border-bottom: transparent solid 3px;
+}
+
+.navItems:hover {
+    cursor: pointer;
+    border-bottom: #000 solid 3px;
+}

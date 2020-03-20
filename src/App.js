@@ -282,8 +282,8 @@ function Tweets({ province }) {
             options={{
               height: 450
             }}
-            noHeader="true"
-            noFooter="true"
+            noHeader={true}
+            noFooter={true}
           />
         </div>
       </div>
@@ -416,7 +416,7 @@ function Area({ area, onChange, data }) {
       Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
     return data.map(x => (
-      <div className="province" key={x.name || x.cityName}>
+      <div className="province" key={uuid()}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
         {/*{ x.name || x.cityName }*/}
         {/*</div>*/}
@@ -487,6 +487,20 @@ function Header({ province }) {
   );
 }
 
+function Navbar({setNav}) {
+    const onClick = e => {
+        setNav(e.target.innerText);
+    }
+
+    return (
+        <div className="row navBar">
+            <span className="navItems" onClick={onClick}><strong>Home</strong></span>
+            <span className="navItems" onClick={onClick}><strong>Info</strong></span>
+            <span className="navItems" onClick={onClick}><strong>About</strong></span>
+        </div>
+    )
+}
+
 function Information() {
     return (
         <div className="card">
@@ -536,27 +550,137 @@ function Information() {
                     </div>
                 </div>
             ))}
-            <h2>How to properly wash your hands</h2>
-            <img
-                src="https://www.who.int/gpsc/media/how_to_handwash_lge.gif"
-                alt="How to wash hands - Coronavirus"
-            />
-            <h2>If you're still concerned</h2>
-            <p>
-                Call the Coronavirus Health Information Line for advice. If you
-                require translating or interpreting services, call 131 450.
-            </p>
-            <p>
-                Call this line if you are seeking information on coronavirus
-                (COVID-19). The line operates 24 hours a day, seven days a week.{" "}
-            </p>
-            <ul>
-                <li>
-                    <a href="tel:1800020080">1800 020 080</a>
-                </li>
-            </ul>
+            <div className="row">
+                <div>
+                    <h2>How to properly wash your hands</h2>
+                    <img
+                        className="formatImage"
+                        src="https://www.who.int/gpsc/media/how_to_handwash_lge.gif"
+                        alt="How to wash hands - Coronavirus"
+                    />
+                </div>
+            </div>
+            
+            <div className="row">
+                <div>
+                    <h2>If you're still concerned</h2>
+                    <p>
+                        Call the Coronavirus Health Information Line for advice. If you
+                        require translating or interpreting services, call 131 450.
+                    </p>
+                    <p>
+                        Call this line if you are seeking information on coronavirus
+                        (COVID-19). The line operates 24 hours a day, seven days a week.{" "}
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="tel:1800020080">1800 020 080</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     );
+}
+
+function HomePage({province, overall, myData, area, data, setProvince, gspace}) {
+    return (
+        <Grid container spacing={gspace} justify="center" wrap="wrap">
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Stat
+              {...{ ...all, ...overall }}
+              name={province && province.name}
+              data={myData}
+              countryData={country}
+            />
+            <div className="card">
+              <h2>
+                Cases by State {province ? `· ${province.name}` : false}
+                {province ? (
+                  <small onClick={() => setProvince(null)}>Return</small>
+                ) : null}
+              </h2>
+              <Suspense fallback={<div className="loading">Loading...</div>}>
+                <GoogleMap
+                  province={province}
+                  data={data}
+                  onClick={name => {
+                    const p = provincesByName[name];
+                    if (p) {
+                      setProvince(p);
+                    }
+                  }}
+                  newData={myData}
+                />
+                {/*{*/}
+                {/*province ? false :*/}
+                {/*<div className="tip">*/}
+                {/*Click on the state to check state details.*/}
+                {/*</div>*/}
+                {/*}*/}
+              </Suspense>
+              <Area area={area} onChange={setProvince} data={myData} />
+
+              <div style={{ paddingBottom: "1rem" }}>
+                <a
+                  style={{
+                    fontSize: "60%",
+                    float: "right",
+                    color: "blue"
+                  }}
+                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+                >
+                  @Data Source
+                </a>
+                <span
+                  style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+                  className="due"
+                >
+                  *Number of tested cases is updated daily.
+                </span>
+              </div>
+            </div>
+          </Grid>
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <MbMap />
+            </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+
+            <HistoryGraph countryData={country} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+
+                <Tweets province={province} />
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <NewsTimeline />
+            </Grid>
+        </Grid>
+    )
+}
+
+function InfoPage() {
+    return (
+        <Grid item xs={12} sm={12} md={10}>
+            <Information />
+        </Grid>
+    )
+}
+
+function AboutPage() {
+    return (
+        <Grid item xs={12} sm={12} md={10}>
+            <div className="card">
+                <div className="row">
+                    <div>
+                        <h2>About</h2>
+                        <p>Still in development...</p>
+                    </div>
+                </div>
+            </div>
+        </Grid>
+    )
 }
 
 function App() {
@@ -630,87 +754,24 @@ function App() {
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
+
+  const [nav, setNav] = useState("Home");
+
   if (myData) {
     return (
       <div>
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12}>
-            <Header province={province} />
+            <Header province={province}/>
           </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Stat
-              {...{ ...all, ...overall }}
-              name={province && province.name}
-              data={myData}
-              countryData={country}
-            />
-            <div className="card">
-              <h2>
-                Cases by State {province ? `· ${province.name}` : false}
-                {province ? (
-                  <small onClick={() => setProvince(null)}>Return</small>
-                ) : null}
-              </h2>
-              <Suspense fallback={<div className="loading">Loading...</div>}>
-                <GoogleMap
-                  province={province}
-                  data={data}
-                  onClick={name => {
-                    const p = provincesByName[name];
-                    if (p) {
-                      setProvince(p);
-                    }
-                  }}
-                  newData={myData}
-                />
-                {/*{*/}
-                {/*province ? false :*/}
-                {/*<div className="tip">*/}
-                {/*Click on the state to check state details.*/}
-                {/*</div>*/}
-                {/*}*/}
-              </Suspense>
-              <Area area={area} onChange={setProvince} data={myData} />
-
-              <div style={{ paddingBottom: "1rem" }}>
-                <a
-                  style={{
-                    fontSize: "60%",
-                    float: "right",
-                    color: "blue"
-                  }}
-                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-                >
-                  @Data Source
-                </a>
-                <span
-                  style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
-                  className="due"
-                >
-                  *Number of tested cases is updated daily.
-                </span>
-              </div>
-            </div>
+          <Grid item xs={12}>
+              <Navbar setNav={setNav}/>
           </Grid>
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <MbMap />
-            </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-
-            <HistoryGraph countryData={country} />
-          </Grid>
-
-            <Grid item xs={12} sm={12} md={10}>
-                <Information />
-            </Grid>
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-
-                <Tweets province={province} />
-            </Grid>
-
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <NewsTimeline />
-            </Grid>
+          
+          {nav === "Home" && <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />}
+          {nav === "Info" && <InfoPage />}
+          {nav === "About" && <AboutPage />}
+          
 
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
           {/*<News />*/}
