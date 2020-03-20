@@ -294,35 +294,33 @@ function Tweets({ province }) {
  * @param {JSON} flights flights information 
  */
 function Flights({ flights }) {
+  console.log(flights);
   const [searchKey, setSearchKey] = useState('');
-  const [flightResult, setflightResult] = useState([]);
+  const [flightResult, setFlightResult] = useState([]);
   useEffect(() => {
     // initialize the search result
-    setflightResult([]);
+    setFlightResult([]);
     // clear search result
     if (searchKey === '') {
-      setflightResult([]);
+      setFlightResult([]);
       return;
     }
     for (var i = 0; i < flights.length; i++) {
       let flight = flights[i];
       let flightNo = flight.flightNo;
       if (flightNo.includes(searchKey)) {
-        setflightResult(flightResult => [...flightResult, flight]);
+        setFlightResult(flightResult => [...flightResult, flight]);
       }
     }
   }, [searchKey]);
 
-  if (flightResult.length !== 0) {
-    sortFlight();
+  function sortFlightResult() {
+    console.log(flightResult);
   }
 
-  /**
-   * Sort flight search result using arrival date from latest to oldest
-   */
-  function sortFlight() {
-    console.log("sorting...")
-    console.log(flightResult);
+  if (flightResult.length !== 0) {
+    sortFlightResult();
+    flightResult.sort((a, b) => new Date(a.dateArrival) - new Date(b.dateArrival));
   }
 
   return (
