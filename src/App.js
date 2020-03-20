@@ -317,7 +317,7 @@ function Flights({ flights }) {
   }, [searchKey]);
 
   if (flightResult.length !== 0) {
-    flightResult.sort(function(a, b) {
+    flightResult.sort(function (a, b) {
       let arr = a.dateArrival.split("-");
       let dateA = new Date(
         parseInt(arr[2]),
@@ -367,8 +367,8 @@ function Flights({ flights }) {
               </div>
             ))
           ) : (
-            <></>
-          )}
+              <></>
+            )}
         </div>
       </div>
     </div>
@@ -424,7 +424,7 @@ function Stat({
     let lastTotal =
       countryData[
 
-        Object.keys(countryData)[Object.keys(countryData).length - 1]
+      Object.keys(countryData)[Object.keys(countryData).length - 1]
       ];
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
@@ -632,7 +632,7 @@ function App() {
       {
         download: true,
 
-        complete: function(results) {
+        complete: function (results) {
 
           results.data.splice(0, 1);
           let sortedData = results.data.sort((a, b) => {
@@ -730,20 +730,15 @@ function App() {
 
             </div>
           </Grid>
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <MbMap />
-            </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-
+            <MbMap />
             <HistoryGraph countryData={country} />
           </Grid>
-
-
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Tweets province={province} />
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <News />
+            <NewsTimeline />
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Flights flights={flights} />
