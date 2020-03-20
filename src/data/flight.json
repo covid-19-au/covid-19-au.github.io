@@ -96,11 +96,11 @@
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​SQ221",
+    "flightNo": "SQ221",
     "airline": "Singapore Airlines",
-    "path": "​Singapore to Sydney",
+    "path": "Singapore to Sydney",
     "dateArrival": "2-3-20",
-    "closeContactRow": "​​91, 92, 93, 94, 95",
+    "closeContactRow": "91, 92, 93, 94, 95",
     "sourceState": "NSW"
   },
   {
@@ -160,11 +160,11 @@
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​EY450",
+    "flightNo": "EY450",
     "airline": "Etihad Airways",
-    "path": "​Adu Dhabi to Sydney",
-    "dateArrival": "​6-3-20",
-    "closeContactRow": "​42, 43, 44, 45, 46",
+    "path": "Adu Dhabi to Sydney",
+    "dateArrival": "6-3-20",
+    "closeContactRow": "42, 43, 44, 45, 46",
     "sourceState": "NSW"
   },
   {
@@ -176,11 +176,11 @@
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​SQ231",
+    "flightNo": "SQ231",
     "airline": "Singapore Airlines",
-    "path": "​Singapore to Sydney",
+    "path": "Singapore to Sydney",
     "dateArrival": "6-3-20",
-    "closeContactRow": "​19, 20, 21, 22, 23, 24",
+    "closeContactRow": "19, 20, 21, 22, 23, 24",
     "sourceState": "NSW"
   },
   {
@@ -194,7 +194,7 @@
   {
     "flightNo": "EK414",
     "airline": "Emirates",
-    "path": "Duba​i to Sydney",
+    "path": "Dubai to Sydney",
     "dateArrival": "7-3-20",
     "closeContactRow": "63, 64, 65, 66, 67, 68, 69, 70, 71, 72",
     "sourceState": "NSW"
@@ -240,11 +240,11 @@
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​QF8",
+    "flightNo": "QF8",
     "airline": "Qantas",
-    "path": "​Dallas to Sydney",
+    "path": "Dallas to Sydney",
     "dateArrival": "9-3-20",
-    "closeContactRow": "​​58, 59, 60, 61, 62",
+    "closeContactRow": "58, 59, 60, 61, 62",
     "sourceState": "NSW"
   },
   {
@@ -256,99 +256,99 @@
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​QF8414",
+    "flightNo": "QF8414",
     "airline": "Qantas",
-    "path": "​Dubai to Sydney",
+    "path": "Dubai to Sydney",
     "dateArrival": "8-3-20",
-    "closeContactRow": "​​45, 46, 47, 48, 49",
+    "closeContactRow": "45, 46, 47, 48, 49",
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​EK414",
+    "flightNo": "EK414",
     "airline": "Emirates",
-    "path": "​Dubai to Sydney",
-    "dateArrival": "​8-3-20",
-    "closeContactRow": "​6, 7, 8, 9, 11,12, 14, 15, 16, 45, 46, 47, 48, 49, 58, 59, 60, 61, 62",
+    "path": "Dubai to Sydney",
+    "dateArrival": "8-3-20",
+    "closeContactRow": "6, 7, 8, 9, 11,12, 14, 15, 16, 45, 46, 47, 48, 49, 58, 59, 60, 61, 62",
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​EY450",
+    "flightNo": "EY450",
     "airline": "Etihad Airways",
-    "path": "​Abu Dhabi to Sydney",
-    "dateArrival": "​10-3-20",
-    "closeContactRow": "​35, 36, 37, 38, 39",
-    "sourceState": "NSW"
-  },
-  {
-    "flightNo": "​EK412",
-    "airline": "Emirates",
-    "path": "​Dubai to Sydney",
-    "dateArrival": "​10-3-20",
-    "closeContactRow": "​56, 57, 58, 59, 60",
-    "sourceState": "NSW"
-  },
-  {
-    "flightNo": "​VA2",
-    "airline": "Virgin Australia",
-    "path": "​Los Angeles to Sydney",
-    "dateArrival": "11-3-20​",
-    "closeContactRow": "​2, 3, 4, 5, 6",
-    "sourceState": "NSW"
-  },
-  {
-    "flightNo": "​QF8",
-    "airline": "Qantas",
-    "path": "​Dallas to Sydney",
-    "dateArrival": "11-3-20",
-    "closeContactRow": "​11, 12, 13, 14, 15, 73, 74, 75, 76, 77",
-    "sourceState": "NSW"
-  },
-  {
-    "flightNo": "​SQ241",
-    "airline": "Singapore Airlines",
-    "path": "​Singapore to Sydney",
+    "path": "Abu Dhabi to Sydney",
     "dateArrival": "10-3-20",
-    "closeContactRow": "​42, 43, 44, 45, 46",
+    "closeContactRow": "35, 36, 37, 38, 39",
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​QF12",
-    "airline": "Qantas",
-    "path": "​Los Angeles to Sydney",
-    "dateArrival": "12-3-20",
-    "closeContactRow": "​2, 3, 4, 5",
+    "flightNo": "EK412",
+    "airline": "Emirates",
+    "path": "Dubai to Sydney",
+    "dateArrival": "10-3-20",
+    "closeContactRow": "56, 57, 58, 59, 60",
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​QF424",
-    "airline": "Qantas",
-    "path": "​Melbourne to Sydney",
+    "flightNo": "VA2",
+    "airline": "Virgin Australia",
+    "path": "Los Angeles to Sydney",
     "dateArrival": "11-3-20",
-    "closeContactRow": "​1, 2, 3",
+    "closeContactRow": "2, 3, 4, 5, 6",
     "sourceState": "NSW"
   },
   {
-    "flightNo": "​EY450",
-    "airline": "Etihad Airways",
-    "path": "​Abu Dhabi to Sydney",
-    "dateArrival": "​12-3-20",
-    "closeContactRow": "​42, 43, 44, 45",
-    "sourceState": "NSW"
-  },
-  {
-    "flightNo": "​BA15",
-    "airline": "British Airways",
-    "path": "​Singapore to Sydney",
-    "dateArrival": "​12-3-20",
-    "closeContactRow": "​15, 16",
-    "sourceState": "NSW"
-  },
-  {
-    "flightNo": "​QF426",
+    "flightNo": "QF8",
     "airline": "Qantas",
-    "path": "​Melbourne to Sydney",
+    "path": "Dallas to Sydney",
+    "dateArrival": "11-3-20",
+    "closeContactRow": "11, 12, 13, 14, 15, 73, 74, 75, 76, 77",
+    "sourceState": "NSW"
+  },
+  {
+    "flightNo": "SQ241",
+    "airline": "Singapore Airlines",
+    "path": "Singapore to Sydney",
+    "dateArrival": "10-3-20",
+    "closeContactRow": "42, 43, 44, 45, 46",
+    "sourceState": "NSW"
+  },
+  {
+    "flightNo": "QF12",
+    "airline": "Qantas",
+    "path": "Los Angeles to Sydney",
+    "dateArrival": "12-3-20",
+    "closeContactRow": "2, 3, 4, 5",
+    "sourceState": "NSW"
+  },
+  {
+    "flightNo": "QF424",
+    "airline": "Qantas",
+    "path": "Melbourne to Sydney",
+    "dateArrival": "11-3-20",
+    "closeContactRow": "1, 2, 3",
+    "sourceState": "NSW"
+  },
+  {
+    "flightNo": "EY450",
+    "airline": "Etihad Airways",
+    "path": "Abu Dhabi to Sydney",
+    "dateArrival": "12-3-20",
+    "closeContactRow": "42, 43, 44, 45",
+    "sourceState": "NSW"
+  },
+  {
+    "flightNo": "BA15",
+    "airline": "British Airways",
+    "path": "Singapore to Sydney",
+    "dateArrival": "12-3-20",
+    "closeContactRow": "15, 16",
+    "sourceState": "NSW"
+  },
+  {
+    "flightNo": "QF426",
+    "airline": "Qantas",
+    "path": "Melbourne to Sydney",
     "dateArrival": "14-3-20",
-    "closeContactRow": "​8, 9, 10, 11, 12",
+    "closeContactRow": "8, 9, 10, 11, 12",
     "sourceState": "NSW"
   },
   {
