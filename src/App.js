@@ -552,7 +552,7 @@ function Area({ area, onChange, data }) {
       <div className="province header">
         <div className="area header">State</div>
         <div className="confirmed header">Confirmed</div>
-        <div className="death header">Death</div>
+        <div className="death header">Deaths</div>
         <div className="cured header">Recovered</div>
         <div className="tested header">Tested*</div>
       </div>
