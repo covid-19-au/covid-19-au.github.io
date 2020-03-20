@@ -618,22 +618,23 @@ function App() {
               </div>
             </div>
           </Grid>
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <MbMap />
+            </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Tweets province={province} />
+
             <HistoryGraph countryData={country} />
           </Grid>
+
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+
+                <Tweets province={province} />
+            </Grid>
+
             <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
                 <NewsTimeline />
             </Grid>
 
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <MbMap />
-          </Grid>
-
-          {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
-
-            {/*<Tweets province={province} />*/}
-          {/*</Grid>*/}
 
 
           <Grid item xs={12}>
