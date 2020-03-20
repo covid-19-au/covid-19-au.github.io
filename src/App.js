@@ -639,7 +639,22 @@ function App() {
             return b[1] - a[1];
           });
 
-          setMyData(results.data);
+          for(let i = 0; i < sortedData.length; i++){
+            if(sortedData[i][0]==="ACT" && parseInt(sortedData[i][1]) < 6){
+                sortedData[i][1]='6'
+              }
+
+              if(sortedData[i][0]==="SA" && parseInt(sortedData[i][1]) < 50){
+                  sortedData[i][1]='50'
+              }
+              if(sortedData[i][0]==="WA" && parseInt(sortedData[i][1]) < 64){
+                  sortedData[i][1]='64'
+              }
+
+          }
+
+
+          setMyData(sortedData);
         }
       }
     );
