@@ -1,10 +1,38 @@
 {
     "updateTime": [
         {
-            "time": "14:00 20/03/2020"
+            "time": "16:08 20/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-live-updates/live-coverage/e434489f660d0a1ff557ba83d9e3a378",
+            "title": "Coronavirus Australia live updates: PM announces new crowd restrictions in COVID-19 update",
+            "source": "news.com.au",
+            "date": "20 March 2020",
+            "time": "03:57pm"
+        },
+        {
+            "url": "https://www.theguardian.com/world/2020/mar/20/thousands-of-australians-stranded-overseas-as-countries-close-borders-over-covid-19-fears",
+            "title": "Thousands of Australians stranded overseas as countries close borders over Covid-19 fears",
+            "source": "The Guardian",
+            "date": "20 March 2020",
+            "time": "03:52pm"
+        },
+        {
+            "url": "https://www.9news.com.au/national/coronavirus-pandemic-melbourne-teachers-call-for-school-closures-as-more-positive-cases-confirmed/3caf8431-a64f-46a7-9d56-5be348dfc8fa",
+            "title": "Coronavirus pandemic: Melbourne teachers call for school closures as more positive cases confirmed",
+            "source": "9News",
+            "date": "20 March 2020",
+            "time": "03:37pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-20/nt-records-second-coronavirus-case/12074916",
+            "title": "Second coronavirus case recorded in Northern Territory as man who came home from Europe tests positive",
+            "source": "ABC News",
+            "date": "20 March 2020",
+            "time": "1:58pm"
+        },
         {
             "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-australia-live-updates-covid-19-latest-news/12072680",
             "title": "NSW has confirmed 75 new COVID-19 cases in the past day, bringing the state's total to 382",
@@ -102,20 +130,6 @@
             "source": "Daily Telegraph",
             "date": "19 March 2020",
             "time": "04:20pm"
-        },
-        {
-            "url": "https://www.afr.com/markets/equity-markets/asx-to-dive-again-as-rba-prepares-to-act-20200319-p54bku",
-            "title": "ASX dips lower; RBA cuts rate to 0.25pc",
-            "source": "Australian Financial Review",
-            "date": "19 March 2020",
-            "time": "02:58pm"
-        },
-        {
-            "url": "https://7news.com.au/lifestyle/health-wellbeing/local-coronavirus-transmission-likely-in-new-south-wales-c-752775",
-            "title": "Local coronavirus transmission likely in New South Wales",
-            "source": "7 News",
-            "date": "19 March 2020",
-            "time": "02:37pm"
         }
     ]
 }
