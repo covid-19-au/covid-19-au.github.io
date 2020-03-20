@@ -10,7 +10,7 @@ function Tag ({ children, number,fColor ,increased }) {
         }
       <div style={{color:`${fColor}`,  fontSize: '1.2rem',
           fontWeight: '600'}} className="number">
-        { number }
+        { number===25?46:number }
       </div>
       { children }
     </div>
