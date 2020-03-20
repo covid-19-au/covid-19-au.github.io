@@ -307,21 +307,32 @@ function Flights({ flights }) {
     }
     for (var i = 0; i < flights.length; i++) {
       let flight = flights[i];
-      let flightNo = flight.flightNo;
-      if (flightNo.includes(searchKey)) {
+      let flightNo = flight.flightNo.toLowerCase();
+      if (flightNo.includes(searchKey.toLowerCase())) {
         setFlightResult(flightResult => [...flightResult, flight]);
       }
     }
   }, [searchKey]);
 
-  function sortFlightResult() {
-    console.log(flightResult);
-  }
+  // function sortFlightResult() {
+  //   console.log(flightResult);
+  // }
 
   if (flightResult.length !== 0) {
-    sortFlightResult();
-    flightResult.sort((a, b) => new Date(a.dateArrival) - new Date(b.dateArrival));
+
+      console.log(flightResult.sort((a, b) => new Date(a.dateArrival) - new Date(b.dateArrival)));
+      let test = flightResult.sort(function(a, b) {
+          let arr = a.dateArrival.split("-");
+
+          let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
+          arr = b.dateArrival.split("-");
+
+          let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
+
+          return new Date(dateB) - new Date(dateA);});
+
   }
+
 
   return (
     <div className="card">
