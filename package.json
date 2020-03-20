@@ -70,6 +70,7 @@
     "react-map-gl": "^5.2.3",
     "react-mapbox-gl": "^4.8.2",
     "react-twitter-embed": "^3.0.3",
+    "react-uuid": "^1.0.2",
     "resolve": "1.12.2",
     "resolve-url-loader": "3.1.1",
     "rss-parser": "^3.7.5",
