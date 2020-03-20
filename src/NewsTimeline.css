@@ -104,6 +104,7 @@
     right: calc(16% - 1px);
     z-index: 99;
     box-sizing: content-box;
+    color: #F4D03F;
   }
 .entry .body {
     margin: 0 0 3em;
