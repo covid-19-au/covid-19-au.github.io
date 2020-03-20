@@ -17,9 +17,9 @@ const listStyles = {
     padding: 0
 }
 
-const newestColour = "#8e44ad"
-const middleColour = "#ec7063"
-const oldestColour = "#f5b7b1"
+const newestColour = "#3498DB"
+const middleColour = "#85C1E9"
+const oldestColour = "#D6EAF8"
 
 
 const newsLength = timelineNews.length
@@ -39,8 +39,8 @@ function NewsTimeline() {
                         <TimelineItem
                             key={timelineNews.indexOf(news)}
                             dateText={news.date + " " + news.time}
-                            dateInnerStyle={{ background: "#cb4335" }}>
-                            <a href={news.url}> <h4 style={{ color: ' #2980b9 ' }} >{news.title}</h4></a>
+                            dateInnerStyle={{ background: "#3498DB" }}>
+                            <a href={news.url}> <h4 style={{ color: ' #5499C7 ' }} >{news.title}</h4></a>
                             <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
                         </TimelineItem>)
                     }
@@ -48,8 +48,8 @@ function NewsTimeline() {
                         <TimelineItem
                             key={timelineNews.indexOf(news)}
                             dateText={news.date + " " + news.time}
-                            dateInnerStyle={{ background: "#ec7063" }}>
-                            <a href={news.url}> <h4 style={{ color: ' #2980b9 ' }} >{news.title}</h4></a>
+                            dateInnerStyle={{ background: "#85C1E9" }}>
+                            <a href={news.url}> <h4 style={{ color: ' #5499C7 ' }} >{news.title}</h4></a>
                             <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
                         </TimelineItem>)
                     }
@@ -57,8 +57,8 @@ function NewsTimeline() {
                         <TimelineItem
                             key={timelineNews.indexOf(news)}
                             dateText={news.date + " " + news.time}
-                            dateInnerStyle={{ background: "#f5b7b1" }}>
-                            <a href={news.url}> <h4 style={{ color: ' #2980b9 ' }} >{news.title}</h4></a>
+                            dateInnerStyle={{ background: "#D6EAF8" }}>
+                            <a href={news.url}> <h4 style={{ color: ' #5499C7 ' }} >{news.title}</h4></a>
                             <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
                         </TimelineItem>)
                     }
