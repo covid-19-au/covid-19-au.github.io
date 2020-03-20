@@ -296,8 +296,12 @@ function Tweets({ province }) {
  */
 function Flights({ flights }) {
   // console.log(flights);
+  console.log(flights.length);
   const [searchKey, setSearchKey] = useState("");
   const [flightResult, setFlightResult] = useState([]);
+  const [indexFlightNo, setIndexFlightNo] = useState(true);
+  const [indexRoute, setindexRoute] = useState(false);
+  const [indexDateArrival, setIndexDateArrival] = useState(false);
   useEffect(() => {
     // initialize the search result
     setFlightResult([]);
@@ -309,12 +313,28 @@ function Flights({ flights }) {
     for (var i = 0; i < flights.length; i++) {
       let flight = flights[i];
       let flightNo = flight.flightNo.toLowerCase();
-      if (flightNo.includes(searchKey.toLowerCase())) {
-        setFlightResult(flightResult => [...flightResult, flight]);
+      let route = flight.path.toLowerCase();
+      let dateArrival = flight.dateArrival.toLowerCase();
+      if (indexFlightNo) {
+        if (flightNo.includes(searchKey.toLowerCase())) {
+          setFlightResult(flightResult => [...flightResult, flight]);
+        }
+      }
+      if (indexRoute) {
+        if (route.includes(searchKey.toLocaleLowerCase())) {
+          setFlightResult(flightResult => [...flightResult, flight]);
+        }
+      }
+      if (indexDateArrival) {
+        if (dateArrival.includes(searchKey.toLowerCase())) {
+          setFlightResult(flightResult => [...flightResult, flight]);
+        }
       }
     }
   }, [searchKey]);
 
+  // only sort when the flight result list is not empty
+  let uniqueFlight =[]; // sort flight result without duplicate object
   if (flightResult.length !== 0) {
     flightResult.sort(function(a, b) {
       let arr = a.dateArrival.split("-");
@@ -333,6 +353,14 @@ function Flights({ flights }) {
 
       return new Date(dateB) - new Date(dateA);
     });
+
+    // remove duplicate
+    console.log("Complete sorting...\nRemoving duplicates ");
+    for (var i = 0; i < flightResult.length; i++) {
+      if ((flightResult[i] !== flightResult[i + 1])) {
+        uniqueFlight.push(flightResult[i]);
+      }
+    }
   }
 
   return (
@@ -340,12 +368,32 @@ function Flights({ flights }) {
       <h2>Flights</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-          <input
-            className="flightSearch"
-            type="text"
-            placeholder="Search by flight number"
-            onChange={e => setSearchKey(e.target.value)}
-          ></input>
+          <div style={{ display: "inline-block" }}>
+            <input
+              className="flightSearch"
+              type="text"
+              placeholder="Search by flight number"
+              onChange={e => setSearchKey(e.target.value)}
+            ></input>
+            <button
+              className={indexFlightNo ? "toggledButton" : ""}
+              onClick={e => setIndexFlightNo(!indexFlightNo)}
+            >
+              Search by Flight No.
+            </button>
+            <button
+              className={indexRoute ? "toggledButton" : ""}
+              onClick={e => setindexRoute(!indexRoute)}
+            >
+              Search by Route
+            </button>
+            <button
+              className={indexDateArrival ? "toggledButton" : ""}
+              onClick={e => setIndexDateArrival(!indexDateArrival)}
+            >
+              Search by Arrival Date
+            </button>
+          </div>
           <div className="flightInfo header">
             <div className="area header">Flight No</div>
             <div className="area header">Airline</div>
@@ -354,8 +402,8 @@ function Flights({ flights }) {
             <div className="area header">Close Contact Row</div>
             {/* <div className="area header">Source State</div> */}
           </div>
-          {flightResult.length ? (
-            flightResult.map(flight => (
+          {uniqueFlight.length ? (
+            uniqueFlight.map(flight => (
               <div className="flightInfo header">
                 <div className="flightArea">{flight.flightNo}</div>
                 <div className="flightArea">{flight.airline}</div>
@@ -633,20 +681,18 @@ function App() {
             return b[1] - a[1];
           });
 
-          for(let i = 0; i < sortedData.length; i++){
-            if(sortedData[i][0]==="ACT" && parseInt(sortedData[i][1]) < 6){
-                sortedData[i][1]='6'
-              }
+          for (let i = 0; i < sortedData.length; i++) {
+            if (sortedData[i][0] === "ACT" && parseInt(sortedData[i][1]) < 6) {
+              sortedData[i][1] = "6";
+            }
 
-              if(sortedData[i][0]==="SA" && parseInt(sortedData[i][1]) < 50){
-                  sortedData[i][1]='50'
-              }
-              if(sortedData[i][0]==="WA" && parseInt(sortedData[i][1]) < 64){
-                  sortedData[i][1]='64'
-              }
-
+            if (sortedData[i][0] === "SA" && parseInt(sortedData[i][1]) < 50) {
+              sortedData[i][1] = "50";
+            }
+            if (sortedData[i][0] === "WA" && parseInt(sortedData[i][1]) < 64) {
+              sortedData[i][1] = "64";
+            }
           }
-
 
           setMyData(sortedData);
         }
