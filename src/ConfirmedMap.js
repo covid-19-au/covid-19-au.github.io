@@ -98,7 +98,7 @@ class MbMap extends React.Component {
             new mapboxgl.Marker(el)
                 .setLngLat(coor)
                 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3><p style="margin:0;">Phone: ' + item['phone'] + '</p><p style="margin:0;">Add: ' + item['address'] + '</p>'))
+                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3><p style="margin:0;">Phone: ' + item['hospitalPhone'] + '</p><p style="margin:0;">Addr: ' + item['address'] + '</p>'))
 
                 .addTo(map);
         })
