@@ -179,7 +179,7 @@ function HistoryGraph({ countryData }) {
     <div className="loading">Loading...</div>
   ) : (
     <div className="card">
-      <h2>Status Graph</h2>
+      <h2>Historical Data</h2>
       <CanvasJSChart options={options} />
       <CanvasJSChart options={newOpts} />
       {/*<Chart*/}
@@ -289,10 +289,6 @@ function Tweets({ province }) {
   );
 }
 
-function ExposureSites() {
-  return <div></div>;
-}
-
 function Stat({
   modifyTime,
   confirmedCount,
@@ -378,9 +374,7 @@ function Stat({
 function Fallback() {
   return (
     <div className="fallback">
-      <div>
-          Template credits to: shfshanyue
-      </div>
+      <div>Template credits to: shfshanyue</div>
 
       <div>
         Our GitHub:{" "}
@@ -409,12 +403,16 @@ function Fallback() {
 }
 
 function Area({ area, onChange, data }) {
+  let totalRecovered = 0;
+  for (let i = 0; i < data.length; i++) {
+    totalRecovered += parseInt(data[i][3]);
+  }
+
   const renderArea = () => {
     let latest =
       testedCases[
         Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
-
     return data.map(x => (
       <div className="province" key={x.name || x.cityName}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
@@ -450,6 +448,23 @@ function Area({ area, onChange, data }) {
         <div className="tested header">Tested*</div>
       </div>
       {renderArea()}
+      {totalRecovered > 25 ? null : (
+        <div className="province">
+          <div className={"area"}>
+            <strong>TBD</strong>
+          </div>
+          <div className="confirmed">
+            <strong></strong>
+          </div>
+          <div className="death">
+            <strong></strong>
+          </div>
+          <div className="cured">
+            <strong>21</strong>
+          </div>
+          <div className="tested"></div>
+        </div>
+      )}
     </>
   );
 }
@@ -505,7 +520,7 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function (results) {
+        complete: function(results) {
           // console.log("requested");
 
           results.data.splice(0, 1);
@@ -557,7 +572,7 @@ function App() {
             />
             <div className="card">
               <h2>
-                Infection Map {province ? `· ${province.name}` : false}
+                Cases by State {province ? `· ${province.name}` : false}
                 {province ? (
                   <small onClick={() => setProvince(null)}>Return</small>
                 ) : null}
@@ -583,40 +598,42 @@ function App() {
               </Suspense>
               <Area area={area} onChange={setProvince} data={myData} />
 
-              <div style={{paddingBottom: '1rem'}}>
-              <a
-                style={{
-                  fontSize: "60%",
-                  float: "right",
-                  color: "blue"
-                }}
-                href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-              >
-                @Data Source
-              </a>
-              <span style={{ fontSize: "60%",float:'left' }} className="due">
-                *Number of tested cases is updated daily.
-              </span>
+              <div style={{ paddingBottom: "1rem" }}>
+                <a
+                  style={{
+                    fontSize: "60%",
+                    float: "right",
+                    color: "blue"
+                  }}
+                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+                >
+                  @Data Source
+                </a>
+                <span
+                  style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+                  className="due"
+                >
+                  *Number of tested cases is updated daily.
+                </span>
               </div>
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <NewsTimeline></NewsTimeline>
-            <MbMap />
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <HistoryGraph countryData={country} />
+            <Tweets province={province} />
           </Grid>
 
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Tweets province={province} />
+            <MbMap />
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <NewsTimeline></NewsTimeline>
           </Grid>
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
           {/*<News />*/}
           {/*</Grid>*/}
-          <Grid item xs={12}>
-            <ExposureSites />
-          </Grid>
+
           <Grid item xs={12}>
             <Fallback />
           </Grid>
