@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/en-au";
 import relativeTime from "dayjs/plugin/relativeTime";
 
+import flights from "./data/flight";
 import country from "./data/country";
 import testedCases from "./data/testedCases";
 import all from "./data/overall";
@@ -289,6 +290,111 @@ function Tweets({ province }) {
   );
 }
 
+
+/**
+ * User can search using flight number
+ * @param {JSON} flights flights information
+ */
+function Flights({ flights }) {
+  // console.log(flights);
+  const [searchKey, setSearchKey] = useState("");
+  const [flightResult, setFlightResult] = useState([]);
+  useEffect(() => {
+    // initialize the search result
+    setFlightResult([]);
+    // clear search result
+    if (searchKey === "") {
+      setFlightResult([]);
+      return;
+    }
+    for (var i = 0; i < flights.length; i++) {
+      let flight = flights[i];
+      let flightNo = flight.flightNo.toLowerCase();
+      if (flightNo.includes(searchKey.toLowerCase())) {
+        setFlightResult(flightResult => [...flightResult, flight]);
+      }
+    }
+  }, [searchKey]);
+
+  if (flightResult.length !== 0) {
+    flightResult.sort(function(a, b) {
+      let arr = a.dateArrival.split("-");
+      let dateA = new Date(
+        parseInt(arr[2]),
+        parseInt(arr[1]),
+        parseInt(arr[0])
+      );
+      arr = b.dateArrival.split("-");
+
+      let dateB = new Date(
+        parseInt(arr[2]),
+        parseInt(arr[1]),
+        parseInt(arr[0])
+      );
+
+      return new Date(dateB) - new Date(dateA);
+    });
+  }
+
+  return (
+    <div className="card">
+      <h2>Flights</h2>
+      <div className="centerContent">
+        <div className="selfCenter standardWidth">
+          <input
+            className="flightSearch"
+            type="text"
+            placeholder="Search by flight number"
+            onChange={e => setSearchKey(e.target.value)}
+          ></input>
+          <div className="flightInfo header">
+            <div className="area header">Flight No</div>
+            <div className="area header">Airline</div>
+            <div className="area header">Route</div>
+            <div className="area header">Arrival</div>
+            <div className="area header">Close Contact Row</div>
+            {/* <div className="area header">Source State</div> */}
+          </div>
+          {flightResult.length ? (
+            flightResult.map(flight => (
+              <div className="flightInfo header">
+                <div className="area">{flight.flightNo}</div>
+                <div className="area">{flight.airline}</div>
+                <div className="area">{flight.path}</div>
+                <div className="area">{flight.dateArrival}</div>
+                <div className="area">{flight.closeContactRow}</div>
+                {/* <div className="area">{flight.sourceState}</div> */}
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * About card
+ */
+function About() {
+  return (
+    <div className="card">
+      <h2>About</h2>
+      <h4>Contact Information</h4>
+      <p>Place Holder</p>
+      <h4>Data Source Information</h4>
+      <p>Place holder</p>
+    </div>
+  );
+}
+
+function ExposureSites() {
+  return <div></div>;
+}
+
+
 function Stat({
   modifyTime,
   confirmedCount,
@@ -317,7 +423,8 @@ function Stat({
     }
     let lastTotal =
       countryData[
-      Object.keys(countryData)[Object.keys(countryData).length - 1]
+
+        Object.keys(countryData)[Object.keys(countryData).length - 1]
       ];
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
@@ -403,6 +510,7 @@ function Fallback() {
 }
 
 function Area({ area, onChange, data }) {
+
   let totalRecovered = 0;
   for (let i = 0; i < data.length; i++) {
     totalRecovered += parseInt(data[i][3]);
@@ -413,6 +521,7 @@ function Area({ area, onChange, data }) {
       testedCases[
       Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
+
     return data.map(x => (
       <div className="province" key={x.name || x.cityName}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
@@ -448,6 +557,7 @@ function Area({ area, onChange, data }) {
         <div className="tested header">Tested*</div>
       </div>
       {renderArea()}
+
       {totalRecovered > 25 ? null : (
         <div className="province">
           <div className={"area"}>
@@ -465,6 +575,7 @@ function Area({ area, onChange, data }) {
           <div className="tested"></div>
         </div>
       )}
+
     </>
   );
 }
@@ -520,8 +631,8 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function (results) {
-          // console.log("requested");
+
+        complete: function(results) {
 
           results.data.splice(0, 1);
           let sortedData = results.data.sort((a, b) => {
@@ -616,6 +727,7 @@ function App() {
                   *Number of tested cases is updated daily.
                 </span>
               </div>
+
             </div>
           </Grid>
             <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
@@ -626,16 +738,22 @@ function App() {
             <HistoryGraph countryData={country} />
           </Grid>
 
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
 
-                <Tweets province={province} />
-            </Grid>
-
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <NewsTimeline />
-            </Grid>
-
-
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Tweets province={province} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <News />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Flights flights={flights} />
+          </Grid>
+          {/* <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <About />
+          </Grid> */}
+          <Grid item xs={12}>
+            <ExposureSites />
+          </Grid>
 
           <Grid item xs={12}>
             <Fallback />

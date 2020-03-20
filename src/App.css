@@ -38,11 +38,13 @@ header i {
   padding-right: 1rem;
 }
 
+.flightInfo,
 .province {
   display: flex;
   text-align: center;
 }
 
+.flightInfo
 .province.header > div {
   color: #000000;
 }
@@ -195,4 +197,8 @@ h2 small {
   font-weight: 400;
   padding: 5px;
   border-radius: 2px;
+}
+
+.flightSearch {
+  width: 98%;
 }
