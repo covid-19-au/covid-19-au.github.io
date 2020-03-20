@@ -1,23 +1,51 @@
 {
     "updateTime": [
         {
-            "time": "18:08 20/03/2020"
+            "time": "19:45 20/03/2020"
         }
     ],
     "news": [
         {
-            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-queensland-40-new-cases-tally-rises-to-184/12070904",
-            "title": "Queensland COVID-19 case tally rises by 40 to 184",
-            "source": "abc.net.au",
+            "url": "https://www.pm.gov.au/media/update-coronavirus-measures-0",
+            "title": "Update on coronavirus measures",
+            "source": "Prime Minister of Australia",
             "date": "20 March 2020",
-            "time": "05:48pm"
+            "time": ""
+        },
+        {
+            "url": "https://www.theguardian.com/world/2020/mar/20/coronavirus-australian-man-36-diagnosed-with-virus-dies-in-iceland",
+            "title": "Australian man, 36, diagnosed with coronavirus dies in Iceland ",
+            "source": "The Guardian",
+            "date": "20 March 2020",
+            "time": "06:36pm"
+        },
+        {
+            "url": "https://www.smh.com.au/national/brendan-murphy-the-public-face-of-australia-s-fight-against-covid-19-20200320-p54c87.html",
+            "title": "Brendan Murphy: the public face of Australia's fight against COVID-19",
+            "source": "The Sydney Morning Herald",
+            "date": "20 March 2020",
+            "time": "06:35pm"
         },
         {
             "url": "https://www.abc.net.au/news/2020-03-20/wa-coronavirus-cases-jump-as-cruise-ship-lockdown-announced/12075846",
             "title": "WA COVID-19 cases rise to 64 as foreign cruise ship passengers placed in coronavirus lockdown",
-            "source": "abc.net.au",
+            "source": "ABC News",
             "date": "20 March 2020",
-            "time": "05:45pm"
+            "time": "06:34pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-covid-19-scott-morrison-enhanced-social-distancing/12075532",
+            "title": "Australia's social distancing rules have been enhanced to slow coronavirus",
+            "source": "ABC New",
+            "date": "20 March 2020",
+            "time": "06:22pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-queensland-40-new-cases-tally-rises-to-184/12070904",
+            "title": "Queensland COVID-19 case tally rises by 40 to 184",
+            "source": "ABC News",
+            "date": "20 March 2020",
+            "time": "06:17pm"
         },
         {
             "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-live-updates/live-coverage/e434489f660d0a1ff557ba83d9e3a378",
@@ -123,27 +151,6 @@
             "source": "ABC News",
             "date": "19 March 2020",
             "time": "08:29pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-queensland-cases-rise-50-in-one-day/12070902",
-            "title": "Queensland's COVID-19 cases rise 50 in one day taking total to 144",
-            "source": "ABC News",
-            "date": "19 March 2020",
-            "time": "06:43pm"
-        },
-        {
-            "url": "https://www.9news.com.au/national/coronavirus-australia-closes-borders-non-citizens-covid-19-pandemic-scott-morrison/479bfc5a-02d1-4756-a589-04737dfce352",
-            "title": "Australia shuts borders to all non-citizens, residents and direct family members",
-            "source": "9 News",
-            "date": "19 March 2020",
-            "time": "04:24pm"
-        },
-        {
-            "url": "https://www.dailytelegraph.com.au/news/nsw/coronavirus-nsw-live-updates-sixth-person-dies-from-covid19-in-australia/live-coverage/2f42b6e7d478f21c7d757dbe55254d0a",
-            "title": "Coronavirus NSW live updates: Cases rise to 307",
-            "source": "Daily Telegraph",
-            "date": "19 March 2020",
-            "time": "04:20pm"
         }
     ]
 }
