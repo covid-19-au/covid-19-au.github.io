@@ -22,6 +22,7 @@ import CanvasJSReact from "./assets/canvasjs.react";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
+import NewsTimeline from "./NewsTimeline";
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -138,7 +139,7 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Australian COVID-19 Trend",
+        text: "Trends for COVID-19 Cases in Australia ",
         fontSize: 20
       },
       legend: {
@@ -156,7 +157,7 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Australia Covid-19 New Cases vs Deaths Chart (last two weeks)",
+        text: "Daily new cases and deaths in Australia (2-week period)",
         fontSize: 20
       },
       legend: {
@@ -178,29 +179,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Status Graph</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Historical Data</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -235,8 +236,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -278,7 +279,7 @@ function Tweets({ province }) {
             ownerScreenName="kLSAUPZszP2n6zX"
             slug="COVID19-Australia"
             options={{
-              height: 800
+              height: 450
             }}
             noHeader="true"
             noFooter="true"
@@ -288,6 +289,7 @@ function Tweets({ province }) {
     </div>
   );
 }
+
 
 /**
  * User can search using flight number
@@ -392,6 +394,7 @@ function ExposureSites() {
   return <div></div>;
 }
 
+
 function Stat({
   modifyTime,
   confirmedCount,
@@ -420,6 +423,7 @@ function Stat({
     }
     let lastTotal =
       countryData[
+
         Object.keys(countryData)[Object.keys(countryData).length - 1]
       ];
     confCountIncrease = confirmedCount - lastTotal[0];
@@ -436,7 +440,7 @@ function Stat({
     <div className="card">
       <h2>
         Status {name ? `· ${name}` : false}
-        <span className="due">Update Hourly</span>
+        <span className="due">Updated Hourly</span>
       </h2>
       <div className="row">
         <Tag
@@ -477,12 +481,7 @@ function Stat({
 function Fallback() {
   return (
     <div className="fallback">
-      <div>
-        Forked From:{" "}
-        <a href="https://github.com/shfshanyue/2019-ncov">
-          shfshanyue/2019-ncov
-        </a>
-      </div>
+      <div>Template credits to: shfshanyue</div>
 
       <div>
         Our GitHub:{" "}
@@ -495,7 +494,7 @@ function Fallback() {
         <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
           volunteer team
         </a>{" "}
-        from Faculty of IT, Monash University for non-commercial use only.
+        from the Faculty of IT, Monash University, for non-commercial use only.
       </div>
       <div>
         <a href="https://www.webfreecounter.com/" target="_blank">
@@ -511,13 +510,18 @@ function Fallback() {
 }
 
 function Area({ area, onChange, data }) {
+
+  let totalRecovered = 0;
+  for (let i = 0; i < data.length; i++) {
+    totalRecovered += parseInt(data[i][3]);
+  }
+
   const renderArea = () => {
     let latest =
       testedCases[
-        Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+      Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
 
-    console.log(data);
     return data.map(x => (
       <div className="province" key={x.name || x.cityName}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
@@ -550,9 +554,28 @@ function Area({ area, onChange, data }) {
         <div className="confirmed header">Confirmed</div>
         <div className="death header">Death</div>
         <div className="cured header">Recovered</div>
-        <div className="tested header">*Tested</div>
+        <div className="tested header">Tested*</div>
       </div>
       {renderArea()}
+
+      {totalRecovered > 25 ? null : (
+        <div className="province">
+          <div className={"area"}>
+            <strong>TBD</strong>
+          </div>
+          <div className="confirmed">
+            <strong></strong>
+          </div>
+          <div className="death">
+            <strong></strong>
+          </div>
+          <div className="cured">
+            <strong>21</strong>
+          </div>
+          <div className="tested"></div>
+        </div>
+      )}
+
     </>
   );
 }
@@ -566,7 +589,7 @@ function Header({ province }) {
           fontSize: "120%"
         }}
       >
-        COVID-19 Real-time Report in Australia
+        COVID-19 in Australia - Real-Time Report
       </h1>
       {/*<i>By Students from Monash</i>*/}
     </header>
@@ -608,13 +631,14 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
+
         complete: function(results) {
-          console.log("requested");
+
           results.data.splice(0, 1);
           let sortedData = results.data.sort((a, b) => {
             return b[1] - a[1];
           });
-          console.log(sortedData);
+
           setMyData(results.data);
         }
       }
@@ -633,13 +657,13 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
@@ -659,7 +683,7 @@ function App() {
             />
             <div className="card">
               <h2>
-                Infection Map {province ? `· ${province.name}` : false}
+                Cases by State {province ? `· ${province.name}` : false}
                 {province ? (
                   <small onClick={() => setProvince(null)}>Return</small>
                 ) : null}
@@ -684,25 +708,36 @@ function App() {
                 {/*}*/}
               </Suspense>
               <Area area={area} onChange={setProvince} data={myData} />
-              <a
-                style={{
-                  fontSize: "50%",
-                  float: "right",
-                  color: "lightgrey"
-                }}
-                href="https://www.theaustralian.com.au"
-              >
-                Data: @The Australian
-              </a>
-              <span style={{ fontSize: "60%" }} className="due">
-                *Tested cases are updated daily.
-              </span>
+
+              <div style={{ paddingBottom: "1rem" }}>
+                <a
+                  style={{
+                    fontSize: "60%",
+                    float: "right",
+                    color: "blue"
+                  }}
+                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+                >
+                  @Data Source
+                </a>
+                <span
+                  style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+                  className="due"
+                >
+                  *Number of tested cases is updated daily.
+                </span>
+              </div>
+
             </div>
           </Grid>
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <MbMap />
+            </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <MbMap />
+
             <HistoryGraph countryData={country} />
           </Grid>
+
 
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Tweets province={province} />
@@ -719,6 +754,7 @@ function App() {
           <Grid item xs={12}>
             <ExposureSites />
           </Grid>
+
           <Grid item xs={12}>
             <Fallback />
           </Grid>
