@@ -177,10 +177,10 @@
       transform: scale(1);
     }
   }
-  @media only screen and (max-width: 1366px) {
-    /* for medium screens;: */
+  @media only screen and (width: 1366px) {
+    /* for ipad pro vertical;: */
     .timeline:before {
-      left: calc(32% - 3px);
+      left: calc(31%);
     }
     .entry .body {
       margin: 0 0 3em;
@@ -191,7 +191,7 @@
     } 
   .entry .title:before {
     top: 0%;
-    right: 3px;
+    right: 1%;
     z-index: 99;
   }
   .timeline-item-date {
@@ -223,14 +223,6 @@
     text-indent: 15px;
   }
 }
-
-@media only screen and (max-width: 1024px) {
-  /* for medium screens (max-width corresponds to iPad Pro);: */
-  .timeline:before {
-    left: calc(31% + 2px);
-  }
-}
-
 @media only screen and (max-width: 960px) {
   /* For small screens*/
   .timeline:before {
