@@ -178,9 +178,9 @@
     }
   }
   @media only screen and (max-width: 1366px) {
-    /* for medium screens (max-width corresponds to iPad Pro);: */
+    /* for medium screens;: */
     .timeline:before {
-      left: calc(32%);
+      left: calc(32% - 3px);
     }
     .entry .body {
       margin: 0 0 3em;
@@ -224,6 +224,12 @@
   }
 }
 
+@media only screen and (max-width: 1024px) {
+  /* for medium screens (max-width corresponds to iPad Pro);: */
+  .timeline:before {
+    left: calc(31% + 2px);
+  }
+}
 
 @media only screen and (max-width: 960px) {
   /* For small screens*/

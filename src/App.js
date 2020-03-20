@@ -178,29 +178,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Historical Data</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Historical Data</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -235,8 +235,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -317,7 +317,7 @@ function Stat({
     }
     let lastTotal =
       countryData[
-        Object.keys(countryData)[Object.keys(countryData).length - 1]
+      Object.keys(countryData)[Object.keys(countryData).length - 1]
       ];
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
@@ -411,7 +411,7 @@ function Area({ area, onChange, data }) {
   const renderArea = () => {
     let latest =
       testedCases[
-        Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+      Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
     return data.map(x => (
       <div className="province" key={x.name || x.cityName}>
@@ -520,7 +520,7 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function(results) {
+        complete: function (results) {
           // console.log("requested");
 
           results.data.splice(0, 1);
@@ -546,13 +546,13 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
@@ -618,21 +618,24 @@ function App() {
               </div>
             </div>
           </Grid>
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <MbMap />
+            </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+
             <HistoryGraph countryData={country} />
-            <Tweets province={province} />
           </Grid>
 
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <MbMap />
-          </Grid>
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
 
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <NewsTimeline></NewsTimeline>
-          </Grid>
-          {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
-          {/*<News />*/}
-          {/*</Grid>*/}
+                <Tweets province={province} />
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <NewsTimeline />
+            </Grid>
+
+
 
           <Grid item xs={12}>
             <Fallback />
