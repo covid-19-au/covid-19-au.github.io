@@ -1,10 +1,24 @@
 {
     "updateTime": [
         {
-            "time": "16:08 20/03/2020"
+            "time": "18:08 20/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-queensland-40-new-cases-tally-rises-to-184/12070904",
+            "title": "Queensland COVID-19 case tally rises by 40 to 184",
+            "source": "abc.net.au",
+            "date": "20 March 2020",
+            "time": "05:48pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-20/wa-coronavirus-cases-jump-as-cruise-ship-lockdown-announced/12075846",
+            "title": "WA COVID-19 cases rise to 64 as foreign cruise ship passengers placed in coronavirus lockdown",
+            "source": "abc.net.au",
+            "date": "20 March 2020",
+            "time": "05:45pm"
+        },
         {
             "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-live-updates/live-coverage/e434489f660d0a1ff557ba83d9e3a378",
             "title": "Coronavirus Australia live updates: PM announces new crowd restrictions in COVID-19 update",

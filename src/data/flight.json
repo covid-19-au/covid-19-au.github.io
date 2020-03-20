@@ -588,7 +588,7 @@
     "airline": "Qantas",
     "path": "Sydney to Canberra",
     "dateArrival": "28-2-20",
-    "closeContactRow": "2,3,4,5,6",
+    "closeContactRow": "2, 3, 4, 5, 6",
     "sourceState": "ACT"
   },
   {
@@ -596,7 +596,7 @@
     "airline": "Virgin Australia",
     "path": "Canberra to Sydney",
     "dateArrival": "28-2-20",
-    "closeContactRow": "3,4,5,6,7",
+    "closeContactRow": "3, 4, 5, 6, 7",
     "sourceState": "ACT"
   },
   {
@@ -604,7 +604,7 @@
     "airline": "Garuda Indonesia",
     "path": "Jakarta to Sydney",
     "dateArrival": "14-3-20",
-    "closeContactRow": "41,42,43,44,45",
+    "closeContactRow": "41, 42, 43, 44, 45",
     "sourceState": "ACT"
   },
   {
@@ -620,7 +620,7 @@
     "airline": "Jetstar",
     "path": "Sydney to Hobart",
     "dateArrival": "8-3-20",
-    "closeContactRow": "13,14,15,16,17",
+    "closeContactRow": "13, 14, 15, 16, 17",
     "sourceState": "TAS"
   },
   {

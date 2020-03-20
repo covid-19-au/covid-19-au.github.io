@@ -358,11 +358,11 @@ function Flights({ flights }) {
           {flightResult.length ? (
             flightResult.map(flight => (
               <div className="flightInfo header">
-                <div className="area">{flight.flightNo}</div>
-                <div className="area">{flight.airline}</div>
-                <div className="area">{flight.path}</div>
-                <div className="area">{flight.dateArrival}</div>
-                <div className="area">{flight.closeContactRow}</div>
+                <div className="flightArea">{flight.flightNo}</div>
+                <div className="flightArea">{flight.airline}</div>
+                <div className="flightArea">{flight.path}</div>
+                <div className="flightArea">{flight.dateArrival}</div>
+                <div className="flightArea">{flight.closeContactRow}</div>
                 {/* <div className="area">{flight.sourceState}</div> */}
               </div>
             ))
@@ -743,7 +743,7 @@ function App() {
             <Tweets province={province} />
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <News />
+            <NewsTimeline />
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Flights flights={flights} />
@@ -751,9 +751,9 @@ function App() {
           {/* <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <About />
           </Grid> */}
-          <Grid item xs={12}>
-            <ExposureSites />
-          </Grid>
+          {/*<Grid item xs={12}>*/}
+            {/*<ExposureSites />*/}
+          {/*</Grid>*/}
 
           <Grid item xs={12}>
             <Fallback />

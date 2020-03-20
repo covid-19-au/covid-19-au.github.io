@@ -53,6 +53,7 @@ header i {
 .confirmed,
 .death,
 .cured,
+.flightArea,
 .tested{
   border: 1px solid #fff;
   background-color: #f8f8f8;
@@ -62,6 +63,13 @@ header i {
 }
 
 .area {
+  flex: 3;
+  padding: 0.4rem 0;
+  position: relative;
+  color: #212f3d;
+}
+.flightArea {
+  font-size: 90%;
   flex: 3;
   padding: 0.4rem 0;
   position: relative;
