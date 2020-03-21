@@ -9,6 +9,7 @@ This site accumulates the information from different resources including:
 * Some tweets and news about COVID-19;
 * The map location of patitent's trace, and hospitals which can carry out COVID-19 tests;
 * The flights with confirmed cases
+* Basic knowledge about COVID-19
 
 
 We keep updating it from time to time.
@@ -68,6 +69,20 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 You can contact us by:
 * Email to freddie.wanah@gmail.com or create GitHub Issues if there are any the bugs or feature requests.
 * Email to Chunyang.Chen@monash.edu if you want to join the team for the development.
+
+
+
+## Call for features
+We receive tons of features requests from users and like the following features most:
+* Display the view number in the top-right of our homepage by retrieving the number from our Google Analytics
+* Need better interavtive visualization for showing historical data trend
+* Nice UI for the flight search 
+* Multi-lingual site development. As not everyone in AU is proficient in English, we hope that users can switch to their native language when using our site.
+* A dedicated page for nice intreactive visualization for our data including age, gender, suburb distribution of confirmred cases, increasing number in each state, ICU beds in each hospital, etc.
+
+If you are interested in one or more of these features, welcome to the PR and our team will review all PRs from time to time.
+Once your PR is merged to our project, we will explicitely list you in the contributor list of this project.
+Looking forward to your great works.
 
 
 Part of this project is based on the template from [this site](https://ncov.shanyue.tech/)
