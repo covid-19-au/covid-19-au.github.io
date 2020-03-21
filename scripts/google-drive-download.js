@@ -18,14 +18,14 @@ function downloadData(dataUrl, writePath) {
             //console.log(parsedData.valueRanges[0].values)
 
             formattedData = JSON.parse('{}')
-            //console.log(requiredData)
+            formattedData["values"] = []
             var i = 1
             while (i < requiredData[0].length) {
-                formattedData[requiredData[0][i]] = []
-
+                formattedData.values.push([])
+                formattedData.values[i - 1].push(requiredData[0][i])
                 var j = 1
                 while (j < requiredData.length) {
-                    formattedData[requiredData[0][i]].push(requiredData[j][i])
+                    formattedData.values[i - 1].push(requiredData[j][i])
 
                     j = j + 1
                 }
@@ -33,7 +33,6 @@ function downloadData(dataUrl, writePath) {
             }
 
             dataString = JSON.stringify(formattedData)
-
             fs.writeFile('../src/data/stateCaseData.json', dataString, function (err) {
                 if (err) throw err;
                 console.log('complete');
