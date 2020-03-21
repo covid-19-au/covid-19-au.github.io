@@ -58,6 +58,11 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 
 ### Promotion
 * Ruby Yeo ryeo0006@student.monash.edu
+* Emma Callaghan ecal0009@student.monash.edu
+
+### Contributor
+* Matt Lui malui@student.unimelb.edu.au
+
 
 ## Contact
 You can contact us by:
