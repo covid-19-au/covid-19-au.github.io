@@ -1,17 +1,65 @@
 {
     "updateTime": [
         {
-            "time": "16:07 21/03/2020"
-
+            "time": "10:03 22/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://www.abc.net.au/news/2020-03-22/covid-19-how-deadly-and-contagious-is-coronavirus/12068106",
+            "title": "Coronavirus: How deadly and contagious is this COVID-19 pandemic?",
+            "source": "ABC News",
+            "date": "22 March 2020",
+            "time": "08:00am"
+        },
+        {
+            "url": "https://www.smh.com.au/politics/federal/covid-19-25-2-billion-cash-injection-to-save-jobs-20200321-p54cjo.html",
+            "title": "COVID-19: $25.2 billion cash injection to save jobs",
+            "source": "The Sydney Morning Herald",
+            "date": "22 March 2020",
+            "time": "12:05am"
+        },
+        {
+            "url": "https://www.theguardian.com/world/2020/mar/21/coronavirus-what-happens-to-lungs-covid-19",
+            "title": "Coronavirus: what happens to people's lungs when they get Covid-19?",
+            "source": "The Guardian",
+            "date": "21 March 2020",
+            "time": "11:09pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-infects-16th-person-in-tasmania/12077668",
+            "title": "Coronavirus cases reach 16 in Tasmania as five people test positive in one day",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "07:40pm"
+        },
+        {
+            "url": "https://www.9news.com.au/national/coronavirus-us-tour-group-members-test-positive-for-covid19-in-barossa-south-australia/3aab42d4-5959-45fd-8eee-aa69e4c0143e",
+            "title": "Ten US travellers test positive for coronavirus, isolated in South Australia's Barossa Valley",
+            "source": "9 News",
+            "date": "21 March 2020",
+            "time": "05:45pm"
+        },
+        {
+            "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-bondi-beach-to-be-closed-after-beachgoers-ignored-social-distancing-orders/news-story/308b17193e93e7a52f07f22037948c0b",
+            "title": "Coronavirus: Bondi Beach, Tamarama and Bronte to be closed after beachgoers ignored social distancing orders",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "05:08pm"
+        },
         {
             "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-five-cruises-from-sydney-infected-with-covid19/news-story/5c0e5a4e6f68112f160f628ee5437768",
             "title": "Coronavirus Australia: Five cruises from Sydney infected with COVID-19",
             "source": "ABC News",
             "date": "21 March 2020",
             "time": "03:56pm"
+        },
+        {
+            "url": "https://www.9news.com.au/national/coronavirus-cases-pass-1000-in-australia-covid19/30b9168d-77fc-4837-b82c-880cdc890a67",
+            "title": "More than 1,000 cases of coronavirus reported in Australia",
+            "source": "9News",
+            "date": "21 March 2020",
+            "time": "03:05pm"
         },
         {
             "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-covid-19-infections-spike-by-26-in-wa/12077652",
@@ -61,153 +109,6 @@
             "source": "The Age",
             "date": "21 March 2020",
             "time": "10:45am"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-puts-federal-budget-on-hold-until-october/12075238",
-            "title": "Coronavirus pandemic prompts Federal Government to delay budget until October",
-            "source": "ABC News",
-            "date": "21 March 2020",
-            "time": "12:30am"
-        },
-        {
-            "url": "https://www.smh.com.au/business/the-economy/reserve-bank-goes-unconventional-as-coronavirus-crisis-deepens-20200320-p54caj.html",
-            "title": "Reserve Bank goes unconventional as coronavirus crisis deepens",
-            "source": "Sydney Morning Herald",
-            "date": "21 March 2020",
-            "time": "12:00am"
-        },
-        {
-            "url": "https://www.police.wa.gov.au/State-of-Emergency-COVID19-Pandemic",
-            "title": "State of Emergency COVID-19",
-            "source": "Western Australia Police Force",
-            "date": "20 March 2020",
-            "time": ""
-        },
-        {
-            "url": "http://mediareleases.nt.gov.au/mediaRelease/32109",
-            "title": "Northern Territory Coronavirus (COVID-19) Update",
-            "source": "Northern Territory Government",
-            "date": "20 March 2020",
-            "time": ""
-        },
-        {
-            "url": "https://www.pm.gov.au/media/update-coronavirus-measures-0",
-            "title": "Update on coronavirus measures",
-            "source": "Prime Minister of Australia",
-            "date": "20 March 2020",
-            "time": ""
-        },
-        {
-            "url": "https://www.theguardian.com/world/2020/mar/20/coronavirus-australian-man-36-diagnosed-with-virus-dies-in-iceland",
-            "title": "Australian man, 36, diagnosed with coronavirus dies in Iceland ",
-            "source": "The Guardian",
-            "date": "20 March 2020",
-            "time": "06:36pm"
-        },
-        {
-            "url": "https://www.smh.com.au/national/brendan-murphy-the-public-face-of-australia-s-fight-against-covid-19-20200320-p54c87.html",
-            "title": "Brendan Murphy: the public face of Australia's fight against COVID-19",
-            "source": "The Sydney Morning Herald",
-            "date": "20 March 2020",
-            "time": "06:35pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/wa-coronavirus-cases-jump-as-cruise-ship-lockdown-announced/12075846",
-            "title": "WA COVID-19 cases rise to 64 as foreign cruise ship passengers placed in coronavirus lockdown",
-            "source": "ABC News",
-            "date": "20 March 2020",
-            "time": "06:34pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-covid-19-scott-morrison-enhanced-social-distancing/12075532",
-            "title": "Australia's social distancing rules have been enhanced to slow coronavirus",
-            "source": "ABC New",
-            "date": "20 March 2020",
-            "time": "06:22pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-queensland-40-new-cases-tally-rises-to-184/12070904",
-            "title": "Queensland COVID-19 case tally rises by 40 to 184",
-            "source": "ABC News",
-            "date": "20 March 2020",
-            "time": "06:17pm"
-        },
-        {
-            "url": "https://www.9news.com.au/national/coronavirus-two-new-cases-confirmed-in-australian-capital-territory/1595a904-0a50-42a2-be16-0984582c6950",
-            "title": "Two new cases confirmed in ACT",
-            "source": "9 News",
-            "date": "20 March 2020",
-            "time": "04:51pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/student-tests-positive-to-covid-19-at-unley-high/12074128",
-            "title": "Unley High School student tests positive for COVID-19 after close contact with infected teacher",
-            "source": "ABC News",
-            "date": "20 March 2020",
-            "time": "04:30 pm"
-        },
-        {
-            "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-live-updates/live-coverage/e434489f660d0a1ff557ba83d9e3a378",
-            "title": "Coronavirus Australia live updates: PM announces new crowd restrictions in COVID-19 update",
-            "source": "news.com.au",
-            "date": "20 March 2020",
-            "time": "03:57pm"
-        },
-        {
-            "url": "https://www.theguardian.com/world/2020/mar/20/thousands-of-australians-stranded-overseas-as-countries-close-borders-over-covid-19-fears",
-            "title": "Thousands of Australians stranded overseas as countries close borders over Covid-19 fears",
-            "source": "The Guardian",
-            "date": "20 March 2020",
-            "time": "03:52pm"
-        },
-        {
-            "url": "https://www.9news.com.au/national/coronavirus-pandemic-melbourne-teachers-call-for-school-closures-as-more-positive-cases-confirmed/3caf8431-a64f-46a7-9d56-5be348dfc8fa",
-            "title": "Coronavirus pandemic: Melbourne teachers call for school closures as more positive cases confirmed",
-            "source": "9News",
-            "date": "20 March 2020",
-            "time": "03:37pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/nt-records-second-coronavirus-case/12074916",
-            "title": "Second coronavirus case recorded in Northern Territory as man who came home from Europe tests positive",
-            "source": "ABC News",
-            "date": "20 March 2020",
-            "time": "1:58pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-australia-live-updates-covid-19-latest-news/12072680",
-            "title": "NSW has confirmed 75 new COVID-19 cases in the past day, bringing the state's total to 382",
-            "source": "ABC News",
-            "date": "20 March 2020",
-            "time": "1:46pm"
-        },
-        {
-            "url": "https://www.sbs.com.au/news/naplan-tests-cancelled-for-2020-amid-concerns-over-coronavirus-spread",
-            "title": "NAPLAN tests cancelled for 2020 amid concerns over coronavirus spread",
-            "source": "SBSNews",
-            "date": "20 March 2020",
-            "time": "1:25pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-australia-live-updates-covid-19-latest-news/12072680",
-            "title": "NT records second case of COVID-19",
-            "source": "ABCNews",
-            "date": "20 March 2020",
-            "time": "12:32pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/student-tests-positive-to-covid-19-at-unley-high/12074128",
-            "title": "Unley High School student tests positive for COVID-19 after close contact with infected teacher",
-            "source": "ABCNews",
-            "date": "20 March 2020",
-            "time": "12:08pm"
-        },
-        {
-            "url": "https://www.sbs.com.au/news/professional-cleaners-under-pressure-to-help-control-coronavirus-spread-in-australia",
-            "title": "Professional cleaners under pressure to help control coronavirus spread in Australia",
-            "source": "SBSNews",
-            "date": "20 March 2020",
-            "time": "11:56am"
         }
     ]
 }
