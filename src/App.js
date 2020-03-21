@@ -590,7 +590,7 @@ function Header({ province }) {
           fontSize: "120%"
         }}
       >
-        COVID-19 in Australia - Real-Time Report
+        COVID-19 in Australia — Real-Time Report
       </h1>
       {/*<i>By Students from Monash</i>*/}
     </header>
