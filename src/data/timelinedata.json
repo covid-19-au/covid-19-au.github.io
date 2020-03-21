@@ -1,16 +1,58 @@
 {
     "updateTime": [
         {
-            "time": "11:16 21/03/2020"
+            "time": "16:07 21/03/2020"
         }
     ],
     "news": [
         {
-            "url": "https://health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19/latest-news",
-            "title": "Nine cases of COVID-19 now confirmed in ACT",
-            "source": "ACT Health",
+            "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-five-cruises-from-sydney-infected-with-covid19/news-story/5c0e5a4e6f68112f160f628ee5437768",
+            "title": "Coronavirus Australia: Five cruises from Sydney infected with COVID-19",
+            "source": "ABC News",
             "date": "21 March 2020",
-            "time": "11:00am"
+            "time": "03:56pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-covid-19-infections-spike-by-26-in-wa/12077652",
+            "title": "Coronavirus spreads in WA with 26 new COVID-19 cases, as most elective surgery suspended",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "03:05pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-21/northern-territory-two-more-cases-of-coronavirus/12074356",
+            "title": "Two new cases of coronavirus in the Northern Territory after cruise ship couple test positive",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "03:21pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-21/number-of-coronavirus-infections-soars-past-400-in-nsw/12076622",
+            "title": "Coronavirus cases in NSW spike after largest 24-hour increase takes number of infections past 400",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "01:41pm"
+        },
+        {
+            "url": "https://www.couriermail.com.au/news/queensland/local-government-candidates-banned-from-canvassing-outside-booths-as-part-of-social-distancing/news-story/6b9d9a8183e51a9b02dde444d40e02da",
+            "title": "QUEENSLAND has recorded another 37 new cases of coronavirus in the past 24 hours, taking the total number cases in the state to 221",
+            "source": "The Courier-Mail",
+            "date": "21 March 2020",
+            "time": "12:18pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-infects-11th-person-in-tasmania/12077668",
+            "title": "New coronavirus case in Tasmania after woman tests positive after UK trip",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "11:54am"
+        },
+        {
+            "url": "https://citynews.com.au/2020/three-more-travellers-act-virus-count-rises-to-nine/",
+            "title": "Three more travellers: ACT virus count rises to nine",
+            "source": "City News",
+            "date": "21 March 2020",
+            "time": "11:45am"
         },
         {
             "url": "https://www.theage.com.au/national/victoria/coronavirus-victoria-updates-live-italy-toll-climbs-victoria-police-spot-checking-isolation-20200320-p54cfn.html",
