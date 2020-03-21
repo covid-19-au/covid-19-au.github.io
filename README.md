@@ -16,7 +16,7 @@ We keep updating it from time to time.
 All the data comes from official resources such as the [Government](https://www.dhhs.vic.gov.au/), [News Group](https://www.theaustralian.com.au/) and [Wikipedia](https://www.wikipedia.org/).
 
 ## Usage of the code:
-#### Instructions for first setup
+#### Instructions for first-time setup
 
 - run `npm install`
 
