@@ -9,12 +9,15 @@ import country from "./data/country";
 import testedCases from "./data/testedCases";
 import all from "./data/overall";
 import provinces from "./data/area";
+import information from "./data/info";
 import Tag from "./Tag";
 
 import MbMap from "./ConfirmedMap";
 import "./App.css";
 import axios from "axios";
 import Papa from "papaparse";
+import uuid from "react-uuid";
+import ReactPlayer from "react-player";
 
 import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
@@ -268,22 +271,24 @@ function News({ province }) {
   );
 }
 
-function Tweets({ province }) {
+function Tweets({ province, nav }) {
   return (
     <div className="card">
       <h2>Twitter Feed</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-          <TwitterTimelineEmbed
+            {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
+            {nav === "News" ? <TwitterTimelineEmbed
             sourceType="list"
             ownerScreenName="8ravoEchoNov"
             slug="COVID19-Australia"
             options={{
               height: 450
             }}
-            noHeader="true"
-            noFooter="true"
-          />
+            noHeader={true}
+            noFooter={true}
+          /> : ""}
+          
         </div>
       </div>
     </div>
@@ -465,7 +470,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
-        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 18:20 21/03/2020</span>
+        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 20:20 21/03/2020</span>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -520,7 +525,7 @@ function Area({ area, onChange, data }) {
       ];
 
     return data.map(x => (
-      <div className="province" key={x.name || x.cityName}>
+      <div className="province" key={uuid()}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
         {/*{ x.name || x.cityName }*/}
         {/*</div>*/}
@@ -592,6 +597,193 @@ function Header({ province }) {
   );
 }
 
+function Navbar({setNav, nav}) {
+    const onClick = e => {
+        setNav(e.target.innerText);
+    }
+
+    return (
+        <div className="row navBar">
+            <span className={`${nav === "Home" ? "navCurrentPage navItems" : "navItems"}`} onClick={onClick}><strong>Home</strong></span>
+            <span className={`${nav === "Info" ? "navCurrentPage navItems" : "navItems"}`} onClick={onClick}><strong>Info</strong></span>
+            <span className={`${nav === "News" ? "navCurrentPage navItems" : "navItems"}`} onClick={onClick}><strong>News</strong></span>
+        </div>
+    )
+}
+
+function Information() {
+    return (
+        <div className="card">
+            <h2>Informative Media</h2>
+            <div className="row centerMedia">
+                <div>
+                    <ReactPlayer className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true}/>
+                    <small className="mediaText">The Coronavirus explained and what you should do.</small>
+                </div>
+            </div>
+
+            <div className="row centerMedia">
+                <div className="imageContainer">
+                    <img
+                        className="formatImage"
+                        src="https://www.who.int/gpsc/media/how_to_handwash_lge.gif"
+                        alt="How to wash hands - Coronavirus"
+                    />
+                    <small className="mediaText">How to properly wash your hands.</small>
+                </div>
+            </div>
+            
+            <h2>Information</h2>
+            {information.map(info => (
+                <div className="row" key={uuid()}>
+                    <div>
+                        {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                        <h3>{info.name}</h3>
+                        <div>
+                            {/* First block of text */}
+                            {info.text.text_1.map(t1 => (
+                                <p key={uuid()}>{t1}</p>
+                            ))}
+
+                            {/* First Unordered List */}
+                            {info.text.ulist_1 ? (
+                                <ul>
+                                    {info.text.ulist_1.map(ul1 => (
+                                        <li key={uuid()}>{ul1}</li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                ""
+                            )}
+
+                            {/* First Ordered List */}
+                            {info.text.olist_1 ? (
+                                <ol>
+                                    {info.text.olist_1.map(ol1 => (
+                                        <li key={uuid()}>{ol1}</li>
+                                    ))}
+                                </ol>
+                            ) : (
+                                ""
+                            )}
+
+                            {/* Second Block of text */}
+                            {info.text.text_2.map(t2 => (
+                                <p key={uuid()}>{t2}</p>
+                            ))}
+
+                            {/* Citation tag */}
+                            {info.text.citation.map(cit => (
+                                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                            ))}
+
+                        </div>
+                    </div>
+                </div>
+            ))}
+            <small>All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a></small>
+        </div>
+    );
+}
+
+function HomePage({province, overall, myData, area, data, setProvince, gspace}) {
+    return (
+        <Grid container spacing={gspace} justify="center" wrap="wrap">
+            
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Stat
+              {...{ ...all, ...overall }}
+              name={province && province.name}
+              data={myData}
+              countryData={country}
+            />
+            <div className="card">
+              <h2>
+                Cases by State {province ? `· ${province.name}` : false}
+                {province ? (
+                  <small onClick={() => setProvince(null)}>Return</small>
+                ) : null}
+              </h2>
+              <Suspense fallback={<div className="loading">Loading...</div>}>
+                <GoogleMap
+                  province={province}
+                  data={data}
+                  onClick={name => {
+                    const p = provincesByName[name];
+                    if (p) {
+                      setProvince(p);
+                    }
+                  }}
+                  newData={myData}
+                />
+                {/*{*/}
+                {/*province ? false :*/}
+                {/*<div className="tip">*/}
+                {/*Click on the state to check state details.*/}
+                {/*</div>*/}
+                {/*}*/}
+              </Suspense>
+              <Area area={area} onChange={setProvince} data={myData} />
+
+              <div style={{ paddingBottom: "1rem" }}>
+                <a
+                  style={{
+                    fontSize: "60%",
+                    float: "right",
+                    color: "blue"
+                  }}
+                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+                >
+                  @Data Source
+                </a>
+                <span
+                  style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+                  className="due"
+                >
+                  *Number of tested cases is updated daily.
+                </span>
+              </div>
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <MbMap />
+            <HistoryGraph countryData={country} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Flights flights={flights} />
+          </Grid>
+          
+        </Grid>
+    )
+}
+
+function InfoPage() {
+    return (
+        <Grid item xs={12} sm={12} md={10}>
+            <Information />
+        </Grid>
+    )
+}
+
+function NewsPage({gspace, province, nav}) {
+    return (
+        <Grid container spacing={gspace} justify="center" wrap="wrap">
+            
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <Tweets province={province} nav={nav} />
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <NewsTimeline />
+            </Grid> 
+        </Grid>
+    )
+}
+
 function App() {
   const [province, _setProvince] = useState(null);
   const setProvinceByUrl = () => {
@@ -658,8 +850,11 @@ function App() {
             if (sortedData[i][0] === "VIC" && parseInt(sortedData[i][1]) < 229) {
               sortedData[i][1] = '229'
             }
-            if (sortedData[i][0] === "TAS" && parseInt(sortedData[i][1]) < 11) {
-              sortedData[i][1] = '11'
+            if(sortedData[i][0]==="VIC"){
+                sortedData[i][3] = '51'
+            }
+            if (sortedData[i][0] === "TAS" && parseInt(sortedData[i][1]) < 16) {
+              sortedData[i][1] = '16'
             }
             if (sortedData[i][0] === "NT" && parseInt(sortedData[i][1]) < 5) {
               sortedData[i][1] = '5'
@@ -699,86 +894,32 @@ function App() {
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
+
+  const [nav, setNav] = useState("Home");
+
   if (myData) {
     return (
       <div>
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12}>
-            <Header province={province} />
+            <Header province={province}/>
           </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Stat
-              {...{ ...all, ...overall }}
-              name={province && province.name}
-              data={myData}
-              countryData={country}
-            />
-            <div className="card">
-              <h2>
-                Cases by State {province ? `· ${province.name}` : false}
-                {province ? (
-                  <small onClick={() => setProvince(null)}>Return</small>
-                ) : null}
-              </h2>
-              <Suspense fallback={<div className="loading">Loading...</div>}>
-                <GoogleMap
-                  province={province}
-                  data={data}
-                  onClick={name => {
-                    const p = provincesByName[name];
-                    if (p) {
-                      setProvince(p);
-                    }
-                  }}
-                  newData={myData}
-                />
-                {/*{*/}
-                {/*province ? false :*/}
-                {/*<div className="tip">*/}
-                {/*Click on the state to check state details.*/}
-                {/*</div>*/}
-                {/*}*/}
-              </Suspense>
-              <Area area={area} onChange={setProvince} data={myData} />
+          <Grid item xs={12}>
+              <Navbar setNav={setNav} nav={nav}/>
+          </Grid>
+          
+          {/* Pages to hold each functionality. */}
+          {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
+          {nav === "Info" ? <InfoPage /> : ""}
+          {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav}/> : ""}
+          
 
-              <div style={{ paddingBottom: "1rem" }}>
-                <a
-                  style={{
-                    fontSize: "60%",
-                    float: "right",
-                    color: "blue"
-                  }}
-                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-                >
-                  @Data Source
-                </a>
-                <span
-                  style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
-                  className="due"
-                >
-                  *Number of tested cases is updated daily.
-                </span>
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <MbMap />
-            <HistoryGraph countryData={country} />
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Tweets province={province} />
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <NewsTimeline />
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Flights flights={flights} />
-          </Grid>
-          {/* <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <About />
-          </Grid> */}
+          {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
+          {/*<News />*/}
+          {/*</Grid>*/}
           {/*<Grid item xs={12}>*/}
-          {/*<ExposureSites />*/}
+            {/*<ExposureSites />*/}
+
           {/*</Grid>*/}
 
           <Grid item xs={12}>
