@@ -437,7 +437,7 @@ function Stat({
     <div className="card">
       <h2>
         Status {name ? `· ${name}` : false}
-        <span className="due">Updated Hourly</span>
+
       </h2>
       <div className="row">
         <Tag
@@ -465,6 +465,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
+        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 16:20 21/03/2020</span>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -648,6 +649,12 @@ function App() {
             if (sortedData[i][0] === "NSW" && parseInt(sortedData[i][1]) < 436) {
               sortedData[i][1] = '436'
             }
+              if (sortedData[i][0] === "NSW" ) {
+                  sortedData[i][2] = '6'
+              }
+              if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
+                  sortedData[i][1] = '221'
+              }
             if (sortedData[i][0] === "VIC" && parseInt(sortedData[i][1]) < 229) {
               sortedData[i][1] = '229'
             }
