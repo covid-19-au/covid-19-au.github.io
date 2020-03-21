@@ -6,6 +6,7 @@ import ReactMapboxGl, { Layer, Feature, Popup } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import confirmedImg from './icon/confirmed.png'
 import hospitalImg from './icon/hospital.png'
+import './ConfirmedMap.css'
 let token = process.env.REACT_APP_MAP_API
 mapboxgl.accessToken = token;
 class MbMap extends React.Component {
@@ -117,8 +118,8 @@ class MbMap extends React.Component {
                 flexDirection: 'column',
                 height: '520px'
             }}>
-                <h2>Hospitals & Cases Map</h2>
-
+                <h2>Hospital & Case Map</h2>
+                <div id="map-container">
                 <div style={style} ref={el => this.mapContainer = el} >
                     {/*{*/}
                     {/*confirmedData.map((item)=>(*/}
@@ -128,10 +129,21 @@ class MbMap extends React.Component {
                     {/*))*/}
                     {/*}*/}
                 </div>
-
+                <div id="map-legend" class="legend">
+                  <h4>Map Legend</h4>
+                  <div><img src={hospitalImg} style={{
+                    height: '20px',
+                    width: '20px'
+                  }}/>Hospital</div>
+                  <div><img src={confirmedImg} style={{
+                    height: '20px',
+                    width: '20px'
+                  }}/>Confirmed Case</div>
+                </div>
+                </div>
                 <span className="due">
                     Includes the locations of confirmed cases, and of hospitals with COVID-19 assessment centres/clinics.
-        </span>
+                </span>
             </div>
         );
     }
