@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/en-au";
 import relativeTime from "dayjs/plugin/relativeTime";
 
+import flights from "./data/flight";
 import country from "./data/country";
 import testedCases from "./data/testedCases";
 import all from "./data/overall";
@@ -279,7 +280,7 @@ function Tweets({ province, nav }) {
             {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
             {nav === "News" ? <TwitterTimelineEmbed
             sourceType="list"
-            ownerScreenName="kLSAUPZszP2n6zX"
+            ownerScreenName="8ravoEchoNov"
             slug="COVID19-Australia"
             options={{
               height: 450
@@ -292,6 +293,109 @@ function Tweets({ province, nav }) {
       </div>
     </div>
   );
+}
+
+/**
+ * User can search using flight number
+ * @param {JSON} flights flights information
+ */
+function Flights({ flights }) {
+  // console.log(flights);
+  const [searchKey, setSearchKey] = useState("");
+  const [flightResult, setFlightResult] = useState([]);
+  useEffect(() => {
+    // initialize the search result
+    setFlightResult([]);
+    // clear search result
+    if (searchKey === "") {
+      setFlightResult([]);
+      return;
+    }
+    for (var i = 0; i < flights.length; i++) {
+      let flight = flights[i];
+      let flightNo = flight.flightNo.toLowerCase();
+      if (flightNo.includes(searchKey.toLowerCase())) {
+        setFlightResult(flightResult => [...flightResult, flight]);
+      }
+    }
+  }, [searchKey]);
+
+  if (flightResult.length !== 0) {
+    flightResult.sort(function (a, b) {
+      let arr = a.dateArrival.split("-");
+      let dateA = new Date(
+        parseInt(arr[2]),
+        parseInt(arr[1]),
+        parseInt(arr[0])
+      );
+      arr = b.dateArrival.split("-");
+
+      let dateB = new Date(
+        parseInt(arr[2]),
+        parseInt(arr[1]),
+        parseInt(arr[0])
+      );
+
+      return new Date(dateB) - new Date(dateA);
+    });
+  }
+
+  return (
+    <div className="card">
+      <h2>Flights</h2>
+      <div className="centerContent">
+        <div className="selfCenter standardWidth">
+          <input
+            className="flightSearch"
+            type="text"
+            placeholder="Search by flight number"
+            onChange={e => setSearchKey(e.target.value)}
+          ></input>
+          <div className="flightInfo header">
+            <div className="area header">Flight No</div>
+            <div className="area header">Airline</div>
+            <div className="area header">Route</div>
+            <div className="area header">Arrival</div>
+            <div className="area header">Close Contact Row</div>
+            {/* <div className="area header">Source State</div> */}
+          </div>
+          {flightResult.length ? (
+            flightResult.map(flight => (
+              <div className="flightInfo header">
+                <div className="flightArea">{flight.flightNo}</div>
+                <div className="flightArea">{flight.airline}</div>
+                <div className="flightArea">{flight.path}</div>
+                <div className="flightArea">{flight.dateArrival}</div>
+                <div className="flightArea">{flight.closeContactRow}</div>
+                {/* <div className="area">{flight.sourceState}</div> */}
+              </div>
+            ))
+          ) : (
+              <></>
+            )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * About card
+ */
+function About() {
+  return (
+    <div className="card">
+      <h2>About</h2>
+      <h4>Contact Information</h4>
+      <p>Place Holder</p>
+      <h4>Data Source Information</h4>
+      <p>Place holder</p>
+    </div>
+  );
+}
+
+function ExposureSites() {
+  return <div></div>;
 }
 
 function Stat({
@@ -338,7 +442,7 @@ function Stat({
     <div className="card">
       <h2>
         Status {name ? `· ${name}` : false}
-        <span className="due">Updated Hourly</span>
+
       </h2>
       <div className="row">
         <Tag
@@ -366,6 +470,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
+        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 16:20 21/03/2020</span>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -418,6 +523,7 @@ function Area({ area, onChange, data }) {
       testedCases[
       Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
+
     return data.map(x => (
       <div className="province" key={uuid()}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
@@ -448,11 +554,12 @@ function Area({ area, onChange, data }) {
       <div className="province header">
         <div className="area header">State</div>
         <div className="confirmed header">Confirmed</div>
-        <div className="death header">Death</div>
+        <div className="death header">Deaths</div>
         <div className="cured header">Recovered</div>
         <div className="tested header">Tested*</div>
       </div>
       {renderArea()}
+
       {totalRecovered > 25 ? null : (
         <div className="province">
           <div className={"area"}>
@@ -581,9 +688,10 @@ function Information() {
     );
 }
 
-function HomePage({province, overall, myData, area, data, setProvince, gspace, nav}) {
+function HomePage({province, overall, myData, area, data, setProvince, gspace}) {
     return (
         <Grid container spacing={gspace} justify="center" wrap="wrap">
+            
             <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
             <Stat
               {...{ ...all, ...overall }}
@@ -639,10 +747,13 @@ function HomePage({province, overall, myData, area, data, setProvince, gspace, n
               </div>
             </div>
           </Grid>
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <MbMap />
-                <HistoryGraph countryData={country} />
-            </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <MbMap />
+            <HistoryGraph countryData={country} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+            <Flights flights={flights} />
+          </Grid>
           
         </Grid>
     )
@@ -706,15 +817,51 @@ function App() {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
       {
         download: true,
-        complete: function (results) {
-          // console.log("requested");
 
+        complete: function (results) {
           results.data.splice(0, 1);
           let sortedData = results.data.sort((a, b) => {
             return b[1] - a[1];
           });
 
-          setMyData(results.data);
+          //For manually updating numbers if The Australian has not updated
+          for (let i = 0; i < sortedData.length; i++) {
+            if (sortedData[i][0] === "ACT" && parseInt(sortedData[i][1]) < 9) {
+              sortedData[i][1] = '9'
+            }
+
+            if (sortedData[i][0] === "SA" && parseInt(sortedData[i][1]) < 50) {
+              sortedData[i][1] = '50'
+            }
+            if (sortedData[i][0] === "WA" && parseInt(sortedData[i][1]) < 64) {
+              sortedData[i][1] = '90'
+            }
+            if (sortedData[i][0] === "NSW" && parseInt(sortedData[i][1]) < 436) {
+              sortedData[i][1] = '436'
+            }
+              if (sortedData[i][0] === "NSW" ) {
+                  sortedData[i][2] = '6'
+              }
+              if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
+                  sortedData[i][1] = '221'
+              }
+            if (sortedData[i][0] === "VIC" && parseInt(sortedData[i][1]) < 229) {
+              sortedData[i][1] = '229'
+            }
+            if (sortedData[i][0] === "TAS" && parseInt(sortedData[i][1]) < 11) {
+              sortedData[i][1] = '11'
+            }
+            if (sortedData[i][0] === "NT" && parseInt(sortedData[i][1]) < 5) {
+              sortedData[i][1] = '5'
+            }
+            if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
+              sortedData[i][1] = '221'
+            }
+
+          }
+
+
+          setMyData(sortedData);
         }
       }
     );
@@ -757,7 +904,7 @@ function App() {
           </Grid>
           
           {/* Split into pages to make it cleaner. */}
-          {nav === "Home" ? <HomePage nav={nav} province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
+          {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
           {nav === "Info" ? <InfoPage /> : ""}
           {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav}/> : ""}
           
@@ -767,6 +914,7 @@ function App() {
           {/*</Grid>*/}
           {/*<Grid item xs={12}>*/}
             {/*<ExposureSites />*/}
+
           {/*</Grid>*/}
 
           <Grid item xs={12}>

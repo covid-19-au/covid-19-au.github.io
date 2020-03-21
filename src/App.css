@@ -38,11 +38,13 @@ header i {
   padding-right: 1rem;
 }
 
+.flightInfo,
 .province {
   display: flex;
   text-align: center;
 }
 
+.flightInfo
 .province.header > div {
   color: #000000;
 }
@@ -51,6 +53,7 @@ header i {
 .confirmed,
 .death,
 .cured,
+.flightArea,
 .tested{
   border: 1px solid #fff;
   background-color: #f8f8f8;
@@ -60,6 +63,13 @@ header i {
 }
 
 .area {
+  flex: 3;
+  padding: 0.4rem 0;
+  position: relative;
+  color: #212f3d;
+}
+.flightArea {
+  font-size: 90%;
   flex: 3;
   padding: 0.4rem 0;
   position: relative;
@@ -240,4 +250,8 @@ h2 small {
 .citationLink {
     color: blue;
     border-bottom: blue 1px solid;
+}
+
+.flightSearch {
+  width: 98%;
 }
