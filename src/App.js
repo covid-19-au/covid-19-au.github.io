@@ -630,7 +630,7 @@ function Navbar({setNav, nav}) {
 function Information({nav}) {
     return (
         <div className="card">
-            <h2>Informative Media and Helpful Links</h2>
+            <h2>Informative Media</h2>
             <div className="row centerMedia">
                 <div>
                     <ReactPlayer className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true}/>
