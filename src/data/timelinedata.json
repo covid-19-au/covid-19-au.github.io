@@ -1,10 +1,52 @@
 {
     "updateTime": [
         {
-            "time": "19:45 20/03/2020"
+            "time": "11:16 21/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19/latest-news",
+            "title": "Nine cases of COVID-19 now confirmed in ACT",
+            "source": "ACT Health",
+            "date": "21 March 2020",
+            "time": "11:00am"
+        },
+        {
+            "url": "https://www.theage.com.au/national/victoria/coronavirus-victoria-updates-live-italy-toll-climbs-victoria-police-spot-checking-isolation-20200320-p54cfn.html",
+            "title": "51 new cases in Victoria",
+            "source": "The Age",
+            "date": "21 March 2020",
+            "time": "10:45am"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-puts-federal-budget-on-hold-until-october/12075238",
+            "title": "Coronavirus pandemic prompts Federal Government to delay budget until October",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "12:30am"
+        },
+        {
+            "url": "https://www.smh.com.au/business/the-economy/reserve-bank-goes-unconventional-as-coronavirus-crisis-deepens-20200320-p54caj.html",
+            "title": "Reserve Bank goes unconventional as coronavirus crisis deepens",
+            "source": "Sydney Morning Herald",
+            "date": "21 March 2020",
+            "time": "12:00am"
+        },
+        {
+            "url": "https://www.police.wa.gov.au/State-of-Emergency-COVID19-Pandemic",
+            "title": "State of Emergency COVID-19",
+            "source": "Western Australia Police Force",
+            "date": "20 March 2020",
+            "time": ""
+        },
+        {
+            "url": "http://mediareleases.nt.gov.au/mediaRelease/32109",
+            "title": "Northern Territory Coronavirus (COVID-19) Update",
+            "source": "Northern Territory Government",
+            "date": "20 March 2020",
+            "time": ""
+        },
         {
             "url": "https://www.pm.gov.au/media/update-coronavirus-measures-0",
             "title": "Update on coronavirus measures",
@@ -46,6 +88,20 @@
             "source": "ABC News",
             "date": "20 March 2020",
             "time": "06:17pm"
+        },
+        {
+            "url": "https://www.9news.com.au/national/coronavirus-two-new-cases-confirmed-in-australian-capital-territory/1595a904-0a50-42a2-be16-0984582c6950",
+            "title": "Two new cases confirmed in ACT",
+            "source": "9 News",
+            "date": "20 March 2020",
+            "time": "04:51pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-20/student-tests-positive-to-covid-19-at-unley-high/12074128",
+            "title": "Unley High School student tests positive for COVID-19 after close contact with infected teacher",
+            "source": "ABC News",
+            "date": "20 March 2020",
+            "time": "04:30 pm"
         },
         {
             "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-live-updates/live-coverage/e434489f660d0a1ff557ba83d9e3a378",
@@ -109,48 +165,6 @@
             "source": "SBSNews",
             "date": "20 March 2020",
             "time": "11:56am"
-        },
-        {
-            "url": "https://www.sbs.com.au/news/seventh-australian-dies-of-covid-19-as-cases-spike",
-            "title": "Seventh Australian dies of COVID-19 as cases spike",
-            "source": "SBSNews",
-            "date": "20 March 2020",
-            "time": "10:45am"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/disability-sector-particularly-at-risk-of-coronavirus-impact/12068090",
-            "title": "The coronavirus COVID-19 outbreak leaves people with disabilities among the most at risk",
-            "source": "ABC News",
-            "date": "20 March 2020",
-            "time": "10:45am"
-        },
-        {
-            "url": "https://www.sbs.com.au/news/covid-19-indigenous-australians-in-the-top-end-are-being-offered-free-transport-to-return-to-country",
-            "title": "COVID-19: Indigenous Australians in the Top End are being offered free transport to return to country",
-            "source": "SBSNews",
-            "date": "20 March 2020",
-            "time": "09:45am"
-        },
-        {
-            "url": "https://www.9news.com.au/national/coronavirus-australia-big-four-banks-package-commonwealth-westpac-nab-anz/5f6c8199-3f99-44e2-ad34-a0c4c306fd0b",
-            "title": "Australia's big four banks to announce coronavirus package",
-            "source": "9News",
-            "date": "20 March 2020",
-            "time": "09:37am"
-        },
-        {
-            "url": "https://www.sydney.edu.au/news-opinion/news/2020/03/20/covid-19-risk-on-public-transport-what-we-can-learn-from-overseas.html",
-            "title": "COVID-19 risk on public transport: What we can learn from overseas",
-            "source": "University of Sydney (press release)",
-            "date": "20 March 2020",
-            "time": "08:00am"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-19/coronavirus-community-transmission-wa-as-17-new-cases/12072092",
-            "title": "WA coronavirus community transmission begins as 17 new COVID-19 cases reported",
-            "source": "ABC News",
-            "date": "19 March 2020",
-            "time": "08:29pm"
         }
     ]
 }
