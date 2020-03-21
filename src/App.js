@@ -465,7 +465,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
-        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 16:20 21/03/2020</span>
+        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 18:20 21/03/2020</span>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -640,8 +640,8 @@ function App() {
               sortedData[i][1] = '9'
             }
 
-            if (sortedData[i][0] === "SA" && parseInt(sortedData[i][1]) < 50) {
-              sortedData[i][1] = '50'
+            if (sortedData[i][0] === "SA" && parseInt(sortedData[i][1]) < 67) {
+              sortedData[i][1] = '67'
             }
             if (sortedData[i][0] === "WA" && parseInt(sortedData[i][1]) < 64) {
               sortedData[i][1] = '90'
