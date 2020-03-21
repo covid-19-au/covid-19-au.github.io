@@ -648,6 +648,9 @@ function App() {
             if (sortedData[i][0] === "NSW" && parseInt(sortedData[i][1]) < 436) {
               sortedData[i][1] = '436'
             }
+              if (sortedData[i][0] === "NSW" ) {
+                  sortedData[i][2] = '6'
+              }
               if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
                   sortedData[i][1] = '221'
               }
