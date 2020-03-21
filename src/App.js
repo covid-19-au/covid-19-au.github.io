@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect, useLayoutEffect } from "react";
+import React, { useState, Suspense, useEffect, useLayoutEffect, Fragment, useRef } from "react";
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -597,21 +597,37 @@ function Header({ province }) {
   );
 }
 
+
 function Navbar({setNav, nav}) {
+    const [isSticky, setSticky] = useState(false);
+    const ref = useRef(null);
+    const handleScroll = () => {
+        setSticky(ref.current.getBoundingClientRect().top <= 0);
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', () => handleScroll);
+        };
+    }, []);
+
     const onClick = e => {
         setNav(e.target.innerText);
     }
 
     return (
-        <div className="row navBar">
-            <span className={`${nav === "Home" ? "navCurrentPage navItems" : "navItems"}`} onClick={onClick}><strong>Home</strong></span>
-            <span className={`${nav === "Info" ? "navCurrentPage navItems" : "navItems"}`} onClick={onClick}><strong>Info</strong></span>
-            <span className={`${nav === "News" ? "navCurrentPage navItems" : "navItems"}`} onClick={onClick}><strong>News</strong></span>
+        <div className= {`sticky-wrapper ${isSticky ? "sticky" : ""}`} ref={ref}>
+            <div className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}>
+                <span className={`navItems ${nav === "Home" && !isSticky ? "navCurrentPage " : ""} ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></span>
+                <span className={`navItems ${nav === "Info" && !isSticky ? "navCurrentPage " : ""} ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></span>
+                <span className={`navItems ${nav === "News" && !isSticky ? "navCurrentPage " : ""} ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></span>
+            </div>
         </div>
     )
 }
 
-function Information() {
+function Information({nav}) {
     return (
         <div className="card">
             <h2>Informative Media</h2>
@@ -901,16 +917,16 @@ function App() {
     return (
       <div>
         <Grid container spacing={gspace} justify="center" wrap="wrap">
-          <Grid item xs={12}>
+          <Grid item xs={12} className="removePadding">
             <Header province={province}/>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="removePadding">
               <Navbar setNav={setNav} nav={nav}/>
           </Grid>
           
           {/* Pages to hold each functionality. */}
           {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
-          {nav === "Info" ? <InfoPage /> : ""}
+          {nav === "Info" ? <InfoPage nav={nav}/> : ""}
           {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav}/> : ""}
           
 

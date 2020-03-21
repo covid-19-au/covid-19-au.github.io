@@ -270,13 +270,44 @@ h2 small {
     }
 }
 
+.removePadding {
+    padding: 0 !important;
+}
+
 .navBar {
     justify-content: space-around;
+    align-items: center;
+    background-color: white;
+}
+
+.navBarStuck {
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(186, 217, 229);
+    color: black;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+.sticky-wrapper {
+    position: relative;
+    height: 34px;
+}
+
+.sticky .sticky-inner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
 .navItems {
     margin: 0.5rem 0 0 0;
-    padding: 2px 8px 2px 8px;
+    padding: 0 8px;
     border-bottom: transparent solid 2px;
 }
 
@@ -286,6 +317,12 @@ h2 small {
 
 .navCurrentPage {
     border-bottom: #87CEEB solid 2px;
+    color: #87CEEB;
+}
+
+.navCurrentPageSticky {
+    border-bottom: black solid 2px;
+    color: black;
 }
 
 .citationLink {
