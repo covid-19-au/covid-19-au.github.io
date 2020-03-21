@@ -1,5 +1,5 @@
 const https = require('https');
-
+const fs = require('fs');
 
 
 function downloadData(dataUrl, writePath) {
@@ -15,28 +15,29 @@ function downloadData(dataUrl, writePath) {
         resp.on('end', () => {
             const parsedData = JSON.parse(data)
             const requiredData = parsedData.valueRanges[0].values
+            //console.log(parsedData.valueRanges[0].values)
 
             formattedData = JSON.parse('{}')
-            console.log(formattedData)
-            console.log(requiredData)
+            //console.log(requiredData)
             var i = 1
             while (i < requiredData[0].length) {
                 formattedData[requiredData[0][i]] = []
+
+                var j = 1
+                while (j < requiredData.length) {
+                    formattedData[requiredData[0][i]].push(requiredData[j][i])
+
+                    j = j + 1
+                }
                 i = i + 1
             }
-            i = 1
-            j = 1
 
+            dataString = JSON.stringify(formattedData)
 
-            console.log(formattedData)
-
-
-
-            //var i = require
-
-
-
-
+            fs.writeFile('../src/data/stateCaseData.json', dataString, function (err) {
+                if (err) throw err;
+                console.log('complete');
+            });
 
         });
 
