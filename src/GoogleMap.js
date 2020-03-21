@@ -49,9 +49,10 @@ function GoogleMap ({ province, newData }) {
           region: 'AU', // ISO 3166-1 alpha-2 code for Australia
           colorAxis: { colors: [
                     '#ffefef',
-                  '#ffc0b1',
-                  '#ff8c71',
-                  '#ef1717'
+                    '#ffc0b1',
+                    '#ff8c71',
+                    '#ef1717'
+                    // '#9c0505'
               ] },
           backgroundColor: 'white',
           datalessRegionColor: 'rgb(216,221,224)',
