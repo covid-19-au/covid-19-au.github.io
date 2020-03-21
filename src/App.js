@@ -470,7 +470,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
-        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 20:20 21/03/2020</span>
+        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 00:00 22/03/2020</span>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
