@@ -179,29 +179,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Historical Data</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Historical Data</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -236,8 +236,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -316,7 +316,7 @@ function Flights({ flights }) {
   }, [searchKey]);
 
   if (flightResult.length !== 0) {
-    flightResult.sort(function(a, b) {
+    flightResult.sort(function (a, b) {
       let arr = a.dateArrival.split("-");
       let dateA = new Date(
         parseInt(arr[2]),
@@ -366,8 +366,8 @@ function Flights({ flights }) {
               </div>
             ))
           ) : (
-            <></>
-          )}
+              <></>
+            )}
         </div>
       </div>
     </div>
@@ -421,7 +421,7 @@ function Stat({
     }
     let lastTotal =
       countryData[
-        Object.keys(countryData)[Object.keys(countryData).length - 1]
+      Object.keys(countryData)[Object.keys(countryData).length - 1]
       ];
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
@@ -515,7 +515,7 @@ function Area({ area, onChange, data }) {
   const renderArea = () => {
     let latest =
       testedCases[
-        Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+      Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
 
     return data.map(x => (
@@ -627,23 +627,36 @@ function App() {
       {
         download: true,
 
-        complete: function(results) {
+        complete: function (results) {
           results.data.splice(0, 1);
           let sortedData = results.data.sort((a, b) => {
             return b[1] - a[1];
           });
 
-          for(let i = 0; i < sortedData.length; i++){
-            if(sortedData[i][0]==="ACT" && parseInt(sortedData[i][1]) < 6){
-                sortedData[i][1]='6'
-              }
+          //For manually updating numbers if The Australian has not updated
+          for (let i = 0; i < sortedData.length; i++) {
+            if (sortedData[i][0] === "ACT" && parseInt(sortedData[i][1]) < 6) {
+              sortedData[i][1] = '6'
+            }
 
-              if(sortedData[i][0]==="SA" && parseInt(sortedData[i][1]) < 50){
-                  sortedData[i][1]='50'
-              }
-              if(sortedData[i][0]==="WA" && parseInt(sortedData[i][1]) < 64){
-                  sortedData[i][1]='64'
-              }
+            if (sortedData[i][0] === "SA" && parseInt(sortedData[i][1]) < 50) {
+              sortedData[i][1] = '50'
+            }
+            if (sortedData[i][0] === "WA" && parseInt(sortedData[i][1]) < 64) {
+              sortedData[i][1] = '64'
+            }
+            if (sortedData[i][0] === "NSW" && parseInt(sortedData[i][1]) < 383) {
+              sortedData[i][1] = '383'
+            }
+            if (sortedData[i][0] === "VIC" && parseInt(sortedData[i][1]) < 229) {
+              sortedData[i][1] = '229'
+            }
+            if (sortedData[i][0] === "TAS" && parseInt(sortedData[i][1]) < 11) {
+              sortedData[i][1] = '11'
+            }
+            if (sortedData[i][0] === "NT" && parseInt(sortedData[i][1]) < 3) {
+              sortedData[i][1] = '3'
+            }
 
           }
 
@@ -666,13 +679,13 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
