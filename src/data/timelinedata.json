@@ -1,17 +1,30 @@
 {
     "updateTime": [
         {
-            "time": "16:07 21/03/2020"
-
+            "time": "17:39 21/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-bondi-beach-to-be-closed-after-beachgoers-ignored-social-distancing-orders/news-story/308b17193e93e7a52f07f22037948c0b",
+            "title": "Coronavirus: Bondi Beach, Tamarama and Bronte to be closed after beachgoers ignored social distancing orders",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "05:08pm"
+        },
         {
             "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-five-cruises-from-sydney-infected-with-covid19/news-story/5c0e5a4e6f68112f160f628ee5437768",
             "title": "Coronavirus Australia: Five cruises from Sydney infected with COVID-19",
             "source": "ABC News",
             "date": "21 March 2020",
             "time": "03:56pm"
+        },
+        {
+            "url": "https://www.9news.com.au/national/coronavirus-cases-pass-1000-in-australia-covid19/30b9168d-77fc-4837-b82c-880cdc890a67",
+            "title": "More than 1,000 cases of coronavirus reported in Australia",
+            "source": "9News",
+            "date": "21 March 2020",
+            "time": "03:05pm"
         },
         {
             "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-covid-19-infections-spike-by-26-in-wa/12077652",
