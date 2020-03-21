@@ -1,10 +1,17 @@
 {
     "updateTime": [
         {
-            "time": "20:31 21/03/2020"
+            "time": "23:53 21/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://www.theguardian.com/world/2020/mar/21/coronavirus-what-happens-to-lungs-covid-19",
+            "title": "Coronavirus: what happens to people's lungs when they get Covid-19? ",
+            "source": "The Guardian",
+            "date": "21 March 2020",
+            "time": "11:09pm"
+        },
         {
             "url": "https://www.dailymail.co.uk/news/article-8137347/Northern-Territory-follows-Tasmania-shutting-borders-imposing-quarantine-COVID-19.html",
             "title": "States in lockdown: Northern Territory joins Tasmania in forcing anyone crossing the border into two-week quarantine after chilling warning that entire suburbs could be shut down over coronavirus – as cases rocket to 1,073",
