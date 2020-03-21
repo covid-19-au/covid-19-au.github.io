@@ -467,7 +467,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
-      <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: 16:20 21/03/2020</span>
+      <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: {stateCaseData.updatedTime}</span>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -626,7 +626,6 @@ function App() {
   const [myData, setMyData] = useState(null);
   useEffect(() => {
 
-    console.log(stateCaseData.values[0])
 
 
 
