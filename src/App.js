@@ -850,8 +850,8 @@ function App() {
             if (sortedData[i][0] === "VIC" && parseInt(sortedData[i][1]) < 229) {
               sortedData[i][1] = '229'
             }
-            if (sortedData[i][0] === "TAS" && parseInt(sortedData[i][1]) < 11) {
-              sortedData[i][1] = '11'
+            if (sortedData[i][0] === "TAS" && parseInt(sortedData[i][1]) < 16) {
+              sortedData[i][1] = '16'
             }
             if (sortedData[i][0] === "NT" && parseInt(sortedData[i][1]) < 5) {
               sortedData[i][1] = '5'
