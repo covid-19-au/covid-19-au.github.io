@@ -201,13 +201,33 @@ h2 small {
     width: 100%;
 }
 
+@media (max-width: 700px) {
+    .formatMedia {
+        width: 426px !important;
+        height: 240px !important;
+    }
+}
+
+@media (max-width: 440px) {
+    .formatMedia {
+        width: 319px !important;
+        height: 180px !important;
+    }
+}
+
+@media (max-width: 330px) {
+    .formatMedia {
+        width: 213px !important;
+        height: 120px !important;
+    }
+}
+
 .navBar {
     justify-content: space-around;
-    border-bottom: white 1px solid ;
 }
 
 .navItems {
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 0 0;
     padding: 2px 8px 2px 8px;
     border-bottom: transparent solid 3px;
 }
@@ -215,4 +235,9 @@ h2 small {
 .navItems:hover {
     cursor: pointer;
     border-bottom: #000 solid 3px;
+}
+
+.citationLink {
+    color: blue;
+    border-bottom: blue 1px solid;
 }

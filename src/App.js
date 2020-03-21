@@ -16,6 +16,7 @@ import "./App.css";
 import axios from "axios";
 import Papa from "papaparse";
 import uuid from "react-uuid";
+import ReactPlayer from "react-player";
 
 import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
@@ -269,13 +270,14 @@ function News({ province }) {
   );
 }
 
-function Tweets({ province }) {
+function Tweets({ province, nav }) {
   return (
     <div className="card">
       <h2>Twitter Feed</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-          <TwitterTimelineEmbed
+            {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
+            {nav === "News" ? <TwitterTimelineEmbed
             sourceType="list"
             ownerScreenName="kLSAUPZszP2n6zX"
             slug="COVID19-Australia"
@@ -284,7 +286,8 @@ function Tweets({ province }) {
             }}
             noHeader={true}
             noFooter={true}
-          />
+          /> : ""}
+          
         </div>
       </div>
     </div>
@@ -496,7 +499,7 @@ function Navbar({setNav}) {
         <div className="row navBar">
             <span className="navItems" onClick={onClick}><strong>Home</strong></span>
             <span className="navItems" onClick={onClick}><strong>Info</strong></span>
-            <span className="navItems" onClick={onClick}><strong>About</strong></span>
+            <span className="navItems" onClick={onClick}><strong>News</strong></span>
         </div>
     )
 }
@@ -546,6 +549,12 @@ function Information() {
                             {info.text.text_2.map(t2 => (
                                 <p key={uuid()}>{t2}</p>
                             ))}
+
+                            {/* Citation tag */}
+                            {info.text.citation.map(cit => (
+                                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                            ))}
+
                         </div>
                     </div>
                 </div>
@@ -560,30 +569,19 @@ function Information() {
                     />
                 </div>
             </div>
-            
+
             <div className="row">
                 <div>
-                    <h2>If you're still concerned</h2>
-                    <p>
-                        Call the Coronavirus Health Information Line for advice. If you
-                        require translating or interpreting services, call 131 450.
-                    </p>
-                    <p>
-                        Call this line if you are seeking information on coronavirus
-                        (COVID-19). The line operates 24 hours a day, seven days a week.{" "}
-                    </p>
-                    <ul>
-                        <li>
-                            <a href="tel:1800020080">1800 020 080</a>
-                        </li>
-                    </ul>
+                    <h2>Informative Media and Helpful Links</h2>
+                    <ReactPlayer className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true}/>
+                    <small>The Coronavirus explained and what you should do.</small>
                 </div>
             </div>
         </div>
     );
 }
 
-function HomePage({province, overall, myData, area, data, setProvince, gspace}) {
+function HomePage({province, overall, myData, area, data, setProvince, gspace, nav}) {
     return (
         <Grid container spacing={gspace} justify="center" wrap="wrap">
             <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
@@ -643,19 +641,9 @@ function HomePage({province, overall, myData, area, data, setProvince, gspace}) 
           </Grid>
             <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
                 <MbMap />
+                <HistoryGraph countryData={country} />
             </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-
-            <HistoryGraph countryData={country} />
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-
-                <Tweets province={province} />
-            </Grid>
-
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <NewsTimeline />
-            </Grid>
+          
         </Grid>
     )
 }
@@ -668,17 +656,17 @@ function InfoPage() {
     )
 }
 
-function AboutPage() {
+function NewsPage({gspace, province, nav}) {
     return (
-        <Grid item xs={12} sm={12} md={10}>
-            <div className="card">
-                <div className="row">
-                    <div>
-                        <h2>About</h2>
-                        <p>Still in development...</p>
-                    </div>
-                </div>
-            </div>
+        <Grid container spacing={gspace} justify="center" wrap="wrap">
+            
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <Tweets province={province} nav={nav} />
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+                <NewsTimeline />
+            </Grid> 
         </Grid>
     )
 }
@@ -768,9 +756,10 @@ function App() {
               <Navbar setNav={setNav}/>
           </Grid>
           
-          {nav === "Home" && <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />}
-          {nav === "Info" && <InfoPage />}
-          {nav === "About" && <AboutPage />}
+          {/* Split into pages to make it cleaner. */}
+          {nav === "Home" ? <HomePage nav={nav} province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
+          {nav === "Info" ? <InfoPage /> : ""}
+          {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav}/> : ""}
           
 
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}

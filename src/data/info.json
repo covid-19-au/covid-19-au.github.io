@@ -7,7 +7,13 @@
             ],
             "ulist_1": [],
             "olist_1": [],
-            "text_2": []
+            "text_2": [],
+            "citation": [
+                {
+                    "name": "Source: NSW Government Site",
+                    "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                }
+            ]
         }
     },
     {
@@ -18,7 +24,13 @@
             ],
             "ulist_1": [],
             "olist_1": [],
-            "text_2": []
+            "text_2": [],
+            "citation": [
+                {
+                    "name": "Source: NSW Government Site",
+                    "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                }
+            ]
         }
     },
     {
@@ -32,6 +44,12 @@
             "olist_1": [],
             "text_2": [
                 "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days. "
+            ],
+            "citation": [
+                {
+                    "name": "Source: NSW Government Site",
+                    "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                }
             ]
         }
     },
@@ -51,7 +69,13 @@
                 "You do not need to visit the Emergency Department unless you have severe symptoms, such as shortness of breath, chest pain or very high fever."
             ],
             "olist_1": [],
-            "text_2": []
+            "text_2": [],
+            "citation": [
+                {
+                    "name": "Source: NSW Government Site",
+                    "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                }
+            ]
         }
     },
     {
@@ -69,7 +93,13 @@
                 "a number of governments advise against all non-essential travel to countries and areas affected by the outbreak."
             ],
             "olist_1": [],
-            "text_2": []
+            "text_2": [],
+            "citation": [
+                {
+                    "name": "Source: NSW Government Site",
+                    "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                }
+            ]
         }
     },
     {
@@ -81,7 +111,13 @@
             ],
             "ulist_1": [],
             "olist_1": [],
-            "text_2": []
+            "text_2": [],
+            "citation": [
+                {
+                    "name": "Source: NSW Government Site",
+                    "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                }
+            ]
         }
     },
     {
@@ -94,7 +130,13 @@
             ],
             "ulist_1": [],
             "olist_1": [],
-            "text_2": []
+            "text_2": [],
+            "citation": [
+                {
+                    "name": "Source: NSW Government Site",
+                    "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                }
+            ]
         }
     },
     {
@@ -106,7 +148,13 @@
             ],
             "ulist_1": [],
             "olist_1": [],
-            "text_2": []
+            "text_2": [],
+            "citation": [
+                {
+                    "name": "Source: NSW Government Site",
+                    "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                }
+            ]
         }
     }
 ]
