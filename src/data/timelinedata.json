@@ -1,10 +1,17 @@
 {
     "updateTime": [
         {
-            "time": "17:39 21/03/2020"
+            "time": "19:56 21/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://www.9news.com.au/national/coronavirus-us-tour-group-members-test-positive-for-covid19-in-barossa-south-australia/3aab42d4-5959-45fd-8eee-aa69e4c0143e",
+            "title": "Ten US travellers test positive for coronavirus, isolated in South Australia's Barossa Valley",
+            "source": "9 News",
+            "date": "21 March 2020",
+            "time": "05:45pm"
+        },
         {
             "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-bondi-beach-to-be-closed-after-beachgoers-ignored-social-distancing-orders/news-story/308b17193e93e7a52f07f22037948c0b",
             "title": "Coronavirus: Bondi Beach, Tamarama and Bronte to be closed after beachgoers ignored social distancing orders",
