@@ -1,10 +1,24 @@
 {
     "updateTime": [
         {
-            "time": "11:16 21/03/2020"
+            "time": "14:00 21/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://www.abc.net.au/news/2020-03-21/number-of-coronavirus-infections-soars-past-400-in-nsw/12076622",
+            "title": "Coronavirus cases in NSW spike after largest 24-hour increase takes number of infections past 400",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "1:51pm"
+        },
+        {
+            "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-covid19-cases-in-nsw-victoria-queensland-sa-wa-tasmania-act-and-nt/news-story/1e0505f8ad253c58ffa91bfe953a6791",
+            "title": "Coronavirus Australia: COVID-19 cases in NSW, Victoria, Queensland, SA, WA, Tasmania, ACT and NT",
+            "source": "News.com.au",
+            "date": "21 March 2020",
+            "time": "1:21pm"
+        },
         {
             "url": "https://health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19/latest-news",
             "title": "Nine cases of COVID-19 now confirmed in ACT",
