@@ -437,7 +437,7 @@ function Stat({
     <div className="card">
       <h2>
         Status {name ? `· ${name}` : false}
-        <span className="due">Updated Hourly</span>
+        <span className="due">Time in AEDT, last updated at: 14:00 21/03/2020</span>
       </h2>
       <div className="row">
         <Tag
@@ -645,8 +645,8 @@ function App() {
             if (sortedData[i][0] === "WA" && parseInt(sortedData[i][1]) < 64) {
               sortedData[i][1] = '64'
             }
-            if (sortedData[i][0] === "NSW" && parseInt(sortedData[i][1]) < 465) {
-              sortedData[i][1] = '465'
+            if (sortedData[i][0] === "NSW" && parseInt(sortedData[i][1]) < 436) {
+              sortedData[i][1] = '436'
             }
               if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
                   sortedData[i][1] = '221'
