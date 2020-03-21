@@ -635,8 +635,8 @@ function App() {
 
           //For manually updating numbers if The Australian has not updated
           for (let i = 0; i < sortedData.length; i++) {
-            if (sortedData[i][0] === "ACT" && parseInt(sortedData[i][1]) < 6) {
-              sortedData[i][1] = '6'
+            if (sortedData[i][0] === "ACT" && parseInt(sortedData[i][1]) < 9) {
+              sortedData[i][1] = '9'
             }
 
             if (sortedData[i][0] === "SA" && parseInt(sortedData[i][1]) < 50) {

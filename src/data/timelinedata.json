@@ -6,6 +6,13 @@
     ],
     "news": [
         {
+            "url": "https://health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19/latest-news",
+            "title": "Nine cases of COVID-19 now confirmed in ACT",
+            "source": "ACT Health",
+            "date": "21 March 2020",
+            "time": "11:00am"
+        },
+        {
             "url": "https://www.theage.com.au/national/victoria/coronavirus-victoria-updates-live-italy-toll-climbs-victoria-police-spot-checking-isolation-20200320-p54cfn.html",
             "title": "51 new cases in Victoria",
             "source": "The Age",
