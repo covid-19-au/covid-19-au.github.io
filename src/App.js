@@ -437,7 +437,7 @@ function Stat({
     <div className="card">
       <h2>
         Status {name ? `· ${name}` : false}
-        <span className="due">Time in AEDT, last updated at: 14:00 21/03/2020</span>
+
       </h2>
       <div className="row">
         <Tag
@@ -465,6 +465,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
+        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 16:20 21/03/2020</span>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
