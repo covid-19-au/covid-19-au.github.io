@@ -5,9 +5,10 @@ import hospitalData from "./data/mapdataHos"
 import ReactMapboxGl, { Layer, Feature, Popup } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
-import confirmedImg from './icon/confirmed.png'
-import hospitalImg from './icon/hospital.png'
+import confirmedImg from './img/icon/confirmed.png'
+import hospitalImg from './img/icon/hospital.png'
 let token = process.env.REACT_APP_MAP_API
+
 mapboxgl.accessToken = token;
 
 class MbMap extends React.Component {
