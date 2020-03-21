@@ -32,7 +32,7 @@ function GoogleMap ({ province, newData }) {
             "SA":"AU-SA",
             "TAS":"AU-TAS",
         }
-        let temp = [["state","confirmed"]]
+        let temp = [["state","Confirmed"]]
         for(let i = 0; i < newData.length; i++)
         {
             // Add each data row.
