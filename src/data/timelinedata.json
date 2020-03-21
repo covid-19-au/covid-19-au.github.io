@@ -6,18 +6,25 @@
     ],
     "news": [
         {
+            "url": "https://www.abc.net.au/news/2020-03-22/covid-19-how-deadly-and-contagious-is-coronavirus/12068106",
+            "title": "Coronavirus: How deadly and contagious is this COVID-19 pandemic?",
+            "source": "ABC News",
+            "date": "22 March 2020",
+            "time": "08:00am"
+        },
+        {
+            "url": "https://www.smh.com.au/politics/federal/covid-19-25-2-billion-cash-injection-to-save-jobs-20200321-p54cjo.html",
+            "title": "COVID-19: $25.2 billion cash injection to save jobs",
+            "source": "The Sydney Morning Herald",
+            "date": "22 March 2020",
+            "time": "12:05am"
+        },
+        {
             "url": "https://www.theguardian.com/world/2020/mar/21/coronavirus-what-happens-to-lungs-covid-19",
-            "title": "Coronavirus: what happens to people's lungs when they get Covid-19? ",
+            "title": "Coronavirus: what happens to people's lungs when they get Covid-19?",
             "source": "The Guardian",
             "date": "21 March 2020",
             "time": "11:09pm"
-        },
-        {
-            "url": "https://www.dailymail.co.uk/news/article-8137347/Northern-Territory-follows-Tasmania-shutting-borders-imposing-quarantine-COVID-19.html",
-            "title": "States in lockdown: Northern Territory joins Tasmania in forcing anyone crossing the border into two-week quarantine after chilling warning that entire suburbs could be shut down over coronavirus – as cases rocket to 1,073",
-            "source": "Daily Mail Australia",
-            "date": "21 March 2020",
-            "time": "08:10pm"
         },
         {
             "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-infects-16th-person-in-tasmania/12077668",
@@ -102,41 +109,6 @@
             "source": "The Age",
             "date": "21 March 2020",
             "time": "10:45am"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-20/coronavirus-puts-federal-budget-on-hold-until-october/12075238",
-            "title": "Coronavirus pandemic prompts Federal Government to delay budget until October",
-            "source": "ABC News",
-            "date": "21 March 2020",
-            "time": "12:30am"
-        },
-        {
-            "url": "https://www.smh.com.au/business/the-economy/reserve-bank-goes-unconventional-as-coronavirus-crisis-deepens-20200320-p54caj.html",
-            "title": "Reserve Bank goes unconventional as coronavirus crisis deepens",
-            "source": "Sydney Morning Herald",
-            "date": "21 March 2020",
-            "time": "12:00am"
-        },
-        {
-            "url": "https://www.police.wa.gov.au/State-of-Emergency-COVID19-Pandemic",
-            "title": "State of Emergency COVID-19",
-            "source": "Western Australia Police Force",
-            "date": "20 March 2020",
-            "time": ""
-        },
-        {
-            "url": "http://mediareleases.nt.gov.au/mediaRelease/32109",
-            "title": "Northern Territory Coronavirus (COVID-19) Update",
-            "source": "Northern Territory Government",
-            "date": "20 March 2020",
-            "time": ""
-        },
-        {
-            "url": "https://www.pm.gov.au/media/update-coronavirus-measures-0",
-            "title": "Update on coronavirus measures",
-            "source": "Prime Minister of Australia",
-            "date": "20 March 2020",
-            "time": ""
         }
     ]
 }
