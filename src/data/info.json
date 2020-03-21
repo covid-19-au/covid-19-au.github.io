@@ -1,0 +1,136 @@
+[
+    {
+        "name": "What is coronavirus?",
+        "text": {
+            "text_1": [
+                "Coronaviruses are a group of viruses that can affect humans and animals. In humans, coronaviruses can cause mild illness, such as the common cold and gastrointestinal infections, as well as more severe illness, such as that caused by SARS (Severe Acute Respiratory Syndrome) and MERS (Middle East Respiratory Syndrome)."
+            ],
+            "ulist_1": [],
+            "olist_1": [],
+            "text_2": [],
+            "citation": [
+                
+            ]
+        }
+    },
+    {
+        "name": "What is COVID-19?",
+        "text": {
+            "text_1": [
+                "There is currently an outbreak of a disease caused by a new strain of coronavirus that is called ‘COVID-19’. COVID-19 causes a spectrum of illness, from mild to very severe. The outbreak was first identified in Wuhan, Hubei Province, China, and has spread to many other countries outside of China. The virus can be spread from person to person, so good hygiene is very important in slowing the spread of infection."
+            ],
+            "ulist_1": [],
+            "olist_1": [],
+            "text_2": [],
+            "citation": [
+                
+            ]
+        }
+    },
+    {
+        "name": "What are the symptoms of COVID-19?",
+        "text": {
+            "text_1": [
+                "COVID-19 causes a spectrum of illness including fever and/or respiratory symptoms.",
+                "The key symptoms are:"
+            ],
+            "ulist_1": ["fever", "cough", "shortness of breath", "sore throat"],
+            "olist_1": [],
+            "text_2": [
+                "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days. "
+            ],
+            "citation": [
+                
+            ]
+        }
+    },
+    {
+        "name": "I think I might have COVID-19. What should I do?",
+        "text": {
+            "text_1": [
+                "If you have recently travelled overseas or had contact with a confirmed case of COVID-19, you should closely monitor yourself for symptoms for 14 days of leaving an overseas country or after your last contact with someone who has COVID-19.",
+                "If you are within that 14 day period and concerned that you may have symptoms, it’s important that you take steps to reduce the risk of transmission and arrange to get tested if required. Take the following steps:"
+            ],
+            "ulist_1": [
+                "Limit your exposure to other people by isolating yourself at home (if you were not already in home quarantine).",
+                "Call your GP and let them know you’re worried you may have COVID-19. Calling ahead will allow your GP to provide advice and plan for your visit. You should not visit your GP without calling ahead. Testing will be arranged by your GP if they determine it is necessary.",
+                "If you can’t see your GP, you can visit a Respiratory Assessment Clinic. Staff at these clinics will assess your risk of COVID-19 and test you if needed. You do not need to call ahead.",
+                "When travelling to the GP or Respiratory Assessment Clinic, do not attend any public places, such as shops or cafes/restaurants, on the way. If possible, you should travel using a private mode of transport, such as a private car, to minimise exposure to others.",
+                "However, if using public transport is your only option, you should wear a mask, avoid direct contact with other people (including other passengers, drivers and transport staff), cough/sneeze into your elbow, and wash your hands before and after you travel.",
+                "You do not need to visit the Emergency Department unless you have severe symptoms, such as shortness of breath, chest pain or very high fever."
+            ],
+            "olist_1": [],
+            "text_2": [],
+            "citation": [
+                
+            ]
+        }
+    },
+    {
+        "name": "How do I protect myself?",
+        "text": {
+            "text_1": [
+                "The best way to protect yourself from COVID-19 is the same way you would protect yourself from catching flu or other respiratory illness:"
+            ],
+            "ulist_1": [
+                "clean your hands for at least 20 seconds with soap and water, or use an alcohol-based sanitiser with at least 60% alcohol. [Refer to the image at the bottom of the page]",
+                "cover your sneeze or cough with your elbow or with tissue.",
+                "avoid close contact with people who are ill.",
+                "avoid touching your eyes, nose and mouth.",
+                "stay home if you are sick.",
+                "a number of governments advise against all non-essential travel to countries and areas affected by the outbreak."
+            ],
+            "olist_1": [],
+            "text_2": [],
+            "citation": [
+                
+            ]
+        }
+    },
+    {
+        "name": "Is there a cure or vaccine?",
+        "text": {
+            "text_1": [
+                "There are currently no vaccines or specific treatment that protect against COVID-19.",
+                "Early diagnosis and general supportive care are important. Most of the time, symptoms will resolve on their own. People who have serious disease with complications can be cared for in hospital."
+            ],
+            "ulist_1": [],
+            "olist_1": [],
+            "text_2": [],
+            "citation": [
+                
+            ]
+        }
+    },
+    {
+        "name": "What is Social Distancing?",
+        "text": {
+            "text_1": [
+                "Social distancing means we reduce the number of close physical and social contacts we have with one another.",
+                "When social distancing actions are combined with good personal hygiene measures the spread of a pandemic through the community can be slowed. This helps protect the most vulnerable members of the community and reduces the impact of the pandemic on essential, life-saving health services.",
+                "Everyone should practice social distancing, as it reduces the potential for transmission."
+            ],
+            "ulist_1": [],
+            "olist_1": [],
+            "text_2": [],
+            "citation": [
+                
+            ]
+        }
+    },
+    {
+        "name": "Should I be Bulk-Buying to prepare?",
+        "text": {
+            "text_1": [
+                "There is no need to bulk-buy products at supermarkets including toilet paper, paracetamol and canned food.",
+                "It is prudent for households to have a small stock of non-perishable groceries to cover the event that in the coming months the household has been asked to self-isolate for 14 days."
+            ],
+            "ulist_1": [],
+            "olist_1": [],
+            "text_2": [],
+            "citation": [
+                
+            ]
+        }
+    }
+]
