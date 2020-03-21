@@ -597,16 +597,16 @@ function Header({ province }) {
   );
 }
 
-function Navbar({setNav}) {
+function Navbar({setNav, nav}) {
     const onClick = e => {
         setNav(e.target.innerText);
     }
 
     return (
         <div className="row navBar">
-            <span className="navItems" onClick={onClick}><strong>Home</strong></span>
-            <span className="navItems" onClick={onClick}><strong>Info</strong></span>
-            <span className="navItems" onClick={onClick}><strong>News</strong></span>
+            <span className={`${nav === "Home" ? "navCurrentPage navItems" : "navItems"}`} onClick={onClick}><strong>Home</strong></span>
+            <span className={`${nav === "Info" ? "navCurrentPage navItems" : "navItems"}`} onClick={onClick}><strong>Info</strong></span>
+            <span className={`${nav === "News" ? "navCurrentPage navItems" : "navItems"}`} onClick={onClick}><strong>News</strong></span>
         </div>
     )
 }
@@ -614,6 +614,25 @@ function Navbar({setNav}) {
 function Information() {
     return (
         <div className="card">
+            <h2>Informative Media and Helpful Links</h2>
+            <div className="row centerMedia">
+                <div>
+                    <ReactPlayer className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true}/>
+                    <small className="mediaText">The Coronavirus explained and what you should do.</small>
+                </div>
+            </div>
+
+            <div className="row centerMedia">
+                <div className="imageContainer">
+                    <img
+                        className="formatImage"
+                        src="https://www.who.int/gpsc/media/how_to_handwash_lge.gif"
+                        alt="How to wash hands - Coronavirus"
+                    />
+                    <small className="mediaText">How to properly wash your hands.</small>
+                </div>
+            </div>
+            
             <h2>Information</h2>
             {information.map(info => (
                 <div className="row" key={uuid()}>
@@ -666,24 +685,7 @@ function Information() {
                     </div>
                 </div>
             ))}
-            <div className="row">
-                <div>
-                    <h2>How to properly wash your hands</h2>
-                    <img
-                        className="formatImage"
-                        src="https://www.who.int/gpsc/media/how_to_handwash_lge.gif"
-                        alt="How to wash hands - Coronavirus"
-                    />
-                </div>
-            </div>
-
-            <div className="row">
-                <div>
-                    <h2>Informative Media and Helpful Links</h2>
-                    <ReactPlayer className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true}/>
-                    <small>The Coronavirus explained and what you should do.</small>
-                </div>
-            </div>
+            <small>All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a></small>
         </div>
     );
 }
@@ -900,10 +902,10 @@ function App() {
             <Header province={province}/>
           </Grid>
           <Grid item xs={12}>
-              <Navbar setNav={setNav}/>
+              <Navbar setNav={setNav} nav={nav}/>
           </Grid>
           
-          {/* Split into pages to make it cleaner. */}
+          {/* Pages to hold each functionality. */}
           {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
           {nav === "Info" ? <InfoPage /> : ""}
           {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav}/> : ""}
