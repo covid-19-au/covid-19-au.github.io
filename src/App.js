@@ -437,7 +437,7 @@ function Stat({
     <div className="card">
       <h2>
         Status {name ? `· ${name}` : false}
-        <span className="due">Time in AEDT, last updated at: 14:00 21/03/2020</span>
+
       </h2>
       <div className="row">
         <Tag
@@ -465,6 +465,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
+        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 16:20 21/03/2020</span>
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -643,7 +644,7 @@ function App() {
               sortedData[i][1] = '50'
             }
             if (sortedData[i][0] === "WA" && parseInt(sortedData[i][1]) < 64) {
-              sortedData[i][1] = '64'
+              sortedData[i][1] = '90'
             }
             if (sortedData[i][0] === "NSW" && parseInt(sortedData[i][1]) < 436) {
               sortedData[i][1] = '436'
@@ -660,8 +661,11 @@ function App() {
             if (sortedData[i][0] === "TAS" && parseInt(sortedData[i][1]) < 11) {
               sortedData[i][1] = '11'
             }
-            if (sortedData[i][0] === "NT" && parseInt(sortedData[i][1]) < 3) {
-              sortedData[i][1] = '3'
+            if (sortedData[i][0] === "NT" && parseInt(sortedData[i][1]) < 5) {
+              sortedData[i][1] = '5'
+            }
+            if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
+              sortedData[i][1] = '221'
             }
 
           }
