@@ -142,7 +142,7 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Overall trends for COVID-19 Cases in Australia ",
+        text: "Overall trends for COVID-19 cases in Australia ",
         fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
