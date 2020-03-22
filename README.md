@@ -60,6 +60,13 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 ### Promotion
 * Ruby Yeo ryeo0006@student.monash.edu
 * Emma Callaghan ecal0009@student.monash.edu
+* Ziyi Yang	yangziyi1997@gmail.com
+* Louis Nash	louisnash2907@gmail.com
+* Michelle Yu Ying	michelle.yu-ying.wong@monash.edu
+* Huan Yee Koh	huanyeekoh@gmail.com
+* Xiao Chen Xi	xxc12396@gmail.com
+* Aditya Dogra	adityadogra21@gmail.com
+* Jiwon Ryu	ryujiwon0603@gmail.com
 
 ### Contributor
 * Matt Lui malui@student.unimelb.edu.au
@@ -83,6 +90,8 @@ We receive tons of features requests from users and like the following features 
 If you are interested in one or more of these features, welcome to the PR and our team will review all PRs from time to time.
 Once your PR is merged to our project, we will explicitely list you in the contributor list of this project.
 Looking forward to your great works.
+
+### Please make sure that if you do submit a pull request, that it is to the 'dev' branch.
 
 
 ## Term of use
