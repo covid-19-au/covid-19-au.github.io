@@ -96,7 +96,7 @@ function HistoryGraph({ countryData }) {
     let newData = [
       {
         type: "stackedColumn",
-        name: "New Case",
+        name: "New Cases",
         showInLegend: true,
         dataPoints: []
       },
@@ -145,11 +145,19 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Trends for COVID-19 Cases in Australia ",
+        text: "Overall trends for COVID-19 cases in Australia ",
+        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
+      axisX: {
+        labelFontFamily: "sans-serif"
+      },
+      axisY: {
+        labelFontFamily: "sans-serif"
+      },
       legend: {
-        verticalAlign: "top"
+        verticalAlign: "top",
+        fontFamily: "sans-serif"
       },
       toolTip: {
         shared: true
@@ -163,11 +171,19 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Daily new cases and deaths in Australia (2-week period)",
+        text: "Daily new cases and deaths in Australia",
+        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
+      axisX: {
+        labelFontFamily: "sans-serif"
+      },
+      axisY: {
+        labelFontFamily: "sans-serif"
+      },
       legend: {
-        verticalAlign: "top"
+        verticalAlign: "top",
+        fontFamily: "sans-serif"
       },
       toolTip: {
         shared: true
