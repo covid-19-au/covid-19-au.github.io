@@ -89,7 +89,9 @@
     "webpack-dev-server": "3.9.0",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "4.3.1",
-    "xmlhttprequest": "^1.8.0"
+    "xmlhttprequest": "^1.8.0",
+    "react-share": "4.1.0",
+    "antd": "4.0.3"
   },
   "homepage": "https://covid-19-au.github.io/",
   "scripts": {
