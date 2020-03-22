@@ -1,10 +1,33 @@
 {
-    "updateTime": [
-        {
-            "time": "11:33 22/03/2020"
-        }
-    ],
     "news": [
+        {
+            "url": "https://www.adelaidenow.com.au/news/south-australia/premier-steven-marshall-moves-to-isolate-sa-as-coronavirus-surges/news-story/7af5d4533d115f18f6e9eefe67410f50",
+            "title": "Premier Steven Marshall will isolate SA as coronavirus surges",
+            "source": "The Advertiser",
+            "date": "22 March 2020",
+            "time": "12:53pm"
+        },
+        {
+            "url": "https://health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19",
+            "title": "Novel coronavirus (COVID-19) status",
+            "source": "ACT Government Health",
+            "date": "22 March 2020",
+            "time": ""
+        },
+        {
+            "url": "https://www.health.nsw.gov.au/news/Pages/20200322_00.aspx",
+            "title": "COVID-19 (Coronavirus) statistics",
+            "source": "NSW Government Health",
+            "date": "22 March 2020",
+            "time": ""
+        },
+        {
+            "url": "https://www.couriermail.com.au/news/queensland/coronavirus-queensland-latest-news-and-updates-on-virus-pandemic/news-story/c3adaa5d5d46d513cced95b3cd0536e2",
+            "title": "38 new cases of coronavirus in Queensland in the past 24 hours, taking the state’s total to 259",
+            "source": "Courier Mail",
+            "date": "22 March 2020",
+            "time": "12:09pm"
+        },
         {
             "url": "https://www.abc.net.au/news/2020-03-22/coronavirus-australia-stimulus-live-updates-covid-19-latest-news/12078506",
             "title": "Federal Government reveals second stimulus package, tells Australians to cancel domestic travel",
@@ -18,13 +41,6 @@
             "source": "7 News",
             "date": "22 March 2020",
             "time": "11:03am"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-22/covid-19-how-deadly-and-contagious-is-coronavirus/12068106",
-            "title": "Coronavirus: How deadly and contagious is this COVID-19 pandemic?",
-            "source": "ABC News",
-            "date": "22 March 2020",
-            "time": "08:00am"
         },
         {
             "url": "https://www.abc.net.au/news/2020-03-22/covid-19-how-deadly-and-contagious-is-coronavirus/12068106",
@@ -76,6 +92,13 @@
             "time": "03:56pm"
         },
         {
+            "url": "https://www.abc.net.au/news/2020-03-21/northern-territory-two-more-cases-of-coronavirus/12074356",
+            "title": "Two new cases of coronavirus in the Northern Territory after cruise ship couple test positive",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "03:21pm"
+        },
+        {
             "url": "https://www.9news.com.au/national/coronavirus-cases-pass-1000-in-australia-covid19/30b9168d-77fc-4837-b82c-880cdc890a67",
             "title": "More than 1,000 cases of coronavirus reported in Australia",
             "source": "9News",
@@ -88,48 +111,7 @@
             "source": "ABC News",
             "date": "21 March 2020",
             "time": "03:05pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-21/northern-territory-two-more-cases-of-coronavirus/12074356",
-            "title": "Two new cases of coronavirus in the Northern Territory after cruise ship couple test positive",
-            "source": "ABC News",
-            "date": "21 March 2020",
-            "time": "03:21pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-21/number-of-coronavirus-infections-soars-past-400-in-nsw/12076622",
-            "title": "Coronavirus cases in NSW spike after largest 24-hour increase takes number of infections past 400",
-            "source": "ABC News",
-            "date": "21 March 2020",
-            "time": "01:41pm"
-        },
-        {
-            "url": "https://www.couriermail.com.au/news/queensland/local-government-candidates-banned-from-canvassing-outside-booths-as-part-of-social-distancing/news-story/6b9d9a8183e51a9b02dde444d40e02da",
-            "title": "QUEENSLAND has recorded another 37 new cases of coronavirus in the past 24 hours, taking the total number cases in the state to 221",
-            "source": "The Courier-Mail",
-            "date": "21 March 2020",
-            "time": "12:18pm"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-infects-11th-person-in-tasmania/12077668",
-            "title": "New coronavirus case in Tasmania after woman tests positive after UK trip",
-            "source": "ABC News",
-            "date": "21 March 2020",
-            "time": "11:54am"
-        },
-        {
-            "url": "https://citynews.com.au/2020/three-more-travellers-act-virus-count-rises-to-nine/",
-            "title": "Three more travellers: ACT virus count rises to nine",
-            "source": "City News",
-            "date": "21 March 2020",
-            "time": "11:45am"
-        },
-        {
-            "url": "https://www.theage.com.au/national/victoria/coronavirus-victoria-updates-live-italy-toll-climbs-victoria-police-spot-checking-isolation-20200320-p54cfn.html",
-            "title": "51 new cases in Victoria",
-            "source": "The Age",
-            "date": "21 March 2020",
-            "time": "10:45am"
         }
-    ]
+    ],
+    "updatedTime": "13:49 22/03/2020"
 }
