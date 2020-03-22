@@ -33,7 +33,6 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
 import NewsTimeline from "./NewsTimeline";
-import SocialMediaShareModal from "./socialMediaShare/SocialMediaShareModal";
 
 import stateCaseData from "./data/stateCaseData";
 
@@ -210,29 +209,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Historical Data</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Historical Data</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -267,8 +266,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -318,8 +317,8 @@ function Tweets({ province, nav }) {
               noFooter={true}
             />
           ) : (
-            ""
-          )}
+              ""
+            )}
         </div>
       </div>
     </div>
@@ -357,7 +356,7 @@ function Flights({ flights }) {
       let searchKeyList = [];
       searchKeyList = searchKey.split(" ");
       // remove white space from array
-      searchKeyList = searchKeyList.filter(function(str) {
+      searchKeyList = searchKeyList.filter(function (str) {
         return /\S/.test(str);
       });
 
@@ -445,7 +444,7 @@ function Flights({ flights }) {
   // only sort when the flight result list is not empty
   let uniqueFlight = []; // sort flight result without duplicate object
   if (flightResult.length !== 0) {
-    flightResult.sort(function(a, b) {
+    flightResult.sort(function (a, b) {
       let arr = a.dateArrival.split("-");
       let dateA = new Date(
         parseInt(arr[2]),
@@ -523,8 +522,8 @@ function Flights({ flights }) {
               </div>
             ))
           ) : (
-            <></>
-          )}
+              <></>
+            )}
         </div>
       </div>
     </div>
@@ -563,7 +562,7 @@ function Stat({
     }
     let lastTotal =
       countryData[
-        Object.keys(countryData)[Object.keys(countryData).length - 1]
+      Object.keys(countryData)[Object.keys(countryData).length - 1]
       ];
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
@@ -667,7 +666,7 @@ function Area({ area, onChange, data }) {
   const renderArea = () => {
     let latest =
       testedCases[
-        Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+      Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
 
     return data.map(x => (
@@ -769,7 +768,7 @@ function Navbar({ setNav, nav }) {
         <span
           className={`navItems ${
             nav === "Home" && !isSticky ? "navCurrentPage " : ""
-          } ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `}
+            } ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `}
           onClick={onClick}
         >
           <strong>Home</strong>
@@ -777,7 +776,7 @@ function Navbar({ setNav, nav }) {
         <span
           className={`navItems ${
             nav === "Info" && !isSticky ? "navCurrentPage " : ""
-          } ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `}
+            } ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `}
           onClick={onClick}
         >
           <strong>Info</strong>
@@ -785,7 +784,7 @@ function Navbar({ setNav, nav }) {
         <span
           className={`navItems ${
             nav === "News" && !isSticky ? "navCurrentPage " : ""
-          } ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `}
+            } ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `}
           onClick={onClick}
         >
           <strong>News</strong>
@@ -847,8 +846,8 @@ function Information({ nav }) {
                   ))}
                 </ul>
               ) : (
-                ""
-              )}
+                  ""
+                )}
 
               {/* First Ordered List */}
               {info.text.olist_1 ? (
@@ -858,8 +857,8 @@ function Information({ nav }) {
                   ))}
                 </ol>
               ) : (
-                ""
-              )}
+                  ""
+                )}
 
               {/* Second Block of text */}
               {info.text.text_2.map(t2 => (
@@ -1046,13 +1045,13 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
@@ -1067,10 +1066,6 @@ function App() {
   if (myData) {
     return (
       <div>
-        <SocialMediaShareModal
-          visible={showSocialMediaIcons}
-          onCancel={() => setShowSocialMediaIcons(false)}
-        />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
@@ -1091,14 +1086,14 @@ function App() {
               gspace={gspace}
             />
           ) : (
-            ""
-          )}
+              ""
+            )}
           {nav === "Info" ? <InfoPage nav={nav} /> : ""}
           {nav === "News" ? (
             <NewsPage province={province} gspace={gspace} nav={nav} />
           ) : (
-            ""
-          )}
+              ""
+            )}
 
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
           {/*<News />*/}
