@@ -1,10 +1,31 @@
 {
     "updateTime": [
         {
-            "time": "10:03 22/03/2020"
+            "time": "11:33 22/03/2020"
         }
     ],
     "news": [
+        {
+            "url": "https://www.abc.net.au/news/2020-03-22/coronavirus-australia-stimulus-live-updates-covid-19-latest-news/12078506",
+            "title": "Federal Government reveals second stimulus package, tells Australians to cancel domestic travel",
+            "source": "ABC News",
+            "date": "22 March 2020",
+            "time": "11:18am"
+        },
+        {
+            "url": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-cases-surge-by-49-in-victoria-bringing-the-statewide-total-to-278-c-756635",
+            "title": "Coronavirus cases surge by 49 in Victoria - bringing the statewide total to 278",
+            "source": "7 News",
+            "date": "22 March 2020",
+            "time": "11:03am"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-22/covid-19-how-deadly-and-contagious-is-coronavirus/12068106",
+            "title": "Coronavirus: How deadly and contagious is this COVID-19 pandemic?",
+            "source": "ABC News",
+            "date": "22 March 2020",
+            "time": "08:00am"
+        },
         {
             "url": "https://www.abc.net.au/news/2020-03-22/covid-19-how-deadly-and-contagious-is-coronavirus/12068106",
             "title": "Coronavirus: How deadly and contagious is this COVID-19 pandemic?",
