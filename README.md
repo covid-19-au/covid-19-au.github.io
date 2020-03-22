@@ -60,6 +60,13 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 ### Promotion
 * Ruby Yeo ryeo0006@student.monash.edu
 * Emma Callaghan ecal0009@student.monash.edu
+* Jennifer Yang	yangziyi1997@gmail.com
+* Louis Nash	louisnash2907@gmail.com
+* Michelle Yu Ying	michelle.yu-ying.wong@monash.edu
+* Huan Yee Koh	huanyeekoh@gmail.com
+* Xiao Chen Xi	xxc12396@gmail.com
+* Aditya Dogra	adityadogra21@gmail.com
+* Jiwon Ryu	ryujiwon0603@gmail.com
 
 ### Contributor
 * Matt Lui malui@student.unimelb.edu.au
