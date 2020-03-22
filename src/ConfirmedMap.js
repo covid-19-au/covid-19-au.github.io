@@ -133,7 +133,7 @@ class MbMap extends React.Component {
                 flexDirection: 'column',
                 height: '520px'
             }}>
-                <h2>Hospitals & Cases Map</h2>
+                <h2>Hospital & Case Map</h2>
 
                 <div style={style} ref={el => this.mapContainer = el} >
                     {/*{*/}
