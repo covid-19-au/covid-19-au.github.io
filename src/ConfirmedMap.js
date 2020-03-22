@@ -5,9 +5,10 @@ import hospitalData from "./data/mapdataHos"
 import ReactMapboxGl, { Layer, Feature, Popup } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
-import confirmedImg from './img/icon/confirmed.png'
+import confirmedImg from './img/icon/confirmed-recent.png'
+import confirmedOldImg from './img/icon/confirmed-old.png'
 import hospitalImg from './img/icon/hospital.png'
-
+const oldCaseDays = 14; // Threshold for an 'old case', in days
 
 class MbMap extends React.Component {
 
@@ -20,10 +21,37 @@ class MbMap extends React.Component {
         };
     }
 
+    // Check if a date was more than two weeks ago
+    isOld(date) {
+        // Assume the 'Day DD/MM/YYYY' format
+        const dateComponents = date.split(" ");
+        const eventDay = dateComponents[1].split("/");
+        // Assume entries with incorrect formats are old
+        if (dateComponents.length !== 2 && eventDay.length !== 3) { return true; }
+
+        // Working with raw data, so try-catch just in case
+        try {
+            // Default constructor has current time
+            let today = new Date();
+            
+            // Day of the case, YYYY-MM-DD format
+            let caseDate = new Date(eventDay[2] + '-' + eventDay[1] + '-' + eventDay[0]);
+            // Add two weeks for comparison
+            caseDate.setDate(caseDate.getDate() + oldCaseDays);
+
+            // True iff the original date was more than two weeks old
+            if (today > caseDate) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch {
+            return true;
+        }
+    }
+
     componentDidMount() {
         const { lng, lat, zoom } = this.state;
-
-
 
         const map = new mapboxgl.Map({
             container: this.mapContainer,
@@ -65,20 +93,14 @@ class MbMap extends React.Component {
             el.style.height = '20px';
             el.style.width = '20px';
             el.style.backgroundSize = 'cover';
-            el.style.backgroundImage = `url(${confirmedImg})`;
+            if (this.isOld(item['date'])) {
+                el.style.backgroundImage = `url(${confirmedOldImg})`;
+            } else {
+                el.style.backgroundImage = `url(${confirmedImg})`;
+            }
             el.style.borderRadius = '50%';
             el.style.cursor = 'pointer';
 
-
-
-            //         = ({
-            //         backgroundImage: 'url(icon/confirmed.png)',
-            //     backgroundSize: 'cover',
-            //     width: '50px',
-            //     height: '50px',
-            //     borderRadius: '50%',
-            //     cursor: 'pointer'
-            // });
             let coor = [item['coor'][1], item['coor'][0]]
             // make a marker for each feature and add to the map
             new mapboxgl.Marker(el)
@@ -99,16 +121,6 @@ class MbMap extends React.Component {
             el.style.borderRadius = '50%';
             el.style.cursor = 'pointer';
 
-
-
-            //         = ({
-            //         backgroundImage: 'url(icon/confirmed.png)',
-            //     backgroundSize: 'cover',
-            //     width: '50px',
-            //     height: '50px',
-            //     borderRadius: '50%',
-            //     cursor: 'pointer'
-            // });
             let coor = [item['coor'][1], item['coor'][0]]
             // make a marker for each feature and add to the map
             new mapboxgl.Marker(el)
@@ -146,7 +158,8 @@ class MbMap extends React.Component {
                 </div>
 
                 <span className="due">
-                    <span className="key"><img src={confirmedImg}/><p>Confirmed case</p></span>
+                    <span className="key"><img src={confirmedImg}/><p>Recent confirmed case</p></span>
+                    <span className="key"><img src={confirmedOldImg}/><p>Old case</p></span>
                     <span className="key"><img src={hospitalImg}/><p>Hospital or COVID-19 assessment centre</p></span>
         </span>
             </div>
