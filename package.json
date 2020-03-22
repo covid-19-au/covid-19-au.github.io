@@ -68,6 +68,7 @@
     "react-ga": "^2.7.0",
     "react-google-charts": "^3.0.15",
     "react-map-gl": "^5.2.3",
+    "react-modal": "3.11.2",
     "react-mapbox-gl": "^4.8.2",
     "react-player": "^1.15.2",
     "react-share": "4.1.0",
