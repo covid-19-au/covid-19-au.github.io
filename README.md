@@ -60,7 +60,7 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 ### Promotion
 * Ruby Yeo ryeo0006@student.monash.edu
 * Emma Callaghan ecal0009@student.monash.edu
-* Jennifer Yang	yangziyi1997@gmail.com
+* Ziyi Yang	yangziyi1997@gmail.com
 * Louis Nash	louisnash2907@gmail.com
 * Michelle Yu Ying	michelle.yu-ying.wong@monash.edu
 * Huan Yee Koh	huanyeekoh@gmail.com
