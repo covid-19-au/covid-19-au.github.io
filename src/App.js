@@ -311,13 +311,6 @@ function Flights({ flights }) {
       return;
     }
 
-    let searchKeyList = [];
-    searchKeyList = searchKey.split(" ");
-    // remove white space from array
-    searchKeyList = searchKeyList.filter(function(str) {
-      return /\S/.test(str);
-    });
-
     for (let i = 0; i < flights.length; i++) {
       let flight = flights[i];
       let flightNo = flight.flightNo.toLowerCase();
@@ -325,10 +318,18 @@ function Flights({ flights }) {
       let dateArrival = flight.dateArrival.toLowerCase();
       let validFlight = false;
 
+      let searchKeyList = [];
+      searchKeyList = searchKey.split(" ");
+      // remove white space from array
+      searchKeyList = searchKeyList.filter(function(str) {
+        return /\S/.test(str);
+      });
+
       if (indexFlightNo) {
         for (let j = 0; j < searchKeyList.length; j++) { // when enable indexFlightNo only
           if (flightNo.includes(searchKeyList[j].toLowerCase())) {
             validFlight = true;
+            searchKeyList.splice(j, 1);
             break;
           }
           validFlight = false;
@@ -337,6 +338,7 @@ function Flights({ flights }) {
           for (let j = 0; j < searchKeyList.length; j++) { // when enable indexFlightNo and indexRoute
             if (route.includes(searchKeyList[j].toLowerCase())) {
               validFlight = true;
+              searchKeyList.splice(j, 1);
               break;
             }
             validFlight = false;
@@ -345,6 +347,7 @@ function Flights({ flights }) {
             for (let j = 0; j < searchKeyList.length; j++) {
               if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
                 validFlight = true;
+                searchKeyList.splice(j, 1);
                 break;
               }
               validFlight = false;
@@ -354,6 +357,7 @@ function Flights({ flights }) {
           for (let j = 0; j < searchKeyList.length; j++) {
             if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
               validFlight = true;
+              searchKeyList.splice(j, 1);
               break;
             }
             validFlight = false;
@@ -363,6 +367,7 @@ function Flights({ flights }) {
         for (let j = 0; j < searchKeyList.length; j++) {
           if (route.includes(searchKeyList[j].toLowerCase())) {
             validFlight = true;
+            searchKeyList.splice(j, 1);
             break;
           }
           validFlight = false;
@@ -371,6 +376,7 @@ function Flights({ flights }) {
           for (let j = 0; j < searchKeyList.length; j++) {
             if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
               validFlight = true;
+              searchKeyList.splice(j, 1);
               break;
             }
             validFlight = false;
@@ -380,6 +386,7 @@ function Flights({ flights }) {
         for (let j = 0; j < searchKeyList.length; j++) {
           if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
             validFlight = true;
+            searchKeyList.splice(j, 1);
             break;
           }
           validFlight = false;
