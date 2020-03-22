@@ -472,6 +472,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
+
       <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: {stateCaseData.updatedTime}</span>
 
       {/*<div>*/}
