@@ -44,7 +44,7 @@
     "address": "Bellerine St, Geelong VIC 3220, Australia",
     "hospitalPhone": "(03) 4215 0000",
     "stateTestAppointmentNumber": "",
-    "name": "Barwon Health – Geelong",
+    "name": "Barwon Health � Geelong",
     "coor": ["-38.152096", "144.365334"],
     "hospitalType": "",
     "type": "1"
@@ -94,7 +94,7 @@
     "address": "29-35 Grant St, Bacchus Marsh VIC 3340",
     "hospitalPhone": "(03) 5367 2000",
     "stateTestAppointmentNumber": "",
-    "name": "Djerriwarrh Health Services – Bacchus Marsh",
+    "name": "Djerriwarrh Health Services � Bacchus Marsh",
     "coor": ["-37.677797", "144.434556"],
     "hospitalType": "",
     "type": "1"
@@ -104,7 +104,7 @@
     "address": "195-209 Barries Road, Melton West, 3337",
     "hospitalPhone": "(03)9747 7600",
     "stateTestAppointmentNumber": "",
-    "name": "Djerriwarrh Health Services – Melton",
+    "name": "Djerriwarrh Health Services � Melton",
     "coor": ["-37.686669", "144.557733"],
     "hospitalType": "",
     "type": "1"
@@ -164,7 +164,7 @@
     "address": "2 Hastings Rd, Frankston VIC 3199, Australia",
     "hospitalPhone": "(03) 9342 7000",
     "stateTestAppointmentNumber": "",
-    "name": "Peninsula Health – Frankston",
+    "name": "Peninsula Health � Frankston",
     "coor": ["-38.150661", "145.128516"],
     "hospitalType": "",
     "type": "1"
@@ -301,10 +301,10 @@
   },
   {
     "state": "New South Wales",
-    "address": "Edith and Platt Street, Waratah, NSW 2298",
+    "address": "_Edith and Platt Street, Waratah, NSW 2298",
     "hospitalPhone": "(02) 4921 1211",
     "stateTestAppointmentNumber": "",
-    "name": "Calvary Mater Newcastle",
+    "name": "_Calvary Mater Ne_wcastle",
     "coor": ["-32.898477", "151.721075"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
@@ -441,7 +441,7 @@
   },
   {
     "state": "New South Wales",
-    "address": "560 High St, Maitland, NSW 2320",
+    "address": "560 High St, Maitland, NSW 2320_",
     "hospitalPhone": "(02) 4939 2000",
     "stateTestAppointmentNumber": "",
     "name": "Maitland Hospital",
@@ -551,10 +551,10 @@
   },
   {
     "state": "New South Wales",
-    "address": "Gray Street, Kogarah NSW 2217",
+    "address": "_Gray Street, Kogarah NSW 2217",
     "hospitalPhone": "(02) 9113 1111",
     "stateTestAppointmentNumber": "",
-    "name": "St George Hospital",
+    "name": "St George Hospital_",
     "coor": ["-33.966710", "151.134364"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
@@ -571,7 +571,7 @@
   },
   {
     "state": "New South Wales",
-    "address": "8 Macquarie Street, Sydney 2000",
+    "address": "_8 Macquarie Street, Sydney 2000",
     "hospitalPhone": "(02) 9382 7111",
     "stateTestAppointmentNumber": "",
     "name": "Sydney and Sydney Eye Hospital",
@@ -584,7 +584,7 @@
     "address": "High Street, Randwick NSW 2031",
     "hospitalPhone": "(02) 9382 1111",
     "stateTestAppointmentNumber": "",
-    "name": "Sydney Children’s Hospital",
+    "name": "Sydney Children�s Hospital",
     "coor": ["-33.916968", "151.238273"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
@@ -601,10 +601,10 @@
   },
   {
     "state": "New South Wales",
-    "address": "Cnr Hawkesbury Road and Hainsworth Street Westmead NSW 2145",
+    "address": "Cnr Hawkesbury Road and Hainsworth Street Westmead_ NSW 2145",
     "hospitalPhone": "(02) 9845 0000",
     "stateTestAppointmentNumber": "",
-    "name": "The Children’s Hospital at Westmead",
+    "name": "The Children�s Hospital at Westmead",
     "coor": ["-33.801809", "150.992716"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
@@ -642,9 +642,9 @@
   {
     "state": "New South Wales",
     "address": "69 Brookong Avenue, Wagga Wagga 2650",
-    "hospitalPhone": "",
+    "hospitalPhone": "(02) 6921 4053",
     "stateTestAppointmentNumber": "",
-    "name": "Wagga Wagga Clinic",
+    "name": "Wagga Wagga Clinic�",
     "coor": ["-35.117773", "147.36852"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
@@ -676,7 +676,7 @@
     "stateTestAppointmentNumber": "",
     "name": "Royal Adelaide Hospital",
     "coor": ["-34.920682", "138.587182"],
-    "hospitalType": "",
+    "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
@@ -686,7 +686,7 @@
     "stateTestAppointmentNumber": "",
     "name": "Flinders Medical Centre",
     "coor": ["-35.021153", "138.569006"],
-    "hospitalType": "",
+    "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
@@ -696,7 +696,7 @@
     "stateTestAppointmentNumber": "",
     "name": "Lyell McEwin Hospital",
     "coor": ["-34.747302", "138.664674"],
-    "hospitalType": "",
+    "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
@@ -704,9 +704,9 @@
     "address": "72 King William Rd, North Adelaide SA 5006",
     "hospitalPhone": "(08) 8161 7000",
     "stateTestAppointmentNumber": "",
-    "name": "Women’s and Children’s Hospital",
+    "name": "Women�s and Children�s Hospital",
     "coor": ["-34.911275", "138.600121"],
-    "hospitalType": "",
+    "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
@@ -716,7 +716,67 @@
     "stateTestAppointmentNumber": "",
     "name": "Mount Barker Hospital",
     "coor": ["-35.082021", "138.869987"],
-    "hospitalType": "",
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "21 Hutchinson Rd, Gawler East SA 5118",
+    "hospitalPhone": "(08) 8521 2000",
+    "stateTestAppointmentNumber": "",
+    "name": "Gawler Health Service",
+    "coor": ["-34.593184", "138.755161"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "3-7 Esplanade, Kingscote SA 5223",
+    "hospitalPhone": "(08) 8553 4200",
+    "stateTestAppointmentNumber": "",
+    "name": "Kangaroo Island Health Service",
+    "coor": ["-35.653184", "137.637690"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "56 Bay Rd, Victor Harbor SA 5211",
+    "hospitalPhone": "(08) 8552 0500",
+    "stateTestAppointmentNumber": "",
+    "name": "South Coast District Hospital",
+    "coor": ["-35.561180", "138.607521"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "216 Daws Rd, Daw Park SA 5041",
+    "hospitalPhone": "(08) 7117 2500",
+    "stateTestAppointmentNumber": "",
+    "name": "Repat Health Precinct",
+    "coor": ["-34.990887", "138.58844"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "71 Hospital Road Port Augusta South Australia",
+    "hospitalPhone": "(08) 8668 7500",
+    "stateTestAppointmentNumber": "",
+    "name": "Port Augusta Hospital",
+    "coor": ["-32.510005", "137.775669"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "20 Wood Terrace Whyalla South Australia (opens in a new window)�",
+    "hospitalPhone": "(08) 8648 8300",
+    "stateTestAppointmentNumber": "",
+    "name": "Whyalla Hospital",
+    "coor": ["-33.033998", "137.577319"],
+    "hospitalType": "Drive-through Testing",
     "type": "1"
   },
   {
@@ -780,33 +840,33 @@
     "type": "1"
   },
   {
-    "state": "NSW",
-    "address": "Edith & Platt St, Waratah, NSW 2298",
+    "state": "New South Wales",
+    "address": "_Edith & Platt St, Waratah, NSW 2298",
     "hospitalPhone": "(02) 4921 1211",
     "stateTestAppointmentNumber": "",
-    "name": "Calvary Mater Newcastle",
+    "name": "_Calvary Mater Newcastle",
     "coor": ["-32.898396", "151.721091"],
-    "hospitalType": "CLINIC",
+    "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
-    "state": "NSW",
-    "address": "560 High St, Maitland, NSW 2320",
+    "state": "New South Wales",
+    "address": "_560 High St, Maitland, NSW 2320_",
     "hospitalPhone": "(02) 4939 2000",
     "stateTestAppointmentNumber": "",
-    "name": "Maitland Hospital",
+    "name": "_Maitland Hospital",
     "coor": ["-32.725551", "151.545389"],
-    "hospitalType": "CLINIC",
+    "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
-    "state": "NSW",
+    "state": "New South Wales",
     "address": "69 Brookong Avenue, Wagga Wagga 2650",
     "hospitalPhone": "(02) 5943 1000",
     "stateTestAppointmentNumber": "",
     "name": "Wagga Wagga Clinic",
     "coor": ["-35.119989", "147.357079"],
-    "hospitalType": "CLINIC",
+    "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
@@ -814,7 +874,7 @@
     "address": "Cnr Butterfield St and Bowen Bridge Rd,HERSTON",
     "hospitalPhone": "(07) 3646 8111",
     "stateTestAppointmentNumber": "",
-    "name": "Royal Brisbane and Women’s Hospital",
+    "name": "Royal Brisbane and Women�s Hospital",
     "coor": ["-27.446929", "153.028480"],
     "hospitalType": "Fever Clinics",
     "type": "1"
