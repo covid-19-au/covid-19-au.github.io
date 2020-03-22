@@ -1,4 +1,11 @@
-import React, { useState, Suspense, useEffect, useLayoutEffect, Fragment, useRef } from "react";
+import React, {
+  useState,
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  Fragment,
+  useRef
+} from "react";
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -26,7 +33,7 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
 import NewsTimeline from "./NewsTimeline";
-import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal'
+import SocialMediaShareModal from "./socialMediaShare/SocialMediaShareModal";
 
 import stateCaseData from "./data/stateCaseData";
 
@@ -146,7 +153,8 @@ function HistoryGraph({ countryData }) {
       height: 260,
       title: {
         text: "Overall trends for COVID-19 cases in Australia ",
-        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        fontFamily:
+          "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
       axisX: {
@@ -172,7 +180,8 @@ function HistoryGraph({ countryData }) {
       height: 260,
       title: {
         text: "Daily new cases and deaths in Australia",
-        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        fontFamily:
+          "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
       axisX: {
@@ -201,29 +210,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-      <div className="card">
-        <h2>Historical Data</h2>
-        <CanvasJSChart options={options} />
-        <CanvasJSChart options={newOpts} />
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="LineChart"*/}
-        {/*loader={<div>Loading Chart...</div>}*/}
-        {/*data={historyData}*/}
-        {/*options={options}*/}
-        {/*rootProps={{ 'data-testid': '3' }}*/}
-        {/*/>*/}
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="ColumnChart"*/}
-        {/*data={newData}*/}
-        {/*options={newOptions}*/}
+    <div className="card">
+      <h2>Historical Data</h2>
+      <CanvasJSChart options={options} />
+      <CanvasJSChart options={newOpts} />
+      {/*<Chart*/}
+      {/*width={'100%'}*/}
+      {/*height={'400px'}*/}
+      {/*chartType="LineChart"*/}
+      {/*loader={<div>Loading Chart...</div>}*/}
+      {/*data={historyData}*/}
+      {/*options={options}*/}
+      {/*rootProps={{ 'data-testid': '3' }}*/}
+      {/*/>*/}
+      {/*<Chart*/}
+      {/*width={'100%'}*/}
+      {/*height={'400px'}*/}
+      {/*chartType="ColumnChart"*/}
+      {/*data={newData}*/}
+      {/*options={newOptions}*/}
 
-        {/*/>*/}
-      </div>
-    );
+      {/*/>*/}
+    </div>
+  );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -258,8 +267,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function (err, feed) {
+        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function(err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -297,17 +306,20 @@ function Tweets({ province, nav }) {
       <div className="centerContent">
         <div className="selfCenter standardWidth">
           {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
-          {nav === "News" ? <TwitterTimelineEmbed
-            sourceType="list"
-            ownerScreenName="8ravoEchoNov"
-            slug="COVID19-Australia"
-            options={{
-              height: 450
-            }}
-            noHeader={true}
-            noFooter={true}
-          /> : ""}
-
+          {nav === "News" ? (
+            <TwitterTimelineEmbed
+              sourceType="list"
+              ownerScreenName="8ravoEchoNov"
+              slug="COVID19-Australia"
+              options={{
+                height: 450
+              }}
+              noHeader={true}
+              noFooter={true}
+            />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
@@ -350,7 +362,8 @@ function Flights({ flights }) {
       });
 
       if (indexFlightNo) {
-        for (let j = 0; j < searchKeyList.length; j++) { // when enable indexFlightNo only
+        for (let j = 0; j < searchKeyList.length; j++) {
+          // when enable indexFlightNo only
           if (flightNo.includes(searchKeyList[j].toLowerCase())) {
             validFlight = true;
             searchKeyList.splice(j, 1);
@@ -359,7 +372,8 @@ function Flights({ flights }) {
           validFlight = false;
         }
         if (indexRoute && validFlight) {
-          for (let j = 0; j < searchKeyList.length; j++) { // when enable indexFlightNo and indexRoute
+          for (let j = 0; j < searchKeyList.length; j++) {
+            // when enable indexFlightNo and indexRoute
             if (route.includes(searchKeyList[j].toLowerCase())) {
               validFlight = true;
               searchKeyList.splice(j, 1);
@@ -367,7 +381,8 @@ function Flights({ flights }) {
             }
             validFlight = false;
           }
-          if(indexDateArrival && validFlight) { // when all three indexing method are enabled
+          if (indexDateArrival && validFlight) {
+            // when all three indexing method are enabled
             for (let j = 0; j < searchKeyList.length; j++) {
               if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
                 validFlight = true;
@@ -377,7 +392,8 @@ function Flights({ flights }) {
               validFlight = false;
             }
           }
-        } else if (indexDateArrival && validFlight) { // when enable indexFlightNo and indexDateArrival
+        } else if (indexDateArrival && validFlight) {
+          // when enable indexFlightNo and indexDateArrival
           for (let j = 0; j < searchKeyList.length; j++) {
             if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
               validFlight = true;
@@ -387,7 +403,8 @@ function Flights({ flights }) {
             validFlight = false;
           }
         }
-      } else if (indexRoute) { // when enable indexRoute only
+      } else if (indexRoute) {
+        // when enable indexRoute only
         for (let j = 0; j < searchKeyList.length; j++) {
           if (route.includes(searchKeyList[j].toLowerCase())) {
             validFlight = true;
@@ -396,7 +413,8 @@ function Flights({ flights }) {
           }
           validFlight = false;
         }
-        if (indexDateArrival && validFlight) { // when enable both indexRoute and indexDateArrival
+        if (indexDateArrival && validFlight) {
+          // when enable both indexRoute and indexDateArrival
           for (let j = 0; j < searchKeyList.length; j++) {
             if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
               validFlight = true;
@@ -406,7 +424,8 @@ function Flights({ flights }) {
             validFlight = false;
           }
         }
-      } else if (indexDateArrival) { // when enable indexDateArrival only
+      } else if (indexDateArrival) {
+        // when enable indexDateArrival only
         for (let j = 0; j < searchKeyList.length; j++) {
           if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
             validFlight = true;
@@ -414,7 +433,7 @@ function Flights({ flights }) {
             break;
           }
           validFlight = false;
-        } 
+        }
       }
 
       if (validFlight) {
@@ -426,7 +445,7 @@ function Flights({ flights }) {
   // only sort when the flight result list is not empty
   let uniqueFlight = []; // sort flight result without duplicate object
   if (flightResult.length !== 0) {
-    flightResult.sort(function (a, b) {
+    flightResult.sort(function(a, b) {
       let arr = a.dateArrival.split("-");
       let dateA = new Date(
         parseInt(arr[2]),
@@ -504,8 +523,8 @@ function Flights({ flights }) {
               </div>
             ))
           ) : (
-              <></>
-            )}
+            <></>
+          )}
         </div>
       </div>
     </div>
@@ -544,7 +563,7 @@ function Stat({
     }
     let lastTotal =
       countryData[
-      Object.keys(countryData)[Object.keys(countryData).length - 1]
+        Object.keys(countryData)[Object.keys(countryData).length - 1]
       ];
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
@@ -558,10 +577,7 @@ function Stat({
 
   return (
     <div className="card">
-      <h2>
-        Status {name ? `· ${name}` : false}
-
-      </h2>
+      <h2>Status {name ? `· ${name}` : false}</h2>
       <div className="row">
         <Tag
           number={confirmedCount}
@@ -588,7 +604,9 @@ function Stat({
           Recovered
         </Tag>
       </div>
-      <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: {stateCaseData.updatedTime}</span>
+      <span className="due" style={{ fontSize: "60%" }}>
+        Time in AEDT, last updated at: {stateCaseData.updatedTime}
+      </span>
 
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
@@ -604,8 +622,11 @@ function Fallback(props) {
   return (
     <div className="fallback">
       <div class="ui labeled button" tabindex="0">
-        <div class="ui basic blue button" onClick={ ()=> props.setModalVisibility(true) }>
-          <i class="share alternate square icon"/>
+        <div
+          class="ui basic blue button"
+          onClick={() => props.setModalVisibility(true)}
+        >
+          <i class="share alternate square icon" />
           Share this link
         </div>
       </div>
@@ -646,7 +667,7 @@ function Area({ area, onChange, data }) {
   const renderArea = () => {
     let latest =
       testedCases[
-      Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+        Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
 
     return data.map(x => (
@@ -722,34 +743,56 @@ function Header({ province }) {
   );
 }
 
-
 function Navbar({ setNav, nav }) {
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
   const handleScroll = () => {
     setSticky(ref.current.getBoundingClientRect().top <= 0);
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', () => handleScroll);
+      window.removeEventListener("scroll", () => handleScroll);
     };
   }, []);
 
   const onClick = e => {
     setNav(e.target.innerText);
-  }
+  };
 
   return (
     <div className={`sticky-wrapper ${isSticky ? "sticky" : ""}`} ref={ref}>
-      <div className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}>
-        <span className={`navItems ${nav === "Home" && !isSticky ? "navCurrentPage " : ""} ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></span>
-        <span className={`navItems ${nav === "Info" && !isSticky ? "navCurrentPage " : ""} ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></span>
-        <span className={`navItems ${nav === "News" && !isSticky ? "navCurrentPage " : ""} ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></span>
+      <div
+        className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
+      >
+        <span
+          className={`navItems ${
+            nav === "Home" && !isSticky ? "navCurrentPage " : ""
+          } ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `}
+          onClick={onClick}
+        >
+          <strong>Home</strong>
+        </span>
+        <span
+          className={`navItems ${
+            nav === "Info" && !isSticky ? "navCurrentPage " : ""
+          } ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `}
+          onClick={onClick}
+        >
+          <strong>Info</strong>
+        </span>
+        <span
+          className={`navItems ${
+            nav === "News" && !isSticky ? "navCurrentPage " : ""
+          } ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `}
+          onClick={onClick}
+        >
+          <strong>News</strong>
+        </span>
       </div>
     </div>
-  )
+  );
 }
 
 function Information({ nav }) {
@@ -758,8 +801,14 @@ function Information({ nav }) {
       <h2>Informative Media</h2>
       <div className="row centerMedia">
         <div>
-          <ReactPlayer className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} />
-          <small className="mediaText">The Coronavirus explained and what you should do.</small>
+          <ReactPlayer
+            className="formatMedia"
+            url="http://www.youtube.com/watch?v=BtN-goy9VOY"
+            controls={true}
+          />
+          <small className="mediaText">
+            The Coronavirus explained and what you should do.
+          </small>
         </div>
       </div>
 
@@ -798,8 +847,8 @@ function Information({ nav }) {
                   ))}
                 </ul>
               ) : (
-                  ""
-                )}
+                ""
+              )}
 
               {/* First Ordered List */}
               {info.text.olist_1 ? (
@@ -809,8 +858,8 @@ function Information({ nav }) {
                   ))}
                 </ol>
               ) : (
-                  ""
-                )}
+                ""
+              )}
 
               {/* Second Block of text */}
               {info.text.text_2.map(t2 => (
@@ -819,22 +868,47 @@ function Information({ nav }) {
 
               {/* Citation tag */}
               {info.text.citation.map(cit => (
-                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                <small key={uuid()}>
+                  <a
+                    className="citationLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={cit.link}
+                  >
+                    {cit.name}
+                  </a>
+                </small>
               ))}
-
             </div>
           </div>
         </div>
       ))}
-      <small>All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a></small>
+      <small>
+        All information sourced from:{" "}
+        <a
+          className="citationLink"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+        >
+          NSW Government Health Department
+        </a>
+      </small>
     </div>
   );
 }
 
-function HomePage({ province, overall, myData, area, data, setProvince, gspace }) {
+function HomePage({
+  province,
+  overall,
+  myData,
+  area,
+  data,
+  setProvince,
+  gspace
+}) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-
       <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <Stat
           {...{ ...all, ...overall }}
@@ -880,13 +954,13 @@ function HomePage({ province, overall, myData, area, data, setProvince, gspace }
               href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
             >
               @Data Source
-                </a>
+            </a>
             <span
               style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
               className="due"
             >
               *Number of tested cases is updated daily.
-                </span>
+            </span>
           </div>
         </div>
       </Grid>
@@ -897,9 +971,8 @@ function HomePage({ province, overall, myData, area, data, setProvince, gspace }
       <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <Flights flights={flights} />
       </Grid>
-
     </Grid>
-  )
+  );
 }
 
 function InfoPage() {
@@ -907,13 +980,12 @@ function InfoPage() {
     <Grid item xs={12} sm={12} md={10}>
       <Information />
     </Grid>
-  )
+  );
 }
 
 function NewsPage({ gspace, province, nav }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-
       <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <Tweets province={province} nav={nav} />
       </Grid>
@@ -922,7 +994,7 @@ function NewsPage({ gspace, province, nav }) {
         <NewsTimeline />
       </Grid>
     </Grid>
-  )
+  );
 }
 
 function App() {
@@ -959,7 +1031,7 @@ function App() {
     let sortedData = stateCaseData.values.sort((a, b) => {
       return b[1] - a[1];
     });
-    setMyData(sortedData)
+    setMyData(sortedData);
   }, [province]);
   useEffect(() => {
     if (province) {
@@ -974,30 +1046,30 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-      name: p.provinceShortName,
-      value: p.confirmedCount
-    }))
+        name: p.provinceShortName,
+        value: p.confirmedCount
+      }))
     : provincesByName[province.name].cities.map(city => ({
-      name: city.fullCityName,
-      value: city.confirmedCount
-    }));
+        name: city.fullCityName,
+        value: city.confirmedCount
+      }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
 
   const [nav, setNav] = useState("Home");
-  const [ showSocialMediaIcons, setShowSocialMediaIcons ] = useState(false);
+  const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
 
-  const setModalVisibility = (state) => {
-    setShowSocialMediaIcons(state)
-  }
+  const setModalVisibility = state => {
+    setShowSocialMediaIcons(state);
+  };
 
   if (myData) {
     return (
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
-          onCancel={ () => setShowSocialMediaIcons(false)}
+          onCancel={() => setShowSocialMediaIcons(false)}
         />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
@@ -1008,10 +1080,25 @@ function App() {
           </Grid>
 
           {/* Pages to hold each functionality. */}
-          {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
+          {nav === "Home" ? (
+            <HomePage
+              province={province}
+              overall={overall}
+              myData={myData}
+              area={area}
+              data={data}
+              setProvince={setProvince}
+              gspace={gspace}
+            />
+          ) : (
+            ""
+          )}
           {nav === "Info" ? <InfoPage nav={nav} /> : ""}
-          {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
-
+          {nav === "News" ? (
+            <NewsPage province={province} gspace={gspace} nav={nav} />
+          ) : (
+            ""
+          )}
 
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
           {/*<News />*/}
@@ -1022,7 +1109,7 @@ function App() {
           {/*</Grid>*/}
 
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility}/>
+            <Fallback setModalVisibility={setModalVisibility} />
           </Grid>
         </Grid>
       </div>
