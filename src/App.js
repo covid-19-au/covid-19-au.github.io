@@ -473,6 +473,7 @@ function Stat({
         </Tag>
       </div>
       <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: {stateCaseData.updatedTime}</span>
+
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -592,7 +593,7 @@ function Header({ province }) {
           fontSize: "120%"
         }}
       >
-        COVID-19 in Australia - Real-Time Report
+        COVID-19 in Australia — Real-Time Report
       </h1>
       {/*<i>By Students from Monash</i>*/}
     </header>
@@ -834,15 +835,11 @@ function App() {
   const [myData, setMyData] = useState(null);
   useEffect(() => {
 
-
-
-
     let sortedData = stateCaseData.values.sort((a, b) => {
       return b[1] - a[1];
     });
 
     setMyData(sortedData)
-
 
   }, [province]);
   useEffect(() => {
