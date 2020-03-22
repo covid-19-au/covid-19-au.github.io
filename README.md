@@ -85,4 +85,8 @@ Once your PR is merged to our project, we will explicitely list you in the contr
 Looking forward to your great works.
 
 
+## Term of use
+This GitHub repo and its contents herein, including all data, code, and analysis, all rights reserved, is provided to the public strictly for educational and academic research purposes. The Website relies upon publicly available data from multiple sources, that do not always agree. The team hereby disclaims any and all representations and warranties with respect to the Website, including accuracy, fitness for use, and merchantability. Reliance on the Website for medical guidance or use of the Website in commerce is strictly prohibited.
+
+
 Part of this project is based on the template from [this site](https://ncov.shanyue.tech/)
