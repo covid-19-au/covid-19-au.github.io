@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect, useLayoutEffect, Fragment, useRef } from "react";
+import React, { useState, Suspense, useEffect, useRef } from "react";
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -500,7 +500,7 @@ function Fallback() {
         from the Faculty of IT, Monash University, for non-commercial use only.
       </div>
       <div>
-        <a href="https://www.webfreecounter.com/" target="_blank">
+        <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
           <img
             src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1"
             border="0"
@@ -614,6 +614,7 @@ function Navbar({setNav, nav}) {
 
     const onClick = e => {
         setNav(e.target.innerText);
+        window.scrollTo(0, 0);
     }
 
     return (
@@ -633,8 +634,15 @@ function Information({nav}) {
             <h2>Informative Media</h2>
             <div className="row centerMedia">
                 <div>
-                    <ReactPlayer className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true}/>
+                    <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true}/>
                     <small className="mediaText">The Coronavirus explained and what you should do.</small>
+                </div>
+            </div>
+
+            <div className="row centerMedia">
+                <div>
+                    <ReactPlayer alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true}/>
+                    <small className="mediaText">How to properly wash your hands.</small>
                 </div>
             </div>
 
@@ -643,7 +651,7 @@ function Information({nav}) {
                     <img
                         className="formatImage"
                         src="https://www.who.int/gpsc/media/how_to_handwash_lge.gif"
-                        alt="How to wash hands - Coronavirus"
+                        alt="How to wash hands - Coronavirus / COVID-19"
                     />
                     <small className="mediaText">How to properly wash your hands.</small>
                 </div>
@@ -702,6 +710,28 @@ function Information({nav}) {
                 </div>
             ))}
             <small>All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a></small>
+            <h2>Coronavirus Helplines</h2>
+            <div className="row">
+                <div>
+                    <h3>National helplines operating 24 hours a day, seven days a week.</h3>
+                    <ul>
+                        <li>For information on coronavirus (COVID-19) at the National Helpline: <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
+                        <li>If you are feeling unwell, call Healthdirect: <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
+                    </ul>
+                    <h3>Some states have dedicated helplines aswell: </h3>
+                    <ul>
+                        <li>Victoria: <a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
+                        <li>Queensland: <a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
+                        <li>Northern Territory: <a className="citationLink" href="tel:1800008002">1800 008 002</a>
+                            <p>-  If you are in Darwin and need to arrange testing call the Public Health Unit on: <a className="citationLink" href="tel:89228044">8922 8044</a></p>
+                        </li>
+                        <li>Tasmania: <a className="citationLink" href="tel:1800671738">1800 671 738</a>
+                                <p>-  If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) on <a className="citationLink" href="tel:131450">131 450</a> and tell them your language. 
+                                Tell the interpreter your name and that you’re calling the Tasmanian Department of Health <a className="citationLink" href="tel:1800671738" >1800 671 738</a>.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     );
 }
