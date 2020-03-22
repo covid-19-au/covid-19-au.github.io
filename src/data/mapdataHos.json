@@ -1,251 +1,11 @@
 [
   {
-    "state": "Victoria",
-    "address": "55 Commercial Rd, Melbourne VIC 3004, Australia",
-    "hospitalPhone": "(03) 9076 2000",
+    "state": "ACT",
+    "address": "24 Parkinson St, Weston ACT 2611",
+    "hospitalPhone": "(02) 5124 9977",
     "stateTestAppointmentNumber": "",
-    "name": "The Alfred Hospital",
-    "coor": ["-37.845510", "144.981856"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "53-81 Vermont St, Wodonga VIC 3690, Australia",
-    "hospitalPhone": "(02) 6051 7111",
-    "stateTestAppointmentNumber": "",
-    "name": "Albury Wodonga Health - Woodonga",
-    "coor": ["-36.131814", "146.879837"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "145 Studley Rd, Heidelberg VIC 3084, Australia",
-    "hospitalPhone": "(03) 3 9496 5000",
-    "stateTestAppointmentNumber": "",
-    "name": "Austin Hospital",
-    "coor": ["-37.756370", "145.059588"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "1 Drummond St N, Ballarat Central VIC 3350, Australia",
-    "hospitalPhone": "(03) 5320 4000",
-    "stateTestAppointmentNumber": "",
-    "name": "Ballarat Base Hospital.",
-    "coor": ["-37.558656", "143.847227"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "Bellerine St, Geelong VIC 3220, Australia",
-    "hospitalPhone": "(03) 4215 0000",
-    "stateTestAppointmentNumber": "",
-    "name": "Barwon Health � Geelong",
-    "coor": ["-38.152096", "144.365334"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "Lucan St, North Bendigo VIC 3550",
-    "hospitalPhone": "(03) 5454 6000",
-    "stateTestAppointmentNumber": "",
-    "name": "Bendigo hospital",
-    "coor": ["-36.747277", "144.286437"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "8 Arnold St, Box Hill VIC 3128, Australia",
-    "hospitalPhone": "1300 342 255",
-    "stateTestAppointmentNumber": "",
-    "name": "Box Hill Hospital",
-    "coor": ["-37.813904", "145.118432"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "62-70 Kangan Dr, Berwick VIC 3806",
-    "hospitalPhone": "(03) 8768 1200",
-    "stateTestAppointmentNumber": "",
-    "name": "Casey Hospital",
-    "coor": ["-38.044782", "145.346030"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "135 David St, Dandenong VIC 3175",
-    "hospitalPhone": "(03) 9554 1000",
-    "stateTestAppointmentNumber": "",
-    "name": "Dandenong Hospital",
-    "coor": ["-37.976149", "145.218521"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "29-35 Grant St, Bacchus Marsh VIC 3340",
-    "hospitalPhone": "(03) 5367 2000",
-    "stateTestAppointmentNumber": "",
-    "name": "Djerriwarrh Health Services � Bacchus Marsh",
-    "coor": ["-37.677797", "144.434556"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "195-209 Barries Road, Melton West, 3337",
-    "hospitalPhone": "(03)9747 7600",
-    "stateTestAppointmentNumber": "",
-    "name": "Djerriwarrh Health Services � Melton",
-    "coor": ["-37.686669", "144.557733"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "226 Service St, Echuca VIC 3564",
-    "hospitalPhone": "(03) 5485 5000",
-    "stateTestAppointmentNumber": "",
-    "name": "Echuca Regional Health",
-    "coor": ["-36.138926", "144.748210"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "2/2-48 Graham St, Shepparton VIC 3630",
-    "hospitalPhone": "(03) 5832 2322",
-    "stateTestAppointmentNumber": "",
-    "name": "Goulburn Valley Health - Shepparton",
-    "coor": ["-36.363494", "145.404569"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "246 Clayton Rd, Clayton VIC 3168, Australia",
-    "hospitalPhone": "(03) 9594 6666",
-    "stateTestAppointmentNumber": "",
-    "name": "Monash Clayton",
-    "coor": ["-37.920496", "145.123560"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "185 Cooper St, Epping VIC 3076, Australia",
-    "hospitalPhone": "(03) 8405 8000",
-    "stateTestAppointmentNumber": "",
-    "name": "Northern Hospital.",
-    "coor": ["-37.652508", "145.014533"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "35-47 Green St, Wangaratta VIC 3677",
-    "hospitalPhone": "(03) 5722 5111",
-    "stateTestAppointmentNumber": "",
-    "name": "Northeast Health Wangaratta",
-    "coor": ["-36.353858", "146.313728"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "2 Hastings Rd, Frankston VIC 3199, Australia",
-    "hospitalPhone": "(03) 9342 7000",
-    "stateTestAppointmentNumber": "",
-    "name": "Peninsula Health � Frankston",
-    "coor": ["-38.150661", "145.128516"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "50 Church St, Cowes VIC 3922",
-    "hospitalPhone": "(03) 5951 2100",
-    "stateTestAppointmentNumber": "",
-    "name": "Phillip Island Health Hub",
-    "coor": ["-38.451931", "145.241353"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "50 Flemington Rd, Parkville VIC 3052",
-    "hospitalPhone": "(03) 9345 5522",
-    "stateTestAppointmentNumber": "",
-    "name": "The Royal Children's Hospital",
-    "coor": ["-37.793885", "144.948899"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "300 Grattan St, Parkville VIC 3050, Australia",
-    "hospitalPhone": "(03) 9342 7000",
-    "stateTestAppointmentNumber": "",
-    "name": "The Royal Melbourne Hospital",
-    "coor": ["-37.798750", "144.956196"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "25 Ryot St, Warrnambool VIC 3280",
-    "hospitalPhone": "(03) 5563 1666",
-    "stateTestAppointmentNumber": "",
-    "name": "South West Healthcare - Warrnambool",
-    "coor": ["-38.379885", "142.473466"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "41 Victoria Parade, Fitzroy VIC 3065, Australia",
-    "hospitalPhone": "(03) 9231 2211",
-    "stateTestAppointmentNumber": "",
-    "name": "St Vincent's Hospital Melbourne",
-    "coor": ["-37.807291", "144.975061"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "176 Furlong Rd, St Albans VIC 3021, Australia",
-    "hospitalPhone": "(03) 8345 1333",
-    "stateTestAppointmentNumber": "",
-    "name": "Sunshine Hospital",
-    "coor": ["-37.759241", "144.816534"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "48 Splatt St, Swan Hill VIC 3585",
-    "hospitalPhone": "(03) 5033 9300",
-    "stateTestAppointmentNumber": "",
-    "name": "Swan Hill District Health",
-    "coor": ["-35.339660", "143.556741"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "235 Graham St, Wonthaggi VIC 3995",
-    "hospitalPhone": "(03) 5671 3333",
-    "stateTestAppointmentNumber": "",
-    "name": "Bass Coast Health - Wonthaggi",
-    "coor": ["-38.607232", "145.581751"],
+    "name": "Weston Creek Walk-in Centre",
+    "coor": ["-35.341812", "149.054738"],
     "hospitalType": "",
     "type": "1"
   },
@@ -261,21 +21,21 @@
   },
   {
     "state": "New South Wales",
-    "address": "18 Blacktown Rd, Blacktown NSW 2148",
-    "hospitalPhone": "(02) 9881 8000",
-    "stateTestAppointmentNumber": "",
-    "name": "Blacktown Hospital",
-    "coor": ["-33.775534", "150.917084"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
     "address": "4 Virginia Drive, Bega NSW 2550",
     "hospitalPhone": "1800 999 880",
     "stateTestAppointmentNumber": "",
     "name": "Bega (South East Regional Hospital)",
     "coor": ["-36.688753", "149.858463"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "18 Blacktown Rd, Blacktown NSW 2148",
+    "hospitalPhone": "(02) 9881 8000",
+    "stateTestAppointmentNumber": "",
+    "name": "Blacktown Hospital",
+    "coor": ["-33.775534", "150.917084"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -584,7 +344,7 @@
     "address": "High Street, Randwick NSW 2031",
     "hospitalPhone": "(02) 9382 1111",
     "stateTestAppointmentNumber": "",
-    "name": "Sydney Children�s Hospital",
+    "name": "Sydney Children's Hospital",
     "coor": ["-33.916968", "151.238273"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
@@ -604,7 +364,7 @@
     "address": "Cnr Hawkesbury Road and Hainsworth Street Westmead_ NSW 2145",
     "hospitalPhone": "(02) 9845 0000",
     "stateTestAppointmentNumber": "",
-    "name": "The Children�s Hospital at Westmead",
+    "name": "The Children's Hospital at Westmead",
     "coor": ["-33.801809", "150.992716"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
@@ -631,21 +391,21 @@
   },
   {
     "state": "New South Wales",
-    "address": "Cnr Hawkesbury Road and Hainsworth Street Westmead NSW 2145",
-    "hospitalPhone": "(02) 8890 5555",
+    "address": "69 Brookong Avenue, Wagga Wagga 2650",
+    "hospitalPhone": "(02) 6921 4053",
     "stateTestAppointmentNumber": "",
-    "name": "Westmead Hospital",
-    "coor": ["-33.804683", "150.988597"],
+    "name": "Wagga Wagga Clinic",
+    "coor": ["-35.117773", "147.36852"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
     "state": "New South Wales",
-    "address": "69 Brookong Avenue, Wagga Wagga 2650",
-    "hospitalPhone": "(02) 6921 4053",
+    "address": "Cnr Hawkesbury Road and Hainsworth Street Westmead NSW 2145",
+    "hospitalPhone": "(02) 8890 5555",
     "stateTestAppointmentNumber": "",
-    "name": "Wagga Wagga Clinic�",
-    "coor": ["-35.117773", "147.36852"],
+    "name": "Westmead Hospital",
+    "coor": ["-33.804683", "150.988597"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -670,13 +430,93 @@
     "type": "1"
   },
   {
-    "state": "South Australia",
-    "address": "Port Rd, Adelaide SA 5000",
-    "hospitalPhone": "(08) 7074 0000",
+    "state": "Queensland",
+    "address": "449 Hornibrook Highway,BRIGHTON",
+    "hospitalPhone": "(07) 3631 7400",
     "stateTestAppointmentNumber": "",
-    "name": "Royal Adelaide Hospital",
-    "coor": ["-34.920682", "138.587182"],
-    "hospitalType": "COVID19 Clinics",
+    "name": "Brighton Health Campus",
+    "coor": ["-27.290013", "153.063944"],
+    "hospitalType": "Community Assessment Clinics",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "120 McKean St,CABOOLTURE",
+    "hospitalPhone": "(07) 5433 8888",
+    "stateTestAppointmentNumber": "",
+    "name": "Caboolture Hospital",
+    "coor": ["-27.080159", "152.963667"],
+    "hospitalType": "Fever Clinics",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "1 Hospital Blvd, Southport QLD 4215",
+    "hospitalPhone": "1300 744 284",
+    "stateTestAppointmentNumber": "",
+    "name": "Gold Coast University Hospital",
+    "coor": ["-27.959418", "153.381786"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "Kropp Street,KILCOY",
+    "hospitalPhone": "(07) 5422 4411",
+    "stateTestAppointmentNumber": "",
+    "name": "Kilcoy Hospital",
+    "coor": ["-26.940960", "152.561546"],
+    "hospitalType": "Fever Clinics",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "568 Gympie Road,STRATHPINE",
+    "hospitalPhone": "(07) 3817 6333",
+    "stateTestAppointmentNumber": "",
+    "name": "Pine Rivers Community Centre",
+    "coor": ["-27.298700", "152.986527"],
+    "hospitalType": "Community Assessment Clinics",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "Anzac Avenue,REDCLIFFE",
+    "hospitalPhone": "(07) 3883 7777",
+    "stateTestAppointmentNumber": "",
+    "name": "Redcliffe Hospital",
+    "coor": ["-27.227926", "153.104888"],
+    "hospitalType": "Fever Clinics",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "2 Campus Cres, Robina, QLD, 4226",
+    "hospitalPhone": "1300 744 284",
+    "stateTestAppointmentNumber": "",
+    "name": "Robina Health Precinct Building",
+    "coor": ["-28.074430", "153.378251"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "Cnr Butterfield St and Bowen Bridge Rd,HERSTON",
+    "hospitalPhone": "(07) 3646 8111",
+    "stateTestAppointmentNumber": "",
+    "name": "Royal Brisbane and Women's Hospital",
+    "coor": ["-27.446929", "153.028480"],
+    "hospitalType": "Fever Clinics",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "627 Rode Road, CHERMSIDE",
+    "hospitalPhone": "(07) 3139 4000",
+    "stateTestAppointmentNumber": "",
+    "name": "The Prince Charles Hospital",
+    "coor": ["-27.390355", "153.023278"],
+    "hospitalType": "Fever Clinics",
     "type": "1"
   },
   {
@@ -686,36 +526,6 @@
     "stateTestAppointmentNumber": "",
     "name": "Flinders Medical Centre",
     "coor": ["-35.021153", "138.569006"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "South Australia",
-    "address": "Haydown Rd, Elizabeth Vale SA 5112",
-    "hospitalPhone": "(08) 8182 9000",
-    "stateTestAppointmentNumber": "",
-    "name": "Lyell McEwin Hospital",
-    "coor": ["-34.747302", "138.664674"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "South Australia",
-    "address": "72 King William Rd, North Adelaide SA 5006",
-    "hospitalPhone": "(08) 8161 7000",
-    "stateTestAppointmentNumber": "",
-    "name": "Women�s and Children�s Hospital",
-    "coor": ["-34.911275", "138.600121"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "South Australia",
-    "address": "87 Wellington Rd, Mount Barker SA 5251",
-    "hospitalPhone": "(08) 8393 1777",
-    "stateTestAppointmentNumber": "",
-    "name": "Mount Barker Hospital",
-    "coor": ["-35.082021", "138.869987"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -741,22 +551,22 @@
   },
   {
     "state": "South Australia",
-    "address": "56 Bay Rd, Victor Harbor SA 5211",
-    "hospitalPhone": "(08) 8552 0500",
+    "address": "Haydown Rd, Elizabeth Vale SA 5112",
+    "hospitalPhone": "(08) 8182 9000",
     "stateTestAppointmentNumber": "",
-    "name": "South Coast District Hospital",
-    "coor": ["-35.561180", "138.607521"],
+    "name": "Lyell McEwin Hospital",
+    "coor": ["-34.747302", "138.664674"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
     "state": "South Australia",
-    "address": "216 Daws Rd, Daw Park SA 5041",
-    "hospitalPhone": "(08) 7117 2500",
+    "address": "87 Wellington Rd, Mount Barker SA 5251",
+    "hospitalPhone": "(08) 8393 1777",
     "stateTestAppointmentNumber": "",
-    "name": "Repat Health Precinct",
-    "coor": ["-34.990887", "138.58844"],
-    "hospitalType": "Drive-through Testing",
+    "name": "Mount Barker Hospital",
+    "coor": ["-35.082021", "138.869987"],
+    "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
@@ -771,7 +581,37 @@
   },
   {
     "state": "South Australia",
-    "address": "20 Wood Terrace Whyalla South Australia (opens in a new window)�",
+    "address": "216 Daws Rd, Daw Park SA 5041",
+    "hospitalPhone": "(08) 7117 2500",
+    "stateTestAppointmentNumber": "",
+    "name": "Repat Health Precinct",
+    "coor": ["-34.990887", "138.58844"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "Port Rd, Adelaide SA 5000",
+    "hospitalPhone": "(08) 7074 0000",
+    "stateTestAppointmentNumber": "",
+    "name": "Royal Adelaide Hospital",
+    "coor": ["-34.920682", "138.587182"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "56 Bay Rd, Victor Harbor SA 5211",
+    "hospitalPhone": "(08) 8552 0500",
+    "stateTestAppointmentNumber": "",
+    "name": "South Coast District Hospital",
+    "coor": ["-35.561180", "138.607521"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "20 Wood Terrace Whyalla South Australia",
     "hospitalPhone": "(08) 8648 8300",
     "stateTestAppointmentNumber": "",
     "name": "Whyalla Hospital",
@@ -780,22 +620,262 @@
     "type": "1"
   },
   {
-    "state": "Western Australia",
-    "address": "Ground Floor, Ainslie House, 48 Murray Street, Perth",
-    "hospitalPhone": "(08) 9224 2244",
+    "state": "South Australia",
+    "address": "72 King William Rd, North Adelaide SA 5006",
+    "hospitalPhone": "(08) 8161 7000",
     "stateTestAppointmentNumber": "",
-    "name": "Royal Perth Hospital",
-    "coor": ["-31.953528", "115.866427"],
+    "name": "Women's and Children's Hospital",
+    "coor": ["-34.911275", "138.600121"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "53-81 Vermont St, Wodonga VIC 3690, Australia",
+    "hospitalPhone": "(02) 6051 7111",
+    "stateTestAppointmentNumber": "",
+    "name": "Albury Wodonga Health - Woodonga",
+    "coor": ["-36.131814", "146.879837"],
     "hospitalType": "",
     "type": "1"
   },
   {
-    "state": "Western Australia",
-    "address": "C-block location within Sir Charles Hospital, Hospital Ave, Nedlands WA 6009,",
-    "hospitalPhone": "(08) 6457 3333",
+    "state": "Victoria",
+    "address": "145 Studley Rd, Heidelberg VIC 3084, Australia",
+    "hospitalPhone": "(03) 3 9496 5000",
     "stateTestAppointmentNumber": "",
-    "name": "Sir Charles Gairdner Hospital",
-    "coor": ["-31.966544", "115.816344"],
+    "name": "Austin Hospital",
+    "coor": ["-37.756370", "145.059588"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "1 Drummond St N, Ballarat Central VIC 3350, Australia",
+    "hospitalPhone": "(03) 5320 4000",
+    "stateTestAppointmentNumber": "",
+    "name": "Ballarat Base Hospital.",
+    "coor": ["-37.558656", "143.847227"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "Bellerine St, Geelong VIC 3220, Australia",
+    "hospitalPhone": "(03) 4215 0000",
+    "stateTestAppointmentNumber": "",
+    "name": "Barwon Health - Geelong",
+    "coor": ["-38.152096", "144.365334"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "235 Graham St, Wonthaggi VIC 3995",
+    "hospitalPhone": "(03) 5671 3333",
+    "stateTestAppointmentNumber": "",
+    "name": "Bass Coast Health - Wonthaggi",
+    "coor": ["-38.607232", "145.581751"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "Lucan St, North Bendigo VIC 3550",
+    "hospitalPhone": "(03) 5454 6000",
+    "stateTestAppointmentNumber": "",
+    "name": "Bendigo hospital",
+    "coor": ["-36.747277", "144.286437"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "8 Arnold St, Box Hill VIC 3128, Australia",
+    "hospitalPhone": "1300 342 255",
+    "stateTestAppointmentNumber": "",
+    "name": "Box Hill Hospital",
+    "coor": ["-37.813904", "145.118432"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "62-70 Kangan Dr, Berwick VIC 3806",
+    "hospitalPhone": "(03) 8768 1200",
+    "stateTestAppointmentNumber": "",
+    "name": "Casey Hospital",
+    "coor": ["-38.044782", "145.346030"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "135 David St, Dandenong VIC 3175",
+    "hospitalPhone": "(03) 9554 1000",
+    "stateTestAppointmentNumber": "",
+    "name": "Dandenong Hospital",
+    "coor": ["-37.976149", "145.218521"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "29-35 Grant St, Bacchus Marsh VIC 3340",
+    "hospitalPhone": "(03) 5367 2000",
+    "stateTestAppointmentNumber": "",
+    "name": "Djerriwarrh Health Services - Bacchus Marsh",
+    "coor": ["-37.677797", "144.434556"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "195-209 Barries Road, Melton West, 3337",
+    "hospitalPhone": "(03)9747 7600",
+    "stateTestAppointmentNumber": "",
+    "name": "Djerriwarrh Health Services - Melton",
+    "coor": ["-37.686669", "144.557733"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "226 Service St, Echuca VIC 3564",
+    "hospitalPhone": "(03) 5485 5000",
+    "stateTestAppointmentNumber": "",
+    "name": "Echuca Regional Health",
+    "coor": ["-36.138926", "144.748210"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "2/2-48 Graham St, Shepparton VIC 3630",
+    "hospitalPhone": "(03) 5832 2322",
+    "stateTestAppointmentNumber": "",
+    "name": "Goulburn Valley Health - Shepparton",
+    "coor": ["-36.363494", "145.404569"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "246 Clayton Rd, Clayton VIC 3168, Australia",
+    "hospitalPhone": "(03) 9594 6666",
+    "stateTestAppointmentNumber": "",
+    "name": "Monash Clayton",
+    "coor": ["-37.920496", "145.123560"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "35-47 Green St, Wangaratta VIC 3677",
+    "hospitalPhone": "(03) 5722 5111",
+    "stateTestAppointmentNumber": "",
+    "name": "Northeast Health Wangaratta",
+    "coor": ["-36.353858", "146.313728"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "185 Cooper St, Epping VIC 3076, Australia",
+    "hospitalPhone": "(03) 8405 8000",
+    "stateTestAppointmentNumber": "",
+    "name": "Northern Hospital",
+    "coor": ["-37.652508", "145.014533"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "2 Hastings Rd, Frankston VIC 3199, Australia",
+    "hospitalPhone": "(03) 9342 7000",
+    "stateTestAppointmentNumber": "",
+    "name": "Peninsula Health - Frankston",
+    "coor": ["-38.150661", "145.128516"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "50 Church St, Cowes VIC 3922",
+    "hospitalPhone": "(03) 5951 2100",
+    "stateTestAppointmentNumber": "",
+    "name": "Phillip Island Health Hub",
+    "coor": ["-38.451931", "145.241353"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "25 Ryot St, Warrnambool VIC 3280",
+    "hospitalPhone": "(03) 5563 1666",
+    "stateTestAppointmentNumber": "",
+    "name": "South West Healthcare - Warrnambool",
+    "coor": ["-38.379885", "142.473466"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "41 Victoria Parade, Fitzroy VIC 3065, Australia",
+    "hospitalPhone": "(03) 9231 2211",
+    "stateTestAppointmentNumber": "",
+    "name": "St Vincent's Hospital Melbourne",
+    "coor": ["-37.807291", "144.975061"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "176 Furlong Rd, St Albans VIC 3021, Australia",
+    "hospitalPhone": "(03) 8345 1333",
+    "stateTestAppointmentNumber": "",
+    "name": "Sunshine Hospital",
+    "coor": ["-37.759241", "144.816534"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "48 Splatt St, Swan Hill VIC 3585",
+    "hospitalPhone": "(03) 5033 9300",
+    "stateTestAppointmentNumber": "",
+    "name": "Swan Hill District Health",
+    "coor": ["-35.339660", "143.556741"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "55 Commercial Rd, Melbourne VIC 3004, Australia",
+    "hospitalPhone": "(03) 9076 2000",
+    "stateTestAppointmentNumber": "",
+    "name": "The Alfred Hospital",
+    "coor": ["-37.845510", "144.981856"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "50 Flemington Rd, Parkville VIC 3052",
+    "hospitalPhone": "(03) 9345 5522",
+    "stateTestAppointmentNumber": "",
+    "name": "The Royal Children's Hospital",
+    "coor": ["-37.793885", "144.948899"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "300 Grattan St, Parkville VIC 3050, Australia",
+    "hospitalPhone": "(03) 9342 7000",
+    "stateTestAppointmentNumber": "",
+    "name": "The Royal Melbourne Hospital",
+    "coor": ["-37.798750", "144.956196"],
     "hospitalType": "",
     "type": "1"
   },
@@ -810,133 +890,23 @@
     "type": "1"
   },
   {
-    "state": "Queensland",
-    "address": "1 Hospital Blvd, Southport QLD 4215",
-    "hospitalPhone": "1300 744 284",
+    "state": "Western Australia",
+    "address": "Ground Floor, Ainslie House, 48 Murray Street, Perth",
+    "hospitalPhone": "(08) 9224 2244",
     "stateTestAppointmentNumber": "",
-    "name": "Gold Coast University Hospital",
-    "coor": ["-27.959418", "153.381786"],
+    "name": "Royal Perth Hospital",
+    "coor": ["-31.953528", "115.866427"],
     "hospitalType": "",
     "type": "1"
   },
   {
-    "state": "Queensland",
-    "address": "2 Campus Cres, Robina, QLD, 4226",
-    "hospitalPhone": "1300 744 284",
+    "state": "Western Australia",
+    "address": "C-block location within Sir Charles Hospital, Hospital Ave, Nedlands WA 6009",
+    "hospitalPhone": "(08) 6457 3333",
     "stateTestAppointmentNumber": "",
-    "name": "Robina Health Precinct Building",
-    "coor": ["-28.074430", "153.378251"],
+    "name": "Sir Charles Gairdner Hospital",
+    "coor": ["-31.966544", "115.816344"],
     "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "ACT",
-    "address": "24 Parkinson St, Weston ACT 2611",
-    "hospitalPhone": "(02) 5124 9977",
-    "stateTestAppointmentNumber": "",
-    "name": "Weston Creek Walk-in Centre",
-    "coor": ["-35.341812", "149.054738"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "_Edith & Platt St, Waratah, NSW 2298",
-    "hospitalPhone": "(02) 4921 1211",
-    "stateTestAppointmentNumber": "",
-    "name": "_Calvary Mater Newcastle",
-    "coor": ["-32.898396", "151.721091"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "_560 High St, Maitland, NSW 2320_",
-    "hospitalPhone": "(02) 4939 2000",
-    "stateTestAppointmentNumber": "",
-    "name": "_Maitland Hospital",
-    "coor": ["-32.725551", "151.545389"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "69 Brookong Avenue, Wagga Wagga 2650",
-    "hospitalPhone": "(02) 5943 1000",
-    "stateTestAppointmentNumber": "",
-    "name": "Wagga Wagga Clinic",
-    "coor": ["-35.119989", "147.357079"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "Queensland",
-    "address": "Cnr Butterfield St and Bowen Bridge Rd,HERSTON",
-    "hospitalPhone": "(07) 3646 8111",
-    "stateTestAppointmentNumber": "",
-    "name": "Royal Brisbane and Women�s Hospital",
-    "coor": ["-27.446929", "153.028480"],
-    "hospitalType": "Fever Clinics",
-    "type": "1"
-  },
-  {
-    "state": "Queensland",
-    "address": "627 Rode Road, CHERMSIDE",
-    "hospitalPhone": "(07) 3139 4000",
-    "stateTestAppointmentNumber": "",
-    "name": "The Prince Charles Hospital",
-    "coor": ["-27.390355", "153.023278"],
-    "hospitalType": "Fever Clinics",
-    "type": "1"
-  },
-  {
-    "state": "Queensland",
-    "address": "Anzac Avenue,REDCLIFFE",
-    "hospitalPhone": "(07) 3883 7777",
-    "stateTestAppointmentNumber": "",
-    "name": "Redcliffe Hospital",
-    "coor": ["-27.227926", "153.104888"],
-    "hospitalType": "Fever Clinics",
-    "type": "1"
-  },
-  {
-    "state": "Queensland",
-    "address": "120 McKean St,CABOOLTURE",
-    "hospitalPhone": "(07) 5433 8888",
-    "stateTestAppointmentNumber": "",
-    "name": "Caboolture Hospital",
-    "coor": ["-27.080159", "152.963667"],
-    "hospitalType": "Fever Clinics",
-    "type": "1"
-  },
-  {
-    "state": "Queensland",
-    "address": "Kropp Street,KILCOY",
-    "hospitalPhone": "(07) 5422 4411",
-    "stateTestAppointmentNumber": "",
-    "name": "Kilcoy Hospital",
-    "coor": ["-26.940960", "152.561546"],
-    "hospitalType": "Fever Clinics",
-    "type": "1"
-  },
-  {
-    "state": "Queensland",
-    "address": "568 Gympie Road,STRATHPINE",
-    "hospitalPhone": "(07) 3817 6333",
-    "stateTestAppointmentNumber": "",
-    "name": "Pine Rivers Community Centre",
-    "coor": ["-27.298700", "152.986527"],
-    "hospitalType": "Community Assessment Clinics",
-    "type": "1"
-  },
-  {
-    "state": "Queensland",
-    "address": "449 Hornibrook Highway,BRIGHTON",
-    "hospitalPhone": "(07) 3631 7400",
-    "stateTestAppointmentNumber": "",
-    "name": "Brighton Health Campus",
-    "coor": ["-27.290013", "153.063944"],
-    "hospitalType": "Community Assessment Clinics",
     "type": "1"
   }
 ]
