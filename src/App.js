@@ -620,15 +620,7 @@ function Stat({
 function Fallback(props) {
   return (
     <div className="fallback">
-      <div class="ui labeled button" tabindex="0">
-        <div
-          class="ui basic blue button"
-          onClick={() => props.setModalVisibility(true)}
-        >
-          <i class="share alternate square icon" />
-          Share this link
-        </div>
-      </div>
+
       <div>Template credits to: shfshanyue</div>
 
       <div>
