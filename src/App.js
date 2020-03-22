@@ -520,7 +520,7 @@ function Area({ area, onChange, data }) {
       testedCases[
       Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
-
+    console.log(data)
     return data.map(x => (
       < div className="province" key={x.name || x.cityName} >
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
@@ -541,7 +541,7 @@ function Area({ area, onChange, data }) {
         <div className="cured">
           <strong>{x[3]}</strong>
         </div>
-        <div className="tested">{latest[x[0]]}</div>
+        <div className="tested">{[x[4]]}</div>
       </div >
     ));
   };
