@@ -27,6 +27,8 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 import Grid from "@material-ui/core/Grid";
 import NewsTimeline from "./NewsTimeline";
 
+import stateCaseData from "./data/stateCaseData";
+
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
 ReactGA.initialize("UA-160673543-1");
@@ -470,7 +472,8 @@ function Stat({
           Recovered
         </Tag>
       </div>
-      <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: 12:05 22/03/2020</span>
+      <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: {stateCaseData.updatedTime}</span>
+
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -544,7 +547,7 @@ function Area({ area, onChange, data }) {
         <div className="cured">
           <strong>{x[3]}</strong>
         </div>
-        <div className="tested">{latest[x[0]]}</div>
+        <div className="tested">{x[4]}</div>
       </div>
     ));
   };
@@ -831,61 +834,13 @@ function App() {
 
   const [myData, setMyData] = useState(null);
   useEffect(() => {
-    Papa.parse(
-      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
-      {
-        download: true,
 
-        complete: function (results) {
-          results.data.splice(0, 1);
-          let sortedData = results.data.sort((a, b) => {
-            return b[1] - a[1];
-          });
+    let sortedData = stateCaseData.values.sort((a, b) => {
+      return b[1] - a[1];
+    });
 
-          //For manually updating numbers if The Australian has not updated
-          for (let i = 0; i < sortedData.length; i++) {
-            if (sortedData[i][0] === "ACT" && parseInt(sortedData[i][1]) < 9) {
-              sortedData[i][1] = '9'
-            }
+    setMyData(sortedData)
 
-            if (sortedData[i][0] === "SA" && parseInt(sortedData[i][1]) < 67) {
-              sortedData[i][1] = '67'
-            }
-            if (sortedData[i][0] === "WA" && parseInt(sortedData[i][1]) < 64) {
-              sortedData[i][1] = '90'
-            }
-            if (sortedData[i][0] === "NSW" && parseInt(sortedData[i][1]) < 436) {
-              sortedData[i][1] = '436'
-            }
-            if (sortedData[i][0] === "NSW") {
-              sortedData[i][2] = '6'
-            }
-            if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
-              sortedData[i][1] = '221'
-            }
-            if (sortedData[i][0] === "VIC" && parseInt(sortedData[i][1]) < 278) {
-              sortedData[i][1] = '278'
-            }
-            if (sortedData[i][0] === "VIC") {
-              sortedData[i][3] = '51'
-            }
-            if (sortedData[i][0] === "TAS" && parseInt(sortedData[i][1]) < 16) {
-              sortedData[i][1] = '16'
-            }
-            if (sortedData[i][0] === "NT" && parseInt(sortedData[i][1]) < 5) {
-              sortedData[i][1] = '5'
-            }
-            if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
-              sortedData[i][1] = '221'
-            }
-
-          }
-
-
-          setMyData(sortedData);
-        }
-      }
-    );
   }, [province]);
   useEffect(() => {
     if (province) {
