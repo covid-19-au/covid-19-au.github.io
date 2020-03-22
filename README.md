@@ -84,7 +84,7 @@ If you are interested in one or more of these features, welcome to the PR and ou
 Once your PR is merged to our project, we will explicitely list you in the contributor list of this project.
 Looking forward to your great works.
 
-###Please make sure that if you do submit a pull request, that it is to the 'dev' branch.
+# Please make sure that if you do submit a pull request, that it is to the 'dev' branch.
 
 
 ## Term of use
