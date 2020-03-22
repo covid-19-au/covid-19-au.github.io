@@ -146,8 +146,15 @@ function HistoryGraph({ countryData }) {
         fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
+      axisX: {
+        labelFontFamily: "sans-serif"
+      },
+      axisY: {
+        labelFontFamily: "sans-serif"
+      },
       legend: {
-        verticalAlign: "top"
+        verticalAlign: "top",
+        fontFamily: "sans-serif"
       },
       toolTip: {
         shared: true
@@ -165,8 +172,15 @@ function HistoryGraph({ countryData }) {
         fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
+      axisX: {
+        labelFontFamily: "sans-serif"
+      },
+      axisY: {
+        labelFontFamily: "sans-serif"
+      },
       legend: {
-        verticalAlign: "top"
+        verticalAlign: "top",
+        fontFamily: "sans-serif"
       },
       toolTip: {
         shared: true
