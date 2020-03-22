@@ -115,6 +115,13 @@ header i {
   background-color: #fadbd8;
   font-size: 80%;
 }
+
+.confirmedtitle {
+  color: #5d1212 !important ;
+  font-size: 100% !important;
+  font-weight: 500;
+}
+
 .cured {
   color: #00b321;
 }
@@ -122,6 +129,12 @@ header i {
 .cured.header {
   background-color: #d5f5e3;
   font-size: 80%;
+}
+
+.recoveredtitle {
+  color: #002a00 !important ;
+  font-size: 100% !important;
+  font-weight: 500;
 }
 
 .tested {
@@ -133,6 +146,12 @@ header i {
   font-size: 80%;
 }
 
+.testedtitle {
+  color: #332533 !important ;
+  font-size: 100% !important;
+  font-weight: 500;
+}
+
 .death {
   color: #a93226;
 }
@@ -140,6 +159,17 @@ header i {
 .death.header {
   background-color: #e6b0aa;
   font-size: 80%;
+}
+
+.deathtitle {
+  color: #332533 !important ;
+  font-size: 100% !important;
+  font-weight: 500;
+}
+
+.statetitle {
+  font-size: 100% !important;
+  font-weight: 500;
 }
 
 .fallback {
@@ -332,9 +362,15 @@ h2 small {
 
 .flightSearch {
   width: 98%;
+  border-width: 2.5px;
+  border-color: rgb(186, 217, 229);
+  margin-bottom: 15px;
+}
+
 }
 
 .toggledButton {
   color: white;
   background-color: #00b321;
 }
+

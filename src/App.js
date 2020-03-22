@@ -689,11 +689,11 @@ function Area({ area, onChange, data }) {
   return (
     <>
       <div className="province header">
-        <div className="area header">State</div>
-        <div className="confirmed header">Confirmed</div>
-        <div className="death header">Deaths</div>
-        <div className="cured header">Recovered</div>
-        <div className="tested header">Tested*</div>
+        <div className="area header statetitle">State</div>
+        <div className="confirmed header confirmedtitle">Confirmed</div>
+        <div className="death header deathtitle">Deaths</div>
+        <div className="cured header recoveredtitle">Recovered</div>
+        <div className="tested header testedtitle">Tested*</div>
       </div>
       {renderArea()}
 
