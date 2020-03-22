@@ -332,4 +332,7 @@ h2 small {
 
 .flightSearch {
   width: 98%;
+  border-width: 2.5px;
+  border-color: rgb(186, 217, 229);
+  margin-bottom: 10px;
 }
