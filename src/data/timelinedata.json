@@ -1,75 +1,135 @@
 {
+    "updateTime": [
+        {
+            "time": "11:33 22/03/2020"
+        }
+    ],
     "news": [
+        {
+            "url": "https://www.abc.net.au/news/2020-03-22/coronavirus-australia-stimulus-live-updates-covid-19-latest-news/12078506",
+            "title": "Federal Government reveals second stimulus package, tells Australians to cancel domestic travel",
+            "source": "ABC News",
+            "date": "22 March 2020",
+            "time": "11:18am"
+        },
+        {
+            "url": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-cases-surge-by-49-in-victoria-bringing-the-statewide-total-to-278-c-756635",
+            "title": "Coronavirus cases surge by 49 in Victoria - bringing the statewide total to 278",
+            "source": "7 News",
+            "date": "22 March 2020",
+            "time": "11:03am"
+        },
         {
             "url": "https://www.abc.net.au/news/2020-03-22/covid-19-how-deadly-and-contagious-is-coronavirus/12068106",
             "title": "Coronavirus: How deadly and contagious is this COVID-19 pandemic?",
             "source": "ABC News",
             "date": "22 March 2020",
-            "time": "08:00 AM"
+            "time": "08:00am"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-22/covid-19-how-deadly-and-contagious-is-coronavirus/12068106",
+            "title": "Coronavirus: How deadly and contagious is this COVID-19 pandemic?",
+            "source": "ABC News",
+            "date": "22 March 2020",
+            "time": "08:00am"
         },
         {
             "url": "https://www.smh.com.au/politics/federal/covid-19-25-2-billion-cash-injection-to-save-jobs-20200321-p54cjo.html",
             "title": "COVID-19: $25.2 billion cash injection to save jobs",
             "source": "The Sydney Morning Herald",
             "date": "22 March 2020",
-            "time": "12:05 AM"
+            "time": "12:05am"
         },
         {
             "url": "https://www.theguardian.com/world/2020/mar/21/coronavirus-what-happens-to-lungs-covid-19",
             "title": "Coronavirus: what happens to people's lungs when they get Covid-19?",
             "source": "The Guardian",
             "date": "21 March 2020",
-            "time": "11:09 PM"
+            "time": "11:09pm"
         },
         {
             "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-infects-16th-person-in-tasmania/12077668",
             "title": "Coronavirus cases reach 16 in Tasmania as five people test positive in one day",
             "source": "ABC News",
             "date": "21 March 2020",
-            "time": "07:40 PM"
+            "time": "07:40pm"
         },
         {
             "url": "https://www.9news.com.au/national/coronavirus-us-tour-group-members-test-positive-for-covid19-in-barossa-south-australia/3aab42d4-5959-45fd-8eee-aa69e4c0143e",
             "title": "Ten US travellers test positive for coronavirus, isolated in South Australia's Barossa Valley",
             "source": "9 News",
             "date": "21 March 2020",
-            "time": "05:45 PM"
+            "time": "05:45pm"
         },
         {
             "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-bondi-beach-to-be-closed-after-beachgoers-ignored-social-distancing-orders/news-story/308b17193e93e7a52f07f22037948c0b",
             "title": "Coronavirus: Bondi Beach, Tamarama and Bronte to be closed after beachgoers ignored social distancing orders",
             "source": "ABC News",
             "date": "21 March 2020",
-            "time": "05:08 PM"
+            "time": "05:08pm"
         },
         {
             "url": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-five-cruises-from-sydney-infected-with-covid19/news-story/5c0e5a4e6f68112f160f628ee5437768",
             "title": "Coronavirus Australia: Five cruises from Sydney infected with COVID-19",
             "source": "ABC News",
             "date": "21 March 2020",
-            "time": "03:56 PM"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-21/northern-territory-two-more-cases-of-coronavirus/12074356",
-            "title": "Two new cases of coronavirus in the Northern Territory after cruise ship couple test positive",
-            "source": "ABC News",
-            "date": "21 March 2020",
-            "time": "03:21 PM"
+            "time": "03:56pm"
         },
         {
             "url": "https://www.9news.com.au/national/coronavirus-cases-pass-1000-in-australia-covid19/30b9168d-77fc-4837-b82c-880cdc890a67",
             "title": "More than 1,000 cases of coronavirus reported in Australia",
             "source": "9News",
             "date": "21 March 2020",
-            "time": "03:05 PM"
+            "time": "03:05pm"
         },
         {
             "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-covid-19-infections-spike-by-26-in-wa/12077652",
             "title": "Coronavirus spreads in WA with 26 new COVID-19 cases, as most elective surgery suspended",
             "source": "ABC News",
             "date": "21 March 2020",
-            "time": "03:05 PM"
+            "time": "03:05pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-21/northern-territory-two-more-cases-of-coronavirus/12074356",
+            "title": "Two new cases of coronavirus in the Northern Territory after cruise ship couple test positive",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "03:21pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-21/number-of-coronavirus-infections-soars-past-400-in-nsw/12076622",
+            "title": "Coronavirus cases in NSW spike after largest 24-hour increase takes number of infections past 400",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "01:41pm"
+        },
+        {
+            "url": "https://www.couriermail.com.au/news/queensland/local-government-candidates-banned-from-canvassing-outside-booths-as-part-of-social-distancing/news-story/6b9d9a8183e51a9b02dde444d40e02da",
+            "title": "QUEENSLAND has recorded another 37 new cases of coronavirus in the past 24 hours, taking the total number cases in the state to 221",
+            "source": "The Courier-Mail",
+            "date": "21 March 2020",
+            "time": "12:18pm"
+        },
+        {
+            "url": "https://www.abc.net.au/news/2020-03-21/coronavirus-infects-11th-person-in-tasmania/12077668",
+            "title": "New coronavirus case in Tasmania after woman tests positive after UK trip",
+            "source": "ABC News",
+            "date": "21 March 2020",
+            "time": "11:54am"
+        },
+        {
+            "url": "https://citynews.com.au/2020/three-more-travellers-act-virus-count-rises-to-nine/",
+            "title": "Three more travellers: ACT virus count rises to nine",
+            "source": "City News",
+            "date": "21 March 2020",
+            "time": "11:45am"
+        },
+        {
+            "url": "https://www.theage.com.au/national/victoria/coronavirus-victoria-updates-live-italy-toll-climbs-victoria-police-spot-checking-isolation-20200320-p54cfn.html",
+            "title": "51 new cases in Victoria",
+            "source": "The Age",
+            "date": "21 March 2020",
+            "time": "10:45am"
         }
-    ],
-    "updatedTime": "11:10am 22/03/2020"
+    ]
 }
