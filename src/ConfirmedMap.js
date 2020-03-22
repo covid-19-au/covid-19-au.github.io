@@ -23,14 +23,15 @@ class MbMap extends React.Component {
 
     // Check if a date was more than two weeks ago
     isOld(date) {
-        // Assume the 'Day DD/MM/YYYY' format
-        const dateComponents = date.split(" ");
-        const eventDay = dateComponents[1].split("/");
-        // Assume entries with incorrect formats are old
-        if (dateComponents.length !== 2 && eventDay.length !== 3) { return true; }
-
         // Working with raw data, so try-catch just in case
         try {
+            // 'Day DD/MM/YYYY' format
+            const dateComponents = date.split(" ");
+            // Assume entries with incorrect formats are old
+            if (dateComponents.length !== 2) { return true; }
+            const eventDay = dateComponents[1].split("/");
+            if (eventDay.length !== 3) { return true; }
+
             // Default constructor has current time
             let today = new Date();
             
