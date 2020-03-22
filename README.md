@@ -42,6 +42,7 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 * Paldeep Singh: psin49@student.monash.edu 
 * Boxuan Lu: bluu0010@student.monash.edu
 * Andrew Zhang: andrew.zhang9799@gmail.com
+* Saharsh Bhatia: sbha0021@student.monash.edu
 
 ### PM
 * Chunyang Chen: Chunyang.Chen@monash.edu
