@@ -7,8 +7,8 @@ on:
   push:
     branches:
       - prod
-#  schedule:
-#  - cron:  '* 1 * * *'
+  schedule:
+    - cron:  '0 19-23,0-13 * * *'
 
 jobs:
   build-and-deploy:
@@ -26,8 +26,10 @@ jobs:
         node-version: 10.x
     - name: npm install
       run: npm ci
-#    - name: build data
-#      run: node scripts/build-origin.js
+    - name: build data
+      env:
+        REACT_APP_DRIVE_KEY: ${{secrets.DRIVE_TOKEN}}
+      run: node scripts/google-drive-download.js
     - name: npm run build
       env:
         REACT_APP_MAP_API: ${{ secrets.MAPBOX_TOKEN }}
