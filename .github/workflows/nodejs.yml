@@ -8,13 +8,13 @@ on:
     branches:
       - prod
   schedule:
-    - cron:  '0 19-23,0-13 * * *'
+    - cron:  '0 19-23,0-14 * * *'
 
 jobs:
   build-and-deploy:
 
     runs-on: ubuntu-latest
-
+g
     steps:
     - uses: actions/checkout@v1
       with:
