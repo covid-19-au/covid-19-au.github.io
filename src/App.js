@@ -623,7 +623,7 @@ function Fallback(props) {
     <div className="fallback">
       <button onClick={ ()=> props.setModalVisibility(true) }>
         <i className="share alternate square icon"/>
-          Share this link
+          Share this site
       </button>
 
       <div>Template credits to: shfshanyue</div>
