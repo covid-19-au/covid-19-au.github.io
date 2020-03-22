@@ -26,6 +26,9 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
 import NewsTimeline from "./NewsTimeline";
+import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal'
+
+import stateCaseData from "./data/stateCaseData";
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -93,7 +96,7 @@ function HistoryGraph({ countryData }) {
     let newData = [
       {
         type: "stackedColumn",
-        name: "New Case",
+        name: "New Cases",
         showInLegend: true,
         dataPoints: []
       },
@@ -142,11 +145,19 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Trends for COVID-19 Cases in Australia ",
+        text: "Overall trends for COVID-19 cases in Australia ",
+        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
+      axisX: {
+        labelFontFamily: "sans-serif"
+      },
+      axisY: {
+        labelFontFamily: "sans-serif"
+      },
       legend: {
-        verticalAlign: "top"
+        verticalAlign: "top",
+        fontFamily: "sans-serif"
       },
       toolTip: {
         shared: true
@@ -160,11 +171,19 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Daily new cases and deaths in Australia (2-week period)",
+        text: "Daily new cases and deaths in Australia",
+        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
+      axisX: {
+        labelFontFamily: "sans-serif"
+      },
+      axisY: {
+        labelFontFamily: "sans-serif"
+      },
       legend: {
-        verticalAlign: "top"
+        verticalAlign: "top",
+        fontFamily: "sans-serif"
       },
       toolTip: {
         shared: true
@@ -277,8 +296,8 @@ function Tweets({ province, nav }) {
       <h2>Twitter Feed</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-            {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
-            {nav === "News" ? <TwitterTimelineEmbed
+          {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
+          {nav === "News" ? <TwitterTimelineEmbed
             sourceType="list"
             ownerScreenName="8ravoEchoNov"
             slug="COVID19-Australia"
@@ -288,7 +307,7 @@ function Tweets({ province, nav }) {
             noHeader={true}
             noFooter={true}
           /> : ""}
-          
+
         </div>
       </div>
     </div>
@@ -470,7 +489,8 @@ function Stat({
           Recovered
         </Tag>
       </div>
-        <span className="due" style={{fontSize:'60%'}}>Time in AEDT, last updated at: 16:20 21/03/2020</span>
+      <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: {stateCaseData.updatedTime}</span>
+
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -481,9 +501,15 @@ function Stat({
   );
 }
 
-function Fallback() {
+function Fallback(props) {
   return (
     <div className="fallback">
+      <div class="ui labeled button" tabindex="0">
+        <div class="ui basic blue button" onClick={ ()=> props.setModalVisibility(true) }>
+          <i class="share alternate square icon"/>
+          Share this link
+        </div>
+      </div>
       <div>Template credits to: shfshanyue</div>
 
       <div>
@@ -544,7 +570,7 @@ function Area({ area, onChange, data }) {
         <div className="cured">
           <strong>{x[3]}</strong>
         </div>
-        <div className="tested">{latest[x[0]]}</div>
+        <div className="tested">{x[4]}</div>
       </div>
     ));
   };
@@ -590,7 +616,7 @@ function Header({ province }) {
           fontSize: "120%"
         }}
       >
-        COVID-19 in Australia - Real-Time Report
+        COVID-19 in Australia — Real-Time Report
       </h1>
       {/*<i>By Students from Monash</i>*/}
     </header>
@@ -598,34 +624,34 @@ function Header({ province }) {
 }
 
 
-function Navbar({setNav, nav}) {
-    const [isSticky, setSticky] = useState(false);
-    const ref = useRef(null);
-    const handleScroll = () => {
-        setSticky(ref.current.getBoundingClientRect().top <= 0);
-    }
+function Navbar({ setNav, nav }) {
+  const [isSticky, setSticky] = useState(false);
+  const ref = useRef(null);
+  const handleScroll = () => {
+    setSticky(ref.current.getBoundingClientRect().top <= 0);
+  }
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', () => handleScroll);
-        };
-    }, []);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', () => handleScroll);
+    };
+  }, []);
 
     const onClick = e => {
         setNav(e.target.innerText);
         window.scrollTo(0, 0);
     }
 
-    return (
-        <div className= {`sticky-wrapper ${isSticky ? "sticky" : ""}`} ref={ref}>
-            <div className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}>
-                <span className={`navItems ${nav === "Home" && !isSticky ? "navCurrentPage " : ""} ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></span>
-                <span className={`navItems ${nav === "Info" && !isSticky ? "navCurrentPage " : ""} ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></span>
-                <span className={`navItems ${nav === "News" && !isSticky ? "navCurrentPage " : ""} ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></span>
-            </div>
-        </div>
-    )
+  return (
+    <div className={`sticky-wrapper ${isSticky ? "sticky" : ""}`} ref={ref}>
+      <div className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}>
+        <span className={`navItems ${nav === "Home" && !isSticky ? "navCurrentPage " : ""} ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></span>
+        <span className={`navItems ${nav === "Info" && !isSticky ? "navCurrentPage " : ""} ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></span>
+        <span className={`navItems ${nav === "News" && !isSticky ? "navCurrentPage " : ""} ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></span>
+      </div>
+    </div>
+  )
 }
 
 function Information({nav}) {
@@ -732,102 +758,103 @@ function Information({nav}) {
                     </ul>
                 </div>
             </div>
+            <small>All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a></small>
         </div>
     );
 }
 
-function HomePage({province, overall, myData, area, data, setProvince, gspace}) {
-    return (
-        <Grid container spacing={gspace} justify="center" wrap="wrap">
-            
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Stat
-              {...{ ...all, ...overall }}
-              name={province && province.name}
-              data={myData}
-              countryData={country}
-            />
-            <div className="card">
-              <h2>
-                Cases by State {province ? `· ${province.name}` : false}
-                {province ? (
-                  <small onClick={() => setProvince(null)}>Return</small>
-                ) : null}
-              </h2>
-              <Suspense fallback={<div className="loading">Loading...</div>}>
-                <GoogleMap
-                  province={province}
-                  data={data}
-                  onClick={name => {
-                    const p = provincesByName[name];
-                    if (p) {
-                      setProvince(p);
-                    }
-                  }}
-                  newData={myData}
-                />
-                {/*{*/}
-                {/*province ? false :*/}
-                {/*<div className="tip">*/}
-                {/*Click on the state to check state details.*/}
-                {/*</div>*/}
-                {/*}*/}
-              </Suspense>
-              <Area area={area} onChange={setProvince} data={myData} />
+function HomePage({ province, overall, myData, area, data, setProvince, gspace }) {
+  return (
+    <Grid container spacing={gspace} justify="center" wrap="wrap">
 
-              <div style={{ paddingBottom: "1rem" }}>
-                <a
-                  style={{
-                    fontSize: "60%",
-                    float: "right",
-                    color: "blue"
-                  }}
-                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-                >
-                  @Data Source
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <Stat
+          {...{ ...all, ...overall }}
+          name={province && province.name}
+          data={myData}
+          countryData={country}
+        />
+        <div className="card">
+          <h2>
+            Cases by State {province ? `· ${province.name}` : false}
+            {province ? (
+              <small onClick={() => setProvince(null)}>Return</small>
+            ) : null}
+          </h2>
+          <Suspense fallback={<div className="loading">Loading...</div>}>
+            <GoogleMap
+              province={province}
+              data={data}
+              onClick={name => {
+                const p = provincesByName[name];
+                if (p) {
+                  setProvince(p);
+                }
+              }}
+              newData={myData}
+            />
+            {/*{*/}
+            {/*province ? false :*/}
+            {/*<div className="tip">*/}
+            {/*Click on the state to check state details.*/}
+            {/*</div>*/}
+            {/*}*/}
+          </Suspense>
+          <Area area={area} onChange={setProvince} data={myData} />
+
+          <div style={{ paddingBottom: "1rem" }}>
+            <a
+              style={{
+                fontSize: "60%",
+                float: "right",
+                color: "blue"
+              }}
+              href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+            >
+              @Data Source
                 </a>
-                <span
-                  style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
-                  className="due"
-                >
-                  *Number of tested cases is updated daily.
+            <span
+              style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+              className="due"
+            >
+              *Number of tested cases is updated daily.
                 </span>
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <MbMap />
-            <HistoryGraph countryData={country} />
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Flights flights={flights} />
-          </Grid>
-          
-        </Grid>
-    )
+          </div>
+        </div>
+      </Grid>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <MbMap />
+        <HistoryGraph countryData={country} />
+      </Grid>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <Flights flights={flights} />
+      </Grid>
+
+    </Grid>
+  )
 }
 
 function InfoPage() {
-    return (
-        <Grid item xs={12} sm={12} md={10}>
-            <Information />
-        </Grid>
-    )
+  return (
+    <Grid item xs={12} sm={12} md={10}>
+      <Information />
+    </Grid>
+  )
 }
 
-function NewsPage({gspace, province, nav}) {
-    return (
-        <Grid container spacing={gspace} justify="center" wrap="wrap">
-            
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <Tweets province={province} nav={nav} />
-            </Grid>
+function NewsPage({ gspace, province, nav }) {
+  return (
+    <Grid container spacing={gspace} justify="center" wrap="wrap">
 
-            <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-                <NewsTimeline />
-            </Grid> 
-        </Grid>
-    )
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <Tweets province={province} nav={nav} />
+      </Grid>
+
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <NewsTimeline />
+      </Grid>
+    </Grid>
+  )
 }
 
 function App() {
@@ -861,58 +888,13 @@ function App() {
 
   const [myData, setMyData] = useState(null);
   useEffect(() => {
-    Papa.parse(
-      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
-      {
-        download: true,
 
-        complete: function (results) {
-          results.data.splice(0, 1);
-          let sortedData = results.data.sort((a, b) => {
-            return b[1] - a[1];
-          });
+    let sortedData = stateCaseData.values.sort((a, b) => {
+      return b[1] - a[1];
+    });
 
-          //For manually updating numbers if The Australian has not updated
-          for (let i = 0; i < sortedData.length; i++) {
-            if (sortedData[i][0] === "ACT" && parseInt(sortedData[i][1]) < 9) {
-              sortedData[i][1] = '9'
-            }
+    setMyData(sortedData)
 
-            if (sortedData[i][0] === "SA" && parseInt(sortedData[i][1]) < 50) {
-              sortedData[i][1] = '50'
-            }
-            if (sortedData[i][0] === "WA" && parseInt(sortedData[i][1]) < 64) {
-              sortedData[i][1] = '90'
-            }
-            if (sortedData[i][0] === "NSW" && parseInt(sortedData[i][1]) < 436) {
-              sortedData[i][1] = '436'
-            }
-              if (sortedData[i][0] === "NSW" ) {
-                  sortedData[i][2] = '6'
-              }
-              if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
-                  sortedData[i][1] = '221'
-              }
-            if (sortedData[i][0] === "VIC" && parseInt(sortedData[i][1]) < 229) {
-              sortedData[i][1] = '229'
-            }
-            if (sortedData[i][0] === "TAS" && parseInt(sortedData[i][1]) < 11) {
-              sortedData[i][1] = '11'
-            }
-            if (sortedData[i][0] === "NT" && parseInt(sortedData[i][1]) < 5) {
-              sortedData[i][1] = '5'
-            }
-            if (sortedData[i][0] === "QLD" && parseInt(sortedData[i][1]) < 221) {
-              sortedData[i][1] = '221'
-            }
-
-          }
-
-
-          setMyData(sortedData);
-        }
-      }
-    );
   }, [province]);
   useEffect(() => {
     if (province) {
@@ -939,41 +921,49 @@ function App() {
   const overall = province ? province : all;
 
   const [nav, setNav] = useState("Home");
+  const [ showSocialMediaIcons, setShowSocialMediaIcons ] = useState(false);
+
+  const setModalVisibility = (state) => {
+    setShowSocialMediaIcons(state)
+  }
 
   if (myData) {
     return (
       <div>
+        <SocialMediaShareModal
+          visible={showSocialMediaIcons}
+          onCancel={ () => setShowSocialMediaIcons(false)}
+        />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
-            <Header province={province}/>
+            <Header province={province} />
           </Grid>
           <Grid item xs={12} className="removePadding">
-              <Navbar setNav={setNav} nav={nav}/>
+            <Navbar setNav={setNav} nav={nav} />
           </Grid>
-          
+
           {/* Pages to hold each functionality. */}
           {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
-          {nav === "Info" ? <InfoPage nav={nav}/> : ""}
-          {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav}/> : ""}
-          
+          {nav === "Info" ? <InfoPage nav={nav} /> : ""}
+          {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
+
 
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
           {/*<News />*/}
           {/*</Grid>*/}
           {/*<Grid item xs={12}>*/}
-            {/*<ExposureSites />*/}
+          {/*<ExposureSites />*/}
 
           {/*</Grid>*/}
 
           <Grid item xs={12}>
-            <Fallback />
+            <Fallback setModalVisibility={setModalVisibility}/>
           </Grid>
         </Grid>
       </div>
     );
-  } else {
-    return null;
   }
+  return null;
 }
 
 export default App;
