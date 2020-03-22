@@ -15,7 +15,7 @@ jobs:
   build-and-deploy:
 
     runs-on: ubuntu-latest
-g
+
     steps:
     - uses: actions/checkout@v1
       with:
