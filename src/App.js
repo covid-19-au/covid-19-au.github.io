@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect, useLayoutEffect } from "react";
+import React, { useState, Suspense, useEffect, useLayoutEffect, Fragment, useRef } from "react";
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -9,12 +9,15 @@ import country from "./data/country";
 import testedCases from "./data/testedCases";
 import all from "./data/overall";
 import provinces from "./data/area";
+import information from "./data/info";
 import Tag from "./Tag";
 
 import MbMap from "./ConfirmedMap";
 import "./App.css";
 import axios from "axios";
 import Papa from "papaparse";
+import uuid from "react-uuid";
+import ReactPlayer from "react-player";
 
 import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
@@ -23,6 +26,9 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
 import NewsTimeline from "./NewsTimeline";
+import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal'
+
+import stateCaseData from "./data/stateCaseData";
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -90,7 +96,7 @@ function HistoryGraph({ countryData }) {
     let newData = [
       {
         type: "stackedColumn",
-        name: "New Case",
+        name: "New Cases",
         showInLegend: true,
         dataPoints: []
       },
@@ -139,11 +145,19 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Trends for COVID-19 Cases in Australia ",
+        text: "Overall trends for COVID-19 cases in Australia ",
+        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
+      axisX: {
+        labelFontFamily: "sans-serif"
+      },
+      axisY: {
+        labelFontFamily: "sans-serif"
+      },
       legend: {
-        verticalAlign: "top"
+        verticalAlign: "top",
+        fontFamily: "sans-serif"
       },
       toolTip: {
         shared: true
@@ -157,11 +171,19 @@ function HistoryGraph({ countryData }) {
       animationEnabled: true,
       height: 260,
       title: {
-        text: "Daily new cases and deaths in Australia (2-week period)",
+        text: "Daily new cases and deaths in Australia",
+        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
+      axisX: {
+        labelFontFamily: "sans-serif"
+      },
+      axisY: {
+        labelFontFamily: "sans-serif"
+      },
       legend: {
-        verticalAlign: "top"
+        verticalAlign: "top",
+        fontFamily: "sans-serif"
       },
       toolTip: {
         shared: true
@@ -179,29 +201,29 @@ function HistoryGraph({ countryData }) {
   return loading ? (
     <div className="loading">Loading...</div>
   ) : (
-    <div className="card">
-      <h2>Historical Data</h2>
-      <CanvasJSChart options={options} />
-      <CanvasJSChart options={newOpts} />
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="LineChart"*/}
-      {/*loader={<div>Loading Chart...</div>}*/}
-      {/*data={historyData}*/}
-      {/*options={options}*/}
-      {/*rootProps={{ 'data-testid': '3' }}*/}
-      {/*/>*/}
-      {/*<Chart*/}
-      {/*width={'100%'}*/}
-      {/*height={'400px'}*/}
-      {/*chartType="ColumnChart"*/}
-      {/*data={newData}*/}
-      {/*options={newOptions}*/}
+      <div className="card">
+        <h2>Historical Data</h2>
+        <CanvasJSChart options={options} />
+        <CanvasJSChart options={newOpts} />
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="LineChart"*/}
+        {/*loader={<div>Loading Chart...</div>}*/}
+        {/*data={historyData}*/}
+        {/*options={options}*/}
+        {/*rootProps={{ 'data-testid': '3' }}*/}
+        {/*/>*/}
+        {/*<Chart*/}
+        {/*width={'100%'}*/}
+        {/*height={'400px'}*/}
+        {/*chartType="ColumnChart"*/}
+        {/*data={newData}*/}
+        {/*options={newOptions}*/}
 
-      {/*/>*/}
-    </div>
-  );
+        {/*/>*/}
+      </div>
+    );
 }
 
 function New({ title, contentSnippet, link, pubDate, pubDateStr }) {
@@ -236,8 +258,8 @@ function News({ province }) {
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
     parser.parseURL(
       CORS_PROXY +
-        "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
-      function(err, feed) {
+      "https://news.google.com/rss/search?q=COVID%2019-Australia&hl=en-US&gl=AU&ceid=AU:en",
+      function (err, feed) {
         if (err) throw err;
         // console.log(feed.title);
         // feed.items.forEach(function(entry) {
@@ -268,22 +290,24 @@ function News({ province }) {
   );
 }
 
-function Tweets({ province }) {
+function Tweets({ province, nav }) {
   return (
     <div className="card">
       <h2>Twitter Feed</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-          <TwitterTimelineEmbed
+          {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
+          {nav === "News" ? <TwitterTimelineEmbed
             sourceType="list"
             ownerScreenName="8ravoEchoNov"
             slug="COVID19-Australia"
             options={{
               height: 450
             }}
-            noHeader="true"
-            noFooter="true"
-          />
+            noHeader={true}
+            noFooter={true}
+          /> : ""}
+
         </div>
       </div>
     </div>
@@ -402,7 +426,7 @@ function Flights({ flights }) {
   // only sort when the flight result list is not empty
   let uniqueFlight = []; // sort flight result without duplicate object
   if (flightResult.length !== 0) {
-    flightResult.sort(function(a, b) {
+    flightResult.sort(function (a, b) {
       let arr = a.dateArrival.split("-");
       let dateA = new Date(
         parseInt(arr[2]),
@@ -441,7 +465,7 @@ function Flights({ flights }) {
               placeholder="Search by flight number"
               onChange={e => setSearchKey(e.target.value)}
             ></input>
-            <button
+            {/* <button
               className={indexFlightNo ? "toggledButton" : ""}
               onClick={e => setIndexFlightNo(!indexFlightNo)}
             >
@@ -458,7 +482,7 @@ function Flights({ flights }) {
               onClick={e => setIndexDateArrival(!indexDateArrival)}
             >
               Search by Arrival Date
-            </button>
+            </button> */}
           </div>
           <div className="flightInfo header">
             <div className="area header">Flight No</div>
@@ -480,25 +504,10 @@ function Flights({ flights }) {
               </div>
             ))
           ) : (
-            <></>
-          )}
+              <></>
+            )}
         </div>
       </div>
-    </div>
-  );
-}
-
-/**
- * About card
- */
-function About() {
-  return (
-    <div className="card">
-      <h2>About</h2>
-      <h4>Contact Information</h4>
-      <p>Place Holder</p>
-      <h4>Data Source Information</h4>
-      <p>Place holder</p>
     </div>
   );
 }
@@ -535,7 +544,7 @@ function Stat({
     }
     let lastTotal =
       countryData[
-        Object.keys(countryData)[Object.keys(countryData).length - 1]
+      Object.keys(countryData)[Object.keys(countryData).length - 1]
       ];
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
@@ -551,7 +560,7 @@ function Stat({
     <div className="card">
       <h2>
         Status {name ? `· ${name}` : false}
-        <span className="due">Updated Hourly</span>
+
       </h2>
       <div className="row">
         <Tag
@@ -579,6 +588,8 @@ function Stat({
           Recovered
         </Tag>
       </div>
+      <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: {stateCaseData.updatedTime}</span>
+
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
       {/*</div>*/}
@@ -589,9 +600,15 @@ function Stat({
   );
 }
 
-function Fallback() {
+function Fallback(props) {
   return (
     <div className="fallback">
+      <div class="ui labeled button" tabindex="0">
+        <div class="ui basic blue button" onClick={ ()=> props.setModalVisibility(true) }>
+          <i class="share alternate square icon"/>
+          Share this link
+        </div>
+      </div>
       <div>Template credits to: shfshanyue</div>
 
       <div>
@@ -629,11 +646,11 @@ function Area({ area, onChange, data }) {
   const renderArea = () => {
     let latest =
       testedCases[
-        Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+      Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
 
     return data.map(x => (
-      <div className="province" key={x.name || x.cityName}>
+      <div className="province" key={uuid()}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
         {/*{ x.name || x.cityName }*/}
         {/*</div>*/}
@@ -652,7 +669,7 @@ function Area({ area, onChange, data }) {
         <div className="cured">
           <strong>{x[3]}</strong>
         </div>
-        <div className="tested">{latest[x[0]]}</div>
+        <div className="tested">{x[4]}</div>
       </div>
     ));
   };
@@ -698,11 +715,214 @@ function Header({ province }) {
           fontSize: "120%"
         }}
       >
-        COVID-19 in Australia - Real-Time Report
+        COVID-19 in Australia — Real-Time Report
       </h1>
       {/*<i>By Students from Monash</i>*/}
     </header>
   );
+}
+
+
+function Navbar({ setNav, nav }) {
+  const [isSticky, setSticky] = useState(false);
+  const ref = useRef(null);
+  const handleScroll = () => {
+    setSticky(ref.current.getBoundingClientRect().top <= 0);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', () => handleScroll);
+    };
+  }, []);
+
+  const onClick = e => {
+    setNav(e.target.innerText);
+  }
+
+  return (
+    <div className={`sticky-wrapper ${isSticky ? "sticky" : ""}`} ref={ref}>
+      <div className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}>
+        <span className={`navItems ${nav === "Home" && !isSticky ? "navCurrentPage " : ""} ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></span>
+        <span className={`navItems ${nav === "Info" && !isSticky ? "navCurrentPage " : ""} ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></span>
+        <span className={`navItems ${nav === "News" && !isSticky ? "navCurrentPage " : ""} ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></span>
+      </div>
+    </div>
+  )
+}
+
+function Information({ nav }) {
+  return (
+    <div className="card">
+      <h2>Informative Media</h2>
+      <div className="row centerMedia">
+        <div>
+          <ReactPlayer className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} />
+          <small className="mediaText">The Coronavirus explained and what you should do.</small>
+        </div>
+      </div>
+
+      <div className="row centerMedia">
+        <div className="imageContainer">
+          <img
+            className="formatImage"
+            src="https://www.who.int/gpsc/media/how_to_handwash_lge.gif"
+            alt="How to wash hands - Coronavirus"
+          />
+          <small className="mediaText">How to properly wash your hands.</small>
+        </div>
+      </div>
+
+      <h2>Information</h2>
+      {information.map(info => (
+        <div className="row" key={uuid()}>
+          <div>
+            {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+            <h3>{info.name}</h3>
+            <div>
+              {/* First block of text */}
+              {info.text.text_1.map(t1 => (
+                <p key={uuid()}>{t1}</p>
+              ))}
+
+              {/* First Unordered List */}
+              {info.text.ulist_1 ? (
+                <ul>
+                  {info.text.ulist_1.map(ul1 => (
+                    <li key={uuid()}>{ul1}</li>
+                  ))}
+                </ul>
+              ) : (
+                  ""
+                )}
+
+              {/* First Ordered List */}
+              {info.text.olist_1 ? (
+                <ol>
+                  {info.text.olist_1.map(ol1 => (
+                    <li key={uuid()}>{ol1}</li>
+                  ))}
+                </ol>
+              ) : (
+                  ""
+                )}
+
+              {/* Second Block of text */}
+              {info.text.text_2.map(t2 => (
+                <p key={uuid()}>{t2}</p>
+              ))}
+
+              {/* Citation tag */}
+              {info.text.citation.map(cit => (
+                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+              ))}
+
+            </div>
+          </div>
+        </div>
+      ))}
+      <small>All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a></small>
+    </div>
+  );
+}
+
+function HomePage({ province, overall, myData, area, data, setProvince, gspace }) {
+  return (
+    <Grid container spacing={gspace} justify="center" wrap="wrap">
+
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <Stat
+          {...{ ...all, ...overall }}
+          name={province && province.name}
+          data={myData}
+          countryData={country}
+        />
+        <div className="card">
+          <h2>
+            Cases by State {province ? `· ${province.name}` : false}
+            {province ? (
+              <small onClick={() => setProvince(null)}>Return</small>
+            ) : null}
+          </h2>
+          <Suspense fallback={<div className="loading">Loading...</div>}>
+            <GoogleMap
+              province={province}
+              data={data}
+              onClick={name => {
+                const p = provincesByName[name];
+                if (p) {
+                  setProvince(p);
+                }
+              }}
+              newData={myData}
+            />
+            {/*{*/}
+            {/*province ? false :*/}
+            {/*<div className="tip">*/}
+            {/*Click on the state to check state details.*/}
+            {/*</div>*/}
+            {/*}*/}
+          </Suspense>
+          <Area area={area} onChange={setProvince} data={myData} />
+
+          <div style={{ paddingBottom: "1rem" }}>
+            <a
+              style={{
+                fontSize: "60%",
+                float: "right",
+                color: "blue"
+              }}
+              href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+            >
+              @Data Source
+                </a>
+            <span
+              style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+              className="due"
+            >
+              *Number of tested cases is updated daily.
+                </span>
+          </div>
+        </div>
+      </Grid>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <MbMap />
+        <HistoryGraph countryData={country} />
+      </Grid>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <Flights flights={flights} />
+      </Grid>
+
+    </Grid>
+  )
+}
+
+function InfoPage() {
+  return (
+    <Grid item xs={12} sm={12} md={10}>
+      <Information />
+    </Grid>
+  )
+}
+
+function NewsPage({ gspace, province, nav }) {
+  return (
+    <Grid container spacing={gspace} justify="center" wrap="wrap">
+
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <Tweets province={province} nav={nav} />
+      </Grid>
+
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+        <NewsTimeline />
+      </Grid>
+    </Grid>
+  )
 }
 
 function App() {
@@ -736,34 +956,10 @@ function App() {
 
   const [myData, setMyData] = useState(null);
   useEffect(() => {
-    Papa.parse(
-      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWq32Sh-nuY61nzNCYauMYbiOZhIE8TfnyRhu1hnVs-i-oLdOO65Ax0VHDtcctn44l7NEUhy7gHZUm/pub?output=csv",
-      {
-        download: true,
-
-        complete: function(results) {
-          results.data.splice(0, 1);
-          let sortedData = results.data.sort((a, b) => {
-            return b[1] - a[1];
-          });
-
-          for (let i = 0; i < sortedData.length; i++) {
-            if (sortedData[i][0] === "ACT" && parseInt(sortedData[i][1]) < 6) {
-              sortedData[i][1] = "6";
-            }
-
-            if (sortedData[i][0] === "SA" && parseInt(sortedData[i][1]) < 50) {
-              sortedData[i][1] = "50";
-            }
-            if (sortedData[i][0] === "WA" && parseInt(sortedData[i][1]) < 64) {
-              sortedData[i][1] = "64";
-            }
-          }
-
-          setMyData(sortedData);
-        }
-      }
-    );
+    let sortedData = stateCaseData.values.sort((a, b) => {
+      return b[1] - a[1];
+    });
+    setMyData(sortedData)
   }, [province]);
   useEffect(() => {
     if (province) {
@@ -778,107 +974,61 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
+
+  const [nav, setNav] = useState("Home");
+  const [ showSocialMediaIcons, setShowSocialMediaIcons ] = useState(false);
+
+  const setModalVisibility = (state) => {
+    setShowSocialMediaIcons(state)
+  }
+
   if (myData) {
     return (
       <div>
+        <SocialMediaShareModal
+          visible={showSocialMediaIcons}
+          onCancel={ () => setShowSocialMediaIcons(false)}
+        />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
-          <Grid item xs={12}>
+          <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Stat
-              {...{ ...all, ...overall }}
-              name={province && province.name}
-              data={myData}
-              countryData={country}
-            />
-            <div className="card">
-              <h2>
-                Cases by State {province ? `· ${province.name}` : false}
-                {province ? (
-                  <small onClick={() => setProvince(null)}>Return</small>
-                ) : null}
-              </h2>
-              <Suspense fallback={<div className="loading">Loading...</div>}>
-                <GoogleMap
-                  province={province}
-                  data={data}
-                  onClick={name => {
-                    const p = provincesByName[name];
-                    if (p) {
-                      setProvince(p);
-                    }
-                  }}
-                  newData={myData}
-                />
-                {/*{*/}
-                {/*province ? false :*/}
-                {/*<div className="tip">*/}
-                {/*Click on the state to check state details.*/}
-                {/*</div>*/}
-                {/*}*/}
-              </Suspense>
-              <Area area={area} onChange={setProvince} data={myData} />
+          <Grid item xs={12} className="removePadding">
+            <Navbar setNav={setNav} nav={nav} />
+          </Grid>
 
-              <div style={{ paddingBottom: "1rem" }}>
-                <a
-                  style={{
-                    fontSize: "60%",
-                    float: "right",
-                    color: "blue"
-                  }}
-                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-                >
-                  @Data Source
-                </a>
-                <span
-                  style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
-                  className="due"
-                >
-                  *Number of tested cases is updated daily.
-                </span>
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <MbMap />
-            <HistoryGraph countryData={country} />
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Tweets province={province} />
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <NewsTimeline />
-          </Grid>
-          <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <Flights flights={flights} />
-          </Grid>
-          {/* <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-            <About />
-          </Grid> */}
+          {/* Pages to hold each functionality. */}
+          {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
+          {nav === "Info" ? <InfoPage nav={nav} /> : ""}
+          {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
+
+
+          {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
+          {/*<News />*/}
+          {/*</Grid>*/}
           {/*<Grid item xs={12}>*/}
           {/*<ExposureSites />*/}
+
           {/*</Grid>*/}
 
           <Grid item xs={12}>
-            <Fallback />
+            <Fallback setModalVisibility={setModalVisibility}/>
           </Grid>
         </Grid>
       </div>
     );
-  } else {
-    return null;
   }
+  return null;
 }
 
 export default App;
