@@ -84,6 +84,8 @@ If you are interested in one or more of these features, welcome to the PR and ou
 Once your PR is merged to our project, we will explicitely list you in the contributor list of this project.
 Looking forward to your great works.
 
+###Please make sure that if you do submit a pull request, that it is to the 'dev' branch.
+
 
 ## Term of use
 This GitHub repo and its contents herein, including all data, code, and analysis, all rights reserved, is provided to the public strictly for educational and academic research purposes. The Website relies upon publicly available data from multiple sources, that do not always agree. The team hereby disclaims any and all representations and warranties with respect to the Website, including accuracy, fitness for use, and merchantability. Reliance on the Website for medical guidance or use of the Website in commerce is strictly prohibited.
