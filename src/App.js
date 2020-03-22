@@ -310,31 +310,90 @@ function Flights({ flights }) {
       setFlightResult([]);
       return;
     }
-    for (var i = 0; i < flights.length; i++) {
+
+    let searchKeyList = [];
+    searchKeyList = searchKey.split(" ");
+    // remove white space from array
+    searchKeyList = searchKeyList.filter(function(str) {
+      return /\S/.test(str);
+    });
+
+    for (let i = 0; i < flights.length; i++) {
       let flight = flights[i];
       let flightNo = flight.flightNo.toLowerCase();
       let route = flight.path.toLowerCase();
       let dateArrival = flight.dateArrival.toLowerCase();
+      let validFlight = false;
+
       if (indexFlightNo) {
-        if (flightNo.includes(searchKey.toLowerCase())) {
-          setFlightResult(flightResult => [...flightResult, flight]);
+        for (let j = 0; j < searchKeyList.length; j++) { // when enable indexFlightNo only
+          if (flightNo.includes(searchKeyList[j].toLowerCase())) {
+            validFlight = true;
+            break;
+          }
+          validFlight = false;
         }
+        if (indexRoute && validFlight) {
+          for (let j = 0; j < searchKeyList.length; j++) { // when enable indexFlightNo and indexRoute
+            if (route.includes(searchKeyList[j].toLowerCase())) {
+              validFlight = true;
+              break;
+            }
+            validFlight = false;
+          }
+          if(indexDateArrival && validFlight) { // when all three indexing method are enabled
+            for (let j = 0; j < searchKeyList.length; j++) {
+              if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
+                validFlight = true;
+                break;
+              }
+              validFlight = false;
+            }
+          }
+        } else if (indexDateArrival && validFlight) { // when enable indexFlightNo and indexDateArrival
+          for (let j = 0; j < searchKeyList.length; j++) {
+            if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
+              validFlight = true;
+              break;
+            }
+            validFlight = false;
+          }
+        }
+      } else if (indexRoute) { // when enable indexRoute only
+        for (let j = 0; j < searchKeyList.length; j++) {
+          if (route.includes(searchKeyList[j].toLowerCase())) {
+            validFlight = true;
+            break;
+          }
+          validFlight = false;
+        }
+        if (indexDateArrival && validFlight) { // when enable both indexRoute and indexDateArrival
+          for (let j = 0; j < searchKeyList.length; j++) {
+            if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
+              validFlight = true;
+              break;
+            }
+            validFlight = false;
+          }
+        }
+      } else if (indexDateArrival) { // when enable indexDateArrival only
+        for (let j = 0; j < searchKeyList.length; j++) {
+          if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
+            validFlight = true;
+            break;
+          }
+          validFlight = false;
+        } 
       }
-      if (indexRoute) {
-        if (route.includes(searchKey.toLocaleLowerCase())) {
-          setFlightResult(flightResult => [...flightResult, flight]);
-        }
-      }
-      if (indexDateArrival) {
-        if (dateArrival.includes(searchKey.toLowerCase())) {
-          setFlightResult(flightResult => [...flightResult, flight]);
-        }
+
+      if (validFlight) {
+        setFlightResult(flightResult => [...flightResult, flight]);
       }
     }
-  }, [searchKey]);
+  }, [searchKey, indexFlightNo, indexRoute, indexDateArrival]);
 
   // only sort when the flight result list is not empty
-  let uniqueFlight =[]; // sort flight result without duplicate object
+  let uniqueFlight = []; // sort flight result without duplicate object
   if (flightResult.length !== 0) {
     flightResult.sort(function(a, b) {
       let arr = a.dateArrival.split("-");
@@ -357,7 +416,7 @@ function Flights({ flights }) {
     // remove duplicate
     console.log("Complete sorting...\nRemoving duplicates ");
     for (var i = 0; i < flightResult.length; i++) {
-      if ((flightResult[i] !== flightResult[i + 1])) {
+      if (flightResult[i] !== flightResult[i + 1]) {
         uniqueFlight.push(flightResult[i]);
       }
     }
