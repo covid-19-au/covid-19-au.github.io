@@ -603,7 +603,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
-      <span className="due" style={{ fontSize: "60%" }}>
+      <span className="due" style={{ fontSize: "80%" }}>
         Time in AEDT, last updated at: {stateCaseData.updatedTime}
       </span>
 
@@ -947,7 +947,7 @@ function HomePage({
               @Data Source
             </a>
             <span
-              style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+              style={{ fontSize: "80%", float: "left", paddingLeft: 0 }}
               className="due"
             >
               *Number of tested cases is updated daily.
