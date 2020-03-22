@@ -6,7 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 
 const jsonNews = require('./data/timelinedata.json')
 const timelineNews = jsonNews["news"]
-const updatedTime = jsonNews["updateTime"]
+const updatedTime = jsonNews["updatedTime"]
 
 const listStyles = {
     maxHeight: 500,
