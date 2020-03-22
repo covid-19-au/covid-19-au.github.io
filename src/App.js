@@ -26,6 +26,7 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
 import NewsTimeline from "./NewsTimeline";
+import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal'
 
 import stateCaseData from "./data/stateCaseData";
 
@@ -484,9 +485,15 @@ function Stat({
   );
 }
 
-function Fallback() {
+function Fallback(props) {
   return (
     <div className="fallback">
+      <div class="ui labeled button" tabindex="0">
+        <div class="ui basic blue button" onClick={ ()=> props.setModalVisibility(true) }>
+          <i class="share alternate square icon"/>
+          Share this link
+        </div>
+      </div>
       <div>Template credits to: shfshanyue</div>
 
       <div>
@@ -867,10 +874,19 @@ function App() {
   const overall = province ? province : all;
 
   const [nav, setNav] = useState("Home");
+  const [ showSocialMediaIcons, setShowSocialMediaIcons ] = useState(false);
+
+  const setModalVisibility = (state) => {
+    setShowSocialMediaIcons(state)
+  }
 
   if (myData) {
     return (
       <div>
+        <SocialMediaShareModal
+          visible={showSocialMediaIcons}
+          onCancel={ () => setShowSocialMediaIcons(false)}
+        />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
@@ -894,14 +910,13 @@ function App() {
           {/*</Grid>*/}
 
           <Grid item xs={12}>
-            <Fallback />
+            <Fallback setModalVisibility={setModalVisibility}/>
           </Grid>
         </Grid>
       </div>
     );
-  } else {
-    return null;
   }
+  return null;
 }
 
 export default App;
