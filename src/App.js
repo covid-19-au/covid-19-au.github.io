@@ -35,6 +35,7 @@ import Grid from "@material-ui/core/Grid";
 import NewsTimeline from "./NewsTimeline";
 
 import stateCaseData from "./data/stateCaseData";
+import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -620,6 +621,10 @@ function Stat({
 function Fallback(props) {
   return (
     <div className="fallback">
+      <button onClick={ ()=> props.setModalVisibility(true) }>
+        <i className="share alternate square icon"/>
+          Share this link
+      </button>
 
       <div>Template credits to: shfshanyue</div>
 
@@ -1058,6 +1063,10 @@ function App() {
   if (myData) {
     return (
       <div>
+        <SocialMediaShareModal
+          visible={showSocialMediaIcons}
+          onCancel={ () => setShowSocialMediaIcons(false)}
+        />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
