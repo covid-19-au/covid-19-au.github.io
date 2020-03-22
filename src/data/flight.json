@@ -2,407 +2,1145 @@
   {
     "reportState": "NSW",
     "flightNo": "QR908",
-    "airline": "Qatar Airways",
-    "path": "Doha to Sydney",
-    "dateDeparture": "22-2-20",
-    "dateArrival": "23-2-20",
+    "airline": "Qatar Airlines",
+    "path": "Doha/ Sydney",
+    "dateDeparture": "22-02-20",
+    "dateArrival": "23-02-20",
     "closeContactRow": "41, 42, 43, 44, 45"
   },
   {
     "reportState": "NSW",
     "flightNo": "EK416",
     "airline": "Emirates",
-    "path": "Dubai to Sydney",
-    "dateDeparture": "23-2-20",
-    "dateArrival": "24-2-20",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "23-02-20",
+    "dateArrival": "24-02-20",
     "closeContactRow": "23, 24, 25, 26, 27"
   },
   {
     "reportState": "NSW",
     "flightNo": "KE121",
     "airline": "Korean Air",
-    "path": "Seoul to Sydney",
-    "dateDeparture": "26-2-20",
-    "dateArrival": "27-2-20",
+    "path": "Seoul/ Sydney",
+    "dateDeparture": "26-02-20",
+    "dateArrival": "27-02-20",
     "closeContactRow": "41, 42, 43, 44, 45"
   },
   {
     "reportState": "NSW",
     "flightNo": "QF02",
     "airline": "Qantas",
-    "path": "Singapore to Sydney",
-    "dateDeparture": "27-2-20",
-    "dateArrival": "28-2-20",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "27-02-20",
+    "dateArrival": "28-02-20",
     "closeContactRow": "3, 4, 5, 6, 7, 31, 32, 33"
   },
   {
     "reportState": "NSW",
     "flightNo": "QF1509",
     "airline": "Qantas",
-    "path": "Sydney to Canberra",
-    "dateDeparture": "28-2-20",
-    "dateArrival": "28-2-20",
+    "path": "Sydney/ Canberra",
+    "dateDeparture": "28-02-20",
+    "dateArrival": "28-02-20",
     "closeContactRow": "2, 3, 4, 5, 6"
   },
   {
     "reportState": "NSW",
     "flightNo": "VA651",
     "airline": "Virgin Australia",
-    "path": "Canberra to Sydney",
-    "dateDeparture": "28-2-20",
-    "dateArrival": "28-2-20",
+    "path": "Canberra/ Sydney",
+    "dateDeparture": "28-02-20",
+    "dateArrival": "28-02-20",
     "closeContactRow": "3, 4, 5, 6, 7"
   },
   {
     "reportState": "NSW",
     "flightNo": "SQ211",
     "airline": "Singapore Airlines",
-    "path": "Singapore to Sydney",
-    "dateDeparture": "29-2-20",
-    "dateArrival": "29-2-20",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "29-02-20",
+    "dateArrival": "29-02-20",
     "closeContactRow": "29, 30, 31, 32, 33"
-  },
-  {
-    "reportState": "NSW",
-    "flightNo": "QF82",
-    "airline": "Qantas",
-    "path": "Singapore to Sydney",
-    "dateDeparture": "29-2-20",
-    "dateArrival": "1-3-20",
-    "closeContactRow": "30, 31, 32, 33, 34"
-  },
-  {
-    "reportState": "NSW",
-    "flightNo": "QR906",
-    "airline": "Qatar Airways",
-    "path": "Doha to Sydney",
-    "dateDeparture": "29-2-20",
-    "dateArrival": "1-3-20",
-    "closeContactRow": "17, 18, 19, 20, 21"
   },
   {
     "reportState": "NSW",
     "flightNo": "OD171",
     "airline": "Malindo Air",
-    "path": "Kuala Lumpur to Sydney (via Denpasar)",
-    "dateDeparture": "29-2-20",
-    "dateArrival": "1-3-20",
+    "path": "Kuala Lumpur/ Sydney (Via Denpasar)",
+    "dateDeparture": "29-02-20",
+    "dateArrival": "01-03-20",
     "closeContactRow": "13, 14, 15, 16, 17"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF82",
+    "airline": "Qantas",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "29-02-20",
+    "dateArrival": "01-03-20",
+    "closeContactRow": "30, 31, 32, 33, 34"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QR906",
+    "airline": "Qatar Airlines",
+    "path": "Doha/ Sydney",
+    "dateDeparture": "29-02-20",
+    "dateArrival": "01-03-20",
+    "closeContactRow": "17, 18, 19, 20, 21"
   },
   {
     "reportState": "NSW",
     "flightNo": "QF74",
     "airline": "Qantas",
-    "path": "San Francisco to Sydney",
-    "dateDeparture": "29-2-20",
-    "dateArrival": "2-3-20",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "29-02-20",
+    "dateArrival": "02-03-20",
     "closeContactRow": "44, 45, 46, 47, 48"
   },
   {
     "reportState": "NSW",
     "flightNo": "PR213",
     "airline": "Philippine Airlines",
-    "path": "Manila to Sydney",
-    "dateDeparture": "1-3-20",
-    "dateArrival": "1-3-20",
+    "path": "Manila/ Sydney",
+    "dateDeparture": "01-03-20",
+    "dateArrival": "01-03-20",
     "closeContactRow": "59, 60, 61, 62, 63"
   },
   {
     "reportState": "NSW",
     "flightNo": "SQ221",
     "airline": "Singapore Airlines",
-    "path": "Singapore to Sydney",
-    "dateDeparture": "1-3-20",
-    "dateArrival": "2-3-20",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "01-03-20",
+    "dateArrival": "02-03-20",
     "closeContactRow": "91, 92, 93, 94, 95"
   },
   {
     "reportState": "NSW",
     "flightNo": "SQ231",
     "airline": "Singapore Airlines",
-    "path": "Singapore to Sydney",
-    "dateDeparture": "2-3-20",
-    "dateArrival": "2-3-20",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "02-03-20",
+    "dateArrival": "02-03-20",
     "closeContactRow": "31-41"
   },
   {
     "reportState": "NSW",
     "flightNo": "QR908",
-    "airline": "Qatar Airways",
-    "path": "Doha to Sydney",
-    "dateDeparture": "2-3-20",
-    "dateArrival": "2-3-20",
+    "airline": "Qatar Airlines",
+    "path": "Doha/ Sydney",
+    "dateDeparture": "02-03-20",
+    "dateArrival": "02-03-20",
     "closeContactRow": "49, 50, 51, 52, 53"
   },
   {
     "reportState": "NSW",
     "flightNo": "5J39",
     "airline": "Cebu Pacific",
-    "path": "Philippines to Sydney",
-    "dateDeparture": "2-3-20",
-    "dateArrival": "3-3-20",
+    "path": "Philippines/ Sydney",
+    "dateDeparture": "02-03-20",
+    "dateArrival": "03-03-20",
     "closeContactRow": "22, 23, 24, 25, 26"
   },
   {
     "reportState": "NSW",
     "flightNo": "VA811",
     "airline": "Virgin Australia",
-    "path": "Melbourne to Sydney",
-    "dateDeparture": "3-3-20",
-    "dateArrival": "3-3-20",
+    "path": "Melbourne/ Sydney",
+    "dateDeparture": "03-03-20",
+    "dateArrival": "03-03-20",
     "closeContactRow": "22, 23, 24, 25, 26"
   },
   {
     "reportState": "NSW",
     "flightNo": "BA15",
     "airline": "British Airways",
-    "path": "London to Sydney \n(via Singapore)",
-    "dateDeparture": "3-3-20",
-    "dateArrival": "5-3-20",
+    "path": "London/ Sydney (Via Singapore)",
+    "dateDeparture": "03-03-20",
+    "dateArrival": "05-03-20",
     "closeContactRow": "22, 23, 24, 25, 26"
   },
   {
     "reportState": "NSW",
     "flightNo": "VA800",
     "airline": "Virgin Australia",
-    "path": "Sydney to Melbourne",
-    "dateDeparture": "4-3-20",
-    "dateArrival": "4-3-20",
+    "path": "Sydney/ Melbourne",
+    "dateDeparture": "04-03-20",
+    "dateArrival": "04-03-20",
     "closeContactRow": "1, 2, 3, 4"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "5J39",
+    "airline": "Cebu Pacific",
+    "path": "Manila/ Sydney",
+    "dateDeparture": "04-03-20",
+    "dateArrival": "05-03-20",
+    "closeContactRow": "37, 38, 39, 40, 41"
   },
   {
     "reportState": "NSW",
     "flightNo": "KE121",
     "airline": "Korean Air",
-    "path": "Incheon Korea to Sydney",
-    "dateDeparture": "4-3-20",
-    "dateArrival": "5-3-20",
+    "path": "Incheon Korea/ Sydney",
+    "dateDeparture": "04-03-20",
+    "dateArrival": "05-03-20",
     "closeContactRow": "50, 51, 52, 53, 54"
   },
   {
     "reportState": "NSW",
     "flightNo": "EY450",
-    "airline": "Etihad Airways",
-    "path": "Adu Dhabi to Sydney",
-    "dateDeparture": "5-3-20",
-    "dateArrival": "6-3-20",
+    "airline": "Etihad",
+    "path": "Adu Dhabi/ Sydney",
+    "dateDeparture": "05-03-20",
+    "dateArrival": "06-03-20",
     "closeContactRow": "42, 43, 44, 45, 46"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "SQ221",
+    "airline": "Singapore",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "05-03-20",
+    "dateArrival": "06-03-20",
+    "closeContactRow": "19, 20, 21, 22, 23, 24"
   },
   {
     "reportState": "NSW",
     "flightNo": "VA833",
     "airline": "Virgin Australia",
-    "path": "Melbourne to Sydney",
-    "dateDeparture": "6-3-20",
-    "dateArrival": "6-3-20",
+    "path": "Melbourne/ Sydney",
+    "dateDeparture": "06-03-20",
+    "dateArrival": "06-03-20",
     "closeContactRow": "1, 2, 3, 4"
-  },
-  {
-    "reportState": "NSW",
-    "flightNo": "SQ231",
-    "airline": "Singapore Airlines",
-    "path": "Singapore to Sydney",
-    "dateDeparture": "6-3-20",
-    "dateArrival": "6-3-20",
-    "closeContactRow": "19, 20, 21, 22, 23, 24"
   },
   {
     "reportState": "NSW",
     "flightNo": "CX101",
     "airline": "Cathay Pacific",
-    "path": "Hong Kong to Sydney",
-    "dateDeparture": "6-3-20",
-    "dateArrival": "7-3-20",
+    "path": "Hong Kong/ Sydney",
+    "dateDeparture": "06-03-20",
+    "dateArrival": "07-03-20",
     "closeContactRow": "29, 30, 31, 32, 33"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK412 /  QF8412",
+    "airline": "Emirates",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "06-03-20",
+    "dateArrival": "07-03-20",
+    "closeContactRow": "1, 2, 2003"
   },
   {
     "reportState": "NSW",
     "flightNo": "EK414",
     "airline": "Emirates",
-    "path": "Dubai to Sydney",
-    "dateDeparture": "6-3-20",
-    "dateArrival": "7-3-20",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "07-03-20",
+    "dateArrival": "07-03-20",
     "closeContactRow": "63, 64, 65, 66, 67, 68, 69, 70, 71, 72"
   },
   {
     "reportState": "NSW",
     "flightNo": "EK090",
     "airline": "Emirates",
-    "path": "Switzerland to Dubai",
-    "dateDeparture": "7-3-20",
-    "dateArrival": "7-3-20",
+    "path": "Switzerland/ Dubai",
+    "dateDeparture": "07-03-20",
+    "dateArrival": "07-03-20",
     "closeContactRow": "39, 40, 41, 42, 43"
   },
   {
     "reportState": "NSW",
     "flightNo": "MH123",
-    "airline": "Malaysia Airlines",
-    "path": "Kulala Lumpur to Sydney",
-    "dateDeparture": "7-3-20",
-    "dateArrival": "8-3-20",
+    "airline": "Malaysian Airlines",
+    "path": "Kulala Lumpur/ Sydney",
+    "dateDeparture": "07-03-20",
+    "dateArrival": "08-03-20",
     "closeContactRow": "12, 14, 15, 16, 17"
-  },
-  {
-    "reportState": "NSW",
-    "flightNo": "QF12",
-    "airline": "Qantas",
-    "path": "Los Angeles to Sydney",
-    "dateDeparture": "7-3-20",
-    "dateArrival": "9-3-20",
-    "closeContactRow": "84, 85, 86, 87, 88"
   },
   {
     "reportState": "NSW",
     "flightNo": "EK414",
     "airline": "Emirates",
-    "path": "Dubai to Sydney",
-    "dateDeparture": "7-3-20",
-    "dateArrival": "8-3-20",
-    "closeContactRow": "5, 6, 7, 8, 9"
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "07-03-20",
+    "dateArrival": "08-03-20",
+    "closeContactRow": "5, 6, 7, 8, 9, 11, 12, 14, 15, 16, 45, 46, 47, 48, 49, 58, 59, 60, 61, 62"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF8",
+    "airline": "Qantas",
+    "path": "Dallas/ Sydney",
+    "dateDeparture": "07-03-20",
+    "dateArrival": "09-03-20",
+    "closeContactRow": "58, 59, 60, 61, 62"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF12",
+    "airline": "Qantas",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "07-03-20",
+    "dateArrival": "09-03-20",
+    "closeContactRow": "84, 85, 86, 87, 88"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF56",
+    "airline": "Qantas",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "07-03-20",
+    "dateArrival": "09-03-20",
+    "closeContactRow": "1, 2, 3, 4"
   },
   {
     "reportState": "NSW",
     "flightNo": "QF74",
     "airline": "Qantas",
-    "path": "San Francisco to Sydney",
-    "dateDeparture": "7-3-20",
-    "dateArrival": "9-3-20",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "07-03-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "3, 4, 5, 6, 7"
   },
   {
     "reportState": "NSW",
-    "flightNo": "QF8",
-    "airline": "Qantas",
-    "path": "Dallas to Sydney",
-    "dateDeparture": "7-3-20",
-    "dateArrival": "9-3-20",
-    "closeContactRow": "58, 59, 60, 61, 62"
-  },
-  {
-    "reportState": "NSW",
-    "flightNo": "VA535",
-    "airline": "Virgin Australia",
-    "path": "Sydney to Coolangatta",
-    "dateDeparture": "8-3-20",
-    "dateArrival": "8-3-20",
-    "closeContactRow": "19, 20, 21, 22, 23"
+    "flightNo": "EK414",
+    "airline": "Emirates",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "08-03-20",
+    "closeContactRow": "6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 45, 46, 47, 48, 49, 58, 59, 60, 61, 62"
   },
   {
     "reportState": "NSW",
     "flightNo": "QF8414",
     "airline": "Qantas",
-    "path": "Dubai to Sydney",
-    "dateDeparture": "8-3-20",
-    "dateArrival": "8-3-20",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "08-03-20",
     "closeContactRow": "45, 46, 47, 48, 49"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "VA535",
+    "airline": "Virgin Australia",
+    "path": "Sydney/ Coolangatta",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "08-03-20",
+    "closeContactRow": "19, 20, 21, 22, 23"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK412/ QF8412",
+    "airline": "Qantas",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "09-03-20",
+    "closeContactRow": "64, 65, 66"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF40",
+    "airline": "Qantas",
+    "path": "Sapporo New Chitose/ Sydney",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "10-03-20",
+    "closeContactRow": "36, 37, 38, 39"
   },
   {
     "reportState": "NSW",
     "flightNo": "EK414",
     "airline": "Emirates",
-    "path": "Dubai to Sydney",
-    "dateDeparture": "8-3-20",
-    "dateArrival": "8-3-20",
-    "closeContactRow": "6, 7, 8, 9, 11,12, 14, 15, 16, 45, 46, 47, 48, 49, 58, 59, 60, 61, 62"
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "09-03-20",
+    "closeContactRow": "55, 56, 57, 58, 59"
   },
   {
     "reportState": "NSW",
-    "flightNo": "EY450",
-    "airline": "Etihad Airways",
-    "path": "Abu Dhabi to Sydney",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "10-3-20",
-    "closeContactRow": "35, 36, 37, 38, 39"
+    "flightNo": "TR2",
+    "airline": "Scoot",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "09-03-20",
+    "closeContactRow": "1, 2, 3, 4"
   },
   {
     "reportState": "NSW",
-    "flightNo": "EK412",
+    "flightNo": "EK412/ QF8412",
     "airline": "Emirates",
-    "path": "Dubai to Sydney",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "10-3-20",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "56, 57, 58, 59, 60"
   },
   {
     "reportState": "NSW",
-    "flightNo": "VA2",
-    "airline": "Virgin Australia",
-    "path": "Los Angeles to Sydney",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "11-3-20",
-    "closeContactRow": "2, 3, 4, 5, 6"
+    "flightNo": "EY450",
+    "airline": "Etihad",
+    "path": "Abu Dhabi/ Sydney",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "10-03-20",
+    "closeContactRow": "35, 36, 37, 38, 39"
   },
   {
     "reportState": "NSW",
     "flightNo": "QF8",
     "airline": "Qantas",
-    "path": "Dallas to Sydney",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "11-3-20",
-    "closeContactRow": "11, 12, 13, 14, 15, 73, 74, 75, 76, 77"
+    "path": "Dallas/ Sydney",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "11-03-20",
+    "closeContactRow": "3, 4, 5, 12, 13, 14, 15, 48, 49, 73, 74, 75, 76, 77"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "VA2",
+    "airline": "Virgin Australia",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "11-03-20",
+    "closeContactRow": "2, 3, 4, 5, 6"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "AC33",
+    "airline": "Air Canada",
+    "path": "Vancouver/ Sydney",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "11-03-20",
+    "closeContactRow": "38, 39, 40, 41, 42"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EY454",
+    "airline": "Etihad",
+    "path": "Abu Dhabi/ Sydney",
+    "dateDeparture": "10-03-20",
+    "dateArrival": "10-03-20",
+    "closeContactRow": "10, 11, 12, 13, 14"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF2039",
+    "airline": "Qantas",
+    "path": "Dubbo/ Sydney",
+    "dateDeparture": "10-03-20",
+    "dateArrival": "10-03-20",
+    "closeContactRow": "1, 2, 3, 4"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "Rex XL852",
+    "airline": "Rex",
+    "path": "Sydney/ Dubbo",
+    "dateDeparture": "10-03-20",
+    "dateArrival": "10-03-20",
+    "closeContactRow": "1, 2, 3, 4"
   },
   {
     "reportState": "NSW",
     "flightNo": "SQ241",
     "airline": "Singapore Airlines",
-    "path": "Singapore to Sydney",
-    "dateDeparture": "10-3-20",
-    "dateArrival": "10-3-20",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "10-03-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "42, 43, 44, 45, 46"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "VA1141",
+    "airline": "Virgin Australia",
+    "path": "Sydney/ Ballina",
+    "dateDeparture": "10-03-20",
+    "dateArrival": "10-03-20",
+    "closeContactRow": "7, 8, 9, 10, 11"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK416",
+    "airline": "Emirates",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "10-03-20",
+    "dateArrival": "11-03-20",
+    "closeContactRow": "5,6,7,8,9"
   },
   {
     "reportState": "NSW",
     "flightNo": "QF12",
     "airline": "Qantas",
-    "path": "Los Angeles to Sydney",
-    "dateDeparture": "10-3-20",
-    "dateArrival": "12-3-20",
-    "closeContactRow": "2, 3, 4, 5"
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "10-03-20",
+    "dateArrival": "12-03-20",
+    "closeContactRow": ", 24, 25, 26, 27, 28"
   },
   {
     "reportState": "NSW",
     "flightNo": "QF424",
     "airline": "Qantas",
-    "path": "Melbourne to Sydney",
-    "dateDeparture": "11-3-20",
-    "dateArrival": "11-3-20",
-    "closeContactRow": "1, 2, 3"
-  },
-  {
-    "reportState": "NSW",
-    "flightNo": "EY450",
-    "airline": "Etihad Airways",
-    "path": "Abu Dhabi to Sydney",
-    "dateDeparture": "11-3-20",
-    "dateArrival": "12-3-20",
-    "closeContactRow": "42, 43, 44, 45"
+    "path": "Melbourne/ Sydney",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "11-03-20",
+    "closeContactRow": "1, 2, 2003"
   },
   {
     "reportState": "NSW",
     "flightNo": "BA15",
     "airline": "British Airways",
-    "path": "Singapore to Sydney",
-    "dateDeparture": "11-3-20",
-    "dateArrival": "12-3-20",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "15, 16"
   },
   {
     "reportState": "NSW",
-    "flightNo": "QF426",
+    "flightNo": "CX101",
+    "airline": "Cathay Pacific",
+    "path": "Hong Kong/ Sydney",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "12-03-20",
+    "closeContactRow": "33, 39, 40, 41, 42"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EY450",
+    "airline": "Etihad",
+    "path": "Abu Dhabi/ Sydney",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "12-03-20",
+    "closeContactRow": "42, 43, 44, 45"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF2",
     "airline": "Qantas",
-    "path": "Melbourne to Sydney",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "14-3-20",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "12-03-20",
+    "closeContactRow": "11, 12, 13, 14, 15"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF12",
+    "airline": "Qantas",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "13-03-20",
+    "closeContactRow": "33, 34, 35, 36"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QR906",
+    "airline": "Qatar",
+    "path": "Doha/ Sydney",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "12-03-20",
+    "closeContactRow": "27, 28, 29"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "AA0073",
+    "airline": "American Airlines",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "13-03-20",
+    "closeContactRow": "TBC"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF2",
+    "airline": "Qantas",
+    "path": "London/ Sydney (via Singapore)",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "12-03-20",
+    "closeContactRow": "53, 54, 55, 56, 57"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "JQ456",
+    "airline": "Jetstar",
+    "path": "Sydney/ Ballina",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "12-03-20",
+    "closeContactRow": "5, 6, 7, 8, 9"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QR908",
+    "airline": "Qatar",
+    "path": "Doha/ Sydney",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "13-03-20",
+    "closeContactRow": "TBC"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QR906",
+    "airline": "Qatar",
+    "path": "Doha/ Sydney",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "13-03-20",
+    "closeContactRow": "31, 32, 33, 34, 35"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "JQ224",
+    "airline": "Jetstar",
+    "path": "Queenstown/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "13-03-20",
+    "closeContactRow": "1, 2, 2003"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "MH141",
+    "airline": "Malaysian Airlines",
+    "path": "Kuala Lumpur/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "13-03-20",
+    "closeContactRow": "32, 33, 34, 35, 36"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF434",
+    "airline": "Qantas",
+    "path": "Melbourne/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "13-03-20",
+    "closeContactRow": "1, 2, 3, 4"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "VA820",
+    "airline": "Virgin Australia",
+    "path": "Melbourne/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "8, 9, 10, 11, 12"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "VA859",
+    "airline": "Virgin Australia",
+    "path": "Sydney/ Melbourne",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "13-03-20",
+    "closeContactRow": "10, 11, 12, 13, 14"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "BA15",
+    "airline": "British Airways",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "TBC"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK413",
+    "airline": "Emirates",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "16, 17, 18, 19, 20"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EY450",
+    "airline": "Etihad",
+    "path": "Abu Dhabi/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "23, 24, 25, 26, 27"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EY454",
+    "airline": "Etihad",
+    "path": "Abu Dhabi/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "79, 80, 81, 82, 83, 18, 19, 20, 21, 22"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "GA712",
+    "airline": "Garuda Indonesia",
+    "path": "Jakarta/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "41, 42, 43, 44, 45"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF12",
+    "airline": "Qantas",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "25, 26, 27, 28, 29, 30, 84, 85, 86, 87, 88"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "UA839",
+    "airline": "United Airlines",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "31, 32, 33, 34, 35"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF94",
+    "airline": "Qantas",
+    "path": "Los Angeles/ Melbourne",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "56, 57, 58, 59, 60"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF430",
+    "airline": "Qantas",
+    "path": "Melbourne/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "35, 36, 37, 38, 39"
   },
   {
     "reportState": "NSW",
     "flightNo": "EK414",
     "airline": "Emirates",
-    "path": "Dubai to Sydney",
-    "dateDeparture": "15-3-20",
-    "dateArrival": "15-3-20",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "52, 53, 54, 55"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF426",
+    "airline": "Qantas",
+    "path": "Melbourne/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "8, 9, 10, 11, 12"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "MH0141",
+    "airline": "Malaysian Airlines",
+    "path": "Kuala Lumpur/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "1, 2, 2003"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "SQ211",
+    "airline": "Singapore Airlines",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "31, 32, 33"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "JQ784",
+    "airline": "Jetstar",
+    "path": "Sydney/ Maroochydore",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "1, 2, 3, 4"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF582",
+    "airline": "Qantas",
+    "path": "Perth/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "14-03-20",
+    "closeContactRow": "1,2,3,4"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF74",
+    "airline": "Qantas",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "23, 40, 41, 42, 43"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "5J39",
+    "airline": "Cebu Pacific",
+    "path": "Manila/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "49, 50, 51, 52, 53"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EY454",
+    "airline": "Etihad",
+    "path": "Abu Dhabi/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "TBC"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "PR211",
+    "airline": "Phillippines Airlines",
+    "path": "Manila/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "2, 3, 4, 5, 21"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF2",
+    "airline": "Qantas",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "6, 7, 8, 9, 10, 80, 81, 82, 83, 84"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "TG0475",
+    "airline": "Thai Airways",
+    "path": "Bangkok/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "61, 62, 63, 64, 65"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "DL41",
+    "airline": "Delta",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "47, 48, 49, 50, 51"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF74",
+    "airline": "Qantas",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "23, 40, 41, 42, 43, 65, 66, 67, 68, 69"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF12",
+    "airline": "Qantas",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "11, 12, 13, 14, 15"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF2",
+    "airline": "Qantas",
+    "path": "London/ Sydney (via Singapore)",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "11, 12, 13"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "VA24",
+    "airline": "Virgin Australia",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "29, 30, 31, 32, 33"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF582",
+    "airline": "Qantas",
+    "path": "Perth/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "TBC"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "JQ785",
+    "airline": "Jetstar",
+    "path": "Maroochydore/  Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "1, 2, 3, 4"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "JQ461",
+    "airline": "Jetstar",
+    "path": "Ballina/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "5, 6, 7, 8, 9"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK414",
+    "airline": "Emirates",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "39, 40, 41, 42, 43"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF866",
+    "airline": "Qantas",
+    "path": "Sydney/ Hamilton Island",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "TBC"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "SQ231",
+    "airline": "Singapore Airlines",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "35, 41, 42, 43, 44"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EY454 /  VA7092",
+    "airline": "Etihad/ Virgin",
+    "path": "Abu Dhabi/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "16,17,18, 69,70,71,72,73"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EY450",
+    "airline": "Etihad",
+    "path": "Abu Dhabi/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "18, 19, 20, 21, 22, 23"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "OD177",
+    "airline": "Malindo Air",
+    "path": "Denpasar/ Melbourne",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "2,3,4,5,6"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF2",
+    "airline": "Qantas",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "75, 76, 77, 78, 79"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QR905",
+    "airline": "Qatar Airlines",
+    "path": "Doha/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "17, 18, 19, 20, 21"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF8",
+    "airline": "Qantas",
+    "path": "Dallas/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "2, 3, 4, 5, 48"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF12",
+    "airline": "Qantas",
+    "path": "Los Angeles/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "18, 19, 20, 21, 22, 67, 68, 69, 70, 71"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "UA863",
+    "airline": "United Airlines",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "10,11, 12, 20, 21"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF8765/ EK413",
+    "airline": "Qantas",
+    "path": "Christchurch/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "7, 8, 9, 10, 11"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "TR12",
+    "airline": "Scoot",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "7, 8, 9, 10, 11"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "VA815",
+    "airline": "Virgin Australia",
+    "path": "Melbourne/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "1, 2, 3, 4"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "CI51",
+    "airline": "China Airlines",
+    "path": "Taipei/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "65, 66, 67, 68, 69"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK414",
+    "airline": "Emirates",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "45, 46, 47, 48, 49"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF2",
+    "airline": "Qantas",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "74, 75, 76, 77"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF12",
+    "airline": "Qantas",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "51, 52, 53, 54, 55"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "UA863",
+    "airline": "United Airlines",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "18-03-20",
+    "closeContactRow": "31, 32, 33, 34, 35"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF12",
+    "airline": "Qantas",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "18-03-20",
+    "closeContactRow": "20, 21, 22, 23, 24"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF74",
+    "airline": "Qantas",
+    "path": "San Francisco/ Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "18-03-20",
+    "closeContactRow": "20, 21, 22, 23, 40,"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "LA801",
+    "airline": "LATAM Airlines",
+    "path": "Auckland/ Sydney",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "TBC"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "SQ221",
+    "airline": "Singapore Airlines",
+    "path": "Singapore/ Sydney",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "16, 17, 18, 19, 20"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF429",
+    "airline": "Qantas",
+    "path": "Sydney/ Melbourne",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "7,8,9,10,11"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK412/ QF8412",
+    "airline": "Emirates",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "18-03-20",
+    "closeContactRow": "42, 43, 44, 45, 46"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK414",
+    "airline": "Emirates",
+    "path": "Dubai/ Sydney",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "18-03-20",
+    "closeContactRow": "13, 14, 15, 16, 17"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EY454",
+    "airline": "Etihad",
+    "path": "Abu Dhabi/ Sydney",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "18-03-20",
+    "closeContactRow": "1, 2, 3, 4"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "ZL852",
+    "airline": "Rex",
+    "path": "Sydney/ Dubbo",
+    "dateDeparture": "19-03-20",
+    "dateArrival": "19-03-20",
+    "closeContactRow": "6, 7, 8, 9, 10"
   },
   {
     "reportState": "WA",
@@ -410,7 +1148,7 @@
     "airline": "Emirates",
     "path": "Dubai to Perth",
     "dateDeparture": "",
-    "dateArrival": "2-3-20",
+    "dateArrival": "02-03-20",
     "closeContactRow": "81, 82, 83, 84, 85"
   },
   {
@@ -419,7 +1157,7 @@
     "airline": "Qantas",
     "path": "London to Perth",
     "dateDeparture": "",
-    "dateArrival": "5-3-20",
+    "dateArrival": "05-03-20",
     "closeContactRow": "40, 41, 42, 43, 44"
   },
   {
@@ -428,7 +1166,7 @@
     "airline": "Emirates",
     "path": "Dubai to Perth",
     "dateDeparture": "",
-    "dateArrival": "8-3-20",
+    "dateArrival": "08-03-20",
     "closeContactRow": "45, 46, 47, 48, 49"
   },
   {
@@ -437,7 +1175,7 @@
     "airline": "Qantas",
     "path": "Sydney to Perth",
     "dateDeparture": "",
-    "dateArrival": "9-3-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "46, 47, 48, 49, 50"
   },
   {
@@ -446,7 +1184,7 @@
     "airline": "Qantas",
     "path": "Brisbane to Perth",
     "dateDeparture": "",
-    "dateArrival": "9-3-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "14, 15, 16, 17, 18"
   },
   {
@@ -455,7 +1193,7 @@
     "airline": "Cathay Pacific",
     "path": "Hong Kong to Perth",
     "dateDeparture": "",
-    "dateArrival": "10-3-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "18, 19, 20, 21, 22, 23"
   },
   {
@@ -464,7 +1202,7 @@
     "airline": "Qatar Airways",
     "path": "Doha to Perth",
     "dateDeparture": "",
-    "dateArrival": "10-3-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "70, 71, 72, 73, 74"
   },
   {
@@ -473,7 +1211,7 @@
     "airline": "Singapore Airlines",
     "path": "Singapore to Perth",
     "dateDeparture": "",
-    "dateArrival": "11-3-20",
+    "dateArrival": "11-03-20",
     "closeContactRow": "45, 46, 47, 48, 49"
   },
   {
@@ -482,7 +1220,7 @@
     "airline": "Singapore Airlines",
     "path": "Singapore to Perth",
     "dateDeparture": "",
-    "dateArrival": "12-3-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "42, 43, 44, 45, 46"
   },
   {
@@ -491,7 +1229,7 @@
     "airline": "Qantas",
     "path": "London to Perth",
     "dateDeparture": "",
-    "dateArrival": "12-3-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "38, 39, 40, 41, 42"
   },
   {
@@ -500,7 +1238,7 @@
     "airline": "Qantas",
     "path": "Melbourne to Perth",
     "dateDeparture": "",
-    "dateArrival": "12-3-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "50, 51, 52, 53, 54"
   },
   {
@@ -509,7 +1247,7 @@
     "airline": "Qantas",
     "path": "Sydney to Canberra",
     "dateDeparture": "",
-    "dateArrival": "28-2-20",
+    "dateArrival": "28-02-20",
     "closeContactRow": "2, 3, 4, 5, 6"
   },
   {
@@ -518,7 +1256,7 @@
     "airline": "Virgin Australia",
     "path": "Canberra to Sydney",
     "dateDeparture": "",
-    "dateArrival": "28-2-20",
+    "dateArrival": "28-02-20",
     "closeContactRow": "3, 4, 5, 6, 7"
   },
   {
@@ -527,7 +1265,7 @@
     "airline": "Garuda Indonesia",
     "path": "Jakarta to Sydney",
     "dateDeparture": "",
-    "dateArrival": "14-3-20",
+    "dateArrival": "14-03-20",
     "closeContactRow": "41, 42, 43, 44, 45"
   },
   {
@@ -536,7 +1274,7 @@
     "airline": "Virgin Australia",
     "path": "Melbourne to Launceston",
     "dateDeparture": "",
-    "dateArrival": "29-2-20",
+    "dateArrival": "29-02-20",
     "closeContactRow": ""
   },
   {
@@ -545,7 +1283,7 @@
     "airline": "Jetstar",
     "path": "Sydney to Hobart",
     "dateDeparture": "",
-    "dateArrival": "8-3-20",
+    "dateArrival": "08-03-20",
     "closeContactRow": "13, 14, 15, 16, 17"
   },
   {
@@ -554,7 +1292,7 @@
     "airline": "Jetstar",
     "path": "Melbourne to Launceston",
     "dateDeparture": "",
-    "dateArrival": "8-3-20",
+    "dateArrival": "08-03-20",
     "closeContactRow": ""
   },
   {
@@ -563,7 +1301,7 @@
     "airline": "Malindo Air",
     "path": "Denpasar to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "28-2-20",
+    "dateArrival": "28-02-20",
     "closeContactRow": ""
   },
   {
@@ -572,7 +1310,7 @@
     "airline": "Singapore Airlines",
     "path": "Singapore to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "29-2-20",
+    "dateArrival": "29-02-20",
     "closeContactRow": ""
   },
   {
@@ -581,7 +1319,7 @@
     "airline": "United Airlines",
     "path": "San Francisco to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "29-2-20",
+    "dateArrival": "29-02-20",
     "closeContactRow": ""
   },
   {
@@ -590,7 +1328,7 @@
     "airline": "Virgin Australia",
     "path": "Perth to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "2-3-20",
+    "dateArrival": "02-03-20",
     "closeContactRow": ""
   },
   {
@@ -599,7 +1337,7 @@
     "airline": "Emirates",
     "path": "Singapore to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "6-3-20",
+    "dateArrival": "06-03-20",
     "closeContactRow": ""
   },
   {
@@ -608,7 +1346,7 @@
     "airline": "Qantas",
     "path": "Los Angeles to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "6-3-20",
+    "dateArrival": "06-03-20",
     "closeContactRow": ""
   },
   {
@@ -617,7 +1355,7 @@
     "airline": "Malaysia Airlines",
     "path": "Kuala Lumpur to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "6-3-20",
+    "dateArrival": "06-03-20",
     "closeContactRow": ""
   },
   {
@@ -626,7 +1364,7 @@
     "airline": "Virgin Australia",
     "path": "Los Angeles to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "7-3-20",
+    "dateArrival": "07-03-20",
     "closeContactRow": ""
   },
   {
@@ -635,7 +1373,7 @@
     "airline": "Virgin Australia",
     "path": "Los Angeles to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "8-3-20",
+    "dateArrival": "08-03-20",
     "closeContactRow": ""
   },
   {
@@ -644,7 +1382,7 @@
     "airline": "United Airlines",
     "path": "San Francisco to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "29-2-20",
+    "dateArrival": "29-02-20",
     "closeContactRow": ""
   },
   {
@@ -653,7 +1391,7 @@
     "airline": "Qantas",
     "path": "Los Angeles to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "6-3-20",
+    "dateArrival": "06-03-20",
     "closeContactRow": ""
   },
   {
@@ -662,7 +1400,7 @@
     "airline": "Malaysia Airlines",
     "path": "Kuala Lumpur to Melbourne",
     "dateDeparture": "",
-    "dateArrival": "6-3-20",
+    "dateArrival": "06-03-20",
     "closeContactRow": ""
   },
   {
@@ -671,7 +1409,7 @@
     "airline": "Qatar Airways",
     "path": "Doha to Sydney",
     "dateDeparture": "",
-    "dateArrival": "17-3-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "79-83"
   },
   {
@@ -680,8 +1418,8 @@
     "airline": "Virgin Australia",
     "path": "Sydney to Canberra",
     "dateDeparture": "",
-    "dateArrival": "18-3-20",
-    "closeContactRow": "12, 13, 14, 15, 16"
+    "dateArrival": "18-03-20",
+    "closeContactRow": "Dec-16"
   },
   {
     "reportState": "ACT",
@@ -689,7 +1427,7 @@
     "airline": "Qatar Airways",
     "path": "Doha to Canberra via Sydney",
     "dateDeparture": "",
-    "dateArrival": "16-3-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": ""
   },
   {
@@ -698,7 +1436,7 @@
     "airline": "Jetstar",
     "path": "Denpasar to Darwin",
     "dateDeparture": "",
-    "dateArrival": "19-3-20",
+    "dateArrival": "19-03-20",
     "closeContactRow": ""
   },
   {
@@ -707,7 +1445,7 @@
     "airline": "Qatar Airways",
     "path": "Brisbane to Darwin",
     "dateDeparture": "",
-    "dateArrival": "20-3-20",
+    "dateArrival": "20-03-20",
     "closeContactRow": ""
   },
   {
@@ -716,7 +1454,7 @@
     "airline": "Jetstar",
     "path": "Sydney to Darwin",
     "dateDeparture": "",
-    "dateArrival": "21-3-20",
+    "dateArrival": "21-03-20",
     "closeContactRow": ""
   },
   {
@@ -725,7 +1463,7 @@
     "airline": "Singapore Airlines",
     "path": "Manila - Singapore",
     "dateDeparture": "",
-    "dateArrival": "8-3-20",
+    "dateArrival": "08-03-20",
     "closeContactRow": ""
   },
   {
@@ -734,16 +1472,16 @@
     "airline": "Singapore Airlines",
     "path": "Singapore - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "9-3-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "44, 45, 46, 47, 48"
   },
   {
     "reportState": "SA",
     "flightNo": "AA3193",
     "airline": "American Airlines",
-    "path": "Aspen – Los Angeles",
+    "path": "Aspen � Los Angeles",
     "dateDeparture": "",
-    "dateArrival": "9-3-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "2, 3, 4, 5, 6"
   },
   {
@@ -752,7 +1490,7 @@
     "airline": "Virgin Australia",
     "path": "Gold Coast - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "9-3-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "26, 27, 28, 29, 30"
   },
   {
@@ -761,17 +1499,17 @@
     "airline": "Qantas",
     "path": "Los Angeles - Brisbane",
     "dateDeparture": "",
-    "dateArrival": "9-3-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "1, 2, 3, 4"
   },
   {
     "reportState": "SA",
     "flightNo": "EY84",
     "airline": "Etihad Airways",
-    "path": "Rome – Abu Dhabi",
+    "path": "Rome � Abu Dhabi",
     "dateDeparture": "",
-    "dateArrival": "9-3-20",
-    "closeContactRow": "29, 30, 31, 32, 33, 34, 35,36"
+    "dateArrival": "09-03-20",
+    "closeContactRow": "29, 30, 31, 32, 33, 34, 35, 36"
   },
   {
     "reportState": "SA",
@@ -779,7 +1517,7 @@
     "airline": "Etihad Airways",
     "path": "Abu Dhabi - Sydney",
     "dateDeparture": "",
-    "dateArrival": "10-3-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "30, 31, 32, 33, 34, 35, 36"
   },
   {
@@ -788,7 +1526,7 @@
     "airline": "Qantas",
     "path": "Brisbane - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "10-3-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "13, 14, 15, 16, 17"
   },
   {
@@ -797,7 +1535,7 @@
     "airline": "Virgin Australia",
     "path": "Sydney - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "10-3-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "7, 8, 9, 10, 11, 12"
   },
   {
@@ -806,7 +1544,7 @@
     "airline": "Qantas",
     "path": "Sydney - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "11-3-20",
+    "dateArrival": "11-03-20",
     "closeContactRow": "1, 2, 3, 4"
   },
   {
@@ -815,7 +1553,7 @@
     "airline": "Qantas",
     "path": "Los Angeles - Sydney",
     "dateDeparture": "",
-    "dateArrival": "11-3-20",
+    "dateArrival": "11-03-20",
     "closeContactRow": "1, 2, 3, 4, 5"
   },
   {
@@ -824,7 +1562,7 @@
     "airline": "Jetstar",
     "path": "Adelaide - Gold Coast",
     "dateDeparture": "",
-    "dateArrival": "12-3-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "18, 19, 20, 21, 22"
   },
   {
@@ -833,7 +1571,7 @@
     "airline": "Qantas",
     "path": "Manila - Sydney",
     "dateDeparture": "",
-    "dateArrival": "13-3-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "46, 47, 48, 49, 50"
   },
   {
@@ -842,7 +1580,7 @@
     "airline": "Qantas",
     "path": "Sydney - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "13-3-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "16, 17, 18, 19, 20"
   },
   {
@@ -851,7 +1589,7 @@
     "airline": "Qantas",
     "path": "San Francisco - Melbourne",
     "dateDeparture": "",
-    "dateArrival": "13-3-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "2, 3, 4, 5, 6"
   },
   {
@@ -860,7 +1598,7 @@
     "airline": "Qantas",
     "path": "Melbourne - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "13-3-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "1, 2, 3, 4"
   },
   {
@@ -869,7 +1607,7 @@
     "airline": "Air New Zealand",
     "path": "Auckland - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "13-3-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "3, 4, 5, 6, 7"
   },
   {
@@ -878,7 +1616,7 @@
     "airline": "Qantas",
     "path": "Los Angeles - Melbourne",
     "dateDeparture": "",
-    "dateArrival": "13-3-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "34, 35, 36, 37, 39"
   },
   {
@@ -887,7 +1625,7 @@
     "airline": "Qantas",
     "path": "Melbourne - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "13-3-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "9, 10, 11, 12, 13"
   },
   {
@@ -896,7 +1634,7 @@
     "airline": "Qantas",
     "path": "Adelaide - Sydney",
     "dateDeparture": "",
-    "dateArrival": "15-3-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "18, 19, 20, 21, 22"
   },
   {
@@ -905,7 +1643,7 @@
     "airline": "Emirates Airlines",
     "path": "Dubai - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "15-3-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "23, 24, 25, 26, 27"
   },
   {
@@ -914,7 +1652,7 @@
     "airline": "Jetstar",
     "path": "Gold Coast - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "15-3-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "12, 13, 14, 15, 16"
   },
   {
@@ -923,7 +1661,7 @@
     "airline": "Virgin Australia",
     "path": "Sydney - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "17-3-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "12, 13, 14, 15, 16"
   },
   {
@@ -932,7 +1670,7 @@
     "airline": "Virgin Australia",
     "path": "Melbourne - Adelaide",
     "dateDeparture": "",
-    "dateArrival": "16-3-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "4, 5, 6, 7, 8"
   },
   {
@@ -940,8 +1678,8 @@
     "flightNo": "VA2",
     "airline": "Virgin",
     "path": "Los Angeles to Sydney",
-    "dateDeparture": "5-3-20",
-    "dateArrival": "7-3-20",
+    "dateDeparture": "05-03-20",
+    "dateArrival": "07-03-20",
     "closeContactRow": "Rows 26-52 (Seats A, B, C, D, F, G) (Seats H, J, K not affected)"
   },
   {
@@ -949,8 +1687,8 @@
     "flightNo": "SQ235",
     "airline": "Singapore Airlines",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "6-3-20",
-    "dateArrival": "7-3-20",
+    "dateDeparture": "06-03-20",
+    "dateArrival": "07-03-20",
     "closeContactRow": "51,52,53, 54, 55"
   },
   {
@@ -958,8 +1696,8 @@
     "flightNo": "EY484",
     "airline": "Etihad",
     "path": "Abu Dhabi to Brisbane",
-    "dateDeparture": "6-3-20",
-    "dateArrival": "7-3-20",
+    "dateDeparture": "06-03-20",
+    "dateArrival": "07-03-20",
     "closeContactRow": "25, 26, 27, 28, 29"
   },
   {
@@ -967,8 +1705,8 @@
     "flightNo": "QF56",
     "airline": "Qantas",
     "path": "Los Angeles to Brisbane",
-    "dateDeparture": "7-3-20",
-    "dateArrival": "9-3-20",
+    "dateDeparture": "07-03-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "50, 51, 52, 53, 54"
   },
   {
@@ -976,8 +1714,8 @@
     "flightNo": "VA535",
     "airline": "Virgin",
     "path": "Sydney to Cooloongatta",
-    "dateDeparture": "8-3-20",
-    "dateArrival": "8-3-20",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "08-03-20",
     "closeContactRow": "19, 20, 21, 22, 23"
   },
   {
@@ -985,8 +1723,8 @@
     "flightNo": "SQ265",
     "airline": "Singapore Airlines",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "8-3-20",
-    "dateArrival": "8-3-20",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "08-03-20",
     "closeContactRow": "41, 42, 43, 44, 45"
   },
   {
@@ -994,8 +1732,8 @@
     "flightNo": "QF16",
     "airline": "Qantas",
     "path": "Los Angeles to Brisbane",
-    "dateDeparture": "8-3-20",
-    "dateArrival": "6-3-20",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "06-03-20",
     "closeContactRow": "1, 2, 3, 4, 5"
   },
   {
@@ -1003,8 +1741,8 @@
     "flightNo": "Cl53",
     "airline": "China Airlines",
     "path": "Taipei to Brisbane",
-    "dateDeparture": "8-3-20",
-    "dateArrival": "9-3-20",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1012,8 +1750,8 @@
     "flightNo": "QF16",
     "airline": "Qantas",
     "path": "Los Angeles to Brisbane",
-    "dateDeparture": "8-3-20",
-    "dateArrival": "10-3-20",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1021,8 +1759,8 @@
     "flightNo": "QF16",
     "airline": "Qantas",
     "path": "Los Angeles to Brisbane",
-    "dateDeparture": "8-3-20",
-    "dateArrival": "10-3-20",
+    "dateDeparture": "08-03-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "5, 6, 7, 8, 9"
   },
   {
@@ -1030,8 +1768,8 @@
     "flightNo": "QF2512",
     "airline": "Qantas",
     "path": "Brisbane to Mackay",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "9-3-20",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "11, 12, 13, 14, 15"
   },
   {
@@ -1039,8 +1777,8 @@
     "flightNo": "EY484",
     "airline": "Etihad",
     "path": "Abu Dhabi to Brisbane",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "10-3-20",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "29, 30, 31, 32, 33"
   },
   {
@@ -1048,17 +1786,17 @@
     "flightNo": "EK430",
     "airline": "Emirates",
     "path": "Dubai to Brisbane",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "9-3-20",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "47, 48, 49, 50, 51"
   },
   {
     "reportState": "QLD",
-    "flightNo": "EK430/QF8430",
+    "flightNo": "EK430/ QF8430",
     "airline": "Emirates",
     "path": "Dubai to Brisbane",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "9-3-20",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": "37,38, 39, 40, 41"
   },
   {
@@ -1066,8 +1804,8 @@
     "flightNo": "EY462",
     "airline": "Etihad",
     "path": "Abu Dhabi to Melbourne",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "10-3-20",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1075,8 +1813,8 @@
     "flightNo": "EY462",
     "airline": "Etihad",
     "path": "Abu Dhabi to Melbourne",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "10-3-20",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "10-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1084,8 +1822,8 @@
     "flightNo": "QF589",
     "airline": "Qantas",
     "path": "Brisbane to Perth",
-    "dateDeparture": "9-3-20",
-    "dateArrival": "9-3-20",
+    "dateDeparture": "09-03-20",
+    "dateArrival": "09-03-20",
     "closeContactRow": ""
   },
   {
@@ -1093,8 +1831,8 @@
     "flightNo": "EY484",
     "airline": "Etihad",
     "path": "Abu Dhabi to Brisbane",
-    "dateDeparture": "11-3-20",
-    "dateArrival": "12-3-20",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1102,8 +1840,8 @@
     "flightNo": "EY484",
     "airline": "Etihad",
     "path": "Abu Dhabi to Brisbane",
-    "dateDeparture": "11-3-20",
-    "dateArrival": "12-3-20",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1111,8 +1849,8 @@
     "flightNo": "QF 52",
     "airline": "Singapore Airlines",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "11-3-20",
-    "dateArrival": "12-3-20",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1120,8 +1858,8 @@
     "flightNo": "QR908",
     "airline": "Qatar Airways",
     "path": "Doha to Sydney",
-    "dateDeparture": "11-3-20",
-    "dateArrival": "12-3-20",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "10, 11, 12, 13"
   },
   {
@@ -1129,8 +1867,8 @@
     "flightNo": "EK434",
     "airline": "Emirates",
     "path": "Dubai to Brisbane",
-    "dateDeparture": "11-3-20",
-    "dateArrival": "13-3-20",
+    "dateDeparture": "11-03-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "63, 64, 65, 66, 67"
   },
   {
@@ -1138,8 +1876,8 @@
     "flightNo": "JQ12",
     "airline": "Jetstar",
     "path": "Tokyo to Brisbane",
-    "dateDeparture": "12-3-20",
-    "dateArrival": "13-3-20",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "46, 47, 48, 49, 50"
   },
   {
@@ -1147,8 +1885,8 @@
     "flightNo": "QF74",
     "airline": "Qantas",
     "path": "SanFrancisco to Brisbane",
-    "dateDeparture": "12-3-20",
-    "dateArrival": "14-3-20",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "14-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1156,8 +1894,8 @@
     "flightNo": "QF52",
     "airline": "Qantas",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "12-3-20",
-    "dateArrival": "13-3-20",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "4, 5, 6, 7, 8"
   },
   {
@@ -1165,8 +1903,8 @@
     "flightNo": "QF1786",
     "airline": "Qantas",
     "path": "Brisbane to Townsville",
-    "dateDeparture": "12-3-20",
-    "dateArrival": "12-3-20",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1174,8 +1912,8 @@
     "flightNo": "QF566",
     "airline": "Qantas",
     "path": "Perth to Sydney",
-    "dateDeparture": "12-3-20",
-    "dateArrival": "12-3-20",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1183,8 +1921,8 @@
     "flightNo": "QF16",
     "airline": "Qantas",
     "path": "Los Angeles to Brisbane",
-    "dateDeparture": "12-3-20",
-    "dateArrival": "14-3-20",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "14-03-20",
     "closeContactRow": "2, 3, 4, 9, 10, 11, 12, 13, 20, 21, 22, 23, 24,"
   },
   {
@@ -1192,8 +1930,8 @@
     "flightNo": "QF650",
     "airline": "Qantas",
     "path": "Perth to Brisbane",
-    "dateDeparture": "12-3-20",
-    "dateArrival": "12-3-20",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "12-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1201,8 +1939,8 @@
     "flightNo": "QF52",
     "airline": "Qantas",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "12-3-20",
-    "dateArrival": "13-3-20",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1210,17 +1948,17 @@
     "flightNo": "QF16",
     "airline": "Qantas",
     "path": "Los Angeles to Brisbane",
-    "dateDeparture": "12-3-20",
-    "dateArrival": "14-3-20",
+    "dateDeparture": "12-03-20",
+    "dateArrival": "14-03-20",
     "closeContactRow": "39, 40, 41, 42, 43"
   },
   {
     "reportState": "QLD",
-    "flightNo": "EK430/QF8430",
+    "flightNo": "EK430/ QF8430",
     "airline": "Emirates",
     "path": "Dubai to Brisbane",
-    "dateDeparture": "13-3-20",
-    "dateArrival": "13-3-20",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "29, 30, 31, 32, 33"
   },
   {
@@ -1228,8 +1966,8 @@
     "flightNo": "QF619",
     "airline": "Qantas",
     "path": "Brisbane to Melbourne",
-    "dateDeparture": "13-3-20",
-    "dateArrival": "13-3-20",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1237,8 +1975,8 @@
     "flightNo": "QF632",
     "airline": "Qantas",
     "path": "Melbourne to Brisbane",
-    "dateDeparture": "13-3-20",
-    "dateArrival": "13-3-20",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "13-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1246,8 +1984,8 @@
     "flightNo": "SQ245",
     "airline": "Singapore Airlines",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "13-3-20",
-    "dateArrival": "14-3-20",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "14-03-20",
     "closeContactRow": "49, 50, 51, 52, 53"
   },
   {
@@ -1255,8 +1993,8 @@
     "flightNo": "SQ245",
     "airline": "Singapore Airlines",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "13-3-20",
-    "dateArrival": "14-3-20",
+    "dateDeparture": "13-03-20",
+    "dateArrival": "14-03-20",
     "closeContactRow": "49, 50, 51, 52, 53"
   },
   {
@@ -1264,8 +2002,8 @@
     "flightNo": "SQ235",
     "airline": "Singapore Airlines",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "15-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "66,67,68, 69, 70"
   },
   {
@@ -1273,8 +2011,8 @@
     "flightNo": "DL41",
     "airline": "Delta",
     "path": "Los Angeles to Sydney",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1282,8 +2020,8 @@
     "flightNo": "DL41",
     "airline": "Delta",
     "path": "Los Angeles to Sydney",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1291,8 +2029,8 @@
     "flightNo": "EY460",
     "airline": "Etihad",
     "path": "Abu Dhabi to Melbourne",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "15-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "20, 21, 22, 23, 24"
   },
   {
@@ -1300,8 +2038,8 @@
     "flightNo": "DL41",
     "airline": "Delta",
     "path": "Los Angeles to Sydney",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1309,8 +2047,8 @@
     "flightNo": "QF52",
     "airline": "Qantas",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "15-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "47, 48, 49, 50, 51"
   },
   {
@@ -1318,8 +2056,8 @@
     "flightNo": "PR221",
     "airline": "Philippine Airlines",
     "path": "Manila to Brisbane",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "15-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1327,8 +2065,8 @@
     "flightNo": "EK434",
     "airline": "Emirates",
     "path": "Madrid to Brisbane",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1336,8 +2074,8 @@
     "flightNo": "MH135",
     "airline": "Malaysia Airlines",
     "path": "Kuala Lumpur to Brisbane",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "15-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1345,8 +2083,8 @@
     "flightNo": "EY0032",
     "airline": "Etihad",
     "path": "Paris to Abu Dhabi",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "15-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1354,8 +2092,8 @@
     "flightNo": "DL2272",
     "airline": "Delta Airlines",
     "path": "Salt Lake City to Los Angeles",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "14-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "14-03-20",
     "closeContactRow": "19, 20, 21, 22, 23"
   },
   {
@@ -1363,8 +2101,8 @@
     "flightNo": "DL41",
     "airline": "Delta Airlines",
     "path": "Los Angeles to Sydney",
-    "dateDeparture": "14-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "53, 54, 55, 56, 57"
   },
   {
@@ -1372,8 +2110,8 @@
     "flightNo": "QF60",
     "airline": "Qantas",
     "path": "San Francisco to Brisbane",
-    "dateDeparture": "15-3-20",
-    "dateArrival": "17-3-20",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1381,8 +2119,8 @@
     "flightNo": "B10009",
     "airline": "Royal Brunei Airlines",
     "path": "Brunei to Brisbane",
-    "dateDeparture": "15-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "33, 34, 35, 36, 37"
   },
   {
@@ -1390,8 +2128,8 @@
     "flightNo": "VA357",
     "airline": "Virgin",
     "path": "Melbourne to Brisbane",
-    "dateDeparture": "15-3-20",
-    "dateArrival": "15-3-20",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "5, 6, 7, 8, 9"
   },
   {
@@ -1399,8 +2137,8 @@
     "flightNo": "BA15",
     "airline": "British AirwaysLondon",
     "path": "Singapore to Sydney",
-    "dateDeparture": "15-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1408,8 +2146,8 @@
     "flightNo": "EY450",
     "airline": "Etihad",
     "path": "Abu Dhabi to Sydney",
-    "dateDeparture": "15-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1417,8 +2155,8 @@
     "flightNo": "EK434",
     "airline": "Emirates",
     "path": "Dubai to Brisbane",
-    "dateDeparture": "15-3-20",
-    "dateArrival": "17-3-20",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "48, 49, 50, 51"
   },
   {
@@ -1426,8 +2164,8 @@
     "flightNo": "EY484",
     "airline": "Etihad",
     "path": "Abu Dhabi to Brisbane",
-    "dateDeparture": "15-3-20",
-    "dateArrival": "15-3-20",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "34, 35, 36, 37"
   },
   {
@@ -1435,8 +2173,8 @@
     "flightNo": "VA931",
     "airline": "Virgin",
     "path": "Sydney to Brisbane",
-    "dateDeparture": "16-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "24, 25, 26, 27, 28, 29"
   },
   {
@@ -1444,8 +2182,8 @@
     "flightNo": "EK434",
     "airline": "Emirates",
     "path": "Dubai to Brisbane",
-    "dateDeparture": "16-3-20",
-    "dateArrival": "17-3-20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "44, 45, 46, 47, 48"
   },
   {
@@ -1453,8 +2191,8 @@
     "flightNo": "QF520",
     "airline": "Qantas",
     "path": "Sydney to Brisbane",
-    "dateDeparture": "16-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1462,8 +2200,8 @@
     "flightNo": "QF520",
     "airline": "Qantas",
     "path": "Sydney to Brisbane",
-    "dateDeparture": "16-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1471,8 +2209,8 @@
     "flightNo": "VA939",
     "airline": "Qantas",
     "path": "Sydney to Brisbane",
-    "dateDeparture": "16-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1480,8 +2218,8 @@
     "flightNo": "EK434",
     "airline": "Emirates",
     "path": "Dubai to Brisbane",
-    "dateDeparture": "16-3-20",
-    "dateArrival": "18-3-20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "18-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1489,8 +2227,8 @@
     "flightNo": "QF98",
     "airline": "Qantas",
     "path": "Hong Kong to Brisbane",
-    "dateDeparture": "16-3-20",
-    "dateArrival": "17-3-20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1498,8 +2236,8 @@
     "flightNo": "SQ319",
     "airline": "Singapore Airlines",
     "path": "London to Singapore",
-    "dateDeparture": "16-3-20",
-    "dateArrival": "17-3-20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "51, 52, 53, 54, 55"
   },
   {
@@ -1507,8 +2245,8 @@
     "flightNo": "VA931",
     "airline": "Virgin Airlines",
     "path": "Sydney to Brisbane",
-    "dateDeparture": "16-3-20",
-    "dateArrival": "16-3-20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "19, 20, 21, 22, 23"
   },
   {
@@ -1516,8 +2254,8 @@
     "flightNo": "QF52",
     "airline": "Qantas",
     "path": "Singapore to Brisbane",
-    "dateDeparture": "17-3-20",
-    "dateArrival": "17-3-20",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "Further information pending"
   },
   {
@@ -1525,8 +2263,35 @@
     "flightNo": "QF16",
     "airline": "Qantas",
     "path": "Los Angeles to Brisbane",
-    "dateDeparture": "18-3-20",
-    "dateArrival": "19-3-20",
+    "dateDeparture": "18-03-20",
+    "dateArrival": "19-03-20",
     "closeContactRow": "46, 47, 48"
+  },
+  {
+    "reportState": "NT",
+    "flightNo": "JQ82",
+    "airline": "Jetstar",
+    "path": "Denpasar to Darwin",
+    "dateDeparture": "",
+    "dateArrival": "19-03-20",
+    "closeContactRow": ""
+  },
+  {
+    "reportState": "NT",
+    "flightNo": "QF824",
+    "airline": "Qantas",
+    "path": "Brisbane to Darwin",
+    "dateDeparture": "",
+    "dateArrival": "19-03-20",
+    "closeContactRow": ""
+  },
+  {
+    "reportState": "NT",
+    "flightNo": "JQ672",
+    "airline": "Jetstar",
+    "path": "Sydney to Darwin",
+    "dateDeparture": "",
+    "dateArrival": "19-03-20",
+    "closeContactRow": ""
   }
 ]
