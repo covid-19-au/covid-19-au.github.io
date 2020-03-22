@@ -6,7 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 
 const jsonNews = require('./data/timelinedata.json')
 const timelineNews = jsonNews["news"]
-const updateTime = jsonNews["updateTime"]
+const updatedTime = jsonNews["updateTime"]
 
 const listStyles = {
     maxHeight: 500,
@@ -65,7 +65,7 @@ function NewsTimeline() {
 
                 </List>
             </Timeline >
-            <span className="due">Time in AEDT, last updated at {updateTime[0].time}</span>
+            <span className="due">Time in AEDT, last updated at {updatedTime}</span>
 
 
         </div >
