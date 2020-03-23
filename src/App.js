@@ -17,6 +17,7 @@ import testedCases from "./data/testedCases";
 import all from "./data/overall";
 import provinces from "./data/area";
 import information from "./data/info";
+import stateData from "./data/state";
 import Tag from "./Tag";
 
 import Flights from "./Flights";
@@ -24,7 +25,6 @@ import Flights from "./Flights";
 import MbMap from "./ConfirmedMap";
 import "./App.css";
 import axios from "axios";
-import Papa from "papaparse";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 
@@ -452,6 +452,10 @@ function Area({ area, onChange, data }) {
   for (let i = 0; i < data.length; i++) {
     totalRecovered += parseInt(data[i][3]);
   }
+  let lastTotal =
+     stateData[
+        Object.keys(stateData)[Object.keys(stateData).length - 1]
+     ];
 
   const renderArea = () => {
     let latest =
@@ -471,13 +475,13 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{x[1]}</strong>
-        </div>
+          <strong>{x[1]}</strong>{x[0]==='NSW'||x[0]==='NT'?'*':null}&nbsp;{(x[1]-lastTotal[x[0]][0])>0?`(+${x[1]-lastTotal[x[0]][0]})`:null}
+      </div>
         <div className="death">
-          <strong>{x[2]}</strong>
+          <strong>{x[2]}</strong>&nbsp;{(x[2]-lastTotal[x[0]][1])>0?` (+${x[2]-lastTotal[x[0]][1]})`:null}
         </div>
         <div className="cured">
-          <strong>{x[3]}</strong>
+          <strong>{x[3]}</strong>&nbsp;{(x[3]-lastTotal[x[0]][2])>0?`(+${x[3]-lastTotal[x[0]][2]})`:null}
         </div>
         <div className="tested">{x[4]}</div>
       </div>
@@ -491,7 +495,7 @@ function Area({ area, onChange, data }) {
         <div className="confirmed header confirmedtitle">Confirmed</div>
         <div className="death header deathtitle">Deaths</div>
         <div className="cured header recoveredtitle">Recovered</div>
-        <div className="tested header testedtitle">Tested*</div>
+        <div className="tested header testedtitle">Tested</div>
       </div>
       {renderArea()}
 
@@ -698,7 +702,7 @@ function HomePage({
 }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Stat
           {...{ ...all, ...overall }}
           name={province && province.name}
@@ -745,23 +749,27 @@ function HomePage({
               @Data Source
             </a>
             <span
-              style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+              style={{ fontSize: "70%", float: "left", paddingLeft: 0 }}
               className="due"
             >
-              *Number of tested cases is updated daily.<br />
-              **Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
+              Numbers in brackets indicate daily increase <br />
+              *Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
 
 
             </span>
           </div>
         </div>
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <MbMap />
+
         <HistoryGraph countryData={country} />
+
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Flights flights={flights} />
+      </Grid>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={3}>
       </Grid>
     </Grid>
   );
@@ -782,7 +790,7 @@ function NewsPage({ gspace, province, nav }) {
         <Tweets province={province} nav={nav} />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
         <NewsTimeline />
       </Grid>
     </Grid>

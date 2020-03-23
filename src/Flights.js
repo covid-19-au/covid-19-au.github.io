@@ -1,75 +1,75 @@
 import React, { useEffect, useState } from "react";
 
+const flightNoRegex = /^[A-Za-z]{2}\d*$/;
+const flightRouteRegex = /^[A-Za-z]*$/;
+const flightDateArrivalRegex = /^\d{0,2}-{0,1}\d{2}-{0,1}\d{0,4}$/;
+
+
 /**
- * Search flight information using flight number as filter
- * @param {Stirng} flightNoKey flight number used as filter
- * @param {Array} flights all flights
- * @returns {Array} list of all matched flights
+ * A universal search function based on SearchBase
+ * @param {Array} searchList: List of search keys
+ * @param {string} type: Type of param includes path, flightNo, and dateArrival
+ * @param {Array} searchBase: DataBase we perform the search
+ * @returns {Array} list of matched flights
  */
-function SearchByFlightNo(flightNoKey, flights) {
-  let tempResultList = [];
-  let flightNoKeyList = flightNoKey.split(" ");
-  for (let i = 0; i < flights.length; i++) {
-    let flight = flights[i];
-    let flightNo = flight.flightNo.toLowerCase();
-    for (let j = 0; j < flightNoKeyList.length; j++) {
-      if (
-        flightNo.includes(flightNoKeyList[j].toLowerCase().trim()) &&
-        flightNoKeyList[j] !== ""
-      ) {
-        tempResultList.push(flight);
-      }
-    }
+function UniversalSearch(searchList, type, searchBase) {
+  if(searchList.length ===0){
+    return searchBase
   }
-  return tempResultList;
+  let returnList = [];
+  searchList.forEach(key=>{
+    searchBase.forEach(item=>{
+      if(item[type].toLowerCase().includes(key.toLowerCase())){
+        returnList.push(item)
+      }
+    })
+  })
+  return returnList
+
 }
 
 /**
- * Search flight information using flight number as filter
- * @param {Stirng} routeKey flight route used as filter
- * @param {Array} flights all flights
- * @returns {Array} list of all matched flights
+ * Search flight information according user's input
+ * @param {String} searchKey keyword used as filter
+ * @param {Array} flights List of flights to search
+ * @returns {Array} list of matched flights
  */
-function SearchByRoute(routeKey, flights) {
+function SearchFlights(searchKey, flights) {
   let tempResultList = [];
-  let routeKeyList = routeKey.split(" ");
-  for (let i = 0; i < flights.length; i++) {
-    let flight = flights[i];
-    let route = flight.path.toLowerCase();
-    for (let j = 0; j < routeKeyList.length; j++) {
-      if (
-        route.includes(routeKeyList[j].toLowerCase().trim()) &&
-        routeKeyList[j] !== ""
-      ) {
-        tempResultList.push(flight);
-      }
+  let keyList = searchKey.split(" ");
+  let flightNoKeyList = [];
+  let routeKeyList = [];
+  let dateArrivalKeyList = [];
+  for (let i = 0; i < keyList.length; i++) {
+    // ignore empty string
+    if (keyList[i] === "") {
+      continue;
+    }
+    if (keyList[i].match(flightNoRegex)) {
+      flightNoKeyList.push(keyList[i]);
+    } else if (keyList[i].match(flightRouteRegex)) {
+      routeKeyList.push(keyList[i]);
+    } else if (keyList[i].match(flightDateArrivalRegex)) {
+      dateArrivalKeyList.push(keyList[i]);
     }
   }
-  return tempResultList;
-}
 
-/**
- * Search flight information using flight number as filter
- * @param {Stirng} dateArrivalKey flight arrival date used as filter
- * @param {Array} flights all flights
- * @returns {Array} list of all matched flights
- */
-function SearchByDateArrival(dateArrivalKey, flights) {
-  let tempResultList = [];
-  let dateArrivalKeyList = dateArrivalKey.split(" ");
-  for (let i = 0; i < flights.length; i++) {
-    let flight = flights[i];
-    let dateArrival = flight.dateArrival.toLowerCase();
-    for (let j = 0; j < dateArrivalKeyList.length; j++) {
-      if (
-        dateArrival.includes(dateArrivalKeyList[j].toLowerCase().trim()) &&
-        dateArrivalKeyList !== ""
-      ) {
-        tempResultList.push(flight);
-      }
-    }
+  let flightNoResult = UniversalSearch(flightNoKeyList,'flightNo',flights);
+  let routeKeyResult = UniversalSearch(routeKeyList,'path',flightNoResult);
+  let dateArrivalKeyResult = UniversalSearch(dateArrivalKeyList,'dateArrival',routeKeyResult);
+
+  //sort or return
+  if(dateArrivalKeyResult.length===0||dateArrivalKeyResult.length===flights.length){
+    return[]
   }
-  return tempResultList;
+   return dateArrivalKeyResult.sort(function(a, b) {
+        let arr = a.dateArrival.split("-");
+        let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
+        arr = b.dateArrival.split("-");
+
+        let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
+        return new Date(dateB) - new Date(dateA);
+    });
 }
 
 /**
@@ -89,60 +89,25 @@ function Flights({ flights }) {
 
   const [flightResult, setFlightResult] = useState([]);
   const [searchKey, setSearchKey] = useState("");
-  const [flightNoKey, setFlightNoKey] = useState("");
-  // const [routeKey, setRouteKey] = useState("");
-  // const [dateArrivalKey, setDateArrivalKey] = useState("");
-
-  // useEffect(() => {
-
-  // }, [searchKey])
 
   useEffect(() => {
-    let tempResultList = [];
-    tempResultList = SearchByFlightNo(flightNoKey, flights);
-    setFlightResult(flightResult => tempResultList);
-  }, [flightNoKey]);
+    if (searchKey !== "") {
+      setFlightResult(flightResult => SearchFlights(searchKey, flights));
+    }
+  }, [searchKey]);
 
-  // useEffect(() => {
-  //   let tempResultList = [];
-  //   if (flightResult.length === 0) {
-  //     tempResultList = SearchByRoute(routeKey, flights);
-  //   } else {
-  //     tempResultList = SearchByRoute(routeKey, flightResult);
-  //   }
-
-  //   setFlightResult(flightResult => tempResultList);
-  // }, [routeKey]);
-
-  // useEffect(() => {
-  //   let tempResultList = [];
-  //   if (flightResult.length === 0) {
-  //     tempResultList = SearchByDateArrival(dateArrivalKey, flights);
-  //   } else {
-  //     tempResultList = SearchByDateArrival(dateArrivalKey, flightResult);
-  //   }
-  //   setFlightResult(flightResult => tempResultList);
-  // }, [dateArrivalKey]);
-
-  let uniqueFlight = []; // remove duplicate object
-  if (flightResult.length !== 0) {
-    console.log("Complete sorting...\nRemoving duplicates ");
-    for (var i = 0; i < flightResult.length; i++) {
-      if (flightResult[i] !== flightResult[i + 1]) {
-        uniqueFlight.push(flightResult[i]);
-      }
+  let outputList = [];
+  if (searchKey === "") {
+    outputList = flights.slice(0 ,5);
+  } else {
+    outputList = flightResult;
+  }
+  // remove duplicate
+  for (let i = 0; i < outputList.length; i++) {
+    if (outputList[i] === outputList[i + 1]) {
+      outputList.splice(i, 1);
     }
   }
-
-  // if (flightNoKey === "" && routeKey === "" && dateArrivalKey === "") {
-  //   if (flightResult.length === 0) {
-  //     uniqueFlight = flights.slice(0, 5);
-  //   } else {
-  //     uniqueFlight = flightResult.slice(0, 5);
-  //   }
-  // }
-
-  // console.log("Arrival: ", dateArrivalKey);
 
   return (
     <div className="card">
@@ -152,36 +117,14 @@ function Flights({ flights }) {
           <div className="searchArea">
             <div className="input-group mb-3">
               <div className="input-group-prepend">
-                <span className="input-group-text">Flight Number: </span>
+                <span className="input-group-text">Search</span>
               </div>
               <input
                 type="text"
                 className="form-control"
-                // placeholder="Enter flight number, route, arrival date"
-                onChange={e => setFlightNoKey(e.target.value)}
-                // onChange={e => setSearchKey(e.target.value)}
+                placeholder="Enter flight number, route, arrival date"
+                onChange={e => setSearchKey(e.target.value)}
               ></input>
-            </div>
-            <div>
-            {/* <div className="input-group mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text">Flight Route: </span>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                onChange={e => setRouteKey(e.target.value)}
-              ></input>
-            </div>
-            <div className="input-group mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text">Arrival Date: </span>
-              </div>
-              <input
-                type="date"
-                className="form-control"
-                onChange={e => setDateArrivalKey(e.target.value)}
-              ></input> */}
             </div>
           </div>
 
@@ -192,8 +135,8 @@ function Flights({ flights }) {
             <div className="area header">Arrival</div>
             <div className="area header">Close Contact Row</div>
           </div>
-          {uniqueFlight.length ? (
-            uniqueFlight.map(flight => (
+          {outputList.length ? (
+            outputList.map(flight => (
               <div className="flightInfo header">
                 <div className="flightArea">{flight.flightNo}</div>
                 <div className="flightArea">{flight.airline}</div>
