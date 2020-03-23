@@ -748,8 +748,9 @@ function HomePage({
               style={{ fontSize: "70%", float: "left", paddingLeft: 0 }}
               className="due"
             >
+              Numbers in brackets indicate daily increase
               *Number of tested cases is updated daily. <br />
-              **Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
+              <br />**Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
 
 
             </span>
