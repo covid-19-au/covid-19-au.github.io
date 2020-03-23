@@ -88,9 +88,14 @@ function Flights({ flights }) {
   });
 
   const [flightResult, setFlightResult] = useState([]);
+  const [searchKey, setSearchKey] = useState("");
   const [flightNoKey, setFlightNoKey] = useState("");
-  const [routeKey, setRouteKey] = useState("");
-  const [dateArrivalKey, setDateArrivalKey] = useState("");
+  // const [routeKey, setRouteKey] = useState("");
+  // const [dateArrivalKey, setDateArrivalKey] = useState("");
+
+  // useEffect(() => {
+
+  // }, [searchKey])
 
   useEffect(() => {
     let tempResultList = [];
@@ -98,26 +103,26 @@ function Flights({ flights }) {
     setFlightResult(flightResult => tempResultList);
   }, [flightNoKey]);
 
-  useEffect(() => {
-    let tempResultList = [];
-    if (flightResult.length === 0) {
-      tempResultList = SearchByRoute(routeKey, flights);
-    } else {
-      tempResultList = SearchByRoute(routeKey, flightResult);
-    }
+  // useEffect(() => {
+  //   let tempResultList = [];
+  //   if (flightResult.length === 0) {
+  //     tempResultList = SearchByRoute(routeKey, flights);
+  //   } else {
+  //     tempResultList = SearchByRoute(routeKey, flightResult);
+  //   }
 
-    setFlightResult(flightResult => tempResultList);
-  }, [routeKey]);
+  //   setFlightResult(flightResult => tempResultList);
+  // }, [routeKey]);
 
-  useEffect(() => {
-    let tempResultList = [];
-    if (flightResult.length === 0) {
-      tempResultList = SearchByDateArrival(dateArrivalKey, flights);
-    } else {
-      tempResultList = SearchByDateArrival(dateArrivalKey, flightResult);
-    }
-    setFlightResult(flightResult => tempResultList);
-  }, [dateArrivalKey]);
+  // useEffect(() => {
+  //   let tempResultList = [];
+  //   if (flightResult.length === 0) {
+  //     tempResultList = SearchByDateArrival(dateArrivalKey, flights);
+  //   } else {
+  //     tempResultList = SearchByDateArrival(dateArrivalKey, flightResult);
+  //   }
+  //   setFlightResult(flightResult => tempResultList);
+  // }, [dateArrivalKey]);
 
   let uniqueFlight = []; // remove duplicate object
   if (flightResult.length !== 0) {
@@ -129,13 +134,15 @@ function Flights({ flights }) {
     }
   }
 
-  if (flightNoKey === "" && routeKey === "" && dateArrivalKey === "") {
-    if (flightResult.length === 0) {
-      uniqueFlight = flights.slice(0, 5);
-    } else {
-      uniqueFlight = flightResult.slice(0, 5);
-    }
-  }
+  // if (flightNoKey === "" && routeKey === "" && dateArrivalKey === "") {
+  //   if (flightResult.length === 0) {
+  //     uniqueFlight = flights.slice(0, 5);
+  //   } else {
+  //     uniqueFlight = flightResult.slice(0, 5);
+  //   }
+  // }
+
+  // console.log("Arrival: ", dateArrivalKey);
 
   return (
     <div className="card">
@@ -150,10 +157,13 @@ function Flights({ flights }) {
               <input
                 type="text"
                 className="form-control"
+                // placeholder="Enter flight number, route, arrival date"
                 onChange={e => setFlightNoKey(e.target.value)}
+                // onChange={e => setSearchKey(e.target.value)}
               ></input>
             </div>
-            <div className="input-group mb-3">
+            <div>
+            {/* <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span className="input-group-text">Flight Route: </span>
               </div>
@@ -168,10 +178,10 @@ function Flights({ flights }) {
                 <span className="input-group-text">Arrival Date: </span>
               </div>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 onChange={e => setDateArrivalKey(e.target.value)}
-              ></input>
+              ></input> */}
             </div>
           </div>
 
