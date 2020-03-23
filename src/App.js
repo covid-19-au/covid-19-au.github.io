@@ -371,7 +371,7 @@ function Stat({
   return (
     <div className="card">
       <h2>Status {name ? `· ${name}` : false}</h2>
-      <div className="row">
+      <div className="row" role={"row"}>
         <Tag
           number={confirmedCount}
           fColor={"#e74c3c"}
@@ -453,6 +453,12 @@ function Area({ area, onChange, data }) {
     totalRecovered += parseInt(data[i][3]);
   }
 
+  const getAriaLabel = (state, confirmed, death, recovered, tested) => {
+    return `In ${state.split("").join(" ")}, there were ${confirmed} confirmed cases. Out of them, ${death} unfortunately resulted in death.
+    
+    ${recovered} recovered and ${tested} were tested`;
+  };
+
   const renderArea = () => {
     let latest =
       testedCases[
@@ -460,7 +466,7 @@ function Area({ area, onChange, data }) {
       ];
 
     return data.map(x => (
-      <div className="province" key={uuid()}>
+      <div role={"button"} aria-label={getAriaLabel(...x)} aria-describedby={getAriaLabel(...x)} className="province" key={uuid()}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
         {/*{ x.name || x.cityName }*/}
         {/*</div>*/}
@@ -485,7 +491,7 @@ function Area({ area, onChange, data }) {
   };
 
   return (
-    <>
+    <div role={"table"}>
       <div className="province header">
         <div className="area header statetitle">State</div>
         <div className="confirmed header confirmedtitle">Confirmed</div>
@@ -512,7 +518,7 @@ function Area({ area, onChange, data }) {
           <div className="tested"></div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
