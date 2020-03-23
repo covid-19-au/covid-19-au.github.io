@@ -24,7 +24,7 @@ function UniversalSearch(searchList, type, searchBase) {
       }
     })
   })
-  return returnList.length>0?returnList:searchBase
+  return returnList
 
 }
 
