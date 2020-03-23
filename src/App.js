@@ -17,6 +17,7 @@ import testedCases from "./data/testedCases";
 import all from "./data/overall";
 import provinces from "./data/area";
 import information from "./data/info";
+import stateData from "./data/state";
 import Tag from "./Tag";
 
 import Flights from "./Flights";
@@ -24,7 +25,6 @@ import Flights from "./Flights";
 import MbMap from "./ConfirmedMap";
 import "./App.css";
 import axios from "axios";
-import Papa from "papaparse";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 
@@ -452,7 +452,11 @@ function Area({ area, onChange, data }) {
   for (let i = 0; i < data.length; i++) {
     totalRecovered += parseInt(data[i][3]);
   }
-
+  let lastTotal =
+     stateData[
+        Object.keys(stateData)[Object.keys(stateData).length - 1]
+     ];
+  console.log(lastTotal)
   const renderArea = () => {
     let latest =
       testedCases[
@@ -471,13 +475,13 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{x[1]}</strong>
-        </div>
+          <strong>{x[1]}</strong>&nbsp;{(x[1]-lastTotal[x[0]][0])>0?`(+${x[1]-lastTotal[x[0]][0]})`:null}
+      </div>
         <div className="death">
-          <strong>{x[2]}</strong>
+          <strong>{x[2]}</strong>&nbsp;{(x[2]-lastTotal[x[0]][1])>0?` (+${x[2]-lastTotal[x[0]][1]})`:null}
         </div>
         <div className="cured">
-          <strong>{x[3]}</strong>
+          <strong>{x[3]}</strong>&nbsp;{(x[3]-lastTotal[x[0]][2])>0?`(+${x[3]-lastTotal[x[0]][2]})`:null}
         </div>
         <div className="tested">{x[4]}</div>
       </div>
