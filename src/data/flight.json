@@ -2272,8 +2272,8 @@
     "flightNo": "QR906",
     "airline": "Qatar",
     "path": "Doha/Sydney to Canberra",
-    "dateDeparture": "15/3/20",
-    "dateArrival": "16/3/20",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": ""
   },
   {
@@ -2281,8 +2281,8 @@
     "flightNo": "QF94",
     "airline": "Qantas",
     "path": "Los Angeles to Melbourne",
-    "dateDeparture": "16/3/20",
-    "dateArrival": "17/3/20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "71, 72, 73, 74, 75"
   },
   {
@@ -2290,8 +2290,8 @@
     "flightNo": "QR908",
     "airline": "Qatar",
     "path": "Doha to Sydney",
-    "dateDeparture": "16/3/20",
-    "dateArrival": "17/3/20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "79, 80, 81, 82, 83"
   },
   {
@@ -2299,8 +2299,8 @@
     "flightNo": "EY78",
     "airline": "Etihad",
     "path": "Amsterdam to Abu Dhabi",
-    "dateDeparture": "16/3/20",
-    "dateArrival": "17/3/20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": ""
   },
   {
@@ -2308,8 +2308,8 @@
     "flightNo": "VA672",
     "airline": "Virgin Australia",
     "path": "Sydney to Canberra",
-    "dateDeparture": "17/3/20",
-    "dateArrival": "17/3/20",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "12, 13, 14, 15, 16"
   },
   {
@@ -2317,8 +2317,8 @@
     "flightNo": "QF2130",
     "airline": "Qantas",
     "path": "Melbourne to Canberra",
-    "dateDeparture": "17/3/20",
-    "dateArrival": "17/3/20",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "15, 16, 17, 18, 19"
   },
   {
@@ -2326,8 +2326,8 @@
     "flightNo": "EY450",
     "airline": "Etihad",
     "path": "Abu Dhabi to Sydney",
-    "dateDeparture": "17/3/20",
-    "dateArrival": "18/3/20",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "18-03-20",
     "closeContactRow": "42, 43, 44, 45, 46"
   },
   {
@@ -2335,8 +2335,8 @@
     "flightNo": "VA640",
     "airline": "Virgin Australia",
     "path": "Sydney to Canberra",
-    "dateDeparture": "18/3/20",
-    "dateArrival": "18/3/20",
+    "dateDeparture": "18-03-20",
+    "dateArrival": "18-03-20",
     "closeContactRow": "3, 4, 5, 6, 7"
   },
   {
@@ -2344,8 +2344,8 @@
     "flightNo": "QR906",
     "airline": "Qatar",
     "path": "Doha to Sydney to Canberra",
-    "dateDeparture": "14/3/20",
-    "dateArrival": "15/3/20",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
     "closeContactRow": "27, 28, 29, 30, 31"
   },
   {
@@ -2353,8 +2353,8 @@
     "flightNo": "EY450",
     "airline": "Etihad",
     "path": "Abu Dhabi to Sydney",
-    "dateDeparture": "18/3/20",
-    "dateArrival": "19/3/20",
+    "dateDeparture": "18-03-20",
+    "dateArrival": "19-03-20",
     "closeContactRow": "15, 16, 17, 18, 19"
   },
   {
@@ -2362,8 +2362,8 @@
     "flightNo": "VA640",
     "airline": "Virgin Australia",
     "path": "Sydney to Canberra",
-    "dateDeparture": "19/3/20",
-    "dateArrival": "19/3/20",
+    "dateDeparture": "19-03-20",
+    "dateArrival": "19-03-20",
     "closeContactRow": "10, 11, 12, 13, 14"
   },
   {
@@ -2371,8 +2371,8 @@
     "flightNo": "QF74",
     "airline": "Qantas",
     "path": "Sydney to Canberra",
-    "dateDeparture": "18/3/20",
-    "dateArrival": "18/3/20",
+    "dateDeparture": "18-03-20",
+    "dateArrival": "18-03-20",
     "closeContactRow": "54, 55, 56, 57, 58"
   },
   {
@@ -2380,8 +2380,8 @@
     "flightNo": "QF36",
     "airline": "Qantas",
     "path": "Singapore to Melbourne",
-    "dateDeparture": "15/3/20",
-    "dateArrival": "16/3/20",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
     "closeContactRow": "56, 57, 58, 59, 60"
   },
   {
@@ -2389,8 +2389,8 @@
     "flightNo": "QF816",
     "airline": "Qantas",
     "path": "Melbourne to Canberra",
-    "dateDeparture": "17/3/20",
-    "dateArrival": "17/3/20",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": ""
   },
   {
@@ -2398,8 +2398,8 @@
     "flightNo": "SQ288",
     "airline": "Singapore Airlines",
     "path": "Singapore to Sydney to Canberra",
-    "dateDeparture": "19/3/20",
-    "dateArrival": "19/3/20",
+    "dateDeparture": "19-03-20",
+    "dateArrival": "19-03-20",
     "closeContactRow": "30, 31, 32, 33, 34"
   },
   {
@@ -2407,8 +2407,8 @@
     "flightNo": "QR906",
     "airline": "Qatar",
     "path": "Doha to Sydney to Canberra",
-    "dateDeparture": "16/3/20",
-    "dateArrival": "17/3/20",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "42, 43, 44, 45, 46"
   },
   {
@@ -2416,8 +2416,8 @@
     "flightNo": "QF42",
     "airline": "Qantas",
     "path": "Jakarta to Sydney",
-    "dateDeparture": "10/3/20",
-    "dateArrival": "11/3/20",
+    "dateDeparture": "10-03-20",
+    "dateArrival": "11-03-20",
     "closeContactRow": "90, 91, 92, 93, 94"
   },
   {
@@ -2425,8 +2425,8 @@
     "flightNo": "VA134",
     "airline": "Virgin Australia",
     "path": "Christchurch to Sydney",
-    "dateDeparture": "17/3/20",
-    "dateArrival": "17/3/20",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "23, 24, 25, 26, 27"
   },
   {
@@ -2434,8 +2434,8 @@
     "flightNo": "VA640",
     "airline": "Virgin Australia",
     "path": "Sydney to Canberra",
-    "dateDeparture": "17/3/20",
-    "dateArrival": "17/3/20",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
     "closeContactRow": "3, 4, 5, 6, 7"
   }
 ]
