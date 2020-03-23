@@ -7,9 +7,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from './img/icon/confirmed.png'
 import hospitalImg from './img/icon/hospital.png'
-let token = process.env.REACT_APP_MAP_API
 
-mapboxgl.accessToken = token;
 
 class MbMap extends React.Component {
 
@@ -29,7 +27,22 @@ class MbMap extends React.Component {
 
         const map = new mapboxgl.Map({
             container: this.mapContainer,
-            style: 'mapbox://styles/mapbox/streets-v9',
+            style: {
+              version: 8,
+              sources: {
+                osm: {
+                  type: 'raster',
+                  tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+                  tileSize: 256,
+                  attribution: 'Map tiles by <a target="_top" rel="noopener" href="https://tile.openstreetmap.org/">OpenStreetMap tile servers</a>, under the <a target="_top" rel="noopener" href="https://operations.osmfoundation.org/policies/tiles/">tile usage policy</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>'
+                }
+              },
+              layers: [{
+                id: 'osm',
+                type: 'raster',
+                source: 'osm',
+              }],
+            },
             center: [lng, lat],
             minZoom: 2.5,
             zoom
@@ -120,7 +133,7 @@ class MbMap extends React.Component {
                 flexDirection: 'column',
                 height: '520px'
             }}>
-                <h2>Hospitals & Cases Map</h2>
+                <h2>Hospital & Case Map</h2>
 
                 <div style={style} ref={el => this.mapContainer = el} >
                     {/*{*/}

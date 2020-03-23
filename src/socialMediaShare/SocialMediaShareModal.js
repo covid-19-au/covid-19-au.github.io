@@ -1,18 +1,29 @@
 import React from 'react';
-import { Modal } from 'antd';
-import 'antd/dist/antd.css';
+import Modal from 'react-modal';
 
 import SharedButtons from './SharedButtons';
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
+Modal.setAppElement('#root')
 
 const SocialMediaShareModal = ({ visible, onCancel }) => {
   return(
     <Modal
-      title="Share the links with social medias"
-      visible={visible}
-      onCancel={onCancel}
-      footer={null}
+      isOpen={visible}
+      onRequestClose={onCancel}
+      style={customStyles}
     >
+      <p>Share this site.</p>
       <SharedButtons />
     </Modal>
   )

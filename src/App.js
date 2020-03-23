@@ -1,4 +1,9 @@
-import React, { useState, Suspense, useEffect, useRef } from "react";
+import React, {
+  useState,
+  Suspense,
+  useEffect,
+  useRef
+} from "react";
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -11,12 +16,14 @@ import all from "./data/overall";
 import provinces from "./data/area";
 import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
+import stateData from "./data/state";
 import Tag from "./Tag";
+
+import Flights from "./Flights";
 
 import MbMap from "./ConfirmedMap";
 import "./App.css";
 import axios from "axios";
-import Papa from "papaparse";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 
@@ -27,11 +34,10 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
 import NewsTimeline from "./NewsTimeline";
-import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal'
 import { useTable, useFilters, useGlobalFilter, usePagination } from 'react-table'
 
-
 import stateCaseData from "./data/stateCaseData";
+import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -149,7 +155,8 @@ function HistoryGraph({ countryData }) {
       height: 260,
       title: {
         text: "Overall trends for COVID-19 cases in Australia ",
-        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        fontFamily:
+          "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
       axisX: {
@@ -175,7 +182,8 @@ function HistoryGraph({ countryData }) {
       height: 260,
       title: {
         text: "Daily new cases and deaths in Australia",
-        fontFamily: "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        fontFamily:
+          "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         fontSize: 20
       },
       axisX: {
@@ -300,124 +308,24 @@ function Tweets({ province, nav }) {
       <div className="centerContent">
         <div className="selfCenter standardWidth">
           {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
-          {nav === "News" ? <TwitterTimelineEmbed
-            sourceType="list"
-            ownerScreenName="8ravoEchoNov"
-            slug="COVID19-Australia"
-            options={{
-              height: 450
-            }}
-            noHeader={true}
-            noFooter={true}
-          /> : ""}
-
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/**
- * User can search using flight number
- * @param {JSON} flights flights information
- */
-function Flights({ flights }) {
-  // console.log(flights);
-  const [searchKey, setSearchKey] = useState("");
-  const [flightResult, setFlightResult] = useState([]);
-  useEffect(() => {
-    // initialize the search result
-    setFlightResult([]);
-    // clear search result
-    if (searchKey === "") {
-      setFlightResult([]);
-      return;
-    }
-    for (var i = 0; i < flights.length; i++) {
-      let flight = flights[i];
-      let flightNo = flight.flightNo.toLowerCase();
-      if (flightNo.includes(searchKey.toLowerCase())) {
-        setFlightResult(flightResult => [...flightResult, flight]);
-      }
-    }
-  }, [searchKey]);
-
-  if (flightResult.length !== 0) {
-    flightResult.sort(function (a, b) {
-      let arr = a.dateArrival.split("-");
-      let dateA = new Date(
-        parseInt(arr[2]),
-        parseInt(arr[1]),
-        parseInt(arr[0])
-      );
-      arr = b.dateArrival.split("-");
-
-      let dateB = new Date(
-        parseInt(arr[2]),
-        parseInt(arr[1]),
-        parseInt(arr[0])
-      );
-
-      return new Date(dateB) - new Date(dateA);
-    });
-  }
-
-  return (
-    <div className="card">
-      <h2>Flights</h2>
-      <div className="centerContent">
-        <div className="selfCenter standardWidth">
-          <input
-            className="flightSearch"
-            type="text"
-            placeholder="Search by flight number"
-            onChange={e => setSearchKey(e.target.value)}
-          ></input>
-          <div className="flightInfo header">
-            <div className="area header">Flight No</div>
-            <div className="area header">Airline</div>
-            <div className="area header">Route</div>
-            <div className="area header">Arrival</div>
-            <div className="area header">Close Contact Row</div>
-            {/* <div className="area header">Source State</div> */}
-          </div>
-          {flightResult.length ? (
-            flightResult.map(flight => (
-              <div className="flightInfo header">
-                <div className="flightArea">{flight.flightNo}</div>
-                <div className="flightArea">{flight.airline}</div>
-                <div className="flightArea">{flight.path}</div>
-                <div className="flightArea">{flight.dateArrival}</div>
-                <div className="flightArea">{flight.closeContactRow}</div>
-                {/* <div className="area">{flight.sourceState}</div> */}
-              </div>
-            ))
+          {nav === "News" ? (
+            <TwitterTimelineEmbed
+              sourceType="list"
+              ownerScreenName="8ravoEchoNov"
+              slug="COVID19-Australia"
+              options={{
+                height: 450
+              }}
+              noHeader={true}
+              noFooter={true}
+            />
           ) : (
-              <></>
+              ""
             )}
         </div>
       </div>
     </div>
   );
-}
-
-/**
- * About card
- */
-function About() {
-  return (
-    <div className="card">
-      <h2>About</h2>
-      <h4>Contact Information</h4>
-      <p>Place Holder</p>
-      <h4>Data Source Information</h4>
-      <p>Place holder</p>
-    </div>
-  );
-}
-
-function ExposureSites() {
-  return <div></div>;
 }
 
 function Stat({
@@ -462,10 +370,7 @@ function Stat({
 
   return (
     <div className="card">
-      <h2>
-        Status {name ? `· ${name}` : false}
-
-      </h2>
+      <h2>Status {name ? `· ${name}` : false}</h2>
       <div className="row">
         <Tag
           number={confirmedCount}
@@ -492,7 +397,9 @@ function Stat({
           Recovered
         </Tag>
       </div>
-      <span className="due" style={{ fontSize: '60%' }}>Time in AEDT, last updated at: {stateCaseData.updatedTime}</span>
+      <span className="due" style={{ fontSize: "60%" }}>
+        Time in AEDT, last updated at: {stateCaseData.updatedTime}
+      </span>
 
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
@@ -507,12 +414,11 @@ function Stat({
 function Fallback(props) {
   return (
     <div className="fallback">
-      <div className="ui labeled button" tabIndex="0">
-        <div className="ui basic blue button" onClick={ ()=> props.setModalVisibility(true) }>
-          <i className="share alternate square icon"/>
-          Share this link
-        </div>
-      </div>
+      <button onClick={() => props.setModalVisibility(true)}>
+        <i className="share alternate square icon" />
+          Share this site
+      </button>
+
       <div>Template credits to: shfshanyue</div>
 
       <div>
@@ -546,6 +452,10 @@ function Area({ area, onChange, data }) {
   for (let i = 0; i < data.length; i++) {
     totalRecovered += parseInt(data[i][3]);
   }
+  let lastTotal =
+     stateData[
+        Object.keys(stateData)[Object.keys(stateData).length - 1]
+     ];
 
   const renderArea = () => {
     let latest =
@@ -565,13 +475,13 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{x[1]}</strong>
-        </div>
+          <strong>{x[1]}</strong>{x[0]==='NSW'||x[0]==='NT'?'*':null}&nbsp;{(x[1]-lastTotal[x[0]][0])>0?`(+${x[1]-lastTotal[x[0]][0]})`:null}
+      </div>
         <div className="death">
-          <strong>{x[2]}</strong>
+          <strong>{x[2]}</strong>&nbsp;{(x[2]-lastTotal[x[0]][1])>0?` (+${x[2]-lastTotal[x[0]][1]})`:null}
         </div>
         <div className="cured">
-          <strong>{x[3]}</strong>
+          <strong>{x[3]}</strong>&nbsp;{(x[3]-lastTotal[x[0]][2])>0?`(+${x[3]-lastTotal[x[0]][2]})`:null}
         </div>
         <div className="tested">{x[4]}</div>
       </div>
@@ -581,11 +491,11 @@ function Area({ area, onChange, data }) {
   return (
     <>
       <div className="province header">
-        <div className="area header">State</div>
-        <div className="confirmed header">Confirmed</div>
-        <div className="death header">Deaths</div>
-        <div className="cured header">Recovered</div>
-        <div className="tested header">Tested*</div>
+        <div className="area header statetitle">State</div>
+        <div className="confirmed header confirmedtitle">Confirmed</div>
+        <div className="death header deathtitle">Deaths</div>
+        <div className="cured header recoveredtitle">Recovered</div>
+        <div className="tested header testedtitle">Tested</div>
       </div>
       {renderArea()}
 
@@ -631,12 +541,12 @@ function Navbar({ setNav, nav }) {
   const ref = useRef(null);
   const handleScroll = () => {
     setSticky(ref.current.getBoundingClientRect().top <= 0);
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', () => handleScroll);
+      window.removeEventListener("scroll", () => handleScroll);
     };
   }, []);
 
@@ -647,13 +557,36 @@ function Navbar({ setNav, nav }) {
 
   return (
     <div className={`sticky-wrapper ${isSticky ? "sticky" : ""}`} ref={ref}>
-      <div className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}>
-        <span className={`navItems ${nav === "Home" && !isSticky ? "navCurrentPage " : ""} ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></span>
-        <span className={`navItems ${nav === "Info" && !isSticky ? "navCurrentPage " : ""} ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></span>
-        <span className={`navItems ${nav === "News" && !isSticky ? "navCurrentPage " : ""} ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></span>
+      <div
+        className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
+      >
+        <span
+          className={`navItems ${
+            nav === "Home" && !isSticky ? "navCurrentPage " : ""
+            } ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `}
+          onClick={onClick}
+        >
+          <strong>Home</strong>
+        </span>
+        <span
+          className={`navItems ${
+            nav === "Info" && !isSticky ? "navCurrentPage " : ""
+            } ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `}
+          onClick={onClick}
+        >
+          <strong>Info</strong>
+        </span>
+        <span
+          className={`navItems ${
+            nav === "News" && !isSticky ? "navCurrentPage " : ""
+            } ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `}
+          onClick={onClick}
+        >
+          <strong>News</strong>
+        </span>
       </div>
     </div>
-  )
+  );
 }
 
 function Information({hospitalData, columns}) {
@@ -787,11 +720,18 @@ function Information({hospitalData, columns}) {
     );
 }
 
-function HomePage({ province, overall, myData, area, data, setProvince, gspace }) {
+function HomePage({
+  province,
+  overall,
+  myData,
+  area,
+  data,
+  setProvince,
+  gspace
+}) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Stat
           {...{ ...all, ...overall }}
           name={province && province.name}
@@ -836,26 +776,32 @@ function HomePage({ province, overall, myData, area, data, setProvince, gspace }
               href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
             >
               @Data Source
-                </a>
+            </a>
             <span
-              style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+              style={{ fontSize: "70%", float: "left", paddingLeft: 0 }}
               className="due"
             >
-              *Number of tested cases is updated daily.
-                </span>
+              Numbers in brackets indicate daily increase <br />
+              *Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
+
+
+            </span>
           </div>
         </div>
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <MbMap />
+
         <HistoryGraph countryData={country} />
+
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Flights flights={flights} />
       </Grid>
-
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={3}>
+      </Grid>
     </Grid>
-  )
+  );
 }
 
 function InfoPage({columns}) {
@@ -884,26 +830,24 @@ function InfoPage({columns}) {
   const hospitalData = React.useMemo(() => mapDataHos, []);
 
   return (
-        <Grid item xs={12} sm={12} md={10}>
-            <Information columns={columns} hospitalData={hospitalData}/>
-        </Grid>
-            
+    <Grid item xs={12} sm={12} md={10}>
+        <Information columns={columns} hospitalData={hospitalData}/>
+    </Grid>
   )
 }
 
 function NewsPage({ gspace, province, nav }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-
       <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <Tweets province={province} nav={nav} />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
         <NewsTimeline />
       </Grid>
     </Grid>
-  )
+  );
 }
 
 
@@ -1156,13 +1100,10 @@ function App() {
 
   const [myData, setMyData] = useState(null);
   useEffect(() => {
-
     let sortedData = stateCaseData.values.sort((a, b) => {
       return b[1] - a[1];
     });
-
-    setMyData(sortedData)
-
+    setMyData(sortedData);
   }, [province]);
   useEffect(() => {
     if (province) {
@@ -1189,18 +1130,18 @@ function App() {
   const overall = province ? province : all;
 
   const [nav, setNav] = useState("Home");
-  const [ showSocialMediaIcons, setShowSocialMediaIcons ] = useState(false);
+  const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
 
-  const setModalVisibility = (state) => {
-    setShowSocialMediaIcons(state)
-  }
+  const setModalVisibility = state => {
+    setShowSocialMediaIcons(state);
+  };
 
   if (myData) {
     return (
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
-          onCancel={ () => setShowSocialMediaIcons(false)}
+          onCancel={() => setShowSocialMediaIcons(false)}
         />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
@@ -1226,7 +1167,7 @@ function App() {
           {/*</Grid>*/}
 
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility}/>
+            <Fallback setModalVisibility={setModalVisibility} />
           </Grid>
         </Grid>
       </div>
