@@ -4,6 +4,30 @@ const flightNoRegex = /^[A-Za-z]{2}\d*$/;
 const flightRouteRegex = /^[A-Za-z]*$/;
 const flightDateArrivalRegex = /^\d{0,2}-{0,1}\d{2}-{0,1}\d{0,4}$/;
 
+
+/**
+ * A universal search function based on SearchBase
+ * @param {Array} searchList: List of search keys
+ * @param {string} type: Type of param includes path, flightNo, and dateArrival
+ * @param {Array} searchBase: DataBase we perform the search
+ * @returns {Array} list of matched flights
+ */
+function UniversalSearch(searchList, type, searchBase) {
+  if(searchList.length ===0){
+    return searchBase
+  }
+  let returnList = [];
+  searchList.forEach(key=>{
+    searchBase.forEach(item=>{
+      if(item[type].toLowerCase().includes(key.toLowerCase())){
+        returnList.push(item)
+      }
+    })
+  })
+  return returnList.length>0?returnList:searchBase
+
+}
+
 /**
  * Search flight information according user's input
  * @param {String} searchKey keyword used as filter
@@ -30,71 +54,22 @@ function SearchFlights(searchKey, flights) {
     }
   }
 
-  for (let i = 0; i < flights.length; i++) {
-    let flight = flights[i];
-    let flightNo = flight.flightNo.toLowerCase();
-    let route = flight.path.toLowerCase();
-    let dateArrival = flight.dateArrival.toLowerCase();
-    if (flightNoKeyList.length > 0) {
-      // search using flight number
-      for (let j = 0; j < flightNoKeyList.length; j++) {
-        if (flightNo.includes(flightNoKeyList[j].toLowerCase())) {
-          if (routeKeyList.length > 0) {
-            // search using flight number and route
-            for (let k = 0; k < routeKeyList.length; k++) {
-              if (route.includes(routeKeyList[k].toLowerCase())) {
-                if (dateArrivalKeyList.length > 0) {
-                  // search using flight number, route and date arrival
-                  for (let l = 0; l < dateArrivalKeyList.length; l++) {
-                    if (
-                      dateArrival.includes(dateArrivalKeyList[l].toLowerCase())
-                    ) {
-                      tempResultList.push(flight);
-                    }
-                  }
-                } else {
-                  tempResultList.push(flight);
-                }
-              }
-            }
-          } else if (dateArrivalKeyList.length > 0) {
-            //search using flight number and date arrival
-            for (let l = 0; l < dateArrivalKeyList.length; l++) {
-              if (dateArrival.includes(dateArrivalKeyList[l].toLowerCase())) {
-                tempResultList.push(flight);
-              }
-            }
-          } else {
-            tempResultList.push(flight);
-          }
-        }
-      }
-    } else if (routeKeyList.length > 0) {
-      // search using flight route
-      for (let k = 0; k < routeKeyList.length; k++) {
-        if (route.includes(routeKeyList[k].toLowerCase())) {
-          if (dateArrivalKeyList.length > 0) {
-            // search using flight route and date arrival
-            for (let l = 0; l < dateArrivalKeyList.length; l++) {
-              if (dateArrival.includes(dateArrivalKeyList[l].toLowerCase())) {
-                tempResultList.push(flight);
-              }
-            }
-          } else {
-            tempResultList.push(flight);
-          }
-        }
-      }
-    } else if (dateArrivalKeyList.length > 0) {
-      // search using flight date arrival only
-      for (let l = 0; l < dateArrivalKeyList.length; l++) {
-        if (dateArrival.includes(dateArrivalKeyList[l].toLowerCase())) {
-          tempResultList.push(flight);
-        }
-      }
-    }
+  let flightNoResult = UniversalSearch(flightNoKeyList,'flightNo',flights);
+  let routeKeyResult = UniversalSearch(routeKeyList,'path',flightNoResult);
+  let dateArrivalKeyResult = UniversalSearch(dateArrivalKeyList,'dateArrival',routeKeyResult);
+
+  //sort or return
+  if(dateArrivalKeyResult.length===0||dateArrivalKeyResult.length===flights.length){
+    return[]
   }
-  return tempResultList;
+   return dateArrivalKeyResult.sort(function(a, b) {
+        let arr = a.dateArrival.split("-");
+        let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
+        arr = b.dateArrival.split("-");
+
+        let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
+        return new Date(dateB) - new Date(dateA);
+    });
 }
 
 /**
