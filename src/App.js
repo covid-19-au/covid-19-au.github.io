@@ -702,7 +702,7 @@ function HomePage({
 }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Stat
           {...{ ...all, ...overall }}
           name={province && province.name}
@@ -752,20 +752,24 @@ function HomePage({
               style={{ fontSize: "70%", float: "left", paddingLeft: 0 }}
               className="due"
             >
-              *Number of tested cases is updated daily. {"\n"}
-                **Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
+              Numbers in brackets indicate daily increase <br />
+              *Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
 
 
             </span>
           </div>
         </div>
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <MbMap />
+
         <HistoryGraph countryData={country} />
+
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Flights flights={flights} />
+      </Grid>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={3}>
       </Grid>
     </Grid>
   );
@@ -786,7 +790,7 @@ function NewsPage({ gspace, province, nav }) {
         <Tweets province={province} nav={nav} />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
         <NewsTimeline />
       </Grid>
     </Grid>
