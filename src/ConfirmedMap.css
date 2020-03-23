@@ -7,6 +7,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.key{
+  margin-left: 0px;
+}
+
 .key {
     display: inline-block;
     overflow-wrap: break-word;
