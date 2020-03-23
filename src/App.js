@@ -786,7 +786,7 @@ function NewsPage({ gspace, province, nav }) {
         <Tweets province={province} nav={nav} />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
         <NewsTimeline />
       </Grid>
     </Grid>
