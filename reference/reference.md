@@ -2,11 +2,7 @@
 
 We try our best to obtain our data from trustworthy sources.
 
-## Confirmed, Death, Recovered Numbers:
-
-The Australian: https://www.theaustralian.com.au
-
-## Tested Numbers:
+## Confirmed, Death, Recovered Numbers, Tested Numbers:
 
 - NSW: https://www.health.nsw.gov.au/news/Pages/default.aspx
 - VIC: https://www.dhhs.vic.gov.au/media-hub-coronavirus-disease-covid-19
@@ -16,6 +12,9 @@ The Australian: https://www.theaustralian.com.au
 - ACT: https://www.health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19
 - NT: https://securent.nt.gov.au/alerts/coronavirus-covid-19-updates
 - TAS: https://www.dhhs.tas.gov.au/news/2020
+- ABC News: https://www.abc.net.au/
+- 7News: https://7news.com.au/
+
 
 ## Hospitals and Exposure Sites
 
@@ -34,4 +33,4 @@ The function is still in the test stage.
 
 ## Status Graphs:
 
-The Australian: https://www.theaustralian.com.au
+Wikipedia: https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Australia
