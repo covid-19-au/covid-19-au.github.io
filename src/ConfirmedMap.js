@@ -28,7 +28,7 @@ class MbMap extends React.Component {
             // 'DD/MM/YY' format
             // Assume entries with incorrect formats are old
             const eventDay = date.split("/");
-            if (eventDay.length !== 3) { return true; }
+            if (eventDay.length !== 3 || eventDay === 'N/A') { return true; }
 
             // Default constructor has current time
             const today = new Date();
