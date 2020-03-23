@@ -161,7 +161,7 @@ class MbMap extends React.Component {
 
                 <span className="due">
                     <span className="key"><img src={confirmedImg}/><p>Recently confirmed case</p></span>
-                    <span className="key"><img src={confirmedOldImg}/><p>Old case</p></span>
+                    <span className="key"><img src={confirmedOldImg}/><p>Case over {oldCaseDays} days ago</p></span>
                     <span className="key"><img src={hospitalImg}/><p>Hospital or COVID-19 assessment centre</p></span>
         </span>
             </div>
