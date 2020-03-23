@@ -223,11 +223,25 @@ h2 small {
     text-align: center;
 }
 
+.formatTable {
+    color: black;
+}
+
 @media (max-width: 700px) {
+    .centerMedia {
+        margin: 2rem 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+
     .formatMedia {
         width: 426px !important;
         height: 240px !important;
         justify-content: center;
+    }
+
+    .formatTable {
+        font-size: small;
     }
 
     .imageContainer {
@@ -241,6 +255,14 @@ h2 small {
         width: 319px !important;
         height: 180px !important;
         justify-content: center;
+    }
+
+    .pagination {
+        font-size: xx-small;
+    }
+
+    .formatTable {
+        font-size: x-small;
     }
 
     .imageContainer {
@@ -258,6 +280,10 @@ h2 small {
         width: 284px !important;
         height: 160px !important;
         justify-content: center;
+    }
+
+    .formatTable {
+        font-size: xx-small;
     }
 
     .imageContainer {
@@ -331,5 +357,40 @@ h2 small {
 }
 
 .flightSearch {
-  width: 98%;
+    width: 98%;
+}
+
+.tableRows {
+    border: 1px solid #87CEEB;
+}
+
+.tableRows:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tableData {
+    border-right: 1px solid #87CEEB;
+}
+
+.customStateSelect {
+    border-radius: 4px;
+    border: 2px solid #87CEEB;
+    background-color: white;
+}
+
+.buttonStyles {
+    background-color: white;
+    color: black;
+    border: 2px solid #87CEEB;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+}
+
+.buttonStyles:hover {
+    background-color: #87CEEB;
+    color: white;
+}
+
+.pagination {
+    margin-top: 1rem;
 }
