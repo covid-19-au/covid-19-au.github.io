@@ -42,6 +42,7 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 * Paldeep Singh: psin49@student.monash.edu 
 * Boxuan Lu: bluu0010@student.monash.edu
 * Andrew Zhang: andrew.zhang9799@gmail.com
+* Saharsh Bhatia: sbha0021@student.monash.edu
 
 ### PM
 * Chunyang Chen: Chunyang.Chen@monash.edu
@@ -89,9 +90,7 @@ We receive tons of features requests from users and like the following features 
 
 If you are interested in one or more of these features, welcome to the PR and our team will review all PRs from time to time.
 Once your PR is merged to our project, we will explicitely list you in the contributor list of this project.
-Looking forward to your great works.
-
-### Please make sure that if you do submit a pull request, that it is to the 'dev' branch.
+Looking forward to your great works. **Note**: Please make sure that if you do submit a pull request, that it is to the 'dev' branch.
 
 
 ## Term of use
