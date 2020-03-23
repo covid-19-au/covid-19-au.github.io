@@ -414,8 +414,8 @@ function Stat({
 function Fallback(props) {
   return (
     <div className="fallback">
-      <button onClick={ ()=> props.setModalVisibility(true) }>
-        <i className="share alternate square icon"/>
+      <button onClick={() => props.setModalVisibility(true)}>
+        <i className="share alternate square icon" />
           Share this site
       </button>
 
@@ -745,10 +745,13 @@ function HomePage({
               @Data Source
             </a>
             <span
-              style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+              style={{ fontSize: "70%", float: "left", paddingLeft: 0 }}
               className="due"
             >
-              *Number of tested cases is updated daily.
+              *Number of tested cases is updated daily. {"\n"}
+                **Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
+
+
             </span>
           </div>
         </div>
@@ -858,7 +861,7 @@ function App() {
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
-          onCancel={ () => setShowSocialMediaIcons(false)}
+          onCancel={() => setShowSocialMediaIcons(false)}
         />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
