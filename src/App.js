@@ -6,6 +6,12 @@ import React, {
   Fragment,
   useRef
 } from "react";
+
+import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -17,14 +23,12 @@ import testedCases from "./data/testedCases";
 import all from "./data/overall";
 import provinces from "./data/area";
 import information from "./data/info";
-import stateData from "./data/state";
 import Tag from "./Tag";
-
-import Flights from "./Flights";
 
 import MbMap from "./ConfirmedMap";
 import "./App.css";
 import axios from "axios";
+import Papa from "papaparse";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 
@@ -328,6 +332,225 @@ function Tweets({ province, nav }) {
   );
 }
 
+/**
+ * User can search using flight number
+ * @param {JSON} flights flights information
+ */
+function Flights({ flights }) {
+  // console.log(flights);
+  console.log(flights.length);
+  const [searchKey, setSearchKey] = useState("");
+  const [flightResult, setFlightResult] = useState([]);
+  const [indexFlightNo, setIndexFlightNo] = useState(true);
+  const [indexRoute, setindexRoute] = useState(false);
+  const [indexDateArrival, setIndexDateArrival] = useState(false);
+  useEffect(() => {
+    // initialize the search result
+    setFlightResult([]);
+    // clear search result
+    if (searchKey === "") {
+      setFlightResult([]);
+      return;
+    }
+
+    for (let i = 0; i < flights.length; i++) {
+      let flight = flights[i];
+      let flightNo = flight.flightNo.toLowerCase();
+      let route = flight.path.toLowerCase();
+      let dateArrival = flight.dateArrival.toLowerCase();
+      let validFlight = false;
+
+      let searchKeyList = [];
+      searchKeyList = searchKey.split(" ");
+      // remove white space from array
+      searchKeyList = searchKeyList.filter(function (str) {
+        return /\S/.test(str);
+      });
+
+      if (indexFlightNo) {
+        for (let j = 0; j < searchKeyList.length; j++) {
+          // when enable indexFlightNo only
+          if (flightNo.includes(searchKeyList[j].toLowerCase())) {
+            validFlight = true;
+            searchKeyList.splice(j, 1);
+            break;
+          }
+          validFlight = false;
+        }
+        if (indexRoute && validFlight) {
+          for (let j = 0; j < searchKeyList.length; j++) {
+            // when enable indexFlightNo and indexRoute
+            if (route.includes(searchKeyList[j].toLowerCase())) {
+              validFlight = true;
+              searchKeyList.splice(j, 1);
+              break;
+            }
+            validFlight = false;
+          }
+          if (indexDateArrival && validFlight) {
+            // when all three indexing method are enabled
+            for (let j = 0; j < searchKeyList.length; j++) {
+              if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
+                validFlight = true;
+                searchKeyList.splice(j, 1);
+                break;
+              }
+              validFlight = false;
+            }
+          }
+        } else if (indexDateArrival && validFlight) {
+          // when enable indexFlightNo and indexDateArrival
+          for (let j = 0; j < searchKeyList.length; j++) {
+            if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
+              validFlight = true;
+              searchKeyList.splice(j, 1);
+              break;
+            }
+            validFlight = false;
+          }
+        }
+      } else if (indexRoute) {
+        // when enable indexRoute only
+        for (let j = 0; j < searchKeyList.length; j++) {
+          if (route.includes(searchKeyList[j].toLowerCase())) {
+            validFlight = true;
+            searchKeyList.splice(j, 1);
+            break;
+          }
+          validFlight = false;
+        }
+        if (indexDateArrival && validFlight) {
+          // when enable both indexRoute and indexDateArrival
+          for (let j = 0; j < searchKeyList.length; j++) {
+            if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
+              validFlight = true;
+              searchKeyList.splice(j, 1);
+              break;
+            }
+            validFlight = false;
+          }
+        }
+      } else if (indexDateArrival) {
+        // when enable indexDateArrival only
+        for (let j = 0; j < searchKeyList.length; j++) {
+          if (dateArrival.includes(searchKeyList[j].toLowerCase())) {
+            validFlight = true;
+            searchKeyList.splice(j, 1);
+            break;
+          }
+          validFlight = false;
+        }
+      }
+
+      if (validFlight) {
+        setFlightResult(flightResult => [...flightResult, flight]);
+      }
+    }
+  }, [searchKey, indexFlightNo, indexRoute, indexDateArrival]);
+
+  // only sort when the flight result list is not empty
+  let uniqueFlight = []; // sort flight result without duplicate object
+  if (flightResult.length !== 0) {
+    flightResult.sort(function (a, b) {
+      let arr = a.dateArrival.split("-");
+      let dateA = new Date(
+        parseInt(arr[2]),
+        parseInt(arr[1]),
+        parseInt(arr[0])
+      );
+      arr = b.dateArrival.split("-");
+
+      let dateB = new Date(
+        parseInt(arr[2]),
+        parseInt(arr[1]),
+        parseInt(arr[0])
+      );
+
+      return new Date(dateB) - new Date(dateA);
+    });
+
+    // remove duplicate
+    console.log("Complete sorting...\nRemoving duplicates ");
+    for (var i = 0; i < flightResult.length; i++) {
+      if (flightResult[i] !== flightResult[i + 1]) {
+        uniqueFlight.push(flightResult[i]);
+      }
+    }
+  }
+
+  return (
+    <div className="card">
+      <h2>Flights</h2>
+      <div className="centerContent">
+        <div className="selfCenter standardWidth">
+          <div style={{ display: "inline-block" }}>
+            <input
+              className="flightSearch"
+              type="text"
+              placeholder="Search by flight number"
+              onChange={e => setSearchKey(e.target.value)}
+            ></input>
+            {/* <button
+              className={indexFlightNo ? "toggledButton" : ""}
+              onClick={e => setIndexFlightNo(!indexFlightNo)}
+            >
+              Search by Flight No.
+            </button>
+            <button
+              className={indexRoute ? "toggledButton" : ""}
+              onClick={e => setindexRoute(!indexRoute)}
+            >
+              Search by Route
+            </button>
+            <button
+              className={indexDateArrival ? "toggledButton" : ""}
+              onClick={e => setIndexDateArrival(!indexDateArrival)}
+            >
+              Search by Arrival Date
+            </button> */}
+          </div>
+          <div className="flightInfo header">
+            <div className="area header">Flight No</div>
+            <div className="area header">Airline</div>
+            <div className="area header">Route</div>
+            <div className="area header">Arrival</div>
+            <div className="area header">Close Contact Row</div>
+            {/* <div className="area header">Source State</div> */}
+          </div>
+          {uniqueFlight.length ? (
+            uniqueFlight.map(flight => (
+              <div className="flightInfo header">
+                <div className="flightArea">{flight.flightNo}</div>
+                <div className="flightArea">{flight.airline}</div>
+                <div className="flightArea">{flight.path}</div>
+                <div className="flightArea">{flight.dateArrival}</div>
+                <div className="flightArea">{flight.closeContactRow}</div>
+                {/* <div className="area">{flight.sourceState}</div> */}
+              </div>
+            ))
+          ) : (
+              <></>
+            )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ExposureSites() {
+  return <div></div>;
+}
+
+const HtmlTooltip = withStyles(theme => ({
+  tooltip: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
+
 function Stat({
   modifyTime,
   confirmedCount,
@@ -377,7 +600,16 @@ function Stat({
           fColor={"#e74c3c"}
           increased={confCountIncrease}
         >
-          Confirmed
+          <HtmlTooltip
+            title={
+              <React.Fragment>
+                <Typography color="inherit">Confirmed</Typography>
+                <em>{"All cases confirmed so far, consisting of currently active, recovery and death cases."}</em>
+              </React.Fragment>
+            }
+          >
+            <Button>Confirmed</Button>
+          </HtmlTooltip>
         </Tag>
         {/*<Tag number={suspectedCount || '-'}>*/}
         {/*疑似*/}
@@ -387,14 +619,32 @@ function Stat({
           fColor={"#a93226"}
           increased={deadCountIncrease}
         >
-          Deaths
+        <HtmlTooltip
+          title={
+            <React.Fragment>
+              <Typography color="inherit">Deaths</Typography>
+              <em>{"All cases that resulted in death, mostly found in the elderly."}</em>
+            </React.Fragment>
+          }
+        >
+          <Button>Deaths</Button>
+        </HtmlTooltip>
         </Tag>
         <Tag
           number={curedCount}
           fColor={"#00b321"}
           increased={curedCountIncrease}
         >
-          Recovered
+        <HtmlTooltip
+          title={
+            <React.Fragment>
+              <Typography color="inherit">Recovered</Typography>
+              <em>{"All cases that are no longer infected."}</em>
+            </React.Fragment>
+          }
+        >
+          <Button>Recovered</Button>
+        </HtmlTooltip>
         </Tag>
       </div>
       <span className="due" style={{ fontSize: "60%" }}>
@@ -414,8 +664,8 @@ function Stat({
 function Fallback(props) {
   return (
     <div className="fallback">
-      <button onClick={() => props.setModalVisibility(true)}>
-        <i className="share alternate square icon" />
+      <button onClick={ ()=> props.setModalVisibility(true) }>
+        <i className="share alternate square icon"/>
           Share this site
       </button>
 
@@ -452,10 +702,6 @@ function Area({ area, onChange, data }) {
   for (let i = 0; i < data.length; i++) {
     totalRecovered += parseInt(data[i][3]);
   }
-  let lastTotal =
-     stateData[
-        Object.keys(stateData)[Object.keys(stateData).length - 1]
-     ];
 
   const renderArea = () => {
     let latest =
@@ -475,13 +721,13 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{x[1]}</strong>{x[0]==='NSW'||x[0]==='NT'?'*':null}&nbsp;{(x[1]-lastTotal[x[0]][0])>0?`(+${x[1]-lastTotal[x[0]][0]})`:null}
-      </div>
+          <strong>{x[1]}</strong>
+        </div>
         <div className="death">
-          <strong>{x[2]}</strong>&nbsp;{(x[2]-lastTotal[x[0]][1])>0?` (+${x[2]-lastTotal[x[0]][1]})`:null}
+          <strong>{x[2]}</strong>
         </div>
         <div className="cured">
-          <strong>{x[3]}</strong>&nbsp;{(x[3]-lastTotal[x[0]][2])>0?`(+${x[3]-lastTotal[x[0]][2]})`:null}
+          <strong>{x[3]}</strong>
         </div>
         <div className="tested">{x[4]}</div>
       </div>
@@ -495,7 +741,7 @@ function Area({ area, onChange, data }) {
         <div className="confirmed header confirmedtitle">Confirmed</div>
         <div className="death header deathtitle">Deaths</div>
         <div className="cured header recoveredtitle">Recovered</div>
-        <div className="tested header testedtitle">Tested</div>
+        <div className="tested header testedtitle">Tested*</div>
       </div>
       {renderArea()}
 
@@ -620,8 +866,8 @@ function Information({ nav }) {
       {information.map(info => (
         <div className="row" key={uuid()}>
           <div>
-            {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
-                        This is so that we can reduce code smell while still retaining the ability to format text. 
+            {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
@@ -702,7 +948,7 @@ function HomePage({
 }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <Stat
           {...{ ...all, ...overall }}
           name={province && province.name}
@@ -749,27 +995,20 @@ function HomePage({
               @Data Source
             </a>
             <span
-              style={{ fontSize: "70%", float: "left", paddingLeft: 0 }}
+              style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
               className="due"
             >
-              Numbers in brackets indicate daily increase <br />
-              *Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
-
-
+              *Number of tested cases is updated daily.
             </span>
           </div>
         </div>
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <MbMap />
-
         <HistoryGraph countryData={country} />
-
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <Flights flights={flights} />
-      </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={3}>
       </Grid>
     </Grid>
   );
@@ -790,7 +1029,7 @@ function NewsPage({ gspace, province, nav }) {
         <Tweets province={province} nav={nav} />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <NewsTimeline />
       </Grid>
     </Grid>
@@ -869,7 +1108,7 @@ function App() {
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
-          onCancel={() => setShowSocialMediaIcons(false)}
+          onCancel={ () => setShowSocialMediaIcons(false)}
         />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
