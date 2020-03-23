@@ -15,7 +15,6 @@ We try our best to obtain our data from trustworthy sources.
 - ABC News: https://www.abc.net.au/
 - 7News: https://7news.com.au/
 
-
 ## Hospitals and Exposure Sites
 
 - NSW: https://www.health.nsw.gov.au/Infectious/diseases/Pages/coronavirus-clinics.aspx
@@ -29,7 +28,14 @@ We try our best to obtain our data from trustworthy sources.
 
 ## Flights
 
-The function is still in the test stage.
+- NSW: https://www.health.nsw.gov.au/Infectious/diseases/Pages/coronavirus-flights.aspx
+- VIC: https://www2.health.vic.gov.au/about/media-centre/mediareleases
+- QLD: https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts#flight-advice
+- SA: http://emergencydepartments.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/health+topics/health+topics+a+-+z/covid+2019/latest+updates/known+flights+with+confirmed+cases+of+covid-19
+- WA: https://www.healthywa.wa.gov.au/Articles/A_E/Coronavirus/Locations-visited-by-confirmed-cases
+- ACT: https://www.health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19/known-flights-act-confirmed-cases-covid-19
+- TAS: https://www.dhhs.tas.gov.au/news
+- NT: https://coronavirus.nt.gov.au/home/homepage-news/contact-tracing
 
 ## Status Graphs:
 

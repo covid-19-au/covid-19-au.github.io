@@ -2008,39 +2008,12 @@
   },
   {
     "reportState": "QLD",
-    "flightNo": "DL41",
-    "airline": "Delta",
-    "path": "Los Angeles to Sydney",
-    "dateDeparture": "14-03-20",
-    "dateArrival": "16-03-20",
-    "closeContactRow": "Further information pending"
-  },
-  {
-    "reportState": "QLD",
-    "flightNo": "DL41",
-    "airline": "Delta",
-    "path": "Los Angeles to Sydney",
-    "dateDeparture": "14-03-20",
-    "dateArrival": "16-03-20",
-    "closeContactRow": "Further information pending"
-  },
-  {
-    "reportState": "QLD",
     "flightNo": "EY460",
     "airline": "Etihad",
     "path": "Abu Dhabi to Melbourne",
     "dateDeparture": "14-03-20",
     "dateArrival": "15-03-20",
     "closeContactRow": "20, 21, 22, 23, 24"
-  },
-  {
-    "reportState": "QLD",
-    "flightNo": "DL41",
-    "airline": "Delta",
-    "path": "Los Angeles to Sydney",
-    "dateDeparture": "14-03-20",
-    "dateArrival": "16-03-20",
-    "closeContactRow": "Further information pending"
   },
   {
     "reportState": "QLD",
@@ -2293,5 +2266,176 @@
     "dateDeparture": "",
     "dateArrival": "19-03-20",
     "closeContactRow": ""
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QR906",
+    "airline": "Qatar",
+    "path": "Doha/Sydney to Canberra",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": ""
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QF94",
+    "airline": "Qantas",
+    "path": "Los Angeles to Melbourne",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "71, 72, 73, 74, 75"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QR908",
+    "airline": "Qatar",
+    "path": "Doha to Sydney",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "79, 80, 81, 82, 83"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "EY78",
+    "airline": "Etihad",
+    "path": "Amsterdam to Abu Dhabi",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": ""
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "VA672",
+    "airline": "Virgin Australia",
+    "path": "Sydney to Canberra",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "12, 13, 14, 15, 16"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QF2130",
+    "airline": "Qantas",
+    "path": "Melbourne to Canberra",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "15, 16, 17, 18, 19"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "EY450",
+    "airline": "Etihad",
+    "path": "Abu Dhabi to Sydney",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "18-03-20",
+    "closeContactRow": "42, 43, 44, 45, 46"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "VA640",
+    "airline": "Virgin Australia",
+    "path": "Sydney to Canberra",
+    "dateDeparture": "18-03-20",
+    "dateArrival": "18-03-20",
+    "closeContactRow": "3, 4, 5, 6, 7"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QR906",
+    "airline": "Qatar",
+    "path": "Doha to Sydney to Canberra",
+    "dateDeparture": "14-03-20",
+    "dateArrival": "15-03-20",
+    "closeContactRow": "27, 28, 29, 30, 31"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "EY450",
+    "airline": "Etihad",
+    "path": "Abu Dhabi to Sydney",
+    "dateDeparture": "18-03-20",
+    "dateArrival": "19-03-20",
+    "closeContactRow": "15, 16, 17, 18, 19"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "VA640",
+    "airline": "Virgin Australia",
+    "path": "Sydney to Canberra",
+    "dateDeparture": "19-03-20",
+    "dateArrival": "19-03-20",
+    "closeContactRow": "10, 11, 12, 13, 14"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QF74",
+    "airline": "Qantas",
+    "path": "Sydney to Canberra",
+    "dateDeparture": "18-03-20",
+    "dateArrival": "18-03-20",
+    "closeContactRow": "54, 55, 56, 57, 58"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QF36",
+    "airline": "Qantas",
+    "path": "Singapore to Melbourne",
+    "dateDeparture": "15-03-20",
+    "dateArrival": "16-03-20",
+    "closeContactRow": "56, 57, 58, 59, 60"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QF816",
+    "airline": "Qantas",
+    "path": "Melbourne to Canberra",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": ""
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "SQ288",
+    "airline": "Singapore Airlines",
+    "path": "Singapore to Sydney to Canberra",
+    "dateDeparture": "19-03-20",
+    "dateArrival": "19-03-20",
+    "closeContactRow": "30, 31, 32, 33, 34"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QR906",
+    "airline": "Qatar",
+    "path": "Doha to Sydney to Canberra",
+    "dateDeparture": "16-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "42, 43, 44, 45, 46"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "QF42",
+    "airline": "Qantas",
+    "path": "Jakarta to Sydney",
+    "dateDeparture": "10-03-20",
+    "dateArrival": "11-03-20",
+    "closeContactRow": "90, 91, 92, 93, 94"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "VA134",
+    "airline": "Virgin Australia",
+    "path": "Christchurch to Sydney",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "23, 24, 25, 26, 27"
+  },
+  {
+    "reportState": "ACT",
+    "flightNo": "VA640",
+    "airline": "Virgin Australia",
+    "path": "Sydney to Canberra",
+    "dateDeparture": "17-03-20",
+    "dateArrival": "17-03-20",
+    "closeContactRow": "3, 4, 5, 6, 7"
   }
 ]
