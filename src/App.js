@@ -591,8 +591,8 @@ function Navbar({ setNav, nav }) {
 
 function Information({hospitalData, columns}) {
     return (
-        <div className="card">
-            <h2>Informative Media</h2>
+        <div className="card" >
+            <h2 className="responsiveH2">Informative Media</h2>
             <div className="row centerMedia">
                 <div>
                     <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{youtube: {playerVars: {showinfo: 1}}}}/>
@@ -625,16 +625,16 @@ function Information({hospitalData, columns}) {
                 </div>
             </div>
             
-            <h2>Information</h2>
+            <h2 className="responsiveH2">Information</h2>
             {information.map(info => (
-                <div className="row" key={uuid()}>
+                <div className="row alignStyles responsiveText" key={uuid()}>
                     <div>
                         {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
                         This is so that we can reduce code smell while still retaining the ability to format text. 
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
-                        <h3>{info.name}</h3>
+                        <h3 className="responsiveH3">{info.name}</h3>
                         <div>
                             {/* First block of text */}
                             {info.text.text_1.map(t1 => (
@@ -677,10 +677,10 @@ function Information({hospitalData, columns}) {
                     </div>
                 </div>
             ))}
-            <small>All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a>, <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">WHO</a>
+            <small className="alignStyles">All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a>, <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">WHO</a>
             </small>
-            <h2>Coronavirus Helplines</h2>
-            <div className="row">
+            <h2 className="responsiveH2">Coronavirus Helplines</h2>
+            <div className="row alignStyles responsiveText">
                 <div>
                     <h3>National helplines operating 24 hours a day, seven days a week.</h3>
                     <ul>
@@ -701,16 +701,17 @@ function Information({hospitalData, columns}) {
                     </ul>
                 </div>
             </div>
-            <h2>Other interesting links to learn about the current situation</h2>
-            <div className="row">
+            <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
+            <div className="row alignStyles responsiveText">
                 <div>
                     <ul>
                         <li><a target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">Coronavirus: The Hammer and the Dance</a></li>
                     </ul>
                 </div>
             </div>
-            <h2>List of Hospitals doing Coronavirus testing</h2>
-            <p><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
+            <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
+            <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
+            <small>Filter the table by clicking the dropdown below state.</small>
             <div className="row centerMedia">
                 <div>
                     <Table className="formatMedia" columns={columns} data={hospitalData} />
@@ -738,7 +739,7 @@ function HomePage({
           data={myData}
           countryData={country}
         />
-        <div className="card">
+        <div className="card" >
           <h2>
             Cases by State {province ? `· ${province.name}` : false}
             {province ? (
@@ -1005,7 +1006,7 @@ function Table({ columns, data }) {
                     <button className="buttonStyles" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
                     {'>>'}
                     </button>{' '}
-                    <span>
+                    <span style={{ marginRight: "1em", marginLeft: "1em" }}>
                     Page{' '}
                     <strong>
                         {pageIndex + 1} of {pageOptions.length}

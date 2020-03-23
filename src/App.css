@@ -251,7 +251,7 @@ h2 small {
 }
 
 .centerMedia {
-    margin: 2rem 0;
+    margin: 2rem 1rem;
     justify-content: center;
     text-align: center;
 }
@@ -261,11 +261,6 @@ h2 small {
 }
 
 @media (max-width: 700px) {
-    .centerMedia {
-        margin: 2rem 1rem;
-        justify-content: center;
-        text-align: center;
-    }
 
     .formatMedia {
         width: 426px !important;
@@ -288,6 +283,20 @@ h2 small {
         width: 319px !important;
         height: 180px !important;
         justify-content: center;
+    }
+
+    .responsiveH2 {
+        font-size: large;
+        font-weight: 800;
+    }
+
+    .responsiveH3 {
+        font-size: medium;
+        font-weight: 800;
+    }
+
+    .responsiveText {
+        font-size: small;
     }
 
     .pagination {
@@ -420,6 +429,9 @@ h2 small {
     border: 2px solid #87CEEB;
     transition-duration: 0.4s;
     border-radius: 4px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 1px;
 }
 
 .buttonStyles:hover {
@@ -428,5 +440,11 @@ h2 small {
 }
 
 .pagination {
+    justify-content: center;
     margin-top: 1rem;
+}
+
+.alignStyles {
+    margin: 0;
+    padding: 1em;
 }
