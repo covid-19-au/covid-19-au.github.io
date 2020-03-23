@@ -453,9 +453,9 @@ function Area({ area, onChange, data }) {
     totalRecovered += parseInt(data[i][3]);
   }
   let lastTotal =
-    stateData[
-    Object.keys(stateData)[Object.keys(stateData).length - 1]
-    ];
+     stateData[
+        Object.keys(stateData)[Object.keys(stateData).length - 1]
+     ];
 
   const renderArea = () => {
     let latest =
@@ -475,13 +475,13 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{x[1]}</strong>{x[0] === 'NSW' || x[0] === 'NT' ? '*' : null}&nbsp;{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}
-        </div>
+          <strong>{x[1]}</strong>{x[0]==='NSW'||x[0]==='NT'?'*':null}&nbsp;{(x[1]-lastTotal[x[0]][0])>0?`(+${x[1]-lastTotal[x[0]][0]})`:null}
+      </div>
         <div className="death">
-          <strong>{x[2]}</strong>&nbsp;{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}
+          <strong>{x[2]}</strong>&nbsp;{(x[2]-lastTotal[x[0]][1])>0?` (+${x[2]-lastTotal[x[0]][1]})`:null}
         </div>
         <div className="cured">
-          <strong>{x[3]}</strong>&nbsp;{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}
+          <strong>{x[3]}</strong>&nbsp;{(x[3]-lastTotal[x[0]][2])>0?`(+${x[3]-lastTotal[x[0]][2]})`:null}
         </div>
         <div className="tested">{x[4]}</div>
       </div>
