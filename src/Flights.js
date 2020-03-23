@@ -127,6 +127,12 @@ function Flights({ flights }) {
   } else {
     outputList = flightResult;
   }
+  // remove duplicate
+  for (let i = 0; i < outputList.length; i++) {
+    if (outputList[i] === outputList[i + 1]) {
+      outputList.splice(i, 1);
+    }
+  }
 
   return (
     <div className="card">
