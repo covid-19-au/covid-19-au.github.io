@@ -17,7 +17,7 @@
         "name": "What is COVID-19?",
         "text": {
             "text_1": [
-                "There is currently an outbreak of a disease caused by a new strain of coronavirus that is called ‘COVID-19’. COVID-19 causes a spectrum of illness, from mild to very severe. The outbreak was first identified in Wuhan, Hubei Province, China, and has spread to many other countries outside of China. The virus can be spread from person to person, so good hygiene is very important in slowing the spread of infection."
+                "There is currently an outbreak of a disease called ‘COVID-19’, which is caused by a new strain of coronavirus. COVID-19 causes a spectrum of illness, from mild to very severe. The outbreak was first identified in Wuhan, Hubei Province, China, and has spread to many other countries. The virus can be spread from person to person, so good hygiene is very important in slowing the spread of infection."
             ],
             "ulist_1": [],
             "olist_1": [],
@@ -31,13 +31,13 @@
         "name": "What are the symptoms of COVID-19?",
         "text": {
             "text_1": [
-                "COVID-19 causes a spectrum of illness including fever and/or respiratory symptoms.",
-                "The key symptoms are:"
+                "The key symptoms of COVID-19 are:"
             ],
             "ulist_1": ["fever", "cough", "shortness of breath", "sore throat"],
             "olist_1": [],
             "text_2": [
-                "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days. "
+                "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days.",
+                "In more severe cases, COVID-19 can also result in pneumonia. Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days."
             ],
             "citation": [
                 
