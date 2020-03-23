@@ -1,12 +1,12 @@
 {
   "files": {
-    "data.js": "/static/js/data.8e93fd4a.chunk.js",
-    "data.js.map": "/static/js/data.8e93fd4a.chunk.js.map",
-    "main.css": "/static/css/main.3ea2ae5e.chunk.css",
-    "main.js": "/static/js/main.4abd7967.chunk.js",
-    "main.js.map": "/static/js/main.4abd7967.chunk.js.map",
-    "react.js": "/static/js/react.bbd817b4.chunk.js",
-    "react.js.map": "/static/js/react.bbd817b4.chunk.js.map",
+    "data.js": "/static/js/data.0276fba6.chunk.js",
+    "data.js.map": "/static/js/data.0276fba6.chunk.js.map",
+    "main.css": "/static/css/main.3027840c.chunk.css",
+    "main.js": "/static/js/main.78f6acaa.chunk.js",
+    "main.js.map": "/static/js/main.78f6acaa.chunk.js.map",
+    "react.js": "/static/js/react.49137d19.chunk.js",
+    "react.js.map": "/static/js/react.49137d19.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.be7e4ce9.js",
     "runtime-main.js.map": "/static/js/runtime-main.be7e4ce9.js.map",
     "static/js/4.46f44e7c.chunk.js": "/static/js/4.46f44e7c.chunk.js",
@@ -14,20 +14,20 @@
     "static/js/5.e71c474c.chunk.js": "/static/js/5.e71c474c.chunk.js",
     "static/js/5.e71c474c.chunk.js.map": "/static/js/5.e71c474c.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.315d20cb4c91e4f4673fa30e575813ce.js": "/precache-manifest.315d20cb4c91e4f4673fa30e575813ce.js",
+    "precache-manifest.6e6c7d7f8f6aa813cd9d2df4518b5826.js": "/precache-manifest.6e6c7d7f8f6aa813cd9d2df4518b5826.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.3ea2ae5e.chunk.css.map": "/static/css/main.3ea2ae5e.chunk.css.map",
-    "static/js/main.4abd7967.chunk.js.LICENSE": "/static/js/main.4abd7967.chunk.js.LICENSE",
-    "static/js/react.bbd817b4.chunk.js.LICENSE": "/static/js/react.bbd817b4.chunk.js.LICENSE",
+    "static/css/main.3027840c.chunk.css.map": "/static/css/main.3027840c.chunk.css.map",
+    "static/js/main.78f6acaa.chunk.js.LICENSE": "/static/js/main.78f6acaa.chunk.js.LICENSE",
+    "static/js/react.49137d19.chunk.js.LICENSE": "/static/js/react.49137d19.chunk.js.LICENSE",
     "static/media/index.css": "/static/media/bg-12-aposles-blue.470df203.jpg",
     "static/media/confirmed.png": "/static/media/confirmed.d71edfa6.png",
     "static/media/hospital.png": "/static/media/hospital.b7ca8b8f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.be7e4ce9.js",
-    "static/js/data.8e93fd4a.chunk.js",
-    "static/js/react.bbd817b4.chunk.js",
-    "static/css/main.3ea2ae5e.chunk.css",
-    "static/js/main.4abd7967.chunk.js"
+    "static/js/data.0276fba6.chunk.js",
+    "static/js/react.49137d19.chunk.js",
+    "static/css/main.3027840c.chunk.css",
+    "static/js/main.78f6acaa.chunk.js"
   ]
 }
