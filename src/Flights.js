@@ -17,6 +17,10 @@ function SearchFlights(searchKey, flights) {
   let routeKeyList = [];
   let dateArrivalKeyList = [];
   for (let i = 0; i < keyList.length; i++) {
+    // ignore empty string
+    if (keyList[i] === "") {
+      continue;
+    }
     if (keyList[i].match(flightNoRegex)) {
       flightNoKeyList.push(keyList[i]);
     } else if (keyList[i].match(flightRouteRegex)) {
