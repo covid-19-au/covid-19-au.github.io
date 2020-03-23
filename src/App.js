@@ -588,9 +588,10 @@ function Navbar({ setNav, nav }) {
   );
 }
 
+
 function Information({ nav }) {
   return (
-    <div className="card">
+    <div className="card" >
       <h2>Informative Media</h2>
       <div className="row centerMedia">
         <div>
@@ -617,65 +618,67 @@ function Information({ nav }) {
       </div>
 
       <h2>Information</h2>
-      {information.map(info => (
-        <div className="row" key={uuid()}>
-          <div>
-            {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+      {
+        information.map(info => (
+          <div className="row" key={uuid()} style={{ margin: "0px", padding: "1em" }}>
+            <div>
+              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
                         This is so that we can reduce code smell while still retaining the ability to format text. 
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
-            <h3>{info.name}</h3>
-            <div>
-              {/* First block of text */}
-              {info.text.text_1.map(t1 => (
-                <p key={uuid()}>{t1}</p>
-              ))}
+              <h3>{info.name}</h3>
+              <div>
+                {/* First block of text */}
+                {info.text.text_1.map(t1 => (
+                  <p key={uuid()}>{t1}</p>
+                ))}
 
-              {/* First Unordered List */}
-              {info.text.ulist_1 ? (
-                <ul>
-                  {info.text.ulist_1.map(ul1 => (
-                    <li key={uuid()}>{ul1}</li>
-                  ))}
-                </ul>
-              ) : (
-                  ""
-                )}
+                {/* First Unordered List */}
+                {info.text.ulist_1 ? (
+                  <ul>
+                    {info.text.ulist_1.map(ul1 => (
+                      <li key={uuid()}>{ul1}</li>
+                    ))}
+                  </ul>
+                ) : (
+                    ""
+                  )}
 
-              {/* First Ordered List */}
-              {info.text.olist_1 ? (
-                <ol>
-                  {info.text.olist_1.map(ol1 => (
-                    <li key={uuid()}>{ol1}</li>
-                  ))}
-                </ol>
-              ) : (
-                  ""
-                )}
+                {/* First Ordered List */}
+                {info.text.olist_1 ? (
+                  <ol>
+                    {info.text.olist_1.map(ol1 => (
+                      <li key={uuid()}>{ol1}</li>
+                    ))}
+                  </ol>
+                ) : (
+                    ""
+                  )}
 
-              {/* Second Block of text */}
-              {info.text.text_2.map(t2 => (
-                <p key={uuid()}>{t2}</p>
-              ))}
+                {/* Second Block of text */}
+                {info.text.text_2.map(t2 => (
+                  <p key={uuid()}>{t2}</p>
+                ))}
 
-              {/* Citation tag */}
-              {info.text.citation.map(cit => (
-                <small key={uuid()}>
-                  <a
-                    className="citationLink"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={cit.link}
-                  >
-                    {cit.name}
-                  </a>
-                </small>
-              ))}
+                {/* Citation tag */}
+                {info.text.citation.map(cit => (
+                  <small key={uuid()}>
+                    <a
+                      className="citationLink"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={cit.link}
+                    >
+                      {cit.name}
+                    </a>
+                  </small>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
       <small>
         All information sourced from:{" "}
         <a
@@ -687,7 +690,7 @@ function Information({ nav }) {
           NSW Government Health Department
         </a>
       </small>
-    </div>
+    </div >
   );
 }
 
@@ -709,7 +712,7 @@ function HomePage({
           data={myData}
           countryData={country}
         />
-        <div className="card">
+        <div className="card" >
           <h2>
             Cases by State {province ? `· ${province.name}` : false}
             {province ? (
