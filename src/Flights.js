@@ -129,29 +129,52 @@ function Flights({ flights }) {
     }
   }
 
+  if (flightNoKey === "" && routeKey === "" && dateArrivalKey === "") {
+    if (flightResult.length === 0) {
+      uniqueFlight = flights.slice(0, 5);
+    } else {
+      uniqueFlight = flightResult.slice(0, 5);
+    }
+  }
+
   return (
     <div className="card">
       <h2>Flights</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-          <input
-            className="flightSearch"
-            type="text"
-            placeholder="Enter flight number"
-            onChange={e => setFlightNoKey(e.target.value)}
-          ></input>
-          <input
-            className="flightSearch"
-            type="text"
-            placeholder="Enter flight route"
-            onChange={e => setRouteKey(e.target.value)}
-          ></input>
-          <input
-            className="flightSearch"
-            type="text"
-            placeholder="Enter flight arrival date"
-            onChange={e => setDateArrivalKey(e.target.value)}
-          ></input>
+          <div className="searchArea">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Flight Number: </span>
+              </div>
+              <input
+                type="text"
+                className="form-control"
+                onChange={e => setFlightNoKey(e.target.value)}
+              ></input>
+            </div>
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Flight Route: </span>
+              </div>
+              <input
+                type="text"
+                className="form-control"
+                onChange={e => setRouteKey(e.target.value)}
+              ></input>
+            </div>
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Arrival Date: </span>
+              </div>
+              <input
+                type="text"
+                className="form-control"
+                onChange={e => setDateArrivalKey(e.target.value)}
+              ></input>
+            </div>
+          </div>
+
           <div className="flightInfo header">
             <div className="area header">Flight No</div>
             <div className="area header">Airline</div>
