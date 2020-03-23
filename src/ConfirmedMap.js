@@ -25,18 +25,20 @@ class MbMap extends React.Component {
     isOld(date) {
         // Working with raw data, so try-catch just in case
         try {
-            // 'Day DD/MM/YYYY' format
-            const dateComponents = date.split(" ");
+            // 'DD/MM/YY' format
             // Assume entries with incorrect formats are old
-            if (dateComponents.length !== 2) { return true; }
-            const eventDay = dateComponents[1].split("/");
+            const eventDay = date.split("/");
             if (eventDay.length !== 3) { return true; }
 
             // Default constructor has current time
-            let today = new Date();
+            const today = new Date();
             
-            // Day of the case, YYYY-MM-DD format
-            let caseDate = new Date(eventDay[2] + '-' + eventDay[1] + '-' + eventDay[0]);
+            // Day of the event. Transform to YYYY/MM/DD format
+            const day = eventDay[0].length == 1 ? '0' + eventDay[0] : eventDay[0];
+            const month = eventDay[1].length == 1 ? '0' + eventDay[1] : eventDay[1];
+            const year = '20' + eventDay[2]
+            let caseDate = new Date(year + '-' + month + '-' + day);
+
             // Add two weeks for comparison
             caseDate.setDate(caseDate.getDate() + oldCaseDays);
 
