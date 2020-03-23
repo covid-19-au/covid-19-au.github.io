@@ -12,6 +12,7 @@ header i {
   color: #888;
   font-weight: 400;
   padding-left: 1rem;
+  padding-top: 0.7rem;
 }
 
 .title {
@@ -114,6 +115,13 @@ header i {
   background-color: #fadbd8;
   font-size: 80%;
 }
+
+.confirmedtitle {
+  color: #5d1212 !important ;
+  font-size: 100% !important;
+  font-weight: 500;
+}
+
 .cured {
   color: #00b321;
 }
@@ -121,6 +129,12 @@ header i {
 .cured.header {
   background-color: #d5f5e3;
   font-size: 80%;
+}
+
+.recoveredtitle {
+  color: #002a00 !important ;
+  font-size: 100% !important;
+  font-weight: 500;
 }
 
 .tested {
@@ -132,6 +146,12 @@ header i {
   font-size: 80%;
 }
 
+.testedtitle {
+  color: #332533 !important ;
+  font-size: 100% !important;
+  font-weight: 500;
+}
+
 .death {
   color: #a93226;
 }
@@ -139,6 +159,17 @@ header i {
 .death.header {
   background-color: #e6b0aa;
   font-size: 80%;
+}
+
+.deathtitle {
+  color: #332533 !important ;
+  font-size: 100% !important;
+  font-weight: 500;
+}
+
+.statetitle {
+  font-size: 100% !important;
+  font-weight: 500;
 }
 
 .fallback {
@@ -207,6 +238,131 @@ h2 small {
   border-radius: 2px;
 }
 
+.imageContainer {
+    width: 480px;
+    height: 675px;
+}
+
+.formatImage {
+    width: 100%;
+}
+
+.centerMedia {
+    margin: 2rem 0;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .formatMedia {
+        width: 426px !important;
+        height: 240px !important;
+        justify-content: center;
+    }
+
+    .imageContainer {
+        width: 360px;
+        height: 506px;
+    }
+}
+
+@media (max-width: 440px) {
+    .formatMedia {
+        width: 319px !important;
+        height: 180px !important;
+        justify-content: center;
+    }
+
+    .imageContainer {
+        width: 240px;
+        height: 337px;
+    }
+
+    .mediaText {
+        font-size: x-small;
+    }
+}
+
+@media (max-width: 330px) {
+    .formatMedia {
+        width: 284px !important;
+        height: 160px !important;
+        justify-content: center;
+    }
+
+    .imageContainer {
+        width: 160px;
+        height: 225px;
+    }
+
+    .mediaText {
+        font-size: xx-small;
+    }
+}
+
+.removePadding {
+    padding: 0 !important;
+}
+
+.navBar {
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+}
+
+.navBarStuck {
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(186, 217, 229);
+    color: black;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+.sticky-wrapper {
+    position: relative;
+    height: 34px;
+}
+
+.sticky .sticky-inner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.navItems {
+    margin: 0.5rem 0 0 0;
+    padding: 0 8px;
+    border-bottom: transparent solid 2px;
+}
+
+.navItems:hover {
+    cursor: pointer;
+}
+
+.navCurrentPage {
+    border-bottom: #87CEEB solid 2px;
+    color: #87CEEB;
+}
+
+.navCurrentPageSticky {
+    border-bottom: black solid 2px;
+    color: black;
+}
+
+.citationLink {
+    color: blue;
+    border-bottom: blue 1px solid;
+}
+
 .flightSearch {
   width: 98%;
+  border-width: 2.5px;
+  border-color: rgb(186, 217, 229);
+  margin-bottom: 15px;
 }
