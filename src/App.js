@@ -456,7 +456,7 @@ function Area({ area, onChange, data }) {
      stateData[
         Object.keys(stateData)[Object.keys(stateData).length - 1]
      ];
-  console.log(lastTotal)
+
   const renderArea = () => {
     let latest =
       testedCases[
@@ -475,7 +475,7 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{x[1]}</strong>&nbsp;{(x[1]-lastTotal[x[0]][0])>0?`(+${x[1]-lastTotal[x[0]][0]})`:null}
+          <strong>{x[1]}</strong>{x[0]==='NSW'||x[0]==='NT'?'*':null}&nbsp;{(x[1]-lastTotal[x[0]][0])>0?`(+${x[1]-lastTotal[x[0]][0]})`:null}
       </div>
         <div className="death">
           <strong>{x[2]}</strong>&nbsp;{(x[2]-lastTotal[x[0]][1])>0?` (+${x[2]-lastTotal[x[0]][1]})`:null}
@@ -495,7 +495,7 @@ function Area({ area, onChange, data }) {
         <div className="confirmed header confirmedtitle">Confirmed</div>
         <div className="death header deathtitle">Deaths</div>
         <div className="cured header recoveredtitle">Recovered</div>
-        <div className="tested header testedtitle">Tested*</div>
+        <div className="tested header testedtitle">Tested</div>
       </div>
       {renderArea()}
 
