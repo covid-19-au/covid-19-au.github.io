@@ -4,6 +4,12 @@ const flightNoRegex = /^[A-Za-z]{2}\d*$/;
 const flightRouteRegex = /^[A-Za-z]*$/;
 const flightDateArrivalRegex = /^\d{0,2}-{0,1}\d{2}-{0,1}\d{0,4}$/;
 
+/**
+ * Search flight information according user's input
+ * @param {String} searchKey keyword used as filter
+ * @param {Array} flights List of flights to search
+ * @returns {Array} list of matched flights
+ */
 function SearchFlights(searchKey, flights) {
   let tempResultList = [];
   let keyList = searchKey.split(" ");
@@ -106,18 +112,17 @@ function Flights({ flights }) {
   const [searchKey, setSearchKey] = useState("");
 
   useEffect(() => {
-    setFlightResult(flightResult => SearchFlights(searchKey, flights));
+    if (searchKey !== "") {
+      setFlightResult(flightResult => SearchFlights(searchKey, flights));
+    }
   }, [searchKey]);
 
-  // let uniqueFlight = []; // remove duplicate object
-  // if (flightResult.length !== 0) {
-  //   console.log("Complete sorting...\nRemoving duplicates ");
-  //   for (var i = 0; i < flightResult.length; i++) {
-  //     if (flightResult[i] !== flightResult[i + 1]) {
-  //       uniqueFlight.push(flightResult[i]);
-  //     }
-  //   }
-  // }
+  let outputList = [];
+  if (searchKey === "") {
+    outputList = flights.slice(0 ,5);
+  } else {
+    outputList = flightResult;
+  }
 
   return (
     <div className="card">
@@ -133,7 +138,6 @@ function Flights({ flights }) {
                 type="text"
                 className="form-control"
                 placeholder="Enter flight number, route, arrival date"
-                // onChange={e => setFlightNoKey(e.target.value)}
                 onChange={e => setSearchKey(e.target.value)}
               ></input>
             </div>
@@ -146,8 +150,8 @@ function Flights({ flights }) {
             <div className="area header">Arrival</div>
             <div className="area header">Close Contact Row</div>
           </div>
-          {flightResult.length ? (
-            flightResult.map(flight => (
+          {outputList.length ? (
+            outputList.map(flight => (
               <div className="flightInfo header">
                 <div className="flightArea">{flight.flightNo}</div>
                 <div className="flightArea">{flight.airline}</div>
