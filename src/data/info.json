@@ -17,7 +17,7 @@
         "name": "What is COVID-19?",
         "text": {
             "text_1": [
-                "There is currently an outbreak of a disease caused by a new strain of coronavirus that is called ‘COVID-19’. COVID-19 causes a spectrum of illness, from mild to very severe. The outbreak was first identified in Wuhan, Hubei Province, China, and has spread to many other countries outside of China. The virus can be spread from person to person, so good hygiene is very important in slowing the spread of infection."
+                "There is currently an outbreak of a disease called ‘COVID-19’, which is caused by a new strain of coronavirus. COVID-19 causes a spectrum of illness, from mild to very severe. The outbreak was first identified in Wuhan, Hubei Province, China, and has spread to many other countries. The virus can be spread from person to person, so good hygiene is very important in slowing the spread of infection."
             ],
             "ulist_1": [],
             "olist_1": [],
@@ -31,13 +31,13 @@
         "name": "What are the symptoms of COVID-19?",
         "text": {
             "text_1": [
-                "COVID-19 causes a spectrum of illness including fever and/or respiratory symptoms.",
-                "The key symptoms are:"
+                "The key symptoms of COVID-19 are:"
             ],
             "ulist_1": ["fever", "cough", "shortness of breath", "sore throat"],
             "olist_1": [],
             "text_2": [
-                "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days. "
+                "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days.",
+                "In more severe cases, COVID-19 can also result in pneumonia. Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days."
             ],
             "citation": [
                 
@@ -67,18 +67,40 @@
         }
     },
     {
-        "name": "How do I protect myself?",
+        "name": "Is there anything I should NOT do?",
         "text": {
             "text_1": [
-                "The best way to protect yourself from COVID-19 is the same way you would protect yourself from catching flu or other respiratory illness:"
+                "The following measures ARE NOT effective against COVID-2019 and can be harmful:"
             ],
             "ulist_1": [
-                "clean your hands for at least 20 seconds with soap and water, or use an alcohol-based sanitiser with at least 60% alcohol. [Refer to the image at the bottom of the page]",
+                "Smoking",
+                "Wearing multiple masks",
+                "Taking antibiotics as antibiotics do not work against viruses, they only work on bacterial infections. COVID-19 is caused by a virus, so antibiotics do not work. Antibiotics should not be used as a means of prevention or treatment of COVID-19."
+            ],
+            "olist_1": [],
+            "text_2": [
+                "In any case, if you have fever, cough and difficulty breathing seek medical care early to reduce the risk of developing a more severe infection and be sure to share your recent travel history with your health care provider."
+            ],
+            "citation": [
+                
+            ]
+        }
+    },
+    {
+        "name": "How do I protect myself, and prevent the spread of disease?",
+        "text": {
+            "text_1": [
+                "You can reduce your chances of being infected or spreading COVID-19 by taking some simple precautions:"
+            ],
+            "ulist_1": [
+                "Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.",
+                "Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.",
                 "cover your sneeze or cough with your elbow or with tissue.",
                 "avoid close contact with people who are ill.",
                 "avoid touching your eyes, nose and mouth.",
                 "stay home if you are sick.",
-                "a number of governments advise against all non-essential travel to countries and areas affected by the outbreak."
+                "a number of governments advise against all non-essential travel to countries and areas affected by the outbreak.",
+                "Keep up to date on the latest COVID-19 hotspots (cities or local areas where COVID-19 is spreading widely). If possible, avoid traveling to places  – especially if you are an older person or have diabetes, heart or lung disease."
             ],
             "olist_1": [],
             "text_2": [],
@@ -131,6 +153,43 @@
             "citation": [
                 
             ]
+        }
+    },
+    {
+        "name": "Should I wear a mask to protect myself?",
+        "text": {
+            "text_1": [
+                "Only wear a mask if you are ill with COVID-19 symptoms (especially coughing) or looking after someone who may have COVID-19. Disposable face mask can only be used once. If you are not ill or looking after someone who is ill then you are wasting a mask. There is a world-wide shortage of masks, so WHO urges people to use masks wisely.",
+                "WHO advises rational use of medical masks to avoid unnecessary wastage of precious resources and mis-use of masks.",
+                "The most effective ways to protect yourself and others against COVID-19 are to frequently clean your hands, cover your cough with the bend of elbow or tissue and maintain a distance of at least 1 meter (3 feet) from people who are coughing or sneezing."
+            ],
+            "ulist_1": [],
+            "olist_1": [],
+            "text_2": [],
+            "citation": [
+                
+            ]
+        }
+    },
+    {
+        "name": "How to put on, use, take off and dispose of a mask?",
+        "text": {
+            "text_1": [],
+            "ulist_1": [],
+            "olist_1": [
+                "Remember, a mask should only be used by health workers, care takers, and individuals with respiratory symptoms, such as fever and cough.",
+                "Before touching the mask, clean hands with an alcohol-based hand rub or soap and water.",
+                "Take the mask and inspect it for tears or holes.",
+                "Orient which side is the top side (where the metal strip is).",
+                "Ensure the proper side of the mask faces outwards (the coloured side).",
+                "Place the mask to your face. Pinch the metal strip or stiff edge of the mask so it moulds to the shape of your nose.",
+                "Pull down the mask’s bottom so it covers your mouth and your chin.",
+                "After use, take off the mask; remove the elastic loops from behind the ears while keeping the mask away from your face and clothes, to avoid touching potentially contaminated surfaces of the mask.",
+                "Discard the mask in a closed bin immediately after use.",
+                "Perform hand hygiene after touching or discarding the mask – Use alcohol-based hand rub or, if visibly soiled, wash your hands with soap and water."
+            ],
+            "text_2": [],
+            "citation": []
         }
     }
 ]
