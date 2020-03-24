@@ -21,7 +21,7 @@ import Tag from "./Tag";
 
 import Flights from "./Flights";
 import StateGraph from "./StateGraph";
-
+import FAQ from "./faq"
 import MbMap from "./ConfirmedMap";
 import "./App.css";
 import axios from "axios";
@@ -440,6 +440,10 @@ function Fallback(props) {
         </a>{" "}
         from the Faculty of IT, Monash University, for non-commercial use only.
       </div>
+        <u style={{color:"rgb(89,129,183)"}}><buton onClick={()=>{
+            props.setNav("About");
+            window.scrollTo(0, 0);
+        }}>Dashboard FAQ</buton></u>
       <div>
         <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
           <img
@@ -823,6 +827,14 @@ function HomePage({
   );
 }
 
+function FAQPage() {
+    return(
+        <Grid item xs={12} sm={12} md={10}>
+            <FAQ />
+        </Grid>
+    )
+}
+
 function InfoPage({ columns }) {
 
   const stateAbrev = {
@@ -1174,7 +1186,7 @@ function App() {
           {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
           {nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}
           {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
-
+          {nav === "About" ? <FAQPage /> : ""}
 
 
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
@@ -1186,7 +1198,7 @@ function App() {
           {/*</Grid>*/}
 
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility} />
+            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav}  />
           </Grid>
         </Grid>
       </div>
