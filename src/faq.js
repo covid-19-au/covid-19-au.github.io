@@ -6,7 +6,7 @@ import NewsTimeline from "./NewsTimeline";
 function AboutUs() {
     return (
         <div className="card">
-            <h2 className="responsiveH2">About Us</h2>
+            <h2 className="responsiveH2">Dashboard FAQ</h2>
             <h3>Who started the dashboard?</h3>
             <p>Dr <a className="citationLink" target="_blank" rel="noopener noreferrer" alt="Chunyang Chen" href="https://research.monash.edu/en/persons/chunyang-chen">Chunyang Chen</a>, a Lecturer (Assistant Professor) at the Faculty of Information Technology (IT) at Monash University, prototyped the dashboard with his graduate students, Han Wang, Chao Wu, Paldeep Singh, Boxuan Lu in the initial stage. This dashboard is further developed and maintained by a team of <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://github.com/covid-19-au/covid-19-au.github.io#team-member">volunteer students</a> with support from the Faculty of IT, Monash University.</p>
 
