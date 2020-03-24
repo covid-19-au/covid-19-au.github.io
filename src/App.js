@@ -20,6 +20,7 @@ import stateData from "./data/state";
 import Tag from "./Tag";
 
 import Flights from "./Flights";
+import StateGraph from "./StateGraph";
 
 import MbMap from "./ConfirmedMap";
 import "./App.css";
@@ -152,7 +153,7 @@ function HistoryGraph({ countryData }) {
     }
     setOptions({
       animationEnabled: true,
-      height: 260,
+      height: 314,
       title: {
         text: "Overall trends for COVID-19 cases in Australia ",
         fontFamily:
@@ -179,7 +180,7 @@ function HistoryGraph({ countryData }) {
     setNewOpts({
       data: newData,
       animationEnabled: true,
-      height: 260,
+      height: 315,
       title: {
         text: "Daily new cases and deaths in Australia",
         fontFamily:
@@ -790,17 +791,20 @@ function HomePage({
           </div>
         </div>
       </Grid>
+
       <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <MbMap />
-
         <HistoryGraph countryData={country} />
-
       </Grid>
+        <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+            <StateGraph stateData={stateData} />
+        </Grid>
+
       <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Flights flights={flights} />
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={3}>
-      </Grid>
+
+
     </Grid>
   );
 }
