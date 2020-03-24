@@ -1,8 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-import CanvasJS from './assets/canvasjs.min';
 import CanvasJSReact from "./assets/canvasjs.react";
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+// Based on CanvasJS theme 1. Avoids two purple series and preserves colours day-to-day.
+const colourMapping = {
+  "NSW": "#4F81BC",
+  "VIC": "#C0504E",
+  "QLD": "#9BBB58",
+  "WA":  "#23BFAA",
+  "SA":  "#8064A1",
+  "TAS": "#4AACC5",
+  "ACT": "#F79647",
+  "NT":  "#CF6ECF"
+}
 
 /** Creates the Canvas data points for a particular state*/
 function createInstances(stateData, state) {
@@ -48,6 +59,7 @@ function createSeries(stateData) {
     ({
       type: "spline",
       name: state,
+      color: colourMapping[state],
       showInLegend: true,
       dataPoints: createInstances(stateData, state)
     })
