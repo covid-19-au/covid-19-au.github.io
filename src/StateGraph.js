@@ -69,6 +69,7 @@ function createSeries(stateData) {
 
 /** Generates line graphs for state-level case data */
 function StateGraph({stateData}) {
+
   // CanvasJS API settings
   const [graphOptions, setGraphOptions] = useState(null);
   // Display loading text if data is not yet parsed
