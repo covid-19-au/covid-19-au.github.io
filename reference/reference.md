@@ -14,6 +14,7 @@ We try our best to obtain our data from trustworthy sources.
 - TAS: https://www.dhhs.tas.gov.au/news/2020
 - ABC News: https://www.abc.net.au/
 - 7News: https://7news.com.au/
+- WikiPedia: https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Australia
 
 ## Hospitals and Exposure Sites
 

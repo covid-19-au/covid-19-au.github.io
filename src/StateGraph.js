@@ -20,8 +20,9 @@ function createInstances(stateData, state) {
   let instances = [];
 
   for (let day in stateData) {
-    let arr = day.split("-");
-    const cases = stateData[day], date = new Date(arr[0], arr[1] - 1, arr[2]);
+      let arr = day.split("-");
+      const cases = stateData[day], date = new Date(arr[0], arr[1] - 1, arr[2]);
+
     instances.push({
       y: cases[state][0],
       label: date.toLocaleDateString('default', { month: 'long' }) + ' ' + date.getDate()
@@ -34,21 +35,21 @@ function createInstances(stateData, state) {
 /** Sorts states by their number of cases */
 function sortStates(stateData) {
   // Find the most recent day with data
-  let mostRecent = null;
+
 
   let latestData= stateData[
       Object.keys(stateData)[Object.keys(stateData).length - 1]
       ];
-  // Sort state by cases
-    let sortable = [];
-    for (let state in latestData) {
-        sortable.push([state, latestData[state]]);
-    }
-    // let casesByState = Object.keys(latestData).map(state => [state, latestData[state][0]]).sort((a, b) => b[1] - a[1]);
 
-    sortable.sort(function(a, b) {
-        return b[1][0] - a[1][0];
-    })
+  // Sort state by cases
+  let sortable = [];
+  for (let state in latestData) {
+      sortable.push([state, latestData[state]]);
+  }
+  // let casesByState = Object.keys(latestData).map(state => [state, latestData[state][0]]).sort((a, b) => b[1] - a[1]);
+  sortable.sort(function(a, b) {
+      return b[1][0] - a[1][0];
+  })
   return sortable.map(state => state[0]);
 }
 
@@ -69,7 +70,6 @@ function createSeries(stateData) {
 
 /** Generates line graphs for state-level case data */
 function StateGraph({stateData}) {
-
   // CanvasJS API settings
   const [graphOptions, setGraphOptions] = useState(null);
   // Display loading text if data is not yet parsed
@@ -79,7 +79,7 @@ function StateGraph({stateData}) {
     setGraphOptions({
       data: createSeries(stateData),
       animationEnabled: true,
-      height: 400,
+      height: 315,
       title: {
         fontFamily:
           "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",

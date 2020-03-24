@@ -21,10 +21,9 @@ import Tag from "./Tag";
 
 import Flights from "./Flights";
 import StateGraph from "./StateGraph";
-
+import FAQ from "./faq"
 import MbMap from "./ConfirmedMap";
 import "./App.css";
-import axios from "axios";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 
@@ -56,13 +55,7 @@ const GoogleMap = React.lazy(() => import("./GoogleMap"));
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
 
-const fetcher = url =>
-  axios(url).then(data => {
-    return data.data.data;
-  });
-
 function HistoryGraph({ countryData }) {
-  let newData = [[{ type: "date", label: "Day" }, "New Cases", "Deaths"]];
   let today = Date.now();
   const [loading, setLoading] = useState(true);
   const [options, setOptions] = useState(null);
@@ -100,12 +93,6 @@ function HistoryGraph({ countryData }) {
         name: "Recovered",
         showInLegend: true,
         dataPoints: []
-      },
-      {
-        type: "spline",
-        name: "Existing",
-        showInLegend: true,
-        dataPoints: []
       }
     ];
     let newData = [
@@ -127,8 +114,7 @@ function HistoryGraph({ countryData }) {
       let arr = key.split("-");
       let date = new Date(arr[0], arr[1] - 1, arr[2]);
       if ((today - date) / (1000 * 3600 * 24) <= 14) {
-        let labelName =
-          monthTrans[date.getMonth()] + " " + date.getDate().toString();
+        let labelName = monthTrans[date.getMonth()] + " " + date.getDate().toString();
         historyData[0]["dataPoints"].push({
           y: countryData[key][0],
           label: labelName
@@ -139,10 +125,6 @@ function HistoryGraph({ countryData }) {
         });
         historyData[2]["dataPoints"].push({
           y: countryData[key][1],
-          label: labelName
-        });
-        historyData[3]["dataPoints"].push({
-          y: countryData[key][3],
           label: labelName
         });
         newData[0]["dataPoints"].push({
@@ -207,10 +189,7 @@ function HistoryGraph({ countryData }) {
         // content:"{label}, {name}: {y}" ,
       }
     });
-    // newData.push([historyData[2][0],historyData[2][1]-historyData[1][1],historyData[2][2]-historyData[1][2]])
-    // for(let i = 3; i < historyData.length; i++) {
-    //     newData.push([historyData[i][0], historyData[i][1] - historyData[i - 1][1], historyData[i][2]-historyData[i-1][2]])
-    // }
+
 
     setLoading(false);
   }, [countryData]);
@@ -222,23 +201,6 @@ function HistoryGraph({ countryData }) {
         <h2>Historical Data</h2>
         <CanvasJSChart options={options} />
         <CanvasJSChart options={newOpts} />
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="LineChart"*/}
-        {/*loader={<div>Loading Chart...</div>}*/}
-        {/*data={historyData}*/}
-        {/*options={options}*/}
-        {/*rootProps={{ 'data-testid': '3' }}*/}
-        {/*/>*/}
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="ColumnChart"*/}
-        {/*data={newData}*/}
-        {/*options={newOptions}*/}
-
-        {/*/>*/}
       </div>
     );
 }
@@ -440,6 +402,10 @@ function Fallback(props) {
         </a>{" "}
         from the Faculty of IT, Monash University, for non-commercial use only.
       </div>
+        <u style={{color:"rgb(89,129,183)"}}><div onClick={()=>{
+            props.setNav("About");
+            window.scrollTo(0, 0);
+        }}>Dashboard FAQ</div></u>
       <div>
         <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
           <img
@@ -823,6 +789,14 @@ function HomePage({
   );
 }
 
+function FAQPage() {
+    return(
+        <Grid item xs={12} sm={12} md={10}>
+            <FAQ />
+        </Grid>
+    )
+}
+
 function InfoPage({ columns }) {
 
   const stateAbrev = {
@@ -1174,6 +1148,7 @@ function App() {
           {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
           {nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}
           {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
+          {nav === "About" ? <FAQPage /> : ""}
 
 
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
@@ -1185,7 +1160,7 @@ function App() {
           {/*</Grid>*/}
 
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility} />
+            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav}  />
           </Grid>
         </Grid>
       </div>
