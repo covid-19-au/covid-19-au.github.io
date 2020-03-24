@@ -153,7 +153,7 @@ function HistoryGraph({ countryData }) {
     }
     setOptions({
       animationEnabled: true,
-      height: 260,
+      height: 314,
       title: {
         text: "Overall trends for COVID-19 cases in Australia ",
         fontFamily:
@@ -180,7 +180,7 @@ function HistoryGraph({ countryData }) {
     setNewOpts({
       data: newData,
       animationEnabled: true,
-      height: 260,
+      height: 315,
       title: {
         text: "Daily new cases and deaths in Australia",
         fontFamily:

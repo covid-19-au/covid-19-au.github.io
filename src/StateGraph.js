@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import CanvasJS from './assets/canvasjs.min';
 import CanvasJSReact from "./assets/canvasjs.react";
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -8,21 +9,42 @@ function createInstances(stateData, state) {
   let instances = [];
 
   for (let day in stateData) {
-    const cases = stateData[day];
+    const cases = stateData[day], date = new Date(day);
+
     instances.push({
-      x: new Date(day),
-      y: stateData[day][state][0]
+      y: cases[state][0],
+      label: date.toLocaleDateString('default', { month: 'long' }) + ' ' + date.getDate()
     });      
   }
 
   return instances;
 }
 
+/** Sorts states by their number of cases */
+function sortStates(stateData) {
+  // Find the most recent day with data
+  let mostRecent = null;
+  for (let date in stateData) {
+    let dateObj = new Date(date);
+    if (mostRecent === null) { 
+      mostRecent = dateObj; 
+    } else if (dateObj > mostRecent) {
+      mostRecent = dateObj;
+    }
+  }
+  
+  let latestData= stateData[mostRecent.getFullYear() + '-' + (mostRecent.getMonth() + 1) + '-' + mostRecent.getDate()];
+  
+  // Sort state by cases
+  let casesByState = Object.keys(latestData).map(state => [state, latestData[state][0]]).sort((a, b) => b[1] - a[1]);
+  return casesByState.map(state => state[0]);
+}
+
 /** Breaks the data down into spline data points */
 function createSeries(stateData) {
   // Map each state into its series
-  const states = ['VIC', 'NSW', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
-  return states.map(state => 
+  let orderedStates = sortStates(stateData);
+  return orderedStates.map(state => 
     ({
       type: "spline",
       name: state,
@@ -51,7 +73,7 @@ function StateGraph({stateData}) {
       },
       axisX: {
         labelFontFamily: "sans-serif",
-        valueFormatString: 'MMM DD'
+        //valueFormatString: 'MMM DD'
       },
       axisY: {
         labelFontFamily: "sans-serif"
@@ -61,7 +83,8 @@ function StateGraph({stateData}) {
         fontFamily: "sans-serif"
       },
       toolTip: {
-        shared: true
+        shared: true,
+        //valueFormatString: 'MMM DD'
       }
     })
 
