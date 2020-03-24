@@ -65,7 +65,7 @@ function StateGraph({stateData}) {
     setGraphOptions({
       data: createSeries(stateData),
       animationEnabled: true,
-      height: 400,
+      height: 315,
       title: {
         fontFamily:
           "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
