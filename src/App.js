@@ -402,10 +402,10 @@ function Fallback(props) {
         </a>{" "}
         from the Faculty of IT, Monash University, for non-commercial use only.
       </div>
-        <u style={{color:"rgb(89,129,183)"}}><buton onClick={()=>{
+        <u style={{color:"rgb(89,129,183)"}}><div onClick={()=>{
             props.setNav("About");
             window.scrollTo(0, 0);
-        }}>Dashboard FAQ</buton></u>
+        }}>Dashboard FAQ</div></u>
       <div>
         <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
           <img
