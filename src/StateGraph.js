@@ -20,7 +20,8 @@ function createInstances(stateData, state) {
   let instances = [];
 
   for (let day in stateData) {
-    const cases = stateData[day], date = new Date(day);
+      let arr = day.split("-");
+      const cases = stateData[day], date = new Date(arr[0], arr[1] - 1, arr[2]);
 
     instances.push({
       y: cases[state][0],
@@ -34,21 +35,22 @@ function createInstances(stateData, state) {
 /** Sorts states by their number of cases */
 function sortStates(stateData) {
   // Find the most recent day with data
-  let mostRecent = null;
-  for (let date in stateData) {
-    let dateObj = new Date(date);
-    if (mostRecent === null) { 
-      mostRecent = dateObj; 
-    } else if (dateObj > mostRecent) {
-      mostRecent = dateObj;
-    }
-  }
-  
-  let latestData= stateData[mostRecent.getFullYear() + '-' + (mostRecent.getMonth() + 1) + '-' + mostRecent.getDate()];
-  
+
+
+  let latestData= stateData[
+      Object.keys(stateData)[Object.keys(stateData).length - 1]
+      ];
+
   // Sort state by cases
-  let casesByState = Object.keys(latestData).map(state => [state, latestData[state][0]]).sort((a, b) => b[1] - a[1]);
-  return casesByState.map(state => state[0]);
+  let sortable = [];
+  for (let state in latestData) {
+      sortable.push([state, latestData[state]]);
+  }
+  // let casesByState = Object.keys(latestData).map(state => [state, latestData[state][0]]).sort((a, b) => b[1] - a[1]);
+  sortable.sort(function(a, b) {
+      return b[1][0] - a[1][0];
+  })
+  return sortable.map(state => state[0]);
 }
 
 /** Breaks the data down into spline data points */
