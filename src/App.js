@@ -7,11 +7,6 @@ import React, {
   useRef
 } from "react";
 
-import Tooltip from '@material-ui/core/Tooltip';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -541,16 +536,6 @@ function ExposureSites() {
   return <div></div>;
 }
 
-const HtmlTooltip = withStyles(theme => ({
-  tooltip: {
-    backgroundColor: '#f5f5f9',
-    color: 'rgba(0, 0, 0, 0.87)',
-    maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
-    border: '1px solid #dadde9',
-  },
-}))(Tooltip);
-
 function Stat({
   modifyTime,
   confirmedCount,
@@ -600,16 +585,10 @@ function Stat({
           fColor={"#e74c3c"}
           increased={confCountIncrease}
         >
-          <HtmlTooltip
-            title={
-              <React.Fragment>
-                <Typography color="inherit">Confirmed</Typography>
-                <em>{"All cases confirmed so far, consisting of currently active, recovery and death cases."}</em>
-              </React.Fragment>
-            }
-          >
-            <Button>Confirmed</Button>
-          </HtmlTooltip>
+          <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
+          title="<em>All cases confirmed so far, consisting of currently active, recovery and death cases.</em>">
+          Confirmed</a>
+
         </Tag>
         {/*<Tag number={suspectedCount || '-'}>*/}
         {/*疑似*/}
@@ -619,32 +598,20 @@ function Stat({
           fColor={"#a93226"}
           increased={deadCountIncrease}
         >
-        <HtmlTooltip
-          title={
-            <React.Fragment>
-              <Typography color="inherit">Deaths</Typography>
-              <em>{"All cases that resulted in death, mostly found in the elderly."}</em>
-            </React.Fragment>
-          }
-        >
-          <Button>Deaths</Button>
-        </HtmlTooltip>
+        <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
+        title="<em>All cases that has been confirmed death.</em>">
+        Deaths</a>
+
         </Tag>
         <Tag
           number={curedCount}
           fColor={"#00b321"}
           increased={curedCountIncrease}
         >
-        <HtmlTooltip
-          title={
-            <React.Fragment>
-              <Typography color="inherit">Recovered</Typography>
-              <em>{"All cases that are no longer infected."}</em>
-            </React.Fragment>
-          }
-        >
-          <Button>Recovered</Button>
-        </HtmlTooltip>
+        <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
+        title="<em>All cases that are no longer infected.</em>">
+        Recovered</a>
+
         </Tag>
       </div>
       <span className="due" style={{ fontSize: "60%" }}>
@@ -868,8 +835,8 @@ function Information({ nav }) {
         information.map(info => (
           <div className="row" key={uuid()} style={{ margin: "0px", padding: "1em" }}>
             <div>
-              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
-                        This is so that we can reduce code smell while still retaining the ability to format text. 
+              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
