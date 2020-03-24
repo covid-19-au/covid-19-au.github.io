@@ -32,7 +32,7 @@ class MbMap extends React.Component {
 
             // Default constructor has current time
             const today = new Date();
-            
+
             // Day of the event. Transform to YYYY/MM/DD format
             const day = eventDay[0], month = eventDay[1];
             const year = '20' + eventDay[2]
@@ -77,6 +77,19 @@ class MbMap extends React.Component {
             minZoom: 2.5,
             zoom
         });
+
+        // Add geolocate control to the map.
+        map.addControl(
+          new mapboxgl.GeolocateControl({
+            positionOptions: {
+              enableHighAccuracy: true
+            },
+            trackUserLocation: true
+          })
+        );
+
+        //Add Zoom Controls
+        map.addControl(new mapboxgl.NavigationControl());
 
         map.on('move', () => {
             const { lng, lat } = map.getCenter();
