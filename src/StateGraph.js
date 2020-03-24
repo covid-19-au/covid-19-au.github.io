@@ -20,8 +20,8 @@ function createInstances(stateData, state) {
   let instances = [];
 
   for (let day in stateData) {
-    const cases = stateData[day], date = new Date(day);
-
+    let arr = day.split("-");
+    const cases = stateData[day], date = new Date(arr[0], arr[1] - 1, arr[2]);
     instances.push({
       y: cases[state][0],
       label: date.toLocaleDateString('default', { month: 'long' }) + ' ' + date.getDate()
@@ -35,17 +35,10 @@ function createInstances(stateData, state) {
 function sortStates(stateData) {
   // Find the most recent day with data
   let mostRecent = null;
-  for (let date in stateData) {
-    let dateObj = new Date(date);
-    if (mostRecent === null) {
-      mostRecent = dateObj;
-    } else if (dateObj > mostRecent) {
-      mostRecent = dateObj;
-    }
-  }
 
-  let latestData= stateData[mostRecent.getFullYear() + '-' + (mostRecent.getMonth() + 1) + '-' + mostRecent.getDate()];
-
+  let latestData= stateData[
+      Object.keys(stateData)[Object.keys(stateData).length - 1]
+      ];
   // Sort state by cases
     let sortable = [];
     for (let state in latestData) {
