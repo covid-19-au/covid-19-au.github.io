@@ -805,13 +805,13 @@ function HomePage({
           </div>
         </div>
       </Grid>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+        <StateGraph stateData={stateData} />
+      </Grid>
 
       <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <MbMap />
         <HistoryGraph countryData={country} />
-      </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
-        <StateGraph stateData={stateData} />
       </Grid>
 
       <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
