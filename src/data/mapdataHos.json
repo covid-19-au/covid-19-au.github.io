@@ -908,5 +908,45 @@
     "coor": ["-31.966544", "115.816344"],
     "hospitalType": "",
     "type": "1"
+  },
+  {
+    "state": "Western Australia",
+    "address": "Ground Floor, 3056 Albany Highway Mount Nasura",
+    "hospitalPhone": "(08) 9391 2000",
+    "stateTestAppointmentNumber": "",
+    "name": "Armadale Health Service",
+    "coor": ["-32.132812", "116.019835"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Western Australia",
+    "address": "Bussell Highway (cnr Robertson Drive), Bunbury WA 6230",
+    "hospitalPhone": "(08) 9722 1000",
+    "stateTestAppointmentNumber": "",
+    "name": "Bunbury Health Campus",
+    "coor": ["-33.366717", "115.647976"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "Eldridge Rd, Bankstown NSW 2200",
+    "hospitalPhone": "(02) 9722 8000",
+    "stateTestAppointmentNumber": "",
+    "name": "Bankstown-Lidc_ombe Hospital",
+    "coor": ["-33.933037", "151.020961"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "16 Croudace Bay Rd, Belmont, NSW 2280",
+    "hospitalPhone": "(02) 4923 2000",
+    "stateTestAppointmentNumber": "",
+    "name": "Belmont Hospital",
+    "coor": ["-33.025193", "151.648457"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
   }
 ]
