@@ -632,8 +632,8 @@ function Information({ hospitalData, columns }) {
 
       <h2 className="responsiveH2">Information</h2>
       {information.map(info => (
-        <div>
-          <div key={uuid()}>
+        <div key={uuid()}>
+          <div>
             <ExpansionPanel style={{ boxShadow: "none" }} >
 
               {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
