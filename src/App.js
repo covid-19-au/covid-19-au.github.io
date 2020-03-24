@@ -403,7 +403,7 @@ function Stat({
           Recovered
         </Tag>
       </div>
-      <span className="due" style={{ fontSize: "60%" }}>
+      <span className="due" style={{ fontSize: "80%" }}>
         Time in AEDT, last updated at: {stateCaseData.updatedTime}
       </span>
 
@@ -795,7 +795,7 @@ function HomePage({
               @Data Source
             </a>
             <span
-              style={{ fontSize: "70%", float: "left", paddingLeft: 0 }}
+              style={{ fontSize: "80%", float: "left", paddingLeft: 0 }}
               className="due"
             >
               *Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
