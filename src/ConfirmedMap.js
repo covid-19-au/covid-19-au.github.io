@@ -78,6 +78,19 @@ class MbMap extends React.Component {
             zoom
         });
 
+        // Add geolocate control to the map.
+        map.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            })
+        );
+
+        //Add Zoom Controls
+        map.addControl(new mapboxgl.NavigationControl());
+
         map.on('move', () => {
             const { lng, lat } = map.getCenter();
 
