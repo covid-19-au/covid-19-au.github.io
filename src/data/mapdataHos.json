@@ -37,15 +37,6 @@
   },
   {
     "state": "New South Wales",
-    "address": "18 Blacktown Rd, Blacktown NSW 2148",
-    "hospitalPhone": "(02) 9881 8000",
-    "name": "Blacktown Hospital",
-    "coor": ["-33.775534", "150.917084"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
     "address": "1 Woodlands Rd, Katoomba NSW 2780",
     "hospitalPhone": "(02) 4784 6500",
     "name": "Blue Mountains Hospital",
@@ -59,15 +50,6 @@
     "hospitalPhone": "(08) 8080 1333",
     "name": "Broken Hill Health Service",
     "coor": ["-31.947355", "141.455634"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "Edith and Platt Street, Waratah, NSW 2298",
-    "hospitalPhone": "(02) 4921 1211",
-    "name": "Calvary Mater Newcastle",
-    "coor": ["-32.898477", "151.721075"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -185,15 +167,6 @@
     "hospitalPhone": "(02) 8738 3000",
     "name": "Liverpool Hospital",
     "coor": ["-33.920076", "150.932199"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "560 High St, Maitland, NSW 2320",
-    "hospitalPhone": "(02) 4939 2000",
-    "name": "Maitland Hospital",
-    "coor": ["-32.725501", "151.545469"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -394,6 +367,51 @@
     "coor": ["-33.260849", "151.479546"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "15-17 Madigan Boulevarde, Mt Warrigal, NSW 2528",
+    "hospitalPhone": "(02) 4295 2500",
+    "name": "Shellharbour Hospital",
+    "coor": ["-34.558883", "150.841319"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "2 Scenic Drive Nowra, NSW 2541",
+    "hospitalPhone": "(02) 4421 3111",
+    "name": "Shoalhaven Hospital",
+    "coor": ["-34.868491", "150.595433"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "345 Pacific Highway, Coffs Harbour NSW 2450",
+    "hospitalPhone": "(02) 6656 7000",
+    "name": "Coffs Harbour Health Campus",
+    "coor": ["-30.317171", "153.093706"],
+    "hospitalType": "10am-2pm, Monday-Friday",
+    "type": ""
+  },
+  {
+    "state": "New South Wales",
+    "address": "119 River Street, Kempsey NSW 2440",
+    "hospitalPhone": "(02) 6561 2600",
+    "name": "Kempsey Health Campus",
+    "coor": ["-31.068999", "152.819457"],
+    "hospitalType": "8am-12pm, Monday-Friday",
+    "type": ""
+  },
+  {
+    "state": "New South Wales",
+    "address": "Wrights Road, Port Macquarie NSW 2444",
+    "hospitalPhone": "(02) 5524 2000",
+    "name": "Port Macquarie Base Hospital",
+    "coor": ["-31.451747", "152.878457"],
+    "hospitalType": "10am-4pm, Monday- Friday",
+    "type": ""
   },
   {
     "state": "Queensland",
@@ -838,46 +856,37 @@
   },
   {
     "state": "Western Australia",
+    "address": "60 Shenton Ave, Joondalup WA 6027",
+    "hospitalPhone": "(08) 9400 9460",
+    "name": "Joondalup Hospital",
+    "coor": ["-31.739043", "115.773878"],
+    "hospitalType": "COVID-19 Clinic",
+    "type": "1"
+  },
+  {
+    "state": "Western Australia",
+    "address": "Elanora Dr, Cooloongup WA 6168",
+    "hospitalPhone": "(08) 9599 4000",
+    "name": "Rockingham General Hospital",
+    "coor": ["-32.291792", "115.770687"],
+    "hospitalType": "COVID-19 Clinic",
+    "type": "1"
+  },
+  {
+    "state": "Western Australia",
+    "address": "Clayton St, Midland WA 6056",
+    "hospitalPhone": "(08) 9462 4000",
+    "name": "St John of God Midland Hospital",
+    "coor": ["-31.894329", "116.007195"],
+    "hospitalType": "COVID-19 Clinic",
+    "type": "1"
+  },
+  {
+    "state": "Western Australia",
     "address": "Bussell Highway (cnr Robertson Drive), Bunbury WA 6230",
     "hospitalPhone": "(08) 9722 1000",
     "name": "Bunbury Health Campus",
     "coor": ["-33.366717", "115.647976"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "Eldridge Rd, Bankstown NSW 2200",
-    "hospitalPhone": "(02) 9722 8000",
-    "name": "Bankstown-Lidcombe Hospital",
-    "coor": ["-33.933037", "151.020961"],
-    "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "16 Croudace Bay Rd, Belmont, NSW 2280",
-    "hospitalPhone": "(02) 4923 2000",
-    "name": "Belmont Hospital",
-    "coor": ["-33.025193", "151.648457"],
-    "hospitalType": "Drive-through Testing",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "15-17 Madigan Boulevarde, Mt Warrigal, NSW 2528",
-    "hospitalPhone": "(02) 4295 2500",
-    "name": "Shellharbour Hospital",
-    "coor": ["-34.558883", "150.841319"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "2 Scenic Drive Nowra, NSW 2541",
-    "hospitalPhone": "(02) 4421 3111",
-    "name": "Shoalhaven Hospital",
-    "coor": ["-34.868491", "150.595433"],
     "hospitalType": "",
     "type": "1"
   }
