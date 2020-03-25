@@ -442,6 +442,7 @@ function Fallback(props) {
   );
 }
 
+
 function Area({ area, onChange, data }) {
   let totalRecovered = 0;
   for (let i = 0; i < data.length; i++) {
