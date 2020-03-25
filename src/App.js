@@ -295,6 +295,10 @@ function Tweets({ province, nav }) {
   );
 }
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function Stat({
   modifyTime,
   confirmedCount,
@@ -338,25 +342,25 @@ function Stat({
   return (
     <div className="card">
 
-      <h2 style={{display:"flex"}}>Status {name ? `· ${name}` : false}
-          <div style={{alignSelf:"flex-end",marginLeft:"auto",fontSize:"60%"}}>
-              <a
-                  style={{
-                      display: "inline-flex"
-                  }}
-                  className="badge badge-light"
-                  target="_blank" rel="noopener noreferrer"
-                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-              >
-                  <svg className="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                       xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
-                            clipRule="evenodd"/>
-                      <path
-                          d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                  </svg>
-                  <div className="dataSource">Data Source</div>
-              </a></div>
+      <h2 style={{ display: "flex" }}>Status {name ? `· ${name}` : false}
+        <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+          <a
+            style={{
+              display: "inline-flex"
+            }}
+            className="badge badge-light"
+            target="_blank" rel="noopener noreferrer"
+            href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+          >
+            <svg className="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
+                clipRule="evenodd" />
+              <path
+                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+            </svg>
+            <div className="dataSource">Data Source</div>
+          </a></div>
 
       </h2>
 
@@ -364,7 +368,7 @@ function Stat({
 
       <div className="row">
         <Tag
-          number={confirmedCount}
+          number={numberWithCommas(confirmedCount)}
           fColor={"#e74c3c"}
           increased={confCountIncrease}
         >
@@ -374,21 +378,21 @@ function Stat({
         {/*疑似*/}
         {/*</Tag>*/}
         <Tag
-          number={deadCount}
+          number={numberWithCommas(deadCount)}
           fColor={"#a93226"}
           increased={deadCountIncrease}
         >
           Deaths
         </Tag>
         <Tag
-          number={curedCount}
+          number={numberWithCommas(curedCount)}
           fColor={"#00b321"}
           increased={curedCountIncrease}
         >
           Recovered
         </Tag>
       </div>
-        <span className="due" style={{ fontSize: "80%",paddingTop:0 }}>
+      <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
         Time in AEDT, last updated at: {stateCaseData.updatedTime}
       </span>
 
@@ -425,10 +429,10 @@ function Fallback(props) {
         </a>{" "}
         from the Faculty of IT, Monash University, for non-commercial use only.
       </div>
-        <u style={{color:"rgb(89,129,183)"}}><div onClick={()=>{
-            props.setNav("About");
-            window.scrollTo(0, 0);
-        }}>Dashboard FAQ</div></u>
+      <u style={{ color: "rgb(89,129,183)" }}><div onClick={() => {
+        props.setNav("About");
+        window.scrollTo(0, 0);
+      }}>Dashboard FAQ</div></u>
       <div>
         <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
           <img
@@ -470,15 +474,15 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{x[1]}</strong>{x[0] === 'NSW' || x[0] === 'NT' || x[0] === 'TAS' ? '*' : null}&nbsp;{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}
+          <strong>{numberWithCommas(x[1])}</strong>{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}
         </div>
         <div className="death">
-          <strong>{x[2]}</strong>&nbsp;{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}
+          <strong>{numberWithCommas(x[2])}</strong>&nbsp;{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}
         </div>
         <div className="cured">
-          <strong>{x[3]}</strong>&nbsp;{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}
+          <strong>{numberWithCommas(x[3])}</strong>&nbsp;{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}
         </div>
-        <div className="tested">{x[4]}</div>
+        <div className="tested">{numberWithCommas(x[4])}</div>
       </div>
     ));
   };
@@ -804,11 +808,11 @@ function HomePage({
 }
 
 function FAQPage() {
-    return(
-        <Grid item xs={12} sm={12} md={10}>
-            <FAQ />
-        </Grid>
-    )
+  return (
+    <Grid item xs={12} sm={12} md={10}>
+      <FAQ />
+    </Grid>
+  )
 }
 
 function InfoPage({ columns }) {
@@ -1174,7 +1178,7 @@ function App() {
           {/*</Grid>*/}
 
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav}  />
+            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
           </Grid>
         </Grid>
       </div>
