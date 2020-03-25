@@ -21,10 +21,9 @@ import Tag from "./Tag";
 
 import Flights from "./Flights";
 import StateGraph from "./StateGraph";
-
+import FAQ from "./faq"
 import MbMap from "./ConfirmedMap";
 import "./App.css";
-import axios from "axios";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 
@@ -43,7 +42,6 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Typography from '@material-ui/core/Typography';
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -56,13 +54,7 @@ const GoogleMap = React.lazy(() => import("./GoogleMap"));
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
 
-const fetcher = url =>
-  axios(url).then(data => {
-    return data.data.data;
-  });
-
 function HistoryGraph({ countryData }) {
-  let newData = [[{ type: "date", label: "Day" }, "New Cases", "Deaths"]];
   let today = Date.now();
   const [loading, setLoading] = useState(true);
   const [options, setOptions] = useState(null);
@@ -100,12 +92,6 @@ function HistoryGraph({ countryData }) {
         name: "Recovered",
         showInLegend: true,
         dataPoints: []
-      },
-      {
-        type: "spline",
-        name: "Existing",
-        showInLegend: true,
-        dataPoints: []
       }
     ];
     let newData = [
@@ -127,8 +113,7 @@ function HistoryGraph({ countryData }) {
       let arr = key.split("-");
       let date = new Date(arr[0], arr[1] - 1, arr[2]);
       if ((today - date) / (1000 * 3600 * 24) <= 14) {
-        let labelName =
-          monthTrans[date.getMonth()] + " " + date.getDate().toString();
+        let labelName = monthTrans[date.getMonth()] + " " + date.getDate().toString();
         historyData[0]["dataPoints"].push({
           y: countryData[key][0],
           label: labelName
@@ -139,10 +124,6 @@ function HistoryGraph({ countryData }) {
         });
         historyData[2]["dataPoints"].push({
           y: countryData[key][1],
-          label: labelName
-        });
-        historyData[3]["dataPoints"].push({
-          y: countryData[key][3],
           label: labelName
         });
         newData[0]["dataPoints"].push({
@@ -207,10 +188,7 @@ function HistoryGraph({ countryData }) {
         // content:"{label}, {name}: {y}" ,
       }
     });
-    // newData.push([historyData[2][0],historyData[2][1]-historyData[1][1],historyData[2][2]-historyData[1][2]])
-    // for(let i = 3; i < historyData.length; i++) {
-    //     newData.push([historyData[i][0], historyData[i][1] - historyData[i - 1][1], historyData[i][2]-historyData[i-1][2]])
-    // }
+
 
     setLoading(false);
   }, [countryData]);
@@ -222,23 +200,6 @@ function HistoryGraph({ countryData }) {
         <h2>Historical Data</h2>
         <CanvasJSChart options={options} />
         <CanvasJSChart options={newOpts} />
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="LineChart"*/}
-        {/*loader={<div>Loading Chart...</div>}*/}
-        {/*data={historyData}*/}
-        {/*options={options}*/}
-        {/*rootProps={{ 'data-testid': '3' }}*/}
-        {/*/>*/}
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="ColumnChart"*/}
-        {/*data={newData}*/}
-        {/*options={newOptions}*/}
-
-        {/*/>*/}
       </div>
     );
 }
@@ -376,7 +337,31 @@ function Stat({
 
   return (
     <div className="card">
-      <h2>Status {name ? `· ${name}` : false}</h2>
+
+      <h2 style={{display:"flex"}}>Status {name ? `· ${name}` : false}
+          <div style={{alignSelf:"flex-end",marginLeft:"auto",fontSize:"60%"}}>
+              <a
+                  style={{
+                      display: "inline-flex"
+                  }}
+                  className="badge badge-light"
+                  target="_blank" rel="noopener noreferrer"
+                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+              >
+                  <svg className="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                       xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
+                            clipRule="evenodd"/>
+                      <path
+                          d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                  </svg>
+                  <div className="dataSource">Data Source</div>
+              </a></div>
+
+      </h2>
+
+
+
       <div className="row">
         <Tag
           number={confirmedCount}
@@ -403,9 +388,9 @@ function Stat({
           Recovered
         </Tag>
       </div>
-      <span className="due" style={{ fontSize: "80%" }}>
-        Time in AEDT, last updated at: {stateCaseData.updatedTime}
-      </span>
+        <span className="due" style={{ fontSize: "80%",paddingTop:0 }}>
+          Time in AEDT, last updated at: {stateCaseData.updatedTime}
+        </span>
 
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
@@ -440,6 +425,10 @@ function Fallback(props) {
         </a>{" "}
         from the Faculty of IT, Monash University, for non-commercial use only.
       </div>
+        <u style={{color:"rgb(89,129,183)"}}><div onClick={()=>{
+            props.setNav("About");
+            window.scrollTo(0, 0);
+        }}>Dashboard FAQ</div></u>
       <div>
         <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
           <img
@@ -784,16 +773,7 @@ function HomePage({
           <Area area={area} onChange={setProvince} data={myData} />
 
           <div style={{ paddingBottom: "1rem" }}>
-            <a
-              style={{
-                fontSize: "60%",
-                float: "right",
-                color: "blue"
-              }}
-              href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-            >
-              @Data Source
-            </a>
+
             <span
               style={{ fontSize: "80%", float: "left", paddingLeft: 0 }}
               className="due"
@@ -821,6 +801,14 @@ function HomePage({
 
     </Grid>
   );
+}
+
+function FAQPage() {
+    return(
+        <Grid item xs={12} sm={12} md={10}>
+            <FAQ />
+        </Grid>
+    )
 }
 
 function InfoPage({ columns }) {
@@ -1174,7 +1162,7 @@ function App() {
           {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
           {nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}
           {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
-
+          {nav === "About" ? <FAQPage /> : ""}
 
 
           {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
@@ -1186,7 +1174,7 @@ function App() {
           {/*</Grid>*/}
 
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility} />
+            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav}  />
           </Grid>
         </Grid>
       </div>

@@ -1,8 +1,7 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React from "react";
 import mapboxgl from 'mapbox-gl';
 import confirmedData from "./data/mapdataCon"
 import hospitalData from "./data/mapdataHos"
-import ReactMapboxGl, { Layer, Feature, Popup } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from './img/icon/confirmed-recent.png'
@@ -78,6 +77,19 @@ class MbMap extends React.Component {
             zoom
         });
 
+        // Add geolocate control to the map.
+        map.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            })
+        );
+
+        //Add Zoom Controls
+        map.addControl(new mapboxgl.NavigationControl());
+
         map.on('move', () => {
             const { lng, lat } = map.getCenter();
 
@@ -87,7 +99,6 @@ class MbMap extends React.Component {
                 zoom: map.getZoom().toFixed(2)
             });
         });
-        const noMargin = { margin: 0 };
         confirmedData.map((item) => {
             // create a HTML element for each feature
             var el = document.createElement('div');
