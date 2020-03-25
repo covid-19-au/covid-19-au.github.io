@@ -607,12 +607,23 @@
   {
     "state": "ACT",
     "area": "",
-    "name": "Lyneham High School�",
+    "name": "Lyneham High School",
     "date": "23/3/20",
     "time": "N/A",
     "description": "",
     "numberOfCases": "N/A",
     "coor": ["-35.252397", "149.130497"],
+    "type": "0"
+  },
+  {
+    "state": "NSW",
+    "area": "Moore Park",
+    "name": "University of Sydney Football Ground",
+    "date": "14/03/2020",
+    "time": "N/A",
+    "description": "From ACT",
+    "numberOfCases": "1",
+    "coor": ["-33.886336", "151.184437"],
     "type": "0"
   }
 ]
