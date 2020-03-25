@@ -630,7 +630,7 @@ function Information({ hospitalData, columns }) {
         </div>
       </div>
 
-      <h2 className="responsiveH2">Information</h2>
+      <h2 className="responsiveH2">General Information</h2>
       {information.generalCovidInfo.map(info => (
         <div key={uuid()}>
           <div>
@@ -645,7 +645,138 @@ function Information({ hospitalData, columns }) {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
-                <h3 className="responsiveH3">{info.name}</h3>
+                <h4 className="responsiveH4">{info.name}</h4>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                <div>
+                  {/* First block of text */}
+                  {info.text.text_1.map(t1 => (
+                    <p key={uuid()}>{t1}</p>
+                  ))}
+                  {/* First Unordered List */}
+                  {info.text.ulist_1 ? (
+                    <ul>
+                      {info.text.ulist_1.map(ul1 => (
+                        <li key={uuid()}>{ul1}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                      ""
+                    )}
+
+                  {/* First Ordered List */}
+                  {info.text.olist_1 ? (
+                    <ol>
+                      {info.text.olist_1.map(ol1 => (
+                        <li key={uuid()}>{ol1}</li>
+                      ))}
+                    </ol>
+                  ) : (
+                      ""
+                    )}
+
+                  {/* Second Block of text */}
+                  {info.text.text_2.map(t2 => (
+                    <p key={uuid()}>{t2}</p>
+                  ))}
+
+                  {/* Citation tag */}
+                  {info.text.citation.map(cit => (
+                    <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                  ))}
+                </div>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          </div>
+        </div>
+      ))
+      }
+      <h2 className="responsiveH2">Think you have COVID-19?</h2>
+      {information.haveCovid.map(info => (
+        <div key={uuid()}>
+          <div>
+            <ExpansionPanel style={{ boxShadow: "none" }} >
+
+              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+              < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                <h4 className="responsiveH4">{info.name}</h4>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                <div>
+                  {/* First block of text */}
+                  {info.text.text_1.map(t1 => (
+                    <p key={uuid()}>{t1}</p>
+                  ))}
+                  {/* First Unordered List */}
+                  {info.text.ulist_1 ? (
+                    <ul>
+                      {info.text.ulist_1.map(ul1 => (
+                        <li key={uuid()}>{ul1}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                      ""
+                    )}
+
+                  {/* First Ordered List */}
+                  {info.text.olist_1 ? (
+                    <ol>
+                      {info.text.olist_1.map(ol1 => (
+                        <li key={uuid()}>{ol1}</li>
+                      ))}
+                    </ol>
+                  ) : (
+                      ""
+                    )}
+
+                  {/* Second Block of text */}
+                  {info.text.text_2.map(t2 => (
+                    <p key={uuid()}>{t2}</p>
+                  ))}
+
+                  {/* Citation tag */}
+                  {info.text.citation.map(cit => (
+                    <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                  ))}
+                </div>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          </div>
+        </div>
+      ))
+      }
+      <h2 className="responsiveH2">Protecting Yourself and Others</h2>
+
+      <div className="imageContainer" style={{ marginBottom: "0px", padding: "0px" }} >
+        <img
+          className="formatImage"
+          src="https://i2.wp.com/flowingdata.com/wp-content/uploads/2020/03/flatten-the-curve-smaller.gif?fit=670%2C565&ssl=1"
+          alt="Flatten the curve gif"
+          style={{ marginBottom: "0px", padding: "0px", borderCollapse: "collapse" }}
+        />
+      </div>
+      {information.protect.map(info => (
+        <div key={uuid()}>
+          <div>
+            <ExpansionPanel style={{ boxShadow: "none" }} >
+
+              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+              < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                <h4 className="responsiveH4">{info.name}</h4>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
                 <div>
