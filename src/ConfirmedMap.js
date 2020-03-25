@@ -33,9 +33,9 @@ class MbMap extends React.Component {
             const today = new Date();
             
             // Day of the event. Transform to YYYY/MM/DD format
-            const day = eventDay[0], month = eventDay[1];
+            const day = eventDay[0], month = parseInt(eventDay[1])-1;
             const year = '20' + eventDay[2]
-            let caseDate = new Date(year + '-' + month + '-' + day);
+            let caseDate = new Date(year, month, day);
 
             // Add two weeks for comparison
             caseDate.setDate(caseDate.getDate() + oldCaseDays);
