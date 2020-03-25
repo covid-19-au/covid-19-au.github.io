@@ -346,7 +346,7 @@ function Stat({
         increased={confCountIncrease}
       >
         <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
-        title="<em>All cases confirmed so far, consisting of currently active, recovery and death cases.</em>">
+        title="<em>All positive cases confirmed so far, consisting of currently active, recovery and death cases.</em>">
         Confirmed</a>
 
       </Tag>
@@ -359,7 +359,7 @@ function Stat({
         increased={deadCountIncrease}
       >
       <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
-      title="<em>All cases that has been confirmed death.</em>">
+      title="<em>All cases that has been confirmed death, including a case from the Diamond Princess Cruise.</em>">
       Deaths</a>
 
       </Tag>
@@ -369,7 +369,7 @@ function Stat({
         increased={curedCountIncrease}
       >
       <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
-      title="<em>All cases that are no longer infected.</em>">
+      title="<em>All cases that are no longer infected, confirmed by having negative results after treatment.</em>">
       Recovered</a>
 
       </Tag>
