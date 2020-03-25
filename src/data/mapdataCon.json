@@ -1,6 +1,6 @@
 [
   {
-    "field1": "ACT",
+    "state": "ACT",
     "area": "",
     "name": "the Art Not Apart event in New Acton",
     "date": "14/3/20",
@@ -11,7 +11,7 @@
     "type": "0"
   },
   {
-    "field1": "ACT",
+    "state": "ACT",
     "area": "",
     "name": "Capital Brewing Co in Fyshwick",
     "date": "14/3/20",
@@ -22,7 +22,7 @@
     "type": "0"
   },
   {
-    "field1": "ACT",
+    "state": "ACT",
     "area": "",
     "name": "Lyneham High School",
     "date": "23/3/20",
@@ -33,7 +33,7 @@
     "type": "0"
   },
   {
-    "field1": "ACT",
+    "state": "ACT",
     "area": "",
     "name": "the number 31 bus",
     "date": "17/3/20",
@@ -44,7 +44,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Vaucluse",
     "name": "Vaucluse Cottage Childcare Centre",
     "date": "16/3/20",
@@ -55,7 +55,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Quaker's Hill",
     "name": "Quaker's Hill Nursing Home",
     "date": "23/3/20",
@@ -66,7 +66,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Bondi",
     "name": "Boogie Wonderland party at the Bucket List",
     "date": "16/3/20",
@@ -77,7 +77,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Darlinghurst",
     "name": "Party at Club 77",
     "date": "16/3/20",
@@ -88,7 +88,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Smeaton Grange",
     "name": "Young Academics Child Care Centre",
     "date": "16/3/20",
@@ -99,7 +99,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Lord Howe Island",
     "name": "Lord Howe Island: unclear cases",
     "date": "21/3/20",
@@ -110,7 +110,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Sydney - Ryde Civic Centre",
     "name": "Sydney Church of Christ - Ryde Civic Centre: 7 cases",
     "date": "8/3/20",
@@ -121,7 +121,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "",
     "name": "Pastadelli, 11 Railway Avenue, Wahroonga",
     "date": "8/3/20",
@@ -132,7 +132,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "Brisbane - Friday's Nightclub",
     "name": "Brisbane - Friday's Nightclub: unclear cases",
     "date": "21/3/20",
@@ -143,7 +143,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "Gold Coast - Rick Shores restaurant",
     "name": "Gold Coast - Rick Shores restaurant: unclear cases",
     "date": "21/3/20",
@@ -154,7 +154,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "Metro North",
     "name": "Metro North: 16 cases",
     "date": "21/3/20",
@@ -165,7 +165,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "Metro South",
     "name": "Metro South: 6 cases",
     "date": "21/3/20",
@@ -176,7 +176,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "Gold Coast",
     "name": "Gold Coast: 5 cases",
     "date": "21/3/20",
@@ -187,7 +187,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "Sunshine Coast",
     "name": "Sunshine Coast: 5 cases",
     "date": "21/3/20",
@@ -198,7 +198,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "Darling Downs",
     "name": "Darling Downs: 4 cases",
     "date": "21/3/20",
@@ -209,7 +209,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "Wide Bay",
     "name": "Wide Bay: 1 cases",
     "date": "21/3/20",
@@ -220,7 +220,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "",
     "name": "University of Queensland campus",
     "date": "10/3/20",
@@ -231,7 +231,7 @@
     "type": "0"
   },
   {
-    "field1": "TAS",
+    "state": "TAS",
     "area": "",
     "name": "Morris Miller Library",
     "date": "9/3/20",
@@ -242,7 +242,7 @@
     "type": "0"
   },
   {
-    "field1": "TAS",
+    "state": "TAS",
     "area": "",
     "name": "UTAS' Sandy Bay Campus",
     "date": "9/3/20",
@@ -253,7 +253,7 @@
     "type": "0"
   },
   {
-    "field1": "TAS",
+    "state": "TAS",
     "area": "",
     "name": "Lazemby's Cafe",
     "date": "9/3/20",
@@ -264,7 +264,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Greater Geelong",
     "name": "Greater Geelong: 11 cases",
     "date": "25/3/20",
@@ -275,7 +275,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Ballarat",
     "name": "Ballarat: 5 cases",
     "date": "25/3/20",
@@ -286,7 +286,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Baw Baw",
     "name": "Baw Baw: 2 cases",
     "date": "25/3/20",
@@ -297,7 +297,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Greater Shepparton",
     "name": "Greater Shepparton: 2 cases",
     "date": "25/3/20",
@@ -308,7 +308,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Surf Coast",
     "name": "Surf Coast: 2 cases",
     "date": "25/3/20",
@@ -319,7 +319,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Warrnambool",
     "name": "Warrnambool: 2 cases",
     "date": "25/3/20",
@@ -330,7 +330,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Latrobe",
     "name": "Latrobe: 2 cases",
     "date": "25/3/20",
@@ -341,7 +341,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Macedon Ranges",
     "name": "Macedon Ranges: 2 cases",
     "date": "25/3/20",
@@ -352,7 +352,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Mitchell",
     "name": "Mitchell: 4 cases",
     "date": "25/3/20",
@@ -363,7 +363,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Mount Alexander",
     "name": "Mount Alexander: 3 cases",
     "date": "25/3/20",
@@ -374,7 +374,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Bass Coast",
     "name": "Bass Coast: 1 case",
     "date": "25/3/20",
@@ -385,7 +385,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "East Gippsland",
     "name": "East Gippsland: 1 case",
     "date": "25/3/20",
@@ -396,7 +396,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Yarriambiack",
     "name": "Yarriambiack: 1 case",
     "date": "25/3/20",
@@ -407,7 +407,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Gannawarra",
     "name": "Gannawarra: 1 case",
     "date": "25/3/20",
@@ -418,7 +418,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Hepburn",
     "name": "Hepburn: 1 case",
     "date": "25/3/20",
@@ -429,7 +429,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Moorabool",
     "name": "Moorabool: 1 case",
     "date": "25/3/20",
@@ -440,7 +440,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Northern Grampians",
     "name": "Northern Grampians: 1 case",
     "date": "25/3/20",
@@ -451,7 +451,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Wellington",
     "name": "Wellington: 1 case",
     "date": "25/3/20",
@@ -462,7 +462,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Mildura",
     "name": "Mildura: 1 case",
     "date": "25/3/20",
@@ -473,7 +473,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Moira",
     "name": "Moira: 1 case",
     "date": "25/3/20",
@@ -484,7 +484,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "Moyne",
     "name": "Moyne: 1 case",
     "date": "25/3/20",
@@ -495,7 +495,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "South Gippsland",
     "name": "South Gippsland: 1 case",
     "date": "25/3/20",
@@ -506,7 +506,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "Mary Miller Cafe, Fitzroy North",
     "date": "10/3/20",
@@ -517,7 +517,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "No. 19 Cafe, Ascot Vale",
     "date": "10/3/20",
@@ -528,7 +528,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "T20 Cricket World Cup Final, Melbourne Cricket Ground, MCC Members Level 2",
     "date": "8/3/20",
@@ -539,7 +539,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "Myrtle Oval, Macleay Park, North Balwyn",
     "date": "8/3/20",
@@ -550,7 +550,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "Ramsden Street Oval, Clifton Hill",
     "date": "8/3/20",
@@ -561,7 +561,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "AAMI Park (Rebels vs Lions rugby game)",
     "date": "7/3/20",
@@ -572,7 +572,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "Albert Park Hotel",
     "date": "7/3/20",
@@ -583,7 +583,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "South Melbourne Market",
     "date": "7/3/20",
@@ -594,7 +594,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "Coles Waurn Ponds",
     "date": "7/3/20",
@@ -605,7 +605,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "Ashburton Park",
     "date": "7/3/20",
@@ -616,7 +616,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "Pho Hung Vuong 2 Vietnamese Restaurant in Richmond",
     "date": "6/3/20",
@@ -627,7 +627,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "Coles Waurn Ponds",
     "date": "6/3/20",
@@ -638,7 +638,7 @@
     "type": "0"
   },
   {
-    "field1": "VIC",
+    "state": "VIC",
     "area": "",
     "name": "South Melbourne Market",
     "date": "6/3/20",
@@ -649,7 +649,7 @@
     "type": "0"
   },
   {
-    "field1": "WA",
+    "state": "WA",
     "area": "Perth metropolitan area",
     "name": "Perth metropolitan area: 28 cases",
     "date": "24/3/20",
@@ -660,7 +660,7 @@
     "type": "0"
   },
   {
-    "field1": "WA",
+    "state": "WA",
     "area": "",
     "name": "a concert at the Perth Concert Hall",
     "date": "7/3/20",
@@ -671,7 +671,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Thornleigh",
     "name": "Normanhurst West Public School",
     "date": "21/3/20",
@@ -682,7 +682,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Thornleigh",
     "name": "Normanhurst West Public School",
     "date": "23/3/20",
@@ -693,7 +693,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Macquarie Park",
     "name": "Dorothy Henderson Lodge",
     "date": "24/3/20",
@@ -704,7 +704,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Moore Park",
     "name": "University of Sydney Football Ground",
     "date": "14/3/20",
@@ -715,7 +715,7 @@
     "type": "0"
   },
   {
-    "field1": "NSW",
+    "state": "NSW",
     "area": "Bankstown",
     "name": "Bankstown Opal Care Facility",
     "date": "25/3/20",
@@ -726,7 +726,7 @@
     "type": "0"
   },
   {
-    "field1": "QLD",
+    "state": "QLD",
     "area": "Noosa",
     "name": "Sails Restaurant",
     "date": "18/3/20",
