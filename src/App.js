@@ -474,7 +474,7 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{numberWithCommas(x[1])}</strong>{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}
+          <strong>{numberWithCommas(x[1])}</strong>{x[0] === 'NSW' || x[0] === 'NT' || x[0] === 'TAS' ? '*' : null}&nbsp;{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}
         </div>
         <div className="death">
           <strong>{numberWithCommas(x[2])}</strong>&nbsp;{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}
