@@ -631,7 +631,7 @@ function Information({ hospitalData, columns }) {
       </div>
 
       <h2 className="responsiveH2">Information</h2>
-      {information.map(info => (
+      {information.generalCovidInfo.map(info => (
         <div key={uuid()}>
           <div>
             <ExpansionPanel style={{ boxShadow: "none" }} >

@@ -1,195 +1,298 @@
-[
-    {
-        "name": "What is coronavirus?",
-        "text": {
-            "text_1": [
-                "Coronaviruses are a group of viruses that can affect humans and animals. In humans, coronaviruses can cause mild illness, such as the common cold and gastrointestinal infections, as well as more severe illness, such as that caused by SARS (Severe Acute Respiratory Syndrome) and MERS (Middle East Respiratory Syndrome)."
-            ],
-            "ulist_1": [],
-            "olist_1": [],
-            "text_2": [],
-            "citation": [
-                
-            ]
+{
+    "generalCovidInfo": [
+        {
+            "name": "What is coronavirus?",
+            "text": {
+                "text_1": [
+                    "Coronaviruses are a group of viruses that can affect humans and animals. In humans, coronaviruses can cause mild illness, such as the common cold and gastrointestinal infections, as well as more severe illness, such as that caused by SARS (Severe Acute Respiratory Syndrome) and MERS (Middle East Respiratory Syndrome)."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "What is COVID-19?",
+            "text": {
+                "text_1": [
+                    "There is currently an outbreak of a disease called ‘COVID-19’, which is caused by a new strain of coronavirus. COVID-19 causes a spectrum of illness, from mild to very severe. The outbreak was first identified in Wuhan, Hubei Province, China, and has spread to many other countries. The virus can be spread from person to person, so good hygiene is very important in slowing the spread of infection."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "What are the symptoms of COVID-19?",
+            "text": {
+                "text_1": [
+                    "The key symptoms of COVID-19 are:"
+                ],
+                "ulist_1": [
+                    "fever",
+                    "cough",
+                    "shortness of breath",
+                    "sore throat"
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days.",
+                    "In more severe cases, COVID-19 can also result in pneumonia. Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days."
+                ],
+                "citation": []
+            }
+        },
+        {
+            "name": "How does COVID-19 spread?",
+            "text": {
+                "text_1": [
+                    "People can catch COVID-19 from others who have the virus. The disease can spread from person to person through small droplets from the nose or mouth which are spread when a person with COVID-19 coughs or exhales. These droplets land on objects and surfaces around the person. Other people then catch COVID-19 by touching these objects or surfaces, then touching their eyes, nose or mouth. People can also catch COVID-19 if they breathe in droplets from a person with COVID-19 who coughs out or exhales droplets."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                ]
+            }
+        },
+        {
+            "name": "Is there a cure or vaccine?",
+            "text": {
+                "text_1": [
+                    "There are currently no vaccines or specific treatment that protect against COVID-19.",
+                    "Early diagnosis and general supportive care are important. Most of the time, symptoms will resolve on their own. People who have serious disease with complications can be cared for in hospital."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "Who is most at risk of getting COVID-19?",
+            "text": {
+                "text_1": [
+                    "In Australia, the people most at risk of getting the virus are those who have:"
+                ],
+                "ulist_1": [
+                    "recently been in in a high risk country or region (mainland China, Iran, Italy or Korea)",
+                    "been in close contact with someone who has a confirmed case of COVID-19"
+                ],
+                "olist_1": [],
+                "text_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "Who is most at risk of getting a serious infection?",
+            "text": {
+                "text_1": [
+                    "Based on what we know about coronaviruses, those most at risk of serious infection are:"
+                ],
+                "ulist_1": [
+                    "people with compromised immune systems (such as people who have cancer)",
+                    "elderly people",
+                    "Aboriginal and Torres Strait Islander peoples (as they have higher rates of chronic illness)",
+                    "people with chronic medical conditions",
+                    "people in group residential settings",
+                    "people in detention facilities"
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "It is important for all individuals to practice good hygiene and carry out social distancing to reduce the likelihood of the disease spreading to the more vulnerable parts of the population."
+                ],
+                "citation": []
+            }
+        },
+        {
+            "name": "Who is most at risk of getting a serious infection?",
+            "text": {
+                "text_1": [
+                    "Based on what we know about coronaviruses, those most at risk of serious infection are:"
+                ],
+                "ulist_1": [
+                    "people with compromised immune systems (such as people who have cancer)",
+                    "elderly people",
+                    "Aboriginal and Torres Strait Islander peoples (as they have higher rates of chronic illness)",
+                    "people with chronic medical conditions",
+                    "people in group residential settings",
+                    "people in detention facilities"
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "It is important for all individuals to practice good hygiene and carry out social distancing to reduce the likelihood of the disease spreading to the more vulnerable parts of the population."
+                ],
+                "citation": []
+            }
         }
-    },
-    {
-        "name": "What is COVID-19?",
-        "text": {
-            "text_1": [
-                "There is currently an outbreak of a disease called ‘COVID-19’, which is caused by a new strain of coronavirus. COVID-19 causes a spectrum of illness, from mild to very severe. The outbreak was first identified in Wuhan, Hubei Province, China, and has spread to many other countries. The virus can be spread from person to person, so good hygiene is very important in slowing the spread of infection."
-            ],
-            "ulist_1": [],
-            "olist_1": [],
-            "text_2": [],
-            "citation": [
-                
-            ]
+    ],
+    "haveCovid": [
+        {
+            "name": "I think I might have COVID-19. What should I do?",
+            "text": {
+                "text_1": [
+                    "If you have recently travelled overseas or had contact with a confirmed case of COVID-19, you should closely monitor yourself for symptoms for 14 days of leaving an overseas country or after your last contact with someone who has COVID-19.",
+                    "If you are within that 14 day period and concerned that you may have symptoms, it’s important that you take steps to reduce the risk of transmission and arrange to get tested if required. Take the following steps:"
+                ],
+                "ulist_1": [
+                    "Limit your exposure to other people by isolating yourself at home (if you were not already in home quarantine).",
+                    "Call your GP and let them know you’re worried you may have COVID-19. Calling ahead will allow your GP to provide advice and plan for your visit. You should not visit your GP without calling ahead. Testing will be arranged by your GP if they determine it is necessary.",
+                    "If you can’t see your GP, you can visit a Respiratory Assessment Clinic. Staff at these clinics will assess your risk of COVID-19 and test you if needed. You do not need to call ahead.",
+                    "When travelling to the GP or Respiratory Assessment Clinic, do not attend any public places, such as shops or cafes/restaurants, on the way. If possible, you should travel using a private mode of transport, such as a private car, to minimise exposure to others.",
+                    "However, if using public transport is your only option, you should wear a mask, avoid direct contact with other people (including other passengers, drivers and transport staff), cough/sneeze into your elbow, and wash your hands before and after you travel.",
+                    "You do not need to visit the Emergency Department unless you have severe symptoms, such as shortness of breath, chest pain or very high fever."
+                ],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect-yourself-and-others"
+                ]
+            }
+        },
+        {
+            "name": "Should I be tested for COVID-19?",
+            "text": {
+                "text_1": [
+                    "Your doctor will tell you if you should be tested, and they will arrange for the test",
+                    "You will only be tested if your doctor decides you meet the criteria: "
+                ],
+                "ulist_1": [
+                    "You have returned from overseas in the past 14 days and you develop respiratory illness with or without fever ",
+                    "You have been in close contact with a confirmed COVID-19 case in the past 14 days and you develop respiratory illness with or without fever ",
+                    "You have severe community-acquired pneumonia and there is no clear cause ",
+                    "You are a healthcare worker who works directly with patients and you have a respiratory illness and a fever Coronavirus disease (COVID-19) "
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "If you meet any of these criteria, your doctor can request you are tested for COVID-19. It is important to remember that many people with symptoms similar to COVID-19 will not have the virus. Only suspected cases are tested to ensure our labs are able to cope with the demand. There is no need to test people who feel well and do not meet the criteria above.",
+                    "There is a global shortage of testing kits, so that is why testing is targeted rather than widespread.",
+                    "It may take a few days for you to get your test results. In this time, if you have serious symptoms, you will be kept in the hospital and isolated from other patients to keep them safe. If your doctor says you are well enough to go home, you should self-isolate at home and take measures to protect yourself and others. "
+                ],
+                "citation": []
+            }
+        },
+        {
+            "name": "What does isolate in your home mean? ",
+            "text": {
+                "text_1": [
+                    "If you have been diagnosed with COVID-19, you must stay at home to prevent it spreading to other people. You might also be asked to stay at home if you may have been exposed to the virus. ",
+                    "Staying at home means you: "
+                ],
+                "ulist_1": [
+                    "do not go to public places such as work, school, shopping centres, childcare or university ",
+                    "ask someone to get food and other necessities for you and leave them at your front door ",
+                    "do not let visitors in — only people who usually live with you should be in your home  "
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "You do not need to wear a mask in your home. If you need to go out to seek medical attention, wear a surgical mask (if you have one) to protect others.",
+                    "All people who arrive in Australia from midnight 15 March 2020, or think they may have been in close contact with a confirmed case of coronavirus, are required to self-isolate for 14 days.",
+                    "Refer to the sources below for more information."
+                ],
+                "citation": [
+                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-about-home-isolation-when-unwell-suspected-or-confirmed-cases.pdf",
+                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-isolation-guidance_7.pdf",
+                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-frequently-asked-questions_5.pdf",
+                    "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19"
+                ]
+            }
+        },
+        {
+            "name": "Who needs to isolate? ",
+            "text": {
+                "text_1": [],
+                "ulist_1": [
+                    "Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.",
+                    "Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.",
+                    "cover your sneeze or cough with your elbow or with tissue.",
+                    "avoid close contact with people who are ill.",
+                    "avoid touching your eyes, nose and mouth.",
+                    "stay home if you are sick.",
+                    "a number of governments advise against all non-essential travel to countries and areas affected by the outbreak.",
+                    "Keep up to date on the latest COVID-19 hotspots (cities or local areas where COVID-19 is spreading widely). If possible, avoid traveling to places  – especially if you are an older person or have diabetes, heart or lung disease."
+                ],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+            }
+        },
+        {
+            "name": "Is there a cure or vaccine?",
+            "text": {
+                "text_1": [
+                    "There are currently no vaccines or specific treatment that protect against COVID-19.",
+                    "Early diagnosis and general supportive care are important. Most of the time, symptoms will resolve on their own. People who have serious disease with complications can be cared for in hospital."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "What is Social Distancing?",
+            "text": {
+                "text_1": [
+                    "Social distancing means we reduce the number of close physical and social contacts we have with one another.",
+                    "When social distancing actions are combined with good personal hygiene measures the spread of a pandemic through the community can be slowed. This helps protect the most vulnerable members of the community and reduces the impact of the pandemic on essential, life-saving health services.",
+                    "Everyone should practice social distancing, as it reduces the potential for transmission."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "Should I be Bulk-Buying to prepare?",
+            "text": {
+                "text_1": [
+                    "There is no need to bulk-buy products at supermarkets including toilet paper, paracetamol and canned food.",
+                    "It is prudent for households to have a small stock of non-perishable groceries to cover the event that in the coming months the household has been asked to self-isolate for 14 days."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "Should I wear a mask to protect myself?",
+            "text": {
+                "text_1": [
+                    "Only wear a mask if you are ill with COVID-19 symptoms (especially coughing) or looking after someone who may have COVID-19. Disposable face mask can only be used once. If you are not ill or looking after someone who is ill then you are wasting a mask. There is a world-wide shortage of masks, so WHO urges people to use masks wisely.",
+                    "WHO advises rational use of medical masks to avoid unnecessary wastage of precious resources and mis-use of masks.",
+                    "The most effective ways to protect yourself and others against COVID-19 are to frequently clean your hands, cover your cough with the bend of elbow or tissue and maintain a distance of at least 1 meter (3 feet) from people who are coughing or sneezing."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "How to put on, use, take off and dispose of a mask?",
+            "text": {
+                "text_1": [],
+                "ulist_1": [],
+                "olist_1": [
+                    "Remember, a mask should only be used by health workers, care takers, and individuals with respiratory symptoms, such as fever and cough.",
+                    "Before touching the mask, clean hands with an alcohol-based hand rub or soap and water.",
+                    "Take the mask and inspect it for tears or holes.",
+                    "Orient which side is the top side (where the metal strip is).",
+                    "Ensure the proper side of the mask faces outwards (the coloured side).",
+                    "Place the mask to your face. Pinch the metal strip or stiff edge of the mask so it moulds to the shape of your nose.",
+                    "Pull down the mask’s bottom so it covers your mouth and your chin.",
+                    "After use, take off the mask; remove the elastic loops from behind the ears while keeping the mask away from your face and clothes, to avoid touching potentially contaminated surfaces of the mask.",
+                    "Discard the mask in a closed bin immediately after use.",
+                    "Perform hand hygiene after touching or discarding the mask – Use alcohol-based hand rub or, if visibly soiled, wash your hands with soap and water."
+                ],
+                "text_2": [],
+                "citation": []
+            }
         }
-    },
-    {
-        "name": "What are the symptoms of COVID-19?",
-        "text": {
-            "text_1": [
-                "The key symptoms of COVID-19 are:"
-            ],
-            "ulist_1": ["fever", "cough", "shortness of breath", "sore throat"],
-            "olist_1": [],
-            "text_2": [
-                "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days.",
-                "In more severe cases, COVID-19 can also result in pneumonia. Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days."
-            ],
-            "citation": [
-                
-            ]
-        }
-    },
-    {
-        "name": "I think I might have COVID-19. What should I do?",
-        "text": {
-            "text_1": [
-                "If you have recently travelled overseas or had contact with a confirmed case of COVID-19, you should closely monitor yourself for symptoms for 14 days of leaving an overseas country or after your last contact with someone who has COVID-19.",
-                "If you are within that 14 day period and concerned that you may have symptoms, it’s important that you take steps to reduce the risk of transmission and arrange to get tested if required. Take the following steps:"
-            ],
-            "ulist_1": [
-                "Limit your exposure to other people by isolating yourself at home (if you were not already in home quarantine).",
-                "Call your GP and let them know you’re worried you may have COVID-19. Calling ahead will allow your GP to provide advice and plan for your visit. You should not visit your GP without calling ahead. Testing will be arranged by your GP if they determine it is necessary.",
-                "If you can’t see your GP, you can visit a Respiratory Assessment Clinic. Staff at these clinics will assess your risk of COVID-19 and test you if needed. You do not need to call ahead.",
-                "When travelling to the GP or Respiratory Assessment Clinic, do not attend any public places, such as shops or cafes/restaurants, on the way. If possible, you should travel using a private mode of transport, such as a private car, to minimise exposure to others.",
-                "However, if using public transport is your only option, you should wear a mask, avoid direct contact with other people (including other passengers, drivers and transport staff), cough/sneeze into your elbow, and wash your hands before and after you travel.",
-                "You do not need to visit the Emergency Department unless you have severe symptoms, such as shortness of breath, chest pain or very high fever."
-            ],
-            "olist_1": [],
-            "text_2": [],
-            "citation": [
-                
-            ]
-        }
-    },
-    {
-        "name": "Is there anything I should NOT do?",
-        "text": {
-            "text_1": [
-                "The following measures ARE NOT effective against COVID-2019 and can be harmful:"
-            ],
-            "ulist_1": [
-                "Smoking",
-                "Wearing multiple masks",
-                "Taking antibiotics as antibiotics do not work against viruses, they only work on bacterial infections. COVID-19 is caused by a virus, so antibiotics do not work. Antibiotics should not be used as a means of prevention or treatment of COVID-19."
-            ],
-            "olist_1": [],
-            "text_2": [
-                "In any case, if you have fever, cough and difficulty breathing seek medical care early to reduce the risk of developing a more severe infection and be sure to share your recent travel history with your health care provider."
-            ],
-            "citation": [
-                
-            ]
-        }
-    },
-    {
-        "name": "How do I protect myself, and prevent the spread of disease?",
-        "text": {
-            "text_1": [
-                "You can reduce your chances of being infected or spreading COVID-19 by taking some simple precautions:"
-            ],
-            "ulist_1": [
-                "Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.",
-                "Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.",
-                "cover your sneeze or cough with your elbow or with tissue.",
-                "avoid close contact with people who are ill.",
-                "avoid touching your eyes, nose and mouth.",
-                "stay home if you are sick.",
-                "a number of governments advise against all non-essential travel to countries and areas affected by the outbreak.",
-                "Keep up to date on the latest COVID-19 hotspots (cities or local areas where COVID-19 is spreading widely). If possible, avoid traveling to places  – especially if you are an older person or have diabetes, heart or lung disease."
-            ],
-            "olist_1": [],
-            "text_2": [],
-            "citation": [
-                
-            ]
-        }
-    },
-    {
-        "name": "Is there a cure or vaccine?",
-        "text": {
-            "text_1": [
-                "There are currently no vaccines or specific treatment that protect against COVID-19.",
-                "Early diagnosis and general supportive care are important. Most of the time, symptoms will resolve on their own. People who have serious disease with complications can be cared for in hospital."
-            ],
-            "ulist_1": [],
-            "olist_1": [],
-            "text_2": [],
-            "citation": [
-                
-            ]
-        }
-    },
-    {
-        "name": "What is Social Distancing?",
-        "text": {
-            "text_1": [
-                "Social distancing means we reduce the number of close physical and social contacts we have with one another.",
-                "When social distancing actions are combined with good personal hygiene measures the spread of a pandemic through the community can be slowed. This helps protect the most vulnerable members of the community and reduces the impact of the pandemic on essential, life-saving health services.",
-                "Everyone should practice social distancing, as it reduces the potential for transmission."
-            ],
-            "ulist_1": [],
-            "olist_1": [],
-            "text_2": [],
-            "citation": [
-                
-            ]
-        }
-    },
-    {
-        "name": "Should I be Bulk-Buying to prepare?",
-        "text": {
-            "text_1": [
-                "There is no need to bulk-buy products at supermarkets including toilet paper, paracetamol and canned food.",
-                "It is prudent for households to have a small stock of non-perishable groceries to cover the event that in the coming months the household has been asked to self-isolate for 14 days."
-            ],
-            "ulist_1": [],
-            "olist_1": [],
-            "text_2": [],
-            "citation": [
-                
-            ]
-        }
-    },
-    {
-        "name": "Should I wear a mask to protect myself?",
-        "text": {
-            "text_1": [
-                "Only wear a mask if you are ill with COVID-19 symptoms (especially coughing) or looking after someone who may have COVID-19. Disposable face mask can only be used once. If you are not ill or looking after someone who is ill then you are wasting a mask. There is a world-wide shortage of masks, so WHO urges people to use masks wisely.",
-                "WHO advises rational use of medical masks to avoid unnecessary wastage of precious resources and mis-use of masks.",
-                "The most effective ways to protect yourself and others against COVID-19 are to frequently clean your hands, cover your cough with the bend of elbow or tissue and maintain a distance of at least 1 meter (3 feet) from people who are coughing or sneezing."
-            ],
-            "ulist_1": [],
-            "olist_1": [],
-            "text_2": [],
-            "citation": [
-                
-            ]
-        }
-    },
-    {
-        "name": "How to put on, use, take off and dispose of a mask?",
-        "text": {
-            "text_1": [],
-            "ulist_1": [],
-            "olist_1": [
-                "Remember, a mask should only be used by health workers, care takers, and individuals with respiratory symptoms, such as fever and cough.",
-                "Before touching the mask, clean hands with an alcohol-based hand rub or soap and water.",
-                "Take the mask and inspect it for tears or holes.",
-                "Orient which side is the top side (where the metal strip is).",
-                "Ensure the proper side of the mask faces outwards (the coloured side).",
-                "Place the mask to your face. Pinch the metal strip or stiff edge of the mask so it moulds to the shape of your nose.",
-                "Pull down the mask’s bottom so it covers your mouth and your chin.",
-                "After use, take off the mask; remove the elastic loops from behind the ears while keeping the mask away from your face and clothes, to avoid touching potentially contaminated surfaces of the mask.",
-                "Discard the mask in a closed bin immediately after use.",
-                "Perform hand hygiene after touching or discarding the mask – Use alcohol-based hand rub or, if visibly soiled, wash your hands with soap and water."
-            ],
-            "text_2": [],
-            "citation": []
-        }
-    }
-]
+    ]
+}
