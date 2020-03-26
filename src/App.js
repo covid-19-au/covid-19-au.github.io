@@ -269,14 +269,14 @@ function News({ province }) {
   );
 }
 
-function Tweets({ province, nav }) {
+function Tweets({ province }) {
   return (
     <div className="card">
       <h2>Twitter Feed</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-          {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
-          {nav === "News" ? (
+          {/* Must do check for window.location.pathname === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
+          {window.location.pathname === "News" ? (
             <TwitterTimelineEmbed
               sourceType="list"
               ownerScreenName="8ravoEchoNov"
@@ -498,7 +498,7 @@ function Header({ province }) {
   );
 }
 
-function Navbar({ setNav, nav }) {
+function Navbar() {
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
   const handleScroll = () => {
@@ -513,7 +513,6 @@ function Navbar({ setNav, nav }) {
   }, []);
 
   const onClick = e => {
-    setNav(e.target.innerText);
     window.scrollTo(0, 0);
   }
 
@@ -522,9 +521,9 @@ function Navbar({ setNav, nav }) {
       <div
         className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
       >
-          <A className={`navItems ${nav === "Home" && !isSticky ? "navCurrentPage " : ""} ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/"><strong>Home</strong></A>
-          <A className={`navItems ${nav === "Info" && !isSticky ? "navCurrentPage " : ""} ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/info"><strong>Info</strong></A>
-          <A className={`navItems ${nav === "News" && !isSticky ? "navCurrentPage " : ""} ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/news"><strong>News</strong></A>
+          <A className={`navItems ${window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/"><strong>Home</strong></A>
+          <A className={`navItems ${window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/info"><strong>Info</strong></A>
+          <A className={`navItems ${window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/news"><strong>News</strong></A>
       </div>
     </div>
   );
@@ -1085,7 +1084,6 @@ function App() {
   const overall = province ? province : all;
 
   // This is used to set the state of the page for navbar CSS styling.
-  const [nav, setNav] = useState("Home");
   const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
 
   const setModalVisibility = state => {
@@ -1095,8 +1093,8 @@ function App() {
   // Set the routes for each page and pass in props.
   const routes = {
     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
-    "/info": () => <InfoPage nav={nav} columns={columns} gspace={gspace}/>,
-    "/news": () => <NewsPage province={province} gspace={gspace} nav={nav}/>,
+    "/info": () => <InfoPage  columns={columns} gspace={gspace}/>,
+    "/news": () => <NewsPage province={province} gspace={gspace} />,
     "/faq": () => <FAQPage />
   };
 
@@ -1115,7 +1113,7 @@ function App() {
             <Header province={province} />
           </Grid>
           <Grid item xs={12} className="removePadding">
-            <Navbar setNav={setNav} nav={nav} province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>
+            <Navbar province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>
           </Grid>
 
           {/* routeResult renders the routes onto this area of the app function. 
@@ -1123,7 +1121,7 @@ function App() {
           {routeResult}
 
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
+            <Fallback setModalVisibility={setModalVisibility}  />
           </Grid>
         </Grid>
       </div>
