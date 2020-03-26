@@ -389,8 +389,8 @@ function Stat({
         </Tag>
       </div>
         <span className="due" style={{ fontSize: "80%",paddingTop:0 }}>
-        Time in AEDT, last updated at: {stateCaseData.updatedTime}
-      </span>
+          Time in AEDT, last updated at: {stateCaseData.updatedTime}
+        </span>
 
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
@@ -741,7 +741,7 @@ function HomePage({
           <div style={{ paddingBottom: "1rem" }}>
 
             <span
-              style={{ fontSize: "70%", float: "left", paddingLeft: 0 }}
+              style={{ fontSize: "80%", float: "left", paddingLeft: 0 }}
               className="due"
             >
               *Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
