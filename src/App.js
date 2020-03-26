@@ -364,6 +364,7 @@ function Stat({
 
 
       <div className="row">
+
         <Tag
           number={confirmedCount}
           fColor={"#e74c3c"}
@@ -419,6 +420,12 @@ function Area({ area, onChange, data }) {
     Object.keys(stateData)[Object.keys(stateData).length - 1]
     ];
 
+  const getAriaLabel = (state, confirmed, death, recovered, tested) => {
+    return `In ${state.split("").join(" ")}, there were ${confirmed} confirmed cases. Out of them, ${death} unfortunately resulted in death.
+    
+    ${recovered} recovered and ${tested} were tested`;
+  };
+
   const renderArea = () => {
     let latest =
       testedCases[
@@ -426,7 +433,7 @@ function Area({ area, onChange, data }) {
       ];
 
     return data.map(x => (
-      <div className="province" key={uuid()}>
+      <div role={"button"} aria-label={getAriaLabel(...x)} aria-describedby={getAriaLabel(...x)} className="province" key={uuid()}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
         {/*{ x.name || x.cityName }*/}
         {/*</div>*/}
@@ -451,7 +458,7 @@ function Area({ area, onChange, data }) {
   };
 
   return (
-    <>
+    <div role={"table"}>
       <div className="province header">
         <div className="area header statetitle">State</div>
         <div className="confirmed header confirmedtitle">Confirmed</div>
@@ -478,7 +485,7 @@ function Area({ area, onChange, data }) {
           <div className="tested"></div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
