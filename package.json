@@ -40,6 +40,7 @@
     "file-loader": "4.3.0",
     "fs": "0.0.1-security",
     "fs-extra": "^8.1.0",
+    "hookrouter": "^1.2.3",
     "html-webpack-plugin": "4.0.0-beta.5",
     "identity-obj-proxy": "3.0.0",
     "jest": "24.9.0",
