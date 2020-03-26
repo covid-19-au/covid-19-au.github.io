@@ -18,7 +18,7 @@ import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
 import stateData from "./data/state";
 import Tag from "./Tag";
-
+import Fallback from "./fallback"
 import Flights from "./Flights";
 import StateGraph from "./StateGraph";
 import FAQ from "./faq"
@@ -402,45 +402,7 @@ function Stat({
   );
 }
 
-function Fallback(props) {
-  return (
-    <div className="fallback">
-      <button onClick={() => props.setModalVisibility(true)}>
-        <i className="share alternate square icon" />
-          Share this site
-      </button>
 
-      <div>Template credits to: shfshanyue</div>
-
-      <div>
-        Our GitHub:{" "}
-        <a href="https://github.com/covid-19-au/covid-19-au.github.io">
-          covid-19-au
-        </a>
-      </div>
-      <div>
-        This site is developed by a{" "}
-        <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
-          volunteer team
-        </a>{" "}
-        from the Faculty of IT, Monash University, for non-commercial use only.
-      </div>
-        <u style={{color:"rgb(89,129,183)"}}><div onClick={()=>{
-            props.setNav("About");
-            window.scrollTo(0, 0);
-        }}>Dashboard FAQ</div></u>
-      <div>
-        <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
-          <img
-            src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1"
-            border="0"
-            alt="hit counter"
-          />
-        </a>
-      </div>
-    </div>
-  );
-}
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
