@@ -1,54 +1,22 @@
 // Info page to present information about the virus.
 
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import mapDataHos from "./data/mapdataHos";
-import ReactPlayer from "react-player";
-import uuid from "react-uuid";
-
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
 import {
   useTable,
   useFilters,
   useGlobalFilter,
   usePagination
 } from "react-table";
+import ReactPlayer from "react-player";
+import uuid from "react-uuid";
+import Grid from "@material-ui/core/Grid";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import information from "./data/info";
-
-export default function InfoPage({ columns }) {
-  const stateAbrev = {
-    Victoria: "VIC",
-    "New South Wales": "NSW",
-    Queensland: "QLD",
-    Tasmania: "TAS",
-    "South Australia": "SA",
-    "Western Australia": "WA",
-    "Northern Territory": "NT",
-    "Australian Capital Territory": "ACT"
-  };
-
-  const abrevs = ["VIC", "NSW", "QLD", "TAS", "SA", "WA", "NT", "ACT"];
-
-  mapDataHos.forEach(hosData => {
-    let hosState = hosData.state;
-    if (!abrevs.includes(hosState)) {
-      hosData.state = stateAbrev[hosState];
-    }
-  });
-
-  const hospitalData = React.useMemo(() => mapDataHos, []);
-
-  return (
-    <Grid item xs={12} sm={12} md={10}>
-      <Information columns={columns} hospitalData={hospitalData} />
-    </Grid>
-  );
-}
+import mapDataHos from "./data/mapdataHos";
 
 function Information({ hospitalData, columns }) {
   return (
@@ -108,7 +76,7 @@ function Information({ hospitalData, columns }) {
       </div>
 
       <h2 className="responsiveH2">Information</h2>
-      {information.map(info => (
+      {information.generalCovidInfo.map(info => (
         <div>
           <div key={uuid()}>
             <ExpansionPanel style={{ boxShadow: "none" }}>
@@ -506,5 +474,35 @@ function Table({ columns, data }) {
         </div>
       </div>
     </>
+  );
+}
+
+export default function InfoPage({ columns }) {
+  const stateAbrev = {
+    Victoria: "VIC",
+    "New South Wales": "NSW",
+    Queensland: "QLD",
+    Tasmania: "TAS",
+    "South Australia": "SA",
+    "Western Australia": "WA",
+    "Northern Territory": "NT",
+    "Australian Capital Territory": "ACT"
+  };
+
+  const abrevs = ["VIC", "NSW", "QLD", "TAS", "SA", "WA", "NT", "ACT"];
+
+  mapDataHos.forEach(hosData => {
+    let hosState = hosData.state;
+    if (!abrevs.includes(hosState)) {
+      hosData.state = stateAbrev[hosState];
+    }
+  });
+
+  const hospitalData = React.useMemo(() => mapDataHos, []);
+
+  return (
+    <Grid item xs={12} sm={12} md={10}>
+      <Information columns={columns} hospitalData={hospitalData} />
+    </Grid>
   );
 }
