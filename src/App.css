@@ -449,6 +449,7 @@ h2 small {
     padding: 1em;
 }
 
+
 .hoverButton {
     background:none;
     border:none;
@@ -456,4 +457,9 @@ h2 small {
     padding:0;
     color: #888;
     cursor: pointer;
+}
+.dataSource {
+    padding-left: 0.2rem;
+    margin-top: -0.05rem;
+
 }
