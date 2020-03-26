@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {A} from 'hookrouter';
 
 function Fallback(props) {
     return (
@@ -34,10 +34,10 @@ function Fallback(props) {
                     &nbsp;Feedback
                 </a>
 
-
+                
                 <button type="button" className="btn btn-light btn-sm m-1" onClick={() => {
-                    props.setNav("About");
                     window.scrollTo(0, 0);}}>
+                    <A href="/faq">
                     <svg className="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
@@ -47,6 +47,7 @@ function Fallback(props) {
                         <circle cx="8" cy="4.5" r="1"/>
                     </svg>
                     &nbsp;FAQ
+                    </A>
                 </button>
 
             </div>
@@ -65,10 +66,6 @@ function Fallback(props) {
                 </a>{" "}
                 from the Faculty of IT, Monash University, for non-commercial use only.
             </div>
-            {/*<u style={{color:"rgb(89,129,183)"}}><div onClick={()=>{*/}
-            {/*props.setNav("About");*/}
-            {/*window.scrollTo(0, 0);*/}
-            {/*}}>Dashboard FAQ</div></u>*/}
             <div>
                 <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
                     <img
