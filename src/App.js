@@ -26,6 +26,7 @@ import MbMap from "./ConfirmedMap";
 import "./App.css";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
+import {useRoutes, A} from 'hookrouter';
 
 import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
@@ -521,30 +522,9 @@ function Navbar({ setNav, nav }) {
       <div
         className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
       >
-        <span
-          className={`navItems ${
-            nav === "Home" && !isSticky ? "navCurrentPage " : ""
-            } ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `}
-          onClick={onClick}
-        >
-          <strong>Home</strong>
-        </span>
-        <span
-          className={`navItems ${
-            nav === "Info" && !isSticky ? "navCurrentPage " : ""
-            } ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `}
-          onClick={onClick}
-        >
-          <strong>Info</strong>
-        </span>
-        <span
-          className={`navItems ${
-            nav === "News" && !isSticky ? "navCurrentPage " : ""
-            } ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `}
-          onClick={onClick}
-        >
-          <strong>News</strong>
-        </span>
+          <A className={`navItems ${nav === "Home" && !isSticky ? "navCurrentPage " : ""} ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/"><strong>Home</strong></A>
+          <A className={`navItems ${nav === "Info" && !isSticky ? "navCurrentPage " : ""} ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/info"><strong>Info</strong></A>
+          <A className={`navItems ${nav === "News" && !isSticky ? "navCurrentPage " : ""} ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/news"><strong>News</strong></A>
       </div>
     </div>
   );
@@ -777,6 +757,7 @@ function FAQPage() {
     )
 }
 
+// Info page to present information about the virus.
 function InfoPage({ columns }) {
 
   const stateAbrev = {
@@ -809,6 +790,7 @@ function InfoPage({ columns }) {
   )
 }
 
+// News page showing a News Timeline and Twitter Feed
 function NewsPage({ gspace, province, nav }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
@@ -1102,12 +1084,24 @@ function App() {
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
 
+  // This is used to set the state of the page for navbar CSS styling.
   const [nav, setNav] = useState("Home");
   const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
 
   const setModalVisibility = state => {
     setShowSocialMediaIcons(state);
   };
+
+  // Set the routes for each page and pass in props.
+  const routes = {
+    "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
+    "/info": () => <InfoPage nav={nav} columns={columns} gspace={gspace}/>,
+    "/news": () => <NewsPage province={province} gspace={gspace} nav={nav}/>,
+    "/faq": () => <FAQPage />
+  };
+
+  // The hook used to render the routes.
+  const routeResult = useRoutes(routes);
 
   if (myData) {
     return (
@@ -1121,26 +1115,15 @@ function App() {
             <Header province={province} />
           </Grid>
           <Grid item xs={12} className="removePadding">
-            <Navbar setNav={setNav} nav={nav} />
+            <Navbar setNav={setNav} nav={nav} province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>
           </Grid>
 
-          {/* Pages to hold each functionality. */}
-          {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
-          {nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}
-          {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
-          {nav === "About" ? <FAQPage /> : ""}
-
-
-          {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
-          {/*<News />*/}
-          {/*</Grid>*/}
-          {/*<Grid item xs={12}>*/}
-          {/*<ExposureSites />*/}
-
-          {/*</Grid>*/}
+          {/* routeResult renders the routes onto this area of the app function. 
+          E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
+          {routeResult}
 
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav}  />
+            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
           </Grid>
         </Grid>
       </div>
