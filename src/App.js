@@ -608,18 +608,10 @@ function Information({ hospitalData, columns }) {
       <div className="row centerMedia">
         <div>
           <ReactPlayer alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
-          <small className="mediaText">How to properly wash your hands.</small>
-        </div>
-      </div>
-
-      <div className="row centerMedia">
-        <div className="imageContainer">
-          <img
-            className="formatImage"
-            src="https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"
-            alt="How to wash hands - Coronavirus / COVID-19"
-          />
-          <small className="mediaText">How to properly wash your hands.</small>
+          <small className="mediaText">How to properly wash your hands.</small> <br />
+          <small style={{ color: "#3366BB" }}><a target="_blank"
+            rel="noopener noreferrer"
+            href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{"Here's a step-by-step guide you can save"}</a></small>
         </div>
       </div>
 
