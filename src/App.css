@@ -381,16 +381,17 @@ h2 small {
 
 .navItems:hover {
     cursor: pointer;
+    text-decoration: none !important;
 }
 
 .navCurrentPage {
     border-bottom: #87CEEB solid 2px;
-    color: #87CEEB;
+    color: #87CEEB !important;
 }
 
 .navCurrentPageSticky {
     border-bottom: black solid 2px;
-    color: black;
+    color: black !important;
 }
 
 .citationLink {

@@ -36,7 +36,6 @@ function Fallback(props) {
 
                 
                 <button type="button" className="btn btn-light btn-sm m-1" onClick={() => {
-                    props.setNav("faq");
                     window.scrollTo(0, 0);}}>
                     <A href="/faq">
                     <svg className="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
@@ -67,10 +66,6 @@ function Fallback(props) {
                 </a>{" "}
                 from the Faculty of IT, Monash University, for non-commercial use only.
             </div>
-            {/*<u style={{color:"rgb(89,129,183)"}}><div onClick={()=>{*/}
-            {/*props.setNav("About");*/}
-            {/*window.scrollTo(0, 0);*/}
-            {/*}}>Dashboard FAQ</div></u>*/}
             <div>
                 <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
                     <img
