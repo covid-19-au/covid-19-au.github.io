@@ -9,7 +9,16 @@
                 "ulist_1": [],
                 "olist_1": [],
                 "text_2": [],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
             }
         },
         {
@@ -21,7 +30,16 @@
                 "ulist_1": [],
                 "olist_1": [],
                 "text_2": [],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
             }
         },
         {
@@ -41,7 +59,16 @@
                     "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days.",
                     "In more severe cases, COVID-19 can also result in pneumonia. Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days."
                 ],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
             }
         },
         {
@@ -54,7 +81,10 @@
                 "olist_1": [],
                 "text_2": [],
                 "citation": [
-                    "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
                 ]
             }
         },
@@ -68,7 +98,16 @@
                 "ulist_1": [],
                 "olist_1": [],
                 "text_2": [],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
             }
         },
         {
@@ -78,12 +117,21 @@
                     "In Australia, the people most at risk of getting the virus are those who have:"
                 ],
                 "ulist_1": [
-                    "recently been in in a high risk country or region (mainland China, Iran, Italy or Korea)",
-                    "been in close contact with someone who has a confirmed case of COVID-19"
+                    "Recently been in in a high risk country or region (mainland China, Iran, Italy or Korea)",
+                    "Been in close contact with someone who has a confirmed case of COVID-19"
                 ],
                 "olist_1": [],
                 "text_2": [],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
             }
         },
         {
@@ -93,18 +141,23 @@
                     "Based on what we know about coronaviruses, those most at risk of serious infection are:"
                 ],
                 "ulist_1": [
-                    "people with compromised immune systems (such as people who have cancer)",
-                    "elderly people",
+                    "People with compromised immune systems (such as people who have cancer)",
+                    "Elderly people",
                     "Aboriginal and Torres Strait Islander peoples (as they have higher rates of chronic illness)",
-                    "people with chronic medical conditions",
-                    "people in group residential settings",
-                    "people in detention facilities"
+                    "People with chronic medical conditions",
+                    "People in group residential settings",
+                    "People in detention facilities"
                 ],
                 "olist_1": [],
                 "text_2": [
                     "It is important for all individuals to practice good hygiene and carry out social distancing to reduce the likelihood of the disease spreading to the more vulnerable parts of the population."
                 ],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "Protect yourself and others - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect-yourself-and-others"
+                    }
+                ]
             }
         },
         {
@@ -117,7 +170,16 @@
                 "ulist_1": [],
                 "olist_1": [],
                 "text_2": [],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
             }
         },
         {
@@ -136,7 +198,10 @@
                     "More information about coronavirus myths can be found in the site below."
                 ],
                 "citation": [
-                    "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters"
+                    {
+                        "name": "Coronavirus disease (COVID-19) advice for the public: Myth busters - World Health Organization",
+                        "link": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters"
+                    }
                 ]
             }
         }
@@ -152,7 +217,16 @@
                 "ulist_1": [],
                 "olist_1": [],
                 "text_2": [],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
             }
         },
         {
@@ -173,7 +247,10 @@
                 "olist_1": [],
                 "text_2": [],
                 "citation": [
-                    "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect-yourself-and-others"
+                    {
+                        "name": "Protect yourself and others - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect-yourself-and-others"
+                    }
                 ]
             }
         },
@@ -196,7 +273,16 @@
                     "There is a global shortage of testing kits, so that is why testing is targeted rather than widespread.",
                     "It may take a few days for you to get your test results. In this time, if you have serious symptoms, you will be kept in the hospital and isolated from other patients to keep them safe. If your doctor says you are well enough to go home, you should self-isolate at home and take measures to protect yourself and others. "
                 ],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
             }
         },
         {
@@ -207,9 +293,9 @@
                     "Staying at home means you: "
                 ],
                 "ulist_1": [
-                    "do not go to public places such as work, school, shopping centres, childcare or university ",
-                    "ask someone to get food and other necessities for you and leave them at your front door ",
-                    "do not let visitors in — only people who usually live with you should be in your home  "
+                    "Do not go to public places such as work, school, shopping centres, childcare or university ",
+                    "Ask someone to get food and other necessities for you and leave them at your front door ",
+                    "Do not let visitors in — only people who usually live with you should be in your home  "
                 ],
                 "olist_1": [],
                 "text_2": [
@@ -218,30 +304,33 @@
                     "Refer to the sources below for more information."
                 ],
                 "citation": [
-                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-about-home-isolation-when-unwell-suspected-or-confirmed-cases.pdf",
-                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-isolation-guidance_7.pdf",
-                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-frequently-asked-questions_5.pdf",
-                    "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19"
+                    {
+                        "name": "Home isolation guidance when unwell (suspected or confirmed cases) - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-about-home-isolation-when-unwell-suspected-or-confirmed-cases.pdf"
+                    },
+                    {
+                        "name": "Isolation guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-isolation-guidance_7.pdf"
+                    }
                 ]
             }
         },
         {
             "name": "Who needs to isolate? ",
             "text": {
-                "text_1": [],
-                "ulist_1": [
-                    "Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.",
-                    "Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.",
-                    "Cover your sneeze or cough with your elbow or with tissue.",
-                    "Avoid close contact with people who are ill.",
-                    "Avoid touching your eyes, nose and mouth.",
-                    "Stay home if you are sick.",
-                    "A number of governments advise against all non-essential travel to countries and areas affected by the outbreak.",
-                    "Keep up to date on the latest COVID-19 hotspots (cities or local areas where COVID-19 is spreading widely). If possible, avoid traveling to places  – especially if you are an older person or have diabetes, heart or lung disease."
+                "text_1": [
+                    "All people who arrive in Australia from midnight 15 March 2020, or think they may have been in close contact with a confirmed case of coronavirus, are required to self-isolate for 14 days.",
+                    "Under the current lockdown, the government is also asking people who are not confirmed or suspected COVID-19 cases not to leave their homes unless they need to for groceries, exercise, medical needs, care or support or work which cannot be from home. "
                 ],
+                "ulist_1": [],
                 "olist_1": [],
                 "text_2": [],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently asked questions - Australian Government Department of Health",
+                        "link": "https://www.pm.gov.au/media/update-coronavirus-measures-24-March-2020"
+                    }
+                ]
             }
         }
     ],
@@ -260,18 +349,23 @@
                     "Avoid touching your eyes, nose and mouth.",
                     "Clean and disinfect surfaces and frequently used objects such as phones, wallets, and keys regularly",
                     "Avoid close contact with people who are ill.",
-                    "stay home if you are sick.",
-                    "A number of governments advise against all non-essential travel to countries and areas affected by the outbreak.",
+                    "Stay home if you are sick.",
+                    "Avoid non-essential travel",
                     "Wear a surgical mask if you are coughing or sneezing. Note there is little evidence to suggest that widespread use of surgical masks in healthy people prevents transmission in public.",
                     "Get your flu shot when it’s available. Getting the flu and COVID-19 at the same time can make you very ill.",
-                    "Practice social distancing"
+                    "Practice social distancing",
+                    "Abide by all government lockdown regulations and recommendations"
                 ],
                 "olist_1": [],
                 "text_2": [],
                 "citation": [
-                    "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect-yourself-and-others"
+                    {
+                        "name": "Protect yourself and others - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect-yourself-and-others"
+                    }
                 ]
-            }
+            },
+            "video_1": []
         },
         {
             "name": "What is Social Distancing?",
@@ -284,9 +378,13 @@
                 "olist_1": [],
                 "text_2": [],
                 "citation": [
-                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-frequently-asked-questions.pdf"
+                    {
+                        "name": "COVID-19 - Frequently asked questions - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-frequently-asked-questions_5.pdf"
+                    }
                 ]
-            }
+            },
+            "video_1": []
         },
         {
             "name": "What is the theory behind social distancing?",
@@ -302,11 +400,12 @@
                 "text_2": [],
                 "citation": [
                     {
-                        "name": "Tomas Pueyo on Medium",
+                        "name": "Coronavirus: Why You Must Act Now - Tomas Pueyo",
                         "link": "https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca"
                     }
                 ]
-            }
+            },
+            "video_1": []
         },
         {
             "name": "What does it mean when people say, ‘flatten the curve’ and ‘raise the line’ and how does social distancing help?",
@@ -314,7 +413,10 @@
                 "https://i2.wp.com/flowingdata.com/wp-content/uploads/2020/03/flatten-the-curve-smaller.gif?fit=670%2C565&ssl=1"
             ],
             "video_1": [
-                "https://www.youtube.com/watch?v=D7uQwQTRDew"
+                {
+                    "link": "https://www.youtube.com/watch?v=D7uQwQTRDew",
+                    "desc": "Beating Coronavirus, Flatten the Curve, Raise the Line"
+                }
             ],
             "text": {
                 "text_1": [
@@ -325,10 +427,43 @@
                 "olist_1": [],
                 "text_2": [],
                 "citation": [
-                    "https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56",
-                    "https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca"
+                    {
+                        "name": "Coronavirus: The Hammer and the Dance - Tomas Pueyo",
+                        "link": "https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56"
+                    },
+                    {
+                        "name": "Coronavirus: Why You Must Act Now - Tomas Pueyo",
+                        "link": "https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca"
+                    }
                 ]
             }
+        },
+        {
+            "name": "How do I practice social distancing in public?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "Social distancing in public means people:"
+                ],
+                "ulist_1": [
+                    "Stay at home unless is absolutely necessary",
+                    "Keep 1.5 metres away from others",
+                    "Avoid physical greetings such as handshaking, hugs and kisses",
+                    "Use tap and pay instead of cash",
+                    "Travel at quiet times and avoid crowds",
+                    "Avoid public gatherings and at risk groups",
+                    "Practise good hygiene"
+                ],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
+                ]
+            },
+            "video_1": []
         },
         {
             "name": "How do I practice social distancing at home?",
@@ -338,19 +473,23 @@
                     "To reduce the spread of germs:"
                 ],
                 "ulist_1": [
-                    "As mentioned, practise good hand and sneeze/cough hygiene ",
-                    "Avoid handshaking and kissing ",
-                    "Regularly disinfect high touch surfaces, such as tables, kitchen benches and doorknobs ",
-                    "Increase ventilation in the home by opening windows or adjusting air conditioning ",
-                    "Visit shops sparingly and buy more goods and services online ",
-                    "Consider whether outings and travel, both individual and family, are sensible and necessary Coronavirus disease (COVID-19) "
+                    "Stay at home unless going out is absolutely necessary",
+                    "Keep visitors to a minimum",
+                    "Reduce visits to the shops — instead, buy more goods and services online if you can for pick-up, pre-order or delivery",
+                    "Carefully consider what travel and outings are necessary, both individual and family",
+                    "Regularly disinfect surfaces that are touched a lot, such as tables, kitchen benches and doorknobs",
+                    "Increase ventilation in the home by opening windows or adjust air conditioning"
                 ],
                 "olist_1": [],
                 "text_2": [],
                 "citation": [
-                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
                 ]
-            }
+            },
+            "video_1": []
         },
         {
             "name": "What if people in my household are ill?",
@@ -363,15 +502,19 @@
                     "Care for the sick person in a single room if possible ",
                     "Keep the number of carers to a minimum ",
                     "Keep the door to the sick person’s room closed and, if possible, a window open ",
-                    "Both the sick person and the people caring for them should wear a surgical mask when they are in the same room ",
-                    "Protect other vulnerable family members, such as people over 65 years or people with a chronic illness, including, if practicable, finding alternative accommodation "
+                    "Wear a surgical mask when you are in the same room as the sick person. The sick person should also wear a mask",
+                    "Protect other vulnerable family members by keeping them away from the sick person. At-risk people include those over 65 years or people with a chronic illness. If possible, find them somewhere else to live while the family member is sick."
                 ],
                 "olist_1": [],
                 "text_2": [],
                 "citation": [
-                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
                 ]
-            }
+            },
+            "video_1": []
         },
         {
             "name": "How do I practice social distancing at work?",
@@ -381,54 +524,64 @@
                     "To reduce the spread of germs in the workplace:"
                 ],
                 "ulist_1": [
-                    "Stay at home if you are sick ",
+                    "Stay at home unless is absolutely necessary",
                     "Stop handshaking as a greeting ",
                     "Hold meetings via video conferencing or phone call ",
                     "Defer large meetings ",
                     "Hold essential meetings outside in the open air if possible ",
                     "Promote good hand and sneeze/cough hygiene and provide hand sanitisers for all staff and workers ",
-                    "Take lunch at your desk or outside rather than in the lunch room ",
-                    "Clean and disinfect high touch surfaces regularly ",
-                    "Consider opening windows and adjusting air conditioning for more ventilation ",
+                    "Eat lunch at your desk or outside rather than in the lunch room ",
+                    "Regularly clean and disinfect surfaces that many people touch",
+                    "Open windows or adjust air conditioning for more ventilation",
                     "Limit food handling and sharing of food in the workplace ",
-                    "Reconsider non-essential business travel ",
-                    "Promote strictest hygiene among food preparation (canteen) staff and their close contacts ",
-                    "Consider if large gatherings can be rescheduled, staggered or cancelled "
+                    "Avoid non-essential travel",
+                    "Promote strict hygiene among food preparation (canteen) staff and their close contacts",
+                    "Consider if you can reschedule, stagger or cancel non-essential meetings"
                 ],
                 "olist_1": [],
                 "text_2": [],
                 "citation": [
-                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
                 ]
-            }
+            },
+            "video_1": []
         },
         {
-            "name": "How should my children practice social distancing in school?",
+            "name": "How can my children practice social distancing in school?",
             "image_1": [],
             "text": {
                 "text_1": [
                     "To reduce the spread of germs in the schools:"
                 ],
                 "ulist_1": [
-                    "If your child is sick, do not send them to school (or childcare) ",
-                    "Sanitise hands when entering school and at regular intervals ",
-                    "Defer activities that lead to mixing between classes and years ",
-                    "Avoid queuing and consider cancelling school assemblies ",
-                    "Promote a regular handwashing schedule ",
-                    "Clean and disinfect high touch surfaces regularly ",
+                    "Wash hands with soap and water or use hand sanitiser when entering school and at regular intervals",
+                    "Stop activities that lead to mixing between classes and years",
+                    "Avoid queuing",
+                    "Cancel school assemblies",
+                    "Have a regular handwashing schedule",
+                    "Regularly clean and disinfect surfaces that many people touch",
                     "Conduct lessons outdoors where possible ",
                     "Consider opening windows and adjusting conditioning for more ventilation ",
                     "Promote strictest hygiene among food preparation (canteen) staff and their close contacts"
                 ],
                 "olist_1": [],
-                "text_2": [],
+                "text_2": [
+                    "If your child is sick, they must not go to school or childcare. You must keep them at home and away from others."
+                ],
                 "citation": [
-                    "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
                 ]
-            }
+            },
+            "video_1": []
         },
         {
-            "name": "What else can you do to help reduce the spread?",
+            "name": "What else can I do to help reduce the spread?",
             "image_1": [],
             "text": {
                 "text_1": [
@@ -444,7 +597,130 @@
                 ],
                 "olist_1": [],
                 "text_2": [],
-                "citation": []
+                "citation": [
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            },
+            "video_1": []
+        }
+    ],
+    "regulations": [
+        {
+            "name": "What are the current government limits on indoor and outdoor gatherings?",
+            "text": {
+                "text_1": [
+                    "Essential indoor gatherings limited to 100 people, and essential outdoor gatherings are limited to 500 people.",
+                    "Essential activities include:"
+                ],
+                "ulist_1": [
+                    "Wash your hands frequently using soap and water or alcohol-based hand rub",
+                    "Essential workplaces",
+                    "Healthcare settings",
+                    "Pharmacies",
+                    "Food shopping",
+                    "Schools and universities",
+                    "Public transport and airports"
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "You can find a current list of the coronavirus measures in place by the government below."
+                ],
+                "citation": [
+                    {
+                        "name": "Limits on public gatherings for coronavirus (COVID-19) - Australia Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/limits-on-public-gatherings-for-coronavirus-covid-19"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "What are the current government limits on public facilities and businesses?",
+            "text": {
+                "text_1": [
+                    "The following facilities have been restricted from opening as of 26th of March at 12am:"
+                ],
+                "ulist_1": [
+                    "Pubs, registered and licensed clubs (excluding bottle shops attached to these venues), hotels (excluding accommodation)",
+                    "Gyms and indoor sporting venues",
+                    "Cinemas, entertainment venues, casinos and night clubs",
+                    "Restaurants and cafes will be restricted to takeaway and/or home delivery",
+                    "Religious gatherings, places of worship or funerals (in enclosed spaces and other than very small groups and where the 1 person per 4 square metre rule applies)",
+                    "Food courts (except for take away)",
+                    "Auction houses, real estate auctions and open houses",
+                    "Personal services (beauty, nail, tanning, waxing and tattoo salons)",
+                    "Spa and massage parlours, excluding health related services such as physiotherapy",
+                    "Amusement parks, arcades and play centres (indoor and outdoor)",
+                    "Strip clubs, brothels and sex on premises venues.",
+                    "Galleries, national institutions, historic sites and museums",
+                    "Health clubs, fitness centres, yoga, barre and spin facilities, saunas, bathhouses and wellness centres and swimming pools",
+                    "Community facilities such as community halls, libraries and youth centres, RSL and PCYC",
+                    "Gaming and gambling venues",
+                    "Indoor and outdoor markets (excluding food markets). States and territories will make their own announcements about this."
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "These measures also apply to the outdoor areas associated with each of these venues. Australians should expect these measures to be in place for at least 6 months. Isolated remote community hubs are not included in these restrictions. ",
+                    "Public transport is considered essential and, at this stage, the 100 person limit does not apply. If traveling on public transport, always use appropriate social distancing and hygiene practices, and avoid non-essential travel.",
+                    "There are special regulations are in place for visiting aged-care facilities. More information can be found in the sources below."
+                ],
+                "citation": [
+                    {
+                        "name": "Fact Sheet: For families and residents on restricted visits to residential aged care facilities - Australian Government",
+                        "link": "https://health.govcms.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-for-families-and-residents-on-restricted-visits-to-residential-aged-care-facilities_0.pdf"
+                    },
+                    {
+                        "name": "Limits on public gatherings for coronavirus (COVID-19) - Australia Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/limits-on-public-gatherings-for-coronavirus-covid-19"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Addition rules:",
+            "text": {
+                "text_1": [],
+                "ulist_1": [
+                    "Weddings are restricted to no more than five people, including the couple, the celebrant and the witnesses. The 4 square metre rule and social distancing must be observed.",
+                    "Funerals must be limited to no more than 10 people. The 4 square metre rule and social distancing must be observed.",
+                    "Hairdressers and barbers can continue to operate under strict new rules. The four square metre rule and social distancing must be observed. Clients must also not spend more than 30 minutes inside the premises.",
+                    "Bootcamps and personal training can be conducted outdoors with no more than 10 people and social distancing observed."
+                ],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Limits on public gatherings for coronavirus (COVID-19) - Australia Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/limits-on-public-gatherings-for-coronavirus-covid-19"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Travel Restrictions:",
+            "text": {
+                "text_1": [
+                    "All people entering Australia must self-isolate for 14 days. You may board a domestic flight to your intended destination in Australia to self-isolate there. You can travel to Australia if you are an Australian citizen, a permanent resident, an immediate family member of an Australian citizen or permanent resident or are a New Zealand citizen usually resident in Australia. If you are an immediate family member holding a temporary visa you will need to provide evidence of your relationship."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    },
+                    {
+                        "name": "COVID-19 (Coronavirus​) and the Australian border - Australian Government Department of Home Affairs",
+                        "link": "https://www.homeaffairs.gov.au/news-media/current-alerts/novel-coronavirus?fbclid=IwAR0CobpLulNLJmwXM4YM8nuctTyg9NgWCf8z7iXfu3cwiQZM-nNC0E0pnyc"
+                    },
+                    {
+                        "name": "Update on coronavirus measures",
+                        "link": "https://www.pm.gov.au/media/update-coronavirus-measures-220320"
+                    }
+                ]
             }
         }
     ]
