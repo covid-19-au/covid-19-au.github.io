@@ -365,30 +365,40 @@ function Stat({
 
       <div className="row">
 
-        <Tag
-          number={confirmedCount}
-          fColor={"#e74c3c"}
-          increased={confCountIncrease}
-        >
-          Confirmed
-        </Tag>
-        {/*<Tag number={suspectedCount || '-'}>*/}
-        {/*疑似*/}
-        {/*</Tag>*/}
-        <Tag
-          number={deadCount}
-          fColor={"#a93226"}
-          increased={deadCountIncrease}
-        >
-          Deaths
-        </Tag>
-        <Tag
-          number={curedCount}
-          fColor={"#00b321"}
-          increased={curedCountIncrease}
-        >
-          Recovered
-        </Tag>
+      <Tag
+        number={confirmedCount}
+        fColor={"#e74c3c"}
+        increased={confCountIncrease}
+      >
+        <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+        title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>">
+        Confirmed</button>
+
+      </Tag>
+      {/*<Tag number={suspectedCount || '-'}>*/}
+      {/*疑似*/}
+      {/*</Tag>*/}
+      <Tag
+        number={deadCount}
+        fColor={"#a93226"}
+        increased={deadCountIncrease}
+      >
+      <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+      title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
+      Deaths</button>
+
+      </Tag>
+      <Tag
+        number={curedCount}
+        fColor={"#00b321"}
+        increased={curedCountIncrease}
+      >
+      <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+      title="<em>Number of people that have recovered from COVID-19.</em>">
+      Recovered</button>
+
+      </Tag>
+
       </div>
         <span className="due" style={{ fontSize: "80%",paddingTop:0 }}>
           Time in AEDT, last updated at: {stateCaseData.updatedTime}
@@ -631,8 +641,8 @@ function Information({ hospitalData, columns }) {
           <div>
             <ExpansionPanel style={{ boxShadow: "none" }} >
 
-              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
-                        This is so that we can reduce code smell while still retaining the ability to format text. 
+              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
