@@ -448,3 +448,12 @@ h2 small {
     margin: 0;
     padding: 1em;
 }
+
+.hoverButton {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    color: #888;
+    cursor: pointer;
+}

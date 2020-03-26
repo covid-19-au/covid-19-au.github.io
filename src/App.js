@@ -345,9 +345,9 @@ function Stat({
         fColor={"#e74c3c"}
         increased={confCountIncrease}
       >
-        <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
-        title="<em>All positive cases confirmed so far, consisting of currently active, recovery and death cases.</em>">
-        Confirmed</a>
+        <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+        title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>">
+        Confirmed</button>
 
       </Tag>
       {/*<Tag number={suspectedCount || '-'}>*/}
@@ -358,9 +358,9 @@ function Stat({
         fColor={"#a93226"}
         increased={deadCountIncrease}
       >
-      <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
-      title="<em>All cases that has been confirmed death, including a case from the Diamond Princess Cruise.</em>">
-      Deaths</a>
+      <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+      title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
+      Deaths</button>
 
       </Tag>
       <Tag
@@ -368,9 +368,9 @@ function Stat({
         fColor={"#00b321"}
         increased={curedCountIncrease}
       >
-      <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
-      title="<em>All cases that are no longer infected, confirmed by having negative results after treatment.</em>">
-      Recovered</a>
+      <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+      title="<em>Number of people that have recovered from COVID-19.</em>">
+      Recovered</button>
 
       </Tag>
       </div>
