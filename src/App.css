@@ -454,3 +454,11 @@ h2 small {
     padding-left: 0.2rem;
     margin-top: -0.05rem;
 }
+
+.navLinks {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}

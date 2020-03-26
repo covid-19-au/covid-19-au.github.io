@@ -26,7 +26,10 @@ import MbMap from "./ConfirmedMap";
 import "./App.css";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
+
+// routes
 import {useRoutes, A} from 'hookrouter';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
@@ -505,7 +508,8 @@ function Header({ province }) {
   );
 }
 
-function Navbar() {
+function Navbar({urlPath}) {
+  const [nav, setNav] = useState("Home");
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
   const handleScroll = () => {
@@ -520,6 +524,7 @@ function Navbar() {
   }, []);
 
   const onClick = e => {
+    setNav(e.target.innerHTML);
     window.scrollTo(0, 0);
   }
 
@@ -528,9 +533,21 @@ function Navbar() {
       <div
         className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
       >
-          <A className={`navItems ${window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/"><strong>Home</strong></A>
+          {/* <A className={`navItems ${window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/"><strong>Home</strong></A>
           <A className={`navItems ${window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/info"><strong>Info</strong></A>
-          <A className={`navItems ${window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/news"><strong>News</strong></A>
+          <A className={`navItems ${window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/news"><strong>News</strong></A> */}
+          <ul className="navLinks">
+              <Link to="/">
+                <li className={`navItems ${window.location.pathname === '/' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></li>
+              </Link>
+              <Link to="/info">
+                <li className={`navItems ${window.location.pathname === '/info' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/info' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></li>
+              </Link>
+              <Link to="/news">
+                <li className={`navItems ${window.location.pathname === '/news' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/news' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></li>
+              </Link>
+
+          </ul>
       </div>
     </div>
   );
@@ -574,8 +591,8 @@ function Information({ hospitalData, columns }) {
 
       <h2 className="responsiveH2">Information</h2>
       {information.map(info => (
-        <div>
-          <div key={uuid()}>
+        <div key={uuid()}>
+          <div >
             <ExpansionPanel style={{ boxShadow: "none" }} >
 
               {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
@@ -797,11 +814,11 @@ function InfoPage({ columns }) {
 }
 
 // News page showing a News Timeline and Twitter Feed
-function NewsPage({ gspace, province, nav }) {
+function NewsPage({ gspace, province}) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
       <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
-        <Tweets province={province} nav={nav} />
+        <Tweets province={province} />
       </Grid>
 
       <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
@@ -1097,19 +1114,11 @@ function App() {
     setShowSocialMediaIcons(state);
   };
 
-  // Set the routes for each page and pass in props.
-  const routes = {
-    "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
-    "/info": () => <InfoPage  columns={columns} gspace={gspace}/>,
-    "/news": () => <NewsPage province={province} gspace={gspace} />,
-    "/faq": () => <FAQPage />
-  };
-
-  // The hook used to render the routes.
-  const routeResult = useRoutes(routes);
+  const [urlPath, setUrlPath] = useState(window.location.pathname);
 
   if (myData) {
     return (
+      <Router>
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
@@ -1120,18 +1129,26 @@ function App() {
             <Header province={province} />
           </Grid>
           <Grid item xs={12} className="removePadding">
-            <Navbar province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>
+            <Navbar urlPath={urlPath} province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>
           </Grid>
-
-          {/* routeResult renders the routes onto this area of the app function. 
-          E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
-          {routeResult}
-
+          <Switch>
+            <Route path="/" render={() => (
+                <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />
+            )} exact/>
+            <Route path="/info" render={() => (
+                <InfoPage columns={columns} />
+            )} exact/>
+            <Route path="/news" render={() => (
+                <NewsPage province={province} gspace={gspace}/>
+            )} exact/>
+            <Route path="/faq" component={FAQPage} exact/>
+          </Switch>
           <Grid item xs={12}>
             <Fallback setModalVisibility={setModalVisibility}  />
           </Grid>
         </Grid>
       </div>
+      </Router>
     );
   }
   return null;
