@@ -1,12 +1,12 @@
 import React from 'react';
-import {A} from 'hookrouter';
+import {Link} from 'react-router-dom';
 
 function Fallback(props) {
     return (
         <div className="fallback">
 
-            <div class="text-center">
-                <button type="button" class="btn btn-light btn-sm m-1" onClick={() => props.setModalVisibility(true)}>
+            <div className="text-center">
+                <button type="button" className="btn btn-light btn-sm m-1" onClick={() => props.setModalVisibility(true)}>
                     <svg className="bi bi-box-arrow-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd"
@@ -34,10 +34,9 @@ function Fallback(props) {
                     &nbsp;Feedback
                 </a>
 
-                
+                <Link to="/faq">
                 <button type="button" className="btn btn-light btn-sm m-1" onClick={() => {
                     window.scrollTo(0, 0);}}>
-                    <A href="/faq">
                     <svg className="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
@@ -47,9 +46,8 @@ function Fallback(props) {
                         <circle cx="8" cy="4.5" r="1"/>
                     </svg>
                     &nbsp;FAQ
-                    </A>
                 </button>
-
+                </Link>
             </div>
             <div>Template credits to: shfshanyue</div>
 
