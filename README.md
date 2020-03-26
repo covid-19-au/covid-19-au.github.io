@@ -71,6 +71,8 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 
 ### Contributor
 * Matt Lui malui@student.unimelb.edu.au
+* Marcel Masque marcel.masques@gmail.com
+* Yaoye Lu luyaoyejeren@gmail.com
 
 
 ## Contact

@@ -2,7 +2,6 @@ import React from 'react';
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
 import "./NewsTimeline.css"
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 
 const jsonNews = require('./data/timelinedata.json')
 const timelineNews = jsonNews["news"]
@@ -17,9 +16,9 @@ const listStyles = {
     padding: 0
 }
 
-const newestColour = "#3498DB"
-const middleColour = "#85C1E9"
-const oldestColour = "#D6EAF8"
+// const newestColour = "#3498DB"
+// const middleColour = "#85C1E9"
+// const oldestColour = "#D6EAF8"
 
 
 const newsLength = timelineNews.length

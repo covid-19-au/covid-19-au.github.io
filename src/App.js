@@ -2,8 +2,6 @@ import React, {
   useState,
   Suspense,
   useEffect,
-  useLayoutEffect,
-  Fragment,
   useRef
 } from "react";
 import keyBy from "lodash.keyby";
@@ -17,16 +15,18 @@ import testedCases from "./data/testedCases";
 import all from "./data/overall";
 import provinces from "./data/area";
 import information from "./data/info";
+import mapDataHos from "./data/mapdataHos";
+import stateData from "./data/state";
 import Tag from "./Tag";
-
+import Fallback from "./fallback"
 import Flights from "./Flights";
-
+import StateGraph from "./StateGraph";
+import FAQ from "./faq"
 import MbMap from "./ConfirmedMap";
 import "./App.css";
-import axios from "axios";
-import Papa from "papaparse";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
+import {useRoutes, A} from 'hookrouter';
 
 import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
@@ -35,9 +35,14 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
 import NewsTimeline from "./NewsTimeline";
+import { useTable, useFilters, useGlobalFilter, usePagination } from 'react-table'
 
 import stateCaseData from "./data/stateCaseData";
 import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -50,13 +55,7 @@ const GoogleMap = React.lazy(() => import("./GoogleMap"));
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
 
-const fetcher = url =>
-  axios(url).then(data => {
-    return data.data.data;
-  });
-
 function HistoryGraph({ countryData }) {
-  let newData = [[{ type: "date", label: "Day" }, "New Cases", "Deaths"]];
   let today = Date.now();
   const [loading, setLoading] = useState(true);
   const [options, setOptions] = useState(null);
@@ -94,12 +93,6 @@ function HistoryGraph({ countryData }) {
         name: "Recovered",
         showInLegend: true,
         dataPoints: []
-      },
-      {
-        type: "spline",
-        name: "Existing",
-        showInLegend: true,
-        dataPoints: []
       }
     ];
     let newData = [
@@ -121,8 +114,7 @@ function HistoryGraph({ countryData }) {
       let arr = key.split("-");
       let date = new Date(arr[0], arr[1] - 1, arr[2]);
       if ((today - date) / (1000 * 3600 * 24) <= 14) {
-        let labelName =
-          monthTrans[date.getMonth()] + " " + date.getDate().toString();
+        let labelName = monthTrans[date.getMonth()] + " " + date.getDate().toString();
         historyData[0]["dataPoints"].push({
           y: countryData[key][0],
           label: labelName
@@ -133,10 +125,6 @@ function HistoryGraph({ countryData }) {
         });
         historyData[2]["dataPoints"].push({
           y: countryData[key][1],
-          label: labelName
-        });
-        historyData[3]["dataPoints"].push({
-          y: countryData[key][3],
           label: labelName
         });
         newData[0]["dataPoints"].push({
@@ -152,7 +140,7 @@ function HistoryGraph({ countryData }) {
     }
     setOptions({
       animationEnabled: true,
-      height: 260,
+      height: 314,
       title: {
         text: "Overall trends for COVID-19 cases in Australia ",
         fontFamily:
@@ -179,7 +167,7 @@ function HistoryGraph({ countryData }) {
     setNewOpts({
       data: newData,
       animationEnabled: true,
-      height: 260,
+      height: 315,
       title: {
         text: "Daily new cases and deaths in Australia",
         fontFamily:
@@ -201,10 +189,7 @@ function HistoryGraph({ countryData }) {
         // content:"{label}, {name}: {y}" ,
       }
     });
-    // newData.push([historyData[2][0],historyData[2][1]-historyData[1][1],historyData[2][2]-historyData[1][2]])
-    // for(let i = 3; i < historyData.length; i++) {
-    //     newData.push([historyData[i][0], historyData[i][1] - historyData[i - 1][1], historyData[i][2]-historyData[i-1][2]])
-    // }
+
 
     setLoading(false);
   }, [countryData]);
@@ -216,23 +201,6 @@ function HistoryGraph({ countryData }) {
         <h2>Historical Data</h2>
         <CanvasJSChart options={options} />
         <CanvasJSChart options={newOpts} />
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="LineChart"*/}
-        {/*loader={<div>Loading Chart...</div>}*/}
-        {/*data={historyData}*/}
-        {/*options={options}*/}
-        {/*rootProps={{ 'data-testid': '3' }}*/}
-        {/*/>*/}
-        {/*<Chart*/}
-        {/*width={'100%'}*/}
-        {/*height={'400px'}*/}
-        {/*chartType="ColumnChart"*/}
-        {/*data={newData}*/}
-        {/*options={newOptions}*/}
-
-        {/*/>*/}
       </div>
     );
 }
@@ -301,14 +269,14 @@ function News({ province }) {
   );
 }
 
-function Tweets({ province, nav }) {
+function Tweets({ province }) {
   return (
     <div className="card">
       <h2>Twitter Feed</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-          {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
-          {nav === "News" ? (
+          {/* Must do check for window.location.pathname === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
+          {window.location.pathname === "News" ? (
             <TwitterTimelineEmbed
               sourceType="list"
               ownerScreenName="8ravoEchoNov"
@@ -370,8 +338,33 @@ function Stat({
 
   return (
     <div className="card">
-      <h2>Status {name ? `· ${name}` : false}</h2>
-      <div className="row" role={"row"}>
+
+      <h2 style={{display:"flex"}}>Status {name ? `· ${name}` : false}
+          <div style={{alignSelf:"flex-end",marginLeft:"auto",fontSize:"60%"}}>
+              <a
+                  style={{
+                      display: "inline-flex"
+                  }}
+                  className="badge badge-light"
+                  target="_blank" rel="noopener noreferrer"
+                  href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+              >
+                  <svg className="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                       xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
+                            clipRule="evenodd"/>
+                      <path
+                          d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                  </svg>
+                  <div className="dataSource">Data Source</div>
+              </a></div>
+
+      </h2>
+
+
+
+      <div className="row">
+
         <Tag
           number={confirmedCount}
           fColor={"#e74c3c"}
@@ -397,9 +390,9 @@ function Stat({
           Recovered
         </Tag>
       </div>
-      <span className="due" style={{ fontSize: "60%" }}>
-        Time in AEDT, last updated at: {stateCaseData.updatedTime}
-      </span>
+        <span className="due" style={{ fontSize: "80%",paddingTop:0 }}>
+          Time in AEDT, last updated at: {stateCaseData.updatedTime}
+        </span>
 
       {/*<div>*/}
       {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
@@ -411,40 +404,10 @@ function Stat({
   );
 }
 
-function Fallback(props) {
-  return (
-    <div className="fallback">
-      <button onClick={() => props.setModalVisibility(true)}>
-        <i className="share alternate square icon" />
-          Share this site
-      </button>
 
-      <div>Template credits to: shfshanyue</div>
 
-      <div>
-        Our GitHub:{" "}
-        <a href="https://github.com/covid-19-au/covid-19-au.github.io">
-          covid-19-au
-        </a>
-      </div>
-      <div>
-        This site is developed by a{" "}
-        <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
-          volunteer team
-        </a>{" "}
-        from the Faculty of IT, Monash University, for non-commercial use only.
-      </div>
-      <div>
-        <a href="https://www.webfreecounter.com/" target="_blank">
-          <img
-            src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1"
-            border="0"
-            alt="hit counter"
-          />
-        </a>
-      </div>
-    </div>
-  );
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function Area({ area, onChange, data }) {
@@ -452,6 +415,10 @@ function Area({ area, onChange, data }) {
   for (let i = 0; i < data.length; i++) {
     totalRecovered += parseInt(data[i][3]);
   }
+  let lastTotal =
+    stateData[
+    Object.keys(stateData)[Object.keys(stateData).length - 1]
+    ];
 
   const getAriaLabel = (state, confirmed, death, recovered, tested) => {
     return `In ${state.split("").join(" ")}, there were ${confirmed} confirmed cases. Out of them, ${death} unfortunately resulted in death.
@@ -477,15 +444,15 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{x[1]}</strong>
+          <strong>{numberWithCommas(x[1])}</strong>{x[0] === 'NSW' || x[0] === 'NT' || x[0] === 'TAS' ? '*' : null}&nbsp;{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}
         </div>
         <div className="death">
-          <strong>{x[2]}</strong>
+          <strong>{numberWithCommas(x[2])}</strong>&nbsp;{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}
         </div>
         <div className="cured">
-          <strong>{x[3]}</strong>
+          <strong>{numberWithCommas(x[3])}</strong>&nbsp;{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}
         </div>
-        <div className="tested">{x[4]}</div>
+        <div className="tested">{numberWithCommas(x[4])}</div>
       </div>
     ));
   };
@@ -497,7 +464,7 @@ function Area({ area, onChange, data }) {
         <div className="confirmed header confirmedtitle">Confirmed</div>
         <div className="death header deathtitle">Deaths</div>
         <div className="cured header recoveredtitle">Recovered</div>
-        <div className="tested header testedtitle">Tested*</div>
+        <div className="tested header testedtitle">Tested</div>
       </div>
       {renderArea()}
 
@@ -538,7 +505,7 @@ function Header({ province }) {
   );
 }
 
-function Navbar({ setNav, nav }) {
+function Navbar() {
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
   const handleScroll = () => {
@@ -553,57 +520,37 @@ function Navbar({ setNav, nav }) {
   }, []);
 
   const onClick = e => {
-    setNav(e.target.innerText);
-  };
+    window.scrollTo(0, 0);
+  }
 
   return (
     <div className={`sticky-wrapper ${isSticky ? "sticky" : ""}`} ref={ref}>
       <div
         className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
       >
-        <span
-          className={`navItems ${
-            nav === "Home" && !isSticky ? "navCurrentPage " : ""
-            } ${nav === "Home" && isSticky ? "navCurrentPageSticky" : ""} `}
-          onClick={onClick}
-        >
-          <strong>Home</strong>
-        </span>
-        <span
-          className={`navItems ${
-            nav === "Info" && !isSticky ? "navCurrentPage " : ""
-            } ${nav === "Info" && isSticky ? "navCurrentPageSticky" : ""} `}
-          onClick={onClick}
-        >
-          <strong>Info</strong>
-        </span>
-        <span
-          className={`navItems ${
-            nav === "News" && !isSticky ? "navCurrentPage " : ""
-            } ${nav === "News" && isSticky ? "navCurrentPageSticky" : ""} `}
-          onClick={onClick}
-        >
-          <strong>News</strong>
-        </span>
+          <A className={`navItems ${window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/"><strong>Home</strong></A>
+          <A className={`navItems ${window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/info"><strong>Info</strong></A>
+          <A className={`navItems ${window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/news"><strong>News</strong></A>
       </div>
     </div>
   );
 }
 
-function Information({ nav }) {
+function Information({ hospitalData, columns }) {
   return (
-    <div className="card">
-      <h2>Informative Media</h2>
+    <div className="card" >
+      <h2 className="responsiveH2">Informative Media</h2>
       <div className="row centerMedia">
         <div>
-          <ReactPlayer
-            className="formatMedia"
-            url="http://www.youtube.com/watch?v=BtN-goy9VOY"
-            controls={true}
-          />
-          <small className="mediaText">
-            The Coronavirus explained and what you should do.
-          </small>
+          <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+          <small className="mediaText">The Coronavirus explained and what you should do.</small>
+        </div>
+      </div>
+
+      <div className="row centerMedia">
+        <div>
+          <ReactPlayer alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
+          <small className="mediaText">How to properly wash your hands.</small>
         </div>
       </div>
 
@@ -611,85 +558,123 @@ function Information({ nav }) {
         <div className="imageContainer">
           <img
             className="formatImage"
-            src="https://www.who.int/gpsc/media/how_to_handwash_lge.gif"
-            alt="How to wash hands - Coronavirus"
+            src="https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"
+            alt="How to wash hands - Coronavirus / COVID-19"
           />
           <small className="mediaText">How to properly wash your hands.</small>
         </div>
       </div>
 
-      <h2>Information</h2>
+      <div className="row centerMedia">
+        <div>
+          <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />
+          <small className="mediaText">How to properly wear and dispose of masks.</small>
+        </div>
+      </div>
+
+      <h2 className="responsiveH2">Information</h2>
       {information.map(info => (
-        <div className="row" key={uuid()}>
-          <div>
-            {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+        <div>
+          <div key={uuid()}>
+            <ExpansionPanel style={{ boxShadow: "none" }} >
+
+              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
                         This is so that we can reduce code smell while still retaining the ability to format text. 
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
-            <h3>{info.name}</h3>
-            <div>
-              {/* First block of text */}
-              {info.text.text_1.map(t1 => (
-                <p key={uuid()}>{t1}</p>
-              ))}
-
-              {/* First Unordered List */}
-              {info.text.ulist_1 ? (
-                <ul>
-                  {info.text.ulist_1.map(ul1 => (
-                    <li key={uuid()}>{ul1}</li>
+              < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                <h3 className="responsiveH3">{info.name}</h3>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                <div>
+                  {/* First block of text */}
+                  {info.text.text_1.map(t1 => (
+                    <p key={uuid()}>{t1}</p>
                   ))}
-                </ul>
-              ) : (
-                  ""
-                )}
+                  {/* First Unordered List */}
+                  {info.text.ulist_1 ? (
+                    <ul>
+                      {info.text.ulist_1.map(ul1 => (
+                        <li key={uuid()}>{ul1}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                      ""
+                    )}
 
-              {/* First Ordered List */}
-              {info.text.olist_1 ? (
-                <ol>
-                  {info.text.olist_1.map(ol1 => (
-                    <li key={uuid()}>{ol1}</li>
+                  {/* First Ordered List */}
+                  {info.text.olist_1 ? (
+                    <ol>
+                      {info.text.olist_1.map(ol1 => (
+                        <li key={uuid()}>{ol1}</li>
+                      ))}
+                    </ol>
+                  ) : (
+                      ""
+                    )}
+
+                  {/* Second Block of text */}
+                  {info.text.text_2.map(t2 => (
+                    <p key={uuid()}>{t2}</p>
                   ))}
-                </ol>
-              ) : (
-                  ""
-                )}
 
-              {/* Second Block of text */}
-              {info.text.text_2.map(t2 => (
-                <p key={uuid()}>{t2}</p>
-              ))}
-
-              {/* Citation tag */}
-              {info.text.citation.map(cit => (
-                <small key={uuid()}>
-                  <a
-                    className="citationLink"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={cit.link}
-                  >
-                    {cit.name}
-                  </a>
-                </small>
-              ))}
-            </div>
+                  {/* Citation tag */}
+                  {info.text.citation.map(cit => (
+                    <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                  ))}
+                </div>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
           </div>
         </div>
-      ))}
-      <small>
-        All information sourced from:{" "}
-        <a
-          className="citationLink"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
-        >
-          NSW Government Health Department
-        </a>
+      ))
+      }
+      <small className="alignStyles">All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a>, <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">WHO</a>
       </small>
-    </div>
+      <h2 className="responsiveH2">Coronavirus Helplines</h2>
+      <div className="row alignStyles responsiveText">
+        <div>
+          <h3>National helplines operating 24 hours a day, seven days a week.</h3>
+          <ul>
+            <li>For information on coronavirus (COVID-19) at the National Helpline: <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
+            <li>If you are feeling unwell, call Healthdirect: <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
+          </ul>
+          <h3>Some states have dedicated helplines aswell: </h3>
+          <ul>
+            <li>Victoria: <a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
+            <li>Queensland: <a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
+            <li>Northern Territory: <a className="citationLink" href="tel:1800008002">1800 008 002</a>
+              <p>-  If you are in Darwin and need to arrange testing call the Public Health Unit on: <a className="citationLink" href="tel:89228044">8922 8044</a></p>
+            </li>
+            <li>Tasmania: <a className="citationLink" href="tel:1800671738">1800 671 738</a>
+              <p>-  If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) on <a className="citationLink" href="tel:131450">131 450</a> and tell them your language.</p>
+              <p>-  Tell the interpreter your name and that you’re calling the Tasmanian Department of Health <a className="citationLink" href="tel:1800671738" >1800 671 738</a>.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
+      <div className="row alignStyles responsiveText">
+        <div>
+          <ul>
+            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">Coronavirus: The Hammer and the Dance</a></li>
+            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/news-event/coronavirus">The New York Times</a> and the <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.economist.com/news/2020/03/11/the-economists-coverage-of-the-coronavirus">Economist</a> are giving people free access to their coronavirus coverage. It's really good!</li>
+          </ul>
+        </div>
+      </div>
+      <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
+      <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
+      <small>Filter the table by clicking the dropdown below state.</small>
+      <div className="row centerMedia">
+        <div>
+          <Table className="formatMedia" columns={columns} data={hospitalData} />
+        </div>
+      </div>
+    </div >
   );
 }
 
@@ -704,14 +689,14 @@ function HomePage({
 }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Stat
           {...{ ...all, ...overall }}
           name={province && province.name}
           data={myData}
           countryData={country}
         />
-        <div className="card">
+        <div className="card" >
           <h2>
             Cases by State {province ? `· ${province.name}` : false}
             {province ? (
@@ -740,47 +725,78 @@ function HomePage({
           <Area area={area} onChange={setProvince} data={myData} />
 
           <div style={{ paddingBottom: "1rem" }}>
-            <a
-              style={{
-                fontSize: "60%",
-                float: "right",
-                color: "blue"
-              }}
-              href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-            >
-              @Data Source
-            </a>
+
             <span
-              style={{ fontSize: "60%", float: "left", paddingLeft: 0 }}
+              style={{ fontSize: "80%", float: "left", paddingLeft: 0 }}
               className="due"
             >
-              *Number of tested cases is updated daily.<br />
-              **Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
+              *Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
 
 
             </span>
           </div>
         </div>
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <MbMap />
         <HistoryGraph countryData={country} />
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+        <StateGraph stateData={stateData} />
+      </Grid>
+
+      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Flights flights={flights} />
       </Grid>
+
+
     </Grid>
   );
 }
 
-function InfoPage() {
+function FAQPage() {
+    return(
+        <Grid item xs={12} sm={12} md={10}>
+            <FAQ />
+        </Grid>
+    )
+}
+
+// Info page to present information about the virus.
+function InfoPage({ columns }) {
+
+  const stateAbrev = {
+    "Victoria": "VIC",
+    "New South Wales": "NSW",
+    "Queensland": 'QLD',
+    "Tasmania": 'TAS',
+    "South Australia": "SA",
+    "Western Australia": "WA",
+    "Northern Territory": "NT",
+    "Australian Capital Territory": "ACT"
+  }
+
+  const abrevs = ["VIC", "NSW", "QLD", "TAS", "SA", "WA", "NT", "ACT"];
+
+
+  mapDataHos.forEach(hosData => {
+    let hosState = hosData.state;
+    if (!abrevs.includes(hosState)) {
+      hosData.state = stateAbrev[hosState];
+    }
+  })
+
+  const hospitalData = React.useMemo(() => mapDataHos, []);
+
   return (
     <Grid item xs={12} sm={12} md={10}>
-      <Information />
+      <Information columns={columns} hospitalData={hospitalData} />
     </Grid>
-  );
+  )
 }
 
+// News page showing a News Timeline and Twitter Feed
 function NewsPage({ gspace, province, nav }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
@@ -788,14 +804,233 @@ function NewsPage({ gspace, province, nav }) {
         <Tweets province={province} nav={nav} />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
         <NewsTimeline />
       </Grid>
     </Grid>
   );
 }
 
+
+// Define a default UI for filtering
+function DefaultColumnFilter() {
+  return ("")
+}
+
+// This is a custom filter UI for selecting
+// a unique option from a list
+function SelectColumnFilter({
+  column: { filterValue, setFilter, preFilteredRows, id },
+}) {
+  // Calculate the options for filtering
+  // using the preFilteredRows
+  const options = React.useMemo(() => {
+    const options = new Set()
+    preFilteredRows.forEach(row => {
+      options.add(row.values[id])
+    })
+    return [...options.values()]
+  }, [id, preFilteredRows])
+
+  // Render a multi-select box
+  return (
+    <select
+      className="customStateSelect"
+      value={filterValue}
+      onChange={e => {
+        setFilter(e.target.value || undefined)
+      }}
+    >
+      <option style={{ textAlign: "center" }} value="">All</option>
+      {options.map((option, i) => (
+        <option key={i} value={option}>
+          {option}
+        </option>
+      ))}
+    </select>
+  )
+}
+
+// Let the table remove the filter if the string is empty
+// Our table component
+function Table({ columns, data }) {
+  const filterTypes = React.useMemo(
+    () => ({
+      // Or, override the default text filter to use
+      // "startWith"
+      text: (rows, id, filterValue) => {
+        return rows.filter(row => {
+          const rowValue = row.values[id]
+          return rowValue !== undefined
+            ? String(rowValue)
+              .toLowerCase()
+              .startsWith(String(filterValue).toLowerCase())
+            : true
+        })
+      },
+    }),
+    []
+  )
+
+  const defaultColumn = React.useMemo(
+    () => ({
+      // Let's set up our default Filter UI
+      Filter: DefaultColumnFilter,
+    }),
+    []
+  )
+
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    prepareRow,
+    visibleColumns,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    pageCount,
+    gotoPage,
+    nextPage,
+    previousPage,
+    setPageSize,
+    state: { pageIndex, pageSize },
+  } = useTable(
+    {
+      columns,
+      data,
+      defaultColumn, // Be sure to pass the defaultColumn option
+      filterTypes,
+      initialState: { pageIndex: 0 },
+    },
+    useFilters, // useFilters!
+    useGlobalFilter, // useGlobalFilter!
+    usePagination
+  )
+
+  // We don't want to render all of the rows for this example, so cap
+  // it for this use case
+  //   const firstPageRows = rows.slice(0, 10)
+
+  return (
+    <>
+      <div className="row">
+        <div>
+          <table className="formatTable" {...getTableProps()}>
+            <thead className="tableRows">
+              {headerGroups.map(headerGroup => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map(column => (
+                    <th className="tableData" {...column.getHeaderProps()}>
+                      {column.render('Header')}
+                      {/* Render the columns filter UI */}
+                      <div>{column.canFilter ? column.render('Filter') : null}</div>
+                    </th>
+                  ))}
+                </tr>
+              ))}
+              <tr>
+                <th
+                  colSpan={visibleColumns.length}
+                  style={{
+                    textAlign: 'left',
+                  }}
+                >
+                </th>
+              </tr>
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {page.map((row, i) => {
+                prepareRow(row)
+                return (
+                  <tr className="tableRows" {...row.getRowProps()}>
+                    {row.cells.map(cell => {
+                      return <td className="tableData" {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    })}
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+          <div className="pagination">
+            <button className="buttonStyles" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+              {'<<'}
+            </button>{' '}
+            <button className="buttonStyles" onClick={() => previousPage()} disabled={!canPreviousPage}>
+              {'<'}
+            </button>{' '}
+            <button className="buttonStyles" onClick={() => nextPage()} disabled={!canNextPage}>
+              {'>'}
+            </button>{' '}
+            <button className="buttonStyles" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+              {'>>'}
+            </button>{' '}
+            <span style={{ marginRight: "1em", marginLeft: "1em" }}>
+              Page{' '}
+              <strong>
+                {pageIndex + 1} of {pageOptions.length}
+              </strong>{' '}
+            </span>
+            <select
+              className="customStateSelect"
+              value={pageSize}
+              onChange={e => {
+                setPageSize(Number(e.target.value))
+              }}
+            >
+              {[10, 20, 30, 40, 50].map(pageSize => (
+                <option key={pageSize} value={pageSize}>
+                  Show {pageSize}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+// Define a custom filter filter function!
+function filterGreaterThan(rows, id, filterValue) {
+  return rows.filter(row => {
+    const rowValue = row.values[id]
+    return rowValue >= filterValue
+  })
+}
+
+// This is an autoRemove method on the filter function that
+// when given the new filter value and returns true, the filter
+// will be automatically removed. Normally this is just an undefined
+// check, but here, we want to remove the filter if it's not a number
+filterGreaterThan.autoRemove = val => typeof val !== 'number'
+
 function App() {
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Hospital',
+        accessor: 'name'
+      },
+      {
+        Header: 'Address',
+        accessor: 'address'
+      },
+      {
+        Header: 'Phone',
+        accessor: 'hospitalPhone'
+      },
+      {
+        Header: 'State',
+        accessor: 'state',
+        Filter: SelectColumnFilter,
+        filter: 'includes'
+      }
+    ],
+    []
+  )
+
   const [province, _setProvince] = useState(null);
   const setProvinceByUrl = () => {
     const p = window.location.pathname.slice(1);
@@ -855,12 +1090,23 @@ function App() {
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
 
-  const [nav, setNav] = useState("Home");
+  // This is used to set the state of the page for navbar CSS styling.
   const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
 
   const setModalVisibility = state => {
     setShowSocialMediaIcons(state);
   };
+
+  // Set the routes for each page and pass in props.
+  const routes = {
+    "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
+    "/info": () => <InfoPage  columns={columns} gspace={gspace}/>,
+    "/news": () => <NewsPage province={province} gspace={gspace} />,
+    "/faq": () => <FAQPage />
+  };
+
+  // The hook used to render the routes.
+  const routeResult = useRoutes(routes);
 
   if (myData) {
     return (
@@ -874,40 +1120,15 @@ function App() {
             <Header province={province} />
           </Grid>
           <Grid item xs={12} className="removePadding">
-            <Navbar setNav={setNav} nav={nav} />
+            <Navbar province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>
           </Grid>
 
-          {/* Pages to hold each functionality. */}
-          {nav === "Home" ? (
-            <HomePage
-              province={province}
-              overall={overall}
-              myData={myData}
-              area={area}
-              data={data}
-              setProvince={setProvince}
-              gspace={gspace}
-            />
-          ) : (
-              ""
-            )}
-          {nav === "Info" ? <InfoPage nav={nav} /> : ""}
-          {nav === "News" ? (
-            <NewsPage province={province} gspace={gspace} nav={nav} />
-          ) : (
-              ""
-            )}
-
-          {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
-          {/*<News />*/}
-          {/*</Grid>*/}
-          {/*<Grid item xs={12}>*/}
-          {/*<ExposureSites />*/}
-
-          {/*</Grid>*/}
+          {/* routeResult renders the routes onto this area of the app function. 
+          E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
+          {routeResult}
 
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility} />
+            <Fallback setModalVisibility={setModalVisibility}  />
           </Grid>
         </Grid>
       </div>
