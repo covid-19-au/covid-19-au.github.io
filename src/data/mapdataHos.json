@@ -889,5 +889,266 @@
     "coor": ["-33.366717", "115.647976"],
     "hospitalType": "",
     "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "55 Commercial Rd, Melbourne VIC 3004, Australia",
+    "hospitalPhone": "(03) 9076 2000",
+    "name": "The Alfred Hospital",
+    "coor": ["-37.845510", "144.981856"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "145 Studley Rd, Heidelberg VIC 3084, Australia",
+    "hospitalPhone": "(03) 3 9496 5000",
+    "name": "Austin Hospital",
+    "coor": ["-37.756370", "145.059588"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "8 Arnold St, Box Hill VIC 3128, Australia",
+    "hospitalPhone": "1300 342 255",
+    "name": "Box Hill Hospital",
+    "coor": ["-37.813904", "145.118432"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "62-70 Kangan Dr, Berwick VIC 3806",
+    "hospitalPhone": "(03) 8768 1200",
+    "name": "Casey Hospital",
+    "coor": ["-38.044782", "145.346030"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "135 David St, Dandenong VIC 3175",
+    "hospitalPhone": "(03) 9554 1000",
+    "name": "Dandenong Hospital",
+    "coor": ["-37.976149", "145.218521"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "2 Hastings Rd, Frankston VIC 3199",
+    "hospitalPhone": "(03) 9784 7777",
+    "name": "Frankston Hospital",
+    "coor": ["-38.150656", "145.128778"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "246 Clayton Rd, Clayton VIC 3168, Australia",
+    "hospitalPhone": "(03) 9594 6666",
+    "name": "Monash Medical Centre",
+    "coor": ["-37.920496", "145.123560"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "185 Cooper St, Epping VIC 3076, Australia",
+    "hospitalPhone": "(03) 8405 8000",
+    "name": "Northern Hospital",
+    "coor": ["-37.652508", "145.014533"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "50 Flemington Rd, Parkville VIC 3052",
+    "hospitalPhone": "(03) 9345 5522",
+    "name": "The Royal Children's Hospital",
+    "coor": ["-37.793885", "144.948899"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "300 Grattan St, Parkville VIC 3050, Australia",
+    "hospitalPhone": "(03) 9342 7000",
+    "name": "The Royal Melbourne Hospital",
+    "coor": ["-37.798750", "144.956196"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "176 Furlong Rd, St Albans VIC 3021, Australia",
+    "hospitalPhone": "(03) 8345 1333",
+    "name": "Sunshine Hospital",
+    "coor": ["-37.759241", "144.816534"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "1 Drummond St N, Ballarat Central VIC 3350, Australia",
+    "hospitalPhone": "(03) 5320 4000",
+    "name": "Ballarat Base Hospital.",
+    "coor": ["-37.558656", "143.847227"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "Bellerine St, Geelong VIC 3220, Australia",
+    "hospitalPhone": "(03) 4215 4445",
+    "name": "Barwon Health - Geelong",
+    "coor": ["-38.152096", "144.365334"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "29-35 Grant St, Bacchus Marsh VIC 3340",
+    "hospitalPhone": "(03) 5367 2000",
+    "name": "Bacchus Marsh and Melton Regional Hospital",
+    "coor": ["-37.677772", "144.434556"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "45/63 Coster St, Benalla VIC 3672",
+    "hospitalPhone": "(03) 5761 4222",
+    "name": "Benalla Health",
+    "coor": ["-36.555243", "145.994664"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "Lucan St, North Bendigo VIC 3550",
+    "hospitalPhone": "(03) 5454 6000",
+    "name": "Bendigo hospital",
+    "coor": ["-36.747277", "144.286437"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "226 Service St, Echuca VIC 3564",
+    "hospitalPhone": "(03) 5485 5000",
+    "name": "Echuca Regional Health",
+    "coor": ["-36.138926", "144.748210"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "75/87 Clarendon St, Maryborough VIC 3465",
+    "hospitalPhone": "(03) 5461 0333",
+    "name": "Maryborough District Health Service",
+    "coor": ["-37.044805", "143.738046"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "195-209 Barries Rd, Melton West VIC 3337",
+    "hospitalPhone": "(03) 9747 7600",
+    "name": "Melton Health Services",
+    "coor": ["-37.685638", "144.558236"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "137 Thirteenth St, Mildura VIC 3500",
+    "hospitalPhone": "(03) 5021 7653",
+    "name": "Sunraysia Community Health Services",
+    "coor": ["-34.192121", "142.152999"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "50 Church St, Cowes VIC 3922",
+    "hospitalPhone": "(03) 5951 2100",
+    "name": "Phillip Island Health Hub",
+    "coor": ["-38.452082", "145.241224"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "20 Fitzgerald St, Shepparton VIC 3630",
+    "hospitalPhone": "(03) 5832 1200",
+    "name": "Shepparton Private Hospital",
+    "coor": ["-36.359072", "145.410888"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "48 Splatt St, Swan Hill VIC 3585",
+    "hospitalPhone": "(03) 5033 9300",
+    "name": "Swan Hill District Health",
+    "coor": ["-35.339660", "143.556741"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "35-47 Green St, Wangaratta VIC 3677",
+    "hospitalPhone": "(03) 5722 5111",
+    "name": "Northeast Health Wangaratta",
+    "coor": ["-36.353858", "146.313728"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "25 Ryot St, Warrnambool VIC 3280",
+    "hospitalPhone": "(03) 5563 1666",
+    "name": "South West Healthcare - Warrnambool",
+    "coor": ["-38.379885", "142.473466"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "20 Foster St, Hamilton VIC 3300",
+    "hospitalPhone": "(03) 5551 8222",
+    "name": "Hamilton Base Hospital-Western District Health Service",
+    "coor": ["-37.736565", "142.030918"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "83 Baillie St, Horsham VIC 3400",
+    "hospitalPhone": "(03) 5381 9111",
+    "name": "Wimmera Base Hospital(Wimmera Health Care Group)",
+    "coor": ["-36.712430", "142.208833"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "53-81 Vermont St, Wodonga VIC 3690, Australia",
+    "hospitalPhone": "(02) 6051 7111",
+    "name": "Albury Wodonga Health - Woodonga",
+    "coor": ["-36.131814", "146.879837"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
+    "address": "235 Graham St, Wonthaggi VIC 3995",
+    "hospitalPhone": "(03) 5671 3333",
+    "name": "Bass Coast Health",
+    "coor": ["-38.607283", "145.581708"],
+    "hospitalType": "",
+    "type": "1"
   }
 ]
