@@ -340,30 +340,39 @@ function Stat({
     <div className="card">
       <h2>Status {name ? `· ${name}` : false}</h2>
       <div className="row">
-        <Tag
-          number={confirmedCount}
-          fColor={"#e74c3c"}
-          increased={confCountIncrease}
-        >
-          Confirmed
-        </Tag>
-        {/*<Tag number={suspectedCount || '-'}>*/}
-        {/*疑似*/}
-        {/*</Tag>*/}
-        <Tag
-          number={deadCount}
-          fColor={"#a93226"}
-          increased={deadCountIncrease}
-        >
-          Deaths
-        </Tag>
-        <Tag
-          number={curedCount}
-          fColor={"#00b321"}
-          increased={curedCountIncrease}
-        >
-          Recovered
-        </Tag>
+      <Tag
+        number={confirmedCount}
+        fColor={"#e74c3c"}
+        increased={confCountIncrease}
+      >
+        <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
+        title="<em>All positive cases confirmed so far, consisting of currently active, recovery and death cases.</em>">
+        Confirmed</a>
+
+      </Tag>
+      {/*<Tag number={suspectedCount || '-'}>*/}
+      {/*疑似*/}
+      {/*</Tag>*/}
+      <Tag
+        number={deadCount}
+        fColor={"#a93226"}
+        increased={deadCountIncrease}
+      >
+      <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
+      title="<em>All cases that has been confirmed death, including a case from the Diamond Princess Cruise.</em>">
+      Deaths</a>
+
+      </Tag>
+      <Tag
+        number={curedCount}
+        fColor={"#00b321"}
+        increased={curedCountIncrease}
+      >
+      <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
+      title="<em>All cases that are no longer infected, confirmed by having negative results after treatment.</em>">
+      Recovered</a>
+
+      </Tag>
       </div>
       <span className="due" style={{ fontSize: "60%" }}>
         Time in AEDT, last updated at: {stateCaseData.updatedTime}
@@ -603,8 +612,8 @@ function Information({ hospitalData, columns }) {
           <div key={uuid()}>
             <ExpansionPanel style={{ boxShadow: "none" }} >
 
-              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
-                        This is so that we can reduce code smell while still retaining the ability to format text. 
+              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
