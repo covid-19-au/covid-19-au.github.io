@@ -508,7 +508,7 @@ function Header({ province }) {
   );
 }
 
-function Navbar({urlPath}) {
+function Navbar() {
   const [nav, setNav] = useState("Home");
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
@@ -536,18 +536,17 @@ function Navbar({urlPath}) {
           {/* <A className={`navItems ${window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/"><strong>Home</strong></A>
           <A className={`navItems ${window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/info"><strong>Info</strong></A>
           <A className={`navItems ${window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/news"><strong>News</strong></A> */}
-          <ul className="navLinks">
+          
               <Link to="/">
-                <li className={`navItems ${window.location.pathname === '/' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></li>
+                <span className={`navItems ${window.location.pathname === '/' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></span>
               </Link>
               <Link to="/info">
-                <li className={`navItems ${window.location.pathname === '/info' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/info' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></li>
+                <span className={`navItems ${window.location.pathname === '/info' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/info' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></span>
               </Link>
               <Link to="/news">
-                <li className={`navItems ${window.location.pathname === '/news' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/news' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></li>
+                <span className={`navItems ${window.location.pathname === '/news' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/news' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></span>
               </Link>
 
-          </ul>
       </div>
     </div>
   );
