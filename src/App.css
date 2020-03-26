@@ -383,7 +383,7 @@ h2 small {
 
 .navItems:hover {
     cursor: pointer;
-    text-decoration: none !important;
+    /*text-decoration: none !important;*/
 }
 
 .navBar a {
@@ -396,12 +396,12 @@ h2 small {
 
 .navCurrentPage {
     border-bottom: #87CEEB solid 2px;
-    color: #87CEEB !important;
+    color: #87CEEB;
 }
 
 .navCurrentPageSticky {
     border-bottom: black solid 2px;
-    color: black !important;
+    color: black ;
 }
 
 .citationLink {
