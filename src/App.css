@@ -343,12 +343,14 @@ h2 small {
 }
 
 .navBar {
+    height: 36px;
     justify-content: space-around;
     align-items: center;
     background-color: white;
 }
 
 .navBarStuck {
+    height: 36px;
     justify-content: space-around;
     align-items: center;
     background-color: rgb(186, 217, 229);
@@ -362,7 +364,7 @@ h2 small {
 
 .sticky-wrapper {
     position: relative;
-    height: 34px;
+    height: 36px;
 }
 
 .sticky .sticky-inner {
@@ -381,6 +383,14 @@ h2 small {
 
 .navItems:hover {
     cursor: pointer;
+    text-decoration: none !important;
+}
+
+.navBar a {
+    text-decoration: none !important;
+}
+
+.navBarStuck a {
     text-decoration: none !important;
 }
 
@@ -462,5 +472,4 @@ h2 small {
 .dataSource {
     padding-left: 0.2rem;
     margin-top: -0.05rem;
-
 }
