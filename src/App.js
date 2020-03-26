@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import keyBy from "lodash.keyby";
-
 import { useRoutes } from "hookrouter";
-import ReactGA from "react-ga";
 import Grid from "@material-ui/core/Grid";
 import SocialMediaShareModal from "./socialMediaShare/SocialMediaShareModal";
 import SelectColumnFilter from "./SelectColumnFilter";
@@ -18,26 +16,8 @@ import provinces from "./data/area";
 import stateCaseData from "./data/stateCaseData";
 import "./App.css";
 
-ReactGA.initialize("UA-160673543-1");
-ReactGA.pageview(window.location.pathname + window.location.search);
-
-// const GoogleMap = React.lazy(() => import("./GoogleMap"));
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
-
-// Define a custom filter filter function!
-function filterGreaterThan(rows, id, filterValue) {
-  return rows.filter(row => {
-    const rowValue = row.values[id];
-    return rowValue >= filterValue;
-  });
-}
-
-// This is an autoRemove method on the filter function that
-// when given the new filter value and returns true, the filter
-// will be automatically removed. Normally this is just an undefined
-// check, but here, we want to remove the filter if it's not a number
-filterGreaterThan.autoRemove = val => typeof val !== "number";
 
 function App() {
   const columns = React.useMemo(
