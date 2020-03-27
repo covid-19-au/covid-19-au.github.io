@@ -598,10 +598,12 @@ function Information({ hospitalData, columns }) {
             <small className="mediaText">Watch Quentin spend 24 hours in the "world's most virus proof house!</small>
           </div>
           <br />
-          <p style={{ marginTop: "1rem" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
-          <p>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
-            rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
+
         </div>
+        <p style={{ textAlign: "center" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
+
+        <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
+          rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
       </div>
 
 
