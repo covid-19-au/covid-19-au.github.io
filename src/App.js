@@ -19,6 +19,7 @@ import "./App.css";
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
 
+
 function App() {
   const columns = React.useMemo(
     () => [
@@ -102,37 +103,28 @@ function App() {
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
-
+  const [nav, setNav] = useState("Home");
   // This is used to set the state of the page for navbar CSS styling.
   const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
 
   const setModalVisibility = state => {
     setShowSocialMediaIcons(state);
   };
-
-  // Set the routes for each page and pass in props.
-  const routes = {
-    "/": () => (
-      <HomePage
-        province={province}
-        overall={overall}
-        myData={myData}
-        area={area}
-        data={data}
-        setProvince={setProvince}
-        gspace={gspace}
-      />
-    ),
-    "/info": () => <InfoPage columns={columns} gspace={gspace} />,
-    "/news": () => <NewsPage province={province} gspace={gspace} />,
-    "/faq": () => <FAQPage />
-  };
-
-  // The hook used to render the routes.
-  const routeResult = useRoutes(routes);
+  // // Set the routes for each page and pass in props.
+  // const routes = {
+  //     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
+  //     "/info": () => <InfoPage  columns={columns} gspace={gspace}/>,
+  //     "/news": () => <NewsPage province={province} gspace={gspace} />,
+  //     "/faq": () => <FAQPage />
+  // };
+  //
+  // // The hook used to render the routes.
+  // const routeResult = useRoutes(routes);
+  // const [urlPath, setUrlPath] = useState(window.location.pathname);
 
   if (myData) {
     return (
+
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
@@ -154,16 +146,33 @@ function App() {
               columns={columns}
             />
           </Grid>
-
-          {/* routeResult renders the routes onto this area of the app function. 
+          {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
+          {nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}
+          {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
+          {nav === "About" ? <FAQPage /> : ""}
+          {/* routeResult renders the routes onto this area of the app function.
           E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
-          {routeResult}
-
+          {/*{routeResult}*/}
+          {/*<Switch>*/}
+          {/*<Route path="/" render={() => (*/}
+          {/*<HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />*/}
+          {/*)} exact/>*/}
+          {/*<Route path="/info" render={() => (*/}
+          {/*<InfoPage columns={columns} />*/}
+          {/*)} exact/>*/}
+          {/*<Route path="/news" render={() => (*/}
+          {/*<NewsPage province={province} gspace={gspace}/>*/}
+          {/*)} exact/>*/}
+          {/*<Route path="/faq" component={FAQPage} exact/>*/}
+          {/*</Switch>*/}
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility} />
+
+            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
+
           </Grid>
         </Grid>
       </div>
+
     );
   }
   return null;
