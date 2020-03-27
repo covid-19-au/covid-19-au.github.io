@@ -458,13 +458,13 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{numberWithCommas(x[1])}</strong>{x[0] === 'NSW' || x[0] === 'NT' || x[0] === 'TAS' ? '*' : null}&nbsp;{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}
+            <strong>{numberWithCommas(x[1])}</strong>&nbsp;<div className="dailyIncrease">{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}</div>
         </div>
         <div className="death">
-          <strong>{numberWithCommas(x[2])}</strong>&nbsp;{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}
+            <strong>{numberWithCommas(x[2])}</strong>&nbsp;<div className="dailyIncrease">{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}</div>
         </div>
         <div className="cured">
-          <strong>{numberWithCommas(x[3])}</strong>&nbsp;{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}
+            <strong>{numberWithCommas(x[3])}</strong>&nbsp;<div className="dailyIncrease">{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}</div>
         </div>
         <div className="tested">{numberWithCommas(x[4])}</div>
       </div>
@@ -979,17 +979,9 @@ function HomePage({
           </Suspense>
           <Area area={area} onChange={setProvince} data={myData} />
 
-          <div style={{ paddingBottom: "1rem" }}>
-
-            <span
-              style={{ fontSize: "80%", float: "left", paddingLeft: 0 }}
-              className="due"
-            >
-              *Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
-
-
-            </span>
-          </div>
+          {/*<div style={{ paddingBottom: "1rem" }}>*/}
+              {/**/}
+          {/*</div>*/}
         </div>
       </Grid>
 
