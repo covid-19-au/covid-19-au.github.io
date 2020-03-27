@@ -53,6 +53,7 @@ This site is developed and mainteained by a volunteer team (mostly) from Faculty
 * Jinghan Zhang jzha0314@student.monash.edu
 * Richard Yang ryan28@student.monash.edu
 * Dave Morrissey dmor0005@student.monash.edu
+* Jingyi Liu jliu0191@student.monash.edu
 
 ### News Collection
 * Dabao Wang dwan178@student.monash.edu
@@ -86,7 +87,6 @@ You can contact us by:
 We receive tons of features requests from users and like the following features most:
 * Display the view number in the top-right of our homepage by retrieving the number from our Google Analytics
 * Need better interavtive visualization for showing historical data trend
-* Nice UI for the flight search 
 * Multi-lingual site development. As not everyone in AU is proficient in English, we hope that users can switch to their native language when using our site.
 * A dedicated page for nice intreactive visualization for our data including age, gender, suburb distribution of confirmred cases, increasing number in each state, ICU beds in each hospital, etc.
 
