@@ -1354,7 +1354,6 @@ function App() {
     // // The hook used to render the routes.
     // const routeResult = useRoutes(routes);
   // const [urlPath, setUrlPath] = useState(window.location.pathname);
-    console.log(window.location.href)
   if (myData) {
     return (
 
