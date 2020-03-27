@@ -101,7 +101,7 @@ class MbMap extends React.Component {
         });
         confirmedData.map((item) => {
             if(item['state']==='VIC' && item['area'].length > 0){
-                item['description']="This case number is just the suburb confirmed number, not the case number at this marker geo point."
+                item['description']="This case number is just the suburb confirmed number, not the case number at this geo point."
                 item['date'] = '26/3/20'
             }
             // create a HTML element for each feature
