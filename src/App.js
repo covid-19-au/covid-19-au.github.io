@@ -144,6 +144,7 @@ function App() {
               setProvince={setProvince}
               gspace={gspace}
               columns={columns}
+              setNav={setNav} nav={nav}
             />
           </Grid>
           {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}

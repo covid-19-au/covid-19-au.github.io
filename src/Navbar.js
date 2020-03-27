@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { A } from "hookrouter";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
   const handleScroll = () => {
@@ -16,6 +16,7 @@ export default function Navbar() {
   }, []);
 
   const onClick = e => {
+    props.setNav(e.target.innerText);
     window.scrollTo(0, 0);
   };
 
