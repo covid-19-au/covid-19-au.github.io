@@ -46,7 +46,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
+import { Alert, AlertTitle } from '@material-ui/lab';
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
 ReactGA.initialize("UA-160673543-1");
@@ -1354,7 +1354,7 @@ function App() {
     // // The hook used to render the routes.
     // const routeResult = useRoutes(routes);
   // const [urlPath, setUrlPath] = useState(window.location.pathname);
-
+    console.log(window.location.href)
   if (myData) {
     return (
 
@@ -1367,6 +1367,14 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
+            {window.location.href==="http://localhost:3008/"||window.location.href==="http://covid-19-au.github.io/"||window.location.href==="https://covid-19-au.github.io/"?
+                <Alert style={{width:'100%'}} severity="info">
+                    <AlertTitle><strong>Important!!</strong></AlertTitle>
+                    <h6 className="card-text">In order to provide better service, we will move our site to&nbsp;<a target="_blank"  rel="noopener noreferrer" href="https://covid-19-au.com" ><u>https://covid-19-au.com</u></a> shortly</h6>
+
+                </Alert>
+                :null
+            }
           <Grid item xs={12} className="removePadding">
               <Navbar setNav={setNav} nav={nav} />
             {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
