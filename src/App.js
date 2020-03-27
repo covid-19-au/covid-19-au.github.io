@@ -10,7 +10,7 @@ import InfoPage from "./InfoPage";
 import HomePage from "./Homepage";
 import NewsPage from "./NewsPage";
 import FAQPage from "./FAQPage";
-import Fallback from "./Fallback";
+import Fallback from "./fallback";
 import all from "./data/overall";
 import provinces from "./data/area";
 import stateCaseData from "./data/stateCaseData";
@@ -92,13 +92,13 @@ function App() {
 
   const data = !province
     ? provinces.map(p => ({
-        name: p.provinceShortName,
-        value: p.confirmedCount
-      }))
+      name: p.provinceShortName,
+      value: p.confirmedCount
+    }))
     : provincesByName[province.name].cities.map(city => ({
-        name: city.fullCityName,
-        value: city.confirmedCount
-      }));
+      name: city.fullCityName,
+      value: city.confirmedCount
+    }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;

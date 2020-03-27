@@ -1,5 +1,5 @@
 import React from "react";
-import FAQ from "./Faq";
+import FAQ from "./faq";
 import Grid from "@material-ui/core/Grid";
 
 export default function FAQPage() {
