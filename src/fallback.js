@@ -68,7 +68,7 @@ function Fallback(props) {
             <div>
                 <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
                     <img
-                        src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1"
+                        src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=9&style=1"
                         border="0"
                         alt="hit counter"
                     />
