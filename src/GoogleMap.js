@@ -7,28 +7,28 @@ import NativeSelect from '@material-ui/core/NativeSelect'
 import { Chart } from "react-google-charts";
 
 function GoogleMap ({ province, newData }) {
-    // Colour gradients for the map
+    // Colour gradients for the map: https://material.io/design/color/#tools-for-picking-colors
     const redGradient = [
         '#ffefef',
         '#ffc0b1',
         '#ff8c71',
         '#ef1717'
         // '#9c0505'
-        ];
+    ];
 
     const purpleGradient = [
         '#F3E5F5',
         '#CE93D8',
         '#AB47BC',
         '#8E24AA'
-    ]
+    ];
 
     const yellowGradient = [
         '#FFFDE7',
         '#FFF59D',
         '#FFEE58',
         '#FDD835'
-    ]
+    ];
 
   const [loading, setLoading] = useState(true);
   const [mapType, setMapType] = useState('confirmed-cases');
@@ -150,8 +150,8 @@ function GoogleMap ({ province, newData }) {
             >
                 <option value="confirmed-cases">Confirmed cases</option>
                 <option value="relative-cases">Cases per million</option>
-                {/*<option value="deaths">Deaths</option>*/}
                 <option value="relative-tests">Tests per million</option>
+                {/*<option value="deaths">Deaths</option>*/}
                 {/*<option value="tested">Tested</option>*/}
                 {/*<option value="test-strike">Test strike rate</option>*/}
             </NativeSelect>
