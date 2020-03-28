@@ -55,6 +55,11 @@ class MbMap extends React.Component {
     componentDidMount() {
         const { lng, lat, zoom } = this.state;
 
+        var bounds = [
+          [101.6015625,-49.83798245308484], // Southwest coordinates
+          [166.2890625,0.8788717828324276] // Northeast coordinates
+        ];
+
         const map = new mapboxgl.Map({
             container: this.mapContainer,
             style: {
@@ -74,8 +79,7 @@ class MbMap extends React.Component {
               }],
             },
             center: [lng, lat],
-            minZoom: 2.5,
-            zoom
+            maxBounds: bounds // Sets bounds as max
         });
 
         function get_html(city_name) {
@@ -204,12 +208,12 @@ class MbMap extends React.Component {
 
         // Add geolocate control to the map.
         map.addControl(
-            new mapboxgl.GeolocateControl({
-                positionOptions: {
-                    enableHighAccuracy: true
-                },
-                trackUserLocation: true
-            })
+          new mapboxgl.GeolocateControl({
+            positionOptions: {
+              enableHighAccuracy: true
+            },
+            trackUserLocation: true
+          })
         );
 
         //Add Zoom Controls
