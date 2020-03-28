@@ -63,7 +63,7 @@ function GoogleMap ({ province, newData }) {
                 break;
             case 'relative-cases':
                 label = "Cases per million";
-                setMapGradient(yellowGradient);
+                setMapGradient(redGradient);
                 break;
             case 'deaths':
                 label = "Deaths";
@@ -150,10 +150,11 @@ function GoogleMap ({ province, newData }) {
             >
                 <option value="confirmed-cases">Confirmed cases</option>
                 <option value="relative-cases">Cases per million</option>
+                <option value="tested">Tested</option>
                 <option value="relative-tests">Tests per million</option>
                 {/*<option value="deaths">Deaths</option>*/}
-                {/*<option value="tested">Tested</option>*/}
-                {/*<option value="test-strike">Test strike rate</option>*/}
+
+                <option value="test-strike">Test strike rate</option>
             </NativeSelect>
         </span>
         
