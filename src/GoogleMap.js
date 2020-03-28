@@ -6,11 +6,33 @@ import NativeSelect from '@material-ui/core/NativeSelect'
 
 import { Chart } from "react-google-charts";
 
-
 function GoogleMap ({ province, newData }) {
+    // Colour gradients for the map
+    const redGradient = [
+        '#ffefef',
+        '#ffc0b1',
+        '#ff8c71',
+        '#ef1717'
+        // '#9c0505'
+        ];
+
+    const purpleGradient = [
+        '#F3E5F5',
+        '#CE93D8',
+        '#AB47BC',
+        '#8E24AA'
+    ]
+
+    const yellowGradient = [
+        '#FFFDE7',
+        '#FFF59D',
+        '#FFEE58',
+        '#FDD835'
+    ]
 
   const [loading, setLoading] = useState(true);
   const [mapType, setMapType] = useState('confirmed-cases');
+  const [mapGradient, setMapGradient] = useState(redGradient);
 
     useEffect(() => {
 
@@ -32,20 +54,32 @@ function GoogleMap ({ province, newData }) {
             "TAS":"AU-TAS",
         }
         
-        // Set the hover label
+        // Set the hover label and colour gradient
         let label = "";
         switch(mapType) {
             case 'confirmed-cases':
                 label = 'Confirmed';
+                setMapGradient(redGradient);
                 break;
             case 'relative-cases':
                 label = "Cases per million";
+                setMapGradient(yellowGradient);
                 break;
             case 'deaths':
                 label = "Deaths";
+                setMapGradient(redGradient);
                 break;
             case 'tested':
                 label = "Tested"
+                setMapGradient(purpleGradient);
+                break;
+            case 'relative-tests':
+                label = "Tests per million";
+                setMapGradient(purpleGradient);
+                break;
+            case 'test-strike':
+                label = "Test strike rate (%)";
+                setMapGradient(purpleGradient);
                 break;
         }
         let temp = [["state",label]];
@@ -58,6 +92,7 @@ function GoogleMap ({ province, newData }) {
                     value = newData[i][1];
                     break;
                 case 'relative-cases':
+                    if (newData[i][1] === "N/A") { continue; }
                     let proportionConfirmed = (newData[i][1] * 1000000) / ausPop[newData[i][0]];
                     value = Math.round(proportionConfirmed);
                     break;
@@ -67,6 +102,16 @@ function GoogleMap ({ province, newData }) {
                 case 'tested':
                     value = newData[i][4];
                     break;
+                case 'relative-tests':
+                    if (newData[i][4] === "N/A") { continue; }
+                    let proportionTested = (newData[i][4] * 1000000) / ausPop[newData[i][0]];
+                    value = Math.round(proportionTested);
+                    break;
+                case 'test-strike':
+                    if (newData[i][4] === "N/A" || newData[i][1] === "N/A") { continue; }
+                    let strikeRate = newData[i][1] / newData[i][4] * 100;
+                    // 1 decimal place
+                    value = Math.round(strikeRate);
             }
             // Don't include if there's no data
             if (value === "N/A") { continue; }
@@ -82,13 +127,7 @@ function GoogleMap ({ province, newData }) {
   const getOption = () => {
       return {
           region: 'AU', // ISO 3166-1 alpha-2 code for Australia
-          colorAxis: { colors: [
-                    '#ffefef',
-                    '#ffc0b1',
-                    '#ff8c71',
-                    '#ef1717'
-                    // '#9c0505'
-              ] },
+          colorAxis: { colors: mapGradient},
           backgroundColor: 'white',
           datalessRegionColor: 'rgb(216,221,224)',
           defaultColor: '#f5f5f5',
@@ -111,8 +150,10 @@ function GoogleMap ({ province, newData }) {
             >
                 <option value="confirmed-cases">Confirmed cases</option>
                 <option value="relative-cases">Cases per million</option>
-                <option value="deaths">Deaths</option>
-                <option value="tested">Tested</option>
+                {/*<option value="deaths">Deaths</option>*/}
+                <option value="relative-tests">Tests per million</option>
+                {/*<option value="tested">Tested</option>*/}
+                {/*<option value="test-strike">Test strike rate</option>*/}
             </NativeSelect>
         </span>
         
