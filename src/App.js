@@ -46,6 +46,8 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import dailyFun from "./data/dailyFun";
+
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -592,16 +594,48 @@ function Information({ hospitalData, columns }) {
     <div>
       <div className="card">
         <h2 className="responsiveH2">Daily Fun Stuff</h2>
-        <div className="row centerMedia">
-          <div>
-            <ReactPlayer alt="Stupid Spaceman Virus Proof House" className="formatMedia" url="https://www.youtube.com/watch?v=115m7ji5mdY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-            <small className="mediaText">Watch Quentin spend 24 hours in the "world's most virus proof house!</small>
+        {dailyFun.dailyFunStuff.map(stuff => (
+          <div key={uuid()}>
+            <div>
+              {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text. 
+                        */}
+              <div>
+                {/* First image */}
+                {stuff.image.map(i1 => (
+                  <div key={uuid()}>
+                    <div className="row centerMedia">
+                      <div className="imageContainer" style={{ height: "auto" }} >
+                        <img
+                          className="formatImage"
+                          src={i1.link}
+                          alt={i1.name}
+                          style={{}}
+                        />
+                        <small className="mediaText">{i1.description}</small>
+                      </div>
+                    </div>
+
+                  </div>
+                ))}
+                {/* Video */}
+                {stuff.video.map(vid => (
+                  <div className="row centerMedia">
+                    <div>
+                      <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                      <small className="mediaText">{vid.description}</small>
+                    </div>
+                  </div>
+                ))}
+
+              </div>
+            </div>
           </div>
-          <br />
-          <p style={{ marginTop: "1rem" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
-          <p>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
-            rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
-        </div>
+        ))
+        }
+        <p style={{ textAlign: "center" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
+        <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
+          rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
+
       </div>
 
 
@@ -630,6 +664,8 @@ function Information({ hospitalData, columns }) {
             <small className="mediaText">How to properly wear and dispose of masks.</small>
           </div>
         </div>
+      </div>
+      <div className="card" >
 
 
         <h2 className="responsiveH2">General Information</h2>
@@ -692,7 +728,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Current Regulations</h2>
         {information.regulations.map(info => (
           <div key={uuid()}>
@@ -753,7 +790,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Think you have COVID-19?</h2>
         {information.haveCovid.map(info => (
           <div key={uuid()}>
@@ -814,7 +852,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Protecting Yourself and Others</h2>
 
         {information.protect.map(info => (
@@ -903,9 +942,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
-        <small className="alignStyles">All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a>, <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">WHO</a>
-        </small>
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Coronavirus Helplines</h2>
         <div className="row alignStyles responsiveText">
           <div>
@@ -928,6 +966,8 @@ function Information({ hospitalData, columns }) {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="card" >
         <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
         <div className="row alignStyles responsiveText">
           <div>
@@ -937,6 +977,8 @@ function Information({ hospitalData, columns }) {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="card" >
         <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
         <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
         <small>Filter the table by clicking the dropdown below state.</small>
