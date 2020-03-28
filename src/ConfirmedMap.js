@@ -88,9 +88,9 @@ class MbMap extends React.Component {
           var city_type = city.slice(-1);
           city.pop();
           city_name = city.join(' ');
-          if (city_type == 'city'){
+          if (city_type === 'city'){
             city_name += '(c)';
-          }else if(city_type=='rural city'){
+          }else if(city_type==='rural city'){
               city_name += '(rc)';
           }
           else{
@@ -100,7 +100,7 @@ class MbMap extends React.Component {
             var data_map = confirmedData[data];
             city = data_map['area'];
             // console.log(city.toLowerCase(),city_name)
-            if (city.toLowerCase() === city_name && numberOfCases == 0){
+            if (city.toLowerCase() === city_name && numberOfCases === 0){
               // return data_map['numberOfCases']
               numberOfCases = data_map['numberOfCases'];
             }
