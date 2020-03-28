@@ -25,7 +25,7 @@ const SharedButtons = () => {
 	return (
 		<div>
 			<span>
-				<FacebookShareButton url={SharedContent.URL} quote={SharedContent.TEXT}>
+				<FacebookShareButton url={SharedContent.URL} quote={SharedContent.FB}>
 					<FacebookIcon size={32} round={true} />
 				</FacebookShareButton>
 			</span>
