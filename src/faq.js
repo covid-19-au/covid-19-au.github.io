@@ -18,7 +18,7 @@ const summaryStyles = {
     paddingLeft: "1em"
 }
 
-function FAQ() {
+function AboutUs() {
     return (
         <div className="card">
             <h2 className="responsiveH2">Dashboard FAQ</h2>
@@ -138,4 +138,4 @@ function FAQ() {
 }
 
 
-export default FAQ
+export default AboutUs
