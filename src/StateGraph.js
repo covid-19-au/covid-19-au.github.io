@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import CanvasJSReact from "./assets/canvasjs.react";
 import Chart from "chart.js";
+
+import VicChart from "./VicChart";
+
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 // Based on CanvasJS theme 1. Avoids two purple series and preserves colours day-to-day.
@@ -73,67 +76,68 @@ function createSeries(stateData) {
 
 /** Generates line graphs for state-level case data */
 function StateGraph({ stateData }) {
-  const [chartRef, setChartRef] = useState(React.createRef());
-  const [dataLabels, setDataLabels] = useState(Object.keys(stateData));
-  const [datasets, setDatasets] = useState([]);
+  // const [chartRef, setChartRef] = useState(React.createRef());
+  // const [dataLabels, setDataLabels] = useState(Object.keys(stateData));
+  // const [datasets, setDatasets] = useState([]);
 
   // CanvasJS API settings
   const [graphOptions, setGraphOptions] = useState(null);
   // Display loading text if data is not yet parsed
   const [isLoading, setIsLoading] = useState(true);
-  getStateData(stateData);
-
-  // useEffect(() => {
-  //   setGraphOptions({
-  //     data: createSeries(stateData),
-  //     animationEnabled: true,
-  //     height: 315,
-  //     title: {
-  //       fontFamily:
-  //         "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-  //       fontSize: 20
-  //     },
-  //     axisX: {
-  //       labelFontFamily: "sans-serif",
-  //       //valueFormatString: 'MMM DD'
-  //     },
-  //     axisY: {
-  //       labelFontFamily: "sans-serif"
-  //     },
-  //     legend: {
-  //       verticalAlign: "top",
-  //       fontFamily: "sans-serif"
-  //     },
-  //     toolTip: {
-  //       shared: true,
-  //       //valueFormatString: 'MMM DD'
-  //     }
-  //   })
-
-  //   setIsLoading(false);
-  // }, [stateData]);
+  // getStateData(stateData);
 
   useEffect(() => {
-    let myChartRef = chartRef;
-    myChartRef = myChartRef.current.getContext("2d");
-    new Chart(myChartRef, {
-      type: "line",
-      data: {
-        labels: dataLabels,
-        datasets: [
-          { label: "Sales", data: [86, 78, 90], borderColor: colourMapping.ACT, fill: false },
-          { label: "test", data: [65, 76, 94] , borderColor: colourMapping.NSW, fill: false }
-        ],
+    setGraphOptions({
+      data: createSeries(stateData),
+      animationEnabled: true,
+      height: 315,
+      title: {
+        fontFamily:
+          "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        fontSize: 20
+      },
+      axisX: {
+        labelFontFamily: "sans-serif",
+        //valueFormatString: 'MMM DD'
+      },
+      axisY: {
+        labelFontFamily: "sans-serif"
+      },
+      legend: {
+        verticalAlign: "top",
+        fontFamily: "sans-serif"
+      },
+      toolTip: {
+        shared: true,
+        //valueFormatString: 'MMM DD'
       }
-    });
+    })
+
+    setIsLoading(false);
   }, [stateData]);
+
+  // useEffect(() => {
+  //   let myChartRef = chartRef;
+  //   myChartRef = myChartRef.current.getContext("2d");
+  //   new Chart(myChartRef, {
+  //     type: "line",
+  //     data: {
+  //       labels: dataLabels,
+  //       datasets: [
+  //         { label: "Sales", data: [86, 78, 90], borderColor: colourMapping.ACT, fill: false },
+  //         { label: "test", data: [65, 76, 94] , borderColor: colourMapping.NSW, fill: false }
+  //       ],
+  //     }
+  //   });
+  // }, [stateData]);
 
   return (
     <div className="card">
       <h2>Confirmed Cases in Australian States</h2>
-      {/* {isLoading ? <p>Loading...</p> : <CanvasJSChart options={graphOptions} style = {{paddingLeft: '500px'}}/>} */}
+      {isLoading ? <p>Loading...</p> : <CanvasJSChart options={graphOptions} style = {{paddingLeft: '500px'}}/>}
 
-      <canvas id="stateGraph" ref={chartRef} />
+      {/* <canvas id="stateGraph" ref={chartRef} /> */}
+      <VicChart />
     </div>
   );
 }
