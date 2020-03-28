@@ -41,3 +41,7 @@ We try our best to obtain our data from trustworthy sources.
 ## Status Graphs:
 
 Wikipedia: https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Australia
+
+## State Population:
+
+Australian Bureau of Statistics (Sept 2019): https://www.abs.gov.au/AUSSTATS/abs@.nsf/Latestproducts/3101.0Main%20Features3Sep%202019?opendocument&tabname=Summary&prodno=3101.0&issue=Sep%202019&num=&view=

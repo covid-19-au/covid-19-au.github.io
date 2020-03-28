@@ -302,7 +302,7 @@
     "name": "Sails Restaurant",
     "date": "18/3/20",
     "time": "4:00pm-11:15pm",
-    "description": "4 infected staff worked on 18th and 19th of Mar",
+    "description": "4 infected staff worked on 18th and 19th of March",
     "numberOfCases": "4",
     "coor": ["-26.386811", "153.093034"],
     "type": "0"
@@ -1074,7 +1074,7 @@
     "time": "",
     "description": "confirmed cases in LGA of VIC",
     "numberOfCases": "2",
-    "coor": ["-37.837437","146.785606"],
+    "coor": ["-37.837437", "146.785606"],
     "type": "0"
   },
   {
