@@ -100,6 +100,10 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
+            if(item['state']==='VIC' && item['area'].length > 0){
+                item['description']="This case number is just the suburb confirmed number, not the case number at this geo point."
+                item['date'] = '26/3/20'
+            }
             // create a HTML element for each feature
             var el = document.createElement('div');
             el.className = 'marker';
@@ -119,7 +123,7 @@ class MbMap extends React.Component {
             new mapboxgl.Marker(el)
                 .setLngLat(coor)
                 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3>' + '<p style="margin:0;">' + item['date'] + '</p><p style="margin:0;">Activity Time: ' + item['time'] + '</p>'))
+                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3>' + '<p style="margin:0;">' + item['date'] + '</p><p style="margin:0;">' + item['description'] + '</p>'))
                 .addTo(map);
         })
 
