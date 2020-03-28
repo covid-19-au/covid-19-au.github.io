@@ -3,13 +3,16 @@ import React, { useEffect, useState} from 'react'
 import ausPop from './data/ausPop'
 
 import Button from '@material-ui/core/Button'
+import Select from '@material-ui/core/Select'
+import NativeSelect from '@material-ui/core/NativeSelect'
+
 import { Chart } from "react-google-charts";
 
 
 function GoogleMap ({ province, newData }) {
 
   const [loading, setLoading] = useState(true);
-  const [relativeEnabled, setRelativeEnabled] = useState(false);
+  const [mapType, setMapType] = useState('confirmed-cases');
 
     useEffect(() => {
 
@@ -30,24 +33,53 @@ function GoogleMap ({ province, newData }) {
             "SA":"AU-SA",
             "TAS":"AU-TAS",
         }
-        let temp = relativeEnabled ? [["state", "Cases per million"]] : [["state","Confirmed"]]
+        
+        // Set the hover label
+        let label = "";
+        switch(mapType) {
+            case 'confirmed-cases':
+                label = 'Confirmed';
+                break;
+            case 'relative-cases':
+                label = "Cases per million";
+                break;
+            case 'deaths':
+                label = "Deaths";
+                break;
+            case 'tested':
+                label = "Tested"
+                break;
+        }
+        let temp = [["state",label]];
+
+        // Set data values
         for(let i = 0; i < newData.length; i++) {
-            // Add each data row.
-            if (!relativeEnabled) {
-                // Default mode: Display number of cases
-                // v: Tooltip text, f: ISO region code
-                temp.push([{v:translate[newData[i][0]], f:newData[i][0]}, parseInt(newData[i][1])]);
-            } else {
-                // Relative mode: Display cases per 1M pop
-                let proportionConfirmed = (newData[i][1] * 1000000) / ausPop[newData[i][0]];
-                proportionConfirmed = Math.round(proportionConfirmed);
-                temp.push([{v:translate[newData[i][0]], f:newData[i][0]}, proportionConfirmed]);
+            let value;
+            switch(mapType) {
+                case 'confirmed-cases':
+                    value = newData[i][1];
+                    break;
+                case 'relative-cases':
+                    let proportionConfirmed = (newData[i][1] * 1000000) / ausPop[newData[i][0]];
+                    value = Math.round(proportionConfirmed);
+                    break;
+                case 'deaths':
+                    value = newData[i][2];
+                    break;
+                case 'tested':
+                    value = newData[i][4];
+                    break;
             }
+            // Assumption that N/A data is 0
+            if (value === "N/A") { value = 0; }
+
+            // v: Tooltip text, f: ISO region code
+            temp.push([{v:translate[newData[i][0]], f:newData[i][0]}, parseInt(value)]);
         }
 
         setMyData(temp)
 
-    }, [province, relativeEnabled]);
+    }, [province, mapType]);
 
   const getOption = () => {
       return {
@@ -66,18 +98,24 @@ function GoogleMap ({ province, newData }) {
       }
   };
 
-  const toggleData = () => {
-      setRelativeEnabled(!relativeEnabled);
+  const toggleData = (e) => {
+      setMapType(e.target.value);
   }
 
   return (
     loading ? <div className="loading">Loading...</div> :
     <div className="stateMap">
-        <span className="mapHeading">
-            <h2> Cases by State {province ? `· ${province.name}` : false} </h2>
-            <Button onClick={() => toggleData()} variant="outlined" color="primary" className="mapToggle" disableTouchRipple={true}>
-                {relativeEnabled ? 'Confirmed cases' : 'Cases per 1 million people'}
-            </Button>
+        <h2> Cases by State {province ? `· ${province.name}` : false} </h2>
+        <span className="selection-grid">
+            <NativeSelect
+                className="mapToggle"
+                onChange={toggleData}
+            >
+                <option value="confirmed-cases">Confirmed cases</option>
+                <option value="relative-cases">Cases per million</option>
+                <option value="deaths">Deaths</option>
+                <option value="tested">Tested</option>
+            </NativeSelect>
         </span>
         
         <Chart

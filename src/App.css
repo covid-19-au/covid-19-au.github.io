@@ -477,17 +477,8 @@ h2 small {
     font-size: 60%;
 }
 
-.mapHeading {
+.selection-grid {
   display: flex;
-  justify-content: space-between;
-  padding-bottom: 5px;
+  justify-content: flex-end;
+  padding-bottom: 15px;
 }
-
-.mapHeading h2 {
-  display: flex;
-}
-
-.mapToggle {
-  display: flex;
-}
-
