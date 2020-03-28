@@ -49,15 +49,15 @@ function Fallback(props) {
                     &nbsp;FAQ
                 </button>
 
+                <a role="button" aria-disabled="true" target="_blank" rel="noopener noreferrer" class="btn btn-light btn-sm m-1" href="https://github.com/covid-19-au/covid-19-au.github.io">
+                    <svg class="bi bi-gear-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 01-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 01.872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 012.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 012.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 01.872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 01-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 01-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 100-5.86 2.929 2.929 0 000 5.858z" clip-rule="evenodd"/>
+                    </svg>&nbsp;GitHub
+                </a>
+
             </div>
             <div>Template credits to: shfshanyue</div>
 
-            <div>
-                Our GitHub:{" "}
-                <a href="https://github.com/covid-19-au/covid-19-au.github.io">
-                    covid-19-au
-                </a>
-            </div>
             <div>
                 This site is developed by a{" "}
                 <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
@@ -65,7 +65,11 @@ function Fallback(props) {
                 </a>{" "}
                 from the Faculty of IT, Monash University, for non-commercial use only.
             </div>
+
             <div>
+                <svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                </svg>
                 <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
                     <img
                         src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=9&style=1"
