@@ -1393,6 +1393,10 @@ function App() {
                 {/*</Alert>*/}
                 {/*:null*/}
             {/*}*/}
+            {window.location.href==="http://localhost:3008/"||window.location.href==="http://covid-19-au.github.io/"||window.location.href==="https://covid-19-au.github.io/"?
+            <div/>
+            :<div/>
+            }
           <Grid item xs={12} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
             {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
