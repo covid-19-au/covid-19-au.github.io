@@ -1030,7 +1030,7 @@ function HomePage({
             </Suspense>
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <a className="summaryButton" href={dailySummary} target="_blank">Daily Summary (PDF)</a>
+            <a className="summaryButton" href={dailySummary} target="_blank">Daily Summary</a>
           </div>
         </div>
 
