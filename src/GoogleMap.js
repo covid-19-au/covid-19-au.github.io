@@ -2,8 +2,6 @@ import React, { useEffect, useState} from 'react'
 
 import ausPop from './data/ausPop'
 
-import Button from '@material-ui/core/Button'
-import Select from '@material-ui/core/Select'
 import NativeSelect from '@material-ui/core/NativeSelect'
 
 import { Chart } from "react-google-charts";
