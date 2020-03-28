@@ -14,14 +14,15 @@
     "static/js/5.chunk.js": "/static/js/5.chunk.js",
     "static/js/5.chunk.js.map": "/static/js/5.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.c28ea5f97ee4189c737073f4adf3e590.js": "/precache-manifest.c28ea5f97ee4189c737073f4adf3e590.js",
+    "precache-manifest.a0b1fe8d1f83f033bfd109f242bddfcd.js": "/precache-manifest.a0b1fe8d1f83f033bfd109f242bddfcd.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.chunk.css.map": "/static/css/main.chunk.css.map",
     "static/js/main.chunk.js.LICENSE": "/static/js/main.chunk.js.LICENSE",
     "static/js/react.chunk.js.LICENSE": "/static/js/react.chunk.js.LICENSE",
     "static/media/index.css": "/static/media/bg-12-aposles-blue.470df203.jpg",
     "static/media/confirmed-recent.png": "/static/media/confirmed-recent.ea4c02ae.png",
-    "static/media/hospital.png": "/static/media/hospital.b7ca8b8f.png"
+    "static/media/hospital.png": "/static/media/hospital.b7ca8b8f.png",
+    "static/media/lga_vic.geojson": "/static/media/lga_vic.84c8089d.geojson"
   },
   "entrypoints": [
     "static/js/runtime-main.js",
