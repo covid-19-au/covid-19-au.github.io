@@ -391,19 +391,15 @@ function Stat({
 function Fallback(props) {
   return (
     <div className="fallback">
-      <button onClick={() => props.setModalVisibility(true)}>
-        <i className="share alternate square icon" />
-          Share this site
-      </button>
+      <button type="button" class="btn btn-light btn-sm m-1" onClick={() => props.setModalVisibility(true)}><svg class="bi bi-box-arrow-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.646 4.354a.5.5 0 00.708 0L8 1.707l2.646 2.647a.5.5 0 00.708-.708l-3-3a.5.5 0 00-.708 0l-3 3a.5.5 0 000 .708z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M8 11.5a.5.5 0 00.5-.5V2a.5.5 0 00-1 0v9a.5.5 0 00.5.5z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M2.5 14A1.5 1.5 0 004 15.5h8a1.5 1.5 0 001.5-1.5V7A1.5 1.5 0 0012 5.5h-1.5a.5.5 0 000 1H12a.5.5 0 01.5.5v7a.5.5 0 01-.5.5H4a.5.5 0 01-.5-.5V7a.5.5 0 01.5-.5h1.5a.5.5 0 000-1H4A1.5 1.5 0 002.5 7v7z" clip-rule="evenodd"></path></svg>&nbsp;Share this site</button>
+
+      <a role="button" aria-disabled="true" target="_blank" rel="noopener noreferrer" class="btn btn-light btn-sm m-1" href="https://github.com/covid-19-au/covid-19-au.github.io">
+      <svg class="bi bi-gear-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 01-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 01.872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 012.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 012.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 01.872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 01-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 01-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 100-5.86 2.929 2.929 0 000 5.858z" clip-rule="evenodd"/>
+      </svg>&nbsp;GitHub</a>
 
       <div>Template credits to: shfshanyue</div>
 
-      <div>
-        Our GitHub:{" "}
-        <a href="https://github.com/covid-19-au/covid-19-au.github.io">
-          covid-19-au
-        </a>
-      </div>
       <div>
         This site is developed by a{" "}
         <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
@@ -416,6 +412,9 @@ function Fallback(props) {
             window.scrollTo(0, 0);
         }}>Dashboard FAQ</div></u>
       <div>
+      <svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+      </svg>
         <a href="https://www.webfreecounter.com/" target="_blank" rel="noopener noreferrer">
           <img
             src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=6&style=1"
