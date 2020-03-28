@@ -1037,11 +1037,12 @@ function HomePage({
             {/*}*/}
           </Suspense>
           <Area area={area} onChange={setProvince} data={myData} />
-
           {/*<div style={{ paddingBottom: "1rem" }}>*/}
           {/**/}
           {/*</div>*/}
-        </div>
+          <div style={{ justifyContent: "right" }}>
+            <button className="buttonStyles" style={{ width: "30%" }}>Daily Summary</button>
+          </div></div>
       </Grid>
 
       <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
