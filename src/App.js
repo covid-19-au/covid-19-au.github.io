@@ -989,30 +989,15 @@ function HomePage({
               }}
               newData={myData}
             />
-            {/*{*/}
-            {/*province ? false :*/}
-            {/*<div className="tip">*/}
-            {/*Click on the state to check state details.*/}
-            {/*</div>*/}
-            {/*}*/}
           </Suspense>
           <Area area={area} onChange={setProvince} data={myData} />
-
-          {/*<div style={{ paddingBottom: "1rem" }}>*/}
-          {/**/}
-          {/*</div>*/}
         </div>
+        <StateGraph stateData={stateData} />
       </Grid>
 
       <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <MbMap />
         <HistoryGraph countryData={country} />
-      </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
-        <StateGraph stateData={stateData} />
-      </Grid>
-
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
         <Flights flights={flights} />
       </Grid>
 
