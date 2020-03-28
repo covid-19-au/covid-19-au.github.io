@@ -112,6 +112,7 @@ function GoogleMap ({ province, newData }) {
                     let strikeRate = newData[i][1] / newData[i][4] * 100;
                     // 1 decimal place
                     value = Math.round(strikeRate);
+                    break;
             }
             // Don't include if there's no data
             if (value === "N/A") { continue; }
