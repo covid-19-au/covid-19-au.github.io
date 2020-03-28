@@ -90,6 +90,8 @@ class MbMap extends React.Component {
           city_name = city.join(' ');
           if (city_type == 'city'){
             city_name += '(c)';
+          }else if(city_type=='rural city'){
+              city_name += '(rc)';
           }
           else{
             city_name += '(s)';
