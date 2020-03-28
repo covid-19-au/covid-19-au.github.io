@@ -150,12 +150,12 @@ function GoogleMap ({ province, newData }) {
                 onChange={toggleData}
             >
                 <option value="confirmed-cases">Confirmed cases</option>
-                <option value="relative-cases">Cases per million</option>
+                <option value="relative-cases">Cases per million people</option>
                 <option value="tested">Tested</option>
-                <option value="relative-tests">Tests per million</option>
+                <option value="relative-tests">Tests per million people</option>
                 {/*<option value="deaths">Deaths</option>*/}
 
-                <option value="test-strike">Test strike rate</option>
+                <option value="test-strike">Positive test rate</option>
             </NativeSelect>
         </span>
         
