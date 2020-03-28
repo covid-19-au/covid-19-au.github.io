@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 
+import ausPop from './data/ausPop'
+
+import Button from '@material-ui/core/Button'
 import { Chart } from "react-google-charts";
-
 
 
 function GoogleMap ({ province, newData }) {
 
   const [loading, setLoading] = useState(true);
+  const [relativeEnabled, setRelativeEnabled] = useState(false);
+
     useEffect(() => {
 
         setLoading(false)
@@ -26,17 +30,24 @@ function GoogleMap ({ province, newData }) {
             "SA":"AU-SA",
             "TAS":"AU-TAS",
         }
-        let temp = [["state","Confirmed"]]
-        for(let i = 0; i < newData.length; i++)
-        {
+        let temp = relativeEnabled ? [["state", "Cases per million"]] : [["state","Confirmed"]]
+        for(let i = 0; i < newData.length; i++) {
             // Add each data row.
-            // v: Tooltip text, f: ISO region code
-            temp.push([{v:translate[newData[i][0]], f:newData[i][0]}, parseInt(newData[i][1])])
+            if (!relativeEnabled) {
+                // Default mode: Display number of cases
+                // v: Tooltip text, f: ISO region code
+                temp.push([{v:translate[newData[i][0]], f:newData[i][0]}, parseInt(newData[i][1])]);
+            } else {
+                // Relative mode: Display cases per 1M pop
+                let proportionConfirmed = (newData[i][1] * 1000000) / ausPop[newData[i][0]];
+                proportionConfirmed = Math.round(proportionConfirmed);
+                temp.push([{v:translate[newData[i][0]], f:newData[i][0]}, proportionConfirmed]);
+            }
         }
 
         setMyData(temp)
 
-    }, [province]);
+    }, [province, relativeEnabled]);
 
   const getOption = () => {
       return {
@@ -55,8 +66,20 @@ function GoogleMap ({ province, newData }) {
       }
   };
 
+  const toggleData = () => {
+      setRelativeEnabled(!relativeEnabled);
+  }
+
   return (
     loading ? <div className="loading">Loading...</div> :
+    <div className="stateMap">
+        <span className="mapHeading">
+            <h2> Cases by State {province ? `· ${province.name}` : false} </h2>
+            <Button onClick={() => toggleData()} variant="outlined" color="primary" className="mapToggle" disableTouchRipple={true}>
+                {relativeEnabled ? 'Confirmed cases' : 'Cases per 1 million people'}
+            </Button>
+        </span>
+        
         <Chart
             width= {window.innerWidth < 960?'100%':'auto'}
             left="auto"
@@ -70,6 +93,7 @@ function GoogleMap ({ province, newData }) {
             mapsApiKey="YOUR_KEY_HERE"
             rootProps={{ 'data-testid': '3' }}
         />
+    </div>
   )
 }
 

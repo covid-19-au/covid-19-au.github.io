@@ -476,3 +476,18 @@ h2 small {
 .dailyIncrease {
     font-size: 60%;
 }
+
+.mapHeading {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
+
+.mapHeading h2 {
+  display: flex;
+}
+
+.mapToggle {
+  display: flex;
+}
+

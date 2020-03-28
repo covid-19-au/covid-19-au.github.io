@@ -971,13 +971,7 @@ function HomePage({
           countryData={country}
         />
         <div className="card" >
-          <h2>
-            Cases by State {province ? `· ${province.name}` : false}
-            {province ? (
-              <small onClick={() => setProvince(null)}>Return</small>
-            ) : null}
-          </h2>
-          <Suspense fallback={<div className="loading">Loading...</div>}>
+        <Suspense fallback={<div className="loading">Loading...</div>}>
             <GoogleMap
               province={province}
               data={data}
@@ -989,18 +983,8 @@ function HomePage({
               }}
               newData={myData}
             />
-            {/*{*/}
-            {/*province ? false :*/}
-            {/*<div className="tip">*/}
-            {/*Click on the state to check state details.*/}
-            {/*</div>*/}
-            {/*}*/}
-          </Suspense>
           <Area area={area} onChange={setProvince} data={myData} />
-
-          {/*<div style={{ paddingBottom: "1rem" }}>*/}
-          {/**/}
-          {/*</div>*/}
+          </Suspense>
         </div>
       </Grid>
 
