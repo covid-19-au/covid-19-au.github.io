@@ -68,8 +68,8 @@ function GoogleMap ({ province, newData }) {
                     value = newData[i][4];
                     break;
             }
-            // Assumption that N/A data is 0
-            if (value === "N/A") { value = 0; }
+            // Don't include if there's no data
+            if (value === "N/A") { continue; }
 
             // v: Tooltip text, f: ISO region code
             temp.push([{v:translate[newData[i][0]], f:newData[i][0]}, parseInt(value)]);
