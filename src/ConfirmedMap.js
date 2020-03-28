@@ -85,7 +85,7 @@ class MbMap extends React.Component {
         function get_html(city_name) {
           var city = city_name.toLowerCase().split(" ");
           var numberOfCases = 0;
-          var city_type = city.slice(-1);
+          var city_type = city.slice(-1)[0];
           city.pop();
           city_name = city.join(' ');
           if (city_type === 'city'){
