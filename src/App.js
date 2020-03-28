@@ -18,7 +18,7 @@ import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
 import stateData from "./data/state";
 import Tag from "./Tag";
-
+import Fallback from "./fallback"
 import Flights from "./Flights";
 import StateGraph from "./StateGraph";
 import FAQ from "./faq"
@@ -26,6 +26,10 @@ import MbMap from "./ConfirmedMap";
 import "./App.css";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
+
+// routes
+// import {useRoutes, A} from 'hookrouter';
+// import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import ReactGA from "react-ga";
 import CanvasJSReact from "./assets/canvasjs.react";
@@ -42,7 +46,6 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Typography from '@material-ui/core/Typography';
 
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
@@ -270,12 +273,13 @@ function News({ province }) {
 }
 
 function Tweets({ province, nav }) {
+  console.log(nav)
   return (
     <div className="card">
       <h2>Twitter Feed</h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
-          {/* Must do check for nav === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
+          {/* Must do check for window.location.pathname === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
           {nav === "News" ? (
             <TwitterTimelineEmbed
               sourceType="list"
@@ -338,43 +342,69 @@ function Stat({
 
   return (
     <div className="card">
-      <h2>Status {name ? `· ${name}` : false}</h2>
+
+      <h2 style={{ display: "flex" }}>Status {name ? `· ${name}` : false}
+        <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+          <a
+            style={{
+              display: "inline-flex"
+            }}
+            className="badge badge-light"
+            target="_blank" rel="noopener noreferrer"
+            href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
+          >
+            <svg className="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
+                clipRule="evenodd" />
+              <path
+                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+            </svg>
+            <div className="dataSource">Data Source</div>
+          </a></div>
+
+      </h2>
+
+
+
       <div className="row">
-      <Tag
-        number={confirmedCount}
-        fColor={"#e74c3c"}
-        increased={confCountIncrease}
-      >
-        <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
-        title="<em>All positive cases confirmed so far, consisting of currently active, recovery and death cases.</em>">
-        Confirmed</a>
 
-      </Tag>
-      {/*<Tag number={suspectedCount || '-'}>*/}
-      {/*疑似*/}
-      {/*</Tag>*/}
-      <Tag
-        number={deadCount}
-        fColor={"#a93226"}
-        increased={deadCountIncrease}
-      >
-      <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
-      title="<em>All cases that has been confirmed death, including a case from the Diamond Princess Cruise.</em>">
-      Deaths</a>
+        <Tag
+          number={confirmedCount}
+          fColor={"#e74c3c"}
+          increased={confCountIncrease}
+        >
+          <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+            title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>">
+            Confirmed</button>
 
-      </Tag>
-      <Tag
-        number={curedCount}
-        fColor={"#00b321"}
-        increased={curedCountIncrease}
-      >
-      <a href="#" data-toggle="tooltip" data-placement="bottom" data-html="true"
-      title="<em>All cases that are no longer infected, confirmed by having negative results after treatment.</em>">
-      Recovered</a>
+        </Tag>
+        {/*<Tag number={suspectedCount || '-'}>*/}
+        {/*疑似*/}
+        {/*</Tag>*/}
+        <Tag
+          number={deadCount}
+          fColor={"#a93226"}
+          increased={deadCountIncrease}
+        >
+          <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+            title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
+            Deaths</button>
 
-      </Tag>
+        </Tag>
+        <Tag
+          number={curedCount}
+          fColor={"#00b321"}
+          increased={curedCountIncrease}
+        >
+          <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+            title="<em>Number of people that have recovered from COVID-19.</em>">
+            Recovered</button>
+
+        </Tag>
+
       </div>
-      <span className="due" style={{ fontSize: "60%" }}>
+      <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
         Time in AEDT, last updated at: {stateCaseData.updatedTime}
       </span>
 
@@ -397,9 +427,6 @@ function Fallback(props) {
       <svg class="bi bi-gear-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 01-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 01.872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 012.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 012.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 01.872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 01-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 01-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 100-5.86 2.929 2.929 0 000 5.858z" clip-rule="evenodd"/>
       </svg>&nbsp;GitHub</a>
-
-      <div>Template credits to: shfshanyue</div>
-
       <div>
         This site is developed by a{" "}
         <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
@@ -427,6 +454,10 @@ function Fallback(props) {
   );
 }
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function Area({ area, onChange, data }) {
   let totalRecovered = 0;
   for (let i = 0; i < data.length; i++) {
@@ -437,6 +468,12 @@ function Area({ area, onChange, data }) {
     Object.keys(stateData)[Object.keys(stateData).length - 1]
     ];
 
+  const getAriaLabel = (state, confirmed, death, recovered, tested) => {
+    return `In ${state.split("").join(" ")}, there were ${confirmed} confirmed cases. Out of them, ${death} unfortunately resulted in death.
+    
+    ${recovered} recovered and ${tested} were tested`;
+  };
+
   const renderArea = () => {
     let latest =
       testedCases[
@@ -444,7 +481,7 @@ function Area({ area, onChange, data }) {
       ];
 
     return data.map(x => (
-      <div className="province" key={uuid()}>
+      <div role={"button"} aria-label={getAriaLabel(...x)} aria-describedby={getAriaLabel(...x)} className="province" key={uuid()}>
         {/*<div className={`area ${x.name ? 'active' : ''}`}>*/}
         {/*{ x.name || x.cityName }*/}
         {/*</div>*/}
@@ -455,21 +492,21 @@ function Area({ area, onChange, data }) {
           <strong>{x[0]}</strong>
         </div>
         <div className="confirmed">
-          <strong>{x[1]}</strong>{x[0] === 'NSW' || x[0] === 'NT' || x[0] === 'TAS' ? '*' : null}&nbsp;{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}
+          <strong>{numberWithCommas(x[1])}</strong>&nbsp;<div className="dailyIncrease">{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}</div>
         </div>
         <div className="death">
-          <strong>{x[2]}</strong>&nbsp;{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}
+          <strong>{numberWithCommas(x[2])}</strong>&nbsp;<div className="dailyIncrease">{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}</div>
         </div>
         <div className="cured">
-          <strong>{x[3]}</strong>&nbsp;{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}
+          <strong>{numberWithCommas(x[3])}</strong>&nbsp;<div className="dailyIncrease">{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}</div>
         </div>
-        <div className="tested">{x[4]}</div>
+        <div className="tested">{numberWithCommas(x[4])}</div>
       </div>
     ));
   };
 
   return (
-    <>
+    <div role={"table"}>
       <div className="province header">
         <div className="area header statetitle">State</div>
         <div className="confirmed header confirmedtitle">Confirmed</div>
@@ -496,7 +533,7 @@ function Area({ area, onChange, data }) {
           <div className="tested"></div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -517,6 +554,7 @@ function Header({ province }) {
 }
 
 function Navbar({ setNav, nav }) {
+  // const [nav, setNav] = useState("Home");
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
   const handleScroll = () => {
@@ -564,6 +602,20 @@ function Navbar({ setNav, nav }) {
         >
           <strong>News</strong>
         </span>
+        {/*<A className={`navItems ${window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/"><strong>Home</strong></A>*/}
+        {/*<A className={`navItems ${window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/info"><strong>Info</strong></A>*/}
+        {/*<A className={`navItems ${window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick} href="/news"><strong>News</strong></A>*/}
+
+        {/*<Link to="/">*/}
+        {/*<span className={`navItems ${window.location.pathname === '/' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Home</strong></span>*/}
+        {/*</Link>*/}
+        {/*<Link to="/info">*/}
+        {/*<span className={`navItems ${window.location.pathname === '/info' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/info' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>Info</strong></span>*/}
+        {/*</Link>*/}
+        {/*<Link to="/news">*/}
+        {/*<span className={`navItems ${window.location.pathname === '/news' && !isSticky ? "navCurrentPage " : ""} ${window.location.pathname === '/news' && isSticky ? "navCurrentPageSticky" : ""} `} onClick={onClick}><strong>News</strong></span>*/}
+        {/*</Link>*/}
+
       </div>
     </div>
   );
@@ -571,143 +623,366 @@ function Navbar({ setNav, nav }) {
 
 function Information({ hospitalData, columns }) {
   return (
-    <div className="card" >
-      <h2 className="responsiveH2">Informative Media</h2>
-      <div className="row centerMedia">
-        <div>
-          <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-          <small className="mediaText">The Coronavirus explained and what you should do.</small>
+    <div>
+      <div className="card">
+        <h2 className="responsiveH2">Daily Fun Stuff</h2>
+        <div className="row centerMedia">
+          <div>
+            <ReactPlayer alt="Stupid Spaceman Virus Proof House" className="formatMedia" url="https://www.youtube.com/watch?v=115m7ji5mdY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+            <small className="mediaText">Watch Quentin spend 24 hours in the "world's most virus proof house!</small>
+          </div>
+          <br />
+
         </div>
+        <p style={{ textAlign: "center" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
+
+        <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
+          rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
       </div>
 
-      <div className="row centerMedia">
-        <div>
-          <ReactPlayer alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
-          <small className="mediaText">How to properly wash your hands.</small>
-        </div>
-      </div>
 
-      <div className="row centerMedia">
-        <div className="imageContainer">
-          <img
-            className="formatImage"
-            src="https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"
-            alt="How to wash hands - Coronavirus / COVID-19"
-          />
-          <small className="mediaText">How to properly wash your hands.</small>
+      <div className="card" >
+        <h2 className="responsiveH2">Informative Media</h2>
+        <div className="row centerMedia">
+          <div>
+            <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+            <small className="mediaText">The Coronavirus explained and what you should do.</small>
+          </div>
         </div>
-      </div>
 
-      <div className="row centerMedia">
-        <div>
-          <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />
-          <small className="mediaText">How to properly wear and dispose of masks.</small>
+        <div className="row centerMedia">
+          <div>
+            <ReactPlayer alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
+            <small className="mediaText">How to properly wash your hands.</small> <br />
+            <small style={{ color: "#3366BB" }}><a target="_blank"
+              rel="noopener noreferrer"
+              href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{"Here's a step-by-step guide you can save"}</a></small>
+          </div>
         </div>
-      </div>
 
-      <h2 className="responsiveH2">Information</h2>
-      {information.map(info => (
-        <div>
+        <div className="row centerMedia">
+          <div>
+            <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />
+            <small className="mediaText">How to properly wear and dispose of masks.</small>
+          </div>
+        </div>
+
+
+        <h2 className="responsiveH2">General Information</h2>
+        {information.generalCovidInfo.map(info => (
           <div key={uuid()}>
-            <ExpansionPanel style={{ boxShadow: "none" }} >
+            <div>
+              <ExpansionPanel style={{ boxShadow: "none" }} >
 
-              {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                  style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                  <h3 className="responsiveH3">{info.name}</h3>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                  <div>
+                    {/* First block of text */}
+                    {info.text.text_1.map(t1 => (
+                      <p key={uuid()}>{t1}</p>
+                    ))}
+                    {/* First Unordered List */}
+                    {info.text.ulist_1 ? (
+                      <ul>
+                        {info.text.ulist_1.map(ul1 => (
+                          <li key={uuid()}>{ul1}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                        ""
+                      )}
+
+                    {/* First Ordered List */}
+                    {info.text.olist_1 ? (
+                      <ol>
+                        {info.text.olist_1.map(ol1 => (
+                          <li key={uuid()}>{ol1}</li>
+                        ))}
+                      </ol>
+                    ) : (
+                        ""
+                      )}
+
+                    {/* Second Block of text */}
+                    {info.text.text_2.map(t2 => (
+                      <p key={uuid()}>{t2}</p>
+                    ))}
+
+                    {/* Citation tag */}
+                    {info.text.citation.map(cit => (
+                      <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                    ))}
+                  </div>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+            </div>
+          </div>
+        ))
+        }
+        <h2 className="responsiveH2">Current Regulations</h2>
+        {information.regulations.map(info => (
+          <div key={uuid()}>
+            <div>
+              <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
                         This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
-              < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
-                <h3 className="responsiveH3">{info.name}</h3>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
-                <div>
-                  {/* First block of text */}
-                  {info.text.text_1.map(t1 => (
-                    <p key={uuid()}>{t1}</p>
-                  ))}
-                  {/* First Unordered List */}
-                  {info.text.ulist_1 ? (
-                    <ul>
-                      {info.text.ulist_1.map(ul1 => (
-                        <li key={uuid()}>{ul1}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                      ""
-                    )}
+                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                  style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                  <h3 className="responsiveH3">{info.name}</h3>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                  <div>
+                    {/* First block of text */}
+                    {info.text.text_1.map(t1 => (
+                      <p key={uuid()}>{t1}</p>
+                    ))}
+                    {/* First Unordered List */}
+                    {info.text.ulist_1 ? (
+                      <ul>
+                        {info.text.ulist_1.map(ul1 => (
+                          <li key={uuid()}>{ul1}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                        ""
+                      )}
 
-                  {/* First Ordered List */}
-                  {info.text.olist_1 ? (
-                    <ol>
-                      {info.text.olist_1.map(ol1 => (
-                        <li key={uuid()}>{ol1}</li>
-                      ))}
-                    </ol>
-                  ) : (
-                      ""
-                    )}
+                    {/* First Ordered List */}
+                    {info.text.olist_1 ? (
+                      <ol>
+                        {info.text.olist_1.map(ol1 => (
+                          <li key={uuid()}>{ol1}</li>
+                        ))}
+                      </ol>
+                    ) : (
+                        ""
+                      )}
 
-                  {/* Second Block of text */}
-                  {info.text.text_2.map(t2 => (
-                    <p key={uuid()}>{t2}</p>
-                  ))}
+                    {/* Second Block of text */}
+                    {info.text.text_2.map(t2 => (
+                      <p key={uuid()}>{t2}</p>
+                    ))}
 
-                  {/* Citation tag */}
-                  {info.text.citation.map(cit => (
-                    <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
-                  ))}
-                </div>
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
+                    {/* Citation tag */}
+                    {info.text.citation.map(cit => (
+                      <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                    ))}
+                  </div>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+            </div>
+          </div>
+        ))
+        }
+        <h2 className="responsiveH2">Think you have COVID-19?</h2>
+        {information.haveCovid.map(info => (
+          <div key={uuid()}>
+            <div>
+              <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                  style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                  <h3 className="responsiveH3">{info.name}</h3>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                  <div>
+                    {/* First block of text */}
+                    {info.text.text_1.map(t1 => (
+                      <p key={uuid()}>{t1}</p>
+                    ))}
+                    {/* First Unordered List */}
+                    {info.text.ulist_1 ? (
+                      <ul>
+                        {info.text.ulist_1.map(ul1 => (
+                          <li key={uuid()}>{ul1}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                        ""
+                      )}
+
+                    {/* First Ordered List */}
+                    {info.text.olist_1 ? (
+                      <ol>
+                        {info.text.olist_1.map(ol1 => (
+                          <li key={uuid()}>{ol1}</li>
+                        ))}
+                      </ol>
+                    ) : (
+                        ""
+                      )}
+
+                    {/* Second Block of text */}
+                    {info.text.text_2.map(t2 => (
+                      <p key={uuid()}>{t2}</p>
+                    ))}
+
+                    {/* Citation tag */}
+                    {info.text.citation.map(cit => (
+                      <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                    ))}
+                  </div>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+            </div>
+          </div>
+        ))
+        }
+        <h2 className="responsiveH2">Protecting Yourself and Others</h2>
+
+        {information.protect.map(info => (
+          <div key={uuid()}>
+            <div>
+              <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
+                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                  style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                  <h3 className="responsiveH3">{info.name}</h3>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                  <div>
+                    {/* First image */}
+                    {info.image_1.map(i1 => (
+                      <div className="row centerMedia" key={uuid()}>
+                        <div className="imageContainer" style={{ height: "auto" }} >
+                          <img
+                            className="formatImage"
+                            src={i1}
+                            alt="Flatten the curve gif"
+                            style={{}}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                    {/* First block of text */}
+                    {info.text.text_1.map(t1 => (
+                      <p key={uuid()}>{t1}</p>
+                    ))}
+                    {/* First Unordered List */}
+                    {info.text.ulist_1 ? (
+                      <ul>
+                        {info.text.ulist_1.map(ul1 => (
+                          <li key={uuid()}>{ul1}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                        ""
+                      )}
+
+                    {/* First Ordered List */}
+                    {info.text.olist_1 ? (
+                      <ol>
+                        {info.text.olist_1.map(ol1 => (
+                          <li key={uuid()}>{ol1}</li>
+                        ))}
+                      </ol>
+                    ) : (
+                        ""
+                      )}
+
+                    {/* Second Block of text */}
+                    {info.text.text_2.map(t2 => (
+                      <p key={uuid()}>{t2}</p>
+                    ))}
+
+                    {/* Citation tag */}
+                    {info.text.citation.map(cit => (
+                      <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                    ))}
+                    {/* Video */}
+                    {info.video_1.map(vid => (
+                      <div className="row centerMedia" key={uuid()}>
+                        <div>
+                          <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19"
+                            className="formatMedia"
+                            url={vid.link}
+                            controls={true}
+                            config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                          <small className="mediaText">{vid.desc}</small>
+                        </div>
+                      </div>
+                    ))}
+
+                  </div>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+            </div>
+          </div>
+        ))
+        }
+        <small className="alignStyles">All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a>, <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">WHO</a>
+        </small>
+        <h2 className="responsiveH2">Coronavirus Helplines</h2>
+        <div className="row alignStyles responsiveText">
+          <div>
+            <h3>National helplines operating 24 hours a day, seven days a week.</h3>
+            <ul>
+              <li>For information on coronavirus (COVID-19) at the National Helpline: <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
+              <li>If you are feeling unwell, call Healthdirect: <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
+            </ul>
+            <h3>Some states have dedicated helplines aswell: </h3>
+            <ul>
+              <li>Victoria: <a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
+              <li>Queensland: <a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
+              <li>Northern Territory: <a className="citationLink" href="tel:1800008002">1800 008 002</a>
+                <p>-  If you are in Darwin and need to arrange testing call the Public Health Unit on: <a className="citationLink" href="tel:89228044">8922 8044</a></p>
+              </li>
+              <li>Tasmania: <a className="citationLink" href="tel:1800671738">1800 671 738</a>
+                <p>-  If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) on <a className="citationLink" href="tel:131450">131 450</a> and tell them your language.</p>
+                <p>-  Tell the interpreter your name and that you’re calling the Tasmanian Department of Health <a className="citationLink" href="tel:1800671738" >1800 671 738</a>.</p>
+              </li>
+            </ul>
           </div>
         </div>
-      ))
-      }
-      <small className="alignStyles">All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a>, <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">WHO</a>
-      </small>
-      <h2 className="responsiveH2">Coronavirus Helplines</h2>
-      <div className="row alignStyles responsiveText">
-        <div>
-          <h3>National helplines operating 24 hours a day, seven days a week.</h3>
-          <ul>
-            <li>For information on coronavirus (COVID-19) at the National Helpline: <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
-            <li>If you are feeling unwell, call Healthdirect: <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
-          </ul>
-          <h3>Some states have dedicated helplines aswell: </h3>
-          <ul>
-            <li>Victoria: <a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
-            <li>Queensland: <a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
-            <li>Northern Territory: <a className="citationLink" href="tel:1800008002">1800 008 002</a>
-              <p>-  If you are in Darwin and need to arrange testing call the Public Health Unit on: <a className="citationLink" href="tel:89228044">8922 8044</a></p>
-            </li>
-            <li>Tasmania: <a className="citationLink" href="tel:1800671738">1800 671 738</a>
-              <p>-  If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) on <a className="citationLink" href="tel:131450">131 450</a> and tell them your language.</p>
-              <p>-  Tell the interpreter your name and that you’re calling the Tasmanian Department of Health <a className="citationLink" href="tel:1800671738" >1800 671 738</a>.</p>
-            </li>
-          </ul>
+        <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
+        <div className="row alignStyles responsiveText">
+          <div>
+            <ul>
+              <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">Coronavirus: The Hammer and the Dance</a></li>
+              <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/news-event/coronavirus">The New York Times</a> and the <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.economist.com/news/2020/03/11/the-economists-coverage-of-the-coronavirus">Economist</a> are giving people free access to their coronavirus coverage. It's really good!</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
-      <div className="row alignStyles responsiveText">
-        <div>
-          <ul>
-            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">Coronavirus: The Hammer and the Dance</a></li>
-            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/news-event/coronavirus">The New York Times</a> and the <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.economist.com/news/2020/03/11/the-economists-coverage-of-the-coronavirus">Economist</a> are giving people free access to their coronavirus coverage. It's really good!</li>
-          </ul>
+        <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
+        <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
+        <small>Filter the table by clicking the dropdown below state.</small>
+        <div className="row centerMedia">
+          <div>
+            <Table className="formatMedia" columns={columns} data={hospitalData} />
+          </div>
         </div>
-      </div>
-      <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
-      <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
-      <small>Filter the table by clicking the dropdown below state.</small>
-      <div className="row centerMedia">
-        <div>
-          <Table className="formatMedia" columns={columns} data={hospitalData} />
-        </div>
-      </div>
-    </div >
+      </div >
+    </div>
   );
 }
 
@@ -757,26 +1032,9 @@ function HomePage({
           </Suspense>
           <Area area={area} onChange={setProvince} data={myData} />
 
-          <div style={{ paddingBottom: "1rem" }}>
-            <a
-              style={{
-                fontSize: "60%",
-                float: "right",
-                color: "blue"
-              }}
-              href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
-            >
-              @Data Source
-            </a>
-            <span
-              style={{ fontSize: "70%", float: "left", paddingLeft: 0 }}
-              className="due"
-            >
-              *Note that under National Notifiable Diseases Surveillance System reporting requirements, cases are reported based on their Australian jurisdiction of residence rather than where they were detected. For example, a case reported previously in the NT in a NSW resident is counted in the national figures as a NSW case.
-
-
-            </span>
-          </div>
+          {/*<div style={{ paddingBottom: "1rem" }}>*/}
+          {/**/}
+          {/*</div>*/}
         </div>
       </Grid>
 
@@ -798,13 +1056,14 @@ function HomePage({
 }
 
 function FAQPage() {
-    return(
-        <Grid item xs={12} sm={12} md={10}>
-            <FAQ />
-        </Grid>
-    )
+  return (
+    <Grid item xs={12} sm={12} md={10}>
+      <FAQ />
+    </Grid>
+  )
 }
 
+// Info page to present information about the virus.
 function InfoPage({ columns }) {
 
   const stateAbrev = {
@@ -837,6 +1096,7 @@ function InfoPage({ columns }) {
   )
 }
 
+// News page showing a News Timeline and Twitter Feed
 function NewsPage({ gspace, province, nav }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
@@ -1129,16 +1389,28 @@ function App() {
 
   const area = province ? provincesByName[province.name].cities : provinces;
   const overall = province ? province : all;
-
   const [nav, setNav] = useState("Home");
+  // This is used to set the state of the page for navbar CSS styling.
   const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
 
   const setModalVisibility = state => {
     setShowSocialMediaIcons(state);
   };
+  // // Set the routes for each page and pass in props.
+  // const routes = {
+  //     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
+  //     "/info": () => <InfoPage  columns={columns} gspace={gspace}/>,
+  //     "/news": () => <NewsPage province={province} gspace={gspace} />,
+  //     "/faq": () => <FAQPage />
+  // };
+  //
+  // // The hook used to render the routes.
+  // const routeResult = useRoutes(routes);
+  // const [urlPath, setUrlPath] = useState(window.location.pathname);
 
   if (myData) {
     return (
+
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
@@ -1150,28 +1422,33 @@ function App() {
           </Grid>
           <Grid item xs={12} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
+            {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
           </Grid>
-
-          {/* Pages to hold each functionality. */}
           {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
           {nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}
           {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
           {nav === "About" ? <FAQPage /> : ""}
-
-
-          {/*<Grid item xs={12} sm={12} md={10} lg={6} xl={5}>*/}
-          {/*<News />*/}
-          {/*</Grid>*/}
-          {/*<Grid item xs={12}>*/}
-          {/*<ExposureSites />*/}
-
-          {/*</Grid>*/}
-
+          {/* routeResult renders the routes onto this area of the app function.
+          E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
+          {/*{routeResult}*/}
+          {/*<Switch>*/}
+          {/*<Route path="/" render={() => (*/}
+          {/*<HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />*/}
+          {/*)} exact/>*/}
+          {/*<Route path="/info" render={() => (*/}
+          {/*<InfoPage columns={columns} />*/}
+          {/*)} exact/>*/}
+          {/*<Route path="/news" render={() => (*/}
+          {/*<NewsPage province={province} gspace={gspace}/>*/}
+          {/*)} exact/>*/}
+          {/*<Route path="/faq" component={FAQPage} exact/>*/}
+          {/*</Switch>*/}
           <Grid item xs={12}>
-            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav}  />
+            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
           </Grid>
         </Grid>
       </div>
+
     );
   }
   return null;

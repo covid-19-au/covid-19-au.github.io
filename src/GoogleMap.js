@@ -5,12 +5,6 @@ import { Chart } from "react-google-charts";
 
 
 function GoogleMap ({ province, newData }) {
-    const keys = [
-        "State",
-        "Confirmed",
-        "Deaths",
-        "Recovered"
-    ];
 
   const [loading, setLoading] = useState(true);
     useEffect(() => {

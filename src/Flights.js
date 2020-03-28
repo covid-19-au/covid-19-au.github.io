@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import uuid from "react-uuid";
 const flightNoRegex = /^[A-Za-z]{2}\d*$/;
 const flightRouteRegex = /^[A-Za-z]*$/;
 const flightDateArrivalRegex = /^\d{0,2}-{0,1}\d{2}-{0,1}\d{0,4}$/;
@@ -35,7 +35,6 @@ function UniversalSearch(searchList, type, searchBase) {
  * @returns {Array} list of matched flights
  */
 function SearchFlights(searchKey, flights) {
-  let tempResultList = [];
   let keyList = searchKey.split(" ");
   let flightNoKeyList = [];
   let routeKeyList = [];
@@ -137,7 +136,7 @@ function Flights({ flights }) {
           </div>
           {outputList.length ? (
             outputList.map(flight => (
-              <div className="flightInfo header">
+              <div key={uuid()} className="flightInfo header">
                 <div className="flightArea">{flight.flightNo}</div>
                 <div className="flightArea">{flight.airline}</div>
                 <div className="flightArea">{flight.path}</div>

@@ -1,8 +1,7 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React from "react";
 import mapboxgl from 'mapbox-gl';
 import confirmedData from "./data/mapdataCon"
 import hospitalData from "./data/mapdataHos"
-import ReactMapboxGl, { Layer, Feature, Popup } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from './img/icon/confirmed-recent.png'
@@ -34,9 +33,9 @@ class MbMap extends React.Component {
             const today = new Date();
             
             // Day of the event. Transform to YYYY/MM/DD format
-            const day = eventDay[0], month = eventDay[1];
+            const day = eventDay[0], month = parseInt(eventDay[1])-1;
             const year = '20' + eventDay[2]
-            let caseDate = new Date(year + '-' + month + '-' + day);
+            let caseDate = new Date(year, month, day);
 
             // Add two weeks for comparison
             caseDate.setDate(caseDate.getDate() + oldCaseDays);
@@ -100,8 +99,11 @@ class MbMap extends React.Component {
                 zoom: map.getZoom().toFixed(2)
             });
         });
-        const noMargin = { margin: 0 };
         confirmedData.map((item) => {
+            if(item['state']==='VIC' && item['area'].length > 0){
+                item['description']="This case number is just the suburb confirmed number, not the case number at this geo point."
+                item['date'] = '26/3/20'
+            }
             // create a HTML element for each feature
             var el = document.createElement('div');
             el.className = 'marker';
@@ -121,7 +123,7 @@ class MbMap extends React.Component {
             new mapboxgl.Marker(el)
                 .setLngLat(coor)
                 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3>' + '<p style="margin:0;">' + item['date'] + '</p><p style="margin:0;">Activity Time: ' + item['time'] + '</p>'))
+                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3>' + '<p style="margin:0;">' + item['date'] + '</p><p style="margin:0;">' + item['description'] + '</p>'))
                 .addTo(map);
         })
 
@@ -173,9 +175,9 @@ class MbMap extends React.Component {
                 </div>
 
                 <span className="due">
-                    <span className="key"><img src={confirmedImg}/><p>Recently confirmed case</p></span>
-                    <span className="key"><img src={confirmedOldImg}/><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={hospitalImg}/><p>Hospital or COVID-19 assessment centre</p></span>
+                    <span className="key"><img src={confirmedOldImg}/><p>Case over {oldCaseDays} days old</p></span>
+                    <span className="key"><img src={confirmedImg}/><p>Recently confirmed case(not all, collecting)</p></span>
         </span>
             </div>
         );
