@@ -145,25 +145,25 @@ class MbMap extends React.Component {
                     ['linear'],
                     ['get', 'cases'],
                     0,
-                    '#e0f7fa',
+                    '#E3F2FD',
                     1,
-                    '#b2eaf2',
+                    '#BBDEFB',
                     5,
-                    '#80ddea',
+                    '#90CAF9',
                     10,
-                    '#4ccfe1',
+                    '#64B5F6',
                     20,
-                    '#25c5da',
+                    '#42A5F5',
                     30,
-                    '#01bad4',
+                    '#2196F3',
                     40,
-                    '#00aac1',
+                    '#1E88E5',
                     50,
-                    '#0096a7',
+                    '#1976D2',
                     60,
-                    '#00828f',
+                    '#1565C0',
                     70,
-                    '#005f64'
+                    '#0D47A1'
                   ],
                   'fill-opacity': 0.75
                 },
@@ -310,7 +310,7 @@ class MbMap extends React.Component {
                     <span className="key"><img src={hospitalImg}/><p>Hospital or COVID-19 assessment centre</p></span>
                     <span className="key"><img src={confirmedOldImg}/><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg}/><p>Recently confirmed case(not all, collecting)</p></span>
-                    <span className="Key">*City Wise Data Present Only For Victoria</span>
+                    <span className="Key"><p>*City Wise Data Present Only For VIC will develop for other States.</p></span>
         </span>
             </div>
         );
