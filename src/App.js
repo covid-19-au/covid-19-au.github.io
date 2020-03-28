@@ -594,10 +594,16 @@ function Information({ hospitalData, columns }) {
         <h2 className="responsiveH2">Daily Fun Stuff</h2>
         <div className="row centerMedia">
           <div>
+            <ReactPlayer alt="How To Tell If We're Beating COVID-19" className="formatMedia" url="https://www.youtube.com/watch?v=54XLXg4fYsc&t=14s" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+            <small className="mediaText">Minute Physics explains how we can tell if we're beating COVID-19.</small>
+          </div>
+
+        </div>
+        <div className="row centerMedia">
+          <div>
             <ReactPlayer alt="Stupid Spaceman Virus Proof House" className="formatMedia" url="https://www.youtube.com/watch?v=115m7ji5mdY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
             <small className="mediaText">Watch Quentin spend 24 hours in the "world's most virus proof house!</small>
           </div>
-          <br />
 
         </div>
         <p style={{ textAlign: "center" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
@@ -971,7 +977,7 @@ function HomePage({
           countryData={country}
         />
         <div className="card" >
-        <Suspense fallback={<div className="loading">Loading...</div>}>
+          <Suspense fallback={<div className="loading">Loading...</div>}>
             <GoogleMap
               province={province}
               data={data}
@@ -983,7 +989,7 @@ function HomePage({
               }}
               newData={myData}
             />
-          <Area area={area} onChange={setProvince} data={myData} />
+            <Area area={area} onChange={setProvince} data={myData} />
           </Suspense>
         </div>
       </Grid>
@@ -1050,9 +1056,9 @@ function InfoPage({ columns }) {
 function NewsPage({ gspace, province, nav }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-        <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
-            <NewsTimeline />
-        </Grid>
+      <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
+        <NewsTimeline />
+      </Grid>
       <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <Tweets province={province} nav={nav} />
       </Grid>
@@ -1370,14 +1376,14 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
-            {window.location.href==="http://localhost:3008/"||window.location.href==="http://covid-19-au.github.io/"||window.location.href==="https://covid-19-au.github.io/"?
-                <Alert style={{width:'100%'}} severity="info">
-                    <AlertTitle><strong>Important!!</strong></AlertTitle>
-                    <h6 className="card-text">In order to provide better service, we will move our site to&nbsp;<a target="_blank"  rel="noopener noreferrer" href="https://covid-19-au.com" ><u>https://covid-19-au.com</u></a> shortly</h6>
+          {window.location.href === "http://localhost:3008/" || window.location.href === "http://covid-19-au.github.io/" || window.location.href === "https://covid-19-au.github.io/" ?
+            <Alert style={{ width: '100%' }} severity="info">
+              <AlertTitle><strong>Important!!</strong></AlertTitle>
+              <h6 className="card-text">In order to provide better service, we will move our site to&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://covid-19-au.com" ><u>https://covid-19-au.com</u></a> shortly</h6>
 
-                </Alert>
-                :<div/>
-            }
+            </Alert>
+            : <div />
+          }
 
           <Grid item xs={12} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
