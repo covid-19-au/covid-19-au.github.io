@@ -134,7 +134,7 @@ class MbMap extends React.Component {
               map.addLayer({
                 id: 'id_poly',
                 type: 'fill',
-                minzoom:4,
+                minzoom:2,
                 source: {
                   type: 'geojson',
                   data: data
@@ -171,7 +171,7 @@ class MbMap extends React.Component {
               });
               map.addLayer({
                 id: 'id_line_ploy',
-                minzoom:4,
+                minzoom:2,
                 type: 'line',
                 source: {
                   type: 'geojson',
@@ -180,7 +180,7 @@ class MbMap extends React.Component {
                 paint: {
                   // 'line-color': '#088',
                   'line-opacity': 1,
-                  'line-width': 3,
+                  'line-width': 2,
                 },
                 filter: ['==', '$type', 'Polygon']
               });
