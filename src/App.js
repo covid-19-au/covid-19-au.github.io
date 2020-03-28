@@ -1066,13 +1066,14 @@ function InfoPage({ columns }) {
 function NewsPage({ gspace, province, nav }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
+        <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
+            <NewsTimeline />
+        </Grid>
       <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
         <Tweets province={province} nav={nav} />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
-        <NewsTimeline />
-      </Grid>
+
     </Grid>
   );
 }
@@ -1391,8 +1392,9 @@ function App() {
                     <h6 className="card-text">In order to provide better service, we will move our site to&nbsp;<a target="_blank"  rel="noopener noreferrer" href="https://covid-19-au.com" ><u>https://covid-19-au.com</u></a> shortly</h6>
 
                 </Alert>
-                :null
+                :<div/>
             }
+
           <Grid item xs={12} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
             {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
