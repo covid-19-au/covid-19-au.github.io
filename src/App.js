@@ -26,6 +26,7 @@ import MbMap from "./ConfirmedMap";
 import "./App.css";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
+import dailySummary from "./assets/dailySummary.pdf"
 
 // routes
 // import {useRoutes, A} from 'hookrouter';
@@ -1004,6 +1005,7 @@ function HomePage({
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
       <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+
         <Stat
           {...{ ...all, ...overall }}
           name={province && province.name}
@@ -1011,38 +1013,41 @@ function HomePage({
           countryData={country}
         />
         <div className="card" >
-          <h2>
+          <div>  <h2>
             Cases by State {province ? `· ${province.name}` : false}
             {province ? (
               <small onClick={() => setProvince(null)}>Return</small>
             ) : null}
           </h2>
-          <Suspense fallback={<div className="loading">Loading...</div>}>
-            <GoogleMap
-              province={province}
-              data={data}
-              onClick={name => {
-                const p = provincesByName[name];
-                if (p) {
-                  setProvince(p);
-                }
-              }}
-              newData={myData}
-            />
-            {/*{*/}
-            {/*province ? false :*/}
-            {/*<div className="tip">*/}
-            {/*Click on the state to check state details.*/}
+            <Suspense fallback={<div className="loading">Loading...</div>}>
+              <GoogleMap
+                province={province}
+                data={data}
+                onClick={name => {
+                  const p = provincesByName[name];
+                  if (p) {
+                    setProvince(p);
+                  }
+                }}
+                newData={myData}
+              />
+              {/*{*/}
+              {/*province ? false :*/}
+              {/*<div className="tip">*/}
+              {/*Click on the state to check state details.*/}
+              {/*</div>*/}
+              {/*}*/}
+            </Suspense>
+            <Area area={area} onChange={setProvince} data={myData} />
+            {/*<div style={{ paddingBottom: "1rem" }}>*/}
+            {/**/}
             {/*</div>*/}
-            {/*}*/}
-          </Suspense>
-          <Area area={area} onChange={setProvince} data={myData} />
-          {/*<div style={{ paddingBottom: "1rem" }}>*/}
-          {/**/}
-          {/*</div>*/}
-          <div style={{ justifyContent: "right" }}>
-            <button className="buttonStyles" style={{ width: "30%" }}>Daily Summary</button>
-          </div></div>
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <a className="summaryButton" href={dailySummary} target="_blank">Daily Summary (PDF)</a>
+          </div>
+        </div>
+
       </Grid>
 
       <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>

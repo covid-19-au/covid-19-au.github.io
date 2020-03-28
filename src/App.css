@@ -445,6 +445,20 @@ h2 small {
     margin: 1px;
 }
 
+.summaryButton {
+    background-color: white;
+    color: black;
+    border: 2px solid #87CEEB;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 1px;
+    margin-top: 1rem;
+    text-align: center;
+    width: 40%;
+}
+
 .buttonStyles:hover {
     background-color: #87CEEB;
     color: white;
