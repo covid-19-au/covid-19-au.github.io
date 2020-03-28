@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import CanvasJSReact from "./assets/canvasjs.react";
-import Chart from "chart.js";
-
-import VicChart from "./VicChart";
+import AgeGenderChart from "./ageGenderChart";
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -18,8 +16,6 @@ const colourMapping = {
   ACT: "#F79647",
   NT: "#CF6ECF"
 };
-
-const states = Object.keys(colourMapping);
 
 /** Creates the Canvas data points for a particular state*/
 function createInstances(stateData, state) {
@@ -76,15 +72,10 @@ function createSeries(stateData) {
 
 /** Generates line graphs for state-level case data */
 function StateGraph({ stateData }) {
-  // const [chartRef, setChartRef] = useState(React.createRef());
-  // const [dataLabels, setDataLabels] = useState(Object.keys(stateData));
-  // const [datasets, setDatasets] = useState([]);
-
   // CanvasJS API settings
   const [graphOptions, setGraphOptions] = useState(null);
   // Display loading text if data is not yet parsed
   const [isLoading, setIsLoading] = useState(true);
-  // getStateData(stateData);
 
   useEffect(() => {
     setGraphOptions({
@@ -116,53 +107,14 @@ function StateGraph({ stateData }) {
     setIsLoading(false);
   }, [stateData]);
 
-  // useEffect(() => {
-  //   let myChartRef = chartRef;
-  //   myChartRef = myChartRef.current.getContext("2d");
-  //   new Chart(myChartRef, {
-  //     type: "line",
-  //     data: {
-  //       labels: dataLabels,
-  //       datasets: [
-  //         { label: "Sales", data: [86, 78, 90], borderColor: colourMapping.ACT, fill: false },
-  //         { label: "test", data: [65, 76, 94] , borderColor: colourMapping.NSW, fill: false }
-  //       ],
-  //     }
-  //   });
-  // }, [stateData]);
-
   return (
     <div className="card">
       <h2>Confirmed Cases in Australian States</h2>
       {isLoading ? <p>Loading...</p> : <CanvasJSChart options={graphOptions} style = {{paddingLeft: '500px'}}/>}
 
-      {/* <canvas id="stateGraph" ref={chartRef} /> */}
-      <VicChart />
+      <AgeGenderChart state={"vic"} />
     </div>
   );
-}
-
-function getStateData(stateData) {
-  console.log("HERE")
-  console.log(Object.keys(stateData).length);
-  for (let i = 0; i < Object.keys(stateData).length; i++) {
-    for (let j = 0; j < states.length; j++) {
-      let stateName = stateData[Object.keys(stateData)[i]][states[j]];
-      console.log("State Name: ", stateName);
-    }
-  }
-}
-
-class Dataset {
-  constructor(label) {
-    this.label = label;
-    this.fill = false;
-    this.borderColor = colourMapping.label;
-    this.dataArr = [];
-  }
-  addData(newData) {
-    this.dataArr.push(newData)
-  }
 }
 
 export default StateGraph;
