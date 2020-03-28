@@ -1385,14 +1385,14 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
-            {window.location.href==="http://localhost:3008/"||window.location.href==="http://covid-19-au.github.io/"||window.location.href==="https://covid-19-au.github.io/"?
-                <Alert style={{width:'100%'}} severity="info">
-                    <AlertTitle><strong>Important!!</strong></AlertTitle>
-                    <h6 className="card-text">In order to provide better service, we will move our site to&nbsp;<a target="_blank"  rel="noopener noreferrer" href="https://covid-19-au.com" ><u>https://covid-19-au.com</u></a> shortly</h6>
+            {/*{window.location.href==="http://localhost:3008/"||window.location.href==="http://covid-19-au.github.io/"||window.location.href==="https://covid-19-au.github.io/"?*/}
+                {/*<Alert style={{width:'100%'}} severity="info">*/}
+                    {/*<AlertTitle><strong>Important!!</strong></AlertTitle>*/}
+                    {/*<h6 className="card-text">In order to provide better service, we will move our site to&nbsp;<a target="_blank"  rel="noopener noreferrer" href="https://covid-19-au.com" ><u>https://covid-19-au.com</u></a> shortly</h6>*/}
 
-                </Alert>
-                :null
-            }
+                {/*</Alert>*/}
+                {/*:null*/}
+            {/*}*/}
           <Grid item xs={12} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
             {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
