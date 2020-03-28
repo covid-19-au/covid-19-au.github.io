@@ -1159,5 +1159,41 @@
     "coor": ["-38.607283", "145.581708"],
     "hospitalType": "",
     "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "​16 Croudace Bay Road, Belmont NSW 2280",
+    "hospitalPhone": "(02) 4923 2000",
+    "name": "Belmont Hospital",
+    "coor": ["-33.025242", "151.648462"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "​​Edith and Plath Street, Waratah NSW 2298",
+    "hospitalPhone": "(02) 4921 1211",
+    "name": "Calvary Mater Newcastle",
+    "coor": ["-32.898396", "151.721065"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "​560 High Street, Maitland NSW 2320",
+    "hospitalPhone": "(02) 4939 2000",
+    "name": "Maitland Hospital",
+    "coor": ["-32.725596", "151.545507"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "​​26 York Street, Taree NSW 2430",
+    "hospitalPhone": "(02) 6592 9111",
+    "name": "Manning Hospital",
+    "coor": ["-31.910023", "152.454714"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
   }
 ]
