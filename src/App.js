@@ -164,6 +164,7 @@ function HistoryGraph({ countryData }) {
         shared: true
         // content:"{label}, {name}: {y}" ,
       },
+      colorSet: "sitePalette",
 
       data: historyData
     });
@@ -190,7 +191,8 @@ function HistoryGraph({ countryData }) {
       toolTip: {
         shared: true
         // content:"{label}, {name}: {y}" ,
-      }
+      },
+      colorSet: "sitePalette"
     });
 
 
@@ -306,6 +308,7 @@ function Stat({
   suspectedCount,
   deadCount,
   curedCount,
+  testedCount,
   name,
   quanguoTrendChart,
   hbFeiHbTrendChart,
@@ -315,16 +318,25 @@ function Stat({
   let confCountIncrease = 0;
   let deadCountIncrease = 0;
   let curedCountIncrease = 0;
+  let testedCountIncrease = 0;
   if (data && countryData) {
     confirmedCount = 0;
-
+    testedCount = 0;
     deadCount = 0;
     curedCount = 0;
-
     for (let i = 0; i < data.length; i++) {
       confirmedCount += parseInt(data[i][1]);
       deadCount += parseInt(data[i][2]);
       curedCount += parseInt(data[i][3]);
+
+      if (data[i][4] == "N/A") {
+        //do nothing
+      }
+      else {
+        testedCount += parseInt(data[i][4]);
+      }
+
+      console.log(testedCount)
     }
     let lastTotal =
       countryData[
@@ -333,11 +345,13 @@ function Stat({
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
     curedCountIncrease = curedCount - lastTotal[1];
+
+    testedCountIncrease = testedCount - lastTotal[3]
   } else {
     confirmedCount = 0;
-
     deadCount = 0;
     curedCount = 0;
+    testedCount = 0;
   }
 
   return (
@@ -371,7 +385,7 @@ function Stat({
 
         <Tag
           number={confirmedCount}
-          fColor={"#e74c3c"}
+          fColor={"#ff603c"}
           increased={confCountIncrease}
         >
           <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
@@ -384,7 +398,7 @@ function Stat({
         {/*</Tag>*/}
         <Tag
           number={deadCount}
-          fColor={"#a93226"}
+          fColor={"#c11700"}
           increased={deadCountIncrease}
         >
           <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
@@ -392,9 +406,11 @@ function Stat({
             Deaths</button>
 
         </Tag>
+      </div>
+      <div className="row">
         <Tag
           number={curedCount}
-          fColor={"#00b321"}
+          fColor={"#00c177"}
           increased={curedCountIncrease}
         >
           <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
@@ -402,6 +418,17 @@ function Stat({
             Recovered</button>
 
         </Tag>
+        <Tag
+          number={testedCount}
+          fColor={"#007cf2"}
+          increased={testedCountIncrease}
+        >
+          <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+            title="<em>Number of people that have recovered from COVID-19.</em>">
+            Tested</button>
+
+        </Tag>
+
 
       </div>
       <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
@@ -509,7 +536,9 @@ function Header({ province }) {
       <div className="bg"></div>
       <h1
         style={{
-          fontSize: "120%"
+          fontSize: "120%",
+          color: "black",
+          textAlign: "center"
         }}
       >
         COVID-19 in Australia — Real-Time Report
@@ -963,7 +992,7 @@ function HomePage({
 }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
         <Stat
           {...{ ...all, ...overall }}
           name={province && province.name}
@@ -971,7 +1000,7 @@ function HomePage({
           countryData={country}
         />
         <div className="card" >
-        <Suspense fallback={<div className="loading">Loading...</div>}>
+          <Suspense fallback={<div className="loading">Loading...</div>}>
             <GoogleMap
               province={province}
               data={data}
@@ -983,20 +1012,20 @@ function HomePage({
               }}
               newData={myData}
             />
-          <Area area={area} onChange={setProvince} data={myData} />
+            <Area area={area} onChange={setProvince} data={myData} />
           </Suspense>
         </div>
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
         <MbMap />
         <HistoryGraph countryData={country} />
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
         <StateGraph stateData={stateData} />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
         <Flights flights={flights} />
       </Grid>
 
@@ -1007,7 +1036,7 @@ function HomePage({
 
 function FAQPage() {
   return (
-    <Grid item xs={12} sm={12} md={10}>
+    <Grid item xs={11} sm={11} md={10}>
       <FAQ />
     </Grid>
   )
@@ -1040,7 +1069,7 @@ function InfoPage({ columns }) {
   const hospitalData = React.useMemo(() => mapDataHos, []);
 
   return (
-    <Grid item xs={12} sm={12} md={10}>
+    <Grid item xs={11} sm={11} md={10}>
       <Information columns={columns} hospitalData={hospitalData} />
     </Grid>
   )
@@ -1050,10 +1079,10 @@ function InfoPage({ columns }) {
 function NewsPage({ gspace, province, nav }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-        <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
-            <NewsTimeline />
-        </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={11} sm={11} md={10} lg={5} xl={5}>
+        <NewsTimeline />
+      </Grid>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={5}>
         <Tweets province={province} nav={nav} />
       </Grid>
 
@@ -1370,16 +1399,16 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
-            {window.location.href==="http://localhost:3008/"||window.location.href==="http://covid-19-au.github.io/"||window.location.href==="https://covid-19-au.github.io/"?
-                <Alert style={{width:'100%'}} severity="info">
-                    <AlertTitle><strong>Important!!</strong></AlertTitle>
-                    <h6 className="card-text">In order to provide better service, we will move our site to&nbsp;<a target="_blank"  rel="noopener noreferrer" href="https://covid-19-au.com" ><u>https://covid-19-au.com</u></a> shortly</h6>
+          {window.location.href === "http://localhost:3008/" || window.location.href === "http://covid-19-au.github.io/" || window.location.href === "https://covid-19-au.github.io/" ?
+            <Alert style={{ width: '100%' }} severity="info">
+              <AlertTitle><strong>Important!!</strong></AlertTitle>
+              <h6 className="card-text">In order to provide better service, we will move our site to&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://covid-19-au.com" ><u>https://covid-19-au.com</u></a> shortly</h6>
 
-                </Alert>
-                :<div/>
-            }
+            </Alert>
+            : <div />
+          }
 
-          <Grid item xs={12} className="removePadding">
+          <Grid item xs={11} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
             {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
           </Grid>
@@ -1402,7 +1431,7 @@ function App() {
           {/*)} exact/>*/}
           {/*<Route path="/faq" component={FAQPage} exact/>*/}
           {/*</Switch>*/}
-          <Grid item xs={12}>
+          <Grid item xs={11}>
             <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
           </Grid>
         </Grid>
