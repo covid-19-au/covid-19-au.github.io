@@ -982,6 +982,15 @@
   },
   {
     "state": "Victoria",
+    "address": "41 Victoria Parade, Fitzroy VIC 3065, Australia",
+    "hospitalPhone": "(03) 9231 2211",
+    "name": "St Vincent's Hospital Melbourne",
+    "coor": ["-37.807291", "144.975061"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Victoria",
     "address": "176 Furlong Rd, St Albans VIC 3021, Australia",
     "hospitalPhone": "(03) 8345 1333",
     "name": "Sunshine Hospital",
