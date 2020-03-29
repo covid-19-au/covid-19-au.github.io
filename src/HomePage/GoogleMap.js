@@ -1,26 +1,25 @@
 import React, { useEffect, useState} from 'react'
 import ReactGA from "react-ga";
-import ausPop from './data/ausPop'
+import ausPop from '../data/ausPop'
 
 import NativeSelect from '@material-ui/core/NativeSelect'
 
 import { Chart } from "react-google-charts";
 
-function GoogleMap ({ province, newData }) {
+function GoogleMap({ province, newData }) {
     // Colour gradients for the map: https://material.io/design/color/#tools-for-picking-colors
     const redGradient = [
-        '#ffefef',
-        '#ffc0b1',
-        '#ff8c71',
-        '#ef1717'
-        // '#9c0505'
+        '#fce7e6',
+        '#ffc8b9',
+        '#ff7e5f',
+        '#e73210'
     ];
 
     const purpleGradient = [
-        '#F3E5F5',
-        '#CE93D8',
-        '#AB47BC',
-        '#8E24AA'
+        '#e3f3ff',
+        '#8ccfff',
+        '#24adff',
+        '#008fff'
     ];
 
     const yellowGradient = [
@@ -30,33 +29,33 @@ function GoogleMap ({ province, newData }) {
         '#FDD835'
     ];
 
-  const [loading, setLoading] = useState(true);
-  const [mapType, setMapType] = useState('confirmed-cases');
-  const [mapGradient, setMapGradient] = useState(redGradient);
+    const [loading, setLoading] = useState(true);
+    const [mapType, setMapType] = useState('confirmed-cases');
+    const [mapGradient, setMapGradient] = useState(redGradient);
 
     useEffect(() => {
 
         setLoading(false)
 
     }, [province]);
-  
-  const [ myData, setMyData] = useState(null);
+
+    const [myData, setMyData] = useState(null);
     useEffect(() => {
 
         let translate = {
-            "NSW":"AU-NSW",
-            "ACT":"AU-ACT",
-            "NT":"AU-NT",
-            "WA":"AU-WA",
-            "VIC":"AU-VIC",
-            "QLD":"AU-QLD",
-            "SA":"AU-SA",
-            "TAS":"AU-TAS",
+            "NSW": "AU-NSW",
+            "ACT": "AU-ACT",
+            "NT": "AU-NT",
+            "WA": "AU-WA",
+            "VIC": "AU-VIC",
+            "QLD": "AU-QLD",
+            "SA": "AU-SA",
+            "TAS": "AU-TAS",
         }
-        
+
         // Set the hover label and colour gradient
         let label = "";
-        switch(mapType) {
+        switch (mapType) {
             case 'confirmed-cases':
                 label = 'Confirmed';
                 setMapGradient(redGradient);
@@ -82,12 +81,12 @@ function GoogleMap ({ province, newData }) {
                 setMapGradient(purpleGradient);
                 break;
         }
-        let temp = [["state",label]];
+        let temp = [["state", label]];
 
         // Set data values
-        for(let i = 0; i < newData.length; i++) {
+        for (let i = 0; i < newData.length; i++) {
             let value;
-            switch(mapType) {
+            switch (mapType) {
                 case 'confirmed-cases':
                     value = newData[i][1];
                     break;
@@ -118,12 +117,13 @@ function GoogleMap ({ province, newData }) {
             if (value === "N/A") { continue; }
 
             // v: Tooltip text, f: ISO region code
-            temp.push([{v:translate[newData[i][0]], f:newData[i][0]}, parseInt(value)]);
+            temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseInt(value)]);
         }
 
         setMyData(temp)
 
     }, [province, mapType]);
+
 
   const getOption = () => {
       return {
