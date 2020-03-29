@@ -24,17 +24,19 @@ const provincesByName = keyBy(provinces, "name");
 const GoogleMap = React.lazy(() => import("./GoogleMap"));
 
 export default function HomePage({
-                      province,
-                      overall,
-                      myData,
-                      area,
-                      data,
-                      setProvince,
-                      gspace
-                  }) {
+    province,
+    overall,
+    myData,
+    area,
+    data,
+    setProvince,
+    gspace
+}) {
     return (
         <Grid container spacing={gspace} justify="center" wrap="wrap">
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
+
+
                 <Stat
                     {...{ ...all, ...overall }}
                     name={province && province.name}
