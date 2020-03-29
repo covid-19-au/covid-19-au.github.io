@@ -87,6 +87,7 @@ class MbMap extends React.Component {
 
         function get_html(city_name, state) {
             var numberOfCases = 0;
+            var updated_date = '28/3/20';
             if (state === 'VIC'){
                 var city = city_name.toLowerCase().split(" ");
                 var city_type = city.slice(-1)[0];
@@ -110,24 +111,26 @@ class MbMap extends React.Component {
                     city = data_map['area'];
                     if (city.toLowerCase() == city_name && numberOfCases === 0){
                         numberOfCases = data_map['confirmedCases'];
+                        updated_date = data_map['lastUpdateDate'];
                     }
                 }
             }
-            return parseInt(numberOfCases);
+            return [parseInt(numberOfCases), updated_date];
         }
 
         function formNewJson(geojsonData,state){
             for(var key in geojsonData.features){
                 var data = geojsonData.features[key];
                 if (state === 'VIC'){
-                    var cases = get_html(data.properties.vic_lga__2,state);
+                    var values = get_html(data.properties.vic_lga__2,state);
                     data.properties['city'] = data.properties.vic_lga__2;
                 }
                 else{
-                    var cases = get_html(data.properties.nsw_lga__3,state);
+                    var values = get_html(data.properties.nsw_lga__3,state);
                     data.properties['city'] = data.properties.nsw_lga__3;
                 }
-                data.properties['cases'] = cases;
+                data.properties['cases'] = values[0];
+                data.properties['date'] = values[1];
                 geojsonData.features[key] = data;
             }
             return geojsonData;
@@ -266,9 +269,11 @@ class MbMap extends React.Component {
                 map.on('click', id_geosjon, function(e) {
                     ReactGA.event({category: 'ConfirmMap',action: "StateClick",label:e.features[0].properties.vic_lga__2});
                     var cases = e.features[0].properties.cases;
+                    var date = e.features[0].properties.date;
+                    console.log(e.features[0].properties);
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
-                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases)
+                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases+'<br/>' +date)
                         .addTo(map);
                 });
 
