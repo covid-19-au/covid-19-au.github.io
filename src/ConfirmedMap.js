@@ -12,14 +12,45 @@ const oldCaseDays = 14; // Threshold for an 'old case', in days
 
 class MbMap extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            lng: 133.751567,
-            lat: -26.344589,
-            zoom: 2.5
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      lng: 133.751567,
+      lat: -26.344589,
+      zoom: 2.5
+    };
+  }
+
+  // Check if a date was more than two weeks ago
+  isOld(date) {
+    // Working with raw data, so try-catch just in case
+    try {
+      // 'DD/MM/YY' format
+      // Assume entries with incorrect formats are old
+      const eventDay = date.split("/");
+      if (eventDay.length !== 3 || eventDay === 'N/A') { return true; }
+
+      // Default constructor has current time
+      const today = new Date();
+
+      // Day of the event. Transform to YYYY/MM/DD format
+      const day = eventDay[0], month = parseInt(eventDay[1]) - 1;
+      const year = '20' + eventDay[2]
+      let caseDate = new Date(year, month, day);
+
+      // Add two weeks for comparison
+      caseDate.setDate(caseDate.getDate() + oldCaseDays);
+
+      // True iff the original date was more than two weeks old
+      if (today > caseDate) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch {
+      return true;
     }
+  }
 
     // Check if a date was more than two weeks ago
     isOld(date) {
@@ -104,219 +135,222 @@ class MbMap extends React.Component {
               // return data_map['numberOfCases']
               numberOfCases = data_map['numberOfCases'];
             }
-          }
-          return parseInt(numberOfCases);
-        }
 
-        function formNewJson(geojsonData){
-          for(var key in geojsonData.features){
-            var data = geojsonData.features[key];
-            var cases = get_html(data.properties.vic_lga__2);
-            data.properties['cases'] = cases;
-            geojsonData.features[key] = data;
-          }
-          return geojsonData;
-        }
+          
+      }
+      return parseInt(numberOfCases);
+    }
 
-        map.on('load', function() {
+    function formNewJson(geojsonData) {
+      for (var key in geojsonData.features) {
+        var data = geojsonData.features[key];
+        var cases = get_html(data.properties.vic_lga__2);
+        data.properties['cases'] = cases;
+        geojsonData.features[key] = data;
+      }
+      return geojsonData;
+    }
 
-          // var maxValue = 56;
-          async function loadJSON(fname) {
-            let geojsonData = await fetch(`${vicLgaData}`)
-              .then(response => response.json())
-              .then(responseData => {
-                return responseData;
-            });
-            return geojsonData;
-          };
+    map.on('load', function () {
 
-          (async () => {
-            var geosjondata = loadJSON().then(data => {
-              data = formNewJson(data);
-              map.addLayer({
-                id: 'id_poly',
-                type: 'fill',
-                minzoom:2,
-                source: {
-                  type: 'geojson',
-                  data: data
-                },
-                'paint': {
-                  'fill-color': [
-                    'interpolate',
-                    ['linear'],
-                    ['get', 'cases'],
-                    0,
-                    '#E3F2FD',
-                    1,
-                    '#BBDEFB',
-                    5,
-                    '#90CAF9',
-                    10,
-                    '#64B5F6',
-                    20,
-                    '#42A5F5',
-                    30,
-                    '#2196F3',
-                    40,
-                    '#1E88E5',
-                    50,
-                    '#1976D2',
-                    60,
-                    '#1565C0',
-                    70,
-                    '#0D47A1'
-                  ],
-                  'fill-opacity': 0.75
-                },
-                filter: ['==', '$type', 'Polygon']
-              });
-              map.addLayer({
-                id: 'id_line_ploy',
-                minzoom:2,
-                type: 'line',
-                source: {
-                  type: 'geojson',
-                  data: data
-                },
-                paint: {
-                  // 'line-color': '#088',
-                  'line-opacity': 1,
-                  'line-width': 2,
-                },
-                filter: ['==', '$type', 'Polygon']
-              });
-            });
-
-          })()
-
-
-          map.on('click', 'id_poly', function(e) {
-            var cases = e.features[0].properties.cases;
-            new mapboxgl.Popup()
-              .setLngLat(e.lngLat)
-              .setHTML(e.features[0].properties.vic_lga__2 + '<br/>Cases:' + cases)
-              .addTo(map);
+      // var maxValue = 56;
+      async function loadJSON(fname) {
+        let geojsonData = await fetch(`${vicLgaData}`)
+          .then(response => response.json())
+          .then(responseData => {
+            return responseData;
           });
+        return geojsonData;
+      };
 
-          // Change the cursor to a pointer when the mouse is over the states layer.
-          map.on('mouseenter', 'id_poly', function() {
-            map.getCanvas().style.cursor = 'pointer';
-          });
-
-          // Change it back to a pointer when it leaves.
-          map.on('mouseleave', 'id_poly', function() {
-            map.getCanvas().style.cursor = '';
-          });
-        });
-
-        // Add geolocate control to the map.
-        map.addControl(
-          new mapboxgl.GeolocateControl({
-            positionOptions: {
-              enableHighAccuracy: true
+      (async () => {
+        var geosjondata = loadJSON().then(data => {
+          data = formNewJson(data);
+          map.addLayer({
+            id: 'id_poly',
+            type: 'fill',
+            minzoom: 2,
+            source: {
+              type: 'geojson',
+              data: data
             },
-            trackUserLocation: true
-          })
-        );
-
-        //Add Zoom Controls
-        map.addControl(new mapboxgl.NavigationControl());
-
-        map.on('move', () => {
-            const { lng, lat } = map.getCenter();
-
-            this.setState({
-                lng: lng.toFixed(4),
-                lat: lat.toFixed(4),
-                zoom: map.getZoom().toFixed(2)
-            });
+            'paint': {
+              'fill-color': [
+                'interpolate',
+                ['linear'],
+                ['get', 'cases'],
+                0,
+                '#e3f3ff',
+                1,
+                '#bae1ff',
+                5,
+                '#8ccfff',
+                10,
+                '#58bcff',
+                20,
+                '#24adff',
+                30,
+                '#009eff',
+                40,
+                '#008fff',
+                50,
+                '#007cf2',
+                60,
+                '#006ae0',
+                70,
+                '#004ac1'
+              ],
+              'fill-opacity': 0.75
+            },
+            filter: ['==', '$type', 'Polygon']
+          });
+          map.addLayer({
+            id: 'id_line_ploy',
+            minzoom: 2,
+            type: 'line',
+            source: {
+              type: 'geojson',
+              data: data
+            },
+            paint: {
+              // 'line-color': '#088',
+              'line-opacity': 1,
+              'line-width': 2,
+            },
+            filter: ['==', '$type', 'Polygon']
+          });
         });
-        confirmedData.map((item) => {
-          if (item['state'] !== 'VIC'){
-            if(item['state']==='VIC' && item['area'].length > 0){
-                item['description']="This case number is just the suburb confirmed number, not the case number at this geo point."
-                item['date'] = '26/3/20'
-            }
-            // create a HTML element for each feature
-            var el = document.createElement('div');
-            el.className = 'marker';
-            el.style.height = '20px';
-            el.style.width = '20px';
-            el.style.backgroundSize = 'cover';
-            if (this.isOld(item['date'])) {
-                el.style.backgroundImage = `url(${confirmedOldImg})`;
-            } else {
-                el.style.backgroundImage = `url(${confirmedImg})`;
-            }
-            el.style.borderRadius = '50%';
-            el.style.cursor = 'pointer';
 
-            let coor = [item['coor'][1], item['coor'][0]]
-            // make a marker for each feature and add to the map
-            new mapboxgl.Marker(el)
-                .setLngLat(coor)
-                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3>' + '<p style="margin:0;">' + item['date'] + '</p><p style="margin:0;">' + item['description'] + '</p>'))
-                .addTo(map);
-        };})
-
-        hospitalData.map((item) => {
-            // create a HTML element for each feature
-            var el = document.createElement('div');
-            el.className = 'marker';
-            el.style.height = '20px';
-            el.style.width = '20px';
-            el.style.backgroundSize = 'cover';
-            el.style.backgroundImage = `url(${hospitalImg})`;
-            el.style.borderRadius = '50%';
-            el.style.cursor = 'pointer';
-
-            let coor = [item['coor'][1], item['coor'][0]]
-            // make a marker for each feature and add to the map
-            new mapboxgl.Marker(el)
-                .setLngLat(coor)
-                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3><p style="margin:0;">Phone: ' + item['hospitalPhone'] + '</p><p style="margin:0;">Addr: ' + item['address'] + '</p>'))
-
-                .addTo(map);
-        })
-    }
-
-    render() {
-        const style = {
-            height: '100%',
-
-        };
+      })()
 
 
-        return (
-            <div className="card" style={{
-                display: 'flex',
-                flexDirection: 'column',
-                height: '520px'
-            }}>
-                <h2>Hospital & Case Map</h2>
+      map.on('click', 'id_poly', function (e) {
+        var cases = e.features[0].properties.cases;
+        new mapboxgl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(e.features[0].properties.vic_lga__2 + '<br/>Cases:' + cases)
+          .addTo(map);
+      });
 
-                <div style={style} ref={el => this.mapContainer = el} >
-                    {/*{*/}
-                    {/*confirmedData.map((item)=>(*/}
-                    {/*<div style={activityStyle}>*/}
+      // Change the cursor to a pointer when the mouse is over the states layer.
+      map.on('mouseenter', 'id_poly', function () {
+        map.getCanvas().style.cursor = 'pointer';
+      });
 
-                    {/*</div>*/}
-                    {/*))*/}
-                    {/*}*/}
-                </div>
+      // Change it back to a pointer when it leaves.
+      map.on('mouseleave', 'id_poly', function () {
+        map.getCanvas().style.cursor = '';
+      });
+    });
 
-                <span className="due">
-                    <span className="key"><img src={hospitalImg}/><p>Hospital or COVID-19 assessment centre</p></span>
-                    <span className="key"><img src={confirmedOldImg}/><p>Case over {oldCaseDays} days old</p></span>
-                    <span className="key"><img src={confirmedImg}/><p>Recently confirmed case(not all, collecting)</p></span>
-                    <span className="Key"><p>*City Wise Data Present Only For VIC will develop for other States.</p></span>
+    // Add geolocate control to the map.
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      })
+    );
+
+    //Add Zoom Controls
+    map.addControl(new mapboxgl.NavigationControl());
+
+    map.on('move', () => {
+      const { lng, lat } = map.getCenter();
+
+      this.setState({
+        lng: lng.toFixed(4),
+        lat: lat.toFixed(4),
+        zoom: map.getZoom().toFixed(2)
+      });
+    });
+    confirmedData.map((item) => {
+      if (item['state'] !== 'VIC') {
+        if (item['state'] === 'VIC' && item['area'].length > 0) {
+          item['description'] = "This case number is just the suburb confirmed number, not the case number at this geo point."
+          item['date'] = '26/3/20'
+        }
+        // create a HTML element for each feature
+        var el = document.createElement('div');
+        el.className = 'marker';
+        el.style.height = '20px';
+        el.style.width = '20px';
+        el.style.backgroundSize = 'cover';
+        if (this.isOld(item['date'])) {
+          el.style.backgroundImage = `url(${confirmedOldImg})`;
+        } else {
+          el.style.backgroundImage = `url(${confirmedImg})`;
+        }
+        el.style.borderRadius = '50%';
+        el.style.cursor = 'pointer';
+
+        let coor = [item['coor'][1], item['coor'][0]]
+        // make a marker for each feature and add to the map
+        new mapboxgl.Marker(el)
+          .setLngLat(coor)
+          .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3>' + '<p style="margin:0;">' + item['date'] + '</p><p style="margin:0;">' + item['description'] + '</p>'))
+          .addTo(map);
+      };
+    })
+
+    hospitalData.map((item) => {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker';
+      el.style.height = '20px';
+      el.style.width = '20px';
+      el.style.backgroundSize = 'cover';
+      el.style.backgroundImage = `url(${hospitalImg})`;
+      el.style.borderRadius = '50%';
+      el.style.cursor = 'pointer';
+
+      let coor = [item['coor'][1], item['coor'][0]]
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(coor)
+        .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+          .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3><p style="margin:0;">Phone: ' + item['hospitalPhone'] + '</p><p style="margin:0;">Addr: ' + item['address'] + '</p>'))
+
+        .addTo(map);
+    })
+  }
+
+  render() {
+    const style = {
+      height: '100%',
+
+    };
+
+
+    return (
+      <div className="card" style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '520px'
+      }}>
+        <h2>Hospital & Case Map</h2>
+
+        <div style={style} ref={el => this.mapContainer = el} >
+          {/*{*/}
+          {/*confirmedData.map((item)=>(*/}
+          {/*<div style={activityStyle}>*/}
+
+          {/*</div>*/}
+          {/*))*/}
+          {/*}*/}
+        </div>
+
+        <span className="due">
+          <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
+          <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
+          <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
+          <span className="Key"><p>*City Wise Data Present Only For VIC will develop for other States.</p></span>
         </span>
-            </div>
-        );
-    }
+      </div>
+    );
+  }
 }
 
 export default MbMap

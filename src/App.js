@@ -47,6 +47,9 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Alert, AlertTitle } from '@material-ui/lab';
+
+import dailyFun from "./data/dailyFun"
+
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
 ReactGA.initialize("UA-160673543-1");
@@ -164,6 +167,7 @@ function HistoryGraph({ countryData }) {
         shared: true
         // content:"{label}, {name}: {y}" ,
       },
+      colorSet: "sitePalette",
 
       data: historyData
     });
@@ -190,7 +194,8 @@ function HistoryGraph({ countryData }) {
       toolTip: {
         shared: true
         // content:"{label}, {name}: {y}" ,
-      }
+      },
+      colorSet: "sitePalette"
     });
 
 
@@ -273,7 +278,7 @@ function News({ province }) {
 }
 
 function Tweets({ province, nav }) {
-  console.log(nav)
+
   return (
     <div className="card">
       <h2>Twitter Feed</h2>
@@ -306,6 +311,7 @@ function Stat({
   suspectedCount,
   deadCount,
   curedCount,
+  testedCount,
   name,
   quanguoTrendChart,
   hbFeiHbTrendChart,
@@ -315,16 +321,24 @@ function Stat({
   let confCountIncrease = 0;
   let deadCountIncrease = 0;
   let curedCountIncrease = 0;
+  let testedCountIncrease = 0;
   if (data && countryData) {
     confirmedCount = 0;
-
+    testedCount = 0;
     deadCount = 0;
     curedCount = 0;
-
     for (let i = 0; i < data.length; i++) {
       confirmedCount += parseInt(data[i][1]);
       deadCount += parseInt(data[i][2]);
       curedCount += parseInt(data[i][3]);
+
+      if (data[i][4] == "N/A") {
+        //do nothing
+      }
+      else {
+        testedCount += parseInt(data[i][4]);
+      }
+
     }
     let lastTotal =
       countryData[
@@ -333,11 +347,12 @@ function Stat({
     confCountIncrease = confirmedCount - lastTotal[0];
     deadCountIncrease = deadCount - lastTotal[2];
     curedCountIncrease = curedCount - lastTotal[1];
+    testedCountIncrease = testedCount - lastTotal[3]
   } else {
     confirmedCount = 0;
-
     deadCount = 0;
     curedCount = 0;
+    testedCount = 0;
   }
 
   return (
@@ -371,7 +386,7 @@ function Stat({
 
         <Tag
           number={confirmedCount}
-          fColor={"#e74c3c"}
+          fColor={"#ff603c"}
           increased={confCountIncrease}
         >
           <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
@@ -384,7 +399,7 @@ function Stat({
         {/*</Tag>*/}
         <Tag
           number={deadCount}
-          fColor={"#a93226"}
+          fColor={"#c11700"}
           increased={deadCountIncrease}
         >
           <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
@@ -392,9 +407,11 @@ function Stat({
             Deaths</button>
 
         </Tag>
+      </div>
+      <div className="row">
         <Tag
           number={curedCount}
-          fColor={"#00b321"}
+          fColor={"#00c177"}
           increased={curedCountIncrease}
         >
           <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
@@ -402,6 +419,17 @@ function Stat({
             Recovered</button>
 
         </Tag>
+        <Tag
+          number={testedCount}
+          fColor={"#007cf2"}
+          increased={testedCountIncrease}
+        >
+          <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+            title="<em>Number of people that have recovered from COVID-19.</em>">
+            Tested</button>
+
+        </Tag>
+
 
       </div>
       <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
@@ -507,7 +535,9 @@ function Header({ province }) {
       <div className="bg"></div>
       <h1
         style={{
-          fontSize: "120%"
+          fontSize: "120%",
+          color: "white",
+          textAlign: "center"
         }}
       >
         COVID-19 in Australia — Real-Time Report
@@ -590,13 +620,45 @@ function Information({ hospitalData, columns }) {
     <div>
       <div className="card">
         <h2 className="responsiveH2">Daily Fun Stuff</h2>
-        <div className="row centerMedia">
-          <div>
-            <ReactPlayer alt="How To Tell If We're Beating COVID-19" className="formatMedia" url="https://www.youtube.com/watch?v=54XLXg4fYsc&t=14s" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-            <small className="mediaText">Minute Physics explains how we can tell if we're beating COVID-19.</small>
-          </div>
 
-        </div>
+        {dailyFun.dailyFunStuff.map(stuff => (
+          <div key={uuid()}>
+            <div>
+              {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text. 
+                        */}
+              <div>
+                {/* First image */}
+                {stuff.image.map(i1 => (
+                  <div key={uuid()}>
+                    <div className="row centerMedia">
+                      <div className="imageContainer" style={{ height: "auto" }} >
+                        <img
+                          className="formatImage"
+                          src={i1.link}
+                          alt={i1.name}
+                          style={{}}
+                        />
+                        <small className="mediaText">{i1.description}</small>
+                      </div>
+                    </div>
+
+                  </div>
+                ))}
+                {/* Video */}
+                {stuff.video.map(vid => (
+                  <div className="row centerMedia">
+                    <div>
+                      <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                      <small className="mediaText">{vid.description}</small>
+                    </div>
+                  </div>
+                ))}
+
+              </div>
+            </div>
+          </div>
+        ))
+        }
         <p style={{ textAlign: "center" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
 
         <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
@@ -629,6 +691,8 @@ function Information({ hospitalData, columns }) {
             <small className="mediaText">How to properly wear and dispose of masks.</small>
           </div>
         </div>
+      </div>
+      <div className="card" >
 
 
         <h2 className="responsiveH2">General Information</h2>
@@ -691,7 +755,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Current Regulations</h2>
         {information.regulations.map(info => (
           <div key={uuid()}>
@@ -752,7 +817,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Think you have COVID-19?</h2>
         {information.haveCovid.map(info => (
           <div key={uuid()}>
@@ -813,7 +879,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Protecting Yourself and Others</h2>
 
         {information.protect.map(info => (
@@ -902,9 +969,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
-        <small className="alignStyles">All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a>, <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">WHO</a>
-        </small>
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Coronavirus Helplines</h2>
         <div className="row alignStyles responsiveText">
           <div>
@@ -927,6 +993,8 @@ function Information({ hospitalData, columns }) {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="card" >
         <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
         <div className="row alignStyles responsiveText">
           <div>
@@ -936,6 +1004,8 @@ function Information({ hospitalData, columns }) {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="card" >
         <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
         <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
         <small>Filter the table by clicking the dropdown below state.</small>
@@ -960,7 +1030,7 @@ function HomePage({
 }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
         <Stat
           {...{ ...all, ...overall }}
           name={province && province.name}
@@ -985,15 +1055,15 @@ function HomePage({
         </div>
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
         <MbMap />
         <HistoryGraph countryData={country} />
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
         <StateGraph stateData={stateData} />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={4}>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
         <Flights flights={flights} />
       </Grid>
 
@@ -1004,7 +1074,7 @@ function HomePage({
 
 function FAQPage() {
   return (
-    <Grid item xs={12} sm={12} md={10}>
+    <Grid item xs={11} sm={11} md={10}>
       <FAQ />
     </Grid>
   )
@@ -1037,7 +1107,7 @@ function InfoPage({ columns }) {
   const hospitalData = React.useMemo(() => mapDataHos, []);
 
   return (
-    <Grid item xs={12} sm={12} md={10}>
+    <Grid item xs={11} sm={11} md={10}>
       <Information columns={columns} hospitalData={hospitalData} />
     </Grid>
   )
@@ -1047,10 +1117,11 @@ function InfoPage({ columns }) {
 function NewsPage({ gspace, province, nav }) {
   return (
     <Grid container spacing={gspace} justify="center" wrap="wrap">
-      <Grid item xs={12} sm={12} md={10} lg={5} xl={5}>
+
+      <Grid item xs={11} sm={11} md={10} lg={5} xl={5}>
         <NewsTimeline />
       </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={6} xl={5}>
+      <Grid item xs={11} sm={11} md={10} lg={6} xl={5}>
         <Tweets province={province} nav={nav} />
       </Grid>
 
@@ -1367,8 +1438,7 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
-
-          <Grid item xs={12} className="removePadding">
+          <Grid item xs={11} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
             {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
           </Grid>
@@ -1391,7 +1461,7 @@ function App() {
           {/*)} exact/>*/}
           {/*<Route path="/faq" component={FAQPage} exact/>*/}
           {/*</Switch>*/}
-          <Grid item xs={12}>
+          <Grid item xs={11}>
             <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
           </Grid>
         </Grid>
