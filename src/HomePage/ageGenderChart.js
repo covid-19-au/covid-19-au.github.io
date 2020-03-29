@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Chart from "chart.js";
 
-import ageGenderData from "./data/ageGenderData";
+import ageGenderData from "../data/ageGenderData";
 
 const color = {
   male: "#ff0000",

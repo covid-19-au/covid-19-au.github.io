@@ -94,7 +94,8 @@ header i {
 }
 
 .area.header {
-  background-color: #d5d8dc;
+  background-color: #bae1ff;
+  filter: saturate(65%);
   font-size: 90%;
 }
 
@@ -110,12 +111,13 @@ header i {
 }
 
 .confirmed {
-  color: #e74c3c;
+  color: #ff603c;
     flex:1.3;
 }
 
 .confirmed.header {
-  background-color: #fadbd8;
+  background-color: #bae1ff;
+  filter: saturate(65%);
   /*font-size: 80%;*/
 }
 
@@ -126,11 +128,12 @@ header i {
 }
 
 .cured {
-  color: #00b321;
+  color: #00c177;
 }
 
 .cured.header {
-  background-color: #d5f5e3;
+  background-color: #bae1ff;
+  filter: saturate(65%);
   font-size: 80%;
 }
 
@@ -141,11 +144,12 @@ header i {
 }
 
 .tested {
-  color: #a569bd;
+  color: #007cf2;
 }
 
 .tested.header {
-  background-color: #bb8fce ;
+  background-color: #bae1ff;
+  filter: saturate(65%);
   font-size: 80%;
 }
 
@@ -156,11 +160,12 @@ header i {
 }
 
 .death {
-  color: #a93226;
+  color: #c11700;
 }
 
 .death.header {
-  background-color: #e6b0aa;
+  background-color: #bae1ff;
+  filter: saturate(65%);
   font-size: 80%;
 }
 
@@ -346,14 +351,16 @@ h2 small {
     height: 36px;
     justify-content: space-around;
     align-items: center;
-    background-color: white;
+    background-color: #bae1ff;
+    filter: saturate(65%)
 }
 
 .navBarStuck {
     height: 36px;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(186, 217, 229);
+    background-color: #bae1ff;
+    filter: saturate(65%);
     color: black;
 }
 
@@ -379,6 +386,7 @@ h2 small {
     margin: 0.5rem 0 0 0;
     padding: 0 8px;
     border-bottom: transparent solid 2px;
+    font-size: 50;
 }
 
 .navItems:hover {
@@ -395,8 +403,8 @@ h2 small {
 }
 
 .navCurrentPage {
-    border-bottom: #87CEEB solid 2px;
-    color: #87CEEB;
+    border-bottom: #1277d3 solid 2px;
+    color: #1277d3;
 }
 
 .navCurrentPageSticky {
@@ -472,4 +480,13 @@ h2 small {
 .dataSource {
     padding-left: 0.2rem;
     margin-top: -0.05rem;
+}
+.dailyIncrease {
+    font-size: 60%;
+}
+
+.selection-grid {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 15px;
 }

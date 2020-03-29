@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 
-import CanvasJSReact from "./assets/canvasjs.react";
+import CanvasJSReact from "../assets/canvasjs.react";
 import AgeGenderChart from "./ageGenderChart";
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 // Based on CanvasJS theme 1. Avoids two purple series and preserves colours day-to-day.
 const colourMapping = {
-  NSW: "#4F81BC",
-  VIC: "#C0504E",
-  QLD: "#9BBB58",
-  WA: "#23BFAA",
-  SA: "#8064A1",
-  TAS: "#4AACC5",
-  ACT: "#F79647",
-  NT: "#CF6ECF"
-};
+  "NSW": "#c11700",
+  "VIC": "#0096a7",
+  "QLD": "#ff7e5f",
+  "WA": "#c100aa",
+  "SA": "#58bcff",
+  "TAS": "#004ac1",
+  "ACT": "#8cdaaf",
+  "NT": "#ba9bef"
+}
 
 /** Creates the Canvas data points for a particular state*/
 function createInstances(stateData, state) {
