@@ -54,7 +54,7 @@ function Information({ hospitalData, columns }) {
     return (
         <div>
             <div className="card">
-                <h2 className="responsiveH2">Daily Fun Stuff</h2>
+                <h2 className="responsiveH2">Daily Distractions</h2>
 
                 {dailyFun.dailyFunStuff.map(stuff => (
                     <div key={uuid()}>
