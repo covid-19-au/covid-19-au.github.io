@@ -1,44 +1,15 @@
-
-import React from "react";
-import { A } from "hookrouter"
-
+import React from 'react';
+import ReactGA from "react-ga";
+// import {Link} from 'react-router-dom';
+// ReactGA.initialize("UA-160673543-1",{gaoOptions:{siteSpeedSampleRate: 100}});
 function Fallback(props) {
-  return (
-    <div className="fallback">
-      <div class="text-center">
-        <button
-          type="button"
-          class="btn btn-light btn-sm m-1"
-          onClick={() => props.setModalVisibility(true)}
-        >
-          <svg
-            className="bi bi-box-arrow-up"
-            width="1em"
-            height="1em"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M4.646 4.354a.5.5 0 00.708 0L8 1.707l2.646 2.647a.5.5 0 00.708-.708l-3-3a.5.5 0 00-.708 0l-3 3a.5.5 0 000 .708z"
-              clipRule="evenodd"
-            />
-            <path
-              fillRule="evenodd"
-              d="M8 11.5a.5.5 0 00.5-.5V2a.5.5 0 00-1 0v9a.5.5 0 00.5.5z"
-              clipRule="evenodd"
-            />
-            <path
-              fillRule="evenodd"
-              d="M2.5 14A1.5 1.5 0 004 15.5h8a1.5 1.5 0 001.5-1.5V7A1.5 1.5 0 0012 5.5h-1.5a.5.5 0 000 1H12a.5.5 0 01.5.5v7a.5.5 0 01-.5.5H4a.5.5 0 01-.5-.5V7a.5.5 0 01.5-.5h1.5a.5.5 0 000-1H4A1.5 1.5 0 002.5 7v7z"
-              clipRule="evenodd"
-            />
-          </svg>
-          &nbsp;Share this site
-        </button>
+    return (
+        <div className="fallback">
+
             <div className="text-center">
-                <button type="button" className="btn btn-light btn-sm m-1" onClick={() => props.setModalVisibility(true)}>
+                <button type="button" className="btn btn-light btn-sm m-1" onClick={() => {
+                    ReactGA.event({category: 'Fallback',action: "share"});
+                    props.setModalVisibility(true)}}>
                     <svg className="bi bi-box-arrow-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd"
@@ -52,36 +23,11 @@ function Fallback(props) {
                     </svg>
                     &nbsp;Share this site
                 </button>
-        <button
-          type="button"
-          className="btn btn-light btn-sm m-1"
-          onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-        >
-          <A href="/faq">
-            <svg
-              className="bi bi-info-circle"
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
-                clipRule="evenodd"
-              />
-              <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
-              <circle cx="8" cy="4.5" r="1" />
-            </svg>
-            &nbsp;FAQ
-          </A>
-        </button>
-      </div>
-      <div>Template credits to: shfshanyue</div>
-                <a role="button" aria-disabled="true" target="_blank"  rel="noopener noreferrer" className="btn btn-light btn-sm m-1" href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
+
+
+                <a role="button" aria-disabled="true" onClick={()=>{
+                    ReactGA.event({category: 'Fallback',action: "feedback"});
+                }} target="_blank"  rel="noopener noreferrer" className="btn btn-light btn-sm m-1" href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
                     <svg className="bi bi-chat-square-dots" width="1em" height="1em" viewBox="0 0 16 16"
                          fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd"
@@ -95,6 +41,7 @@ function Fallback(props) {
 
 
                 <button type="button" className="btn btn-light btn-sm m-1" onClick={() => {
+                    ReactGA.event({category: 'Fallback',action: "faq"});
                     props.setNav("About");
                     window.scrollTo(0, 0);}}>
                     <svg className="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
@@ -137,4 +84,4 @@ function Fallback(props) {
     );
 }
 
-export default Fallback;
+export default Fallback
