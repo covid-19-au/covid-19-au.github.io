@@ -349,6 +349,9 @@ function Stat({
             style={{
               display: "inline-flex"
             }}
+            onClick={
+            ()=> ReactGA.event({category: 'Datasource',action: "click"})
+            }
             className="badge badge-light"
             target="_blank" rel="noopener noreferrer"
             href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
@@ -535,6 +538,8 @@ function Navbar({ setNav, nav }) {
   }, []);
 
   const onClick = e => {
+    ReactGA.pageview("/"+e.target.innerText);
+    ReactGA.event({category: 'Navbar',action: e.target.innerText});
     setNav(e.target.innerText);
     window.scrollTo(0, 0);
   }

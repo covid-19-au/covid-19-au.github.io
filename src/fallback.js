@@ -1,12 +1,15 @@
 import React from 'react';
+import ReactGA from "react-ga";
 // import {Link} from 'react-router-dom';
-
+// ReactGA.initialize("UA-160673543-1",{gaoOptions:{siteSpeedSampleRate: 100}});
 function Fallback(props) {
     return (
         <div className="fallback">
 
             <div className="text-center">
-                <button type="button" className="btn btn-light btn-sm m-1" onClick={() => props.setModalVisibility(true)}>
+                <button type="button" className="btn btn-light btn-sm m-1" onClick={() => {
+                    ReactGA.event({category: 'Fallback',action: "share"});
+                    props.setModalVisibility(true)}}>
                     <svg className="bi bi-box-arrow-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd"
@@ -22,7 +25,9 @@ function Fallback(props) {
                 </button>
 
 
-                <a role="button" aria-disabled="true" target="_blank"  rel="noopener noreferrer" className="btn btn-light btn-sm m-1" href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
+                <a role="button" aria-disabled="true" onClick={()=>{
+                    ReactGA.event({category: 'Fallback',action: "feedback"});
+                }} target="_blank"  rel="noopener noreferrer" className="btn btn-light btn-sm m-1" href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
                     <svg className="bi bi-chat-square-dots" width="1em" height="1em" viewBox="0 0 16 16"
                          fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd"
@@ -36,6 +41,7 @@ function Fallback(props) {
 
 
                 <button type="button" className="btn btn-light btn-sm m-1" onClick={() => {
+                    ReactGA.event({category: 'Fallback',action: "faq"});
                     props.setNav("About");
                     window.scrollTo(0, 0);}}>
                     <svg className="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"

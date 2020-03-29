@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import uuid from "react-uuid";
 const flightNoRegex = /^[A-Za-z]{2}\d*$/;
 const flightRouteRegex = /^[A-Za-z]*$/;
@@ -35,6 +36,7 @@ function UniversalSearch(searchList, type, searchBase) {
  * @returns {Array} list of matched flights
  */
 function SearchFlights(searchKey, flights) {
+  ReactGA.event({category: 'SearchFlights',action: "search",label:searchKey});
   let keyList = searchKey.split(" ");
   let flightNoKeyList = [];
   let routeKeyList = [];

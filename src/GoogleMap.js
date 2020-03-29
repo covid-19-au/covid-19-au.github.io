@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react'
-
+import ReactGA from "react-ga";
 import ausPop from './data/ausPop'
 
 import NativeSelect from '@material-ui/core/NativeSelect'
@@ -138,6 +138,7 @@ function GoogleMap ({ province, newData }) {
 
   const toggleData = (e) => {
       setMapType(e.target.value);
+      ReactGA.event({category: 'casesMap',action: e.target.value});
   }
 
   return (

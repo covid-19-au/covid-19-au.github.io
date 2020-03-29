@@ -8,6 +8,7 @@ import './ConfirmedMap.css'
 import confirmedImg from './img/icon/confirmed-recent.png'
 import confirmedOldImg from './img/icon/confirmed-old.png'
 import hospitalImg from './img/icon/hospital.png'
+import ReactGA from "react-ga";
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
 class MbMap extends React.Component {
@@ -192,6 +193,7 @@ class MbMap extends React.Component {
 
 
           map.on('click', 'id_poly', function(e) {
+            ReactGA.event({category: 'ConfirmMap',action: "StateClick",label:e.features[0].properties.vic_lga__2});
             var cases = e.features[0].properties.cases;
             new mapboxgl.Popup()
               .setLngLat(e.lngLat)
