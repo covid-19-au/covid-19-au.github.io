@@ -349,6 +349,9 @@ function Stat({
             style={{
               display: "inline-flex"
             }}
+            onClick={
+            ()=> ReactGA.event({category: 'Datasource',action: "click"})
+            }
             className="badge badge-light"
             target="_blank" rel="noopener noreferrer"
             href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
@@ -535,6 +538,8 @@ function Navbar({ setNav, nav }) {
   }, []);
 
   const onClick = e => {
+    ReactGA.pageview("/"+e.target.innerText);
+    ReactGA.event({category: 'Navbar',action: e.target.innerText});
     setNav(e.target.innerText);
     window.scrollTo(0, 0);
   }
@@ -1369,14 +1374,6 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
-          {window.location.href === "http://localhost:3008/" || window.location.href === "http://covid-19-au.github.io/" || window.location.href === "https://covid-19-au.github.io/" ?
-            <Alert style={{ width: '100%' }} severity="info">
-              <AlertTitle><strong>Important!!</strong></AlertTitle>
-              <h6 className="card-text">In order to provide better service, we will move our site to&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://covid-19-au.com" ><u>https://covid-19-au.com</u></a> shortly</h6>
-
-            </Alert>
-            : <div />
-          }
 
           <Grid item xs={12} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
