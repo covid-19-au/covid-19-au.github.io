@@ -661,6 +661,8 @@ function Information({ hospitalData, columns }) {
             <small className="mediaText">How to properly wear and dispose of masks.</small>
           </div>
         </div>
+      </div>
+      <div className="card" >
 
 
         <h2 className="responsiveH2">General Information</h2>
@@ -723,7 +725,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Current Regulations</h2>
         {information.regulations.map(info => (
           <div key={uuid()}>
@@ -784,7 +787,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Think you have COVID-19?</h2>
         {information.haveCovid.map(info => (
           <div key={uuid()}>
@@ -845,7 +849,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Protecting Yourself and Others</h2>
 
         {information.protect.map(info => (
@@ -934,9 +939,8 @@ function Information({ hospitalData, columns }) {
             </div>
           </div>
         ))
-        }
-        <small className="alignStyles">All information sourced from: <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx">NSW Government Health Department</a>, <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">WHO</a>
-        </small>
+        }</div>
+      <div className="card" >
         <h2 className="responsiveH2">Coronavirus Helplines</h2>
         <div className="row alignStyles responsiveText">
           <div>
@@ -959,6 +963,8 @@ function Information({ hospitalData, columns }) {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="card" >
         <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
         <div className="row alignStyles responsiveText">
           <div>
@@ -968,6 +974,8 @@ function Information({ hospitalData, columns }) {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="card" >
         <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
         <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
         <small>Filter the table by clicking the dropdown below state.</small>
