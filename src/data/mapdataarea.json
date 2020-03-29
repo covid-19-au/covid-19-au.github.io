@@ -182,7 +182,7 @@
   {
     "state": "NSW",
     "schema": "HLD",
-    "area": "Sydney",
+    "area": "Hunter New England",
     "type": "",
     "confirmedCases": "187",
     "lastUpdateDate": "28/3/20",
@@ -191,7 +191,7 @@
   {
     "state": "NSW",
     "schema": "HLD",
-    "area": "Hunter New England",
+    "area": "Southern NSW",
     "type": "",
     "confirmedCases": "41",
     "lastUpdateDate": "28/3/20",
@@ -200,7 +200,7 @@
   {
     "state": "NSW",
     "schema": "HLD",
-    "area": "Southern NSW",
+    "area": "Sydney",
     "type": "",
     "confirmedCases": "128",
     "lastUpdateDate": "28/3/20",
@@ -218,7 +218,7 @@
   {
     "state": "NSW",
     "schema": "HLD",
-    "area": "South Western Sydney",
+    "area": "Mid North Coast",
     "type": "",
     "confirmedCases": "33",
     "lastUpdateDate": "28/3/20",
@@ -227,7 +227,7 @@
   {
     "state": "NSW",
     "schema": "HLD",
-    "area": "Western Sydney",
+    "area": "South Western Sydney",
     "type": "",
     "confirmedCases": "141",
     "lastUpdateDate": "28/3/20",
@@ -236,7 +236,7 @@
   {
     "state": "NSW",
     "schema": "HLD",
-    "area": "Western NSW",
+    "area": "Western Sydney",
     "type": "",
     "confirmedCases": "136",
     "lastUpdateDate": "28/3/20",
@@ -245,7 +245,7 @@
   {
     "state": "NSW",
     "schema": "HLD",
-    "area": "Northern NSW",
+    "area": "Western NSW",
     "type": "",
     "confirmedCases": "36",
     "lastUpdateDate": "28/3/20",
@@ -254,7 +254,7 @@
   {
     "state": "NSW",
     "schema": "HLD",
-    "area": "Mid North Coast",
+    "area": "Northern NSW",
     "type": "",
     "confirmedCases": "33",
     "lastUpdateDate": "28/3/20",
