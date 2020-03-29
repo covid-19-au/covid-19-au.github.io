@@ -3,8 +3,8 @@ import mapboxgl from 'mapbox-gl';
 import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
 import mapDataArea from "../data/mapdataarea"
-import vicLgaData from "../data/lga_vic.geojson"
-import nswLgaData from "../data/lga_nsw.geojson"
+import vicLgaData from "../data/lga_vic_sl.geojson"
+import nswLgaData from "../data/lga_nsw_sl.geojson"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from '../img/icon/confirmed-recent.png'
@@ -264,6 +264,7 @@ class MbMap extends React.Component {
 
             function addPointer(id_geosjon){
                 map.on('click', id_geosjon, function(e) {
+                    ReactGA.event({category: 'ConfirmMap',action: "StateClick",label:e.features[0].properties.vic_lga__2});
                     var cases = e.features[0].properties.cases;
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
