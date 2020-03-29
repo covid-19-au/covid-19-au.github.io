@@ -1,0 +1,551 @@
+[
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Ballarat",
+    "type": "C",
+    "confirmedCases": "8",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Banyule",
+    "type": "C",
+    "confirmedCases": "25",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Bass Coast",
+    "type": "S",
+    "confirmedCases": "2",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Baw Baw",
+    "type": "S",
+    "confirmedCases": "4",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Bayside",
+    "type": "C",
+    "confirmedCases": "18",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Boroondara",
+    "type": "C",
+    "confirmedCases": "32",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Brimbank",
+    "type": "C",
+    "confirmedCases": "13",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Cardinia",
+    "type": "S",
+    "confirmedCases": "7",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Casey",
+    "type": "C",
+    "confirmedCases": "23",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Corangamite",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Darebin",
+    "type": "C",
+    "confirmedCases": "15",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "East Gippsland",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Frankston",
+    "type": "C",
+    "confirmedCases": "16",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Gannawarra",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Glen Eira",
+    "type": "C",
+    "confirmedCases": "32",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Glenelg",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Greater Bendigo",
+    "type": "C",
+    "confirmedCases": "2",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Greater Dandenong",
+    "type": "C",
+    "confirmedCases": "6",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Greater Geelong",
+    "type": "C",
+    "confirmedCases": "33",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Greater Shepparton",
+    "type": "C",
+    "confirmedCases": "3",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Hepburn",
+    "type": "S",
+    "confirmedCases": "2",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Hobsons Bay",
+    "type": "C",
+    "confirmedCases": "7",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Horsham",
+    "type": "RC",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Hume",
+    "type": "C",
+    "confirmedCases": "12",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Kingston",
+    "type": "C",
+    "confirmedCases": "10",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Knox",
+    "type": "C",
+    "confirmedCases": "4",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Latrobe",
+    "type": "C",
+    "confirmedCases": "5",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Manningham",
+    "type": "C",
+    "confirmedCases": "10",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Macedon Ranges",
+    "type": "S",
+    "confirmedCases": "4",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mansfield",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Maribyrnong",
+    "type": "C",
+    "confirmedCases": "5",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Maroondah",
+    "type": "C",
+    "confirmedCases": "3",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Melbourne",
+    "type": "C",
+    "confirmedCases": "36",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Melton",
+    "type": "C",
+    "confirmedCases": "11",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mildura",
+    "type": "RC",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mitchell",
+    "type": "S",
+    "confirmedCases": "5",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moira",
+    "type": "S",
+    "confirmedCases": "6",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Monash",
+    "type": "C",
+    "confirmedCases": "19",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moonee Valley",
+    "type": "C",
+    "confirmedCases": "20",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moreland",
+    "type": "C",
+    "confirmedCases": "31",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moorabool",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mornington Peninsula",
+    "type": "S",
+    "confirmedCases": "41",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mount Alexander",
+    "type": "S",
+    "confirmedCases": "5",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moyne",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Northern Grampians",
+    "type": "S",
+    "confirmedCases": "3",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Port Phillip",
+    "type": "C",
+    "confirmedCases": "28",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Nillumbik",
+    "type": "S",
+    "confirmedCases": "9",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "South Gippsland",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Strathbogie",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Stonnington",
+    "type": "C",
+    "confirmedCases": "61",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Surf Coast",
+    "type": "S",
+    "confirmedCases": "5",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Towong",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Warrnambool",
+    "type": "C",
+    "confirmedCases": "4",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Wellington",
+    "type": "S",
+    "confirmedCases": "3",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Whitehorse",
+    "type": "C",
+    "confirmedCases": "6",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Whittlesea",
+    "type": "C",
+    "confirmedCases": "13",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Wodonga",
+    "type": "RC",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Yarra",
+    "type": "C",
+    "confirmedCases": "10",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Wyndham",
+    "type": "C",
+    "confirmedCases": "19",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Yarra Ranges",
+    "type": "S",
+    "confirmedCases": "17",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Yarriambiack",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "28/3/20",
+    "URL": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+  }
+]
