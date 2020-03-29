@@ -13,6 +13,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import uuid from "react-uuid";
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import Link from '@material-ui/core/Link';
+import IconButton from '@material-ui/core/IconButton';
+import LinkIcon from '@material-ui/icons/Link';
+import Button from '@material-ui/core/Button';
 
 const newsData = topNewsData.weeklyTopNews
 
@@ -29,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const listStyles = {
-    maxHeight: 400,
+    maxHeight: 500,
     position: 'relative',
     overflow: 'auto',
     minHeight: 100,
@@ -48,59 +52,65 @@ function TopNews() {
 
             <List style={listStyles}>
                 {newsData.map(news =>
-                    <div>
-                        <div>
-                            {console.log("./img/newsLogos/" + news.source + ".jpg")}
-                        </div>
+                    < ExpansionPanel style={{ boxShadow: "none" }} key={uuid()} >
+                        < ExpansionPanelSummary expandIcon={< ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                            style={{ textAlign: "left", padding: "0px" }}>
+                            <ListItem alignItems="flex-start" key={uuid()}>
+                                <ListItemAvatar>
+                                    <Avatar style={{ marginTop: "0.3rem", marginRight: "1rem", width: "48px", height: "48px" }} src={require("./img/newsLogos/" + news.source + ".jpg")} />
+                                </ListItemAvatar>
+                                <ListItemText
+                                    primary={
+                                        <React.Fragment>
+                                            <Typography
+                                                variant="body1"
+                                                className={classes.inline}
+                                                color="textPrimary"
+                                            >
+                                                {news.title}
+                                            </Typography>
+                                        </React.Fragment>
+                                    }
+                                    secondary={
+                                        <React.Fragment>
+                                            <Typography
+                                                component="span"
+                                                variant="body2"
+                                                className={classes.inline}
+                                                color="textPrimary"
+                                            >
+                                                {news.date}
+                                            </Typography>
+                                        </React.Fragment>
+                                    }
+                                />
+                            </ListItem>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px", flexDirection: "column" }}>
+                            <Typography>
+                                {news.summary}
+                            </Typography>
+                            <div align="right" style={{ marginRight: "2rem" }}>
+                                <IconButton
+                                    variant="contained"
+                                    className={classes.button}
+                                    href={news.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    /*startIcon={<LinkIcon />}*/
+                                    size="medium"
+                                    style={{
+                                        backgroundColor: "#e3f3ff"
+                                    }}
+                                ><LinkIcon />
+                                </IconButton>
+                            </div>
 
-                        < ExpansionPanel style={{ boxShadow: "none" }} key={uuid()} >
-                            < ExpansionPanelSummary expandIcon={< ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                                style={{ textAlign: "left", padding: "0px" }}>
-                                <ListItem alignItems="flex-start" key={uuid()}>
-                                    <ListItemAvatar>
-                                        <Avatar alt="Remy Sharp" src={"./img/newsLogos/" + news.source + ".jpg"} />
-                                    </ListItemAvatar>
-                                    <ListItemText
-                                        primary={
-                                            <React.Fragment>
-                                                <Typography
-                                                    variant="body1"
-                                                    className={classes.inline}
-                                                    color="textPrimary"
-                                                >
-                                                    {news.title}
-                                                </Typography>
-                                            </React.Fragment>
-                                        }
-                                        secondary={
-                                            <React.Fragment>
-                                                <Typography
-                                                    component="span"
-                                                    variant="body2"
-                                                    className={classes.inline}
-                                                    color="textPrimary"
-                                                >
-                                                    {news.date}
-                                                </Typography>
-                                            </React.Fragment>
-                                        }
-                                    />
-                                </ListItem>
-                            </ExpansionPanelSummary>
-                            <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
-                                <Typography
-                                    component="span"
-                                    variant="body1"
-                                    className={classes.inline}
-                                    color="textPrimary"
-                                >
-                                    {news.summary}
-                                </Typography>
-                            </ExpansionPanelDetails>
-                        </ ExpansionPanel>
-                    </div>)
+                        </ExpansionPanelDetails>
+                    </ ExpansionPanel>
+                )
                 }
 
             </List >

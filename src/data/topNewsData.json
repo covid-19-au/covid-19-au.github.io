@@ -1,7 +1,15 @@
 {
     "weeklyTopNews": [
         {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-update-australia-scott-morrison-announces-strictest-gathering-measures-yet-c-769960",
+            "title": "Coronavirus update Australia: Scott Morrison announces strictest gathering measures yet",
+            "source": "7News",
+            "date": "29 March 2020",
+            "time": "19:32",
+            "summary": "Prime Minister Scott Morrison has announced the strictest gathering recommendations to date - that no more than two people gather in public spaces at any given time. This move also spells the closure for public areas, such as playgrounds, outdoor gyms and skate parks, though restrictions on weddings and funerals will stay the same."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
             "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
             "source": "ABCNews",
             "date": "29 March 2020",
@@ -9,76 +17,68 @@
             "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
         },
         {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
+            "link": "https://www.sbs.com.au/news/health-minister-says-early-signs-australia-is-flattening-the-curve-even-as-coronavirus-cases-increase",
+            "title": "Health Minister Greg Hunt says there are early signs that Australia is flattening the curve, even though coronavirus cases are still on the rise.",
             "source": "ABCNews",
             "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
+            "time": "13:00",
+            "summary": "The Federal Government said the rate of increase of cases was about 25-30 per cent a day last week, which has fallen to about 13-15 per cent this weekend. However, they warn that Australians must continue to follow social distancing and self-isolation guidelines."
         },
         {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
+            "link": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
+            "title": "Coronavirus patients’ average age only 48 as Australian tally soars beyond 3,400",
+            "source": "7News",
+            "date": "28 March 2020",
+            "time": "16:15",
+            "summary": "There are now 3,400 cases of the virus in Australia, a vast majority of which have been diagnosed in New South Wales and Victoria. The median age of Australians diagnosed with novel coronavirus has been revealed to be 48 years old. However, the average age of fatalities is 77."
         },
         {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
+            "link": "https://7news.com.au/business/global-economy-is-in-recession-imf-head-c-768395",
+            "title": "Global economy is in recession: IMF head",
+            "source": "7News",
+            "date": "28 March 2020",
+            "time": "07:07",
+            "summary": "The head of the International Monetary Fund says it is clear that the global economy has now entered a recession that could be as bad or worse than the 2009 downturn. IMF Managing Director Kristalina Georgieva forecasted a recovery in 2021, but she said this would only occur if countries succeed in containing the coronavirus and limiting the economic damage."
         },
         {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-in-australia-army-called-in-to-help-enforce-strict-new-quarantine-rules--c-766521",
+            "title": "Coronavirus in Australia: Army called in to help enforce strict new quarantine rules ",
+            "source": "7News",
+            "date": "28 March 2020",
+            "time": "09:08",
+            "summary": "The Australian Army will be deployed across all states and territories, stepping in to assist governments with new measures. The ADF will assist in both monitoring Friday’s regulations for returned overseas travellers and ensuring compliance checks with those in self-isolation at their homes. However, the prime minister says the army will not have the power to prosecute or arrest."
         },
         {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
+            "link": "https://www.9news.com.au/national/coronavirus-scott-morrison-no-national-decision-schools-state-premiers-to-decide/a13197c6-0d82-4129-9bc6-6459a476ef35",
+            "title": "No national decision on school closures over coronavirus, PM says states must decide",
+            "source": "9News",
+            "date": "27 March 2020",
+            "time": "15:07",
+            "summary": "Prime Minister Scott Morrison has announced that the decision on whether to close schools before the end of term will be up to each state premier. He also stated that over the next few weeks, the schools themselves will be preparing, on a national basis, to get some consistency about when schools will reopen on the other side of school holidays."
         },
         {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
+            "link": "https://www.sbs.com.au/news/international-travellers-returning-to-australia-to-be-sent-to-quarantine-facilities-for-two-weeks",
+            "title": "International travellers returning to Australia to be sent to quarantine facilities for two weeks",
+            "source": "SBSNews",
+            "date": "27 March 2020",
+            "time": "",
+            "summary": "Australians returning from international travel will be quarantined in hotels and other accommodation facilities for two weeks before being allowed to go home, under new measures to control the spread of coronavirus. The measure will affect all international travellers returning after midnight on Saturday 28th of March."
         },
         {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
+            "link": "https://thewest.com.au/politics/virus-halts-auctions-weddings-tattoos-ng-s-2002000",
+            "title": "Jobless queues to grow amid virus shutdown",
+            "source": "TheWestAustralian",
+            "date": "25 March 2020",
+            "time": "22:23",
+            "summary": "Thousands of people have been queuing at Centrelink offices as tighter restrictions on businesses, community facilities and public spaces came into effect, causing many people to lose their jobs. Economists predict 814,000 Australians will be added to dole queues before the end of June. Centrelink is rapidly recruiting an extra 5000 staff to deal with the influx of demand."
         },
         {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
-        },
-        {
-            "url": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The rate of increase has dropped from 25 to 30 per cent a day to 13 to 15 per cent The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package"
+            "link": "https://www.theguardian.com/business/2020/mar/25/coronavirus-jobs-fallout-at-least-35000-workers-stood-down-in-three-days-as-businesses-reel",
+            "title": "Coronavirus jobs fallout: at least 35,000 workers stood down in three days as businesses reel",
+            "source": "TheGuardian",
+            "date": "25 March 2020",
+            "time": "18:16",
+            "summary": "At least 35,000 people have been put out of work in just three days by casinos, airlines, retailers and other businesses that have stood down their workers in response to the coronavirus crisis. Westpac’s chief economist, Bill Evans, said the coronavirus crisis would cost 814,000 jobs by June, more than doubling the unemployment rate to 11.1%."
         }
     ]
 }
