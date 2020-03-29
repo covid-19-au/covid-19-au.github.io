@@ -110,17 +110,16 @@ function App() {
   const setModalVisibility = state => {
     setShowSocialMediaIcons(state);
   };
-  // // Set the routes for each page and pass in props.
-  // const routes = {
-  //     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
-  //     "/info": () => <InfoPage  columns={columns} gspace={gspace}/>,
-  //     "/news": () => <NewsPage province={province} gspace={gspace} />,
-  //     "/faq": () => <FAQPage />
-  // };
-  //
-  // // The hook used to render the routes.
-  // const routeResult = useRoutes(routes);
-  // const [urlPath, setUrlPath] = useState(window.location.pathname);
+  // Set the routes for each page and pass in props.
+  const routes = {
+      "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
+      "/info": () => <InfoPage  columns={columns} gspace={gspace}/>,
+      "/news": () => <NewsPage province={province} gspace={gspace} />,
+      "/faq": () => <FAQPage />
+  };
+  
+  // The hook used to render the routes.
+  const routeResult = useRoutes(routes);
 
   if (myData) {
     return (
@@ -147,25 +146,11 @@ function App() {
               setNav={setNav} nav={nav}
             />
           </Grid>
-          {nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}
-          {nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}
-          {nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}
-          {nav === "About" ? <FAQPage /> : ""}
+
           {/* routeResult renders the routes onto this area of the app function.
           E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
-          {/*{routeResult}*/}
-          {/*<Switch>*/}
-          {/*<Route path="/" render={() => (*/}
-          {/*<HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />*/}
-          {/*)} exact/>*/}
-          {/*<Route path="/info" render={() => (*/}
-          {/*<InfoPage columns={columns} />*/}
-          {/*)} exact/>*/}
-          {/*<Route path="/news" render={() => (*/}
-          {/*<NewsPage province={province} gspace={gspace}/>*/}
-          {/*)} exact/>*/}
-          {/*<Route path="/faq" component={FAQPage} exact/>*/}
-          {/*</Switch>*/}
+          {routeResult}
+
           <Grid item xs={12}>
 
             <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
