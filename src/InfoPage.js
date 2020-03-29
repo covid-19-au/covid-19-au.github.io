@@ -73,7 +73,9 @@ function Information({ hospitalData, columns }) {
                                                     alt={i1.name}
                                                     style={{}}
                                                 />
-                                                <small className="mediaText" href={i1.source}>{i1.description}</small>
+                                                <small className="mediaText" >{i1.name}</small>
+                                                <br />
+                                                <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
                                             </div>
                                         </div>
 
