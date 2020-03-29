@@ -278,7 +278,7 @@ function News({ province }) {
 }
 
 function Tweets({ province, nav }) {
-  console.log(nav)
+
   return (
     <div className="card">
       <h2>Twitter Feed</h2>
@@ -339,7 +339,6 @@ function Stat({
         testedCount += parseInt(data[i][4]);
       }
 
-      console.log(testedCount)
     }
     let lastTotal =
       countryData[
