@@ -47,6 +47,9 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Alert, AlertTitle } from '@material-ui/lab';
+
+import dailyFun from "./data/dailyFun"
+
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 dayjs.extend(relativeTime);
 ReactGA.initialize("UA-160673543-1");
