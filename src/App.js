@@ -621,6 +621,45 @@ function Information({ hospitalData, columns }) {
     <div>
       <div className="card">
         <h2 className="responsiveH2">Daily Fun Stuff</h2>
+
+        {dailyFun.dailyFunStuff.map(stuff => (
+          <div key={uuid()}>
+            <div>
+              {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text. 
+                        */}
+              <div>
+                {/* First image */}
+                {stuff.image.map(i1 => (
+                  <div key={uuid()}>
+                    <div className="row centerMedia">
+                      <div className="imageContainer" style={{ height: "auto" }} >
+                        <img
+                          className="formatImage"
+                          src={i1.link}
+                          alt={i1.name}
+                          style={{}}
+                        />
+                        <small className="mediaText">{i1.description}</small>
+                      </div>
+                    </div>
+
+                  </div>
+                ))}
+                {/* Video */}
+                {stuff.video.map(vid => (
+                  <div className="row centerMedia">
+                    <div>
+                      <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                      <small className="mediaText">{vid.description}</small>
+                    </div>
+                  </div>
+                ))}
+
+              </div>
+            </div>
+          </div>
+        ))
+        }
         <div className="row centerMedia">
           <div>
             <ReactPlayer alt="Stupid Spaceman Virus Proof House" className="formatMedia" url="https://www.youtube.com/watch?v=115m7ji5mdY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
