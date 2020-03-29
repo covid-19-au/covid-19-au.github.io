@@ -539,7 +539,7 @@ function Header({ province }) {
       <h1
         style={{
           fontSize: "120%",
-          color: "black",
+          color: "white",
           textAlign: "center"
         }}
       >
