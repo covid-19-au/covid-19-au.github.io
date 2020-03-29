@@ -1,0 +1,25 @@
+{
+    "dailyFunStuff": [
+        {
+            "image": [
+                {
+                    "name": "Melbourne foot traffic has decreased drastically.",
+                    "imgLink": "https://i.imgur.com/qUsoGBk.jpg",
+                    "description": "Check out Sydney's chart on City Mapper!",
+                    "source": " https://citymapper.com/cmi/sydney"
+                }
+            ],
+            "video": []
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "name": "How To Tell If We're Beating COVID-19",
+                    "link": "https://www.youtube.com/watch?v=54XLXg4fYsc&t=14s",
+                    "description": "Minute Physics explains how we can tell if we're beating COVID-19."
+                }
+            ]
+        }
+    ]
+}
