@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactGA from "react-ga";
 import ausPop from '../data/ausPop'
 
@@ -15,7 +15,7 @@ function GoogleMap({ province, newData }) {
         '#e73210'
     ];
 
-    const purpleGradient = [
+    const blueGradient = [
         '#e3f3ff',
         '#8ccfff',
         '#24adff',
@@ -70,15 +70,15 @@ function GoogleMap({ province, newData }) {
                 break;
             case 'tested':
                 label = "Tested"
-                setMapGradient(purpleGradient);
+                setMapGradient(blueGradient);
                 break;
             case 'relative-tests':
                 label = "Tests per million";
-                setMapGradient(purpleGradient);
+                setMapGradient(blueGradient);
                 break;
             case 'test-strike':
                 label = "Test strike rate (%)";
-                setMapGradient(purpleGradient);
+                setMapGradient(blueGradient);
                 break;
         }
         let temp = [["state", label]];
@@ -125,56 +125,56 @@ function GoogleMap({ province, newData }) {
     }, [province, mapType]);
 
 
-  const getOption = () => {
-      return {
-          region: 'AU', // ISO 3166-1 alpha-2 code for Australia
-          colorAxis: { colors: mapGradient},
-          backgroundColor: 'white',
-          datalessRegionColor: 'rgb(216,221,224)',
-          defaultColor: '#f5f5f5',
-          resolution: 'provinces'
-      }
-  };
+    const getOption = () => {
+        return {
+            region: 'AU', // ISO 3166-1 alpha-2 code for Australia
+            colorAxis: { colors: mapGradient },
+            backgroundColor: 'white',
+            datalessRegionColor: 'rgb(216,221,224)',
+            defaultColor: '#f5f5f5',
+            resolution: 'provinces'
+        }
+    };
 
-  const toggleData = (e) => {
-      setMapType(e.target.value);
-      ReactGA.event({category: 'casesMap',action: e.target.value});
-  }
+    const toggleData = (e) => {
+        setMapType(e.target.value);
+        ReactGA.event({ category: 'casesMap', action: e.target.value });
+    }
 
-  return (
-    loading ? <div className="loading">Loading...</div> :
-    <div className="stateMap">
-        <h2> Cases by State {province ? `· ${province.name}` : false} </h2>
-        <span className="selection-grid">
-            <NativeSelect
-                className="mapToggle"
-                onChange={toggleData}
-            >
-                <option value="confirmed-cases">Confirmed cases</option>
-                <option value="relative-cases">Cases per million people</option>
-                <option value="tested">Tested</option>
-                <option value="relative-tests">Tests per million people</option>
-                {/*<option value="deaths">Deaths</option>*/}
+    return (
+        loading ? <div className="loading">Loading...</div> :
+            <div className="stateMap">
+                <h2> Cases by State {province ? `· ${province.name}` : false} </h2>
+                <span className="selection-grid">
+                    <NativeSelect
+                        className="mapToggle"
+                        onChange={toggleData}
+                    >
+                        <option value="confirmed-cases">Confirmed cases</option>
+                        <option value="relative-cases">Cases per million people</option>
+                        <option value="tested">Tested</option>
+                        <option value="relative-tests">Tests per million people</option>
+                        {/*<option value="deaths">Deaths</option>*/}
 
-                <option value="test-strike">Positive test rate</option>
-            </NativeSelect>
-        </span>
-        
-        <Chart
-            width= {window.innerWidth < 960?'100%':'auto'}
-            left="auto"
-            align="right"
-            top="40%"
-            chartType="GeoChart"
-            data={myData}
-            options={getOption()}
-            // Note: you will need to get a mapsApiKey for your project.
-            // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-            mapsApiKey="YOUR_KEY_HERE"
-            rootProps={{ 'data-testid': '3' }}
-        />
-    </div>
-  )
+                        <option value="test-strike">Positive test rate</option>
+                    </NativeSelect>
+                </span>
+
+                <Chart
+                    width={window.innerWidth < 960 ? '100%' : 'auto'}
+                    left="auto"
+                    align="right"
+                    top="40%"
+                    chartType="GeoChart"
+                    data={myData}
+                    options={getOption()}
+                    // Note: you will need to get a mapsApiKey for your project.
+                    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                    mapsApiKey="YOUR_KEY_HERE"
+                    rootProps={{ 'data-testid': '3' }}
+                />
+            </div>
+    )
 }
 
 export default GoogleMap

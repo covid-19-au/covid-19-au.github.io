@@ -3,20 +3,23 @@ var CanvasJS = require('./canvasjs.min');
 CanvasJS = CanvasJS.Chart ? CanvasJS : window.CanvasJS;
 
 
-CanvasJS.addColorSet("sitePalette",
+CanvasJS.addColorSet("overall",
 	[//colorSet Array
-		"#8ccfff",
+		"#ff603c",
 		"#c11700",
-		"#00aac1",
 		"#00c177",
-		"#004ac1",
-		"#c100aa",
-		"#d5c3f5",
-		"#ff7e5f",
-		"#80ddea"
+		"#007cf2"
 
 	]);
 
+CanvasJS.addColorSet("dailyCases",
+	[//colorSet Array
+		"#8ccfff",
+		"#c11700",
+		"#00c177",
+		"#007cf2"
+
+	]);
 
 class CanvasJSChart extends React.Component {
 	static _cjsContainerId = 0

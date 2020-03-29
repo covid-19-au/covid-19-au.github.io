@@ -40,7 +40,7 @@ function NewsTimeline() {
                             key={timelineNews.indexOf(news)}
                             dateText={news.date + " " + news.time}
                             dateInnerStyle={{ background: "#24adff" }}>
-                            <a onClick={()=>ReactGA.event({category: 'news',action: "click",label:news.title})} href={news.url}> <h4 style={{ color: ' #58bcff ' ,filter: "saturate(0%)" }} >{news.title}</h4></a>
+                            <a onClick={() => ReactGA.event({ category: 'news', action: "click", label: news.title })} href={news.url}> <h4 style={{ color: ' #5499C7 ', filter: "saturate(0%)" }} >{news.title}</h4></a>
                             <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
                         </TimelineItem>)
                     }
@@ -49,7 +49,7 @@ function NewsTimeline() {
                             key={timelineNews.indexOf(news)}
                             dateText={news.date + " " + news.time}
                             dateInnerStyle={{ background: "#85C1E9" }}>
-                            <a onClick={()=>ReactGA.event({category: 'news',action: "click",label:news.title})} href={news.url}> <h4 style={{ color: ' #5499C7 ' }} >{news.title}</h4></a>
+                            <a onClick={() => ReactGA.event({ category: 'news', action: "click", label: news.title })} href={news.url}> <h4 style={{ color: ' #5499C7 ' }} >{news.title}</h4></a>
                             <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
                         </TimelineItem>)
                     }
@@ -58,7 +58,7 @@ function NewsTimeline() {
                             key={timelineNews.indexOf(news)}
                             dateText={news.date + " " + news.time}
                             dateInnerStyle={{ background: "#e3f3ff" }}>
-                            <a onClick={()=>ReactGA.event({category: 'news',action: "click",label:news.title})} href={news.url}> <h4 style={{ color: ' #5499C7 ' }} >{news.title}</h4></a>
+                            <a onClick={() => ReactGA.event({ category: 'news', action: "click", label: news.title })} href={news.url}> <h4 style={{ color: ' #5499C7 ' }} >{news.title}</h4></a>
                             <h5 style={{ color: ' #5d6d7e ' }}>{news.source}</h5>
                         </TimelineItem>)
                     }
