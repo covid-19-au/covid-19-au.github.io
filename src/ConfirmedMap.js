@@ -52,56 +52,91 @@ class MbMap extends React.Component {
     }
   }
 
-  componentDidMount() {
-    const { lng, lat, zoom } = this.state;
+    // Check if a date was more than two weeks ago
+    isOld(date) {
+        // Working with raw data, so try-catch just in case
+        try {
+            // 'DD/MM/YY' format
+            // Assume entries with incorrect formats are old
+            const eventDay = date.split("/");
+            if (eventDay.length !== 3 || eventDay === 'N/A') { return true; }
 
-    var bounds = [
-      [101.6015625, -49.83798245308484], // Southwest coordinates
-      [166.2890625, 0.8788717828324276] // Northeast coordinates
-    ];
+            // Default constructor has current time
+            const today = new Date();
 
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: {
-        version: 8,
-        sources: {
-          osm: {
-            type: 'raster',
-            tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-            tileSize: 256,
-            attribution: 'Map tiles by <a target="_top" rel="noopener" href="https://tile.openstreetmap.org/">OpenStreetMap tile servers</a>, under the <a target="_top" rel="noopener" href="https://operations.osmfoundation.org/policies/tiles/">tile usage policy</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>'
-          }
-        },
-        layers: [{
-          id: 'osm',
-          type: 'raster',
-          source: 'osm',
-        }],
-      },
-      center: [lng, lat],
-      maxBounds: bounds // Sets bounds as max
-    });
+            // Day of the event. Transform to YYYY/MM/DD format
+            const day = eventDay[0], month = parseInt(eventDay[1])-1;
+            const year = '20' + eventDay[2]
+            let caseDate = new Date(year, month, day);
 
-    function get_html(city_name) {
-      var city = city_name.toLowerCase().split(" ");
-      var numberOfCases = 0;
-      var city_type = city.slice(-1);
-      city.pop();
-      city_name = city.join(' ');
-      if (city_type == 'city') {
-        city_name += '(c)';
-      }
-      else {
-        city_name += '(s)';
-      }
-      for (var data in confirmedData) {
-        var data_map = confirmedData[data];
-        city = data_map['area'];
-        // console.log(city.toLowerCase(),city_name)
-        if (city.toLowerCase() === city_name && numberOfCases == 0) {
-          // return data_map['numberOfCases']
-          numberOfCases = data_map['numberOfCases'];
+            // Add two weeks for comparison
+            caseDate.setDate(caseDate.getDate() + oldCaseDays);
+
+            // True iff the original date was more than two weeks old
+            if (today > caseDate) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch {
+            return true;
         }
+    }
+
+    componentDidMount() {
+        const { lng, lat, zoom } = this.state;
+
+        var bounds = [
+          [101.6015625,-49.83798245308484], // Southwest coordinates
+          [166.2890625,0.8788717828324276] // Northeast coordinates
+        ];
+
+        const map = new mapboxgl.Map({
+            container: this.mapContainer,
+            style: {
+              version: 8,
+              sources: {
+                osm: {
+                  type: 'raster',
+                  tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+                  tileSize: 256,
+                  attribution: 'Map tiles by <a target="_top" rel="noopener" href="https://tile.openstreetmap.org/">OpenStreetMap tile servers</a>, under the <a target="_top" rel="noopener" href="https://operations.osmfoundation.org/policies/tiles/">tile usage policy</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>'
+                }
+              },
+              layers: [{
+                id: 'osm',
+                type: 'raster',
+                source: 'osm',
+              }],
+            },
+            center: [lng, lat],
+            maxBounds: bounds // Sets bounds as max
+        });
+
+        function get_html(city_name) {
+          var city = city_name.toLowerCase().split(" ");
+          var numberOfCases = 0;
+          var city_type = city.slice(-1)[0];
+          city.pop();
+          city_name = city.join(' ');
+          if (city_type === 'city'){
+            city_name += '(c)';
+          }else if(city_type==='rural city'){
+              city_name += '(rc)';
+          }
+          else{
+            city_name += '(s)';
+          }
+          for (var data in confirmedData){
+            var data_map = confirmedData[data];
+            city = data_map['area'];
+            // console.log(city.toLowerCase(),city_name)
+            if (city.toLowerCase() === city_name && numberOfCases === 0){
+              // return data_map['numberOfCases']
+              numberOfCases = data_map['numberOfCases'];
+            }
+
+          
       }
       return parseInt(numberOfCases);
     }
