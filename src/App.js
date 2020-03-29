@@ -663,14 +663,6 @@ function Information({ hospitalData, columns }) {
           </div>
         ))
         }
-        <div className="row centerMedia">
-          <div>
-            <ReactPlayer alt="Stupid Spaceman Virus Proof House" className="formatMedia" url="https://www.youtube.com/watch?v=115m7ji5mdY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-            <small className="mediaText">Watch Quentin spend 24 hours in the "world's most virus proof house!</small>
-          </div>
-          <br />
-
-        </div>
         <p style={{ textAlign: "center" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
 
         <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
