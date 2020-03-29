@@ -418,8 +418,6 @@ function Stat({
   );
 }
 
-
-
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -436,7 +434,7 @@ function Area({ area, onChange, data }) {
 
   const getAriaLabel = (state, confirmed, death, recovered, tested) => {
     return `In ${state.split("").join(" ")}, there were ${confirmed} confirmed cases. Out of them, ${death} unfortunately resulted in death.
-    
+
     ${recovered} recovered and ${tested} were tested`;
   };
 
@@ -639,8 +637,8 @@ function Information({ hospitalData, columns }) {
             <div>
               <ExpansionPanel style={{ boxShadow: "none" }} >
 
-                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
-                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
@@ -761,8 +759,8 @@ function Information({ hospitalData, columns }) {
             <div>
               <ExpansionPanel style={{ boxShadow: "none" }} >
 
-                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
-                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
@@ -823,8 +821,8 @@ function Information({ hospitalData, columns }) {
             <div>
               <ExpansionPanel style={{ boxShadow: "none" }} >
 
-                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text. 
-                        This is so that we can reduce code smell while still retaining the ability to format text. 
+                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
