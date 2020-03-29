@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactGA from "react-ga";
-// import {Link} from 'react-router-dom';
+import {A} from 'hookrouter';
 // ReactGA.initialize("UA-160673543-1",{gaoOptions:{siteSpeedSampleRate: 100}});
 function Fallback(props) {
     return (
@@ -40,6 +40,7 @@ function Fallback(props) {
                 </a>
 
 
+                <A href="/faq">
                 <button type="button" className="btn btn-light btn-sm m-1" onClick={() => {
                     ReactGA.event({category: 'Fallback',action: "faq"});
                     props.setNav("About");
@@ -54,7 +55,7 @@ function Fallback(props) {
                     </svg>
                     &nbsp;FAQ
                 </button>
-
+                </A>
             </div>
             <div>Template credits to: shfshanyue</div>
 
