@@ -29,7 +29,7 @@ import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 
 // routes
-import {useRoutes, A} from 'hookrouter';
+import { useRoutes, A } from 'hookrouter';
 // import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import ReactGA from "react-ga";
@@ -48,7 +48,6 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Alert, AlertTitle } from '@material-ui/lab';
-
 
 
 
@@ -75,6 +74,7 @@ function Header({ province }) {
       >
         COVID-19 in Australia — Real-Time Report
       </h1>
+
       {/*<i>By Students from Monash</i>*/}
     </header>
   );
@@ -214,10 +214,10 @@ function App() {
   };
   // // Set the routes for each page and pass in props.
   const routes = {
-      "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
-      "/info": () => <InfoPage  columns={columns} gspace={gspace}/>,
-      "/news": () => <NewsPage province={province} gspace={gspace} />,
-      "/faq": () => <FAQPage />
+    "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
+    "/info": () => <InfoPage columns={columns} gspace={gspace} />,
+    "/news": () => <NewsPage province={province} gspace={gspace} />,
+    "/faq": () => <FAQPage />
   };
   //
   // // The hook used to render the routes.
