@@ -69,11 +69,11 @@ function Information({ hospitalData, columns }) {
                                             <div className="imageContainer" style={{ height: "auto" }} >
                                                 <img
                                                     className="formatImage"
-                                                    src={i1.link}
+                                                    src={i1.imgLink}
                                                     alt={i1.name}
                                                     style={{}}
                                                 />
-                                                <small className="mediaText">{i1.description}</small>
+                                                <small className="mediaText" href={i1.source}>{i1.description}</small>
                                             </div>
                                         </div>
 
@@ -97,7 +97,7 @@ function Information({ hospitalData, columns }) {
                 <p style={{ textAlign: "center" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
 
                 <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
-                                                                                                                               rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
+                    rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
             </div>
 
 
@@ -115,8 +115,8 @@ function Information({ hospitalData, columns }) {
                         <ReactPlayer alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
                         <small className="mediaText">How to properly wash your hands.</small> <br />
                         <small style={{ color: "#3366BB" }}><a target="_blank"
-                                                               rel="noopener noreferrer"
-                                                               href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{"Here's a step-by-step guide you can save"}</a></small>
+                            rel="noopener noreferrer"
+                            href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{"Here's a step-by-step guide you can save"}</a></small>
                     </div>
                 </div>
 
@@ -142,9 +142,9 @@ function Information({ hospitalData, columns }) {
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
                                 < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                                        aria-controls="panel1a-content"
-                                                        id="panel1a-header"
-                                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
                                     <h3 className="responsiveH3">{info.name}</h3>
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
@@ -161,8 +161,8 @@ function Information({ hospitalData, columns }) {
                                                 ))}
                                             </ul>
                                         ) : (
-                                            ""
-                                        )}
+                                                ""
+                                            )}
 
                                         {/* First Ordered List */}
                                         {info.text.olist_1 ? (
@@ -172,8 +172,8 @@ function Information({ hospitalData, columns }) {
                                                 ))}
                                             </ol>
                                         ) : (
-                                            ""
-                                        )}
+                                                ""
+                                            )}
 
                                         {/* Second Block of text */}
                                         {info.text.text_2.map(t2 => (
@@ -204,9 +204,9 @@ function Information({ hospitalData, columns }) {
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
                                 < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                                        aria-controls="panel1a-content"
-                                                        id="panel1a-header"
-                                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
                                     <h3 className="responsiveH3">{info.name}</h3>
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
@@ -223,8 +223,8 @@ function Information({ hospitalData, columns }) {
                                                 ))}
                                             </ul>
                                         ) : (
-                                            ""
-                                        )}
+                                                ""
+                                            )}
 
                                         {/* First Ordered List */}
                                         {info.text.olist_1 ? (
@@ -234,8 +234,8 @@ function Information({ hospitalData, columns }) {
                                                 ))}
                                             </ol>
                                         ) : (
-                                            ""
-                                        )}
+                                                ""
+                                            )}
 
                                         {/* Second Block of text */}
                                         {info.text.text_2.map(t2 => (
@@ -266,9 +266,9 @@ function Information({ hospitalData, columns }) {
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
                                 < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                                        aria-controls="panel1a-content"
-                                                        id="panel1a-header"
-                                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
                                     <h3 className="responsiveH3">{info.name}</h3>
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
@@ -285,8 +285,8 @@ function Information({ hospitalData, columns }) {
                                                 ))}
                                             </ul>
                                         ) : (
-                                            ""
-                                        )}
+                                                ""
+                                            )}
 
                                         {/* First Ordered List */}
                                         {info.text.olist_1 ? (
@@ -296,8 +296,8 @@ function Information({ hospitalData, columns }) {
                                                 ))}
                                             </ol>
                                         ) : (
-                                            ""
-                                        )}
+                                                ""
+                                            )}
 
                                         {/* Second Block of text */}
                                         {info.text.text_2.map(t2 => (
@@ -329,9 +329,9 @@ function Information({ hospitalData, columns }) {
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
                                 < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                                        aria-controls="panel1a-content"
-                                                        id="panel1a-header"
-                                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
                                     <h3 className="responsiveH3">{info.name}</h3>
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
@@ -361,8 +361,8 @@ function Information({ hospitalData, columns }) {
                                                 ))}
                                             </ul>
                                         ) : (
-                                            ""
-                                        )}
+                                                ""
+                                            )}
 
                                         {/* First Ordered List */}
                                         {info.text.olist_1 ? (
@@ -372,8 +372,8 @@ function Information({ hospitalData, columns }) {
                                                 ))}
                                             </ol>
                                         ) : (
-                                            ""
-                                        )}
+                                                ""
+                                            )}
 
                                         {/* Second Block of text */}
                                         {info.text.text_2.map(t2 => (
@@ -389,10 +389,10 @@ function Information({ hospitalData, columns }) {
                                             <div className="row centerMedia" key={uuid()}>
                                                 <div>
                                                     <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19"
-                                                                 className="formatMedia"
-                                                                 url={vid.link}
-                                                                 controls={true}
-                                                                 config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                                                        className="formatMedia"
+                                                        url={vid.link}
+                                                        controls={true}
+                                                        config={{ youtube: { playerVars: { showinfo: 1 } } }} />
                                                     <small className="mediaText">{vid.desc}</small>
                                                 </div>
                                             </div>
@@ -523,38 +523,38 @@ function Table({ columns, data }) {
                 <div>
                     <table className="formatTable" {...getTableProps()}>
                         <thead className="tableRows">
-                        {headerGroups.map(headerGroup => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map(column => (
-                                    <th className="tableData" {...column.getHeaderProps()}>
-                                        {column.render('Header')}
-                                        {/* Render the columns filter UI */}
-                                        <div>{column.canFilter ? column.render('Filter') : null}</div>
-                                    </th>
-                                ))}
+                            {headerGroups.map(headerGroup => (
+                                <tr {...headerGroup.getHeaderGroupProps()}>
+                                    {headerGroup.headers.map(column => (
+                                        <th className="tableData" {...column.getHeaderProps()}>
+                                            {column.render('Header')}
+                                            {/* Render the columns filter UI */}
+                                            <div>{column.canFilter ? column.render('Filter') : null}</div>
+                                        </th>
+                                    ))}
+                                </tr>
+                            ))}
+                            <tr>
+                                <th
+                                    colSpan={visibleColumns.length}
+                                    style={{
+                                        textAlign: 'left',
+                                    }}
+                                >
+                                </th>
                             </tr>
-                        ))}
-                        <tr>
-                            <th
-                                colSpan={visibleColumns.length}
-                                style={{
-                                    textAlign: 'left',
-                                }}
-                            >
-                            </th>
-                        </tr>
                         </thead>
                         <tbody {...getTableBodyProps()}>
-                        {page.map((row, i) => {
-                            prepareRow(row)
-                            return (
-                                <tr className="tableRows" {...row.getRowProps()}>
-                                    {row.cells.map(cell => {
-                                        return <td className="tableData" {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                    })}
-                                </tr>
-                            )
-                        })}
+                            {page.map((row, i) => {
+                                prepareRow(row)
+                                return (
+                                    <tr className="tableRows" {...row.getRowProps()}>
+                                        {row.cells.map(cell => {
+                                            return <td className="tableData" {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                        })}
+                                    </tr>
+                                )
+                            })}
                         </tbody>
                     </table>
                     <div className="pagination">
@@ -571,11 +571,11 @@ function Table({ columns, data }) {
                             {'>>'}
                         </button>{' '}
                         <span style={{ marginRight: "1em", marginLeft: "1em" }}>
-              Page{' '}
+                            Page{' '}
                             <strong>
-                {pageIndex + 1} of {pageOptions.length}
-              </strong>{' '}
-            </span>
+                                {pageIndex + 1} of {pageOptions.length}
+                            </strong>{' '}
+                        </span>
                         <select
                             className="customStateSelect"
                             value={pageSize}
