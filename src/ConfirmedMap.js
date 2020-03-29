@@ -2,7 +2,9 @@ import React from "react";
 import mapboxgl from 'mapbox-gl';
 import confirmedData from "./data/mapdataCon"
 import hospitalData from "./data/mapdataHos"
+import mapDataArea from "./data/mapdataarea"
 import vicLgaData from "./data/lga_vic.geojson"
+import nswLgaData from "./data/lga_nsw.geojson"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from './img/icon/confirmed-recent.png'
@@ -82,36 +84,48 @@ class MbMap extends React.Component {
             maxBounds: bounds // Sets bounds as max
         });
 
-        function get_html(city_name) {
-          var city = city_name.toLowerCase().split(" ");
+        function get_html(city_name, state) {
           var numberOfCases = 0;
-          var city_type = city.slice(-1)[0];
-          city.pop();
-          city_name = city.join(' ');
-          if (city_type === 'city'){
-            city_name += '(c)';
-          }else if(city_type==='rural city'){
-              city_name += '(rc)';
+          if (state === 'VIC'){
+            var city = city_name.toLowerCase().split(" ");
+            var city_type = city.slice(-1)[0];
+            city.pop();
+            city_name = city.join(' ');
           }
           else{
-            city_name += '(s)';
+            city_name = city_name.toLowerCase();
           }
-          for (var data in confirmedData){
-            var data_map = confirmedData[data];
-            city = data_map['area'];
-            // console.log(city.toLowerCase(),city_name)
-            if (city.toLowerCase() === city_name && numberOfCases === 0){
-              // return data_map['numberOfCases']
-              numberOfCases = data_map['numberOfCases'];
+          // if (city_type === 'city'){
+          //   city_name += '(c)';
+          // }else if(city_type==='rural city'){
+          //     city_name += '(rc)';
+          // }
+          // else{
+          //   city_name += '(s)';
+          // }
+          for (var data in mapDataArea){
+            var data_map = mapDataArea[data];
+            if (state === data_map['state']){
+              city = data_map['area'];
+              if (city.toLowerCase() == city_name && numberOfCases === 0){
+                numberOfCases = data_map['confirmedCases'];
+              }
             }
           }
           return parseInt(numberOfCases);
         }
 
-        function formNewJson(geojsonData){
+        function formNewJson(geojsonData,state){
           for(var key in geojsonData.features){
             var data = geojsonData.features[key];
-            var cases = get_html(data.properties.vic_lga__2);
+            if (state === 'VIC'){
+              var cases = get_html(data.properties.vic_lga__2,state);
+              data.properties['city'] = data.properties.vic_lga__2;
+            }
+            else{
+              var cases = get_html(data.properties.nsw_lga__3,state);
+              data.properties['city'] = data.properties.nsw_lga__3;
+            }
             data.properties['cases'] = cases;
             geojsonData.features[key] = data;
           }
@@ -121,8 +135,8 @@ class MbMap extends React.Component {
         map.on('load', function() {
 
           // var maxValue = 56;
-          async function loadJSON(fname) {
-            let geojsonData = await fetch(`${vicLgaData}`)
+          async function loadJSON(Data) {
+            let geojsonData = await fetch(`${Data}`)
               .then(response => response.json())
               .then(responseData => {
                 return responseData;
@@ -131,10 +145,10 @@ class MbMap extends React.Component {
           };
 
           (async () => {
-            var geosjondata = loadJSON().then(data => {
-              data = formNewJson(data);
+            var geosjondata = loadJSON(vicLgaData).then(data => {
+              data = formNewJson(data,'VIC');
               map.addLayer({
-                id: 'id_poly',
+                id: 'id_poly_vic',
                 type: 'fill',
                 minzoom:2,
                 source: {
@@ -172,7 +186,64 @@ class MbMap extends React.Component {
                 filter: ['==', '$type', 'Polygon']
               });
               map.addLayer({
-                id: 'id_line_ploy',
+                id: 'id_line_ploy_vic',
+                minzoom:2,
+                type: 'line',
+                source: {
+                  type: 'geojson',
+                  data: data
+                },
+                paint: {
+                  // 'line-color': '#088',
+                  'line-opacity': 1,
+                  'line-width': 2,
+                },
+                filter: ['==', '$type', 'Polygon']
+              });
+            });
+
+            var geosjondata = loadJSON(nswLgaData).then(data => {
+              data = formNewJson(data,'NSW');
+              map.addLayer({
+                id: 'id_poly_nsw',
+                type: 'fill',
+                minzoom:2,
+                source: {
+                  type: 'geojson',
+                  data: data
+                },
+                'paint': {
+                  'fill-color': [
+                    'interpolate',
+                    ['linear'],
+                    ['get', 'cases'],
+                    0,
+                    '#E3F2FD',
+                    1,
+                    '#BBDEFB',
+                    5,
+                    '#90CAF9',
+                    10,
+                    '#64B5F6',
+                    20,
+                    '#42A5F5',
+                    30,
+                    '#2196F3',
+                    40,
+                    '#1E88E5',
+                    50,
+                    '#1976D2',
+                    60,
+                    '#1565C0',
+                    70,
+                    '#0D47A1'
+                  ],
+                  'fill-opacity': 0.75
+                },
+                filter: ['==', '$type', 'Polygon']
+              });
+              map.addLayer({
+                id: 'id_line_ploy_nsw',
                 minzoom:2,
                 type: 'line',
                 source: {
@@ -190,24 +261,29 @@ class MbMap extends React.Component {
 
           })()
 
+          function addPointer(id_geosjon){
+            map.on('click', id_geosjon, function(e) {
+              var cases = e.features[0].properties.cases;
+              new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases)
+                .addTo(map);
+            });
 
-          map.on('click', 'id_poly', function(e) {
-            var cases = e.features[0].properties.cases;
-            new mapboxgl.Popup()
-              .setLngLat(e.lngLat)
-              .setHTML(e.features[0].properties.vic_lga__2 + '<br/>Cases:' + cases)
-              .addTo(map);
-          });
+            // Change the cursor to a pointer when the mouse is over the states layer.
+            map.on('mouseenter', 'id_poly', function() {
+              map.getCanvas().style.cursor = 'pointer';
+            });
 
-          // Change the cursor to a pointer when the mouse is over the states layer.
-          map.on('mouseenter', 'id_poly', function() {
-            map.getCanvas().style.cursor = 'pointer';
-          });
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'id_poly', function() {
+              map.getCanvas().style.cursor = '';
+            });
+          }
 
-          // Change it back to a pointer when it leaves.
-          map.on('mouseleave', 'id_poly', function() {
-            map.getCanvas().style.cursor = '';
-          });
+          addPointer('id_poly_vic');
+          addPointer('id_poly_nsw');
+
         });
 
         // Add geolocate control to the map.
@@ -233,7 +309,7 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
-          if (item['state'] !== 'VIC'){
+          if (item['state'] !== 'VIC' && item['state'] !== 'NSW' ){
             if(item['state']==='VIC' && item['area'].length > 0){
                 item['description']="This case number is just the suburb confirmed number, not the case number at this geo point."
                 item['date'] = '26/3/20'
@@ -312,7 +388,7 @@ class MbMap extends React.Component {
                     <span className="key"><img src={hospitalImg}/><p>Hospital or COVID-19 assessment centre</p></span>
                     <span className="key"><img src={confirmedOldImg}/><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg}/><p>Recently confirmed case(not all, collecting)</p></span>
-                    <span className="Key"><p>*City Wise Data Present Only For VIC will develop for other States.</p></span>
+                    <span className="Key"><p>*City Wise Data Present Only For VIC & NSW will develop for other States.</p></span>
         </span>
             </div>
         );
