@@ -228,6 +228,11 @@ function Information({ hospitalData, columns }) {
                                                 ""
                                             )}
 
+                                        {/* Middle Block of text */}
+                                        {info.text.text_middle.map(t2 => (
+                                            <p key={uuid()}>{t2}</p>
+                                        ))}
+
                                         {/* First Ordered List */}
                                         {info.text.olist_1 ? (
                                             <ol>
@@ -239,7 +244,7 @@ function Information({ hospitalData, columns }) {
                                                 ""
                                             )}
 
-                                        {/* Second Block of text */}
+                                        {/* Third Block of text */}
                                         {info.text.text_2.map(t2 => (
                                             <p key={uuid()}>{t2}</p>
                                         ))}
