@@ -50,6 +50,10 @@ header i {
   color: #000000;
 }
 
+.table-footer > div {
+    background: #e2e8ec;
+}
+
 .area,
 .confirmed,
 .death,
