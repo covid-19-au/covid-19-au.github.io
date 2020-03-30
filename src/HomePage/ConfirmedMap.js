@@ -87,15 +87,17 @@ class MbMap extends React.Component {
 
         function get_html(city_name, state) {
             var numberOfCases = 0;
-            var updated_date = '28/3/20';
+            var updated_date = '';
             if (state === 'VIC') {
                 var city = city_name.toLowerCase().split(" ");
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
+                updated_date = '28/3/20';
             }
             else {
                 city_name = city_name.toLowerCase();
+                updated_date = '29/3/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
@@ -270,7 +272,7 @@ class MbMap extends React.Component {
                     ReactGA.event({ category: 'ConfirmMap', action: "StateClick", label: e.features[0].properties.vic_lga__2 });
                     var cases = e.features[0].properties.cases;
                     var date = e.features[0].properties.date;
-                    console.log(e.features[0].properties);
+     
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
                         .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>' + date)
