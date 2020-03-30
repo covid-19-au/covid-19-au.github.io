@@ -12,13 +12,13 @@ export default function NewsPage({ gspace, province, nav }) {
         <Grid container spacing={gspace} justify="center" wrap="wrap">
 
 
-            <Grid item xs={11} sm={11} md={10} lg={5} xl={5}>
+            <Grid item xs={11} sm={11} md={10} lg={5} xl={4}>
                 <NewsTimeline />
             </Grid>
-            <Grid item xs={11} sm={11} md={10} lg={6} xl={5}>
+            <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
                 <Tweets province={province} nav={nav} />
             </Grid>
-            <Grid item xs={11} sm={11} md={10} lg={5} xl={5}>
+            <Grid item xs={11} sm={11} md={10} lg={5} xl={4}>
                 <TopNews />
             </Grid>
 

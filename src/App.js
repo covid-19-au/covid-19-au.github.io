@@ -235,7 +235,7 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
-          <Grid item xs={11} className="removePadding">
+          <Grid item xs={12} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
             {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
           </Grid>
