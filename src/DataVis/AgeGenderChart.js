@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Chart from "chart.js";
 
 import ageGenderData from "../data/ageGenderData";
@@ -43,12 +43,13 @@ function getAgeData(ageLabel, genderIndex, expectState) {
 }
 
 function AgeGenderChart({ state }) {
-  const expectStateData = ageGenderData[state];
-  console.log("Expect State Data: ", expectStateData);
+  const expectStateData = ageGenderData[state.toUpperCase()];
   // gender chart
   const genderChartRef = React.createRef();
-  const genderData = getGenderData(expectStateData);
+
   useEffect(() => {
+    const genderData = getGenderData(expectStateData);
+
     let myGenderChartRef = genderChartRef;
     myGenderChartRef = myGenderChartRef.current.getContext("2d");
     new Chart(myGenderChartRef, {
@@ -70,12 +71,12 @@ function AgeGenderChart({ state }) {
   const ageChartRef = React.createRef();
   const ageChartLabels = getAgeChartLabels(expectStateData);
 
-  const allAgeData = getAgeData(ageChartLabels, 0, expectStateData);
-  const maleAgeData = getAgeData(ageChartLabels, 1, expectStateData);
-  const femaleAgeData = getAgeData(ageChartLabels, 2, expectStateData);
-  const notStatedAgeData = getAgeData(ageChartLabels, 3, expectStateData);
-
   useEffect(() => {
+    const allAgeData = getAgeData(ageChartLabels, 0, expectStateData);
+    const maleAgeData = getAgeData(ageChartLabels, 1, expectStateData);
+    const femaleAgeData = getAgeData(ageChartLabels, 2, expectStateData);
+    const notStatedAgeData = getAgeData(ageChartLabels, 3, expectStateData);
+
     let myAgeChartRef = ageChartRef;
     myAgeChartRef = myAgeChartRef.current.getContext("2d");
     new Chart(myAgeChartRef, {
@@ -113,11 +114,13 @@ function AgeGenderChart({ state }) {
 
   return (
     <div className="card">
-      <h2>VIC Chart</h2>
+      <div className="popup">
+      <h2>{state.toUpperCase()} Chart</h2>
       <p>Cases by gender</p>
       <canvas id="vicGenderChart" ref={genderChartRef} />
       <p>Cases by age group</p>
       <canvas id="vicAgeRangeChart" ref={ageChartRef} />
+    </div>
     </div>
   );
 }

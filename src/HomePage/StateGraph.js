@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import CanvasJSReact from "../assets/canvasjs.react";
-import AgeGenderChart from "./ageGenderChart";
-
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 // Based on CanvasJS theme 1. Avoids two purple series and preserves colours day-to-day.
@@ -111,8 +109,6 @@ function StateGraph({ stateData }) {
     <div className="card">
       <h2>Confirmed Cases in Australian States</h2>
       {isLoading ? <p>Loading...</p> : <CanvasJSChart options={graphOptions} style = {{paddingLeft: '500px'}}/>}
-
-      <AgeGenderChart state={"vic"} />
     </div>
   );
 }

@@ -1,8 +1,16 @@
 import uuid from "react-uuid";
-import React from "react";
+import React, { useState } from "react";
 import stateData from "../data/state";
 import testedCases from "../data/testedCases";
+import AgeGenderChart from "../DataVis/AgeGenderChart";
+import Modal from "react-modal";
+import { set } from "date-fns";
+
 export default function Area({ area, onChange, data }) {
+    const [showAgeGenderChart, setShowAgeGenderChart] = useState(false);
+    // const [modalIndex, setModalIndex] = useState(0);
+    const [modalState, setModalState] = useState("NSW");
+
     let totalRecovered = 0;
     for (let i = 0; i < data.length; i++) {
         totalRecovered += parseInt(data[i][3]);
@@ -18,11 +26,23 @@ export default function Area({ area, onChange, data }) {
     ${recovered} recovered and ${tested} were tested`;
     };
 
+    const openModal = state => {
+        console.log("Modal State: ", state);
+        setModalState(state);
+        setShowAgeGenderChart(true);
+        console.log("open modal");
+        // return (
+        // <Modal isOpen={true}>
+        //     <AgeGenderChart state={state}/>
+        // </Modal>
+        // )
+    }
+
     const renderArea = () => {
-        let latest =
-            testedCases[
-                Object.keys(testedCases)[Object.keys(testedCases).length - 1]
-                ];
+        // let latest =
+        //     testedCases[
+        //         Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+        //         ];
 
         return data.map(x => (
             <div role={"button"} aria-label={getAriaLabel(...x)} aria-describedby={getAriaLabel(...x)} className="province" key={uuid()}>
@@ -45,6 +65,15 @@ export default function Area({ area, onChange, data }) {
                     <strong>{numberWithCommas(x[3])}</strong>&nbsp;<div className="dailyIncrease">{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}</div>
                 </div>
                 <div className="tested">{numberWithCommas(x[4])}</div>
+                {/* <div className="tested"><button><AgeGenderChart state={x[0]}/></button></div> */}
+                <div className="tested">
+                    <button onClick={() => openModal(x[0])}>More</button>
+                    <Modal 
+                        isOpen={showAgeGenderChart}
+                        onRequestClose={() => setShowAgeGenderChart(false)}>
+                        <AgeGenderChart state={modalState} /> 
+                    </Modal> 
+                </div>
             </div>
         ));
     };
@@ -57,6 +86,7 @@ export default function Area({ area, onChange, data }) {
                 <div className="death header deathtitle">Deaths</div>
                 <div className="cured header recoveredtitle">Recovered</div>
                 <div className="tested header testedtitle">Tested</div>
+                <div className="tested header testedtitle"></div>
             </div>
             {renderArea()}
 
