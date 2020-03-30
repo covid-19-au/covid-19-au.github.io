@@ -498,5 +498,35 @@
     "description": "The Department can confirm that 15 of these new confirmed cases have travelled overseas or are linked to overseas travel - UK, USA, Ireland, Spain (via Dubai), New Zealand, France and Europe.",
     "coor": ["-31.946603", "115.849349"],
     "type": "0"
+  },
+  {
+    "state": "NSW",
+    "area": "Blacktown",
+    "name": "Tyndale Christian School",
+    "date": "30/3/20",
+    "time": "",
+    "description": "Tyndale Christian School in Blacktown has three cases of COVID-19 (2 students and a staff member). The school will close on 30 and 31 March for contact tracing and cleaning.",
+    "coor": ["-33.781694", "150.885898"],
+    "type": "0"
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Rose of Sharon childcare centre",
+    "date": "30/3/20",
+    "time": "",
+    "description": "A childcare worker at Rose of Sharon childcare centre and two confirmed cases in children who attend this centre have been diagnosed. All children have been isolated as close contacts.",
+    "coor": ["-33.765252", "150.919613"],
+    "type": "0"
+  },
+  {
+    "state": "WA",
+    "area": "",
+    "name": "Broome Hospital",
+    "date": "30/3/20",
+    "time": "",
+    "description": "Two of the new cases are healthcare workers. This includes a healthcare worker from Broome Hospital with a history of intrastate travel.",
+    "coor": ["-17.960318", "122.236525"],
+    "type": "0"
   }
 ]
