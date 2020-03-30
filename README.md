@@ -7,7 +7,7 @@ This site accumulates the information from different resources including:
 * the overall affected cases in each state;
 * the trend of affected cases;
 * tweets and news about COVID-19;
-* the map location of patitent's trace, and hospitals which can carry out COVID-19 tests;
+* the map location of patients' trace, and hospitals which can carry out COVID-19 tests;
 * the flights with confirmed cases; and
 * basic knowledge about COVID-19.
 
@@ -34,7 +34,7 @@ All the data comes from official resources such as the [Government](https://www.
 
 
 ## Team member
-This site is developed and mainteained by a volunteer team, mostly from Faculty of IT, Monash University:
+This site is developed and maintained by a volunteer team, mostly from Faculty of IT, Monash University:
 
 ### Web Dev
 * Han Wang: freddie.wanah@gmail.com
@@ -87,10 +87,10 @@ You can contact us by:
 ## Call for features
 We receive tons of features requests from users and like the following features most:
 * Display the view number in the top-right of our homepage by retrieving the number from our Google Analytics
-* Need better interavtive visualization for showing historical data trend
+* Need better interactive visualization for showing historical data trend
 * Nice UI for the flight search 
 * Multi-lingual site development. As not everyone in AU is proficient in English, we hope that users can switch to their native language when using our site.
-* A dedicated page for nice intreactive visualization for our data including age, gender, suburb distribution of confirmred cases, increasing number in each state, ICU beds in each hospital, etc.
+* A dedicated page for nice interactive visualization for our data including age, gender, suburb distribution of confirmed cases, increasing number in each state, ICU beds in each hospital, etc.
 
 If you are interested in one or more of these features, you are welcome to submit a PR and we will review it.
 Once your PR is merged, we will list you in the contributor list of this project.
