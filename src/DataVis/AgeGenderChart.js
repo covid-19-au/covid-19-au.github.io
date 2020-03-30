@@ -114,13 +114,10 @@ function AgeGenderChart({ state }) {
 
   return (
     <div className="card">
-      <div className="popup">
-      <h2>{state.toUpperCase()} Chart</h2>
       <p>Cases by gender</p>
       <canvas id="vicGenderChart" ref={genderChartRef} />
       <p>Cases by age group</p>
       <canvas id="vicAgeRangeChart" ref={ageChartRef} />
-    </div>
     </div>
   );
 }

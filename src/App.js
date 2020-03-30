@@ -49,6 +49,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Alert, AlertTitle } from '@material-ui/lab';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 dayjs.extend(relativeTime);
