@@ -1,15 +1,14 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "name": "Melbourne foot traffic has decreased drastically.",
-                    "imgLink": "https://i.imgur.com/qUsoGBk.jpg",
-                    "description": "Check out Sydney's chart on City Mapper!",
-                    "source": " https://citymapper.com/cmi/sydney"
+                    "name": "An Antidote to Dissatisfaction",
+                    "link": "https://www.youtube.com/watch?v=WPPPFqsECz0&t=458s",
+                    "description": "Self-isolating and social distancing can be tough, but maybe this video could help us all cope with it all a little better!"
                 }
-            ],
-            "video": []
+            ]
         }
     ]
 }

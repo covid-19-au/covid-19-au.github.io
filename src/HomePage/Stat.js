@@ -127,7 +127,7 @@ export default function Stat({
                     increased={testedCountIncrease}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                        title="<em>Number of people that have recovered from COVID-19.</em>">
+                        title="<em>Number of people that have been tested for COVID-19.</em>">
                         Tested</button>
 
                 </Tag>

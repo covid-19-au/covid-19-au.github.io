@@ -183,8 +183,9 @@ function Information({ hospitalData, columns }) {
                                         ))}
 
                                         {/* Citation tag */}
-                                        {info.text.citation.map(cit => (
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                                        {info.text.citation.map(cit => (<div>
+                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        </div>
                                         ))}
                                     </div>
                                 </ExpansionPanelDetails>
@@ -228,6 +229,11 @@ function Information({ hospitalData, columns }) {
                                                 ""
                                             )}
 
+                                        {/* Middle Block of text */}
+                                        {info.text.text_middle.map(t2 => (
+                                            <p key={uuid()}>{t2}</p>
+                                        ))}
+
                                         {/* First Ordered List */}
                                         {info.text.olist_1 ? (
                                             <ol>
@@ -239,14 +245,15 @@ function Information({ hospitalData, columns }) {
                                                 ""
                                             )}
 
-                                        {/* Second Block of text */}
+                                        {/* Third Block of text */}
                                         {info.text.text_2.map(t2 => (
                                             <p key={uuid()}>{t2}</p>
                                         ))}
 
                                         {/* Citation tag */}
-                                        {info.text.citation.map(cit => (
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                                        {info.text.citation.map(cit => (<div>
+                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        </div>
                                         ))}
                                     </div>
                                 </ExpansionPanelDetails>
@@ -307,8 +314,9 @@ function Information({ hospitalData, columns }) {
                                         ))}
 
                                         {/* Citation tag */}
-                                        {info.text.citation.map(cit => (
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                                        {info.text.citation.map(cit => (<div>
+                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        </div>
                                         ))}
                                     </div>
                                 </ExpansionPanelDetails>
@@ -383,8 +391,9 @@ function Information({ hospitalData, columns }) {
                                         ))}
 
                                         {/* Citation tag */}
-                                        {info.text.citation.map(cit => (
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small>
+                                        {info.text.citation.map(cit => (<div>
+                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        </div>
                                         ))}
                                         {/* Video */}
                                         {info.video_1.map(vid => (

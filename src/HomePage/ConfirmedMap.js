@@ -37,7 +37,7 @@ class MbMap extends React.Component {
             const today = new Date();
 
             // Day of the event. Transform to YYYY/MM/DD format
-            const day = eventDay[0], month = parseInt(eventDay[1])-1;
+            const day = eventDay[0], month = parseInt(eventDay[1]) - 1;
             const year = '20' + eventDay[2]
             let caseDate = new Date(year, month, day);
 
@@ -59,8 +59,8 @@ class MbMap extends React.Component {
         const { lng, lat, zoom } = this.state;
 
         var bounds = [
-            [101.6015625,-49.83798245308484], // Southwest coordinates
-            [166.2890625,0.8788717828324276] // Northeast coordinates
+            [101.6015625, -49.83798245308484], // Southwest coordinates
+            [166.2890625, 0.8788717828324276] // Northeast coordinates
         ];
 
         const map = new mapboxgl.Map({
@@ -87,15 +87,17 @@ class MbMap extends React.Component {
 
         function get_html(city_name, state) {
             var numberOfCases = 0;
-            var updated_date = '28/3/20';
-            if (state === 'VIC'){
+            var updated_date = '';
+            if (state === 'VIC') {
                 var city = city_name.toLowerCase().split(" ");
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
+                updated_date = '28/3/20';
             }
-            else{
+            else {
                 city_name = city_name.toLowerCase();
+                updated_date = '29/3/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
@@ -105,11 +107,11 @@ class MbMap extends React.Component {
             // else{
             //   city_name += '(s)';
             // }
-            for (var data in mapDataArea){
+            for (var data in mapDataArea) {
                 var data_map = mapDataArea[data];
-                if (state === data_map['state']){
+                if (state === data_map['state']) {
                     city = data_map['area'];
-                    if (city.toLowerCase() == city_name && numberOfCases === 0){
+                    if (city.toLowerCase() == city_name && numberOfCases === 0) {
                         numberOfCases = data_map['confirmedCases'];
                         updated_date = data_map['lastUpdateDate'];
                     }
@@ -118,15 +120,15 @@ class MbMap extends React.Component {
             return [parseInt(numberOfCases), updated_date];
         }
 
-        function formNewJson(geojsonData,state){
-            for(var key in geojsonData.features){
+        function formNewJson(geojsonData, state) {
+            for (var key in geojsonData.features) {
                 var data = geojsonData.features[key];
-                if (state === 'VIC'){
-                    var values = get_html(data.properties.vic_lga__2,state);
+                if (state === 'VIC') {
+                    var values = get_html(data.properties.vic_lga__2, state);
                     data.properties['city'] = data.properties.vic_lga__2;
                 }
-                else{
-                    var values = get_html(data.properties.nsw_lga__3,state);
+                else {
+                    var values = get_html(data.properties.nsw_lga__3, state);
                     data.properties['city'] = data.properties.nsw_lga__3;
                 }
                 data.properties['cases'] = values[0];
@@ -136,7 +138,7 @@ class MbMap extends React.Component {
             return geojsonData;
         }
 
-        map.on('load', function() {
+        map.on('load', function () {
 
             // var maxValue = 56;
             async function loadJSON(Data) {
@@ -150,11 +152,11 @@ class MbMap extends React.Component {
 
             (async () => {
                 var geosjondata = loadJSON(vicLgaData).then(data => {
-                    data = formNewJson(data,'VIC');
+                    data = formNewJson(data, 'VIC');
                     map.addLayer({
                         id: 'id_poly_vic',
                         type: 'fill',
-                        minzoom:2,
+                        minzoom: 2,
                         source: {
                             type: 'geojson',
                             data: data
@@ -191,7 +193,7 @@ class MbMap extends React.Component {
                     });
                     map.addLayer({
                         id: 'id_line_ploy_vic',
-                        minzoom:2,
+                        minzoom: 2,
                         type: 'line',
                         source: {
                             type: 'geojson',
@@ -207,11 +209,11 @@ class MbMap extends React.Component {
                 });
 
                 var geosjondata = loadJSON(nswLgaData).then(data => {
-                    data = formNewJson(data,'NSW');
+                    data = formNewJson(data, 'NSW');
                     map.addLayer({
                         id: 'id_poly_nsw',
                         type: 'fill',
-                        minzoom:2,
+                        minzoom: 2,
                         source: {
                             type: 'geojson',
                             data: data
@@ -248,7 +250,7 @@ class MbMap extends React.Component {
                     });
                     map.addLayer({
                         id: 'id_line_ploy_nsw',
-                        minzoom:2,
+                        minzoom: 2,
                         type: 'line',
                         source: {
                             type: 'geojson',
@@ -265,25 +267,25 @@ class MbMap extends React.Component {
 
             })()
 
-            function addPointer(id_geosjon){
-                map.on('click', id_geosjon, function(e) {
-                    ReactGA.event({category: 'ConfirmMap',action: "StateClick",label:e.features[0].properties.vic_lga__2});
+            function addPointer(id_geosjon) {
+                map.on('click', id_geosjon, function (e) {
+                    ReactGA.event({ category: 'ConfirmMap', action: "StateClick", label: e.features[0].properties.vic_lga__2 });
                     var cases = e.features[0].properties.cases;
                     var date = e.features[0].properties.date;
-                    console.log(e.features[0].properties);
+     
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
-                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases+'<br/>' +date)
+                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>' + date)
                         .addTo(map);
                 });
 
                 // Change the cursor to a pointer when the mouse is over the states layer.
-                map.on('mouseenter', 'id_poly', function() {
+                map.on('mouseenter', 'id_poly', function () {
                     map.getCanvas().style.cursor = 'pointer';
                 });
 
                 // Change it back to a pointer when it leaves.
-                map.on('mouseleave', 'id_poly', function() {
+                map.on('mouseleave', 'id_poly', function () {
                     map.getCanvas().style.cursor = '';
                 });
             }
@@ -316,9 +318,9 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
-            if (item['state'] !== 'VIC' && item['state'] !== 'NSW' ){
-                if(item['state']==='VIC' && item['area'].length > 0){
-                    item['description']="This case number is just the suburb confirmed number, not the case number at this geo point."
+            if (item['state'] !== 'VIC' && item['state'] !== 'NSW') {
+                if (item['state'] === 'VIC' && item['area'].length > 0) {
+                    item['description'] = "This case number is just the suburb confirmed number, not the case number at this geo point."
                     item['date'] = '26/3/20'
                 }
                 // create a HTML element for each feature
@@ -342,7 +344,8 @@ class MbMap extends React.Component {
                     .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
                         .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3>' + '<p style="margin:0;">' + item['date'] + '</p><p style="margin:0;">' + item['description'] + '</p>'))
                     .addTo(map);
-            };})
+            };
+        })
 
         hospitalData.map((item) => {
             // create a HTML element for each feature
@@ -392,11 +395,11 @@ class MbMap extends React.Component {
                 </div>
 
                 <span className="due">
-                    <span className="key"><img src={hospitalImg}/><p>Hospital or COVID-19 assessment centre</p></span>
-                    <span className="key"><img src={confirmedOldImg}/><p>Case over {oldCaseDays} days old</p></span>
-                    <span className="key"><img src={confirmedImg}/><p>Recently confirmed case(not all, collecting)</p></span>
-                    <span className="Key"><p>*City Wise Data Present Only For VIC & NSW will develop for other States.</p></span>
-        </span>
+                    <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
+                    <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
+                    <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
+                    <span className="Key"><p>*City-level data is only present for VIC and NSW. Other states are being worked on.</p></span>
+                </span>
             </div>
         );
     }
