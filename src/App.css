@@ -68,7 +68,7 @@ header i {
 }
 
 .area {
-  flex: 1;
+  flex: 0.8;
   padding: 0.4rem 0;
   position: relative;
   color: #212f3d;
