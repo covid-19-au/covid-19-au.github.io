@@ -50,6 +50,10 @@ header i {
   color: #000000;
 }
 
+.table-footer > div {
+    background: #e2e8ec;
+}
+
 .area,
 .confirmed,
 .death,
@@ -64,7 +68,7 @@ header i {
 }
 
 .area {
-  flex: 1;
+  flex: 0.8;
   padding: 0.4rem 0;
   position: relative;
   color: #212f3d;

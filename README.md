@@ -69,6 +69,9 @@ This site is developed and maintained by a volunteer team, mostly from Faculty o
 * Aditya Dogra	adityadogra21@gmail.com
 * Jiwon Ryu	ryujiwon0603@gmail.com
 * Dil Kaur dkau0002@monash.edu
+* Annie Kyi ltkyi1@student.monash.edu
+* Lee Paton lee@leepaton.com.au
+* Ben Ye
 
 ### Contributor
 * Matt Lui malui@student.unimelb.edu.au
