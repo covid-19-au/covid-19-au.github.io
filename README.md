@@ -34,7 +34,7 @@ All the data comes from official resources such as the [Government](https://www.
 
 
 ## Team member
-This site is developed and maintained by a volunteer team, mostly from Faculty of IT, Monash University:
+This site is developed and maintained by a volunteer team:
 
 ### Web Dev
 * Han Wang: freddie.wanah@gmail.com
