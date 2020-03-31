@@ -54,6 +54,7 @@ This site is developed and maintained by a volunteer team:
 ### News Collection
 * Dabao Wang
 * Mahesh Hase
+* Adnan Shariff
 
 ### Promotion
 * Ruby Yeo

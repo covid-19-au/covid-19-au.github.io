@@ -12,6 +12,8 @@ import confirmedImg from '../img/icon/confirmed-recent.png'
 import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
 import ReactGA from "react-ga";
+import Acknowledgement from "../Acknowledgment"
+
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
 class MbMap extends React.Component {
@@ -94,11 +96,14 @@ class MbMap extends React.Component {
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
-                updated_date = '28/3/20';
+                updated_date = '31/3/20';
+            }else if(state ==='NSW'){
+                city_name = city_name.toLowerCase();
+                updated_date = '30/3/20';
             }
             else {
                 city_name = city_name.toLowerCase();
-                updated_date = '29/3/20';
+                updated_date = '31/3/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
@@ -128,11 +133,11 @@ class MbMap extends React.Component {
                     var values = get_html(data.properties.vic_lga__2, state);
                     data.properties['city'] = data.properties.vic_lga__2;
                 }
-                else if (state === 'NSW'){
+                else if (state === 'NSW') {
                     var values = get_html(data.properties.nsw_lga__3, state);
                     data.properties['city'] = data.properties.nsw_lga__3;
                 }
-                else{
+                else {
                     var values = get_html(data.properties.HHS, state);
                     data.properties['city'] = data.properties.HHS;
                 }
@@ -381,7 +386,7 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
-            if (item['state'] !== 'VIC' && item['state'] !== 'NSW'&& item['state'] !== 'QLD') {
+            if (item['state'] !== 'VIC' && item['state'] !== 'NSW' && item['state'] !== 'QLD') {
                 if (item['state'] === 'VIC' && item['area'].length > 0) {
                     item['description'] = "This case number is just the suburb confirmed number, not the case number at this geo point."
                     item['date'] = '26/3/20'
@@ -445,8 +450,9 @@ class MbMap extends React.Component {
                 flexDirection: 'column',
                 height: '520px'
             }}>
-                <h2>Hospital & Case Map</h2>
-
+                <h2 style={{ display: "flex" }}>Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+                    <Acknowledgement>
+                    </Acknowledgement></div></h2>
                 <div style={style} ref={el => this.mapContainer = el} >
                     {/*{*/}
                     {/*confirmedData.map((item)=>(*/}
