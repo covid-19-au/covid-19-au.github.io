@@ -1,6 +1,16 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "name": "An Antidote to Dissatisfaction",
+                    "link": "https://www.youtube.com/watch?v=WPPPFqsECz0&t=458s",
+                    "description": "Self-isolating and social distancing can be tough, but maybe this video could help us all cope with it all a little better!"
+                }
+            ]
+        },
+        {
             "image": [
                 {
                     "name": "Melbourne foot traffic has decreased drastically.",
