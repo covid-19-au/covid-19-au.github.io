@@ -4,8 +4,8 @@
     "schema": "HHS",
     "area": "Cairns and Hinterland",
     "type": "",
-    "confirmedCases": "22",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "24",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -14,7 +14,7 @@
     "area": "Central Queensland",
     "type": "",
     "confirmedCases": "6",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -23,7 +23,7 @@
     "area": "Central West",
     "type": "",
     "confirmedCases": "0",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -31,8 +31,8 @@
     "schema": "HHS",
     "area": "Darling Downs",
     "type": "",
-    "confirmedCases": "28",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "31",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -40,8 +40,8 @@
     "schema": "HHS",
     "area": "Gold Coast",
     "type": "",
-    "confirmedCases": "136",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "147",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -49,8 +49,8 @@
     "schema": "HHS",
     "area": "Mackay",
     "type": "",
-    "confirmedCases": "5",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "6",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -58,8 +58,8 @@
     "schema": "HHS",
     "area": "Metro North",
     "type": "",
-    "confirmedCases": "183",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "205",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -67,8 +67,8 @@
     "schema": "HHS",
     "area": "Metro South",
     "type": "",
-    "confirmedCases": "169",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "180",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -77,7 +77,7 @@
     "area": "North West",
     "type": "",
     "confirmedCases": "0",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -86,7 +86,7 @@
     "area": "South West",
     "type": "",
     "confirmedCases": "0",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -94,8 +94,8 @@
     "schema": "HHS",
     "area": "Sunshine Coast",
     "type": "",
-    "confirmedCases": "71",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "72",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -104,7 +104,7 @@
     "area": "Torres and Cape",
     "type": "",
     "confirmedCases": "0",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -112,8 +112,8 @@
     "schema": "HHS",
     "area": "Townsville",
     "type": "",
-    "confirmedCases": "17",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "18",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -121,8 +121,8 @@
     "schema": "HHS",
     "area": "West Moreton",
     "type": "",
-    "confirmedCases": "35",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "36",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -130,8 +130,8 @@
     "schema": "HHS",
     "area": "Wide Bay",
     "type": "",
-    "confirmedCases": "17",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "18",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -140,7 +140,7 @@
     "area": "Overseas",
     "type": "",
     "confirmedCases": "0",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "31/3/20",
     "description": "https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts"
   },
   {
@@ -148,8 +148,8 @@
     "schema": "HLD",
     "area": "South Eastern Sydney",
     "type": "",
-    "confirmedCases": "450",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "469",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -157,8 +157,8 @@
     "schema": "HLD",
     "area": "Northern Sydney",
     "type": "",
-    "confirmedCases": "348",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "364",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -166,17 +166,8 @@
     "schema": "HLD",
     "area": "Central Coast",
     "type": "",
-    "confirmedCases": "90",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
-  },
-  {
-    "state": "NSW",
-    "schema": "HLD",
-    "area": "Hunter New England",
-    "type": "",
-    "confirmedCases": "195",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "91",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -184,8 +175,8 @@
     "schema": "HLD",
     "area": "Nepean Blue Mountains",
     "type": "",
-    "confirmedCases": "80",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "48",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -193,8 +184,17 @@
     "schema": "HLD",
     "area": "Sydney",
     "type": "",
-    "confirmedCases": "141",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "208",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
+  },
+  {
+    "state": "NSW",
+    "schema": "HLD",
+    "area": "Hunter New England",
+    "type": "",
+    "confirmedCases": "85",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -202,8 +202,8 @@
     "schema": "HLD",
     "area": "Southern NSW",
     "type": "",
-    "confirmedCases": "41",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "149",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -211,26 +211,8 @@
     "schema": "HLD",
     "area": "Illawarra Shoalhaven",
     "type": "",
-    "confirmedCases": "76",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
-  },
-  {
-    "state": "NSW",
-    "schema": "HLD",
-    "area": "Mid North Coast",
-    "type": "",
-    "confirmedCases": "35",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
-  },
-  {
-    "state": "NSW",
-    "schema": "HLD",
-    "area": "Western Sydney",
-    "type": "",
-    "confirmedCases": "160",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "83",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -238,8 +220,17 @@
     "schema": "HLD",
     "area": "South Western Sydney",
     "type": "",
-    "confirmedCases": "148",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "176",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
+  },
+  {
+    "state": "NSW",
+    "schema": "HLD",
+    "area": "Western Sydney",
+    "type": "",
+    "confirmedCases": "37",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -247,8 +238,8 @@
     "schema": "HLD",
     "area": "Western NSW",
     "type": "",
-    "confirmedCases": "36",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "155",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -257,7 +248,16 @@
     "area": "Northern NSW",
     "type": "",
     "confirmedCases": "37",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
+  },
+  {
+    "state": "NSW",
+    "schema": "HLD",
+    "area": "Mid North Coast",
+    "type": "",
+    "confirmedCases": "38",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -265,8 +265,8 @@
     "schema": "HLD",
     "area": "Murrumbidgee",
     "type": "",
-    "confirmedCases": "28",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "34",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
   },
   {
@@ -275,26 +275,35 @@
     "area": "Far West",
     "type": "",
     "confirmedCases": "0",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-latest.aspx#statistics"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Ararat",
+    "type": "RC",
+    "confirmedCases": "1",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Ballarat",
     "type": "C",
-    "confirmedCases": "8",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "9",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ10"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Banyule",
     "type": "C",
-    "confirmedCases": "25",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "44",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ11"
   },
   {
     "state": "VIC",
@@ -302,44 +311,62 @@
     "area": "Bass Coast",
     "type": "S",
     "confirmedCases": "2",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ12"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Baw Baw",
     "type": "S",
-    "confirmedCases": "4",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "5",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ13"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Bayside",
     "type": "C",
-    "confirmedCases": "18",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "22",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ14"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Benalla",
+    "type": "RC",
+    "confirmedCases": "1",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ15"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Boroondara",
     "type": "C",
-    "confirmedCases": "32",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "46",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ16"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Brimbank",
     "type": "C",
-    "confirmedCases": "13",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "19",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ17"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Campaspe",
+    "type": "S",
+    "confirmedCases": "1",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ18"
   },
   {
     "state": "VIC",
@@ -347,17 +374,17 @@
     "area": "Cardinia",
     "type": "S",
     "confirmedCases": "7",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ19"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Casey",
     "type": "C",
-    "confirmedCases": "23",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "28",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ20"
   },
   {
     "state": "VIC",
@@ -365,17 +392,17 @@
     "area": "Corangamite",
     "type": "S",
     "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ21"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Darebin",
     "type": "C",
-    "confirmedCases": "15",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "24",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ22"
   },
   {
     "state": "VIC",
@@ -383,17 +410,17 @@
     "area": "East Gippsland",
     "type": "S",
     "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ23"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Frankston",
     "type": "C",
-    "confirmedCases": "16",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "28",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ24"
   },
   {
     "state": "VIC",
@@ -401,17 +428,17 @@
     "area": "Gannawarra",
     "type": "S",
     "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ25"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Glen Eira",
     "type": "C",
-    "confirmedCases": "32",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "38",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ26"
   },
   {
     "state": "VIC",
@@ -419,44 +446,44 @@
     "area": "Glenelg",
     "type": "S",
     "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ27"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Greater Bendigo",
     "type": "C",
-    "confirmedCases": "2",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "10",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ28"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Greater Dandenong",
     "type": "C",
-    "confirmedCases": "6",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "9",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ29"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Greater Geelong",
     "type": "C",
-    "confirmedCases": "33",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "43",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ30"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Greater Shepparton",
     "type": "C",
-    "confirmedCases": "3",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "7",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ31"
   },
   {
     "state": "VIC",
@@ -464,53 +491,53 @@
     "area": "Hepburn",
     "type": "S",
     "confirmedCases": "2",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ32"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Hobsons Bay",
     "type": "C",
-    "confirmedCases": "7",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "11",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ33"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Horsham",
     "type": "RC",
-    "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "2",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ34"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Hume",
     "type": "C",
-    "confirmedCases": "12",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "26",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ35"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Kingston",
     "type": "C",
-    "confirmedCases": "10",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "14",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ36"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Knox",
     "type": "C",
-    "confirmedCases": "4",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "9",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ37"
   },
   {
     "state": "VIC",
@@ -518,125 +545,116 @@
     "area": "Latrobe",
     "type": "C",
     "confirmedCases": "5",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "Manningham",
-    "type": "C",
-    "confirmedCases": "10",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ38"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Macedon Ranges",
     "type": "S",
-    "confirmedCases": "4",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "5",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ39"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Manningham",
+    "type": "C",
+    "confirmedCases": "14",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ40"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Mansfield",
     "type": "S",
-    "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "Maribyrnong",
-    "type": "C",
-    "confirmedCases": "5",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "2",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ41"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Maroondah",
     "type": "C",
-    "confirmedCases": "3",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "6",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ42"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Maribyrnong",
+    "type": "C",
+    "confirmedCases": "7",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ43"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Melbourne",
     "type": "C",
-    "confirmedCases": "36",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "40",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ44"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Melton",
     "type": "C",
-    "confirmedCases": "11",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "15",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ45"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Mildura",
     "type": "RC",
-    "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "Mitchell",
-    "type": "S",
-    "confirmedCases": "5",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "3",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ46"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Moira",
     "type": "S",
+    "confirmedCases": "7",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ47"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mitchell",
+    "type": "S",
     "confirmedCases": "6",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ48"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Monash",
     "type": "C",
-    "confirmedCases": "19",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "26",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ49"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Moonee Valley",
     "type": "C",
-    "confirmedCases": "20",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "Moreland",
-    "type": "C",
-    "confirmedCases": "31",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "26",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ50"
   },
   {
     "state": "VIC",
@@ -644,26 +662,35 @@
     "area": "Moorabool",
     "type": "S",
     "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ51"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moreland",
+    "type": "C",
+    "confirmedCases": "39",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ52"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Mornington Peninsula",
     "type": "S",
-    "confirmedCases": "41",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "46",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ53"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Mount Alexander",
     "type": "S",
-    "confirmedCases": "5",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "6",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ54"
   },
   {
     "state": "VIC",
@@ -671,8 +698,17 @@
     "area": "Moyne",
     "type": "S",
     "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ55"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Nillumbik",
+    "type": "S",
+    "confirmedCases": "12",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ56"
   },
   {
     "state": "VIC",
@@ -680,62 +716,62 @@
     "area": "Northern Grampians",
     "type": "S",
     "confirmedCases": "3",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ57"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Port Phillip",
     "type": "C",
-    "confirmedCases": "28",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "Nillumbik",
-    "type": "S",
-    "confirmedCases": "9",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "33",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ58"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "South Gippsland",
     "type": "S",
-    "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "Strathbogie",
-    "type": "S",
-    "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "2",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ59"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Stonnington",
     "type": "C",
-    "confirmedCases": "61",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "76",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ60"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Strathbogie",
+    "type": "S",
+    "confirmedCases": "2",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ61"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Surf Coast",
     "type": "S",
-    "confirmedCases": "5",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "8",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ62"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Swan Hill",
+    "type": "RC",
+    "confirmedCases": "2",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ63"
   },
   {
     "state": "VIC",
@@ -743,8 +779,17 @@
     "area": "Towong",
     "type": "S",
     "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ64"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Wangaratta",
+    "type": "RC",
+    "confirmedCases": "1",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ65"
   },
   {
     "state": "VIC",
@@ -752,35 +797,35 @@
     "area": "Warrnambool",
     "type": "C",
     "confirmedCases": "4",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ66"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Wellington",
     "type": "S",
-    "confirmedCases": "3",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "6",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ67"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Whitehorse",
     "type": "C",
-    "confirmedCases": "6",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "10",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ68"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Whittlesea",
     "type": "C",
-    "confirmedCases": "13",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "14",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ69"
   },
   {
     "state": "VIC",
@@ -788,35 +833,35 @@
     "area": "Wodonga",
     "type": "RC",
     "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "Yarra",
-    "type": "C",
-    "confirmedCases": "10",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ70"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Wyndham",
     "type": "C",
-    "confirmedCases": "19",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "24",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ71"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Yarra",
+    "type": "C",
+    "confirmedCases": "18",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ72"
   },
   {
     "state": "VIC",
     "schema": "LGA",
     "area": "Yarra Ranges",
     "type": "S",
-    "confirmedCases": "17",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "confirmedCases": "18",
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ73"
   },
   {
     "state": "VIC",
@@ -824,8 +869,8 @@
     "area": "Yarriambiack",
     "type": "S",
     "confirmedCases": "1",
-    "lastUpdateDate": "28/3/20",
-    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ9"
+    "lastUpdateDate": "31/3/20",
+    "description": "https://app.powerbi.com/view?r=eyJrIjoiODBmMmE3NWQtZWNlNC00OWRkLTk1NjYtMjM2YTY1MjI2NzdjIiwidCI6ImMwZTA2MDFmLTBmYWMtNDQ5Yy05Yzg4LWExMDRjNGViOWYyOCJ74"
   },
   {
     "state": "NSW",
@@ -833,7 +878,7 @@
     "area": "Armidale Regional",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -842,7 +887,7 @@
     "area": "Ballina",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -851,7 +896,7 @@
     "area": "Bellingen",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -860,7 +905,7 @@
     "area": "Berrigan",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -869,7 +914,7 @@
     "area": "Blayney",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -878,7 +923,7 @@
     "area": "Cabonne",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -887,7 +932,7 @@
     "area": "Cootamundra-Gundagai Regional",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -896,7 +941,7 @@
     "area": "Dungog",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -905,7 +950,7 @@
     "area": "Glen Innes Severn",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -914,7 +959,7 @@
     "area": "Greater Hume Shire",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -923,7 +968,7 @@
     "area": "Griffith",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -932,7 +977,7 @@
     "area": "Hay",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -941,7 +986,7 @@
     "area": "Inverell",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -950,7 +995,7 @@
     "area": "Kempsey",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -959,7 +1004,7 @@
     "area": "Kiama",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -968,7 +1013,7 @@
     "area": "Lachlan",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -977,7 +1022,7 @@
     "area": "Lithgow",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -986,16 +1031,7 @@
     "area": "Liverpool Plains",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Mid-Western Regional",
-    "type": "",
-    "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1004,7 +1040,7 @@
     "area": "Murrumbidgee",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1013,7 +1049,7 @@
     "area": "Muswellbrook",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1022,7 +1058,16 @@
     "area": "Nambucca",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Narrandera",
+    "type": "",
+    "confirmedCases": "4",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1031,7 +1076,7 @@
     "area": "Narromine",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1040,7 +1085,7 @@
     "area": "Singleton",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1049,7 +1094,7 @@
     "area": "Strathfield",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1058,7 +1103,7 @@
     "area": "Tenterfield",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1067,7 +1112,7 @@
     "area": "Upper Hunter Shire",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1076,7 +1121,7 @@
     "area": "Upper Lachlan Shire",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1085,7 +1130,7 @@
     "area": "Warren",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1094,7 +1139,7 @@
     "area": "Warrumbungle Shire",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1103,7 +1148,7 @@
     "area": "Weddin",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1112,16 +1157,7 @@
     "area": "Wollondilly",
     "type": "",
     "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Yass Valley",
-    "type": "",
-    "confirmedCases": "4",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1130,16 +1166,7 @@
     "area": "Dubbo Regional",
     "type": "",
     "confirmedCases": "5",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Federation",
-    "type": "",
-    "confirmedCases": "5",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1148,25 +1175,16 @@
     "area": "Lismore",
     "type": "",
     "confirmedCases": "5",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
     "state": "NSW",
     "schema": "LGA",
-    "area": "Snowy Monaro Regional",
+    "area": "Mid-Western Regional",
     "type": "",
     "confirmedCases": "5",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Wagga Wagga",
-    "type": "",
-    "confirmedCases": "5",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1175,7 +1193,7 @@
     "area": "Albury",
     "type": "",
     "confirmedCases": "6",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1184,16 +1202,34 @@
     "area": "Burwood",
     "type": "",
     "confirmedCases": "6",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
     "state": "NSW",
     "schema": "LGA",
-    "area": "Byron",
+    "area": "Federation",
     "type": "",
-    "confirmedCases": "7",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "6",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Snowy Monaro Regional",
+    "type": "",
+    "confirmedCases": "6",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Yass Valley",
+    "type": "",
+    "confirmedCases": "6",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1202,16 +1238,7 @@
     "area": "Coffs Harbour",
     "type": "",
     "confirmedCases": "7",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Goulburn Mulwaree",
-    "type": "",
-    "confirmedCases": "7",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1220,7 +1247,7 @@
     "area": "Orange",
     "type": "",
     "confirmedCases": "7",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1229,7 +1256,16 @@
     "area": "Bega Valley",
     "type": "",
     "confirmedCases": "8",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Byron",
+    "type": "",
+    "confirmedCases": "8",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1238,16 +1274,25 @@
     "area": "Clarence Valley",
     "type": "",
     "confirmedCases": "8",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
     "state": "NSW",
     "schema": "LGA",
-    "area": "Eurobodalla",
+    "area": "Goulburn Mulwaree",
     "type": "",
     "confirmedCases": "8",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Wagga Wagga",
+    "type": "",
+    "confirmedCases": "8",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1256,16 +1301,16 @@
     "area": "Bathurst Regional",
     "type": "",
     "confirmedCases": "9",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
     "state": "NSW",
     "schema": "LGA",
-    "area": "Fairfield",
+    "area": "Eurobodalla",
     "type": "",
     "confirmedCases": "9",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1274,7 +1319,16 @@
     "area": "Queanbeyan-Palerang Regional",
     "type": "",
     "confirmedCases": "9",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Fairfield",
+    "type": "",
+    "confirmedCases": "10",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1283,7 +1337,7 @@
     "area": "Hunters Hill",
     "type": "",
     "confirmedCases": "11",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1292,7 +1346,7 @@
     "area": "Tweed",
     "type": "",
     "confirmedCases": "11",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1301,7 +1355,7 @@
     "area": "Tamworth Regional",
     "type": "",
     "confirmedCases": "12",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1309,17 +1363,8 @@
     "schema": "LGA",
     "area": "Canada Bay",
     "type": "",
-    "confirmedCases": "13",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Blue Mountains",
-    "type": "",
-    "confirmedCases": "16",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "14",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1328,7 +1373,7 @@
     "area": "Cessnock",
     "type": "",
     "confirmedCases": "16",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1336,8 +1381,17 @@
     "schema": "LGA",
     "area": "Wingecarribee",
     "type": "",
-    "confirmedCases": "16",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "17",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Blue Mountains",
+    "type": "",
+    "confirmedCases": "18",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1345,17 +1399,8 @@
     "schema": "LGA",
     "area": "Shellharbour",
     "type": "",
-    "confirmedCases": "17",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Shoalhaven",
-    "type": "",
-    "confirmedCases": "17",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "18",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1363,8 +1408,8 @@
     "schema": "LGA",
     "area": "Willoughby",
     "type": "",
-    "confirmedCases": "18",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "19",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1373,7 +1418,16 @@
     "area": "Hawkesbury",
     "type": "",
     "confirmedCases": "20",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Shoalhaven",
+    "type": "",
+    "confirmedCases": "20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1381,26 +1435,8 @@
     "schema": "LGA",
     "area": "Maitland",
     "type": "",
-    "confirmedCases": "21",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Port Stephens",
-    "type": "",
-    "confirmedCases": "22",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Port Macquarie-Hastings",
-    "type": "",
     "confirmedCases": "23",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1409,16 +1445,25 @@
     "area": "Campbelltown",
     "type": "",
     "confirmedCases": "24",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
     "state": "NSW",
     "schema": "LGA",
-    "area": "Lane Cove",
+    "area": "Port Macquarie-Hastings",
     "type": "",
-    "confirmedCases": "25",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "24",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Port Stephens",
+    "type": "",
+    "confirmedCases": "24",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1427,16 +1472,16 @@
     "area": "Camden",
     "type": "",
     "confirmedCases": "26",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
     "state": "NSW",
     "schema": "LGA",
-    "area": "Bayside",
+    "area": "Lane Cove",
     "type": "",
-    "confirmedCases": "27",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "26",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1445,7 +1490,16 @@
     "area": "Mosman",
     "type": "",
     "confirmedCases": "28",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Bayside",
+    "type": "",
+    "confirmedCases": "32",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1453,8 +1507,8 @@
     "schema": "LGA",
     "area": "Liverpool",
     "type": "",
-    "confirmedCases": "29",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "32",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1462,26 +1516,8 @@
     "schema": "LGA",
     "area": "Mid-Coast",
     "type": "",
-    "confirmedCases": "31",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Georges River",
-    "type": "",
     "confirmedCases": "32",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Lake Macquarie",
-    "type": "",
-    "confirmedCases": "33",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1489,8 +1525,17 @@
     "schema": "LGA",
     "area": "Parramatta",
     "type": "",
+    "confirmedCases": "32",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Georges River",
+    "type": "",
     "confirmedCases": "33",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1498,8 +1543,17 @@
     "schema": "LGA",
     "area": "North Sydney",
     "type": "",
-    "confirmedCases": "34",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "35",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Lake Macquarie",
+    "type": "",
+    "confirmedCases": "36",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1507,26 +1561,8 @@
     "schema": "LGA",
     "area": "Cumberland",
     "type": "",
-    "confirmedCases": "37",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Newcastle",
-    "type": "",
-    "confirmedCases": "37",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "The Hills Shire",
-    "type": "",
-    "confirmedCases": "37",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "40",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1534,8 +1570,8 @@
     "schema": "LGA",
     "area": "Hornsby",
     "type": "",
-    "confirmedCases": "39",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "40",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1543,8 +1579,26 @@
     "schema": "LGA",
     "area": "Ku-ring-gai",
     "type": "",
-    "confirmedCases": "39",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "40",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Newcastle",
+    "type": "",
+    "confirmedCases": "42",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "The Hills Shire",
+    "type": "",
+    "confirmedCases": "42",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1552,8 +1606,8 @@
     "schema": "LGA",
     "area": "Wollongong",
     "type": "",
-    "confirmedCases": "39",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "42",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1561,17 +1615,8 @@
     "schema": "LGA",
     "area": "Penrith",
     "type": "",
-    "confirmedCases": "44",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Inner West",
-    "type": "",
     "confirmedCases": "47",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1580,7 +1625,16 @@
     "area": "Randwick",
     "type": "",
     "confirmedCases": "48",
-    "lastUpdateDate": "29/3/20",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Inner West",
+    "type": "",
+    "confirmedCases": "51",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1588,8 +1642,8 @@
     "schema": "LGA",
     "area": "Ryde",
     "type": "",
-    "confirmedCases": "48",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "51",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1597,17 +1651,8 @@
     "schema": "LGA",
     "area": "Sutherland Shire",
     "type": "",
-    "confirmedCases": "57",
-    "lastUpdateDate": "29/3/20",
-    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Blacktown",
-    "type": "",
-    "confirmedCases": "58",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "59",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1615,8 +1660,17 @@
     "schema": "LGA",
     "area": "Canterbury-Bankstown",
     "type": "",
-    "confirmedCases": "64",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "66",
+    "lastUpdateDate": "30/3/20",
+    "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Blacktown",
+    "type": "",
+    "confirmedCases": "67",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1624,8 +1678,8 @@
     "schema": "LGA",
     "area": "Woollahra",
     "type": "",
-    "confirmedCases": "76",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "79",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1633,8 +1687,8 @@
     "schema": "LGA",
     "area": "Central Coast",
     "type": "",
-    "confirmedCases": "83",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "84",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1642,8 +1696,8 @@
     "schema": "LGA",
     "area": "Sydney",
     "type": "",
-    "confirmedCases": "100",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "107",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1651,8 +1705,8 @@
     "schema": "LGA",
     "area": "Northern Beaches",
     "type": "",
-    "confirmedCases": "101",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "109",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   },
   {
@@ -1660,8 +1714,8 @@
     "schema": "LGA",
     "area": "Waverley",
     "type": "",
-    "confirmedCases": "137",
-    "lastUpdateDate": "29/3/20",
+    "confirmedCases": "140",
+    "lastUpdateDate": "30/3/20",
     "description": "https://www.health.nsw.gov.au/Infectious/diseases/Pages/covid-19-lga.aspx"
   }
 ]
