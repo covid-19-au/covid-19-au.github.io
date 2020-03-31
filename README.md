@@ -12,9 +12,6 @@ This site accumulates the information from different resources including:
 * basic knowledge about COVID-19.
 
 
-Data is updated regularly.
-All the data comes from official resources such as the [Government](https://www.dhhs.vic.gov.au/), [News Group](https://www.theaustralian.com.au/) and [Wikipedia](https://www.wikipedia.org/).
-
 ## Usage of the code:
 #### Instructions for first-time setup
 
@@ -37,53 +34,48 @@ All the data comes from official resources such as the [Government](https://www.
 This site is developed and maintained by a volunteer team:
 
 ### Web Dev
-* Han Wang: freddie.wanah@gmail.com
-* Chao Wu:  cwuu0025@student.monash.edu 
-* Paldeep Singh: psin49@student.monash.edu 
-* Boxuan Lu: bluu0010@student.monash.edu
-* Andrew Zhang: andrew.zhang9799@gmail.com
-* Saharsh Bhatia: sbha0021@student.monash.edu
+* Han Wang
+* Chao Wu
+* Paldeep Singh
+* Boxuan Lu
+* Andrew Zhang
+* Saharsh Bhatia
 
 ### PM
-* Chunyang Chen: Chunyang.Chen@monash.edu
+* Chunyang Chen
 
 ### Data Collection
-* Hanying Li hlii0132@student.monash.edu
-* Zehua Zhang zzha358@student.monash.edu
-* Jinghan Zhang jzha0314@student.monash.edu
-* Richard Yang ryan28@student.monash.edu
-* Dave Morrissey dmor0005@student.monash.edu
+* Hanying Li
+* Zehua Zhang
+* Jinghan Zhang
+* Richard Yang
+* Dave Morrissey
 
 ### News Collection
-* Dabao Wang dwan178@student.monash.edu
-* Mahesh Hase mhas0033@student.monash.edu
+* Dabao Wang
+* Mahesh Hase
 
 ### Promotion
-* Ruby Yeo ryeo0006@student.monash.edu
-* Emma Callaghan ecal0009@student.monash.edu
-* Ziyi Yang	yangziyi1997@gmail.com
-* Louis Nash	louisnash2907@gmail.com
-* Michelle Yu Ying	michelle.yu-ying.wong@monash.edu
-* Huan Yee Koh	huanyeekoh@gmail.com
-* Xiao Chen Xi	xxc12396@gmail.com
-* Aditya Dogra	adityadogra21@gmail.com
-* Jiwon Ryu	ryujiwon0603@gmail.com
-* Dil Kaur dkau0002@monash.edu
-* Annie Kyi ltkyi1@student.monash.edu
-* Lee Paton lee@leepaton.com.au
+* Ruby Yeo
+* Emma Callaghan
+* Ziyi Yang
+* Louis Nash
+* Michelle Yu Ying
+* Huan Yee Koh
+* Xiao Chen Xi
+* Aditya Dogra
+* Jiwon Ryu
+* Dil Kaur
+* Annie Kyi
+* Lee Paton
 * Ben Ye
 
 ### Contributor
-* Matt Lui malui@student.unimelb.edu.au
-* Marcel Masque marcel.masques@gmail.com
-* Yaoye Lu luyaoyejeren@gmail.com
-* Tuan Khoi Nguyen tuankhoin@student.unimelb.edu.au
+* Matt Lui
+* Marcel Masque
+* Yaoye Lu
+* Tuan Khoi Nguyen
 
-
-## Contact
-You can contact us by:
-* Email to freddie.wanah@gmail.com or create GitHub Issues if there are any the bugs or feature requests.
-* Email to Chunyang.Chen@monash.edu if you want to join the team for the development.
 
 
 
