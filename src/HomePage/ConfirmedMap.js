@@ -96,11 +96,14 @@ class MbMap extends React.Component {
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
-                updated_date = '28/3/20';
+                updated_date = '31/3/20';
+            }else if(state ==='NSW'){
+                city_name = city_name.toLowerCase();
+                updated_date = '30/3/20';
             }
             else {
                 city_name = city_name.toLowerCase();
-                updated_date = '29/3/20';
+                updated_date = '31/3/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
