@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useRef
 } from "react";
+
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -229,7 +230,7 @@ function App() {
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
-          onCancel={() => setShowSocialMediaIcons(false)}
+          onCancel={ () => setShowSocialMediaIcons(false)}
         />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
