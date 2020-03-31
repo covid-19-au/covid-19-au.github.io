@@ -53,8 +53,6 @@ export default function ScrollDialog() {
                 }}
                 onClick={handleClickOpen('paper')}
                 className="badge badge-light"
-                target="_blank" rel="noopener noreferrer"
-                href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/reference/reference.md"
             >
                 <svg className="bi bi-question-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
