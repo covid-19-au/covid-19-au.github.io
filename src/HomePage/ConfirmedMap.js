@@ -5,6 +5,7 @@ import hospitalData from "../data/mapdataHos"
 import mapDataArea from "../data/mapdataarea"
 import vicLgaData from "../data/lga_vic_sl.geojson"
 import nswLgaData from "../data/lga_nsw_sl.geojson"
+import qldHhsData from "../data/qld_hhs.geojson"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from '../img/icon/confirmed-recent.png'
@@ -127,9 +128,13 @@ class MbMap extends React.Component {
                     var values = get_html(data.properties.vic_lga__2, state);
                     data.properties['city'] = data.properties.vic_lga__2;
                 }
-                else {
+                else if (state === 'NSW'){
                     var values = get_html(data.properties.nsw_lga__3, state);
                     data.properties['city'] = data.properties.nsw_lga__3;
+                }
+                else{
+                    var values = get_html(data.properties.HHS, state);
+                    data.properties['city'] = data.properties.HHS;
                 }
                 data.properties['cases'] = values[0];
                 data.properties['date'] = values[1];
@@ -265,6 +270,63 @@ class MbMap extends React.Component {
                     });
                 });
 
+                var geosjondata = loadJSON(qldHhsData).then(data => {
+                    data = formNewJson(data, 'QLD');
+                    map.addLayer({
+                        id: 'id_poly_qld',
+                        type: 'fill',
+                        minzoom: 2,
+                        source: {
+                            type: 'geojson',
+                            data: data
+                        },
+                        'paint': {
+                            'fill-color': [
+                                'interpolate',
+                                ['linear'],
+                                ['get', 'cases'],
+                                0,
+                                '#E3F2FD',
+                                1,
+                                '#BBDEFB',
+                                5,
+                                '#90CAF9',
+                                10,
+                                '#64B5F6',
+                                20,
+                                '#42A5F5',
+                                30,
+                                '#2196F3',
+                                40,
+                                '#1E88E5',
+                                50,
+                                '#1976D2',
+                                60,
+                                '#1565C0',
+                                70,
+                                '#0D47A1'
+                            ],
+                            'fill-opacity': 0.75
+                        },
+                        filter: ['==', '$type', 'Polygon']
+                    });
+                    map.addLayer({
+                        id: 'id_line_ploy_qld',
+                        minzoom: 2,
+                        type: 'line',
+                        source: {
+                            type: 'geojson',
+                            data: data
+                        },
+                        paint: {
+                            // 'line-color': '#088',
+                            'line-opacity': 1,
+                            'line-width': 1,
+                        },
+                        filter: ['==', '$type', 'Polygon']
+                    });
+                });
+
             })()
 
             function addPointer(id_geosjon) {
@@ -272,7 +334,7 @@ class MbMap extends React.Component {
                     ReactGA.event({ category: 'ConfirmMap', action: "StateClick", label: e.features[0].properties.vic_lga__2 });
                     var cases = e.features[0].properties.cases;
                     var date = e.features[0].properties.date;
-     
+
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
                         .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>' + date)
@@ -292,6 +354,7 @@ class MbMap extends React.Component {
 
             addPointer('id_poly_vic');
             addPointer('id_poly_nsw');
+            addPointer('id_poly_qld');
 
         });
 
@@ -318,7 +381,7 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
-            if (item['state'] !== 'VIC' && item['state'] !== 'NSW') {
+            if (item['state'] !== 'VIC' && item['state'] !== 'NSW'&& item['state'] !== 'QLD') {
                 if (item['state'] === 'VIC' && item['area'].length > 0) {
                     item['description'] = "This case number is just the suburb confirmed number, not the case number at this geo point."
                     item['date'] = '26/3/20'
@@ -398,7 +461,7 @@ class MbMap extends React.Component {
                     <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
                     <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
-                    <span className="Key"><p>*City-level data is only present for VIC and NSW. Other states are being worked on.</p></span>
+                    <span className="Key"><p>*City-level data is only present for VIC and NSW, HHS Data for QLD. Other states are being worked on.</p></span>
                 </span>
             </div>
         );
