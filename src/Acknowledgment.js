@@ -81,8 +81,8 @@ export default function ScrollDialog() {
                         <p style={{ marginBottom: "1px" }}>The data on our site is publicly available and is obtained from a variety of official government sources. A full list of acknowledgements is found below. </p>
                         <List style={{ marginTop: "1px", padding: "0px" }}>
                             <ListItem>
-                                <p>© State of New South Wales NSW Ministry of Health. For current information go to <a href="www.health.nsw.gov.au" target="_blank"
-                                    rel="noopener noreferrer" style={{ color: "#5499C7" }}>www.health.nsw.gov.au.</a></p>
+                                <p>© State of New South Wales NSW Ministry of Health. For current information go to <a href="https://www.health.nsw.gov.au" target="_blank"
+                                    rel="noopener noreferrer" style={{ color: "#5499C7" }}>https://www.health.nsw.gov.au</a></p>
                             </ListItem>
                             <ListItem>
                                 <p> © The State of Queensland (Queensland Health) at <a href="https://www.health.qld.gov.au/" target="_blank"
@@ -113,7 +113,7 @@ export default function ScrollDialog() {
                                     rel="noopener noreferrer" style={{ color: "#5499C7" }}>https://ww2.health.wa.gov.au/Home</a></p>
                             </ListItem>
                         </List>
-                        <p style={{ marginTop: "2px" }}>We are not affiliated to nor endorsed by these organisations in any way. We are a volunteer team and we use the data we collect strictly for non-commercial, educational,reporting and research purposes. Care is taken to ensure the data is accurate, and not reframed or misrepresented.</p>
+                        <p style={{ marginTop: "2px" }}>We are not affiliated with, nor endorsed by these organisations in any way. We are a volunteer team and we use the data we collect strictly for non-commercial, educational, reporting and research purposes. Care is taken to ensure the data is accurate and not reframed or misrepresented.</p>
                         <p>We strongly recommend that users of this website adhere to the advice and regulations provided by their respective local and federal governments and authorities.</p>
                         <p>If you have concerns, please contact us through our <a href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform" target="_blank"
                             rel="noopener noreferrer" style={{ color: "#5499C7" }}>feedback form.</a> </p>
@@ -124,7 +124,7 @@ export default function ScrollDialog() {
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
                         Close
-          </Button>
+                    </Button>
                 </DialogActions>
             </Dialog>
         </div>
