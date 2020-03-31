@@ -494,3 +494,9 @@ h2 small {
   justify-content: flex-end;
   padding-bottom: 15px;
 }
+
+.slogan {
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: -10px;
+}
