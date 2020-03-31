@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga";
 import uuid from "react-uuid";
+import Acknowledgement from "../Acknowledgment"
+
 const flightNoRegex = /^[A-Za-z]{2}\d*$/;
 const flightRouteRegex = /^[A-Za-z]*$/;
 const flightDateArrivalRegex = /^\d{0,2}-{0,1}\d{2}-{0,1}\d{0,4}$/;
+
 
 
 /**
@@ -14,13 +17,13 @@ const flightDateArrivalRegex = /^\d{0,2}-{0,1}\d{2}-{0,1}\d{0,4}$/;
  * @returns {Array} list of matched flights
  */
 function UniversalSearch(searchList, type, searchBase) {
-  if(searchList.length ===0){
+  if (searchList.length === 0) {
     return searchBase
   }
   let returnList = [];
-  searchList.forEach(key=>{
-    searchBase.forEach(item=>{
-      if(item[type].toLowerCase().includes(key.toLowerCase())){
+  searchList.forEach(key => {
+    searchBase.forEach(item => {
+      if (item[type].toLowerCase().includes(key.toLowerCase())) {
         returnList.push(item)
       }
     })
@@ -36,7 +39,7 @@ function UniversalSearch(searchList, type, searchBase) {
  * @returns {Array} list of matched flights
  */
 function SearchFlights(searchKey, flights) {
-  ReactGA.event({category: 'SearchFlights',action: "search",label:searchKey});
+  ReactGA.event({ category: 'SearchFlights', action: "search", label: searchKey });
   let keyList = searchKey.split(" ");
   let flightNoKeyList = [];
   let routeKeyList = [];
@@ -55,22 +58,22 @@ function SearchFlights(searchKey, flights) {
     }
   }
 
-  let flightNoResult = UniversalSearch(flightNoKeyList,'flightNo',flights);
-  let routeKeyResult = UniversalSearch(routeKeyList,'path',flightNoResult);
-  let dateArrivalKeyResult = UniversalSearch(dateArrivalKeyList,'dateArrival',routeKeyResult);
+  let flightNoResult = UniversalSearch(flightNoKeyList, 'flightNo', flights);
+  let routeKeyResult = UniversalSearch(routeKeyList, 'path', flightNoResult);
+  let dateArrivalKeyResult = UniversalSearch(dateArrivalKeyList, 'dateArrival', routeKeyResult);
 
   //sort or return
-  if(dateArrivalKeyResult.length===0||dateArrivalKeyResult.length===flights.length){
-    return[]
+  if (dateArrivalKeyResult.length === 0 || dateArrivalKeyResult.length === flights.length) {
+    return []
   }
-   return dateArrivalKeyResult.sort(function(a, b) {
-        let arr = a.dateArrival.split("-");
-        let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-        arr = b.dateArrival.split("-");
+  return dateArrivalKeyResult.sort(function (a, b) {
+    let arr = a.dateArrival.split("-");
+    let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
+    arr = b.dateArrival.split("-");
 
-        let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-        return new Date(dateB) - new Date(dateA);
-    });
+    let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
+    return new Date(dateB) - new Date(dateA);
+  });
 }
 
 /**
@@ -79,7 +82,7 @@ function SearchFlights(searchKey, flights) {
  */
 function Flights({ flights }) {
   // sort data first
-  flights.sort(function(a, b) {
+  flights.sort(function (a, b) {
     let arr = a.dateArrival.split("-");
     let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
     arr = b.dateArrival.split("-");
@@ -99,7 +102,7 @@ function Flights({ flights }) {
 
   let outputList = [];
   if (searchKey === "") {
-    outputList = flights.slice(0 ,5);
+    outputList = flights.slice(0, 5);
   } else {
     outputList = flightResult;
   }
@@ -112,7 +115,10 @@ function Flights({ flights }) {
 
   return (
     <div className="card">
-      <h2>Flights</h2>
+
+      <h2 style={{ display: "flex" }}>Flights<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+        <Acknowledgement>
+        </Acknowledgement></div></h2>
       <div className="centerContent">
         <div className="selfCenter standardWidth">
           <div className="searchArea">
@@ -147,8 +153,8 @@ function Flights({ flights }) {
               </div>
             ))
           ) : (
-            <></>
-          )}
+              <></>
+            )}
         </div>
       </div>
     </div>

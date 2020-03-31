@@ -31,7 +31,7 @@ function AboutUs() {
                     <h4>Who started the dashboard?</h4>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <p>Dr <a className="citationLink" target="_blank" rel="noopener noreferrer" alt="Chunyang Chen" href="https://research.monash.edu/en/persons/chunyang-chen">Chunyang Chen</a>, a Lecturer (Assistant Professor) at the Faculty of Information Technology (IT) at Monash University, prototyped the dashboard with his graduate students, Han Wang, Chao Wu, Paldeep Singh, Boxuan Lu in the initial stage. This dashboard is further developed and maintained by a team of <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://github.com/covid-19-au/covid-19-au.github.io#team-member">volunteer students</a> with support from the Faculty of IT, Monash University.</p>
+                    <p>Dr Chunyang Chen prototyped the dashboard with his graduate students, Han Wang, Chao Wu, Paldeep Singh, Boxuan Lu in the initial stage. This dashboard is further developed and maintained by a team of <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://github.com/covid-19-au/covid-19-au.github.io#team-member">volunteer students</a>.</p>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
 
