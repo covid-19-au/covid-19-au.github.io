@@ -2,6 +2,12 @@ import uuid from "react-uuid";
 import React from "react";
 import stateData from "../data/state";
 import testedCases from "../data/testedCases";
+
+const CONFIRMED = 1;
+const DEATH = 2;
+const CURED = 3;
+const TESTED = 4;
+
 export default function Area({ area, onChange, data }) {
     let totalRecovered = 0;
     for (let i = 0; i < data.length; i++) {
@@ -36,17 +42,34 @@ export default function Area({ area, onChange, data }) {
                     <strong>{x[0]}</strong>
                 </div>
                 <div className="confirmed">
-                    <strong>{numberWithCommas(x[1])}</strong>&nbsp;<div className="dailyIncrease">{(x[1] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}</div>
+                    <strong>{numberWithCommas(x[CONFIRMED])}</strong>&nbsp;<div className="dailyIncrease">{(x[CONFIRMED] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}</div>
                 </div>
                 <div className="death">
-                    <strong>{numberWithCommas(x[2])}</strong>&nbsp;<div className="dailyIncrease">{(x[2] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}</div>
+                    <strong>{numberWithCommas(x[DEATH])}</strong>&nbsp;<div className="dailyIncrease">{(x[DEATH] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}</div>
                 </div>
                 <div className="cured">
-                    <strong>{numberWithCommas(x[3])}</strong>&nbsp;<div className="dailyIncrease">{(x[3] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}</div>
+                    <strong>{numberWithCommas(x[CURED])}</strong>&nbsp;<div className="dailyIncrease">{(x[CURED] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}</div>
                 </div>
-                <div className="tested">{numberWithCommas(x[4])}</div>
+                <div className="tested">{numberWithCommas(x[TESTED])}</div>
             </div>
         ));
+    };
+
+    const Total = ({data}) => {
+        const sumRow = (index, data) => data.reduce((total, row) => {
+            const val = +row[index] || 0;
+            return total + val;
+        }, 0);
+
+        return (
+            <div className="province table-footer">
+                <div className="area">Total</div>
+                <div className="confirmed">{numberWithCommas(sumRow(CONFIRMED, data))}</div>
+                <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
+                <div className="cured">{numberWithCommas(sumRow(CURED, data))}</div>
+                <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
+            </div>
+        )
     };
 
     return (
@@ -59,6 +82,7 @@ export default function Area({ area, onChange, data }) {
                 <div className="tested header testedtitle">Tested</div>
             </div>
             {renderArea()}
+            <Total data={data} />
 
             {totalRecovered > 25 ? null : (
                 <div className="province">
