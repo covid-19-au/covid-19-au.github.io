@@ -19,6 +19,33 @@
   },
   {
     "state": "New South Wales",
+    "address": "Eldridge Road, Bankstown 2200",
+    "hospitalPhone": "(02) 9722 8000",
+    "name": "Bankstown-Lidcombe Hospital",
+    "coor": ["-33.933148", "151.021026"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "Ascot Street, Bowral NSW 2576",
+    "hospitalPhone": "(02) 4861 0200",
+    "name": "Bowral and District Hospital",
+    "coor": ["-34.484597", "150.423469"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "Corner Polding Street and Prairievale Rd, Prairiewood 2176",
+    "hospitalPhone": "(02) 9616 8111",
+    "name": "Fairfield Hospital",
+    "coor": ["-33.859908", "150.904798"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
     "address": "361 Howick St, West Bathurst NSW 2795",
     "hospitalPhone": "(02) 6330 5000",
     "name": "Bathurst Base Hospital",
@@ -393,7 +420,7 @@
     "name": "Coffs Harbour Health Campus",
     "coor": ["-30.317171", "153.093706"],
     "hospitalType": "10am-2pm, Monday-Friday",
-    "type": ""
+    "type": "1"
   },
   {
     "state": "New South Wales",
@@ -402,7 +429,7 @@
     "name": "Kempsey Health Campus",
     "coor": ["-31.068999", "152.819457"],
     "hospitalType": "8am-12pm, Monday-Friday",
-    "type": ""
+    "type": "1"
   },
   {
     "state": "New South Wales",
@@ -411,7 +438,43 @@
     "name": "Port Macquarie Base Hospital",
     "coor": ["-31.451747", "152.878457"],
     "hospitalType": "10am-4pm, Monday- Friday",
-    "type": ""
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "16 Croudace Bay Road, Belmont NSW 2280",
+    "hospitalPhone": "(02) 4923 2000",
+    "name": "Belmont Hospital",
+    "coor": ["-33.025242", "151.648462"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "Edith and Plath Street, Waratah NSW 2298",
+    "hospitalPhone": "(02) 4921 1211",
+    "name": "Calvary Mater Newcastle",
+    "coor": ["-32.898396", "151.721065"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "560 High Street, Maitland NSW 2320",
+    "hospitalPhone": "(02) 4939 2000",
+    "name": "Maitland Hospital",
+    "coor": ["-32.725596", "151.545507"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "26 York Street, Taree NSW 2430",
+    "hospitalPhone": "(02) 6592 9111",
+    "name": "Manning Hospital",
+    "coor": ["-31.910023", "152.454714"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
   },
   {
     "state": "Queensland",
@@ -595,303 +658,6 @@
   },
   {
     "state": "Victoria",
-    "address": "53-81 Vermont St, Wodonga VIC 3690, Australia",
-    "hospitalPhone": "(02) 6051 7111",
-    "name": "Albury Wodonga Health - Woodonga",
-    "coor": ["-36.131814", "146.879837"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "145 Studley Rd, Heidelberg VIC 3084, Australia",
-    "hospitalPhone": "(03) 3 9496 5000",
-    "name": "Austin Hospital",
-    "coor": ["-37.756370", "145.059588"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "1 Drummond St N, Ballarat Central VIC 3350, Australia",
-    "hospitalPhone": "(03) 5320 4000",
-    "name": "Ballarat Base Hospital.",
-    "coor": ["-37.558656", "143.847227"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "Bellerine St, Geelong VIC 3220, Australia",
-    "hospitalPhone": "(03) 4215 0000",
-    "name": "Barwon Health - Geelong",
-    "coor": ["-38.152096", "144.365334"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "235 Graham St, Wonthaggi VIC 3995",
-    "hospitalPhone": "(03) 5671 3333",
-    "name": "Bass Coast Health - Wonthaggi",
-    "coor": ["-38.607232", "145.581751"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "Lucan St, North Bendigo VIC 3550",
-    "hospitalPhone": "(03) 5454 6000",
-    "name": "Bendigo hospital",
-    "coor": ["-36.747277", "144.286437"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "8 Arnold St, Box Hill VIC 3128, Australia",
-    "hospitalPhone": "1300 342 255",
-    "name": "Box Hill Hospital",
-    "coor": ["-37.813904", "145.118432"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "62-70 Kangan Dr, Berwick VIC 3806",
-    "hospitalPhone": "(03) 8768 1200",
-    "name": "Casey Hospital",
-    "coor": ["-38.044782", "145.346030"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "135 David St, Dandenong VIC 3175",
-    "hospitalPhone": "(03) 9554 1000",
-    "name": "Dandenong Hospital",
-    "coor": ["-37.976149", "145.218521"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "29-35 Grant St, Bacchus Marsh VIC 3340",
-    "hospitalPhone": "(03) 5367 2000",
-    "name": "Djerriwarrh Health Services - Bacchus Marsh",
-    "coor": ["-37.677797", "144.434556"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "195-209 Barries Road, Melton West, 3337",
-    "hospitalPhone": "(03)9747 7600",
-    "name": "Djerriwarrh Health Services - Melton",
-    "coor": ["-37.686669", "144.557733"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "226 Service St, Echuca VIC 3564",
-    "hospitalPhone": "(03) 5485 5000",
-    "name": "Echuca Regional Health",
-    "coor": ["-36.138926", "144.748210"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "2/2-48 Graham St, Shepparton VIC 3630",
-    "hospitalPhone": "(03) 5832 2322",
-    "name": "Goulburn Valley Health - Shepparton",
-    "coor": ["-36.363494", "145.404569"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "246 Clayton Rd, Clayton VIC 3168, Australia",
-    "hospitalPhone": "(03) 9594 6666",
-    "name": "Monash Medical Centre",
-    "coor": ["-37.920496", "145.123560"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "35-47 Green St, Wangaratta VIC 3677",
-    "hospitalPhone": "(03) 5722 5111",
-    "name": "Northeast Health Wangaratta",
-    "coor": ["-36.353858", "146.313728"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "185 Cooper St, Epping VIC 3076, Australia",
-    "hospitalPhone": "(03) 8405 8000",
-    "name": "Northern Hospital",
-    "coor": ["-37.652508", "145.014533"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "2 Hastings Rd, Frankston VIC 3199, Australia",
-    "hospitalPhone": "(03) 9342 7000",
-    "name": "Peninsula Health - Frankston",
-    "coor": ["-38.150661", "145.128516"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "50 Church St, Cowes VIC 3922",
-    "hospitalPhone": "(03) 5951 2100",
-    "name": "Phillip Island Health Hub",
-    "coor": ["-38.451931", "145.241353"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "25 Ryot St, Warrnambool VIC 3280",
-    "hospitalPhone": "(03) 5563 1666",
-    "name": "South West Healthcare - Warrnambool",
-    "coor": ["-38.379885", "142.473466"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "41 Victoria Parade, Fitzroy VIC 3065, Australia",
-    "hospitalPhone": "(03) 9231 2211",
-    "name": "St Vincent's Hospital Melbourne",
-    "coor": ["-37.807291", "144.975061"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "176 Furlong Rd, St Albans VIC 3021, Australia",
-    "hospitalPhone": "(03) 8345 1333",
-    "name": "Sunshine Hospital",
-    "coor": ["-37.759241", "144.816534"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "48 Splatt St, Swan Hill VIC 3585",
-    "hospitalPhone": "(03) 5033 9300",
-    "name": "Swan Hill District Health",
-    "coor": ["-35.339660", "143.556741"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "55 Commercial Rd, Melbourne VIC 3004, Australia",
-    "hospitalPhone": "(03) 9076 2000",
-    "name": "The Alfred Hospital",
-    "coor": ["-37.845510", "144.981856"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "50 Flemington Rd, Parkville VIC 3052",
-    "hospitalPhone": "(03) 9345 5522",
-    "name": "The Royal Children's Hospital",
-    "coor": ["-37.793885", "144.948899"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
-    "address": "300 Grattan St, Parkville VIC 3050, Australia",
-    "hospitalPhone": "(03) 9342 7000",
-    "name": "The Royal Melbourne Hospital",
-    "coor": ["-37.798750", "144.956196"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Western Australia",
-    "address": "C Block, Hospital Avenue, Nedlands",
-    "hospitalPhone": "(08) 6152 2222",
-    "name": "Fiona Stanley Hospital",
-    "coor": ["-32.069162", "115.848537"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Western Australia",
-    "address": "Ground Floor, Ainslie House, 48 Murray Street, Perth",
-    "hospitalPhone": "(08) 9224 2244",
-    "name": "Royal Perth Hospital",
-    "coor": ["-31.953528", "115.866427"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Western Australia",
-    "address": "C-block location within Sir Charles Hospital, Hospital Ave, Nedlands WA 6009",
-    "hospitalPhone": "(08) 6457 3333",
-    "name": "Sir Charles Gairdner Hospital",
-    "coor": ["-31.966544", "115.816344"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Western Australia",
-    "address": "Ground Floor, 3056 Albany Highway Mount Nasura",
-    "hospitalPhone": "(08) 9391 2000",
-    "name": "Armadale Health Service",
-    "coor": ["-32.132812", "116.019835"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Western Australia",
-    "address": "60 Shenton Ave, Joondalup WA 6027",
-    "hospitalPhone": "(08) 9400 9460",
-    "name": "Joondalup Hospital",
-    "coor": ["-31.739043", "115.773878"],
-    "hospitalType": "COVID-19 Clinic",
-    "type": "1"
-  },
-  {
-    "state": "Western Australia",
-    "address": "Elanora Dr, Cooloongup WA 6168",
-    "hospitalPhone": "(08) 9599 4000",
-    "name": "Rockingham General Hospital",
-    "coor": ["-32.291792", "115.770687"],
-    "hospitalType": "COVID-19 Clinic",
-    "type": "1"
-  },
-  {
-    "state": "Western Australia",
-    "address": "Clayton St, Midland WA 6056",
-    "hospitalPhone": "(08) 9462 4000",
-    "name": "St John of God Midland Hospital",
-    "coor": ["-31.894329", "116.007195"],
-    "hospitalType": "COVID-19 Clinic",
-    "type": "1"
-  },
-  {
-    "state": "Western Australia",
-    "address": "Bussell Highway (cnr Robertson Drive), Bunbury WA 6230",
-    "hospitalPhone": "(08) 9722 1000",
-    "name": "Bunbury Health Campus",
-    "coor": ["-33.366717", "115.647976"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "Victoria",
     "address": "55 Commercial Rd, Melbourne VIC 3004, Australia",
     "hospitalPhone": "(03) 9076 2000",
     "name": "The Alfred Hospital",
@@ -966,7 +732,7 @@
     "state": "Victoria",
     "address": "50 Flemington Rd, Parkville VIC 3052",
     "hospitalPhone": "(03) 9345 5522",
-    "name": "The Royal Children's Hospital",
+    "name": "Royal Children's Hospital",
     "coor": ["-37.793885", "144.948899"],
     "hospitalType": "",
     "type": "1"
@@ -975,7 +741,7 @@
     "state": "Victoria",
     "address": "300 Grattan St, Parkville VIC 3050, Australia",
     "hospitalPhone": "(03) 9342 7000",
-    "name": "The Royal Melbourne Hospital",
+    "name": "Royal Melbourne Hospital",
     "coor": ["-37.798750", "144.956196"],
     "hospitalType": "",
     "type": "1"
@@ -1161,39 +927,102 @@
     "type": "1"
   },
   {
-    "state": "New South Wales",
-    "address": "​16 Croudace Bay Road, Belmont NSW 2280",
-    "hospitalPhone": "(02) 4923 2000",
-    "name": "Belmont Hospital",
-    "coor": ["-33.025242", "151.648462"],
-    "hospitalType": "Drive-through Testing",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "​​Edith and Plath Street, Waratah NSW 2298",
-    "hospitalPhone": "(02) 4921 1211",
-    "name": "Calvary Mater Newcastle",
-    "coor": ["-32.898396", "151.721065"],
+    "state": "Western Australia",
+    "address": "C Block, Hospital Avenue, Nedlands",
+    "hospitalPhone": "(08) 6152 2222",
+    "name": "Fiona Stanley Hospital",
+    "coor": ["-32.069162", "115.848537"],
     "hospitalType": "",
     "type": "1"
   },
   {
-    "state": "New South Wales",
-    "address": "​560 High Street, Maitland NSW 2320",
-    "hospitalPhone": "(02) 4939 2000",
-    "name": "Maitland Hospital",
-    "coor": ["-32.725596", "151.545507"],
+    "state": "Western Australia",
+    "address": "Ground Floor, Ainslie House, 48 Murray Street, Perth",
+    "hospitalPhone": "(08) 9224 2244",
+    "name": "Royal Perth Hospital",
+    "coor": ["-31.953528", "115.866427"],
     "hospitalType": "",
     "type": "1"
   },
   {
-    "state": "New South Wales",
-    "address": "​​26 York Street, Taree NSW 2430",
-    "hospitalPhone": "(02) 6592 9111",
-    "name": "Manning Hospital",
-    "coor": ["-31.910023", "152.454714"],
-    "hospitalType": "Drive-through Testing",
+    "state": "Western Australia",
+    "address": "C-block location within Sir Charles Hospital, Hospital Ave, Nedlands WA 6009",
+    "hospitalPhone": "(08) 6457 3333",
+    "name": "Sir Charles Gairdner Hospital",
+    "coor": ["-31.966544", "115.816344"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Western Australia",
+    "address": "Ground Floor, 3056 Albany Highway Mount Nasura",
+    "hospitalPhone": "(08) 9391 2000",
+    "name": "Armadale Health Service",
+    "coor": ["-32.132812", "116.019835"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Western Australia",
+    "address": "60 Shenton Ave, Joondalup WA 6027",
+    "hospitalPhone": "(08) 9400 9460",
+    "name": "Joondalup Hospital",
+    "coor": ["-31.739043", "115.773878"],
+    "hospitalType": "COVID-19 Clinic",
+    "type": "1"
+  },
+  {
+    "state": "Western Australia",
+    "address": "Elanora Dr, Cooloongup WA 6168",
+    "hospitalPhone": "(08) 9599 4000",
+    "name": "Rockingham General Hospital",
+    "coor": ["-32.291792", "115.770687"],
+    "hospitalType": "COVID-19 Clinic",
+    "type": "1"
+  },
+  {
+    "state": "Western Australia",
+    "address": "Clayton St, Midland WA 6056",
+    "hospitalPhone": "(08) 9462 4000",
+    "name": "St John of God Midland Hospital",
+    "coor": ["-31.894329", "116.007195"],
+    "hospitalType": "COVID-19 Clinic",
+    "type": "1"
+  },
+  {
+    "state": "Western Australia",
+    "address": "Bussell Highway (cnr Robertson Drive), Bunbury WA 6230",
+    "hospitalPhone": "(08) 9722 1000",
+    "name": "Bunbury Health Campus",
+    "coor": ["-33.366717", "115.647976"],
+    "hospitalType": "",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "40 Morayfield Rd, Caboolture South QLD 4510",
+    "hospitalPhone": "",
+    "name": "Morayfield GP respiratory clinic",
+    "coor": ["-27.100032", "152.948193"],
+    "hospitalType": "GP Respiratory Clinic",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "1270 Sandgate Rd, Nundah QLD 4012",
+    "hospitalPhone": "(07) 3266 6622",
+    "name": "Nundah Village Family Practice",
+    "coor": ["-27.401374", "153.058973"],
+    "hospitalType": "GP Respiratory Clinic",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "15 Mill St, Tanunda SA 5352",
+    "hospitalPhone": "(08) 8563 2398",
+    "name": "Tanunda War Memorial Hospital",
+    "coor": ["-34.527592", "138.960813"],
+    "hospitalType": "COVID-19 testing clinic",
     "type": "1"
   }
 ]
