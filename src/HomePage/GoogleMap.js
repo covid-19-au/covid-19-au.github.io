@@ -143,15 +143,15 @@ function GoogleMap({ province, newData }) {
         loading ? <div className="loading">Loading...</div> :
             <div className="stateMap">
                 <h2> Cases by State {province ? `· ${province.name}` : false} </h2>
-                <span className="selection-grid">
-            <div class="btn-group btn-group-sm btn-group-toggle" role="group" aria-label="Map types">
-              <button type="button" class="btn btn-danger" value="confirmed-cases" onClick={toggleData}>CONFIRMED CASES</button>
-              <button type="button" class="btn btn-warning" value="relative-cases" onClick={toggleData}>CASES/MILLION PEOPLE</button>
-              <button type="button" class="btn btn-primary" value="tested" onClick={toggleData}>TESTED</button>
-              <button type="button" class="btn btn-info" value="relative-tests" onClick={toggleData}>TESTS/MILLION PEOPLE</button>
-              <button type="button" class="btn btn-secondary" value="test-strike" onClick={toggleData}>POSITIVE TEST RATE</button>
-            </div>
-        </span>
+                <div class="btn-group btn-group-sm btn-group-toggle" role="group" aria-label="Map types">
+                  <button type="button" class="btn btn-danger" value="confirmed-cases" onClick={toggleData}>CONFIRMED CASES</button>
+                  <button type="button" class="btn btn-warning" value="relative-cases" onClick={toggleData}>CASES/MILLION PEOPLE</button>
+                </div>
+                <div class="btn-group btn-group-sm btn-group-toggle" role="group" aria-label="Map types">
+                  <button type="button" class="btn btn-primary" value="tested" onClick={toggleData}>TESTED</button>
+                  <button type="button" class="btn btn-info" value="relative-tests" onClick={toggleData}>TESTS/MILLION PEOPLE</button>
+                  <button type="button" class="btn btn-secondary" value="test-strike" onClick={toggleData}>POSITIVE TEST RATE</button>
+                </div>
 
                 <Chart
                     width={window.innerWidth < 960 ? '100%' : 'auto'}
