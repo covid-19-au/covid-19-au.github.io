@@ -342,7 +342,7 @@ class MbMap extends React.Component {
 
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
-                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>' + date)
+                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>By: ' + date)
                         .addTo(map);
                 });
 
