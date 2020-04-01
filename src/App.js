@@ -73,7 +73,16 @@ function Header({ province }) {
           textAlign: "center"
         }}
       >
-        COVID-19 in Australia — Real-Time Report
+        COVID-19 in Australia
+      </h1>
+      <h1
+        style={{
+          fontSize: "160%",
+          color: "white",
+          textAlign: "center"
+        }}
+      >
+        Real-Time Report
       </h1>
       <div style={{
         fontSize: "170%",
