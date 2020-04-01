@@ -556,7 +556,7 @@
     "date": "01/04/20",
     "time": "",
     "description": "Eleven baggage handlers and another two close contacts have tested positive for COVID-19, taking the cluster to a total of 13 cases. ",
-    "coor": ["-34.946426, 138.533313"],
+    "coor": ["-34.946426", "138.533313"],
     "type": "0"
   }
 ]
