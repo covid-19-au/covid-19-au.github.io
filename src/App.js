@@ -224,11 +224,11 @@ function App() {
     "/state/vic": () => <AgeGenderChart state="VIC" />,
     "/state/nsw": () => <AgeGenderChart state="NSW" />,
     "/state/qld": () => <AgeGenderChart state="QLD" />,
-    "/state/ACT": () => <AgeGenderChart state="ACT" />,
-    "/state/SA": () => <AgeGenderChart state="SA" />,
-    "/state/WA": () => <AgeGenderChart state="WA" />,
-    "/state/NT": () => <AgeGenderChart state="NT" />,
-    "/state/TAS": () => <AgeGenderChart state="TAS" />,
+    "/state/act": () => <AgeGenderChart state="ACT" />,
+    "/state/sa": () => <AgeGenderChart state="SA" />,
+    "/state/wa": () => <AgeGenderChart state="WA" />,
+    "/state/nt": () => <AgeGenderChart state="NT" />,
+    "/state/tas": () => <AgeGenderChart state="TAS" />,
   };
 
   // // The hook used to render the routes.

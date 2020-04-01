@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Chart from "chart.js";
 import Grid from "@material-ui/core/Grid";
-import ageGenderData from "../data/ageGenderData";
+// import ageGenderData from "../data/ageGenderData";
+
+import ageGenderData from "../data/ageGender";
 
 const color = {
   male: "#ff0000",
@@ -15,7 +17,7 @@ const color = {
  * @return {Array} list of gender data
  */
 function getGenderData(expectState) {
-  return expectState["gender"]["genderData"];
+  return expectState["gender"];
 }
 
 /**
@@ -42,14 +44,27 @@ function getAgeData(ageLabel, genderIndex, expectState) {
   return list;
 }
 
+/**
+ * get choosen state data
+ * @param {String} state user chosed state
+ * @return {Object} object which contains age and gender data for a specific state. Return null if the choosen state data is not available
+ */
+function getExpectStateData(state) {
+  return state.toUpperCase() in ageGenderData ? ageGenderData[state] : null;
+}
+
 function AgeGenderChart({ state }) {
-  const expectStateData = ageGenderData[state.toUpperCase()];
+  // get choosen state data
+  const expectStateData = getExpectStateData(state);
   // gender chart
   const genderChartRef = React.createRef();
 
   useEffect(() => {
+    // only draw graph when state data is available
+    if (expectStateData === null) {
+      return;
+    }
     const genderData = getGenderData(expectStateData);
-
     let myGenderChartRef = genderChartRef;
     myGenderChartRef = myGenderChartRef.current.getContext("2d");
     new Chart(myGenderChartRef, {
@@ -69,9 +84,13 @@ function AgeGenderChart({ state }) {
 
   // age chart
   const ageChartRef = React.createRef();
-  const ageChartLabels = getAgeChartLabels(expectStateData);
 
   useEffect(() => {
+    // only draw graph when state data is available
+    if (expectStateData === null) {
+      return;
+    }
+    const ageChartLabels = getAgeChartLabels(expectStateData);
     const allAgeData = getAgeData(ageChartLabels, 0, expectStateData);
     const maleAgeData = getAgeData(ageChartLabels, 1, expectStateData);
     const femaleAgeData = getAgeData(ageChartLabels, 2, expectStateData);
@@ -112,17 +131,25 @@ function AgeGenderChart({ state }) {
     });
   }, [ageGenderData]);
 
-  return (
-    <Grid item xs={11} sm={11} md={4}>
-    <div className="card">
-      <h2>{state.toUpperCase()} Chart</h2>
-      <p>Cases by gender</p>
-      <canvas id="vicGenderChart" ref={genderChartRef} />
-      <p>Cases by age group</p>
-      <canvas id="vicAgeRangeChart" ref={ageChartRef} />
-    </div>
-    </Grid>
-  );
+  if (expectStateData !== null) {
+    return (
+      <Grid item xs={11} sm={11} md={4}>
+        <div className="card">
+          <h2>{state.toUpperCase()} Chart</h2>
+          <p>Cases by gender</p>
+          <canvas id="vicGenderChart" ref={genderChartRef} />
+          <p>Cases by age group</p>
+          <canvas id="vicAgeRangeChart" ref={ageChartRef} />
+        </div>
+      </Grid>
+    );
+  } else {
+    return (
+      <Grid item xs={11} sm={11} md={4}>
+        <h1>Our data team is collecting data for {state}!</h1>
+      </Grid>
+    );
+  }
 }
 
 export default AgeGenderChart;
