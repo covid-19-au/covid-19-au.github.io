@@ -68,22 +68,14 @@ function Header({ province }) {
       <div className="bg"></div>
       <h1
         style={{
-          fontSize: "170%",
+          fontSize: "120%",
           color: "white",
           textAlign: "center"
         }}
       >
         COVID-19 in Australia — Real-Time Report
       </h1>
-      <div style={{
-        fontSize: "170%",
-        color: "white",
-        textAlign: "center"
-      }}>
-        <a href="https://twitter.com/covid19augithub"><i class="fab fa-twitter"></i>&nbsp;&nbsp;</a>
-        <a href="https://www.instagram.com/covid19_au/"><i class="fab fa-instagram"></i>&nbsp;&nbsp;</a>
-        <a href="https://www.facebook.com/covid19au.github/"><i class="fab fa-facebook"></i></a>
-      </div>
+
       {/*<i>By Students from Monash</i>*/}
     </header>
   );
