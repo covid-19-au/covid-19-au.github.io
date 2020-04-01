@@ -11,7 +11,7 @@ export default function Tweets({ province, nav }) {
             <div className="centerContent">
                 <div className="selfCenter standardWidth">
                     {/* Must do check for window.location.pathname === "News" to ensure TwitterTimeLine doesn't do a react state update on an unmounted component. */}
-                    {nav === "News" ? (
+                    {window.location.pathname === "/news" ? (
                         <TwitterTimelineEmbed
                             sourceType="list"
                             ownerScreenName="8ravoEchoNov"

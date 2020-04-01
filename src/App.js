@@ -75,7 +75,7 @@ function Header({ province }) {
       >
         COVID-19 in Australia — Real-Time Report
       </h1>
-
+        <div className="slogan"><i>Stay Calm Stay Informed</i></div>
       {/*<i>By Students from Monash</i>*/}
     </header>
   );
