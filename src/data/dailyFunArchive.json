@@ -1,6 +1,19 @@
 {
     "dailyFunStuff": [
         {
+            "image": [
+                {
+                    "name": "Zoos around the world are live-streaming their animals!",
+                    "imgLink": "https://media.timeout.com/images/105625251/750/422/image.jpg",
+                    "description": "Check out the list of zoos here!",
+                    "source": "https://www.timeout.com/news/zoos-around-the-world-are-live-streaming-penguins-pandas-and-beluga-whales-031920"
+                }
+            ],
+            "video": [],
+            "type":"fun",
+            "date":"1/4/2020"
+        },
+        {
             "image": [],
             "video": [
                 {
@@ -8,7 +21,9 @@
                     "link": "https://www.youtube.com/watch?v=WPPPFqsECz0&t=458s",
                     "description": "Self-isolating and social distancing can be tough, but maybe this video could help us all cope with it all a little better!"
                 }
-            ]
+            ],
+            "type":"fun",
+            "date":"31/3/2020"
         },
         {
             "image": [
@@ -19,7 +34,9 @@
                     "source": " https://citymapper.com/cmi/sydney"
                 }
             ],
-            "video": []
+            "video": [],
+            "type":"fun",
+            "date":"30/3/2020"
         },
         {
             "image": [],
@@ -29,17 +46,9 @@
                     "link": "https://www.youtube.com/watch?v=54XLXg4fYsc&t=14s",
                     "description": "Minute Physics explains how we can tell if we're beating COVID-19."
                 }
-            ]
-        },
-        {
-            "image": [],
-            "video": [
-                {
-                    "name": "How To Tell If We're Beating COVID-19",
-                    "link": "https://www.youtube.com/watch?v=54XLXg4fYsc&t=14s",
-                    "description": "Minute Physics explains how we can tell if we're beating COVID-19."
-                }
-            ]
+            ],
+            "type":"fun",
+            "date":"29/3/2020"
         },
         {
             "image": [],
@@ -49,7 +58,9 @@
                     "link": "https://www.youtube.com/watch?v=115m7ji5mdY",
                     "description": "Watch Quentin spend 24 hours in the \"world's most virus proof house!\""
                 }
-            ]
+            ],
+            "type":"fun",
+            "date":"28/3/2020"
         }
     ]
 }

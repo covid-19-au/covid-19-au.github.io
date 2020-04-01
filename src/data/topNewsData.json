@@ -1,6 +1,38 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-03-30/coronavirus-wage-subsidies-government-businesses-workers/12103108",
+            "title": "Federal Government offers $130b in coronavirus wage subsidies for businesses to pay workers",
+            "source": "ABCNews",
+            "date": "31 March 2020",
+            "time": "00:32",
+            "summary": "The Government expects up to 6 million people will access a $1,500 fortnightly wage subsidy. The so-called JobKeeper payment is designed to keep people in work. The Government will also lift the means-testing threshold for the partners of JobSeeker recipients."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-jobkeeper-payment-who-is-eligible-how-it-works-questions-answered-explainer/9cd64109-a3e1-4d2e-8350-09ca63a5a4cc",
+            "title": "JobKeeper Payment questions: Here is exactly who is eligible",
+            "source": "9News",
+            "date": "31 March 2020",
+            "time": "13:35",
+            "summary": "Scott Morrison announced a new wage subsidy package: a $1500 fortnightly sum now known as the \"JobKeeper Payment\""
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-03-31/coronavirus-agreement-to-keep-private-hospitals-open/12106496",
+            "title": "Private hospitals to free up thousands of beds in deal with Federal Government to tackle coronavirus",
+            "source": "ABCNews",
+            "date": "31 March 2020",
+            "time": "19:03",
+            "summary": "The Federal Government has struck a deal with the country's 657 private hospitals, giving the Commonwealth access to another 34,000 hospital beds to help tackle the coronavirus crisis. The Commonwealth will guarantee the survival of private hospitals during this period while elective surgery, which is their main form of income, is cancelled."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-03-29/public-gatherings-limited-to-two-people-coronavirus-covid-19/12101162",
+            "title": "Gatherings restricted to two people to slow spread of coronavirus",
+            "source": "ABCNews",
+            "date": "30 March 2020",
+            "time": "10:42",
+            "summary": "As of Midnight March 30, the previous gathering limit of 10 people has been cut to two. Like the old restrictions, the new limit does not apply to people who live together. Weddings are still capped at five people and funerals at 10. Vulnerable people have been advised to stay home."
+        },
+        {
             "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-update-australia-scott-morrison-announces-strictest-gathering-measures-yet-c-769960",
             "title": "Coronavirus update Australia: Scott Morrison announces strictest gathering measures yet",
             "source": "7News",
