@@ -15,6 +15,8 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import dailyFun from "./data/dailyFun"
 import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
+import ReactGA from "react-ga";
+import {A} from 'hookrouter';
 
 
 // Info page to present information about the virus.
@@ -54,7 +56,7 @@ function Information({ hospitalData, columns }) {
     return (
         <div>
             <div className="card">
-                <h2 className="responsiveH2">Daily Distractions</h2>
+                <h2 className="responsiveH2">{dailyFun.dailyFunStuff[0]["type"]==="motivation"?"Daily Motivation":"Daily Distractions"}</h2>
 
                 {dailyFun.dailyFunStuff.map(stuff => (
                     <div key={uuid()}>
@@ -96,10 +98,12 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }
-                <p style={{ textAlign: "center" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
-
-                <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
-                    rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
+                <p style={{ textAlign: "center" }}>We will be regularly sharing motivated or interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
+                {/*<p style={{ textAlign: "center" }}>Click <A href="/faq"><span style={{ color: "#3366BB" }} onClick={() => {*/}
+                    {/*ReactGA.event({category: 'DailyStory',action: "more"});*/}
+                    {/*window.scrollTo(0, 0);}}>{"here"}</span></A> for previous posts!</p>*/}
+                <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can click <a style={{ color: "#3366BB" }} target="_blank"
+                    rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"me!"}</a> </p>
             </div>
 
 
