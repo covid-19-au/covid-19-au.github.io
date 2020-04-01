@@ -548,5 +548,15 @@
     "description": "Public Health Services is continuing to investigate two cases in the Devonport area for which a source of infection has not been identified.",
     "coor": ["-41.179439", "146.345319"],
     "type": "0"
+  },
+  {
+    "state": "SA",
+    "area": "Adelaide",
+    "name": "Adelaide Airport",
+    "date": "01/04/20",
+    "time": "",
+    "description": "Eleven baggage handlers and another two close contacts have tested positive for COVID-19, taking the cluster to a total of 13 cases. ",
+    "coor": ["-34.946426", "138.533313"],
+    "type": "0"
   }
 ]
