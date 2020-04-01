@@ -230,7 +230,7 @@ function App() {
     "/state/NT": () => <AgeGenderChart state="NT" />,
     "/state/TAS": () => <AgeGenderChart state="TAS" />,
   };
-  //
+
   // // The hook used to render the routes.
   const routeResult = useRoutes(routes);
   // const [urlPath, setUrlPath] = useState(window.location.pathname);

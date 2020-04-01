@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js";
-
+import Grid from "@material-ui/core/Grid";
 import ageGenderData from "../data/ageGenderData";
 
 const color = {
@@ -113,6 +113,7 @@ function AgeGenderChart({ state }) {
   }, [ageGenderData]);
 
   return (
+    <Grid item xs={11} sm={11} md={4}>
     <div className="card">
       <h2>{state.toUpperCase()} Chart</h2>
       <p>Cases by gender</p>
@@ -120,6 +121,7 @@ function AgeGenderChart({ state }) {
       <p>Cases by age group</p>
       <canvas id="vicAgeRangeChart" ref={ageChartRef} />
     </div>
+    </Grid>
   );
 }
 
