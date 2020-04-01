@@ -50,6 +50,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Alert, AlertTitle } from '@material-ui/lab';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AgeGenderChart from "./DataVis/AgeGenderChart";
 
 
 
@@ -219,7 +220,15 @@ function App() {
     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
     "/info": () => <InfoPage columns={columns} gspace={gspace} />,
     "/news": () => <NewsPage province={province} gspace={gspace} />,
-    "/faq": () => <FAQPage />
+    "/faq": () => <FAQPage />,
+    "/state/vic": () => <AgeGenderChart state="VIC" />,
+    "/state/nsw": () => <AgeGenderChart state="NSW" />,
+    "/state/qld": () => <AgeGenderChart state="QLD" />,
+    "/state/ACT": () => <AgeGenderChart state="ACT" />,
+    "/state/SA": () => <AgeGenderChart state="SA" />,
+    "/state/WA": () => <AgeGenderChart state="WA" />,
+    "/state/NT": () => <AgeGenderChart state="NT" />,
+    "/state/TAS": () => <AgeGenderChart state="TAS" />,
   };
   //
   // // The hook used to render the routes.

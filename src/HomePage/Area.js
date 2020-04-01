@@ -1,13 +1,10 @@
 import uuid from "react-uuid";
-import React, { useState } from "react";
+import React from "react";
 import stateData from "../data/state";
-import AgeGenderChart from "../DataVis/AgeGenderChart";
 
-import { Modal, Button } from "react-bootstrap";
+import { A } from "hookrouter";
 
 export default function Area({ area, onChange, data }) {
-  const [showAgeGenderChart, setShowAgeGenderChart] = useState(false);
-  const [modalState, setModalState] = useState("NSW");
 
   let totalRecovered = 0;
   for (let i = 0; i < data.length; i++) {
@@ -24,11 +21,6 @@ export default function Area({ area, onChange, data }) {
       )}, there were ${confirmed} confirmed cases. Out of them, ${death} unfortunately resulted in death.
 
     ${recovered} recovered and ${tested} were tested`;
-  };
-
-  const openModal = state => {
-    setModalState(state);
-    setShowAgeGenderChart(true);
   };
 
   const renderArea = () => {
@@ -53,29 +45,10 @@ export default function Area({ area, onChange, data }) {
         {/*<div className="cured">{ x.curedCount }</div>*/}
         <div className={"area"}>
           <strong>
-            <a href="javascript:void(0)" onClick={() => openModal(x[0])}>
-              {x[0]}
-            </a>
+            <A href={`/state/${x[0].toLowerCase()}`}>
+              <strong>{x[0]}</strong>
+            </A>
           </strong>
-          <Modal
-            show={showAgeGenderChart}
-            onHide={() => setShowAgeGenderChart(false)}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>{modalState} Chart</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <AgeGenderChart state={modalState} />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button
-                variant="secondary"
-                onClick={() => setShowAgeGenderChart(false)}
-              >
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
         </div>
         <div className="confirmed">
           <strong>{numberWithCommas(x[1])}</strong>&nbsp;
