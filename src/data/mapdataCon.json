@@ -73,9 +73,9 @@
     "state": "NSW",
     "area": "Macquarie Park",
     "name": "Dorothy Henderson Lodge",
-    "date": "24/3/20",
+    "date": "31/3/20",
     "time": "N/A",
-    "description": "11 Residents, 5 staff",
+    "description": "16 residents, 5 staff",
     "coor": ["-33.777053", "151.110612"],
     "type": "0"
   },
@@ -492,10 +492,10 @@
   {
     "state": "WA",
     "area": "Perth metropolitan area",
-    "name": "Perth metropolitan area: 28 cases",
-    "date": "24/3/20",
+    "name": "Perth metropolitan area: 54 cases",
+    "date": "31/3/20",
     "time": "N/A",
-    "description": "The Department can confirm that 15 of these new confirmed cases have travelled overseas or are linked to overseas travel - UK, USA, Ireland, Spain (via Dubai), New Zealand, France and Europe.",
+    "description": "There are currently 54 confirmed COVID-19 patients in Perth metropolitan hospitals, with 12 in ICU.",
     "coor": ["-31.946603", "115.849349"],
     "type": "0"
   },
@@ -527,6 +527,26 @@
     "time": "",
     "description": "Two of the new cases are healthcare workers. This includes a healthcare worker from Broome Hospital with a history of intrastate travel.",
     "coor": ["-17.960318", "122.236525"],
+    "type": "0"
+  },
+  {
+    "state": "QLD",
+    "area": "Edmonton PCYC",
+    "name": "a wreslting event",
+    "date": "31/3/20",
+    "time": "",
+    "description": "Three comfirmed cases",
+    "coor": ["-17.016973", "145.725109"],
+    "type": "0"
+  },
+  {
+    "state": "TAS",
+    "area": "Devonport",
+    "name": "Devonport area",
+    "date": "31/3/20",
+    "time": "",
+    "description": "Public Health Services is continuing to investigate two cases in the Devonport area for which a source of infection has not been identified.",
+    "coor": ["-41.179439", "146.345319"],
     "type": "0"
   }
 ]

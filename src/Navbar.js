@@ -29,6 +29,7 @@ export default function Navbar({ setNav, nav }) {
         <div className={`sticky-wrapper ${isSticky ? "sticky" : ""}`} ref={ref}>
             <div
                 className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
+                style={{marginRight:0,marginLeft:0}}
             >
         <A
             className={`navItems ${
