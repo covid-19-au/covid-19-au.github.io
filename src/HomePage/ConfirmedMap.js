@@ -438,22 +438,17 @@ class MbMap extends React.Component {
     }
 
     render() {
-        const style = {
-            height: '100%',
-
-        };
 
 
         return (
             <div className="card" style={{
                 display: 'flex',
                 flexDirection: 'column',
-                height: '520px'
             }}>
                 <h2 style={{ display: "flex" }}>Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div></h2>
-                <div style={style} ref={el => this.mapContainer = el} >
+                <div  ref={el => this.mapContainer = el} >
                     {/*{*/}
                     {/*confirmedData.map((item)=>(*/}
                     {/*<div style={activityStyle}>*/}
