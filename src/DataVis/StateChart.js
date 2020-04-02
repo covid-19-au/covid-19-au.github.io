@@ -60,7 +60,7 @@ function getLatestData(state) {
 }
 
 function setGenderOption(expectState) {
-  const genderLabel = ["male", "female", "not stated"];
+  const genderLabel = ["Male", "Female", "Not Stated"];
   const genderData = getGenderData(expectState);
   // create dataset for gender graph display
   let dataArr = [];
