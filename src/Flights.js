@@ -29,7 +29,6 @@ function UniversalSearch(searchList, type, searchBase) {
 
 }
 
-
 /**
  * Search flight information according user's input
  * @param {String} searchKey keyword used as filter
