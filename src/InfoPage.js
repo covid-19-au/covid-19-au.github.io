@@ -99,11 +99,11 @@ function Information({ hospitalData, columns }) {
                 ))
                 }
                 <p style={{ textAlign: "center" }}>We will be regularly sharing motivated or interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
-                {/*<p style={{ textAlign: "center" }}>Click <A href="/faq"><span style={{ color: "#3366BB" }} onClick={() => {*/}
-                    {/*ReactGA.event({category: 'DailyStory',action: "more"});*/}
-                    {/*window.scrollTo(0, 0);}}>{"here"}</span></A> for previous posts!</p>*/}
-                <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can click <a style={{ color: "#3366BB" }} target="_blank"
-                    rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"me!"}</a> </p>
+                <p style={{ textAlign: "center" }}>Click <A href="/dailyHistory"><span style={{ color: "#3366BB" }} onClick={() => {
+                    ReactGA.event({category: 'DailyStory',action: "more"});
+                    window.scrollTo(0, 0);}}>{"here"}</span></A> for previous posts!</p>
+                {/*<p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can click <a style={{ color: "#3366BB" }} target="_blank"*/}
+                    {/*rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"me!"}</a> </p>*/}
             </div>
 
 
