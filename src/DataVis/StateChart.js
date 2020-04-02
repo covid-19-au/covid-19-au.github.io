@@ -181,15 +181,19 @@ function StateChart({ state }) {
 
   if (expectStateData !== null) {
     return (
-      <Grid item xs={11} sm={11} md={4}>
-        <div className="card">
-          <h2>{state.toUpperCase()} Chart</h2>
-          <p>Cases by gender</p>
-          <ReactEcharts option={genderOption} />
-          <p>Cases by age group</p>
-          <ReactEcharts option={ageOption} />
-        </div>
-        <div id="echartTest" style={{ width: "600px" }}></div>
+      <Grid container spacing={1} justify="center" wrap="wrap">
+        <Grid item xs={11} sm={11} md={4} xl={4}>
+          <div className="card">
+            <h2>{state.toUpperCase()}Cases by Gender</h2>
+            <ReactEcharts option={genderOption} />
+          </div>
+        </Grid>
+        <Grid item xs={11} sm={11} md={4} xl={6}>
+          <div className="card">
+            <h2>{state.toUpperCase()}Cases by Age Group</h2>
+            <ReactEcharts option={ageOption} />
+          </div>
+        </Grid>
       </Grid>
     );
   } else {
