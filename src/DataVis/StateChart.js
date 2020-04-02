@@ -11,6 +11,22 @@ import ReactEcharts from "echarts-for-react";
 //   notStated: "#000000"
 // };
 
+const stateNameMapping = {
+  VIC: "Victoria",
+  NSW: "New South Wales",
+  QLD: "Queensland",
+  ACT: "Australian Capital Territory",
+  SA: "South Australia",
+  WA: "Western Australia",
+  TAS: "Tasmania",
+  NT: "Northern Territory"
+};
+
+const ALL_INDEX = 0;
+const MALE_INDEX = 1;
+const FEMALE_INDEX = 2;
+const NOT_STATED_INDEX = 3;
+
 /**
  * get gender data for expect state
  * @param {Object} expectState state object contains age and gender data
@@ -69,6 +85,11 @@ function setGenderOption(expectState) {
     dataArr.push(tempData);
   }
 
+  let series = new Series();
+  let pieSeries = new PieSeries("gender", dataArr);
+  pieSeries.setRadius("40%", "70%");
+  series.addSubSeries(pieSeries);
+
   let tempOption = {
     title: {
       text: "Gender Chart"
@@ -81,35 +102,24 @@ function setGenderOption(expectState) {
       data: genderLabel,
       top: "7%"
     },
-    series: [
-      {
-        name: "gender",
-        type: "pie",
-        radius: ["40%", "70%"],
-        label: {
-          show: false,
-          position: "center"
-        },
-        emphasis: {
-          label: {
-            show: true,
-            fontWeight: "bold"
-          }
-        },
-        data: dataArr
-      }
-    ]
+    series: series.getSeriesList()
   };
   return tempOption;
 }
 
 function setAgeOption(expectState) {
   const ageChartLabels = getAgeChartLabels(expectState);
-  const ageChartLegend = ["Male", "Female", "Not Stated", "All"];
-  const maleAgeData = getAgeData(ageChartLabels, 1, expectState);
-  const femaleAgeData = getAgeData(ageChartLabels, 2, expectState);
-  const notStatedAgeData = getAgeData(ageChartLabels, 3, expectState);
-  const allAgeData = getAgeData(ageChartLabels, 0, expectState);
+  const ageChartLegend = ["All", "Male", "Female", "Not Stated"];
+  let ageDataList = [];
+  ageDataList.push(getAgeData(ageChartLabels, ALL_INDEX, expectState)); // all age data
+  ageDataList.push(getAgeData(ageChartLabels, MALE_INDEX, expectState)); // male age data
+  ageDataList.push(getAgeData(ageChartLabels, FEMALE_INDEX, expectState)); // female age data
+  ageDataList.push(getAgeData(ageChartLabels, NOT_STATED_INDEX, expectState)); // not stated age data
+  let ageOptionSeries = new Series();
+  for (let i = 0; i < ageDataList.length; i++) {
+    let tempBarSeries = new BarSeries(ageChartLegend[i], ageDataList[i]);
+    ageOptionSeries.addSubSeries(tempBarSeries);
+  }
 
   let tempOption = {
     tooltip: {
@@ -128,10 +138,10 @@ function setAgeOption(expectState) {
       data: ageChartLegend,
       top: "7%",
       selected: {
-        "Male": true,
-        "Female": true,
+        Male: true,
+        Female: true,
         "Not Stated": true,
-        "All": false
+        All: false
       }
     },
     xAxis: {
@@ -142,28 +152,7 @@ function setAgeOption(expectState) {
       }
     },
     yAxis: {},
-    series: [
-      {
-        name: "Male",
-        type: "bar",
-        data: maleAgeData
-      },
-      {
-        name: "Female",
-        type: "bar",
-        data: femaleAgeData
-      },
-      {
-        name: "Not Stated",
-        type: "bar",
-        data: notStatedAgeData
-      },
-      {
-        name: "All",
-        type: "bar",
-        data: allAgeData
-      }
-    ]
+    series: ageOptionSeries.getSeriesList()
   };
   return tempOption;
 }
@@ -182,15 +171,20 @@ function StateChart({ state }) {
   if (expectStateData !== null) {
     return (
       <Grid container spacing={1} justify="center" wrap="wrap">
+        <Grid item xs={11}>
+          <h1 style={{ textAlign: "center", paddingTop: "1%" }}>
+            {stateNameMapping[state]}
+          </h1>
+        </Grid>
         <Grid item xs={11} sm={11} md={4} xl={4}>
           <div className="card">
-            <h2>{state.toUpperCase()}Cases by Gender</h2>
+            <h2>Cases by Gender</h2>
             <ReactEcharts option={genderOption} />
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4} xl={6}>
           <div className="card">
-            <h2>{state.toUpperCase()}Cases by Age Group</h2>
+            <h2>Cases by Age Group</h2>
             <ReactEcharts option={ageOption} />
           </div>
         </Grid>
@@ -213,6 +207,60 @@ function StateChart({ state }) {
         </h5>
       </Grid>
     );
+  }
+}
+
+class Series {
+  constructor() {
+    this.list = [];
+  }
+
+  addSubSeries(subSeries) {
+    this.list.push(subSeries);
+  }
+
+  getSeriesList() {
+    return this.list;
+  }
+}
+
+class SubSeries {
+  constructor(name, data) {
+    this.name = name;
+    this.data = data;
+  }
+}
+
+class BarSeries extends SubSeries {
+  constructor(name, data) {
+    super(name, data);
+    this.type = "bar";
+  }
+}
+
+class PieSeries extends SubSeries {
+  constructor(name, data) {
+    super(name, data);
+    this.type = "pie";
+    this.isDoughnut = false;
+    this.radius = 0;
+  }
+
+  setRadius(innerRadius, outerRadius) {
+    if (innerRadius !== "0%" || innerRadius !== 0) {
+      this.isDoughnut = true;
+      this.label = {
+        show: false,
+        position: "center"
+      };
+      this.emphasis = {
+        label: {
+          show: true,
+          fontWeight: "bold"
+        }
+      };
+    }
+    this.radius = [innerRadius, outerRadius];
   }
 }
 
