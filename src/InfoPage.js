@@ -16,7 +16,8 @@ import dailyFun from "./data/dailyFun"
 import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
 import ReactGA from "react-ga";
-import {A} from 'hookrouter';
+import ReactHtmlParser from 'react-html-parser';
+import { A } from 'hookrouter';
 
 
 // Info page to present information about the virus.
@@ -56,54 +57,83 @@ function Information({ hospitalData, columns }) {
     return (
         <div>
             <div className="card">
-                <h2 className="responsiveH2">{dailyFun.dailyFunStuff[0]["type"]==="motivation"?"Daily Motivation":"Daily Distractions"}</h2>
-
+                <h2 className="responsiveH2">Daily Distractions</h2>
                 {dailyFun.dailyFunStuff.map(stuff => (
-                    <div key={uuid()}>
-                        <div>
-                            {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text.
-                        */}
-                            <div>
-                                {/* First image */}
+                    stuff.type === "motivation" ? (
+                        <div key={uuid()}>
+                            <div className="shadow-none p-3 mb-5 bg-light rounded">
+                                <h4 style={{ textAlign: 'center' }}>{stuff.title}</h4>
+                                <div style={{ color: "grey", textAlign: 'center' }}>
+                                    <a href={stuff.source}
+                                        target="_blank"
+                                        rel="noopener noreferrer"><u>Story Source</u></a></div>
                                 {stuff.image.map(i1 => (
                                     <div key={uuid()}>
-                                        <div className="row centerMedia">
-                                            <div className="imageContainer" style={{ height: "auto" }} >
+                                        <div className=" centerMedia">
+                                            <div style={{ height: "auto", margin: 0 }} >
                                                 <img
-                                                    className="formatImage"
                                                     src={i1.imgLink}
                                                     alt={i1.name}
-                                                    style={{}}
+                                                    style={{ height: "50vh" }}
                                                 />
-                                                <small className="mediaText" >{i1.name}</small>
-                                                <br />
-                                                <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
+
                                             </div>
+                                            <a href={i1.source} style={{ color: "grey" }}><u>Image Source</u></a>
                                         </div>
 
                                     </div>
                                 ))}
-                                {/* Video */}
-                                {stuff.video.map(vid => (
-                                    <div key={uuid()} className="row centerMedia">
-                                        <div>
-                                            <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-                                            <small className="mediaText">{vid.description}</small>
-                                        </div>
-                                    </div>
-                                ))}
+                                <div>{ReactHtmlParser(stuff.content)}</div>
 
                             </div>
                         </div>
-                    </div>
+                    ) :
+                        (<div key={uuid()}>
+                            <div>
+                                {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text.
+                        */}
+                                <div>
+                                    {/* First image */}
+                                    {stuff.image.map(i1 => (
+                                        <div key={uuid()}>
+                                            <div className="row centerMedia">
+                                                <div className="imageContainer" style={{ height: "auto" }} >
+                                                    <img
+                                                        className="formatImage"
+                                                        src={i1.imgLink}
+                                                        alt={i1.name}
+                                                        style={{}}
+                                                    />
+                                                    <small className="mediaText" >{i1.name}</small>
+                                                    <br />
+                                                    <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    ))}
+                                    {/* Video */}
+                                    {stuff.video.map(vid => (
+                                        <div key={uuid()} className="row centerMedia">
+                                            <div>
+                                                <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                                                <small className="mediaText">{vid.description}</small>
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                </div>
+                            </div>
+                        </div>)
                 ))
                 }
-                <p style={{ textAlign: "center" }}>We will be regularly sharing motivated or interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
-                {/*<p style={{ textAlign: "center" }}>Click <A href="/faq"><span style={{ color: "#3366BB" }} onClick={() => {*/}
-                    {/*ReactGA.event({category: 'DailyStory',action: "more"});*/}
-                    {/*window.scrollTo(0, 0);}}>{"here"}</span></A> for previous posts!</p>*/}
-                <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can click <a style={{ color: "#3366BB" }} target="_blank"
-                    rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"me!"}</a> </p>
+                <p style={{ textAlign: "center" }}>We will be regularly sharing motivating or interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
+                <p style={{ textAlign: "center" }}>Click <A href="/dailyHistory"><span style={{ color: "#3366BB" }} onClick={() => {
+                    ReactGA.event({ category: 'DailyStory', action: "more" });
+                    window.scrollTo(0, 0);
+                }}>{"here"}</span></A> for previous posts!</p>
+                {/*<p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can click <a style={{ color: "#3366BB" }} target="_blank"*/}
+                {/*rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"me!"}</a> </p>*/}
             </div>
 
 
@@ -187,8 +217,8 @@ function Information({ hospitalData, columns }) {
                                         ))}
 
                                         {/* Citation tag */}
-                                        {info.text.citation.map(cit => (<div>
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        {info.text.citation.map(cit => (<div key={uuid()}>
+                                            <small ><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
                                         </div>
                                         ))}
                                     </div>
