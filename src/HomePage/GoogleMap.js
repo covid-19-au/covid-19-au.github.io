@@ -161,27 +161,24 @@ function GoogleMap({ province, newData }) {
                 </div>
                 </noscript>
 
-                <button class="btn btn-secondary btn-sm btn-block" type="button" html="true" disabled><h4><em>Select Map Type</em></h4></button>
-                <div class="dropdown">
-                  <button class="btn btn-danger btn-sm btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    CONFIRMED CASES
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <h4 class="dropdown-header">Confirmed Cases</h4>
-                    <button type="button" class="dropdown-item" value="confirmed-cases" onClick={toggleData}>Total</button>
-                    <button type="button" class="dropdown-item" value="relative-cases" onClick={toggleData}>Per Million People</button>
-                  </div>
-                </div>
-                <div class="dropdown">
-                  <button class="btn btn-primary btn-sm btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    TESTED
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                  <h4 class="dropdown-header">Tested Cases</h4>
-                  <button type="button" class="dropdown-item" value="tested" onClick={toggleData}>Total</button>
-                  <button type="button" class="dropdown-item" value="relative-tests" onClick={toggleData}>Per Million People</button>
-                  <button type="button" class="dropdown-item" value="test-strike" onClick={toggleData}>Positive Rate</button>
-                  </div>
+                <div><button class="btn btn-secondary btn-sm" type="button" html="true" disabled><h4><em>Select Map Type</em></h4></button></div>
+
+                <div class="btn-group-sm btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-danger active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked value="confirmed-cases" onClick={toggleData}/>CONFIRMED CASES
+                  </label>
+                  <label class="btn btn-danger">
+                    <input type="radio" name="options" id="option1" autocomplete="off" value="relative-cases" onClick={toggleData}/>CASES/MILLION PEOPLE
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option1" autocomplete="off" value="tested" onClick={toggleData}/>TESTED
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option1" autocomplete="off" value="relative-tests" onClick={toggleData}/>TESTS/MILLION PEOPLE
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option1" autocomplete="off" value="test-strike" onClick={toggleData}/>POSITIVE TEST RATE
+                  </label>
                 </div>
 
                 <Chart
