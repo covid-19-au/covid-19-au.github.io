@@ -139,6 +139,7 @@ function GoogleMap({ province, newData }) {
     const toggleData = (e) => {
         setMapType(e.target.value);
         ReactGA.event({ category: 'casesMap', action: e.target.value });
+
     }
 
     return (
@@ -150,14 +151,37 @@ function GoogleMap({ province, newData }) {
                         </Acknowledgement></div>
 
                 </h2>
-                <div class="btn-group btn-group-sm btn-group-toggle" role="group" aria-label="Map types">
-                  <button type="button" class="btn btn-danger" value="confirmed-cases" onClick={toggleData}>CONFIRMED CASES</button>
-                  <button type="button" class="btn btn-warning" value="relative-cases" onClick={toggleData}>CASES/MILLION PEOPLE</button>
+                <noscript>
+                <div>
+                  <button type="button" data-toggle="button" class="btn btn-danger btn-sm" aria-pressed="true" value="confirmed-cases" onClick={toggleData}>CONFIRMED CASES</button>
+                  <button type="button" data-toggle="button" class="btn btn-danger btn-sm" value="relative-cases" onClick={toggleData}>&nbsp;CASES/MILLION PEOPLE</button>
+                  <button type="button" data-toggle="button" class="btn btn-primary btn-sm" value="tested" onClick={toggleData}>&nbsp;TESTED</button>
+                  <button type="button" data-toggle="button" class="btn btn-primary btn-sm" value="relative-tests" onClick={toggleData}>&nbsp;TESTS/MILLION PEOPLE</button>
+                  <button type="button" data-toggle="button" class="btn btn-primary btn-sm" value="test-strike" onClick={toggleData}>&nbsp;POSITIVE TEST RATE</button>
                 </div>
-                <div class="btn-group btn-group-sm btn-group-toggle" role="group" aria-label="Map types">
-                  <button type="button" class="btn btn-primary" value="tested" onClick={toggleData}>TESTED</button>
-                  <button type="button" class="btn btn-info" value="relative-tests" onClick={toggleData}>TESTS/MILLION PEOPLE</button>
-                  <button type="button" class="btn btn-secondary" value="test-strike" onClick={toggleData}>POSITIVE TEST RATE</button>
+                </noscript>
+
+                <button class="btn btn-secondary btn-sm btn-block" type="button" html="true" disabled><h4><em>Select Map Type</em></h4></button>
+                <div class="dropdown">
+                  <button class="btn btn-danger btn-sm btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    CONFIRMED CASES
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <h4 class="dropdown-header">Confirmed Cases</h4>
+                    <button type="button" class="dropdown-item" value="confirmed-cases" onClick={toggleData}>Total</button>
+                    <button type="button" class="dropdown-item" value="relative-cases" onClick={toggleData}>Per Million People</button>
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-primary btn-sm btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    TESTED
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                  <h4 class="dropdown-header">Tested Cases</h4>
+                  <button type="button" class="dropdown-item" value="tested" onClick={toggleData}>Total</button>
+                  <button type="button" class="dropdown-item" value="relative-tests" onClick={toggleData}>Per Million People</button>
+                  <button type="button" class="dropdown-item" value="test-strike" onClick={toggleData}>Positive Rate</button>
+                  </div>
                 </div>
 
                 <Chart
