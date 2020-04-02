@@ -70,8 +70,9 @@ function getExpectStateData(state) {
 }
 
 function getLatestData(state) {
+  console.log("State: ", state);
   let latestDate = Object.keys(stateData)[Object.keys(stateData).length - 1];
-  let latestData = stateData[latestDate][state.toUpperCase()];
+  let latestData = stateData[latestDate][state];
   console.log(latestData);
 }
 
@@ -157,15 +158,26 @@ function setAgeOption(expectState) {
   return tempOption;
 }
 
+function setGeneralBarOption(state) {
+  getLatestData(state);
+}
+
+function setGeneralLineOption() {
+
+}
+
 function StateChart({ state }) {
   // get choosen state data
   const expectStateData = getExpectStateData(state);
 
   let genderOption;
   let ageOption;
+  let generalBarOption;
   if (expectStateData !== null) {
     genderOption = setGenderOption(expectStateData);
     ageOption = setAgeOption(expectStateData);
+    generalBarOption = setGeneralBarOption(state.toUpperCase());
+    console.log(generalBarOption);
   }
 
   if (expectStateData !== null) {
@@ -185,6 +197,18 @@ function StateChart({ state }) {
         <Grid item xs={11} sm={11} md={4} xl={6}>
           <div className="card">
             <h2>Cases by Age Group</h2>
+            <ReactEcharts option={ageOption} />
+          </div>
+        </Grid>
+        <Grid item xs={11} sm={11} md={4} xl={6}>
+          <div className="card">
+            <h2>Cases by Gender Information - Bar</h2>
+            <ReactEcharts option={ageOption} />
+          </div>
+        </Grid>
+        <Grid item xs={11} sm={11} md={4} xl={6}>
+          <div className="card">
+            <h2>Cases by Gender Information - Line</h2>
             <ReactEcharts option={ageOption} />
           </div>
         </Grid>
