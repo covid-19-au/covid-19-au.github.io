@@ -161,23 +161,28 @@ function GoogleMap({ province, newData }) {
                 </div>
                 </noscript>
 
-                <div><button class="btn btn-secondary btn-sm" type="button" html="true" disabled><h4><em>Select Map Type</em></h4></button></div>
+                <div><button class="btn btn-secondary btn-block btn-sm" type="button" html="true" disabled><h4><em>Select Map Type</em></h4></button></div>
 
-                <div class="btn-group-sm btn-group-toggle" data-toggle="buttons">
+                <div class="btn-group-vertical btn-group-sm btn-block btn-group-toggle" data-toggle="buttons">
                   <label class="btn btn-danger active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked value="confirmed-cases" onClick={toggleData}/>CONFIRMED CASES
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked value="confirmed-cases" onClick={toggleData}/>
+                    CONFIRMED CASES
                   </label>
                   <label class="btn btn-danger">
-                    <input type="radio" name="options" id="option1" autocomplete="off" value="relative-cases" onClick={toggleData}/>CASES/MILLION PEOPLE
+                    <input type="radio" name="options" id="option1" autocomplete="off" value="relative-cases" onClick={toggleData}/>
+                    CASES/MILLION PEOPLE
                   </label>
                   <label class="btn btn-primary">
-                    <input type="radio" name="options" id="option1" autocomplete="off" value="tested" onClick={toggleData}/>TESTED
+                    <input type="radio" name="options" id="option1" autocomplete="off" value="tested" onClick={toggleData}/>
+                    TESTED
                   </label>
                   <label class="btn btn-primary">
-                    <input type="radio" name="options" id="option1" autocomplete="off" value="relative-tests" onClick={toggleData}/>TESTS/MILLION PEOPLE
+                    <input type="radio" name="options" id="option1" autocomplete="off" value="relative-tests" onClick={toggleData}/>
+                    TESTS/MILLION PEOPLE
                   </label>
                   <label class="btn btn-primary">
-                    <input type="radio" name="options" id="option1" autocomplete="off" value="test-strike" onClick={toggleData}/>POSITIVE TEST RATE
+                    <input type="radio" name="options" id="option1" autocomplete="off" value="test-strike" onClick={toggleData}/>
+                    POSITIVE TEST RATE
                   </label>
                 </div>
 
