@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Chart from "chart.js";
 import Grid from "@material-ui/core/Grid";
-// import ageGenderData from "../data/ageGenderData";
 
 import ageGenderData from "../data/ageGender";
+import stateData from "../data/state";
 
 const color = {
   male: "#ff0000",
@@ -53,12 +53,26 @@ function getExpectStateData(state) {
   return state.toUpperCase() in ageGenderData ? ageGenderData[state] : null;
 }
 
-function AgeGenderChart({ state }) {
+function getLatestData(state) {
+  let latestDate = Object.keys(stateData)[Object.keys(stateData).length - 1];
+  let latestData = stateData[latestDate][state.toUpperCase()];
+  console.log(latestData);
+}
+
+function StateChart({ state }) {
   // get choosen state data
   const expectStateData = getExpectStateData(state);
+
+  // default chart which contains: confirmed, death, recovered and tested for selected state
+  const defaultChartRef = React.createRef();
+  // useEffect(() => {
+
+  // }, [stateData]);
+  getLatestData(state);
+
+
   // gender chart
   const genderChartRef = React.createRef();
-
   useEffect(() => {
     // only draw graph when state data is available
     if (expectStateData === null) {
@@ -84,7 +98,6 @@ function AgeGenderChart({ state }) {
 
   // age chart
   const ageChartRef = React.createRef();
-
   useEffect(() => {
     // only draw graph when state data is available
     if (expectStateData === null) {
@@ -122,9 +135,10 @@ function AgeGenderChart({ state }) {
             label: "all",
             data: allAgeData,
             borderColor: "#ebe134",
-            fill: false,
-            hidden: true,
-            type: "line"
+            backgroundColor: "#ebe134"
+            // fill: false,
+            // hidden: true,
+            // type: "line"
           }
         ]
       }
@@ -136,20 +150,31 @@ function AgeGenderChart({ state }) {
       <Grid item xs={11} sm={11} md={4}>
         <div className="card">
           <h2>{state.toUpperCase()} Chart</h2>
+          <p>Confirmed, Death, Recovered, Tested</p>
+          <canvas id="defaultChart" ref={defaultChartRef} />
           <p>Cases by gender</p>
-          <canvas id="vicGenderChart" ref={genderChartRef} />
+          <canvas id="genderChart" ref={genderChartRef} />
           <p>Cases by age group</p>
-          <canvas id="vicAgeRangeChart" ref={ageChartRef} />
+          <canvas id="ageRangeChart" ref={ageChartRef} />
         </div>
       </Grid>
     );
   } else {
     return (
-      <Grid item xs={11} sm={11} md={4}>
-        <h1>Our data team is collecting data for {state}!</h1>
+      <Grid item xs={11} sm={11} md={5}>
+        <h2 style={{"textAlign": "center"}}>We are working on acquiring detailed data for {state}!</h2>
+        <br />
+        <h5 style={{"textAlign": "center"}}>
+          If you have reliable source for such data, please let us know through
+          the{" "}
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
+            this
+          </a>{" "}
+          form.
+        </h5>
       </Grid>
     );
   }
 }
 
-export default AgeGenderChart;
+export default StateChart;

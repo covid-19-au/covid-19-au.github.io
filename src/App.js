@@ -50,7 +50,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Alert, AlertTitle } from '@material-ui/lab';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AgeGenderChart from "./DataVis/AgeGenderChart";
+import StateChart from "./DataVis/StateChart";
 
 
 
@@ -221,14 +221,14 @@ function App() {
     "/info": () => <InfoPage columns={columns} gspace={gspace} />,
     "/news": () => <NewsPage province={province} gspace={gspace} />,
     "/faq": () => <FAQPage />,
-    "/state/vic": () => <AgeGenderChart state="VIC" />,
-    "/state/nsw": () => <AgeGenderChart state="NSW" />,
-    "/state/qld": () => <AgeGenderChart state="QLD" />,
-    "/state/act": () => <AgeGenderChart state="ACT" />,
-    "/state/sa": () => <AgeGenderChart state="SA" />,
-    "/state/wa": () => <AgeGenderChart state="WA" />,
-    "/state/nt": () => <AgeGenderChart state="NT" />,
-    "/state/tas": () => <AgeGenderChart state="TAS" />,
+    "/state/vic": () => <StateChart state="VIC" />,
+    "/state/nsw": () => <StateChart state="NSW" />,
+    "/state/qld": () => <StateChart state="QLD" />,
+    "/state/act": () => <StateChart state="ACT" />,
+    "/state/sa": () => <StateChart state="SA" />,
+    "/state/wa": () => <StateChart state="WA" />,
+    "/state/nt": () => <StateChart state="NT" />,
+    "/state/tas": () => <StateChart state="TAS" />,
   };
 
   // // The hook used to render the routes.
