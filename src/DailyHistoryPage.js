@@ -80,7 +80,7 @@ export default function DailyHistoryPage() {
                                 ))}
                                 {/* Video */}
                                 {stuff.video.map(vid => (
-                                    <div className="row centerMedia">
+                                    <div key={uuid()} className="row centerMedia">
                                         <div>
                                             <ReactPlayer  className="formatMedia" alt={vid.name}  url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
                                             <small className="mediaText">{vid.description}</small>
