@@ -1,3 +1,36 @@
 {
-    "archiveTopNews": []
+    "archiveTopNews": [
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-scott-morrison-no-national-decision-schools-state-premiers-to-decide/a13197c6-0d82-4129-9bc6-6459a476ef35",
+            "title": "No national decision on school closures over coronavirus, PM says states must decide",
+            "source": "9News",
+            "date": "27 March 2020",
+            "time": "15:07",
+            "summary": "Prime Minister Scott Morrison has announced that the decision on whether to close schools before the end of term will be up to each state premier. He also stated that over the next few weeks, the schools themselves will be preparing, on a national basis, to get some consistency about when schools will reopen on the other side of school holidays."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/international-travellers-returning-to-australia-to-be-sent-to-quarantine-facilities-for-two-weeks",
+            "title": "International travellers returning to Australia to be sent to quarantine facilities for two weeks",
+            "source": "SBSNews",
+            "date": "27 March 2020",
+            "time": "",
+            "summary": "Australians returning from international travel will be quarantined in hotels and other accommodation facilities for two weeks before being allowed to go home, under new measures to control the spread of coronavirus. The measure will affect all international travellers returning after midnight on Saturday 28th of March."
+        },
+        {
+            "link": "https://thewest.com.au/politics/virus-halts-auctions-weddings-tattoos-ng-s-2002000",
+            "title": "Jobless queues to grow amid virus shutdown",
+            "source": "TheWestAustralian",
+            "date": "25 March 2020",
+            "time": "22:23",
+            "summary": "Thousands of people have been queuing at Centrelink offices as tighter restrictions on businesses, community facilities and public spaces came into effect, causing many people to lose their jobs. Economists predict 814,000 Australians will be added to dole queues before the end of June. Centrelink is rapidly recruiting an extra 5000 staff to deal with the influx of demand."
+        },
+        {
+            "link": "https://www.theguardian.com/business/2020/mar/25/coronavirus-jobs-fallout-at-least-35000-workers-stood-down-in-three-days-as-businesses-reel",
+            "title": "Coronavirus jobs fallout: at least 35,000 workers stood down in three days as businesses reel",
+            "source": "TheGuardian",
+            "date": "25 March 2020",
+            "time": "18:16",
+            "summary": "At least 35,000 people have been put out of work in just three days by casinos, airlines, retailers and other businesses that have stood down their workers in response to the coronavirus crisis. Westpac’s chief economist, Bill Evans, said the coronavirus crisis would cost 814,000 jobs by June, more than doubling the unemployment rate to 11.1%."
+        }
+    ]
 }
