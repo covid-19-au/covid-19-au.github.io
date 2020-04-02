@@ -16,6 +16,7 @@ import dailyFun from "./data/dailyFun"
 import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
 import ReactGA from "react-ga";
+import ReactHtmlParser from 'react-html-parser';
 import {A} from 'hookrouter';
 
 
@@ -57,9 +58,37 @@ function Information({ hospitalData, columns }) {
         <div>
             <div className="card">
                 <h2 className="responsiveH2">{dailyFun.dailyFunStuff[0]["type"]==="motivation"?"Daily Motivation":"Daily Distractions"}</h2>
-
                 {dailyFun.dailyFunStuff.map(stuff => (
-                    <div key={uuid()}>
+                    stuff.type==="motivation"?(
+                        <div key={uuid()}>
+                        <div className="shadow-none p-3 mb-5 bg-light rounded">
+                            <h4 style={{textAlign:'center'}}>{stuff.title}</h4>
+                            <div style={{ color: "grey",textAlign:'center'}}>
+                                <a href={stuff.source}
+                                   target="_blank"
+                                   rel="noopener noreferrer"><u>Story Source</u></a></div>
+                            {stuff.image.map(i1 => (
+                                <div key={uuid()}>
+                                    <div className=" centerMedia">
+                                        <div style={{ height: "auto", margin:0}} >
+                                            <img
+                                                src={i1.imgLink}
+                                                alt={i1.name}
+                                                style={{height: "50vh"}}
+                                            />
+
+                                        </div>
+                                        <a href={i1.source} style={{ color: "grey" }}><u>Image Source</u></a>
+                                    </div>
+
+                                </div>
+                            ))}
+                            <div>{ ReactHtmlParser (stuff.content)}</div>
+
+                        </div>
+                        </div>
+                        ):
+                        (<div key={uuid()}>
                         <div>
                             {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text.
                         */}
@@ -95,7 +124,7 @@ function Information({ hospitalData, columns }) {
 
                             </div>
                         </div>
-                    </div>
+                    </div>)
                 ))
                 }
                 <p style={{ textAlign: "center" }}>We will be regularly sharing motivated or interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
@@ -187,8 +216,8 @@ function Information({ hospitalData, columns }) {
                                         ))}
 
                                         {/* Citation tag */}
-                                        {info.text.citation.map(cit => (<div>
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        {info.text.citation.map(cit => (<div key={uuid()}>
+                                            <small ><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
                                         </div>
                                         ))}
                                     </div>
