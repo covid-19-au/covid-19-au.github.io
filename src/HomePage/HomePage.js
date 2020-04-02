@@ -17,6 +17,7 @@ import stateData from "../data/state";
 import flights from "../data/flight";
 import country from "../data/country";
 import all from "../data/overall";
+import OverallTrend from "../DataVis/OverallTrend"
 
 
 const provincesByName = keyBy(provinces, "name");
@@ -34,6 +35,13 @@ export default function HomePage({
 }) {
     return (
         <Grid container spacing={gspace} justify="center" wrap="wrap">
+            <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
+                <div className="card">
+                    <OverallTrend>
+
+                    </OverallTrend>
+                </div>
+            </Grid>
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
 
 
