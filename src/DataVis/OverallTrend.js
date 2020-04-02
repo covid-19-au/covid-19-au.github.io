@@ -5,26 +5,20 @@ import echarts from "echarts"
 
 export default function OverallTrend(data) {
 
-
-
-    var base = +new Date(1968, 9, 3);
-    var oneDay = 24 * 3600 * 1000;
-    var date = [];
-
-    var data = [Math.random() * 300];
-
-    for (var i = 1; i < 20000; i++) {
-        var now = new Date(base += oneDay);
-        date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
-        data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
-    }
-
-    console.log(data)
-
-
-
-
-
+    let monthTrans = {
+        0: "Jan",
+        1: "Feb",
+        2: "Mar",
+        3: "Apr",
+        4: "May",
+        5: "Jun",
+        6: "Jul",
+        7: "Aug",
+        8: "Sept",
+        9: "Oct",
+        10: "Nov",
+        11: "Dec"
+    };
 
     console.log(countryData)
 
@@ -33,23 +27,28 @@ export default function OverallTrend(data) {
     let deathData = []
     let recoveryData = []
 
+
     let today = Date.now()
     //Create array of date data for x-axis
     for (let key in countryData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
-        dateData.push(date)
+        let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()] + "-" + date.getFullYear().toString();
+        dateData.push(labelName)
+        console.log(date)
     }
+
 
     //Create arrays of case data
     for (let key in countryData) {
         confirmedData.push(countryData[key][0])
-        deathData.push(countryData[key][1])
-        recoveryData.push(countryData[key][2])
+        deathData.push(countryData[key][2])
+        recoveryData.push(countryData[key][1])
     }
-    console.log(confirmedData)
-    console.log(deathData)
-    console.log(recoveryData)
+
+    //graph initial start point
+    let start = 100 - (14 / dateData.length * 100)
+    let startPoint = parseInt(start)
 
     return (
         <ReactEcharts
@@ -63,7 +62,7 @@ export default function OverallTrend(data) {
                     },
                     title: {
                         left: 'center',
-                        text: '大数据量面积图',
+                        text: 'Overall Trend for COVID-19 Cases in Australia',
                     },
                     toolbox: {
                         feature: {
@@ -81,12 +80,13 @@ export default function OverallTrend(data) {
                     },
                     yAxis: {
                         type: 'value',
-                        boundaryGap: [0, '100%']
+                        boundaryGap: [0, '100%'],
+                        max: "dataMax"
                     },
                     dataZoom: [{
                         type: 'inside',
-                        start: 0,
-                        end: 10
+                        start: 100,
+                        end: 75
                     }, {
                         start: 0,
                         end: 10,
@@ -103,34 +103,35 @@ export default function OverallTrend(data) {
                     series: [
 
                         {
-                            name: '邮件营销',
+                            name: 'Confirmed Cases',
                             type: 'line',
-                            stack: '总量',
+                            smooth: true,
+                            symbol: 'circle',
+                            sampling: 'average',
+                            itemStyle: {
+                                color: "#ff603c"
+                            },
                             data: confirmedData
-                        },
-                        {
-                            name: '联盟广告',
+                        }, {
+                            name: 'Deaths',
                             type: 'line',
-                            stack: '总量',
+                            smooth: true,
+                            symbol: 'circle',
+                            sampling: 'average',
+                            itemStyle: {
+                                color: "#c11700"
+                            },
                             data: deathData
-                        },
-                        {
-                            name: '视频广告',
+                        }, {
+                            name: 'Recoveries',
                             type: 'line',
-                            stack: '总量',
+                            smooth: true,
+                            symbol: 'circle',
+                            sampling: 'average',
+                            itemStyle: {
+                                color: "#00c177"
+                            },
                             data: recoveryData
-                        },
-                        {
-                            name: '直接访问',
-                            type: 'line',
-                            stack: '总量',
-                            data: [320, 332, 301, 334, 390, 330, 320]
-                        },
-                        {
-                            name: '搜索引擎',
-                            type: 'line',
-                            stack: '总量',
-                            data: [820, 932, 901, 934, 1290, 1330, 1320]
                         }
                     ]
                 }}

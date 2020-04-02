@@ -35,8 +35,8 @@ export default function HomePage({
 }) {
     return (
         <Grid container spacing={gspace} justify="center" wrap="wrap">
-            <Grid item xs={11} sm={11} md={10} lg={6} xl={12}>
-                <div className="card">
+            <Grid item xs={11} sm={11} md={10} lg={6} xl={9}>
+                <div className="card" >
                     <OverallTrend>
 
                     </OverallTrend>
