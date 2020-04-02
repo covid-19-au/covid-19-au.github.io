@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: 10.x
     - name: npm install
-      run: npm ci
+      run: npm install
     - name: build data
       env:
         REACT_APP_DRIVE_KEY: ${{secrets.DRIVE_TOKEN}}
