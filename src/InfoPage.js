@@ -57,7 +57,7 @@ function Information({ hospitalData, columns }) {
     return (
         <div>
             <div className="card">
-                <h2 className="responsiveH2">{dailyFun.dailyFunStuff[0]["type"]==="motivation"?"Daily Motivation":"Daily Distractions"}</h2>
+                <h2 className="responsiveH2">Daily Distractions</h2>
                 {dailyFun.dailyFunStuff.map(stuff => (
                     stuff.type==="motivation"?(
                         <div key={uuid()}>
