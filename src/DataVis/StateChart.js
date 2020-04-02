@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Chart from "chart.js";
+import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
+import ReactEcharts from "echarts-for-react";
 
-const color = {
-  male: "#ff0000",
-  female: "#0000ff",
-  notStated: "#000000"
-};
+// const color = {
+//   male: "#ff0000",
+//   female: "#0000ff",
+//   notStated: "#000000"
+// };
 
 /**
  * get gender data for expect state
@@ -59,112 +59,147 @@ function getLatestData(state) {
   console.log(latestData);
 }
 
+function setGenderOption(expectState) {
+  const genderLabel = ["male", "female", "not stated"];
+  const genderData = getGenderData(expectState);
+  // create dataset for gender graph display
+  let dataArr = [];
+  for (let i = 0; i < genderData.length; i++) {
+    let tempData = { value: genderData[i], name: genderLabel[i] };
+    dataArr.push(tempData);
+  }
+
+  let tempOption = {
+    title: {
+      text: "Gender Chart"
+    },
+    tooltip: {
+      trigger: "item",
+      formatter: "{a} <br /> {b}: {c} ({d}%)"
+    },
+    legend: {
+      data: genderLabel,
+      top: "7%"
+    },
+    series: [
+      {
+        name: "gender",
+        type: "pie",
+        radius: ["40%", "70%"],
+        label: {
+          show: false,
+          position: "center"
+        },
+        emphasis: {
+          label: {
+            show: true,
+            fontWeight: "bold"
+          }
+        },
+        data: dataArr
+      }
+    ]
+  };
+  return tempOption;
+}
+
+function setAgeOption(expectState) {
+  const ageChartLabels = getAgeChartLabels(expectState);
+  const ageChartLegend = ["Male", "Female", "Not Stated", "All"];
+  const maleAgeData = getAgeData(ageChartLabels, 1, expectState);
+  const femaleAgeData = getAgeData(ageChartLabels, 2, expectState);
+  const notStatedAgeData = getAgeData(ageChartLabels, 3, expectState);
+  const allAgeData = getAgeData(ageChartLabels, 0, expectState);
+
+  let tempOption = {
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        type: "cross",
+        crossStyle: {
+          color: "#999"
+        }
+      }
+    },
+    title: {
+      text: "Age Range Chart"
+    },
+    legend: {
+      data: ageChartLegend,
+      top: "7%",
+      selected: {
+        "Male": true,
+        "Female": true,
+        "Not Stated": true,
+        "All": false
+      }
+    },
+    xAxis: {
+      type: "category",
+      data: ageChartLabels,
+      axisPointer: {
+        type: "shadow"
+      }
+    },
+    yAxis: {},
+    series: [
+      {
+        name: "Male",
+        type: "bar",
+        data: maleAgeData
+      },
+      {
+        name: "Female",
+        type: "bar",
+        data: femaleAgeData
+      },
+      {
+        name: "Not Stated",
+        type: "bar",
+        data: notStatedAgeData
+      },
+      {
+        name: "All",
+        type: "bar",
+        data: allAgeData
+      }
+    ]
+  };
+  return tempOption;
+}
+
 function StateChart({ state }) {
   // get choosen state data
   const expectStateData = getExpectStateData(state);
 
-  // default chart which contains: confirmed, death, recovered and tested for selected state
-  const defaultChartRef = React.createRef();
-  // useEffect(() => {
-
-  // }, [stateData]);
-  getLatestData(state);
-
-
-  // gender chart
-  const genderChartRef = React.createRef();
-  useEffect(() => {
-    // only draw graph when state data is available
-    if (expectStateData === null) {
-      return;
-    }
-    const genderData = getGenderData(expectStateData);
-    let myGenderChartRef = genderChartRef;
-    myGenderChartRef = myGenderChartRef.current.getContext("2d");
-    new Chart(myGenderChartRef, {
-      type: "doughnut",
-      data: {
-        labels: ["male", "female", "not stated"],
-        datasets: [
-          {
-            label: "Sales",
-            data: genderData,
-            backgroundColor: [color.male, color.female, color.notStated]
-          }
-        ]
-      }
-    });
-  }, [ageGenderData]);
-
-  // age chart
-  const ageChartRef = React.createRef();
-  useEffect(() => {
-    // only draw graph when state data is available
-    if (expectStateData === null) {
-      return;
-    }
-    const ageChartLabels = getAgeChartLabels(expectStateData);
-    const allAgeData = getAgeData(ageChartLabels, 0, expectStateData);
-    const maleAgeData = getAgeData(ageChartLabels, 1, expectStateData);
-    const femaleAgeData = getAgeData(ageChartLabels, 2, expectStateData);
-    const notStatedAgeData = getAgeData(ageChartLabels, 3, expectStateData);
-
-    let myAgeChartRef = ageChartRef;
-    myAgeChartRef = myAgeChartRef.current.getContext("2d");
-    new Chart(myAgeChartRef, {
-      type: "bar",
-      data: {
-        labels: ageChartLabels,
-        datasets: [
-          {
-            label: "male",
-            data: maleAgeData,
-            backgroundColor: color.male
-          },
-          {
-            label: "female",
-            data: femaleAgeData,
-            backgroundColor: color.female
-          },
-          {
-            label: "not stated",
-            data: notStatedAgeData,
-            backgroundColor: color.notStated
-          },
-          {
-            label: "all",
-            data: allAgeData,
-            borderColor: "#ebe134",
-            backgroundColor: "#ebe134"
-            // fill: false,
-            // hidden: true,
-            // type: "line"
-          }
-        ]
-      }
-    });
-  }, [ageGenderData]);
+  let genderOption;
+  let ageOption;
+  if (expectStateData !== null) {
+    genderOption = setGenderOption(expectStateData);
+    ageOption = setAgeOption(expectStateData);
+  }
 
   if (expectStateData !== null) {
     return (
       <Grid item xs={11} sm={11} md={4}>
         <div className="card">
           <h2>{state.toUpperCase()} Chart</h2>
-          <p>Confirmed, Death, Recovered, Tested</p>
-          <canvas id="defaultChart" ref={defaultChartRef} />
           <p>Cases by gender</p>
-          <canvas id="genderChart" ref={genderChartRef} />
+          <ReactEcharts option={genderOption} />
           <p>Cases by age group</p>
-          <canvas id="ageRangeChart" ref={ageChartRef} />
+          <ReactEcharts option={ageOption} />
         </div>
+        <div id="echartTest" style={{ width: "600px" }}></div>
       </Grid>
     );
   } else {
     return (
       <Grid item xs={11} sm={11} md={5}>
-        <h2 style={{"textAlign": "center"}}>We are working on acquiring detailed data for {state}!</h2>
+        <h2 style={{ textAlign: "center" }}>
+          We are working on acquiring detailed data for {state}!
+        </h2>
         <br />
-        <h5 style={{"textAlign": "center"}}>
+        <h5 style={{ textAlign: "center" }}>
           If you have reliable source for such data, please let us know through
           the{" "}
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
