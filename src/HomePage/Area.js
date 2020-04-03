@@ -84,23 +84,7 @@ export default function Area({ area, onChange, data }) {
             {renderArea()}
             <Total data={data} />
 
-            {totalRecovered > 25 ? null : (
-                <div className="province">
-                    <div className={"area"}>
-                        <strong>TBD</strong>
-                    </div>
-                    <div className="confirmed">
-                        <strong></strong>
-                    </div>
-                    <div className="death">
-                        <strong></strong>
-                    </div>
-                    <div className="cured">
-                        <strong>21</strong>
-                    </div>
-                    <div className="tested"></div>
-                </div>
-            )}
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>* We currently do not have a consistent source of data for recovered cases in NSW, QLD, and TAS.</span>
         </div>
     );
 }

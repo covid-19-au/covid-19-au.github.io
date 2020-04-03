@@ -1,6 +1,62 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/02/free-childcare-what-do-the-governments-coronavirus-changes-mean-for-my-family",
+            "title": "Free childcare: what do the Australian government's coronavirus changes mean for my family?",
+            "source": "TheGuardian",
+            "date": "02 April 2020",
+            "time": "21:34",
+            "summary": "The federal government says it will make Australian childcare services free during the coronavirus crisis, with priority given to parents who need to continue working. It is also promoting its plan as a way to help childcare centres remain open and viable through the crisis."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/csiro-tests-potential-covid-19-vaccines-c-947346",
+            "title": "Coronavirus Australia update: CSIRO tests potential COVID-19 vaccines",
+            "source": "7News",
+            "date": "02 April 2020",
+            "time": "05:39",
+            "summary": "CSIRO scientists are performing the first stage of testing for two vaccine candidates at the agency’s high-containment biosecurity facility in Geelong. The pre-clinical trials, which are expected to take three months, will use animal subjects to test whether the potential vaccines from the University of Oxford and Inovio Pharmaceuticals are safe and effective."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-02/coronavirus-covid-19-testing-1-per-cent-australia-population/12114004",
+            "title": "Australian coronavirus testing hits world-leading levels above 1 per cent of population, Scott Morison says",
+            "source": "ABCNews",
+            "date": "02 April 2020",
+            "time": "21:45",
+            "summary": "More than 260,000 coronavirus tests have been carried out across the country as Australia continues to respond to the spread of the deadly pandemic. Those testing levels equate to more than 1 per cent of the population, which Prime Minister Scott Morrison said was a world-leading rate. By 4:00pm on Thursday, Australia had conducted 268,554 coronavirus tests. Nationally, there are more than 5,100 confirmed cases of the coronavirus, and the death toll has risen to 24."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-pandemic-leave-for-australian-employees-during-covid19/023ed63d-8a46-4137-ac79-9326047a2d87",
+            "title": "Australian employees entitled to 'pandemic leave' as part of sweeping industrial relations changes caused by coronavirus",
+            "source": "9News",
+            "date": "02 April 2020",
+            "time": "15:30",
+            "summary": "Eligible Australian employees are now entitled to two weeks' \"pandemic leave\" if they need to self-isolate during the coronavirus pandemic as part of sweeping industrial relations changes announced today. The Minister for Industrial Relations, Christian Porter, has announced changes to 103 of Australia's 121 existing employee awards."
+        },
+        {
+            "link": "https://www.abc.net.au/news/health/2020-04-01/australians-urged-to-get-flu-vaccination-coronavirus-covid-19/12107264",
+            "title": "Get flu vaccinations earlier than usual because of coronavirus, GPs urge Australians",
+            "source": "ABCNews",
+            "date": "01 April 2020",
+            "time": "04:00",
+            "summary": "Australians are being urged to get their flu vaccination as soon as possible to reduce strain on the health system caused by COVID-19. The flu vaccine won't combat COVID-19, but it will help to reduce the severity and spread of seasonal influenza, which can lower a person's immunity and make them susceptible to other illnesses. Flu vaccines are available from your local GP - though be sure to call ahead to check they’re in stock."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-01/retired-nurses-doctors-pharmacists-recalled-to-fight-coronavirus/12109608",
+            "title": "Retired nurses, doctors, pharmacists to be re-instated to help fight coronavirus",
+            "source": "ABCNews",
+            "date": "01 April 2020",
+            "time": "23:31",
+            "summary": "More than 40,000 former doctors, nurses, midwives and pharmacists are being urged to re-join the medical workforce, to bolster the front line in Australia's fight against coronavirus. The former medical professionals would be added to the general register for a year, under a pandemic sub-register. To ensure public safety, practitioners who have been struck off the register will not be eligible to take part."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-03-30/coronavirus-wage-subsidies-government-businesses-workers/12103108",
+            "title": "Federal Government offers $130b in coronavirus wage subsidies for businesses to pay workers",
+            "source": "ABCNews",
+            "date": "31 March 2020",
+            "time": "00:32",
+            "summary": "The Government expects up to 6 million people will access a $1,500 fortnightly wage subsidy. The so-called JobKeeper payment is designed to keep people in work. The Government will also lift the means-testing threshold for the partners of JobSeeker recipients."
+        },
+        {
             "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-update-australia-scott-morrison-announces-strictest-gathering-measures-yet-c-769960",
             "title": "Coronavirus update Australia: Scott Morrison announces strictest gathering measures yet",
             "source": "7News",
@@ -47,38 +103,6 @@
             "date": "28 March 2020",
             "time": "09:08",
             "summary": "The Australian Army will be deployed across all states and territories, stepping in to assist governments with new measures. The ADF will assist in both monitoring Friday’s regulations for returned overseas travellers and ensuring compliance checks with those in self-isolation at their homes. However, the prime minister says the army will not have the power to prosecute or arrest."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-scott-morrison-no-national-decision-schools-state-premiers-to-decide/a13197c6-0d82-4129-9bc6-6459a476ef35",
-            "title": "No national decision on school closures over coronavirus, PM says states must decide",
-            "source": "9News",
-            "date": "27 March 2020",
-            "time": "15:07",
-            "summary": "Prime Minister Scott Morrison has announced that the decision on whether to close schools before the end of term will be up to each state premier. He also stated that over the next few weeks, the schools themselves will be preparing, on a national basis, to get some consistency about when schools will reopen on the other side of school holidays."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/international-travellers-returning-to-australia-to-be-sent-to-quarantine-facilities-for-two-weeks",
-            "title": "International travellers returning to Australia to be sent to quarantine facilities for two weeks",
-            "source": "SBSNews",
-            "date": "27 March 2020",
-            "time": "",
-            "summary": "Australians returning from international travel will be quarantined in hotels and other accommodation facilities for two weeks before being allowed to go home, under new measures to control the spread of coronavirus. The measure will affect all international travellers returning after midnight on Saturday 28th of March."
-        },
-        {
-            "link": "https://thewest.com.au/politics/virus-halts-auctions-weddings-tattoos-ng-s-2002000",
-            "title": "Jobless queues to grow amid virus shutdown",
-            "source": "TheWestAustralian",
-            "date": "25 March 2020",
-            "time": "22:23",
-            "summary": "Thousands of people have been queuing at Centrelink offices as tighter restrictions on businesses, community facilities and public spaces came into effect, causing many people to lose their jobs. Economists predict 814,000 Australians will be added to dole queues before the end of June. Centrelink is rapidly recruiting an extra 5000 staff to deal with the influx of demand."
-        },
-        {
-            "link": "https://www.theguardian.com/business/2020/mar/25/coronavirus-jobs-fallout-at-least-35000-workers-stood-down-in-three-days-as-businesses-reel",
-            "title": "Coronavirus jobs fallout: at least 35,000 workers stood down in three days as businesses reel",
-            "source": "TheGuardian",
-            "date": "25 March 2020",
-            "time": "18:16",
-            "summary": "At least 35,000 people have been put out of work in just three days by casinos, airlines, retailers and other businesses that have stood down their workers in response to the coronavirus crisis. Westpac’s chief economist, Bill Evans, said the coronavirus crisis would cost 814,000 jobs by June, more than doubling the unemployment rate to 11.1%."
         }
     ]
 }

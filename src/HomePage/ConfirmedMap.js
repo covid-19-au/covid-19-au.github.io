@@ -14,9 +14,11 @@ import hospitalImg from '../img/icon/hospital.png'
 import ReactGA from "react-ga";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+import Acknowledgement from "../Acknowledgment"
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
 mapboxgl.accessToken = token;
+
 
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
@@ -86,11 +88,14 @@ class MbMap extends React.Component {
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
-                updated_date = '28/3/20';
+                updated_date = '2/4/20';
+            }else if(state ==='NSW'){
+                city_name = city_name.toLowerCase();
+                updated_date = '1/4/20';
             }
             else {
                 city_name = city_name.toLowerCase();
-                updated_date = '29/3/20';
+                updated_date = '2/4/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
@@ -120,11 +125,11 @@ class MbMap extends React.Component {
                     var values = get_html(data.properties.vic_lga__2, state);
                     data.properties['city'] = data.properties.vic_lga__2;
                 }
-                else if (state === 'NSW'){
+                else if (state === 'NSW') {
                     var values = get_html(data.properties.nsw_lga__3, state);
                     data.properties['city'] = data.properties.nsw_lga__3;
                 }
-                else{
+                else {
                     var values = get_html(data.properties.HHS, state);
                     data.properties['city'] = data.properties.HHS;
                 }
@@ -329,7 +334,7 @@ class MbMap extends React.Component {
 
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
-                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>' + date)
+                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>By: ' + date)
                         .addTo(map);
                 });
 
@@ -373,7 +378,7 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
-            if (item['state'] !== 'VIC' && item['state'] !== 'NSW'&& item['state'] !== 'QLD') {
+            if (item['state'] !== 'VIC' && item['state'] !== 'NSW' && item['state'] !== 'QLD') {
                 if (item['state'] === 'VIC' && item['area'].length > 0) {
                     item['description'] = "This case number is just the suburb confirmed number, not the case number at this geo point."
                     item['date'] = '26/3/20'
@@ -441,10 +446,6 @@ class MbMap extends React.Component {
       }
 
     render() {
-        const style = {
-            height: '100%',
-
-        };
 
         const toggleStyles = {
           color:'black',
@@ -456,11 +457,11 @@ class MbMap extends React.Component {
             <div className="card" style={{
                 display: 'flex',
                 flexDirection: 'column',
-                height: '520px'
             }}>
-                <h2>Hospital & Case Map</h2>
-
-                <div style={style} ref={el => this.mapContainer = el} >
+                <h2 style={{ display: "flex" }}>Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+                    <Acknowledgement>
+                    </Acknowledgement></div></h2>
+                <div  ref={el => this.mapContainer = el} >
                     {/*{*/}
                     {/*confirmedData.map((item)=>(*/}
                     {/*<div style={activityStyle}>*/}

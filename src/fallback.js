@@ -72,7 +72,7 @@ function Fallback(props) {
                 <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
                     volunteer team
                 </a>{" "}
-                from the Faculty of IT, Monash University, for non-commercial use only.
+                , for non-commercial use only.
             </div>
 
             <div>

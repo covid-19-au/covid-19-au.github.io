@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactGA from "react-ga";
 import ausPop from '../data/ausPop'
 
+import Acknowledgement from "../Acknowledgment"
 import NativeSelect from '@material-ui/core/NativeSelect'
 
 import { Chart } from "react-google-charts";
@@ -144,7 +145,12 @@ function GoogleMap({ province, newData }) {
     return (
         loading ? <div className="loading">Loading...</div> :
             <div className="stateMap">
-                <h2> Cases by State {province ? `· ${province.name}` : false} </h2>
+                <h2 style={{ display: "flex" }}>Cases by State {province ? `· ${province.name}` : false}
+                    <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+                        <Acknowledgement>
+                        </Acknowledgement></div>
+
+                </h2>
                 <span className="selection-grid">
                     <NativeSelect
                         className="mapToggle"
