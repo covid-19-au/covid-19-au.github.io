@@ -12,6 +12,10 @@ import confirmedImg from '../img/icon/confirmed-recent.png'
 import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
 import ReactGA from "react-ga";
+//Fetch Token from env
+let token = process.env.REACT_APP_MAP_API;
+mapboxgl.accessToken = token;
+
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
 class MbMap extends React.Component {
@@ -57,6 +61,7 @@ class MbMap extends React.Component {
     }
 
     componentDidMount() {
+        this.Hospitalvisible = false;
         const { lng, lat, zoom } = this.state;
 
         var bounds = [
@@ -66,22 +71,7 @@ class MbMap extends React.Component {
 
         const map = new mapboxgl.Map({
             container: this.mapContainer,
-            style: {
-                version: 8,
-                sources: {
-                    osm: {
-                        type: 'raster',
-                        tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-                        tileSize: 256,
-                        attribution: 'Map tiles by <a target="_top" rel="noopener" href="https://tile.openstreetmap.org/">OpenStreetMap tile servers</a>, under the <a target="_top" rel="noopener" href="https://operations.osmfoundation.org/policies/tiles/">tile usage policy</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>'
-                    }
-                },
-                layers: [{
-                    id: 'osm',
-                    type: 'raster',
-                    source: 'osm',
-                }],
-            },
+            style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
             maxBounds: bounds // Sets bounds as max
         });
@@ -432,6 +422,21 @@ class MbMap extends React.Component {
         })
     }
 
+    handleClick() {
+      if(document.getElementsByClassName("marker")[0]){
+        var visibility = 'hidden';
+        var inital_style = document.getElementsByClassName("marker")[0].style.visibility;
+        if(inital_style == 'hidden' || inital_style == ''){
+          var visibility = 'visible';
+        }
+        var all = document.getElementsByClassName("marker");
+        for (var i = 0; i < all.length; i++) {
+          var element = all[i];
+          element.style.visibility = visibility;
+        }
+      }
+    }
+
     render() {
         const style = {
             height: '100%',
@@ -462,6 +467,7 @@ class MbMap extends React.Component {
                     <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
                     <span className="Key"><p>*City-level data is only present for VIC and NSW, HHS Data for QLD. Other states are being worked on.</p></span>
+                    <button onClick={this.handleClick}>Click to toggle map markers</button>
                 </span>
             </div>
         );

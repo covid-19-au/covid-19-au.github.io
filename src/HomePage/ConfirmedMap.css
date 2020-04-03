@@ -6,6 +6,9 @@
     text-align: center;
     font-family: 'Open Sans', sans-serif;
 }
+.marker{
+  visibility: hidden;
+}
 
 .key{
   margin-left: 0px;
