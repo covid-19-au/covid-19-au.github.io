@@ -73,7 +73,7 @@ function getLatestData(state) {
   console.log("State: ", state);
   let latestDate = Object.keys(stateData)[Object.keys(stateData).length - 1];
   let latestData = stateData[latestDate][state];
-  console.log(latestData);
+  return latestData;
 }
 
 function setGenderOption(expectState) {
@@ -126,7 +126,6 @@ function setAgeOption(expectState) {
     tooltip: {
       trigger: "axis",
       axisPointer: {
-        type: "cross",
         crossStyle: {
           color: "#999"
         }
@@ -139,9 +138,6 @@ function setAgeOption(expectState) {
       data: ageChartLegend,
       top: "7%",
       selected: {
-        Male: true,
-        Female: true,
-        "Not Stated": true,
         All: false
       }
     },
@@ -159,7 +155,46 @@ function setAgeOption(expectState) {
 }
 
 function setGeneralBarOption(state) {
-  getLatestData(state);
+  let latestData = getLatestData(state);
+  let generalBarLegend = ["Confirmed", "Death", "Recovered", "Tested"];
+  let generalLabel = ["General Information"];
+  let generalBarSeries = new Series();
+  for (let i = 0; i < generalBarLegend.length; i++) {
+    let tempData = [];
+    tempData.push(latestData[i])
+    let tempBarSeies = new BarSeries(generalBarLegend[i], tempData);
+    generalBarSeries.addSubSeries(tempBarSeies);
+    console.log(tempBarSeies);
+  }
+
+  let tempOption = {
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        crossStyle: "#999"
+      }
+    },
+    title: {
+      text: "General Information"
+    },
+    legend: {
+      data: generalBarLegend,
+      top: "7%",
+      selected: {
+        Tested: false
+      }
+    },
+    xAxis: {
+      type: "category",
+      data: generalLabel,
+      axisPointer: {
+        type: "shadow"
+      }
+    },
+    yAxis: {},
+    series: generalBarSeries.getSeriesList()
+  }
+  return tempOption;
 }
 
 function setGeneralLineOption() {
@@ -172,12 +207,11 @@ function StateChart({ state }) {
 
   let genderOption;
   let ageOption;
-  let generalBarOption;
+  let barOption;
   if (expectStateData !== null) {
     genderOption = setGenderOption(expectStateData);
     ageOption = setAgeOption(expectStateData);
-    generalBarOption = setGeneralBarOption(state.toUpperCase());
-    console.log(generalBarOption);
+    barOption = setGeneralBarOption(state.toUpperCase());
   }
 
   if (expectStateData !== null) {
@@ -203,7 +237,7 @@ function StateChart({ state }) {
         <Grid item xs={11} sm={11} md={4} xl={6}>
           <div className="card">
             <h2>Cases by Gender Information - Bar</h2>
-            <ReactEcharts option={ageOption} />
+            <ReactEcharts option={barOption} />
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4} xl={6}>
