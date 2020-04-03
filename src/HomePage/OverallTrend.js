@@ -5,6 +5,13 @@ import echarts from "echarts"
 
 export default function OverallTrend(data) {
 
+    const [logScale, setLogScale] = useState(false);
+
+    let yAxisType = "value"
+    if (logScale) {
+        yAxisType = "log"
+    }
+
     let monthTrans = {
         0: "Jan",
         1: "Feb",
@@ -32,23 +39,36 @@ export default function OverallTrend(data) {
     for (let key in countryData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
-        let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-        dateData.push(labelName)
+
+        if (logScale) {
+            //log graph breaks if we include data before March 1st so we exclude that data here
+            if (date.getMonth() >= 2) {
+                let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+                dateData.push(labelName)
+
+                confirmedData.push(countryData[key][0])
+                deathData.push(countryData[key][2])
+                recoveryData.push(countryData[key][1])
+            }
+        }
+        //if not log scale, we include all data
+        else {
+            let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+            dateData.push(labelName)
+
+            confirmedData.push(countryData[key][0])
+            deathData.push(countryData[key][2])
+            recoveryData.push(countryData[key][1])
+        }
+
     }
+    console.log(dateData)
 
-
-    //Create arrays of case data
-    for (let key in countryData) {
-        confirmedData.push(countryData[key][0])
-        deathData.push(countryData[key][2])
-        recoveryData.push(countryData[key][1])
-    }
-
-    //graph initial start point
+    //graph initial start point (2 weeks)
     let start = 100 - (14 / dateData.length * 100)
     let startPoint = parseInt(start)
 
-    // set max Y value
+    // set max Y value by rounding max data value to nearest 1000
     let maxValue = parseInt(Math.max(...confirmedData))
     let maxY = Math.ceil(maxValue / 1000) * 1000
 
@@ -100,8 +120,8 @@ export default function OverallTrend(data) {
                         axisLabel: {
                             show: true
                         },
-                        type: 'value',
-                        max: maxY,
+                        type: yAxisType,
+                        max: maxY
                     },
                     legend: {
                         show: true,
@@ -111,7 +131,7 @@ export default function OverallTrend(data) {
                     },
                     dataZoom: [{
                         type: 'inside',
-                        start: startPoint,
+                        start: 0,
                         end: 100
                     }, {
                         start: 0,
