@@ -14,6 +14,7 @@ import hospitalImg from '../img/icon/hospital.png'
 import ReactGA from "react-ga";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+import Radio from '@material-ui/core/Radio';
 import Acknowledgement from "../Acknowledgment"
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
@@ -26,10 +27,12 @@ class MbMap extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             lng: 133.751567,
             lat: -26.344589,
-            zoom: 2.5
+            zoom: 2.5,
+            showMarker: true,
         };
     }
 
@@ -435,6 +438,9 @@ class MbMap extends React.Component {
           var element = all[i];
           element.style.visibility = 'hidden';
         }
+        this.setState({
+            showMarker:false
+        })
       }
 
     handleClickOn() {
@@ -443,14 +449,21 @@ class MbMap extends React.Component {
           var element = all[i];
           element.style.visibility = 'visible';
         }
+        this.setState({
+            showMarker:true
+        })
       }
 
     render() {
 
-        const toggleStyles = {
+        const activeStyles = {
           color:'black',
           borderColor:'#BAE1FF'
-        }
+        };
+        const inactiveStyles = {
+          color:'grey',
+          borderColor:'grey'
+        };
 
 
         return (
@@ -477,9 +490,9 @@ class MbMap extends React.Component {
                     <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
                     <span className="Key"><p>*City-level data is only present for VIC and NSW, HHS Data for QLD. Other states are being worked on.</p></span>
                     Toggle Markers:&nbsp;
-                    <ButtonGroup color="primary" aria-label="outlined primary button group">
-                      <Button style={toggleStyles} onClick={this.handleClickOn}>On</Button>
-                      <Button style={toggleStyles} onClick={this.handleClickOff}>Off</Button>
+                    <ButtonGroup size="small" aria-label="small outlined button group">
+                      <Button style={this.state.showMarker?activeStyles:inactiveStyles} disableElevation={true} onClick={()=>this.handleClickOn()}>On</Button>
+                      <Button style={this.state.showMarker?inactiveStyles:activeStyles} onClick={()=>this.handleClickOff()}>Off</Button>
                     </ButtonGroup>
                 </span>
             </div>
