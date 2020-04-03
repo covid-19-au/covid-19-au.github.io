@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-03/coronavirus-scott-morrison-national-cabinet-meeting-update/12120584",
+            "title": "Scott Morrison gave a rundown of the latest coronavirus measures after today's National Cabinet meeting. Here's what he said.",
+            "source": "ABCNews",
+            "date": "03 April 2020",
+            "time": "20:00",
+            "summary": "Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy gave an update after today's National Cabinet meeting. They discussed big changes for how we live our lives, with business closures, social distancing rules, Easter services, commercial leases, the fate of seasonal workers and international students, and more."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/apr/02/free-childcare-what-do-the-governments-coronavirus-changes-mean-for-my-family",
             "title": "Free childcare: what do the Australian government's coronavirus changes mean for my family?",
             "source": "TheGuardian",
