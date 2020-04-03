@@ -84,7 +84,7 @@ export default function Area({ area, onChange, data }) {
             {renderArea()}
             <Total data={data} />
 
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>* We currently do not have a consistent source of data for recovered cases in NSW, QLD, SA, and TAS.</span>
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>* We currently do not have a consistent source of data for recovered cases in NSW, QLD, and TAS.</span>
         </div>
     );
 }
