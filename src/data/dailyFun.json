@@ -1,15 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "name": "Melbourne foot traffic has decreased drastically.",
-                    "imgLink": "https://i.imgur.com/qUsoGBk.jpg",
-                    "description": "Check out Sydney's chart on City Mapper!",
-                    "source": " https://citymapper.com/cmi/sydney"
+                    "link": "https://www.youtube.com/watch?v=F5pgG1M_h_U",
+                    "description": "Some good news from around the world with John Krasinski"
                 }
             ],
-            "video": []
+            "type": "distraction",
+            "date": "4/4/2020"
         }
     ]
 }

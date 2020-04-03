@@ -2,11 +2,13 @@ import React from "react";
 import mapboxgl from 'mapbox-gl';
 import confirmedData from "./data/mapdataCon"
 import hospitalData from "./data/mapdataHos"
+import vicLgaData from "./data/lga_vic.geojson"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from './img/icon/confirmed-recent.png'
 import confirmedOldImg from './img/icon/confirmed-old.png'
 import hospitalImg from './img/icon/hospital.png'
+import ReactGA from "react-ga";
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
 class MbMap extends React.Component {
@@ -31,7 +33,7 @@ class MbMap extends React.Component {
 
             // Default constructor has current time
             const today = new Date();
-            
+
             // Day of the event. Transform to YYYY/MM/DD format
             const day = eventDay[0], month = parseInt(eventDay[1])-1;
             const year = '20' + eventDay[2]
@@ -54,6 +56,11 @@ class MbMap extends React.Component {
     componentDidMount() {
         const { lng, lat, zoom } = this.state;
 
+        var bounds = [
+          [101.6015625,-49.83798245308484], // Southwest coordinates
+          [166.2890625,0.8788717828324276] // Northeast coordinates
+        ];
+
         const map = new mapboxgl.Map({
             container: this.mapContainer,
             style: {
@@ -73,18 +80,146 @@ class MbMap extends React.Component {
               }],
             },
             center: [lng, lat],
-            minZoom: 2.5,
-            zoom
+            maxBounds: bounds // Sets bounds as max
+        });
+
+        function get_html(city_name) {
+          var city = city_name.toLowerCase().split(" ");
+          var numberOfCases = 0;
+          var city_type = city.slice(-1)[0];
+          city.pop();
+          city_name = city.join(' ');
+          if (city_type === 'city'){
+            city_name += '(c)';
+          }else if(city_type==='rural city'){
+              city_name += '(rc)';
+          }
+          else{
+            city_name += '(s)';
+          }
+          for (var data in confirmedData){
+            var data_map = confirmedData[data];
+            city = data_map['area'];
+            // console.log(city.toLowerCase(),city_name)
+            if (city.toLowerCase() === city_name && numberOfCases === 0){
+              // return data_map['numberOfCases']
+              numberOfCases = data_map['numberOfCases'];
+            }
+          }
+          return parseInt(numberOfCases);
+        }
+
+        function formNewJson(geojsonData){
+          for(var key in geojsonData.features){
+            var data = geojsonData.features[key];
+            var cases = get_html(data.properties.vic_lga__2);
+            data.properties['cases'] = cases;
+            geojsonData.features[key] = data;
+          }
+          return geojsonData;
+        }
+
+        map.on('load', function() {
+
+          // var maxValue = 56;
+          async function loadJSON(fname) {
+            let geojsonData = await fetch(`${vicLgaData}`)
+              .then(response => response.json())
+              .then(responseData => {
+                return responseData;
+            });
+            return geojsonData;
+          };
+
+          (async () => {
+            var geosjondata = loadJSON().then(data => {
+              data = formNewJson(data);
+              map.addLayer({
+                id: 'id_poly',
+                type: 'fill',
+                minzoom:2,
+                source: {
+                  type: 'geojson',
+                  data: data
+                },
+                'paint': {
+                  'fill-color': [
+                    'interpolate',
+                    ['linear'],
+                    ['get', 'cases'],
+                    0,
+                    '#E3F2FD',
+                    1,
+                    '#BBDEFB',
+                    5,
+                    '#90CAF9',
+                    10,
+                    '#64B5F6',
+                    20,
+                    '#42A5F5',
+                    30,
+                    '#2196F3',
+                    40,
+                    '#1E88E5',
+                    50,
+                    '#1976D2',
+                    60,
+                    '#1565C0',
+                    70,
+                    '#0D47A1'
+                  ],
+                  'fill-opacity': 0.75
+                },
+                filter: ['==', '$type', 'Polygon']
+              });
+              map.addLayer({
+                id: 'id_line_ploy',
+                minzoom:2,
+                type: 'line',
+                source: {
+                  type: 'geojson',
+                  data: data
+                },
+                paint: {
+                  // 'line-color': '#088',
+                  'line-opacity': 1,
+                  'line-width': 2,
+                },
+                filter: ['==', '$type', 'Polygon']
+              });
+            });
+
+          })()
+
+
+          map.on('click', 'id_poly', function(e) {
+            ReactGA.event({category: 'ConfirmMap',action: "StateClick",label:e.features[0].properties.vic_lga__2});
+            var cases = e.features[0].properties.cases;
+            new mapboxgl.Popup()
+              .setLngLat(e.lngLat)
+              .setHTML(e.features[0].properties.vic_lga__2 + '<br/>Cases:' + cases)
+              .addTo(map);
+          });
+
+          // Change the cursor to a pointer when the mouse is over the states layer.
+          map.on('mouseenter', 'id_poly', function() {
+            map.getCanvas().style.cursor = 'pointer';
+          });
+
+          // Change it back to a pointer when it leaves.
+          map.on('mouseleave', 'id_poly', function() {
+            map.getCanvas().style.cursor = '';
+          });
         });
 
         // Add geolocate control to the map.
         map.addControl(
-            new mapboxgl.GeolocateControl({
-                positionOptions: {
-                    enableHighAccuracy: true
-                },
-                trackUserLocation: true
-            })
+          new mapboxgl.GeolocateControl({
+            positionOptions: {
+              enableHighAccuracy: true
+            },
+            trackUserLocation: true
+          })
         );
 
         //Add Zoom Controls
@@ -100,6 +235,11 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
+          if (item['state'] !== 'VIC'){
+            if(item['state']==='VIC' && item['area'].length > 0){
+                item['description']="This case number is just the suburb confirmed number, not the case number at this geo point."
+                item['date'] = '26/3/20'
+            }
             // create a HTML element for each feature
             var el = document.createElement('div');
             el.className = 'marker';
@@ -119,9 +259,9 @@ class MbMap extends React.Component {
             new mapboxgl.Marker(el)
                 .setLngLat(coor)
                 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3>' + '<p style="margin:0;">' + item['date'] + '</p><p style="margin:0;">Activity Time: ' + item['time'] + '</p>'))
+                    .setHTML('<h3 style="margin:0;">' + item['name'] + '</h3>' + '<p style="margin:0;">' + item['date'] + '</p><p style="margin:0;">' + item['description'] + '</p>'))
                 .addTo(map);
-        })
+        };})
 
         hospitalData.map((item) => {
             // create a HTML element for each feature
@@ -174,6 +314,7 @@ class MbMap extends React.Component {
                     <span className="key"><img src={hospitalImg}/><p>Hospital or COVID-19 assessment centre</p></span>
                     <span className="key"><img src={confirmedOldImg}/><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg}/><p>Recently confirmed case(not all, collecting)</p></span>
+                    <span className="Key"><p>*City Wise Data Present Only For VIC will develop for other States.</p></span>
         </span>
             </div>
         );

@@ -21,15 +21,11 @@ function createInstances(stateData, state) {
 
   for (let day in stateData) {
     let arr = day.split("-");
-    const cases = stateData[day],
-      date = new Date(arr[0], arr[1] - 1, arr[2]);
+    const cases = stateData[day], date = new Date(arr[0], arr[1] - 1, arr[2]);
 
     instances.push({
       y: cases[state][0],
-      label:
-        date.toLocaleDateString("default", { month: "long" }) +
-        " " +
-        date.getDate()
+      label: date.toLocaleDateString('default', { month: 'long' }) + ' ' + date.getDate()
     });
   }
 
@@ -40,8 +36,10 @@ function createInstances(stateData, state) {
 function sortStates(stateData) {
   // Find the most recent day with data
 
-  let latestData =
-    stateData[Object.keys(stateData)[Object.keys(stateData).length - 1]];
+
+  let latestData = stateData[
+    Object.keys(stateData)[Object.keys(stateData).length - 1]
+  ];
 
   // Sort state by cases
   let sortable = [];
@@ -49,9 +47,9 @@ function sortStates(stateData) {
     sortable.push([state, latestData[state]]);
   }
   // let casesByState = Object.keys(latestData).map(state => [state, latestData[state][0]]).sort((a, b) => b[1] - a[1]);
-  sortable.sort(function(a, b) {
+  sortable.sort(function (a, b) {
     return b[1][0] - a[1][0];
-  });
+  })
   return sortable.map(state => state[0]);
 }
 
@@ -59,13 +57,15 @@ function sortStates(stateData) {
 function createSeries(stateData) {
   // Map each state into its series
   let orderedStates = sortStates(stateData);
-  return orderedStates.map(state => ({
-    type: "spline",
-    name: state,
-    color: colourMapping[state],
-    showInLegend: true,
-    dataPoints: createInstances(stateData, state)
-  }));
+  return orderedStates.map(state =>
+    ({
+      type: "spline",
+      name: state,
+      color: colourMapping[state],
+      showInLegend: true,
+      dataPoints: createInstances(stateData, state)
+    })
+  )
 }
 
 /** Generates line graphs for state-level case data */
@@ -108,7 +108,7 @@ function StateGraph({ stateData }) {
   return (
     <div className="card">
       <h2>Confirmed Cases in Australian States</h2>
-      {isLoading ? <p>Loading...</p> : <CanvasJSChart options={graphOptions} style = {{paddingLeft: '500px'}}/>}
+      {isLoading ? <p>Loading...</p> : <CanvasJSChart options={graphOptions} style={{ paddingLeft: '500px' }} />}
     </div>
   );
 }

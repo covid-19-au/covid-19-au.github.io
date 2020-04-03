@@ -19,6 +19,7 @@ import mapDataHos from "./data/mapdataHos";
 import Fallback from "./fallback"
 
 import FAQPage from "./FAQPage";
+import DailyHistoryPage from "./DailyHistoryPage";
 import NewsPage from "./NewsPage";
 import InfoPage from "./InfoPage";
 import Navbar from "./Navbar";
@@ -49,9 +50,6 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Alert, AlertTitle } from '@material-ui/lab';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import StateChart from "./DataVis/StateChart";
-
 
 
 dayjs.extend(relativeTime);
@@ -77,7 +75,7 @@ function Header({ province }) {
       >
         COVID-19 in Australia — Real-Time Report
       </h1>
-
+        <div className="slogan"><i>Stay Calm Stay Informed</i></div>
       {/*<i>By Students from Monash</i>*/}
     </header>
   );
@@ -221,16 +219,9 @@ function App() {
     "/info": () => <InfoPage columns={columns} gspace={gspace} />,
     "/news": () => <NewsPage province={province} gspace={gspace} />,
     "/faq": () => <FAQPage />,
-    "/state/vic": () => <StateChart state="VIC" />,
-    "/state/nsw": () => <StateChart state="NSW" />,
-    "/state/qld": () => <StateChart state="QLD" />,
-    "/state/act": () => <StateChart state="ACT" />,
-    "/state/sa": () => <StateChart state="SA" />,
-    "/state/wa": () => <StateChart state="WA" />,
-    "/state/nt": () => <StateChart state="NT" />,
-    "/state/tas": () => <StateChart state="TAS" />,
+    "/dailyHistory": () => <DailyHistoryPage />,
   };
-
+  //
   // // The hook used to render the routes.
   const routeResult = useRoutes(routes);
   // const [urlPath, setUrlPath] = useState(window.location.pathname);
@@ -246,7 +237,7 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
-          <Grid item xs={11} className="removePadding">
+          <Grid item xs={12} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
             {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
           </Grid>
