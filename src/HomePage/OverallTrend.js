@@ -20,7 +20,6 @@ export default function OverallTrend(data) {
         11: "Dec"
     };
 
-    console.log(countryData)
 
     let dateData = []
     let confirmedData = []
@@ -35,7 +34,6 @@ export default function OverallTrend(data) {
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
         let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()] + "-" + date.getFullYear().toString();
         dateData.push(labelName)
-        console.log(date)
     }
 
 
@@ -50,43 +48,66 @@ export default function OverallTrend(data) {
     let start = 100 - (14 / dateData.length * 100)
     let startPoint = parseInt(start)
 
+    // set max Y value
+    let maxValue = parseInt(Math.max(...confirmedData))
+    let maxY = Math.round(maxValue / 1000) * 1000
+
+
     return (
-        <ReactEcharts
+        <ReactEcharts style={{ height: "412px" }}
             option={
                 {
+                    grid: {
+                        containLabel: true,
+                        left: 0,
+                        right: "5%"
+                        , bottom: "23%"
+                    },
                     tooltip: {
                         trigger: 'axis',
-                        position: function (pt) {
-                            return [pt[0], '10%'];
+                        backgroundColor: "white",
+                        borderColor: "#bae1ff",
+                        borderWidth: "1",
+                        textStyle: {
+                            color: "black"
                         }
                     },
                     title: {
                         left: 'center',
-                        text: 'Overall Trend for COVID-19 Cases in Australia',
+                        text: 'Overall trends for COVID-19 \n cases in Australia',
+                        textStyle: {
+                            fontFamily:
+                                "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+                            fontSize: 20,
+                            fontWeight: "normal"
+                        }
                     },
                     toolbox: {
-                        feature: {
-                            dataZoom: {
-                                yAxisIndex: 'none'
-                            },
-                            restore: {},
-                            saveAsImage: {}
-                        }
+                        show: false
                     },
                     xAxis: {
                         type: 'category',
                         boundaryGap: false,
-                        data: dateData
+                        data: dateData,
+                        scale: true
                     },
                     yAxis: {
+                        axisLabel: {
+                            show: true
+                        },
                         type: 'value',
-                        boundaryGap: [0, '100%'],
-                        max: "dataMax"
+                        max: maxY,
+                    },
+                    legend: {
+                        show: true,
+                        left: "center",
+                        bottom: "14%",
+                        itemGap: 5
                     },
                     dataZoom: [{
                         type: 'inside',
-                        start: 100,
-                        end: 75
+                        start: startPoint,
+                        end: 100
                     }, {
                         start: 0,
                         end: 10,
@@ -98,7 +119,9 @@ export default function OverallTrend(data) {
                             shadowColor: 'rgba(0, 0, 0, 0.6)',
                             shadowOffsetX: 2,
                             shadowOffsetY: 2
-                        }
+                        },
+                        bottom: "3%",
+                        left: "center"
                     }],
                     series: [
 
@@ -107,6 +130,7 @@ export default function OverallTrend(data) {
                             type: 'line',
                             smooth: true,
                             symbol: 'circle',
+                            symbolSize: 8,
                             sampling: 'average',
                             itemStyle: {
                                 color: "#ff603c"
@@ -117,6 +141,7 @@ export default function OverallTrend(data) {
                             type: 'line',
                             smooth: true,
                             symbol: 'circle',
+                            symbolSize: 8,
                             sampling: 'average',
                             itemStyle: {
                                 color: "#c11700"
@@ -127,6 +152,7 @@ export default function OverallTrend(data) {
                             type: 'line',
                             smooth: true,
                             symbol: 'circle',
+                            symbolSize: 8,
                             sampling: 'average',
                             itemStyle: {
                                 color: "#00c177"
