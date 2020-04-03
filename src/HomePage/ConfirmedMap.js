@@ -371,7 +371,7 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
-            if (item['state'] !== 'VIC' && item['state'] !== 'NSW') {
+            if (item['state'] !== 'VIC' && item['state'] !== 'NSW'&& item['state'] !== 'QLD') {
                 if (item['state'] === 'VIC' && item['area'].length > 0) {
                     item['description'] = "This case number is just the suburb confirmed number, not the case number at this geo point."
                     item['date'] = '26/3/20'
