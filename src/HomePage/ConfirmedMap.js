@@ -12,6 +12,8 @@ import confirmedImg from '../img/icon/confirmed-recent.png'
 import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
 import ReactGA from "react-ga";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
 mapboxgl.accessToken = token;
@@ -422,26 +424,32 @@ class MbMap extends React.Component {
         })
     }
 
-    handleClick() {
-      if(document.getElementsByClassName("marker")[0]){
-        var visibility = 'hidden';
-        var inital_style = document.getElementsByClassName("marker")[0].style.visibility;
-        if(inital_style == 'hidden' || inital_style == ''){
-          var visibility = 'visible';
-        }
+    handleClickOff() {
         var all = document.getElementsByClassName("marker");
         for (var i = 0; i < all.length; i++) {
           var element = all[i];
-          element.style.visibility = visibility;
+          element.style.visibility = 'hidden';
         }
       }
-    }
+
+    handleClickOn() {
+        var all = document.getElementsByClassName("marker");
+        for (var i = 0; i < all.length; i++) {
+          var element = all[i];
+          element.style.visibility = 'visible';
+        }
+      }
 
     render() {
         const style = {
             height: '100%',
 
         };
+
+        const toggleStyles = {
+          color:'black',
+          borderColor:'#BAE1FF'
+        }
 
 
         return (
@@ -467,7 +475,11 @@ class MbMap extends React.Component {
                     <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
                     <span className="Key"><p>*City-level data is only present for VIC and NSW, HHS Data for QLD. Other states are being worked on.</p></span>
-                    <button onClick={this.handleClick}>Click to toggle map markers</button>
+                    Toggle Markers:&nbsp;
+                    <ButtonGroup color="primary" aria-label="outlined primary button group">
+                      <Button style={toggleStyles} onClick={this.handleClickOn}>On</Button>
+                      <Button style={toggleStyles} onClick={this.handleClickOff}>Off</Button>
+                    </ButtonGroup>
                 </span>
             </div>
         );
