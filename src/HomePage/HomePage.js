@@ -19,6 +19,8 @@ import flights from "../data/flight";
 import country from "../data/country";
 import all from "../data/overall";
 
+import OverallTrend from "./OverallTrend"
+
 
 const provincesByName = keyBy(provinces, "name");
 
@@ -64,7 +66,12 @@ export default function HomePage({
 
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
                 <MbMap />
-                <HistoryGraph countryData={country} />
+                <div className="card">
+                    <h2>Historical Data</h2>
+                    <OverallTrend />
+                    <hr />
+                    <HistoryGraph countryData={country} />
+                </div>
             </Grid>
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
                 <StateGraph stateData={stateData} />
