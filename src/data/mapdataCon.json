@@ -6,7 +6,8 @@
     "date": "17/3/20",
     "time": "3.50pm",
     "description": "From Dickson Interchange to Kaleen, departing Dickson at approximately 3.50pm(scheduled at 3.33pm but was running late)",
-    "coor": ["-35.250418", "149.133760"]
+    "coor": ["-35.250418", "149.133760"],
+    "notes": "The Passengers should self-quarantine until 31-03-and should contact the Communicable Disease Control Section of ACT Health on 5124 9213 for more information."
   },
   {
     "state": "ACT",
@@ -15,7 +16,8 @@
     "date": "23/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-35.252397", "149.130497"]
+    "coor": ["-35.252397", "149.130497"],
+    "notes": ""
   },
   {
     "state": "ACT",
@@ -24,7 +26,8 @@
     "date": "14/3/20",
     "time": "4-5pm",
     "description": "",
-    "coor": ["-35.283987", "149.124527"]
+    "coor": ["-35.283987", "149.124527"],
+    "notes": ""
   },
   {
     "state": "ACT",
@@ -33,7 +36,8 @@
     "date": "14/3/20",
     "time": "5-6:30pm",
     "description": "",
-    "coor": ["-35.321500", "149.163379"]
+    "coor": ["-35.321500", "149.163379"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -42,7 +46,8 @@
     "date": "14/3/20",
     "time": "N/A",
     "description": "From ACT",
-    "coor": ["-33.886336", "151.184437"]
+    "coor": ["-33.886336", "151.184437"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -51,7 +56,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-33.721505", "151.088048"]
+    "coor": ["-33.721505", "151.088048"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -60,7 +66,8 @@
     "date": "23/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-33.721505", "151.088048"]
+    "coor": ["-33.721505", "151.088048"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -69,7 +76,8 @@
     "date": "31/3/20",
     "time": "N/A",
     "description": "16 residents, 5 staff",
-    "coor": ["-33.777053", "151.110612"]
+    "coor": ["-33.777053", "151.110612"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -78,7 +86,8 @@
     "date": "25/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-33.932836", "151.026271"]
+    "coor": ["-33.932836", "151.026271"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -87,7 +96,8 @@
     "date": "26/3/20",
     "time": "N/A",
     "description": "1 widwife",
-    "coor": ["-33.966684", "151.134449"]
+    "coor": ["-33.966684", "151.134449"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -96,7 +106,8 @@
     "date": "8/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-33.717958", "151.116651"]
+    "coor": ["-33.717958", "151.116651"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -105,7 +116,8 @@
     "date": "8/3/20",
     "time": "N/A",
     "description": "Seven people have been confirmed with COVID-19 after attending a Sydney Church of Christ service on 8-03-2020 at Ryde Civic Centre. More than 300 people attended this service.",
-    "coor": ["-33.811860", "151.104833"]
+    "coor": ["-33.811860", "151.104833"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -114,7 +126,8 @@
     "date": "16/3/20",
     "time": "4pm - 11pm",
     "description": "Backpackers in Bondi",
-    "coor": ["-33.890103", "151.278161"]
+    "coor": ["-33.890103", "151.278161"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -123,7 +136,8 @@
     "date": "16/3/20",
     "time": "12am - 4am",
     "description": "Backpackers in Bondi",
-    "coor": ["-33.874218", "151.215786"]
+    "coor": ["-33.874218", "151.215786"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -132,7 +146,8 @@
     "date": "16/3/20",
     "time": "All hours",
     "description": "Childcare. All people who visited during the dates need to be isolated",
-    "coor": ["-34.034374", "150.762368"]
+    "coor": ["-34.034374", "150.762368"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -141,7 +156,8 @@
     "date": "16/3/20",
     "time": "All hours",
     "description": "Childcare. All people who visited during the dates need to be isolated",
-    "coor": ["-33.850286", "151.275103"]
+    "coor": ["-33.850286", "151.275103"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -150,7 +166,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "public health order",
-    "coor": ["-31.553509", "159.081786"]
+    "coor": ["-31.553509", "159.081786"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -159,7 +176,8 @@
     "date": "23/3/20",
     "time": "N/A",
     "description": "Tracing Still underway",
-    "coor": ["-33.719297", "150.891671"]
+    "coor": ["-33.719297", "150.891671"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -168,7 +186,8 @@
     "date": "13/3/20",
     "time": "6:45pm-8:45pm",
     "description": "N/A",
-    "coor": ["-26.407997", "153.043143"]
+    "coor": ["-26.407997", "153.043143"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -177,7 +196,8 @@
     "date": "13/3/20",
     "time": "6:45pm-8:45pm",
     "description": "",
-    "coor": ["-26.405436", "153.110754"]
+    "coor": ["-26.405436", "153.110754"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -186,7 +206,8 @@
     "date": "14/3/20",
     "time": "3:45pm-11:30pm",
     "description": "",
-    "coor": ["-26.386829", "153.091889"]
+    "coor": ["-26.386829", "153.091889"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -195,7 +216,8 @@
     "date": "15/3/20",
     "time": "12:30pm-2:00pm",
     "description": "",
-    "coor": ["-26.386829", "153.091889"]
+    "coor": ["-26.386829", "153.091889"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -204,7 +226,8 @@
     "date": "18/3/20",
     "time": "4:00pm-11:15pm",
     "description": "4 infected staff worked on 18th and 19 of March",
-    "coor": ["-26.386811", "153.093034"]
+    "coor": ["-26.386811", "153.093034"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -213,7 +236,8 @@
     "date": "10/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-27.554941", "152.336926"]
+    "coor": ["-27.554941", "152.336926"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -222,7 +246,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "Between 6pm Friday 6-03-and 11pm Monday 9 March",
-    "coor": ["-27.463192", "153.034523"]
+    "coor": ["-27.463192", "153.034523"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -231,7 +256,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "Between 12pm and 1:30pm, Friday 13-03-2020",
-    "coor": ["-28.089302", "153.454919"]
+    "coor": ["-28.089302", "153.454919"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -240,7 +266,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-27.449613", "153.028046"]
+    "coor": ["-27.449613", "153.028046"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -249,7 +276,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-27.498640", "153.034225"]
+    "coor": ["-27.498640", "153.034225"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -258,7 +286,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-28.012149", "153.409150"]
+    "coor": ["-28.012149", "153.409150"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -267,7 +296,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-26.649175", "153.065880"]
+    "coor": ["-26.649175", "153.065880"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -276,7 +306,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-27.481774", "150.26604"]
+    "coor": ["-27.481774", "150.26604"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -285,7 +316,8 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-25.904681", "153.092642"]
+    "coor": ["-25.904681", "153.092642"],
+    "notes": ""
   },
   {
     "state": "TAS",
@@ -294,7 +326,8 @@
     "date": "9/3/20",
     "time": "9:30AM - 5:30 pm",
     "description": "",
-    "coor": ["-42.903407", "147.325960"]
+    "coor": ["-42.903407", "147.325960"],
+    "notes": ""
   },
   {
     "state": "TAS",
@@ -303,7 +336,8 @@
     "date": "9/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-42.903756", "147.325108"]
+    "coor": ["-42.903756", "147.325108"],
+    "notes": ""
   },
   {
     "state": "TAS",
@@ -312,7 +346,8 @@
     "date": "9/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-42.903948", "147.326218"]
+    "coor": ["-42.903948", "147.326218"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -321,7 +356,8 @@
     "date": "6/3/20",
     "time": "6pm - 7pm",
     "description": "",
-    "coor": ["-37.809968", "144.995144"]
+    "coor": ["-37.809968", "144.995144"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -330,7 +366,8 @@
     "date": "6/3/20",
     "time": "8:45am - 5:00pm",
     "description": "",
-    "coor": ["-38.198995", "144.318471"]
+    "coor": ["-38.198995", "144.318471"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -339,7 +376,8 @@
     "date": "6/3/20",
     "time": "8:30am - 10:00am",
     "description": "",
-    "coor": ["-37.831816", "144.955928"]
+    "coor": ["-37.831816", "144.955928"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -348,7 +386,8 @@
     "date": "7/3/20",
     "time": "Evening",
     "description": "",
-    "coor": ["-37.825005", "144.983814"]
+    "coor": ["-37.825005", "144.983814"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -357,7 +396,8 @@
     "date": "7/3/20",
     "time": "6:00pm - 10:00pm",
     "description": "",
-    "coor": ["-37.825005", "144.983814"]
+    "coor": ["-37.825005", "144.983814"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -366,7 +406,8 @@
     "date": "7/3/20",
     "time": "2:00pm - 3:00pm",
     "description": "",
-    "coor": ["-37.831845", "144.955896"]
+    "coor": ["-37.831845", "144.955896"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -375,7 +416,8 @@
     "date": "7/3/20",
     "time": "1:00pm - 6:00pm",
     "description": "",
-    "coor": ["-38.199037", "144.318418"]
+    "coor": ["-38.199037", "144.318418"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -384,7 +426,8 @@
     "date": "7/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-37.863086", "145.086915"]
+    "coor": ["-37.863086", "145.086915"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -393,7 +436,8 @@
     "date": "8/3/20",
     "time": "5:15pm - 11:30pm",
     "description": "",
-    "coor": ["-37.819814", "144.983471"]
+    "coor": ["-37.819814", "144.983471"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -402,7 +446,8 @@
     "date": "8/3/20",
     "time": "10:00am - 4:00pm",
     "description": "",
-    "coor": ["-37.800857", "145.075181"]
+    "coor": ["-37.800857", "145.075181"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -411,7 +456,8 @@
     "date": "8/3/20",
     "time": "8:30am - 5:00pm",
     "description": "",
-    "coor": ["-37.791837", "145.003320"]
+    "coor": ["-37.791837", "145.003320"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -420,7 +466,8 @@
     "date": "10/3/20",
     "time": "12:30pm - 2:00pm",
     "description": "",
-    "coor": ["-37.776845", "144.987074"]
+    "coor": ["-37.776845", "144.987074"],
+    "notes": ""
   },
   {
     "state": "VIC",
@@ -429,7 +476,8 @@
     "date": "10/3/20",
     "time": "8:00am - 9:30am",
     "description": "",
-    "coor": ["-37.773059", "144.916153"]
+    "coor": ["-37.773059", "144.916153"],
+    "notes": ""
   },
   {
     "state": "WA",
@@ -438,7 +486,8 @@
     "date": "7/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-31.957997", "115.863821"]
+    "coor": ["-31.957997", "115.863821"],
+    "notes": ""
   },
   {
     "state": "WA",
@@ -447,7 +496,8 @@
     "date": "1/4/20",
     "time": "N/A",
     "description": "Seventeen new cases are from the Perth metropolitan area",
-    "coor": ["-31.946603", "115.849349"]
+    "coor": ["-31.946603", "115.849349"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -456,7 +506,8 @@
     "date": "30/3/20",
     "time": "",
     "description": "Tyndale Christian School in Blacktown has three cases of COVID-19 (2 students and a staff member). The school will close on 30 and 31 March for contact tracing and cleaning.",
-    "coor": ["-33.781694", "150.885898"]
+    "coor": ["-33.781694", "150.885898"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -465,7 +516,8 @@
     "date": "30/3/20",
     "time": "",
     "description": "A childcare worker at Rose of Sharon childcare centre and two confirmed cases in children who attend this centre have been diagnosed. All children have been isolated as close contacts.",
-    "coor": ["-33.765252", "150.919613"]
+    "coor": ["-33.765252", "150.919613"],
+    "notes": ""
   },
   {
     "state": "WA",
@@ -474,7 +526,8 @@
     "date": "30/3/20",
     "time": "",
     "description": "Two of the new cases are healthcare workers. This includes a healthcare worker from Broome Hospital with a history of intrastate travel.",
-    "coor": ["-17.960318", "122.236525"]
+    "coor": ["-17.960318", "122.236525"],
+    "notes": ""
   },
   {
     "state": "QLD",
@@ -483,7 +536,8 @@
     "date": "31/3/20",
     "time": "",
     "description": "Three comfirmed cases",
-    "coor": ["-17.016973", "145.725109"]
+    "coor": ["-17.016973", "145.725109"],
+    "notes": ""
   },
   {
     "state": "TAS",
@@ -492,7 +546,8 @@
     "date": "31/3/20",
     "time": "",
     "description": "Public Health Services is continuing to investigate two cases in the Devonport area for which a source of infection has not been identified.",
-    "coor": ["-41.179439", "146.345319"]
+    "coor": ["-41.179439", "146.345319"],
+    "notes": ""
   },
   {
     "state": "SA",
@@ -501,7 +556,8 @@
     "date": "2/4/20",
     "time": "",
     "description": "Twelve baggage handlers and five close contacts have tested positive for COVID-19, taking the cluster to a total of 17 cases. The first case related to the cluster received a positive test result on 27 March.",
-    "coor": ["-34.946426", "138.533313"]
+    "coor": ["-34.946426", "138.533313"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -510,7 +566,8 @@
     "date": "2/4/20",
     "time": "",
     "description": "There has been a confirmed case in a teacher at Kambala School. The school is non operational today as further investigations are underway.",
-    "coor": ["-33.864752", "151.271541"]
+    "coor": ["-33.864752", "151.271541"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -519,7 +576,8 @@
     "date": "2/4/20",
     "time": "",
     "description": "There has been a confirmed case in a teacher at Wylie Park Girls High School due to a positive case of COVID-19. The school is non operational today as further investigations are underway.",
-    "coor": ["-33.924164", "151.066968"]
+    "coor": ["-33.924164", "151.066968"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -528,7 +586,8 @@
     "date": "2/4/20",
     "time": "",
     "description": "St Mary’s Senior High School is non operational today due to a student of the school returning a positive test for COVID 19. Contact tracing and further investigations are underway.",
-    "coor": ["-33.763622", "150.770687"]
+    "coor": ["-33.763622", "150.770687"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -537,7 +596,8 @@
     "date": "2/4/20",
     "time": "",
     "description": "If you are living or working in Bondi Beach or Bondi Junction and have a fever or history of fever or symptoms like a cough, shortness of breath or sore throat you can visit the clinic and be tested. The tests are free.",
-    "coor": ["-33.891325", "151.276716"]
+    "coor": ["-33.891325", "151.276716"],
+    "notes": ""
   },
   {
     "state": "NSW",
@@ -546,7 +606,8 @@
     "date": "2/4/20",
     "time": "",
     "description": "If you are living or working in Bondi Beach or Bondi Junction and have a fever or history of fever or symptoms like a cough, shortness of breath or sore throat you can visit the clinic and be tested. The tests are free.",
-    "coor": ["-33.892231", "151.248710"]
+    "coor": ["-33.892231", "151.248710"],
+    "notes": ""
   },
   {
     "state": "SA",
@@ -555,6 +616,47 @@
     "date": "2/4/20",
     "time": "",
     "description": "The teenager is a student at Henley High School and the school has made the decision to close. There has been no further exposure to other students at this point in time however contact tracing is underway.",
-    "coor": ["-34.922099", "138.50105"]
+    "coor": ["-34.922099", "138.50105"],
+    "notes": ""
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Westmead Hospital",
+    "date": "3/4/20",
+    "time": "",
+    "description": "2 radiation therapists have tested positive. Contact tracing is underway for these staff members, and all 14 staff and all but two of the 24 patients who have come into contact with these staff have been contacted by our public health teams",
+    "coor": ["-33.801978", "150.989816"],
+    "notes": ""
+  },
+  {
+    "state": "NSW",
+    "area": "Belfield",
+    "name": "St Michael's Primary School",
+    "date": "3/4/20",
+    "time": "",
+    "description": "Student here has tested positive",
+    "coor": ["-33.901302", "151.088144"],
+    "notes": ""
+  },
+  {
+    "state": "NSW",
+    "area": "Erina",
+    "name": "Woodport Early Learning Centre",
+    "date": "3/4/20",
+    "time": "",
+    "description": "Child who attended here has tested positive",
+    "coor": ["-33.440716", "151.379177"],
+    "notes": ""
+  },
+  {
+    "state": "NSW",
+    "area": "Taree",
+    "name": "Storm Village Anglican residential care",
+    "date": "3/4/20",
+    "time": "",
+    "description": "Nurse has tested positive",
+    "coor": ["-31.897947", "152.472356"],
+    "notes": ""
   }
 ]
