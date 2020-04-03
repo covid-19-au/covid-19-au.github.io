@@ -9,6 +9,19 @@ import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 import ReactHtmlParser from 'react-html-parser';
 
+const panelStyles = {
+    boxShadow: "none",
+    margin: "0px"
+};
+
+const summaryStyles = {
+    textAlign: "left",
+    marginLeft: "0em",
+    adding: "0px",
+    marginRight: "1px",
+    paddingLeft: "1em"
+};
+
 export default function DailyHistoryPage() {
     return (
         <Grid item xs={11} sm={11} md={10}>
@@ -80,7 +93,7 @@ export default function DailyHistoryPage() {
                                 ))}
                                 {/* Video */}
                                 {stuff.video.map(vid => (
-                                    <div key={uuid()} className="row centerMedia">
+                                    <div className="row centerMedia">
                                         <div>
                                             <ReactPlayer  className="formatMedia" alt={vid.name}  url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
                                             <small className="mediaText">{vid.description}</small>
