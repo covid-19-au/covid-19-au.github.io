@@ -1,14 +1,18 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "name": "An Antidote to Dissatisfaction",
-                    "link": "https://www.youtube.com/watch?v=WPPPFqsECz0&t=458s",
-                    "description": "Self-isolating and social distancing can be tough, but maybe this video could help us all cope with it all a little better!"
+                    "imgLink": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/nicholas.nakos/e4ee9b36-6fbe-41eb-94f7-63480b9754c8.jpg/r0_0_4324_6856_w1200_h678_fmax.jpg",
+                    "source": "https://www.bendigoadvertiser.com.au/story/6700179/gowns-for-doctors-takes-off-in-a-big-way/?fbclid=IwAR23NrJdL0zKDcUlKML4S6TWz9AWpEuvsGt_6_mcaGAmTQSRJ6NiPpQiIlk"
                 }
-            ]
+            ],
+            "video": [],
+            "title":"Bendigo Community Unite",
+            "source":"https://www.bendigoadvertiser.com.au/story/6697267/the-gps-who-are-sewing-their-own-ppe-equipment/",
+            "content":"<p>When facing a pandemic such as COVID-19, it is essential for medical professionals to have adequate supply of vital defence gear to protect them from the droplets that spread the virus. However, there has been a shortage of gowns, goggles, shields, and gloves, especially in the Bendigo area.</p><p>Doctors desperate for supplies have resorted to making their own gowns in order to continue to treat those in critical need.</p><p>Luckily, nearly 300 Bendigo locals and small businesses have volunteered to help fund, cut and sew homemade protective gowns for doctors to allow them to continue their life saving efforts.</p><p>A massive thank you to these selfless and generous individuals who are doing what they can to help health professionals to continue to treat their patients. You are a great example to how Australians can still unite and contribute to help combat the outbreak during self-isolation at home. Extraordinary work Australia!</p><p>If you know how to sew or would like to donate materials please contact gownsfordoctors@gmail.com!</p>",
+            "type":"motivation",
+            "date":"3/4/2020"
         }
     ]
 }

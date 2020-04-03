@@ -68,7 +68,7 @@ header i {
 }
 
 .area {
-  flex: 1;
+  flex: 0.8;
   padding: 0.4rem 0;
   position: relative;
   color: #212f3d;
@@ -484,6 +484,7 @@ h2 small {
 .dataSource {
     padding-left: 0.2rem;
     margin-top: -0.05rem;
+    cursor: pointer;
 }
 .dailyIncrease {
     font-size: 60%;
@@ -493,4 +494,10 @@ h2 small {
   display: flex;
   justify-content: flex-end;
   padding-bottom: 15px;
+}
+
+.slogan {
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: -10px;
 }

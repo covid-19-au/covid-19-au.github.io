@@ -23,25 +23,7 @@
     "hospitalPhone": "(02) 9722 8000",
     "name": "Bankstown-Lidcombe Hospital",
     "coor": ["-33.933148", "151.021026"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "Ascot Street, Bowral NSW 2576",
-    "hospitalPhone": "(02) 4861 0200",
-    "name": "Bowral and District Hospital",
-    "coor": ["-34.484597", "150.423469"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "Corner Polding Street and Prairievale Rd, Prairiewood 2176",
-    "hospitalPhone": "(02) 9616 8111",
-    "name": "Fairfield Hospital",
-    "coor": ["-33.859908", "150.904798"],
-    "hospitalType": "",
+    "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
   {
@@ -64,10 +46,37 @@
   },
   {
     "state": "New South Wales",
+    "address": "16 Croudace Bay Road, Belmont NSW 2280",
+    "hospitalPhone": "(02) 4923 2000",
+    "name": "Belmont Hospital",
+    "coor": ["-33.025242", "151.648462"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "18 Blacktown Rd, Blacktown NSW 2148",
+    "hospitalPhone": "(02) 9881 8000",
+    "name": "Blacktown Hospital",
+    "coor": ["-33.775536", "150.917037"],
+    "hospitalType": "COVID19 Clinics",
+    "type": ""
+  },
+  {
+    "state": "New South Wales",
     "address": "1 Woodlands Rd, Katoomba NSW 2780",
     "hospitalPhone": "(02) 4784 6500",
     "name": "Blue Mountains Hospital",
     "coor": ["-33.705167", "150.320949"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "Ascot Street, Bowral NSW 2576",
+    "hospitalPhone": "(02) 4861 0200",
+    "name": "Bowral and District Hospital",
+    "coor": ["-34.484597", "150.423469"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -82,10 +91,28 @@
   },
   {
     "state": "New South Wales",
+    "address": "Edith and Plath Street, Waratah NSW 2298",
+    "hospitalPhone": "(02) 4921 1211",
+    "name": "Calvary Mater Newcastle",
+    "coor": ["-32.898396", "151.721065"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
     "address": "Therry Rd, Campbelltown NSW 2560",
     "hospitalPhone": "(02) 4634 3000",
     "name": "Campbelltown Hospital",
     "coor": ["-34.077817", "150.806017"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "345 Pacific Highway, Coffs Harbour NSW 2450",
+    "hospitalPhone": "(02) 6656 7000",
+    "name": "Coffs Harbour Health Campus",
+    "coor": ["-30.317171", "153.093706"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -109,6 +136,24 @@
   },
   {
     "state": "New South Wales",
+    "address": "148 MacKay St, Cootamundra NSW 2590",
+    "hospitalPhone": "(02) 6942 0444",
+    "name": "Cootamundra Hospital",
+    "coor": ["-34.634298", "148.012942"],
+    "hospitalType": "COVID19 Clinics",
+    "type": ""
+  },
+  {
+    "state": "New South Wales",
+    "address": "2 Macauley St, Deniliquin NSW 2710",
+    "hospitalPhone": "(03) 5882 2900",
+    "name": "Deniliquin Community Health Building",
+    "coor": ["-35.523865", "144.962076"],
+    "hospitalType": "COVID19 Clinics",
+    "type": ""
+  },
+  {
+    "state": "New South Wales",
     "address": "Myall St, Dubbo NSW 2830",
     "hospitalPhone": "(02) 6809 6809",
     "name": "Dubbo Base Hospital",
@@ -122,6 +167,15 @@
     "hospitalPhone": "1800 999 880",
     "name": "Eurobodalla Health Service",
     "coor": ["-35.903871", "150.070433"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "Corner Polding Street and Prairievale Rd, Prairiewood 2176",
+    "hospitalPhone": "(02) 9616 8111",
+    "name": "Fairfield Hospital",
+    "coor": ["-33.859908", "150.904798"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -154,6 +208,15 @@
   },
   {
     "state": "New South Wales",
+    "address": "351 Murray St, Hay NSW 2711",
+    "hospitalPhone": "(02) 6990 8700",
+    "name": "Hay Hospital",
+    "coor": ["-34.500125", "144.851722"],
+    "hospitalType": "COVID19 Clinics",
+    "type": ""
+  },
+  {
+    "state": "New South Wales",
     "address": "Palmerston Rd, Hornsby NSW 2077",
     "hospitalPhone": "(02) 9477 9123",
     "name": "Hornsby Ku-ring-gai Hospital",
@@ -169,6 +232,24 @@
     "coor": ["-32.922471", "151.692771"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "119 River Street, Kempsey NSW 2440",
+    "hospitalPhone": "(02) 6561 2600",
+    "name": "Kempsey Health Campus",
+    "coor": ["-31.068999", "152.819457"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "Cnr Wade Avenue and, Palm Ave, Leeton NSW 2705",
+    "hospitalPhone": "(02) 6953 1111",
+    "name": "Leeton District Hospital",
+    "coor": ["-34.544630", "146.408406"],
+    "hospitalType": "COVID19 Clinics",
+    "type": ""
   },
   {
     "state": "New South Wales",
@@ -195,6 +276,24 @@
     "name": "Liverpool Hospital",
     "coor": ["-33.920076", "150.932199"],
     "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "560 High Street, Maitland NSW 2320",
+    "hospitalPhone": "(02) 4939 2000",
+    "name": "Maitland Hospital",
+    "coor": ["-32.725596", "151.545507"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "26 York Street, Taree NSW 2430",
+    "hospitalPhone": "(02) 6592 9111",
+    "name": "Manning Hospital",
+    "coor": ["-31.910023", "152.454714"],
+    "hospitalType": "Drive-through Testing",
     "type": "1"
   },
   {
@@ -230,6 +329,15 @@
     "hospitalPhone": "(02) 6369 3000",
     "name": "Orange Hospital",
     "coor": ["-33.317106", "149.093925"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "Wrights Road, Port Macquarie NSW 2444",
+    "hospitalPhone": "(02) 5524 2000",
+    "name": "Port Macquarie Base Hospital",
+    "coor": ["-31.451747", "152.878457"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -284,6 +392,24 @@
     "hospitalPhone": "(02) 9858 7888",
     "name": "Ryde Hospital",
     "coor": ["-33.794708", "151.089834"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "15-17 Madigan Boulevarde, Mt Warrigal, NSW 2528",
+    "hospitalPhone": "(02) 4295 2500",
+    "name": "Shellharbour Hospital",
+    "coor": ["-34.558883", "150.841319"],
+    "hospitalType": "COVID19 Clinics",
+    "type": "1"
+  },
+  {
+    "state": "New South Wales",
+    "address": "2 Scenic Drive Nowra, NSW 2541",
+    "hospitalPhone": "(02) 4421 3111",
+    "name": "Shoalhaven Hospital",
+    "coor": ["-34.868491", "150.595433"],
     "hospitalType": "COVID19 Clinics",
     "type": "1"
   },
@@ -361,6 +487,15 @@
   },
   {
     "state": "New South Wales",
+    "address": "107 Simpson St, Tumut NSW 2720",
+    "hospitalPhone": "(02) 6947 0800",
+    "name": "Tumut Hospital",
+    "coor": ["-35.306975", "148.219561"],
+    "hospitalType": "COVID19 Clinics",
+    "type": ""
+  },
+  {
+    "state": "New South Wales",
     "address": "69 Brookong Avenue, Wagga Wagga 2650",
     "hospitalPhone": "(02) 6921 4053",
     "name": "Wagga Wagga Clinic",
@@ -393,87 +528,6 @@
     "name": "Wyong Hospital",
     "coor": ["-33.260849", "151.479546"],
     "hospitalType": "COVID19 Clinics",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "15-17 Madigan Boulevarde, Mt Warrigal, NSW 2528",
-    "hospitalPhone": "(02) 4295 2500",
-    "name": "Shellharbour Hospital",
-    "coor": ["-34.558883", "150.841319"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "2 Scenic Drive Nowra, NSW 2541",
-    "hospitalPhone": "(02) 4421 3111",
-    "name": "Shoalhaven Hospital",
-    "coor": ["-34.868491", "150.595433"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "345 Pacific Highway, Coffs Harbour NSW 2450",
-    "hospitalPhone": "(02) 6656 7000",
-    "name": "Coffs Harbour Health Campus",
-    "coor": ["-30.317171", "153.093706"],
-    "hospitalType": "10am-2pm, Monday-Friday",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "119 River Street, Kempsey NSW 2440",
-    "hospitalPhone": "(02) 6561 2600",
-    "name": "Kempsey Health Campus",
-    "coor": ["-31.068999", "152.819457"],
-    "hospitalType": "8am-12pm, Monday-Friday",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "Wrights Road, Port Macquarie NSW 2444",
-    "hospitalPhone": "(02) 5524 2000",
-    "name": "Port Macquarie Base Hospital",
-    "coor": ["-31.451747", "152.878457"],
-    "hospitalType": "10am-4pm, Monday- Friday",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "16 Croudace Bay Road, Belmont NSW 2280",
-    "hospitalPhone": "(02) 4923 2000",
-    "name": "Belmont Hospital",
-    "coor": ["-33.025242", "151.648462"],
-    "hospitalType": "Drive-through Testing",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "Edith and Plath Street, Waratah NSW 2298",
-    "hospitalPhone": "(02) 4921 1211",
-    "name": "Calvary Mater Newcastle",
-    "coor": ["-32.898396", "151.721065"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "560 High Street, Maitland NSW 2320",
-    "hospitalPhone": "(02) 4939 2000",
-    "name": "Maitland Hospital",
-    "coor": ["-32.725596", "151.545507"],
-    "hospitalType": "",
-    "type": "1"
-  },
-  {
-    "state": "New South Wales",
-    "address": "26 York Street, Taree NSW 2430",
-    "hospitalPhone": "(02) 6592 9111",
-    "name": "Manning Hospital",
-    "coor": ["-31.910023", "152.454714"],
-    "hospitalType": "Drive-through Testing",
     "type": "1"
   },
   {
@@ -558,12 +612,30 @@
     "type": "1"
   },
   {
+    "state": "Queensland",
+    "address": "40 Morayfield Rd, Caboolture South QLD 4510",
+    "hospitalPhone": "",
+    "name": "Morayfield GP respiratory clinic",
+    "coor": ["-27.100032", "152.948193"],
+    "hospitalType": "GP Respiratory Clinic",
+    "type": "1"
+  },
+  {
+    "state": "Queensland",
+    "address": "1270 Sandgate Rd, Nundah QLD 4012",
+    "hospitalPhone": "(07) 3266 6622",
+    "name": "Nundah Village Family Practice",
+    "coor": ["-27.401374", "153.058973"],
+    "hospitalType": "GP Respiratory Clinic",
+    "type": "1"
+  },
+  {
     "state": "South Australia",
     "address": "Flinders Dr, Bedford Park SA 5042",
     "hospitalPhone": "(08) 8204 5511",
     "name": "Flinders Medical Centre",
     "coor": ["-35.021153", "138.569006"],
-    "hospitalType": "COVID19 Clinics",
+    "hospitalType": "Metropolitan Clinics",
     "type": "1"
   },
   {
@@ -572,7 +644,7 @@
     "hospitalPhone": "(08) 8521 2000",
     "name": "Gawler Health Service",
     "coor": ["-34.593184", "138.755161"],
-    "hospitalType": "COVID19 Clinics",
+    "hospitalType": "Regional Clinics",
     "type": "1"
   },
   {
@@ -581,7 +653,7 @@
     "hospitalPhone": "(08) 8553 4200",
     "name": "Kangaroo Island Health Service",
     "coor": ["-35.653184", "137.637690"],
-    "hospitalType": "COVID19 Clinics",
+    "hospitalType": "Regional Clinics",
     "type": "1"
   },
   {
@@ -590,7 +662,7 @@
     "hospitalPhone": "(08) 8182 9000",
     "name": "Lyell McEwin Hospital",
     "coor": ["-34.747302", "138.664674"],
-    "hospitalType": "COVID19 Clinics",
+    "hospitalType": "Metropolitan Clinics",
     "type": "1"
   },
   {
@@ -599,7 +671,7 @@
     "hospitalPhone": "(08) 8393 1777",
     "name": "Mount Barker Hospital",
     "coor": ["-35.082021", "138.869987"],
-    "hospitalType": "COVID19 Clinics",
+    "hospitalType": "Regional Clinics",
     "type": "1"
   },
   {
@@ -626,7 +698,7 @@
     "hospitalPhone": "(08) 7074 0000",
     "name": "Royal Adelaide Hospital",
     "coor": ["-34.920682", "138.587182"],
-    "hospitalType": "COVID19 Clinics",
+    "hospitalType": "Metropolitan Clinics",
     "type": "1"
   },
   {
@@ -635,7 +707,7 @@
     "hospitalPhone": "(08) 8552 0500",
     "name": "South Coast District Hospital",
     "coor": ["-35.561180", "138.607521"],
-    "hospitalType": "COVID19 Clinics",
+    "hospitalType": "Regional Clinics",
     "type": "1"
   },
   {
@@ -653,16 +725,25 @@
     "hospitalPhone": "(08) 8161 7000",
     "name": "Women's and Children's Hospital",
     "coor": ["-34.911275", "138.600121"],
-    "hospitalType": "COVID19 Clinics",
+    "hospitalType": "Regional Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "15 Mill St, Tanunda SA 5352",
+    "hospitalPhone": "(08) 8563 2398",
+    "name": "Tanunda War Memorial Hospital",
+    "coor": ["-34.527592", "138.960813"],
+    "hospitalType": "COVID-19 testing clinic",
     "type": "1"
   },
   {
     "state": "Victoria",
     "address": "55 Commercial Rd, Melbourne VIC 3004, Australia",
     "hospitalPhone": "(03) 9076 2000",
-    "name": "The Alfred Hospital",
+    "name": "Alfred Hospital",
     "coor": ["-37.845510", "144.981856"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -671,7 +752,7 @@
     "hospitalPhone": "(03) 3 9496 5000",
     "name": "Austin Hospital",
     "coor": ["-37.756370", "145.059588"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -680,7 +761,7 @@
     "hospitalPhone": "1300 342 255",
     "name": "Box Hill Hospital",
     "coor": ["-37.813904", "145.118432"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -689,7 +770,7 @@
     "hospitalPhone": "(03) 8768 1200",
     "name": "Casey Hospital",
     "coor": ["-38.044782", "145.346030"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -698,7 +779,7 @@
     "hospitalPhone": "(03) 9554 1000",
     "name": "Dandenong Hospital",
     "coor": ["-37.976149", "145.218521"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -707,7 +788,7 @@
     "hospitalPhone": "(03) 9784 7777",
     "name": "Frankston Hospital",
     "coor": ["-38.150656", "145.128778"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -716,7 +797,7 @@
     "hospitalPhone": "(03) 9594 6666",
     "name": "Monash Medical Centre",
     "coor": ["-37.920496", "145.123560"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -725,7 +806,7 @@
     "hospitalPhone": "(03) 8405 8000",
     "name": "Northern Hospital",
     "coor": ["-37.652508", "145.014533"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -734,7 +815,7 @@
     "hospitalPhone": "(03) 9345 5522",
     "name": "Royal Children's Hospital",
     "coor": ["-37.793885", "144.948899"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -743,7 +824,7 @@
     "hospitalPhone": "(03) 9342 7000",
     "name": "Royal Melbourne Hospital",
     "coor": ["-37.798750", "144.956196"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -752,7 +833,7 @@
     "hospitalPhone": "(03) 9231 2211",
     "name": "St Vincent's Hospital Melbourne",
     "coor": ["-37.807291", "144.975061"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -761,7 +842,7 @@
     "hospitalPhone": "(03) 8345 1333",
     "name": "Sunshine Hospital",
     "coor": ["-37.759241", "144.816534"],
-    "hospitalType": "",
+    "hospitalType": "Metropolitan health services",
     "type": "1"
   },
   {
@@ -770,7 +851,7 @@
     "hospitalPhone": "(03) 5320 4000",
     "name": "Ballarat Base Hospital.",
     "coor": ["-37.558656", "143.847227"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -779,7 +860,7 @@
     "hospitalPhone": "(03) 4215 4445",
     "name": "Barwon Health - Geelong",
     "coor": ["-38.152096", "144.365334"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -788,7 +869,7 @@
     "hospitalPhone": "(03) 5367 2000",
     "name": "Bacchus Marsh and Melton Regional Hospital",
     "coor": ["-37.677772", "144.434556"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -797,7 +878,7 @@
     "hospitalPhone": "(03) 5761 4222",
     "name": "Benalla Health",
     "coor": ["-36.555243", "145.994664"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -806,7 +887,7 @@
     "hospitalPhone": "(03) 5454 6000",
     "name": "Bendigo hospital",
     "coor": ["-36.747277", "144.286437"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -815,7 +896,7 @@
     "hospitalPhone": "(03) 5485 5000",
     "name": "Echuca Regional Health",
     "coor": ["-36.138926", "144.748210"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -824,7 +905,7 @@
     "hospitalPhone": "(03) 5461 0333",
     "name": "Maryborough District Health Service",
     "coor": ["-37.044805", "143.738046"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -833,7 +914,7 @@
     "hospitalPhone": "(03) 9747 7600",
     "name": "Melton Health Services",
     "coor": ["-37.685638", "144.558236"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -842,7 +923,7 @@
     "hospitalPhone": "(03) 5021 7653",
     "name": "Sunraysia Community Health Services",
     "coor": ["-34.192121", "142.152999"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -851,7 +932,7 @@
     "hospitalPhone": "(03) 5951 2100",
     "name": "Phillip Island Health Hub",
     "coor": ["-38.452082", "145.241224"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -860,7 +941,7 @@
     "hospitalPhone": "(03) 5832 1200",
     "name": "Shepparton Private Hospital",
     "coor": ["-36.359072", "145.410888"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -869,7 +950,7 @@
     "hospitalPhone": "(03) 5033 9300",
     "name": "Swan Hill District Health",
     "coor": ["-35.339660", "143.556741"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -878,7 +959,7 @@
     "hospitalPhone": "(03) 5722 5111",
     "name": "Northeast Health Wangaratta",
     "coor": ["-36.353858", "146.313728"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -887,7 +968,7 @@
     "hospitalPhone": "(03) 5563 1666",
     "name": "South West Healthcare - Warrnambool",
     "coor": ["-38.379885", "142.473466"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -896,7 +977,7 @@
     "hospitalPhone": "(03) 5551 8222",
     "name": "Hamilton Base Hospital-Western District Health Service",
     "coor": ["-37.736565", "142.030918"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -905,7 +986,7 @@
     "hospitalPhone": "(03) 5381 9111",
     "name": "Wimmera Base Hospital(Wimmera Health Care Group)",
     "coor": ["-36.712430", "142.208833"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -914,7 +995,7 @@
     "hospitalPhone": "(02) 6051 7111",
     "name": "Albury Wodonga Health - Woodonga",
     "coor": ["-36.131814", "146.879837"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -923,7 +1004,7 @@
     "hospitalPhone": "(03) 5671 3333",
     "name": "Bass Coast Health",
     "coor": ["-38.607283", "145.581708"],
-    "hospitalType": "",
+    "hospitalType": "Regional health services",
     "type": "1"
   },
   {
@@ -999,21 +1080,48 @@
     "type": "1"
   },
   {
-    "state": "Queensland",
-    "address": "40 Morayfield Rd, Caboolture South QLD 4510",
-    "hospitalPhone": "",
-    "name": "Morayfield GP respiratory clinic",
-    "coor": ["-27.100032", "152.948193"],
-    "hospitalType": "GP Respiratory Clinic",
+    "state": "South Australia",
+    "address": "72 King William Rd, North Adelaide SA 5006",
+    "hospitalPhone": "(08) 8161 7000",
+    "name": "Women's and Children's Hospital",
+    "coor": ["-34.911262", "138.600062"],
+    "hospitalType": "Metropolitan Clinics",
     "type": "1"
   },
   {
-    "state": "Queensland",
-    "address": "1270 Sandgate Rd, Nundah QLD 4012",
-    "hospitalPhone": "(07) 3266 6622",
-    "name": "Nundah Village Family Practice",
-    "coor": ["-27.401374", "153.058973"],
-    "hospitalType": "GP Respiratory Clinic",
+    "state": "South Australia",
+    "address": "21 Hutchinson Rd, Gawler East SA 5118",
+    "hospitalPhone": "(08) 8521 2000",
+    "name": "Gawler Health Service",
+    "coor": ["-34.593321", "138.755188"],
+    "hospitalType": "Regional Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "276/300 Wehl St N, Mount Gambier SA 5290",
+    "hospitalPhone": "(08) 8721 1200",
+    "name": "Mount Gambier and Districts Health Service",
+    "coor": ["-37.805405", "140.786019"],
+    "hospitalType": "Regional Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "10 Maddern Ave, Berri SA 5343",
+    "hospitalPhone": "(08) 8580 2400",
+    "name": "Riverland General Hospital",
+    "coor": ["-34.275769", "140.601438"],
+    "hospitalType": "Regional Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "56 Bay Rd, Victor Harbor SA 5211",
+    "hospitalPhone": "(08) 8552 0500",
+    "name": "South Coast District Hospital",
+    "coor": ["-35.561136", "138.606985"],
+    "hospitalType": "Regional Clinics",
     "type": "1"
   },
   {
@@ -1021,8 +1129,44 @@
     "address": "15 Mill St, Tanunda SA 5352",
     "hospitalPhone": "(08) 8563 2398",
     "name": "Tanunda War Memorial Hospital",
-    "coor": ["-34.527592", "138.960813"],
-    "hospitalType": "COVID-19 testing clinic",
+    "coor": ["-34.527800", "138.960899"],
+    "hospitalType": "Regional Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "Mine St, Kadina SA 5554",
+    "hospitalPhone": "(08) 8828 1350",
+    "name": "Yorke & Northern Local Health Network",
+    "coor": ["-33.959531", "137.720824"],
+    "hospitalType": "Regional Clinics",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "3 Eyre Highway, Ceduna South Australia",
+    "hospitalPhone": "(08) 8626 2110",
+    "name": "Ceduna District Health Services",
+    "coor": ["-32.119033", "133.672286"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "207-235 Hampstead Rd, Northfield SA 5085",
+    "hospitalPhone": "(08) 8222 1600",
+    "name": "Hampstead Rehabilitation Centre",
+    "coor": ["-34.861231", "138.619573"],
+    "hospitalType": "Drive-through Testing",
+    "type": "1"
+  },
+  {
+    "state": "South Australia",
+    "address": "Oxford Terrace Port Lincoln South Australia",
+    "hospitalPhone": "(08) 8683 2200",
+    "name": "Port Lincoln Health Service",
+    "coor": ["-34.721618", "135.850498"],
+    "hospitalType": "Drive-through Testing",
     "type": "1"
   }
 ]

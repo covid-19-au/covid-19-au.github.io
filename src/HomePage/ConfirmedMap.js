@@ -12,6 +12,14 @@ import confirmedImg from '../img/icon/confirmed-recent.png'
 import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
 import ReactGA from "react-ga";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+import Acknowledgement from "../Acknowledgment"
+//Fetch Token from env
+let token = process.env.REACT_APP_MAP_API;
+mapboxgl.accessToken = token;
+
+
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
 class MbMap extends React.Component {
@@ -57,6 +65,7 @@ class MbMap extends React.Component {
     }
 
     componentDidMount() {
+        this.Hospitalvisible = false;
         const { lng, lat, zoom } = this.state;
 
         var bounds = [
@@ -66,22 +75,7 @@ class MbMap extends React.Component {
 
         const map = new mapboxgl.Map({
             container: this.mapContainer,
-            style: {
-                version: 8,
-                sources: {
-                    osm: {
-                        type: 'raster',
-                        tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-                        tileSize: 256,
-                        attribution: 'Map tiles by <a target="_top" rel="noopener" href="https://tile.openstreetmap.org/">OpenStreetMap tile servers</a>, under the <a target="_top" rel="noopener" href="https://operations.osmfoundation.org/policies/tiles/">tile usage policy</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>'
-                    }
-                },
-                layers: [{
-                    id: 'osm',
-                    type: 'raster',
-                    source: 'osm',
-                }],
-            },
+            style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
             maxBounds: bounds // Sets bounds as max
         });
@@ -94,11 +88,14 @@ class MbMap extends React.Component {
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
-                updated_date = '28/3/20';
+                updated_date = '2/4/20';
+            }else if(state ==='NSW'){
+                city_name = city_name.toLowerCase();
+                updated_date = '1/4/20';
             }
             else {
                 city_name = city_name.toLowerCase();
-                updated_date = '29/3/20';
+                updated_date = '2/4/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
@@ -128,11 +125,11 @@ class MbMap extends React.Component {
                     var values = get_html(data.properties.vic_lga__2, state);
                     data.properties['city'] = data.properties.vic_lga__2;
                 }
-                else if (state === 'NSW'){
+                else if (state === 'NSW') {
                     var values = get_html(data.properties.nsw_lga__3, state);
                     data.properties['city'] = data.properties.nsw_lga__3;
                 }
-                else{
+                else {
                     var values = get_html(data.properties.HHS, state);
                     data.properties['city'] = data.properties.HHS;
                 }
@@ -337,7 +334,7 @@ class MbMap extends React.Component {
 
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
-                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>' + date)
+                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>By: ' + date)
                         .addTo(map);
                 });
 
@@ -381,7 +378,7 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
-            if (item['state'] !== 'VIC' && item['state'] !== 'NSW'&& item['state'] !== 'QLD') {
+            if (item['state'] !== 'VIC' && item['state'] !== 'NSW' && item['state'] !== 'QLD') {
                 if (item['state'] === 'VIC' && item['area'].length > 0) {
                     item['description'] = "This case number is just the suburb confirmed number, not the case number at this geo point."
                     item['date'] = '26/3/20'
@@ -432,22 +429,39 @@ class MbMap extends React.Component {
         })
     }
 
-    render() {
-        const style = {
-            height: '100%',
+    handleClickOff() {
+        var all = document.getElementsByClassName("marker");
+        for (var i = 0; i < all.length; i++) {
+          var element = all[i];
+          element.style.visibility = 'hidden';
+        }
+      }
 
-        };
+    handleClickOn() {
+        var all = document.getElementsByClassName("marker");
+        for (var i = 0; i < all.length; i++) {
+          var element = all[i];
+          element.style.visibility = 'visible';
+        }
+      }
+
+    render() {
+
+        const toggleStyles = {
+          color:'black',
+          borderColor:'#BAE1FF'
+        }
 
 
         return (
             <div className="card" style={{
                 display: 'flex',
                 flexDirection: 'column',
-                height: '520px'
             }}>
-                <h2>Hospital & Case Map</h2>
-
-                <div style={style} ref={el => this.mapContainer = el} >
+                <h2 style={{ display: "flex" }}>Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+                    <Acknowledgement>
+                    </Acknowledgement></div></h2>
+                <div  ref={el => this.mapContainer = el} >
                     {/*{*/}
                     {/*confirmedData.map((item)=>(*/}
                     {/*<div style={activityStyle}>*/}
@@ -462,6 +476,11 @@ class MbMap extends React.Component {
                     <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
                     <span className="Key"><p>*City-level data is only present for VIC and NSW, HHS Data for QLD. Other states are being worked on.</p></span>
+                    Toggle Markers:&nbsp;
+                    <ButtonGroup color="primary" aria-label="outlined primary button group">
+                      <Button style={toggleStyles} onClick={this.handleClickOn}>On</Button>
+                      <Button style={toggleStyles} onClick={this.handleClickOff}>Off</Button>
+                    </ButtonGroup>
                 </span>
             </div>
         );
