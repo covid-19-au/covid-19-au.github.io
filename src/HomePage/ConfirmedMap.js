@@ -92,7 +92,7 @@ class MbMap extends React.Component {
                 city.pop();
                 city_name = city.join(' ');
                 updated_date = '2/4/20';
-            }else if(state ==='NSW'){
+            } else if (state === 'NSW') {
                 city_name = city_name.toLowerCase();
                 updated_date = '1/4/20';
             }
@@ -435,34 +435,38 @@ class MbMap extends React.Component {
     handleClickOff() {
         var all = document.getElementsByClassName("marker");
         for (var i = 0; i < all.length; i++) {
-          var element = all[i];
-          element.style.visibility = 'hidden';
+            var element = all[i];
+            element.style.visibility = 'hidden';
         }
         this.setState({
-            showMarker:false
+            showMarker: false
         })
-      }
+    }
 
     handleClickOn() {
         var all = document.getElementsByClassName("marker");
         for (var i = 0; i < all.length; i++) {
-          var element = all[i];
-          element.style.visibility = 'visible';
+            var element = all[i];
+            element.style.visibility = 'visible';
         }
         this.setState({
-            showMarker:true
+            showMarker: true
         })
-      }
+    }
 
     render() {
 
         const activeStyles = {
-          color:'black',
-          borderColor:'#BAE1FF'
+            color: 'black',
+            borderColor: '#8ccfff',
+            padding: "0px",
+            outline: "none"
         };
         const inactiveStyles = {
-          color:'grey',
-          borderColor:'grey'
+            color: 'grey',
+            borderColor: '#e3f3ff',
+            padding: "0px",
+            outline: "none"
         };
 
 
@@ -474,7 +478,7 @@ class MbMap extends React.Component {
                 <h2 style={{ display: "flex" }}>Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div></h2>
-                <div  ref={el => this.mapContainer = el} >
+                <div ref={el => this.mapContainer = el} >
                     {/*{*/}
                     {/*confirmedData.map((item)=>(*/}
                     {/*<div style={activityStyle}>*/}
@@ -489,12 +493,14 @@ class MbMap extends React.Component {
                     <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
                     <span className="Key"><p>*City-level data is only present for VIC and NSW, HHS Data for QLD. Other states are being worked on.</p></span>
-                    Toggle Markers:&nbsp;
-                    <ButtonGroup size="small" aria-label="small outlined button group">
-                      <Button style={this.state.showMarker?activeStyles:inactiveStyles} disableElevation={true} onClick={()=>this.handleClickOn()}>On</Button>
-                      <Button style={this.state.showMarker?inactiveStyles:activeStyles} onClick={()=>this.handleClickOff()}>Off</Button>
-                    </ButtonGroup>
+                    <span className="key" style={{ alignSelf: "flex-end", marginTop: "0.5rem" }}>
+                        Markers:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
+                            <Button style={this.state.showMarker ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => this.handleClickOn()}>On</Button>
+                            <Button style={this.state.showMarker ? inactiveStyles : activeStyles} onClick={() => this.handleClickOff()}>Off</Button>
+                        </ButtonGroup>
+                    </span>
                 </span>
+
             </div>
         );
     }
