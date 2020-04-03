@@ -12,7 +12,14 @@ import confirmedImg from '../img/icon/confirmed-recent.png'
 import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
 import ReactGA from "react-ga";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+import Radio from '@material-ui/core/Radio';
 import Acknowledgement from "../Acknowledgment"
+//Fetch Token from env
+let token = process.env.REACT_APP_MAP_API;
+mapboxgl.accessToken = token;
+
 
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
@@ -20,10 +27,12 @@ class MbMap extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             lng: 133.751567,
             lat: -26.344589,
-            zoom: 2.5
+            zoom: 2.5,
+            showMarker: true,
         };
     }
 
@@ -59,6 +68,7 @@ class MbMap extends React.Component {
     }
 
     componentDidMount() {
+        this.Hospitalvisible = false;
         const { lng, lat, zoom } = this.state;
 
         var bounds = [
@@ -68,22 +78,7 @@ class MbMap extends React.Component {
 
         const map = new mapboxgl.Map({
             container: this.mapContainer,
-            style: {
-                version: 8,
-                sources: {
-                    osm: {
-                        type: 'raster',
-                        tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-                        tileSize: 256,
-                        attribution: 'Map tiles by <a target="_top" rel="noopener" href="https://tile.openstreetmap.org/">OpenStreetMap tile servers</a>, under the <a target="_top" rel="noopener" href="https://operations.osmfoundation.org/policies/tiles/">tile usage policy</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>'
-                    }
-                },
-                layers: [{
-                    id: 'osm',
-                    type: 'raster',
-                    source: 'osm',
-                }],
-            },
+            style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
             maxBounds: bounds // Sets bounds as max
         });
@@ -97,7 +92,7 @@ class MbMap extends React.Component {
                 city.pop();
                 city_name = city.join(' ');
                 updated_date = '2/4/20';
-            }else if(state ==='NSW'){
+            } else if (state === 'NSW') {
                 city_name = city_name.toLowerCase();
                 updated_date = '1/4/20';
             }
@@ -437,7 +432,42 @@ class MbMap extends React.Component {
         })
     }
 
+    handleClickOff() {
+        var all = document.getElementsByClassName("marker");
+        for (var i = 0; i < all.length; i++) {
+            var element = all[i];
+            element.style.visibility = 'hidden';
+        }
+        this.setState({
+            showMarker: false
+        })
+    }
+
+    handleClickOn() {
+        var all = document.getElementsByClassName("marker");
+        for (var i = 0; i < all.length; i++) {
+            var element = all[i];
+            element.style.visibility = 'visible';
+        }
+        this.setState({
+            showMarker: true
+        })
+    }
+
     render() {
+
+        const activeStyles = {
+            color: 'black',
+            borderColor: '#8ccfff',
+            padding: "0px",
+            outline: "none"
+        };
+        const inactiveStyles = {
+            color: 'grey',
+            borderColor: '#e3f3ff',
+            padding: "0px",
+            outline: "none"
+        };
 
 
         return (
@@ -448,7 +478,7 @@ class MbMap extends React.Component {
                 <h2 style={{ display: "flex" }}>Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div></h2>
-                <div  ref={el => this.mapContainer = el} >
+                <div ref={el => this.mapContainer = el} >
                     {/*{*/}
                     {/*confirmedData.map((item)=>(*/}
                     {/*<div style={activityStyle}>*/}
@@ -463,7 +493,14 @@ class MbMap extends React.Component {
                     <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
                     <span className="Key"><p>*City-level data is only present for VIC and NSW, HHS Data for QLD. Other states are being worked on.</p></span>
+                    <span className="key" style={{ alignSelf: "flex-end", marginTop: "0.5rem" }}>
+                        Markers:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
+                            <Button style={this.state.showMarker ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => this.handleClickOn()}>On</Button>
+                            <Button style={this.state.showMarker ? inactiveStyles : activeStyles} onClick={() => this.handleClickOff()}>Off</Button>
+                        </ButtonGroup>
+                    </span>
                 </span>
+
             </div>
         );
     }
