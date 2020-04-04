@@ -460,7 +460,8 @@ class MbMap extends React.Component {
             color: 'black',
             borderColor: '#8ccfff',
             padding: "0px",
-            outline: "none"
+            outline: "none",
+            zIndex: 10
         };
         const inactiveStyles = {
             color: 'grey',

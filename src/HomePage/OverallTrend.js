@@ -107,7 +107,8 @@ export default function OverallTrend(data) {
         color: 'black',
         borderColor: '#8ccfff',
         padding: "0px",
-        outline: "none"
+        outline: "none",
+        zIndex: 10
     };
     const inactiveStyles = {
         color: 'grey',
@@ -272,8 +273,8 @@ export default function OverallTrend(data) {
 
             />
             <span className="due">
-                <span className="key"><p>*Click on legend to add/remove graphs</p></span>
-                <span className="key"><p>*Click on points for detailed data</p></span>
+                <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
+                <span className="key"><p>*Click on points for detailed data</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
                     Logarithmic Scale:&nbsp;
