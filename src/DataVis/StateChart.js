@@ -29,33 +29,33 @@ const NOT_STATED_INDEX = 3;
 
 /**
  * get gender data for expect state
- * @param {Object} expectState state object contains age and gender data
+ * @param {Object} expectStateData state object contains age and gender data
  * @return {Array} list of gender data
  */
-function getGenderData(expectState) {
-  return expectState["gender"];
+function getGenderData(expectStateData) {
+  return expectStateData["gender"];
 }
 
 /**
  * get age chart labels
- * @param {Object} expectState state object contains age and gender data
+ * @param {Object} expectStateData state object contains age and gender data
  * @return {Array} age chart labels
  */
-function getAgeChartLabels(expectState) {
-  return Object.keys(expectState["age"]);
+function getAgeChartLabels(expectStateData) {
+  return Object.keys(expectStateData["age"]);
 }
 
 /**
  * get different age range data for different state
  * @param {Array} ageLabel list of different age range
  * @param {int} genderIndex gender indicator, 0 for all, 1 for male, 2 for female, 3 for not stated
- * @param {String} expectState expect state
+ * @param {String} expectStateData expect state
  * @return {Array} list of age data
  */
-function getAgeData(ageLabel, genderIndex, expectState) {
+function getAgeData(ageLabel, genderIndex, expectStateData) {
   let list = [];
   for (let i = 0; i < ageLabel.length; i++) {
-    list.push(expectState["age"][ageLabel[i]][genderIndex]);
+    list.push(expectStateData["age"][ageLabel[i]][genderIndex]);
   }
   return list;
 }
@@ -70,10 +70,36 @@ function getExpectStateData(state) {
 }
 
 function getLatestData(state) {
-  console.log("State: ", state);
-  let latestDate = Object.keys(stateData)[Object.keys(stateData).length - 1];
-  let latestData = stateData[latestDate][state];
-  return latestData;
+  return stateData[Object.keys(stateData)[Object.keys(stateData).length - 1]][
+    state
+  ];
+}
+
+function getAllDate() {
+  return Object.keys(stateData);
+}
+
+function getStateGeneralData(dateList, expectState) {
+  let generalData = {
+    confirmed: [],
+    death: [],
+    recovered: [],
+    tested: []
+  };
+  for (let i = 0; i < dateList.length; i++) {
+    let tempData = stateData[dateList[i]][expectState];
+    generalData["confirmed"].push(tempData[0]);
+    if (tempData.length !== 1) { // when only confirmed data available
+      generalData["death"].push(tempData[1]);
+      generalData["recovered"].push(tempData[2]);
+      generalData["tested"].push(tempData[3]);
+    } else {
+      generalData["death"].push(0);
+      generalData["recovered"].push(0);
+      generalData["tested"].push(0);
+    }
+  }
+  return generalData;
 }
 
 function setGenderOption(expectState) {
@@ -117,7 +143,7 @@ function setAgeOption(expectState) {
   ageDataList.push(getAgeData(ageChartLabels, FEMALE_INDEX, expectState)); // female age data
   ageDataList.push(getAgeData(ageChartLabels, NOT_STATED_INDEX, expectState)); // not stated age data
   let ageOptionSeries = new Series();
-  for (let i = 0; i < ageDataList.length; i++) {
+  for (let i = 0; i < ageDataList.length && i < ageChartLegend.length; i++) {
     let tempBarSeries = new BarSeries(ageChartLegend[i], ageDataList[i]);
     ageOptionSeries.addSubSeries(tempBarSeries);
   }
@@ -161,10 +187,9 @@ function setGeneralBarOption(state) {
   let generalBarSeries = new Series();
   for (let i = 0; i < generalBarLegend.length; i++) {
     let tempData = [];
-    tempData.push(latestData[i])
+    tempData.push(latestData[i]);
     let tempBarSeies = new BarSeries(generalBarLegend[i], tempData);
     generalBarSeries.addSubSeries(tempBarSeies);
-    console.log(tempBarSeies);
   }
 
   let tempOption = {
@@ -193,12 +218,52 @@ function setGeneralBarOption(state) {
     },
     yAxis: {},
     series: generalBarSeries.getSeriesList()
-  }
+  };
   return tempOption;
 }
 
-function setGeneralLineOption() {
+function setGeneralLineOption(state) {
+  const generalLineLegend = ["Confirmed", "Death", "Recovered", "Tested"];
+  const lineLabels = getAllDate();
+  const generalData = getStateGeneralData(lineLabels, state);
+  let generalLineSeries = new Series();
+  for (let i = 0; i < generalLineLegend.length; i++) {
+    let tempLineSeries = new LineSeries(
+      generalLineLegend[i],
+      generalData[Object.keys(generalData)[i]]
+    );
+    generalLineSeries.addSubSeries(tempLineSeries);
+  }
 
+  let tempOption = {
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        crossStyle: {
+          color: "#999"
+        }
+      }
+    },
+    title: {
+      text: "General Info Line Chart"
+    },
+    legend: {
+      data: generalLineLegend,
+      top: "7%",
+      selected: {
+        Tested: false
+      }
+    },
+    xAxis: {
+      type: "category",
+      data: lineLabels
+    },
+    yAxis: {
+      type: "value"
+    },
+    series: generalLineSeries.getSeriesList()
+  };
+  return tempOption;
 }
 
 function StateChart({ state }) {
@@ -208,10 +273,12 @@ function StateChart({ state }) {
   let genderOption;
   let ageOption;
   let barOption;
+  let lineOption;
+  barOption = setGeneralBarOption(state.toUpperCase());
+  lineOption = setGeneralLineOption(state.toUpperCase());
   if (expectStateData !== null) {
     genderOption = setGenderOption(expectStateData);
     ageOption = setAgeOption(expectStateData);
-    barOption = setGeneralBarOption(state.toUpperCase());
   }
 
   if (expectStateData !== null) {
@@ -221,6 +288,18 @@ function StateChart({ state }) {
           <h1 style={{ textAlign: "center", paddingTop: "1%" }}>
             {stateNameMapping[state]}
           </h1>
+        </Grid>
+        <Grid item xs={11} sm={11} md={4}>
+          <div className="card">
+            <h2>Cases by Gender Information - Bar</h2>
+            <ReactEcharts option={barOption} />
+          </div>
+        </Grid>
+        <Grid item xs={11} sm={11} md={4} xl={6}>
+          <div className="card">
+            <h2>General Information - Line</h2>
+            <ReactEcharts option={lineOption} />
+          </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4} xl={4}>
           <div className="card">
@@ -234,35 +313,43 @@ function StateChart({ state }) {
             <ReactEcharts option={ageOption} />
           </div>
         </Grid>
-        <Grid item xs={11} sm={11} md={4} xl={6}>
+      </Grid>
+    );
+  } else {
+    return (
+      <Grid container spacing={1} justify="center" wrap="wrap">
+        <Grid item xs={11}>
+          <h1 style={{ textAlign: "center", paddingTop: "1%" }}>
+            {stateNameMapping[state]}
+          </h1>
+        </Grid>
+        <Grid item xs={11} sm={11} md={4}>
           <div className="card">
-            <h2>Cases by Gender Information - Bar</h2>
+            <h2>General Information - Bar</h2>
             <ReactEcharts option={barOption} />
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4} xl={6}>
           <div className="card">
-            <h2>Cases by Gender Information - Line</h2>
-            <ReactEcharts option={ageOption} />
+            <h2>General Information - Line</h2>
+            <ReactEcharts option={lineOption} />
           </div>
         </Grid>
-      </Grid>
-    );
-  } else {
-    return (
-      <Grid item xs={11} sm={11} md={5}>
-        <h2 style={{ textAlign: "center" }}>
-          We are working on acquiring detailed data for {state}!
-        </h2>
-        <br />
-        <h5 style={{ textAlign: "center" }}>
-          If you have reliable source for such data, please let us know through
-          the{" "}
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
-            this
-          </a>{" "}
-          form.
-        </h5>
+        <Grid item xs={11} sm={11} md={5}>
+          <h2 style={{ textAlign: "center" }}>
+            We are working on acquiring detailed age group and gender data for{" "}
+            {state}!
+          </h2>
+          <br />
+          <h5 style={{ textAlign: "center" }}>
+            If you have reliable source for such data, please let us know
+            through the{" "}
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
+              this
+            </a>{" "}
+            form.
+          </h5>
+        </Grid>
       </Grid>
     );
   }
@@ -286,6 +373,13 @@ class SubSeries {
   constructor(name, data) {
     this.name = name;
     this.data = data;
+  }
+}
+
+class LineSeries extends SubSeries {
+  constructor(name, data) {
+    super(name, data);
+    this.type = "line";
   }
 }
 
