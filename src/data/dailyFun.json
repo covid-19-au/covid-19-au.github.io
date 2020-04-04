@@ -1,15 +1,17 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=F5pgG1M_h_U",
-                    "description": "Some good news from around the world with John Krasinski"
+                    "name": "Community Mobility Report",
+                    "imgLink": "https://i.imgur.com/Uzbx6V9.jpg",
+                    "description": "See how your community is moving around differently due to COVID-19",
+                    "source": "https://www.google.com/covid19/mobility/"
                 }
             ],
-            "type": "distraction",
-            "date": "4/4/2020"
+            "video": [],
+            "type": "fun",
+            "date": "5/4/2020"
         }
     ]
 }
