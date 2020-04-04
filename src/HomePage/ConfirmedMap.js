@@ -31,7 +31,7 @@ class MbMap extends React.Component {
         this.state = {
             lng: 133.751567,
             lat: -26.344589,
-            zoom: 2.5,
+            zoom: 2,
             showMarker: true,
         };
     }
@@ -80,6 +80,7 @@ class MbMap extends React.Component {
             container: this.mapContainer,
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
+            zoom: zoom,
             maxBounds: bounds // Sets bounds as max
         });
 
@@ -91,14 +92,14 @@ class MbMap extends React.Component {
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
-                updated_date = '3/4/20';
+                updated_date = '4/4/20';
             } else if (state === 'NSW') {
                 city_name = city_name.toLowerCase();
-                updated_date = '2/4/20';
+                updated_date = '3/4/20';
             }
             else {
                 city_name = city_name.toLowerCase();
-                updated_date = '3/4/20';
+                updated_date = '4/4/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
@@ -460,6 +461,7 @@ class MbMap extends React.Component {
             color: 'black',
             borderColor: '#8ccfff',
             padding: "0px",
+            zIndex:10,
             outline: "none"
         };
         const inactiveStyles = {
