@@ -185,7 +185,7 @@ export default function OverallTrend(data) {
                             type: yAxisType,
                             max: maxY
                         }, {
-                            name: "Daily New",
+                            name: "New Cases",
                             axisLabel: {
                                 show: true
                             },
@@ -258,7 +258,7 @@ export default function OverallTrend(data) {
                                 data: recoveryData
                             },
                             {
-                                name: 'Daily New Cases',
+                                name: 'New Cases',
                                 type: 'bar',
                                 yAxisIndex: '1',
                                 sampling: 'average',

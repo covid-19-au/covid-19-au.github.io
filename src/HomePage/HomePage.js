@@ -8,7 +8,6 @@ import Flights from "./Flights";
 import StateGraph from "./StateGraph";
 import MbMap from "./ConfirmedMap";
 import Stat from "./Stat"
-import HistoryGraph from "./HistoryGraph"
 
 import uuid from "react-uuid";
 import CanvasJSReact from "../assets/canvasjs.react";
