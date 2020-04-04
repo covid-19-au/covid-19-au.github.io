@@ -31,7 +31,7 @@ class MbMap extends React.Component {
         this.state = {
             lng: 133.751567,
             lat: -26.344589,
-            zoom: 2.5,
+            zoom: 2,
             showMarker: true,
         };
     }
@@ -80,6 +80,7 @@ class MbMap extends React.Component {
             container: this.mapContainer,
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
+            zoom: zoom,
             maxBounds: bounds // Sets bounds as max
         });
 
