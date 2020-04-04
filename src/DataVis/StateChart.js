@@ -22,6 +22,19 @@ const stateNameMapping = {
   NT: "Northern Territory"
 };
 
+const lineBarTooltip = {
+  trigger: "axis",
+  axisPointer: {
+    crossStyle: {
+      color: "#999"
+    }
+  }
+};
+const pieTooltip = {
+  trigger: "item",
+  formatter: "{a} <br /> {b}: {c} ({d}%)"
+};
+
 const ALL_INDEX = 0;
 const MALE_INDEX = 1;
 const FEMALE_INDEX = 2;
@@ -122,10 +135,7 @@ function setGenderOption(expectState) {
     title: {
       text: "Gender Chart"
     },
-    tooltip: {
-      trigger: "item",
-      formatter: "{a} <br /> {b}: {c} ({d}%)"
-    },
+    tooltip: pieTooltip,
     legend: {
       data: genderLabel,
       top: "7%"
@@ -150,16 +160,9 @@ function setAgeOption(expectState) {
   }
 
   let tempOption = {
-    tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        crossStyle: {
-          color: "#999"
-        }
-      }
-    },
+    tooltip: lineBarTooltip,
     title: {
-      text: "Age Range Chart"
+      text: "Age Group Chart"
     },
     legend: {
       data: ageChartLegend,
@@ -194,14 +197,9 @@ function setGeneralBarOption(state) {
   }
 
   let tempOption = {
-    tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        crossStyle: "#999"
-      }
-    },
+    tooltip: lineBarTooltip,
     title: {
-      text: "General Information"
+      text: "General Info Bar Chart"
     },
     legend: {
       data: generalBarLegend,
@@ -241,14 +239,7 @@ function setGeneralLineOption(state) {
   let startPoint = parseInt(start);
 
   let tempOption = {
-    tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        crossStyle: {
-          color: "#999"
-        }
-      }
-    },
+    tooltip: lineBarTooltip,
     title: {
       text: "General Info Line Chart"
     },
@@ -319,7 +310,7 @@ function StateChart({ state }) {
         </Grid>
         <Grid item xs={11} sm={11} md={4}>
           <div className="card">
-            <h2>Cases by Gender Information - Bar</h2>
+            <h2>General Information - Bar</h2>
             <ReactEcharts option={barOption} />
           </div>
         </Grid>
