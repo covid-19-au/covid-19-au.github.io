@@ -1,15 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "name": "Zoos around the world are live-streaming their animals!",
-                    "imgLink": "https://media.timeout.com/images/105625251/750/422/image.jpg",
-                    "description": "Check out the list of zoos here!",
-                    "source": "https://www.timeout.com/news/zoos-around-the-world-are-live-streaming-penguins-pandas-and-beluga-whales-031920"
+                    "link": "https://www.youtube.com/watch?v=F5pgG1M_h_U",
+                    "description": "Some good news from around the world with John Krasinski"
                 }
             ],
-            "video": []
+            "type": "distraction",
+            "date": "4/4/2020"
         }
     ]
 }

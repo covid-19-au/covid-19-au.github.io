@@ -147,10 +147,8 @@ export default function HistoryGraph({ countryData }) {
     return loading ? (
         <div className="loading">Loading...</div>
     ) : (
-            <div className="card">
-                <h2>Historical Data</h2>
-                <CanvasJSChart options={options} />
-                <CanvasJSChart options={newOpts} />
-            </div>
+
+            //<CanvasJSChart options={options} />
+            <CanvasJSChart options={newOpts} />
         );
 }

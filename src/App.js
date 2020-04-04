@@ -20,6 +20,7 @@ import mapDataHos from "./data/mapdataHos";
 import Fallback from "./fallback"
 
 import FAQPage from "./FAQPage";
+import DailyHistoryPage from "./DailyHistoryPage";
 import NewsPage from "./NewsPage";
 import InfoPage from "./InfoPage";
 import Navbar from "./Navbar";
@@ -240,7 +241,8 @@ function App() {
     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
     "/info": () => <InfoPage columns={columns} gspace={gspace} />,
     "/news": () => <NewsPage province={province} gspace={gspace} />,
-    "/faq": () => <FAQPage />
+    "/faq": () => <FAQPage />,
+    "/dailyHistory": () => <DailyHistoryPage />,
   };
   //
   // // The hook used to render the routes.
