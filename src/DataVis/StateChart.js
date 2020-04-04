@@ -5,11 +5,12 @@ import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
 import ReactEcharts from "echarts-for-react";
 
-// const color = {
-//   male: "#ff0000",
-//   female: "#0000ff",
-//   notStated: "#000000"
-// };
+const colorMapping = {
+  Confirmed: "#ff603c",
+  Death: "#c11700",
+  Recovered: "#00c177",
+  Tested: "#007cf2"
+}
 
 const stateNameMapping = {
   VIC: "Victoria",
@@ -82,17 +83,32 @@ function getExpectStateData(state) {
   return state.toUpperCase() in ageGenderData ? ageGenderData[state] : null;
 }
 
+/**
+ * get latest data for user selected state
+ * @param {String} state user selected state
+ * @return {Array} latest data of user choosen state
+ */
 function getLatestData(state) {
   return stateData[Object.keys(stateData)[Object.keys(stateData).length - 1]][
     state
   ];
 }
 
+/**
+ * get all date
+ * @return {Array} list of all data
+ */
 function getAllDate() {
   return Object.keys(stateData);
 }
 
-function getStateGeneralData(dateList, expectState) {
+/**
+ * get user selected state general information
+ * @param {Array} dateList date list
+ * @param {String} state user selected state
+ * @return {Object} an object contains all data of user selected state
+ */
+function getStateGeneralData(dateList, state) {
   let generalData = {
     confirmed: [],
     death: [],
@@ -100,7 +116,7 @@ function getStateGeneralData(dateList, expectState) {
     tested: []
   };
   for (let i = 0; i < dateList.length; i++) {
-    let tempData = stateData[dateList[i]][expectState];
+    let tempData = stateData[dateList[i]][state];
     generalData["confirmed"].push(tempData[0]);
     if (tempData.length !== 1) {
       // when only confirmed data available
@@ -116,9 +132,13 @@ function getStateGeneralData(dateList, expectState) {
   return generalData;
 }
 
-function setGenderOption(expectState) {
+/**
+ * compute the gebder chart option
+ * @param {String} state user selected state
+ */
+function setGenderOption(state) {
   const genderLabel = ["Male", "Female", "Not Stated"];
-  const genderData = getGenderData(expectState);
+  const genderData = getGenderData(state);
   // create dataset for gender graph display
   let dataArr = [];
   for (let i = 0; i < genderData.length; i++) {
@@ -145,14 +165,18 @@ function setGenderOption(expectState) {
   return tempOption;
 }
 
-function setAgeOption(expectState) {
-  const ageChartLabels = getAgeChartLabels(expectState);
+/**
+ * compute the age chart option
+ * @param {String} state user selected state
+ */
+function setAgeOption(state) {
+  const ageChartLabels = getAgeChartLabels(state);
   const ageChartLegend = ["All", "Male", "Female", "Not Stated"];
   let ageDataList = [];
-  ageDataList.push(getAgeData(ageChartLabels, ALL_INDEX, expectState)); // all age data
-  ageDataList.push(getAgeData(ageChartLabels, MALE_INDEX, expectState)); // male age data
-  ageDataList.push(getAgeData(ageChartLabels, FEMALE_INDEX, expectState)); // female age data
-  ageDataList.push(getAgeData(ageChartLabels, NOT_STATED_INDEX, expectState)); // not stated age data
+  ageDataList.push(getAgeData(ageChartLabels, ALL_INDEX, state)); // all age data
+  ageDataList.push(getAgeData(ageChartLabels, MALE_INDEX, state)); // male age data
+  ageDataList.push(getAgeData(ageChartLabels, FEMALE_INDEX, state)); // female age data
+  ageDataList.push(getAgeData(ageChartLabels, NOT_STATED_INDEX, state)); // not stated age data
   let ageOptionSeries = new Series();
   for (let i = 0; i < ageDataList.length && i < ageChartLegend.length; i++) {
     let tempBarSeries = new BarSeries(ageChartLegend[i], ageDataList[i]);
@@ -184,6 +208,10 @@ function setAgeOption(expectState) {
   return tempOption;
 }
 
+/**
+ * compute the general information bar chart option
+ * @param {String} state user selected state
+ */
 function setGeneralBarOption(state) {
   let latestData = getLatestData(state);
   let generalBarLegend = ["Confirmed", "Death", "Recovered", "Tested"];
@@ -193,6 +221,7 @@ function setGeneralBarOption(state) {
     let tempData = [];
     tempData.push(latestData[i]);
     let tempBarSeies = new BarSeries(generalBarLegend[i], tempData);
+    tempBarSeies.setItemStyle(colorMapping[generalBarLegend[i]]);
     generalBarSeries.addSubSeries(tempBarSeies);
   }
 
@@ -221,6 +250,10 @@ function setGeneralBarOption(state) {
   return tempOption;
 }
 
+/**
+ * compute the general information line chart option
+ * @param {String} state user selected state
+ */
 function setGeneralLineOption(state) {
   const generalLineLegend = ["Confirmed", "Death", "Recovered", "Tested"];
   const dates = getAllDate();
@@ -231,6 +264,7 @@ function setGeneralLineOption(state) {
       generalLineLegend[i],
       generalData[Object.keys(generalData)[i]]
     );
+    tempLineSeries.setItemStyle(colorMapping[generalLineLegend[i]]);
     generalLineSeries.addSubSeries(tempLineSeries);
   }
 
@@ -374,27 +408,52 @@ function StateChart({ state }) {
   }
 }
 
+/**
+ * Series object which contains only one list for echarts to display data
+ */
 class Series {
   constructor() {
     this.list = [];
   }
 
+  /**
+   * 
+   * @param {SubSeries} subSeries series object which hold data for different dataset
+   */
   addSubSeries(subSeries) {
     this.list.push(subSeries);
   }
 
+  /**
+   * get the whole series list
+   */
   getSeriesList() {
     return this.list;
   }
 }
 
+/**
+ * Sub-series object which contains name and data for an object in Series
+ */
 class SubSeries {
   constructor(name, data) {
     this.name = name;
     this.data = data;
+    this.itemStyle = {};
+  }
+
+  /**
+   * set color for graph
+   * @param {String} color color code
+   */
+  setItemStyle(color) {
+    this.itemStyle["color"] = color;
   }
 }
 
+/**
+ * Subseries for line chart
+ */
 class LineSeries extends SubSeries {
   constructor(name, data) {
     super(name, data);
@@ -402,6 +461,9 @@ class LineSeries extends SubSeries {
   }
 }
 
+/**
+ * Subseries for bar chart
+ */
 class BarSeries extends SubSeries {
   constructor(name, data) {
     super(name, data);
@@ -409,6 +471,9 @@ class BarSeries extends SubSeries {
   }
 }
 
+/**
+ * Subseries for pie chart
+ */
 class PieSeries extends SubSeries {
   constructor(name, data) {
     super(name, data);
@@ -417,6 +482,11 @@ class PieSeries extends SubSeries {
     this.radius = 0;
   }
 
+  /**
+   * set radius for pie and check if the chart is a doughnut chart or not.
+   * @param {int|String} innerRadius inner radius for a pie chart
+   * @param {int|String} outerRadius outer radius for a pie chart
+   */
   setRadius(innerRadius, outerRadius) {
     if (innerRadius !== "0%" || innerRadius !== 0) {
       this.isDoughnut = true;
