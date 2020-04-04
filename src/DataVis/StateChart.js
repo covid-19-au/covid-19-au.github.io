@@ -89,7 +89,8 @@ function getStateGeneralData(dateList, expectState) {
   for (let i = 0; i < dateList.length; i++) {
     let tempData = stateData[dateList[i]][expectState];
     generalData["confirmed"].push(tempData[0]);
-    if (tempData.length !== 1) { // when only confirmed data available
+    if (tempData.length !== 1) {
+      // when only confirmed data available
       generalData["death"].push(tempData[1]);
       generalData["recovered"].push(tempData[2]);
       generalData["tested"].push(tempData[3]);
@@ -224,8 +225,8 @@ function setGeneralBarOption(state) {
 
 function setGeneralLineOption(state) {
   const generalLineLegend = ["Confirmed", "Death", "Recovered", "Tested"];
-  const lineLabels = getAllDate();
-  const generalData = getStateGeneralData(lineLabels, state);
+  const dates = getAllDate();
+  const generalData = getStateGeneralData(dates, state);
   let generalLineSeries = new Series();
   for (let i = 0; i < generalLineLegend.length; i++) {
     let tempLineSeries = new LineSeries(
@@ -234,6 +235,10 @@ function setGeneralLineOption(state) {
     );
     generalLineSeries.addSubSeries(tempLineSeries);
   }
+
+  //graph initial start point
+  let start = 100 - (14 / dates.length) * 100;
+  let startPoint = parseInt(start);
 
   let tempOption = {
     tooltip: {
@@ -254,9 +259,32 @@ function setGeneralLineOption(state) {
         Tested: false
       }
     },
+    dataZoom: [
+      {
+        type: "inside",
+        start: startPoint,
+        end: 100
+      },
+      {
+        start: 0,
+        end: 10,
+        handleIcon:
+          "M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z",
+        handleSize: "80%",
+        handleStyle: {
+          color: "#fff",
+          shadowBlur: 3,
+          shadowColor: "rgba(0, 0, 0, 0.6)",
+          shadowOffsetX: 2,
+          shadowOffsetY: 2
+        },
+        bottom: "1%",
+        left: "center"
+      }
+    ],
     xAxis: {
       type: "category",
-      data: lineLabels
+      data: dates
     },
     yAxis: {
       type: "value"
