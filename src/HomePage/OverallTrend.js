@@ -1,9 +1,10 @@
 import React, { useState, Suspense, useEffect } from "react";
 import ReactEcharts from 'echarts-for-react';
-import countryData from "../data/country";
+import countryData from "../data/country.json";
 import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+import stateData from "../data/state.json"
 
 export default function OverallTrend(data) {
 
@@ -36,9 +37,6 @@ export default function OverallTrend(data) {
     let recoveryData = []
     let newConfirmed = []
     let newDeath = []
-
-
-    let today = Date.now()
     //Create array of date data for x-axis
 
     let preConfirmed = 0
@@ -118,28 +116,45 @@ export default function OverallTrend(data) {
         outline: "none"
     };
 
+    //TESTED CASES GRAPH STARTS HERE
+
+    //let nsw = []
+    //let vic = []
+    //let sa = []
+    //let qld = []
+    //let tas = []
+    //let nt = []
+    //let wa = []
+    //let act = []
+
+    //for (let key in stateData) {
+    //  let arr = key.split("-");
+    // let date = new Date(arr[0], arr[1] - 1, arr[2]);
+    //if (date.getMonth() > 1) {
+    //   if (date.getMonth() == 2) {
+    //      if (date.getDate() >= 22) {
+
+    //        nsw.push(stateData[key]["NSW"][3])
+    //      console.log(nsw)
+    // }
+
+    //}
+    //}
+    //}
+
 
     return (
         <div className="card">
-            <h2>Overall Trends</h2>
-            <ReactEcharts style={{ height: "412px" }}
+            <h2>Cases, Deaths and Recoveries</h2>
+            <ReactEcharts style={{ height: "400px" }}
                 option={
                     {
                         grid: {
                             containLabel: true,
                             left: 0,
                             right: "5%"
-                            , bottom: "15%",
+                            , bottom: "10%",
                             top: "20%"
-                        }, title: {
-                            left: 'center',
-                            text: 'Cases, deaths, and recoveries',
-                            textStyle: {
-                                fontFamily:
-                                    "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-                                fontSize: 20,
-                                fontWeight: "normal"
-                            }
                         },
                         tooltip: {
                             trigger: 'axis',
@@ -185,10 +200,7 @@ export default function OverallTrend(data) {
                             show: true,
                             left: "center",
                             top: "top",
-                            itemGap: 5,
-                            tooltip: {
-                                trigger: "axis"
-                            }
+                            itemGap: 5
                         },
                         dataZoom: [{
                             type: 'inside',
