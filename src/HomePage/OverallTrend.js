@@ -34,14 +34,18 @@ export default function OverallTrend(data) {
     let confirmedData = []
     let deathData = []
     let recoveryData = []
+    let newConfirmed = []
+    let newDeath = []
 
 
     let today = Date.now()
     //Create array of date data for x-axis
+
+    let preConfirmed = 0
+    let preDeath = 0
     for (let key in countryData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
-
         if (logScale) {
             //log graph breaks if we include data before March 1st so we exclude that data here
             if (date.getMonth() >= 2) {
@@ -51,6 +55,12 @@ export default function OverallTrend(data) {
                 confirmedData.push(countryData[key][0])
                 deathData.push(countryData[key][2])
                 recoveryData.push(countryData[key][1])
+
+                newConfirmed.push(countryData[key][0] - preConfirmed)
+                newDeath.push(countryData[key][2] - preDeath)
+
+                preConfirmed = countryData[key][0]
+                preDeath = countryData[key][2]
             }
         }
         //if not log scale, we include all data
@@ -61,6 +71,12 @@ export default function OverallTrend(data) {
             confirmedData.push(countryData[key][0])
             deathData.push(countryData[key][2])
             recoveryData.push(countryData[key][1])
+
+            newConfirmed.push(countryData[key][0] - preConfirmed)
+            newDeath.push(countryData[key][2] - preDeath)
+
+            preConfirmed = countryData[key][0]
+            preDeath = countryData[key][2]
         }
 
     }
@@ -74,11 +90,19 @@ export default function OverallTrend(data) {
     let maxY
 
     if (logScale) {
-        maxY = Math.ceil(maxValue / 1000) * 1000
+        maxY = Math.ceil(maxValue / 10000) * 10000
     }
     else {
         maxY = Math.ceil(maxValue / 1000) * 1000
     }
+
+    // set max Y value for new Cases Y axis
+    maxValue = parseInt(Math.max(...newConfirmed))
+    let maxY2 = Math.ceil(maxValue / 100) * 100
+
+    let y1Interval = parseInt(Math.max(...confirmedData)) / 5
+    let y2Interval = parseInt(Math.max(...newConfirmed)) / 5
+
 
 
     const activeStyles = {
@@ -96,7 +120,8 @@ export default function OverallTrend(data) {
 
 
     return (
-        <div>
+        <div className="card">
+            <h2>Overall Trends</h2>
             <ReactEcharts style={{ height: "412px" }}
                 option={
                     {
@@ -104,7 +129,17 @@ export default function OverallTrend(data) {
                             containLabel: true,
                             left: 0,
                             right: "5%"
-                            , bottom: "20%"
+                            , bottom: "15%",
+                            top: "20%"
+                        }, title: {
+                            left: 'center',
+                            text: 'Cases, deaths, and recoveries',
+                            textStyle: {
+                                fontFamily:
+                                    "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+                                fontSize: 20,
+                                fontWeight: "normal"
+                            }
                         },
                         tooltip: {
                             trigger: 'axis',
@@ -115,40 +150,45 @@ export default function OverallTrend(data) {
                                 color: "black"
                             }
                         },
-                        title: {
-                            left: 'center',
-                            text: 'Overall trends for COVID-19 \n cases in Australia',
-                            textStyle: {
-                                fontFamily:
-                                    "Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-                                fontSize: 20,
-                                fontWeight: "normal"
-                            }
-                        },
                         toolbox: {
                             show: false
                         },
                         xAxis: {
                             type: 'category',
-                            boundaryGap: false,
+                            boundaryGap: true,
                             data: dateData,
                             scale: true,
                             axisLabel: {
                                 showMaxLabel: true
                             }
                         },
-                        yAxis: {
+                        yAxis: [{
+                            name: "Totals",
                             axisLabel: {
                                 show: true
                             },
                             type: yAxisType,
                             max: maxY
-                        },
+                        }, {
+                            name: "Daily New",
+                            axisLabel: {
+                                show: true
+                            },
+                            type: 'value',
+                            max: maxY2,
+                            splitLine: {
+                                show: false
+                            }
+                        }
+                        ],
                         legend: {
                             show: true,
                             left: "center",
-                            bottom: "12%",
-                            itemGap: 5
+                            top: "top",
+                            itemGap: 5,
+                            tooltip: {
+                                trigger: "axis"
+                            }
                         },
                         dataZoom: [{
                             type: 'inside',
@@ -166,7 +206,7 @@ export default function OverallTrend(data) {
                                 shadowOffsetX: 2,
                                 shadowOffsetY: 2
                             },
-                            bottom: "1%",
+                            bottom: "0%",
                             left: "center"
                         }],
                         series: [
@@ -204,12 +244,24 @@ export default function OverallTrend(data) {
                                     color: "#00c177"
                                 },
                                 data: recoveryData
+                            },
+                            {
+                                name: 'Daily New Cases',
+                                type: 'bar',
+                                yAxisIndex: '1',
+                                sampling: 'average',
+                                itemStyle: {
+                                    color: "#8ccfff"
+                                },
+                                data: newConfirmed
                             }
                         ]
                     }}
 
             />
             <span className="due">
+                <span className="key"><p>*Click on legend to add/remove graphs</p></span>
+                <span className="key"><p>*Click on points for detailed data</p></span>
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
                     Logarithmic Scale:&nbsp;
