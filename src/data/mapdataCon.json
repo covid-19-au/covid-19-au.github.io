@@ -167,7 +167,7 @@
     "time": "All hours",
     "description": "Childcare. All people who visited during the dates need to be isolated",
     "coor": ["-33.850286", "151.275103"],
-    "type": "0"
+    "notes": ""
   },
   {
     "state": "NSW",

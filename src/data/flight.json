@@ -1981,9 +1981,9 @@
   },
   {
     "reportState": "QLD",
-    "flightNo": "EK434",
-    "airline": "Emirates",
-    "path": "Dubai to Brisbane",
+    "flightNo": "JQ12",
+    "airline": "Jetstar",
+    "path": "Tokyo to Brisbane",
     "dateDeparture": "",
     "dateArrival": "13-03-20",
     "closeContactRow": "63, 64, 65, 66, 67"
