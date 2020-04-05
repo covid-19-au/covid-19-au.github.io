@@ -161,6 +161,16 @@
   },
   {
     "state": "NSW",
+    "area": "Vaucluse",
+    "name": "Vaucluse Cottage Childcare Centre",
+    "date": "16/3/20",
+    "time": "All hours",
+    "description": "Childcare. All people who visited during the dates need to be isolated",
+    "coor": ["-33.850286", "151.275103"],
+    "notes": ""
+  },
+  {
+    "state": "NSW",
     "area": "Lord Howe Island",
     "name": "Lord Howe Island: unclear cases",
     "date": "21/3/20",

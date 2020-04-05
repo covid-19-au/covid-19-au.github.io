@@ -66,14 +66,21 @@ function SearchFlights(searchKey, flights) {
   if (dateArrivalKeyResult.length === 0 || dateArrivalKeyResult.length === flights.length) {
     return []
   }
-  return dateArrivalKeyResult.sort(function (a, b) {
-    let arr = a.dateArrival.split("-");
-    let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-    arr = b.dateArrival.split("-");
+  return sortFlight(dateArrivalKeyResult);
+}
 
-    let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-    return new Date(dateB) - new Date(dateA);
-  });
+/**
+ * Sort flight from latest arrival date to oldest arrival date
+ * @param {Array} flights list of flight need to be sorted
+ */
+function sortFlight(flights) {
+  return flights.sort((a, b) => {
+    let arr = a.dateArrival.split("-");
+    let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]) - 1, parseInt(arr[0]));
+    arr = b.dateArrival.split("-");
+    let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]) - 1, parseInt(arr[0]));
+    return dateB - dateA;
+  })
 }
 
 /**
@@ -82,14 +89,7 @@ function SearchFlights(searchKey, flights) {
  */
 function Flights({ flights }) {
   // sort data first
-  flights.sort(function (a, b) {
-    let arr = a.dateArrival.split("-");
-    let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-    arr = b.dateArrival.split("-");
-
-    let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-    return new Date(dateB) - new Date(dateA);
-  });
+  flights = sortFlight(flights);
 
   const [flightResult, setFlightResult] = useState([]);
   const [searchKey, setSearchKey] = useState("");
