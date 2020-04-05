@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useRef
 } from "react";
+
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -63,19 +64,56 @@ const provincesByPinyin = keyBy(provinces, "pinyin");
 
 
 function Header({ province }) {
+
+  const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
+
+  const setModalVisibility = state => {
+    setShowSocialMediaIcons(state);
+  };
+
   return (
     <header>
+      <div style={{
+        fontSize: "170%",
+        color: "white",
+        textAlign: "right"
+      }}>
+        <SocialMediaShareModal
+          visible={showSocialMediaIcons}
+          onCancel={ () => setShowSocialMediaIcons(false)}
+        />
+        <a onClick={() => {
+            ReactGA.event({category: 'Header',action: "share"});
+            setModalVisibility(true)}}><i class="fas fa-share-square"></i>&nbsp;&nbsp;</a>
+        <a href="https://twitter.com/covid19augithub"><i class="fab fa-twitter"></i>&nbsp;&nbsp;</a>
+        <a href="https://www.instagram.com/covid19_au/"><i class="fab fa-instagram"></i>&nbsp;&nbsp;</a>
+        <a href="https://www.facebook.com/covid19au.github/"><i class="fab fa-facebook"></i>&nbsp;&nbsp;</a>
+      </div>
+
       <div className="bg"></div>
       <h1
         style={{
-          fontSize: "120%",
+          fontSize: "170%",
           color: "white",
           textAlign: "center"
         }}
       >
-        COVID-19 in Australia — Real-Time Report
+        COVID-19 in Australia
       </h1>
-        <div className="slogan"><i>Stay Calm Stay Informed</i></div>
+      <h1
+        style={{
+          fontSize: "160%",
+          color: "white",
+          textAlign: "center"
+        }}
+      >
+        Real-Time Report
+
+      </h1>
+
+      <div className="slogan"><i>Stay Calm, Stay Informed</i></div>
+
+
       {/*<i>By Students from Monash</i>*/}
     </header>
   );
@@ -231,7 +269,7 @@ function App() {
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
-          onCancel={() => setShowSocialMediaIcons(false)}
+          onCancel={ () => setShowSocialMediaIcons(false)}
         />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
