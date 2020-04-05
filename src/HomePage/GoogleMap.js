@@ -45,7 +45,7 @@ function GoogleMap({ province, newData }) {
 
     const [myData, setMyData] = useState(null);
     useEffect(() => {
-
+        ReactGA.event({ category: 'casesMap', action: mapType});
         let translate = {
             "NSW": "AU-NSW",
             "ACT": "AU-ACT",
@@ -140,11 +140,13 @@ function GoogleMap({ province, newData }) {
         }
     };
 
-    const toggleData = (e) => {
-        setMapType(e.target.value);
-        ReactGA.event({ category: 'casesMap', action: e.target.value });
+    // const toggleData = (value) => {
+    //     setMapType(value);
+    //     ReactGA.event({ category: 'casesMap', action: value});
+    //
+    // }
 
-    }
+
 
     const activeStyles = {
         color: 'black',
@@ -174,40 +176,13 @@ function GoogleMap({ province, newData }) {
 
                 </h2>
 
-                <noscript>
-                <div><button class="btn btn-secondary btn-block btn-sm" type="button" html="true" disabled><h4><em>Select Map Type</em></h4></button></div>
-                </noscript>
 
-                <noscript>
-                <div class="btn-group-vertical btn-group-sm btn-block btn-group-toggle" data-toggle="buttons">Map Type:&nbsp;
-                  <label class="btn btn-light active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked value="confirmed-cases" onClick={toggleData}/>
-                    CONFIRMED CASES
-                  </label>
-                  <label class="btn btn-light">
-                    <input type="radio" name="options" id="option1" autocomplete="off" value="relative-cases" onClick={toggleData}/>
-                    CASES/MILLION PEOPLE
-                  </label>
-                  <label class="btn btn-light">
-                    <input type="radio" name="options" id="option1" autocomplete="off" value="tested" onClick={toggleData}/>
-                    TESTED
-                  </label>
-                  <label class="btn btn-light">
-                    <input type="radio" name="options" id="option1" autocomplete="off" value="relative-tests" onClick={toggleData}/>
-                    TESTS/MILLION PEOPLE
-                  </label>
-                  <label class="btn btn-light">
-                    <input type="radio" name="options" id="option1" autocomplete="off" value="test-strike" onClick={toggleData}/>
-                    POSITIVE TEST RATE
-                  </label>
-                </div> </noscript>
-
-                <ButtonGroup size="small" orientation="vertical" value={mapType} onChange={toggleData}>
-                  <Button value="confirmed-cases" control={<Radio />} onClick={toggleData}>CONFIRMED CASES</Button>
-                  <Button value="relative-cases" control={<Radio />} onClick={toggleData}>CASES/MILLION PEOPLE</Button>
-                  <Button value="tested" control={<Radio />} onClick={toggleData}>TESTED</Button>
-                  <Button value="relative-tests" control={<Radio />} onClick={toggleData}>TESTS/MILLION PEOPLE</Button>
-                  <Button value="test-strike" control={<Radio />} onClick={toggleData}>POSITIVE TEST RATE</Button>
+                <ButtonGroup size="small" aria-label="small outlined button group">
+                  <Button value="confirmed-cases" onClick={()=>setMapType("confirmed-cases")}>CONFIRMED CASES</Button>
+                  <Button value="relative-cases"  onClick={()=>setMapType("relative-cases")}>CASES/MILLION PEOPLE</Button>
+                  <Button value="tested"  onClick={()=>setMapType("tested")}>TESTED</Button>
+                  <Button value="relative-tests" onClick={()=>setMapType("relative-tests")}>TESTS/MILLION PEOPLE</Button>
+                  <Button value="test-strike"  onClick={()=>setMapType("test-strike")}>POSITIVE TEST RATE</Button>
                 </ButtonGroup>
 
                 <Chart
