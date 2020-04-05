@@ -39,12 +39,7 @@ export default function Area({ area, onChange, data }) {
                 {/*<div className="death">{ x.deadCount }</div>*/}
                 {/*<div className="cured">{ x.curedCount }</div>*/}
                 <div className={"area"}>
-                    <strong>{x[0]}</strong>&nbsp;
-                    <svg className="bi bi-graph-up" width="0.8em" height="0.8em" viewBox="0 0 16 16" fill="black"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M6 12.796L11.481 8 6 3.204v9.592zm.659.753l5.48-4.796a1 1 0 000-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 001.659.753z" clipRule="evenodd"/>
-
-                    </svg>
+                    <strong>{x[0]}</strong>
                 </div>
                 <div className="confirmed">
                     <strong>{numberWithCommas(x[CONFIRMED])}</strong>&nbsp;<div className="dailyIncrease">{(x[CONFIRMED] - lastTotal[x[0]][0]) > 0 ? `(+${x[1] - lastTotal[x[0]][0]})` : null}</div>
