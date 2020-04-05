@@ -118,7 +118,7 @@ export default function Stat({
             </div>
 
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
-                Time in AEDT, last updated at: {stateCaseData.updatedTime}
+                Time in AEST, last updated at: {stateCaseData.updatedTime}
             </span>
 
             {/*<div>*/}
