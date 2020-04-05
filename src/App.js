@@ -83,7 +83,7 @@ function Header({ province }) {
           onCancel={ () => setShowSocialMediaIcons(false)}
         />
         <a onClick={() => {
-            ReactGA.event({category: 'Fallback',action: "share"});
+            ReactGA.event({category: 'Header',action: "share"});
             setModalVisibility(true)}}><i class="fas fa-share-square"></i>&nbsp;&nbsp;</a>
         <a href="https://twitter.com/covid19augithub"><i class="fab fa-twitter"></i>&nbsp;&nbsp;</a>
         <a href="https://www.instagram.com/covid19_au/"><i class="fab fa-instagram"></i>&nbsp;&nbsp;</a>
