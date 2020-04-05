@@ -68,8 +68,7 @@ export default function HomePage({
                 <OverallTrend />
             </Grid>
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
-                <StateGraph stateData={stateData} />
-                <StateComparisonChart></StateComparisonChart>
+                <StateComparisonChart />
             </Grid>
 
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
