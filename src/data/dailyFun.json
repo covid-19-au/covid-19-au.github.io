@@ -3,15 +3,16 @@
         {
             "image": [
                 {
-                    "name": "Community Mobility Report",
-                    "imgLink": "https://i.imgur.com/Uzbx6V9.jpg",
-                    "description": "See how your community is moving around differently due to COVID-19",
-                    "source": "https://www.google.com/covid19/mobility/"
+                    "imgLink": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/2020/03/18/1584491092127_Adopthealth.jpg?width=922&height=&mode=crop&anchor=topcenter&quality=75",
+                    "source": "https://www.facebook.com/groups/adoptaHCWVictoria/"
                 }
             ],
             "video": [],
-            "type": "fun",
-            "date": "5/4/2020"
+            "title": "Adopt a Healthcare Worker",
+            "source": "https://www.nowtolove.com.au/news/local-news/adopt-a-healthcare-worker-facebook-group-63103",
+            "content": "<p>A Facegroup group called \"Adopt a Healthcare Worker\" is now home to thousands of Australians who have offered to assist frontline health worders.</p> <p>We think this is a wonderful effort and you should definitely check out the Facebook page (click on the image source)!<p/>",
+            "type": "motivation",
+            "date": "6/4/2020"
         }
     ]
 }

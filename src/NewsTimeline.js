@@ -65,7 +65,7 @@ function NewsTimeline() {
 
                 </List>
             </Timeline >
-            <span className="due">Time in AEDT, last updated at {updatedTime}</span>
+            <span className="due">Time in AEST, last updated at {updatedTime}</span>
 
 
         </div >

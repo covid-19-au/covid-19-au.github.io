@@ -127,7 +127,7 @@ function AboutUs() {
         >
           <h4>What are the sources of data informing the dashboard?</h4>
         </ExpansionPanelSummary>
-        {/* <ExpansionPanelDetails>
+        <ExpansionPanelDetails>
                     <p>The data sources include the Department of Health in each Australian state (<a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.nsw.gov.au/news/Pages/default.aspx">NSW</a>,
                 <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.dhhs.vic.gov.au/media-hub-coronavirus-disease-covid-19">VIC</a>,
                 <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/current-status-and-contact-tracing-alerts">QLD</a>,
@@ -136,40 +136,40 @@ function AboutUs() {
                 <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.health.act.gov.au/about-our-health-system/novel-coronavirus-covid-19">ACT</a>,
                 <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://securent.nt.gov.au/alerts/coronavirus-covid-19-updates">NT</a>,
                 <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.dhhs.tas.gov.au/news/2020">TAS</a>), and key news outlets such as <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.abc.net.au/">the ABC</a>. More detailed resources can be seen in our <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://github.com/covid-19-au/covid-19-au.github.io"> GitHub repository</a>.</p>
-                </ExpansionPanelDetails> */}
-        <ExpansionPanelDetails>
-          <p>
-            The data sources include the{" "}
-            <a
-              className="citationLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Australia"
-            >
-              wikipedia page
-            </a>
-            , and key news outlets such as{" "}
-            <a
-              className="citationLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.abc.net.au/"
-            >
-              the ABC
-            </a>
-            . More detailed resources can be seen in our{" "}
-            <a
-              className="citationLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/covid-19-au/covid-19-au.github.io"
-            >
-              {" "}
-              GitHub repository
-            </a>
-            .
-          </p>
-        </ExpansionPanelDetails>
+                </ExpansionPanelDetails>
+        {/*<ExpansionPanelDetails>*/}
+          {/*<p>*/}
+            {/*The data sources include the{" "}*/}
+            {/*<a*/}
+              {/*className="citationLink"*/}
+              {/*target="_blank"*/}
+              {/*rel="noopener noreferrer"*/}
+              {/*href="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Australia"*/}
+            {/*>*/}
+              {/*wikipedia page*/}
+            {/*</a>*/}
+            {/*, and key news outlets such as{" "}*/}
+            {/*<a*/}
+              {/*className="citationLink"*/}
+              {/*target="_blank"*/}
+              {/*rel="noopener noreferrer"*/}
+              {/*href="https://www.abc.net.au/"*/}
+            {/*>*/}
+              {/*the ABC*/}
+            {/*</a>*/}
+            {/*. More detailed resources can be seen in our{" "}*/}
+            {/*<a*/}
+              {/*className="citationLink"*/}
+              {/*target="_blank"*/}
+              {/*rel="noopener noreferrer"*/}
+              {/*href="https://github.com/covid-19-au/covid-19-au.github.io"*/}
+            {/*>*/}
+              {/*{" "}*/}
+              {/*GitHub repository*/}
+            {/*</a>*/}
+            {/*.*/}
+          {/*</p>*/}
+        {/*</ExpansionPanelDetails>*/}
       </ExpansionPanel>
 
       <ExpansionPanel style={panelStyles}>
