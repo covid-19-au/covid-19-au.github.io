@@ -25,6 +25,17 @@
             "date": "4/4/2020"
         },
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=F5pgG1M_h_U",
+                    "description": "Some good news from around the world with John Krasinski"
+                }
+            ],
+            "type": "distraction",
+            "date": "4/4/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/nicholas.nakos/e4ee9b36-6fbe-41eb-94f7-63480b9754c8.jpg/r0_0_4324_6856_w1200_h678_fmax.jpg",
