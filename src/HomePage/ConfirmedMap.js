@@ -115,7 +115,7 @@ class MbMap extends React.Component {
             // }
             for (var data in mapDataArea) {
                 var data_map = mapDataArea[data];
-                if (state === data_map['state']) {
+                if (state === data_map['state'] && data_map['schema']!=='HLD') {
                     city = data_map['area'];
                     if (city.toLowerCase() == city_name && numberOfCases === 0) {
                         numberOfCases = data_map['confirmedCases'];
