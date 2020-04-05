@@ -115,7 +115,7 @@ class MbMap extends React.Component {
             // }
             for (var data in mapDataArea) {
                 var data_map = mapDataArea[data];
-                if (state === data_map['state']) {
+                if (state === data_map['state'] && data_map['schema']!=='HLD') {
                     city = data_map['area'];
                     if (city.toLowerCase() == city_name && numberOfCases === 0) {
                         numberOfCases = data_map['confirmedCases'];
@@ -561,7 +561,7 @@ class MbMap extends React.Component {
                     <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
                     <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
                     <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
-                    <span className="Key"><p>*City-level data is only present for VIC and NSW, HHS Data for QLD. Other states are being worked on.</p></span>
+                    <span className="Key"><p>*City-level data is only present for NSW, VIC, and WA, HHS Data for QLD. Other states are being worked on.</p></span>
                     <span className="key" style={{ alignSelf: "flex-end", marginTop: "0.5rem" }}>
                         Markers:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
                             <Button style={this.state.showMarker ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => this.handleClickOn()}>On</Button>
