@@ -1,5 +1,5 @@
 import uuid from "react-uuid";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import stateData from "../data/state";
 import testedCases from "../data/testedCases";
 
@@ -28,13 +28,21 @@ export default function Area({ area, onChange, data }) {
     ${recovered} recovered and ${tested} were tested`;
   };
 
+  const [fill, setFill] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFill(!fill);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, [fill]);
+
   const renderArea = () => {
     let latest =
       testedCases[
         Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
 
-    return data.map(x => (
+    return data.map((x) => (
       <div
         role={"button"}
         aria-label={getAriaLabel(...x)}
@@ -50,7 +58,36 @@ export default function Area({ area, onChange, data }) {
         {/*<div className="cured">{ x.curedCount }</div>*/}
         <div className={"area"}>
           <A href={`/state/${x[0].toLowerCase()}`}>
-            <strong>{x[0]}</strong>
+            <strong>
+              {x[0]}{" "}
+              {fill ? (
+                <svg
+                  className="bi bi-caret-right"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6 12.796L11.481 8 6 3.204v9.592zm.659.753l5.48-4.796a1 1 0 000-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 001.659.753z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="bi bi-caret-right-fill"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 011.659-.753l5.48 4.796a1 1 0 010 1.506z" />
+                </svg>
+              )}
+            </strong>
           </A>
         </div>
         <div className="confirmed">

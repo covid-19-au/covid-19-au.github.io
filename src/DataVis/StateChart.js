@@ -9,8 +9,8 @@ const colorMapping = {
   Confirmed: "#ff603c",
   Death: "#c11700",
   Recovered: "#00c177",
-  Tested: "#007cf2"
-}
+  Tested: "#007cf2",
+};
 
 const stateNameMapping = {
   VIC: "Victoria",
@@ -20,20 +20,20 @@ const stateNameMapping = {
   SA: "South Australia",
   WA: "Western Australia",
   TAS: "Tasmania",
-  NT: "Northern Territory"
+  NT: "Northern Territory",
 };
 
 const lineBarTooltip = {
   trigger: "axis",
   axisPointer: {
     crossStyle: {
-      color: "#999"
-    }
-  }
+      color: "#999",
+    },
+  },
 };
 const pieTooltip = {
   trigger: "item",
-  formatter: "{a} <br /> {b}: {c} ({d}%)"
+  formatter: "{a} <br /> {b}: {c} ({d}%)",
 };
 
 const ALL_INDEX = 0;
@@ -113,7 +113,7 @@ function getStateGeneralData(dateList, state) {
     confirmed: [],
     death: [],
     recovered: [],
-    tested: []
+    tested: [],
   };
   for (let i = 0; i < dateList.length; i++) {
     let tempData = stateData[dateList[i]][state];
@@ -153,14 +153,14 @@ function setGenderOption(state) {
 
   let tempOption = {
     title: {
-      text: "Gender Chart"
+      text: "Gender Chart",
     },
     tooltip: pieTooltip,
     legend: {
       data: genderLabel,
-      top: "7%"
+      top: "7%",
     },
-    series: series.getSeriesList()
+    series: series.getSeriesList(),
   };
   return tempOption;
 }
@@ -186,24 +186,24 @@ function setAgeOption(state) {
   let tempOption = {
     tooltip: lineBarTooltip,
     title: {
-      text: "Age Group Chart"
+      text: "Age Group Chart",
     },
     legend: {
       data: ageChartLegend,
       top: "7%",
       selected: {
-        All: false
-      }
+        All: false,
+      },
     },
     xAxis: {
       type: "category",
       data: ageChartLabels,
       axisPointer: {
-        type: "shadow"
-      }
+        type: "shadow",
+      },
     },
     yAxis: {},
-    series: ageOptionSeries.getSeriesList()
+    series: ageOptionSeries.getSeriesList(),
   };
   return tempOption;
 }
@@ -228,24 +228,24 @@ function setGeneralBarOption(state) {
   let tempOption = {
     tooltip: lineBarTooltip,
     title: {
-      text: "General Info Bar Chart"
+      text: "General Info Bar Chart",
     },
     legend: {
       data: generalBarLegend,
       top: "7%",
       selected: {
-        Tested: false
-      }
+        Tested: false,
+      },
     },
     xAxis: {
       type: "category",
       data: generalLabel,
       axisPointer: {
-        type: "shadow"
-      }
+        type: "shadow",
+      },
     },
     yAxis: {},
-    series: generalBarSeries.getSeriesList()
+    series: generalBarSeries.getSeriesList(),
   };
   return tempOption;
 }
@@ -275,20 +275,20 @@ function setGeneralLineOption(state) {
   let tempOption = {
     tooltip: lineBarTooltip,
     title: {
-      text: "General Info Line Chart"
+      text: "General Info Line Chart",
     },
     legend: {
       data: generalLineLegend,
       top: "7%",
       selected: {
-        Tested: false
-      }
+        Tested: false,
+      },
     },
     dataZoom: [
       {
         type: "inside",
         start: startPoint,
-        end: 100
+        end: 100,
       },
       {
         start: 0,
@@ -301,22 +301,43 @@ function setGeneralLineOption(state) {
           shadowBlur: 3,
           shadowColor: "rgba(0, 0, 0, 0.6)",
           shadowOffsetX: 2,
-          shadowOffsetY: 2
+          shadowOffsetY: 2,
         },
         bottom: "1%",
-        left: "center"
-      }
+        left: "center",
+      },
     ],
     xAxis: {
       type: "category",
-      data: dates
+      data: dates,
     },
     yAxis: {
-      type: "value"
+      type: "value",
     },
-    series: generalLineSeries.getSeriesList()
+    series: generalLineSeries.getSeriesList(),
   };
   return tempOption;
+}
+
+function renderTable(state) {
+  let latestData = getLatestData(state);
+  return (
+    <div role={"button"} className="province">
+      <div className={"area"}>
+        <strong>{state.toUpperCase()}</strong>
+      </div>
+      <div className="confirmed">
+        <strong>{latestData[0]}</strong>&nbsp;
+      </div>
+      <div className="death">
+        <strong>{latestData[1]}</strong>&nbsp;
+      </div>
+      <div className="cured">
+        <strong>{latestData[2]}</strong>&nbsp;
+      </div>
+      <div className="tested">{latestData[3]}</div>
+    </div>
+  );
 }
 
 function StateChart({ state }) {
@@ -344,11 +365,26 @@ function StateChart({ state }) {
         </Grid>
         <Grid item xs={11} sm={11} md={4}>
           <div className="card">
+            <h2>Status</h2>
+            <div role={"table"}>
+              <div className="province header">
+                <div className="area header statetitle">State</div>
+                <div className="confirmed header confirmedtitle">Confirmed</div>
+                <div className="death header deathtitle">Deaths</div>
+                <div className="cured header recoveredtitle">Recovered</div>
+                <div className="tested header testedtitle">Tested</div>
+              </div>
+              {renderTable(state.toUpperCase())}
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={11} sm={11} md={4}>
+          <div className="card">
             <h2>General Information - Bar</h2>
             <ReactEcharts option={barOption} />
           </div>
         </Grid>
-        <Grid item xs={11} sm={11} md={4} xl={6}>
+        <Grid item xs={11} sm={11} md={4}>
           <div className="card">
             <h2>General Information - Line</h2>
             <ReactEcharts option={lineOption} />
@@ -417,7 +453,6 @@ class Series {
   }
 
   /**
-   * 
    * @param {SubSeries} subSeries series object which hold data for different dataset
    */
   addSubSeries(subSeries) {
@@ -492,13 +527,13 @@ class PieSeries extends SubSeries {
       this.isDoughnut = true;
       this.label = {
         show: false,
-        position: "center"
+        position: "center",
       };
       this.emphasis = {
         label: {
           show: true,
-          fontWeight: "bold"
-        }
+          fontWeight: "bold",
+        },
       };
     }
     this.radius = [innerRadius, outerRadius];
