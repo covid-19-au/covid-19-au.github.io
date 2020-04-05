@@ -64,6 +64,13 @@ const provincesByPinyin = keyBy(provinces, "pinyin");
 
 
 function Header({ province }) {
+
+  const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
+
+  const setModalVisibility = state => {
+    setShowSocialMediaIcons(state);
+  };
+
   return (
     <header>
       <div style={{
@@ -71,6 +78,13 @@ function Header({ province }) {
         color: "white",
         textAlign: "right"
       }}>
+        <SocialMediaShareModal
+          visible={showSocialMediaIcons}
+          onCancel={ () => setShowSocialMediaIcons(false)}
+        />
+        <a onClick={() => {
+            ReactGA.event({category: 'Fallback',action: "share"});
+            setModalVisibility(true)}}><i class="fas fa-share-square"></i>&nbsp;&nbsp;</a>
         <a href="https://twitter.com/covid19augithub"><i class="fab fa-twitter"></i>&nbsp;&nbsp;</a>
         <a href="https://www.instagram.com/covid19_au/"><i class="fab fa-instagram"></i>&nbsp;&nbsp;</a>
         <a href="https://www.facebook.com/covid19au.github/"><i class="fab fa-facebook"></i>&nbsp;&nbsp;</a>
