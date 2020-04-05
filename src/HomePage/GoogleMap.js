@@ -46,7 +46,7 @@ function GoogleMap({ province, newData }) {
 
     const [myData, setMyData] = useState(null);
     useEffect(() => {
-
+        ReactGA.event({ category: 'casesMap', action: mapType});
         let translate = {
             "NSW": "AU-NSW",
             "ACT": "AU-ACT",
@@ -141,11 +141,13 @@ function GoogleMap({ province, newData }) {
         }
     };
 
-    const toggleData = (e) => {
-        setMapType(e.target.value);
-        ReactGA.event({ category: 'casesMap', action: e.target.value });
+    // const toggleData = (value) => {
+    //     setMapType(value);
+    //     ReactGA.event({ category: 'casesMap', action: value});
+    //
+    // }
 
-    }
+
 
     const activeStyles = {
         color: 'darkBlue',

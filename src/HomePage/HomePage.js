@@ -8,7 +8,6 @@ import Flights from "./Flights";
 import StateGraph from "./StateGraph";
 import MbMap from "./ConfirmedMap";
 import Stat from "./Stat"
-import HistoryGraph from "./HistoryGraph"
 
 import uuid from "react-uuid";
 import CanvasJSReact from "../assets/canvasjs.react";
@@ -65,12 +64,7 @@ export default function HomePage({
 
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
                 <MbMap />
-                <div className="card">
-                    <h2>Historical Data</h2>
-                    <OverallTrend />
-                    <hr />
-                    <HistoryGraph countryData={country} />
-                </div>
+                <OverallTrend />
             </Grid>
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
                 <StateGraph stateData={stateData} />
