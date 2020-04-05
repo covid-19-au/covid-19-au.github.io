@@ -171,48 +171,58 @@ function createTestedData(stateData, states) {
 }
 
 
+function createdTestedDataSets(testedData, orderedStates) {
+
+    let dataSet = {}
+
+    let j = 0
+    while (j < testedData.length) {
+
+        let currentState = orderedStates[j]
+        dataSet[currentState] = []
+        dataSet[currentState].push([])
+        dataSet[currentState][0].push(testedData[j][0])
+
+        let i = 0
+        while (i < testedData[j].length - 1) {
+
+
+            let currentListIndex = dataSet[currentState].length - 1
+            //add next value if it is different
+            while (testedData[j][i] != testedData[j][i + 1] && i < testedData[j].length - 1) {
+                dataSet[currentState][currentListIndex].push(testedData[j][i + 1])
+                i = i + 1
+            }
+
+            let k = 0
+            dataSet[currentState].push([]) //push a new list
+            currentListIndex = dataSet[currentState].length - 1
+
+            //Add dash for every value already recorded
+            while (k <= i) {
+                dataSet[currentState][currentListIndex].push("-")
+                k = k + 1
+            }
+
+            //Add dash for next value if it is the same
+            while (testedData[j][i] === testedData[j][i + 1] && i < testedData[j].length - 1) {
+                dataSet[currentState][currentListIndex].push("-")
+                i = i + 1
+            }
+
+            //Start new solid line if different value encountered
+            dataSet[currentState][currentListIndex][i] = testedData[j][i]
+        }
+
+        j = j + 1
+    }
+
+    return (dataSet)
+}
 
 export default function StateComparisonChart() {
 
     const [logScale, setLogScale] = useState(false);
-
-    let yAxisType = "value"
-    if (logScale) {
-        yAxisType = "log"
-    }
-
-    let orderedStates = sortStates(stateData)
-    let caseData = createCaseData(stateData, orderedStates, logScale)
-    let testedData = createTestedData(stateData, orderedStates)
-    let testedDates = createTestedDates(stateData)
-    let caseDates = createdCaseDates(stateData, logScale)
-
-    let testedDataDots = [[], [], [], [], [], [], [], []]
-    let testedDataSolid = [[], [], [], [], [], [], [], []]
-
-    let j = 0
-    while (j < testedData.length) {
-        let i = 1
-        testedDataDots[j].push(testedData[j][0])
-        testedDataSolid[j].push(testedData[j][0])
-
-        while (i < testedData[j].length) {
-            if (testedData[j][i] === testedData[j][i - 1]) {
-                testedDataDots[j].push(testedData[j][i])
-                testedDataSolid[j].push("-")
-            }
-            else {
-                testedDataSolid[j].push(testedData[j][i])
-                testedDataDots[j].push("-")
-            }
-            i = i + 1
-        }
-        j = j + 1
-    }
-
-    console.log(testedDataDots)
-    console.log(testedDataSolid)
-
 
     let stateColours = {
         "NSW": "#8ccfff",
@@ -225,11 +235,94 @@ export default function StateComparisonChart() {
         "NT": "#ed7d51"
     }
 
+    let yAxisType = "value"
+    if (logScale) {
+        yAxisType = "log"
+    }
+
+    let orderedStates = sortStates(stateData)
+    let caseData = createCaseData(stateData, orderedStates, logScale)
+    let testedData = createTestedData(stateData, orderedStates)
+    let testedDates = createTestedDates(stateData)
+    let caseDates = createdCaseDates(stateData, logScale)
+
+    let testedDataFinal = createdTestedDataSets(testedData, orderedStates)
+    console.log(testedDataFinal)
+
+    let lineSeries = []
+
+    let i = 0
+    while (i < orderedStates.length) {
+        let j = 0
+        while (j < testedDataFinal[orderedStates[i]].length) {
+            let newLine = {
+                name: orderedStates[i],
+                type: 'line',
+                symbol: 'circle',
+                symbolSize: 8,
+                sampling: 'average',
+                itemStyle: {
+                    color: stateColours[orderedStates[i]]
+                },
+                data: testedDataFinal[orderedStates[i]][j]
+            }
+
+            lineSeries.push(newLine)
+
+            j = j + 1
+        }
+        i = i + 1
+    }
+
+    //add Dotted Lines and confirmed cases
+
+    i = 0
+    while (i < orderedStates.length) {
+        let dottedLine = {
+            name: orderedStates[i],
+            type: 'line',
+            symbolSize: 8,
+            symbol: "circle",
+            sampling: 'average',
+            itemStyle: {
+                color: stateColours[orderedStates[i]]
+            },
+            data: testedData[i],
+            lineStyle: {
+                type: "dotted"
+            }
+        }
+
+        let confirmedLine =
+        {
+            name: orderedStates[i],
+            type: 'line',
+            smooth: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            sampling: 'average',
+            itemStyle: {
+                color: stateColours[orderedStates[i]]
+            },
+            data: caseData[i],
+            xAxisIndex: 1, yAxisIndex: 1
+        }
+
+        lineSeries.push(dottedLine)
+        lineSeries.push(confirmedLine)
+
+        i = i + 1
+    }
+
+
+    //Add Confirmed Cases
+
+
+
+
     //graph initial start point (2 weeks)
     let startCase = parseInt(100 - (14 / caseDates.length * 100))
     let startTested = parseInt(100 - (14 / testedDates.length * 100))
-    console.log(startCase)
-    console.log(caseDates.length)
 
     // set max Y value by rounding max data value to nearest 1000
 
@@ -374,197 +467,11 @@ export default function StateComparisonChart() {
                         left: "center",
                         xAxisIndex: 1
                     }],
-                    series: [
-                        //Tested Graphs
+                    series: lineSeries
+                    //Tested Graphs
 
-                        {
-                            name: orderedStates[0],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[0]]
-                            },
-                            data: testedData[0]
-                        }, {
-                            name: orderedStates[1],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[1]]
-                            },
-                            data: testedData[1]
-                        }, {
-                            name: orderedStates[2],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[2]]
-                            },
-                            data: testedData[2]
-                        }, {
-                            name: orderedStates[3],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[3]]
-                            },
-                            data: testedData[3]
-                        }, {
-                            name: orderedStates[4],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[4]]
-                            },
-                            data: testedData[4]
-                        }, {
-                            name: orderedStates[5],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[5]]
-                            },
-                            data: testedData[5]
-                        }, {
-                            name: orderedStates[6],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[6]]
-                            },
-                            data: testedData[6]
-                        }, {
-                            name: orderedStates[7],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[7]]
-                            },
-                            data: testedData[7]
-                        },
-                        //Confirmed Cases
-                        {
-                            name: orderedStates[0],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[0]]
-                            },
-                            data: caseData[0],
-                            xAxisIndex: 1, yAxisIndex: 1
-                        }, {
-                            name: orderedStates[1],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[1]]
-                            },
-                            data: caseData[1],
-                            xAxisIndex: 1, yAxisIndex: 1
-                        }, {
-                            name: orderedStates[2],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[2]]
-                            },
-                            data: caseData[2],
-                            xAxisIndex: 1, yAxisIndex: 1
-                        }, {
-                            name: orderedStates[3],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[3]]
-                            },
-                            data: caseData[3],
-                            xAxisIndex: 1, yAxisIndex: 1
-                        }, {
-                            name: orderedStates[4],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[4]]
-                            },
-                            data: caseData[4],
-                            xAxisIndex: 1, yAxisIndex: 1
-                        }, {
-                            name: orderedStates[5],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[5]]
-                            },
-                            data: caseData[5],
-                            xAxisIndex: 1, yAxisIndex: 1
-                        }, {
-                            name: orderedStates[6],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[6]]
-                            },
-                            data: caseData[6],
-                            xAxisIndex: 1, yAxisIndex: 1
-                        }, {
-                            name: orderedStates[7],
-                            type: 'line',
-                            smooth: true,
-                            symbol: 'circle',
-                            symbolSize: 8,
-                            sampling: 'average',
-                            itemStyle: {
-                                color: stateColours[orderedStates[7]]
-                            },
-                            data: caseData[7],
-                            xAxisIndex: 1, yAxisIndex: 1
-                        }
-                    ]
+
+
 
                 }}></ReactEcharts>
             <span className="due">
