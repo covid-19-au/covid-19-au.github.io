@@ -517,8 +517,8 @@
     "area": "Burnie",
     "name": "North West Regional Hospital",
     "date": "4/4/20",
-    "time": "",
-    "description": "Health workers",
+    "time": "N/A",
+    "description": "3 Health workers",
     "coor": ["-41.047223", "145.880527"]
   },
   {
@@ -830,10 +830,10 @@
   {
     "state": "WA",
     "area": "Perth metropolitan area",
-    "name": "Perth metropolitan area: 17 new cases",
-    "date": "1/4/20",
+    "name": "Perth metropolitan area: 16 new cases",
+    "date": "5/4/20",
     "time": "N/A",
-    "description": "Seventeen new cases are from the Perth metropolitan area",
+    "description": "Sixteen new confirme cases today are from the Perth metropolitan area",
     "coor": ["-31.946603", "115.849349"]
   },
   {
