@@ -205,7 +205,7 @@ export default function OverallTrend(data) {
                         },
                         dataZoom: [{
                             type: 'inside',
-                            start: startPoint,
+                            start: 0,
                             end: 100
                         }, {
                             start: 0,
