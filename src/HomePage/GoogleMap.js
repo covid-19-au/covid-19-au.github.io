@@ -3,6 +3,10 @@ import ReactGA from "react-ga";
 import ausPop from '../data/ausPop'
 
 import Acknowledgement from "../Acknowledgment"
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 import { Chart } from "react-google-charts";
 
@@ -142,6 +146,24 @@ function GoogleMap({ province, newData }) {
 
     }
 
+    const activeStyles = {
+        color: 'black',
+        borderColor: '#8ccfff',
+        padding: "0px",
+        zIndex:10,
+        outline: "none"
+    };
+    const inactiveStyles = {
+        color: 'grey',
+        borderColor: '#e3f3ff',
+        padding: "0px",
+        outline: "none"
+    };
+
+    const handleChange = (mapType) => {
+      setMapType(mapType.target.value);
+    };
+
     return (
         loading ? <div className="loading">Loading...</div> :
             <div className="stateMap">
@@ -151,40 +173,42 @@ function GoogleMap({ province, newData }) {
                         </Acknowledgement></div>
 
                 </h2>
+
                 <noscript>
-                <div>
-                  <button type="button" data-toggle="button" class="btn btn-danger btn-sm" aria-pressed="true" value="confirmed-cases" onClick={toggleData}>CONFIRMED CASES</button>
-                  <button type="button" data-toggle="button" class="btn btn-danger btn-sm" value="relative-cases" onClick={toggleData}>&nbsp;CASES/MILLION PEOPLE</button>
-                  <button type="button" data-toggle="button" class="btn btn-primary btn-sm" value="tested" onClick={toggleData}>&nbsp;TESTED</button>
-                  <button type="button" data-toggle="button" class="btn btn-primary btn-sm" value="relative-tests" onClick={toggleData}>&nbsp;TESTS/MILLION PEOPLE</button>
-                  <button type="button" data-toggle="button" class="btn btn-primary btn-sm" value="test-strike" onClick={toggleData}>&nbsp;POSITIVE TEST RATE</button>
-                </div>
+                <div><button class="btn btn-secondary btn-block btn-sm" type="button" html="true" disabled><h4><em>Select Map Type</em></h4></button></div>
                 </noscript>
 
-                <div><button class="btn btn-secondary btn-block btn-sm" type="button" html="true" disabled><h4><em>Select Map Type</em></h4></button></div>
-
-                <div class="btn-group-vertical btn-group-sm btn-block btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-danger active">
+                <noscript>
+                <div class="btn-group-vertical btn-group-sm btn-block btn-group-toggle" data-toggle="buttons">Map Type:&nbsp;
+                  <label class="btn btn-light active">
                     <input type="radio" name="options" id="option1" autocomplete="off" checked value="confirmed-cases" onClick={toggleData}/>
                     CONFIRMED CASES
                   </label>
-                  <label class="btn btn-danger">
+                  <label class="btn btn-light">
                     <input type="radio" name="options" id="option1" autocomplete="off" value="relative-cases" onClick={toggleData}/>
                     CASES/MILLION PEOPLE
                   </label>
-                  <label class="btn btn-primary">
+                  <label class="btn btn-light">
                     <input type="radio" name="options" id="option1" autocomplete="off" value="tested" onClick={toggleData}/>
                     TESTED
                   </label>
-                  <label class="btn btn-primary">
+                  <label class="btn btn-light">
                     <input type="radio" name="options" id="option1" autocomplete="off" value="relative-tests" onClick={toggleData}/>
                     TESTS/MILLION PEOPLE
                   </label>
-                  <label class="btn btn-primary">
+                  <label class="btn btn-light">
                     <input type="radio" name="options" id="option1" autocomplete="off" value="test-strike" onClick={toggleData}/>
                     POSITIVE TEST RATE
                   </label>
-                </div>
+                </div> </noscript>
+
+                <ButtonGroup size="small" orientation="vertical" value={mapType} onChange={toggleData}>
+                  <Button value="confirmed-cases" control={<Radio />} onClick={toggleData}>CONFIRMED CASES</Button>
+                  <Button value="relative-cases" control={<Radio />} onClick={toggleData}>CASES/MILLION PEOPLE</Button>
+                  <Button value="tested" control={<Radio />} onClick={toggleData}>TESTED</Button>
+                  <Button value="relative-tests" control={<Radio />} onClick={toggleData}>TESTS/MILLION PEOPLE</Button>
+                  <Button value="test-strike" control={<Radio />} onClick={toggleData}>POSITIVE TEST RATE</Button>
+                </ButtonGroup>
 
                 <Chart
                     width={window.innerWidth < 960 ? '100%' : 'auto'}
