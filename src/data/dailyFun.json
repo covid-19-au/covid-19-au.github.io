@@ -1,0 +1,17 @@
+{
+    "dailyFunStuff": [
+        {
+            "image": [
+                {
+                    "name": "Community Mobility Report",
+                    "imgLink": "https://i.imgur.com/Uzbx6V9.jpg",
+                    "description": "See how your community is moving around differently due to COVID-19",
+                    "source": "https://www.google.com/covid19/mobility/"
+                }
+            ],
+            "video": [],
+            "type": "fun",
+            "date": "5/4/2020"
+        }
+    ]
+}

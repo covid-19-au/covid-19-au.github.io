@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://covid-19-au.com/</loc>
+  <lastmod>2020-03-30T01:06:06+00:00</lastmod>
+</url>
+
+<url>
+  <loc>https://covid-19-au.com/faq</loc>
+  <lastmod>2020-03-30T01:06:06+00:00</lastmod>
+</url>
+
+
+<url>
+  <loc>https://covid-19-au.com/info</loc>
+  <lastmod>2020-03-30T01:06:06+00:00</lastmod>
+</url>
+
+
+<url>
+  <loc>https://covid-19-au.com/news</loc>
+  <lastmod>2020-03-30T01:06:06+00:00</lastmod>
+</url>
+
+</urlset>

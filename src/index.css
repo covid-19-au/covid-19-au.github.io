@@ -3,7 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background-color: #efefef;
+  background-color:  #f2f4f4 ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,7 +41,7 @@ h1 {
 h2 {
   margin: 0.5rem 0;
   padding: 3px 10px;
-  border-left: 0.2rem solid #87ceeb;
+  border-left: 0.2rem solid #63b6f6;
   border-bottom: 1px solid #efefef;
   position: relative;
 }
