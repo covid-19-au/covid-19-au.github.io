@@ -3,9 +3,10 @@ import mapboxgl from 'mapbox-gl';
 import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
 import mapDataArea from "../data/mapdataarea"
-import vicLgaData from "../data/lga_vic_sl.geojson"
-import nswLgaData from "../data/lga_nsw_sl.geojson"
+import vicLgaData from "../data/vic_lga.geojson"
+import nswLgaData from "../data/nsw_lga.geojson"
 import qldHhsData from "../data/qld_hhs.geojson"
+import waLgaData from "../data/wa_lga.geojson"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from '../img/icon/confirmed-recent.png'
@@ -96,6 +97,9 @@ class MbMap extends React.Component {
             } else if (state === 'NSW') {
                 city_name = city_name.toLowerCase();
                 updated_date = '3/4/20';
+            } else if (state === 'WA') {
+                city_name = city_name.toLowerCase();
+                updated_date = '5/4/20';
             }
             else {
                 city_name = city_name.toLowerCase();
@@ -132,6 +136,11 @@ class MbMap extends React.Component {
                 else if (state === 'NSW') {
                     var values = get_html(data.properties.nsw_lga__3, state);
                     data.properties['city'] = data.properties.nsw_lga__3;
+                }
+                else if (state === 'WA') {
+                    console.log(data);
+                    var values = get_html(data.properties.wa_lga_s_3, state);
+                    data.properties['city'] = data.properties.wa_lga_s_3;
                 }
                 else {
                     var values = get_html(data.properties.HHS, state);
@@ -271,6 +280,64 @@ class MbMap extends React.Component {
                     });
                 });
 
+                var geosjondata = loadJSON(waLgaData).then(data => {
+                    data = formNewJson(data, 'WA');
+                    map.addLayer({
+                        id: 'id_poly_wa',
+                        type: 'fill',
+                        minzoom: 2,
+                        source: {
+                            type: 'geojson',
+                            data: data
+                        },
+                        'paint': {
+                            'fill-color': [
+                                'interpolate',
+                                ['linear'],
+                                ['get', 'cases'],
+                                0,
+                                '#E3F2FD',
+                                1,
+                                '#BBDEFB',
+                                5,
+                                '#90CAF9',
+                                10,
+                                '#64B5F6',
+                                20,
+                                '#42A5F5',
+                                30,
+                                '#2196F3',
+                                40,
+                                '#1E88E5',
+                                50,
+                                '#1976D2',
+                                60,
+                                '#1565C0',
+                                70,
+                                '#0D47A1'
+                            ],
+                            'fill-opacity': 0.75
+                        },
+                        filter: ['==', '$type', 'Polygon']
+                    });
+                    map.addLayer({
+                        id: 'id_line_ploy_wa',
+                        minzoom: 2,
+                        type: 'line',
+                        source: {
+                            type: 'geojson',
+                            data: data
+                        },
+                        paint: {
+                            // 'line-color': '#088',
+                            'line-opacity': 1,
+                            'line-width': 1,
+                        },
+                        filter: ['==', '$type', 'Polygon']
+                    });
+                });
+
+
                 var geosjondata = loadJSON(qldHhsData).then(data => {
                     data = formNewJson(data, 'QLD');
                     map.addLayer({
@@ -356,6 +423,7 @@ class MbMap extends React.Component {
             addPointer('id_poly_vic');
             addPointer('id_poly_nsw');
             addPointer('id_poly_qld');
+            addPointer('id_poly_wa');
 
         });
 
@@ -382,7 +450,7 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
-            if (item['state'] !== 'VIC' && item['state'] !== 'NSW' && item['state'] !== 'QLD') {
+            if (item['state'] !== 'VIC' && item['state'] !== 'NSW' && item['state'] !== 'QLD' && item['state'] !== 'WA') {
                 if (item['state'] === 'VIC' && item['area'].length > 0) {
                     item['description'] = "This case number is just the suburb confirmed number, not the case number at this geo point."
                     item['date'] = '26/3/20'
