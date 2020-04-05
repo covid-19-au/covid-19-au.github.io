@@ -138,7 +138,6 @@ class MbMap extends React.Component {
                     data.properties['city'] = data.properties.nsw_lga__3;
                 }
                 else if (state === 'WA') {
-                    console.log(data);
                     var values = get_html(data.properties.wa_lga_s_3, state);
                     data.properties['city'] = data.properties.wa_lga_s_3;
                 }
