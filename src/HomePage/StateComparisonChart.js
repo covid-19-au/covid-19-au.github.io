@@ -187,6 +187,33 @@ export default function StateComparisonChart() {
     let testedDates = createTestedDates(stateData)
     let caseDates = createdCaseDates(stateData, logScale)
 
+    let testedDataDots = [[], [], [], [], [], [], [], []]
+    let testedDataSolid = [[], [], [], [], [], [], [], []]
+
+    let j = 0
+    while (j < testedData.length) {
+        let i = 1
+        testedDataDots[j].push(testedData[j][0])
+        testedDataSolid[j].push(testedData[j][0])
+
+        while (i < testedData[j].length) {
+            if (testedData[j][i] === testedData[j][i - 1]) {
+                testedDataDots[j].push(testedData[j][i])
+                testedDataSolid[j].push("-")
+            }
+            else {
+                testedDataSolid[j].push(testedData[j][i])
+                testedDataDots[j].push("-")
+            }
+            i = i + 1
+        }
+        j = j + 1
+    }
+
+    console.log(testedDataDots)
+    console.log(testedDataSolid)
+
+
     let stateColours = {
         "NSW": "#8ccfff",
         "VIC": "#547dbf",
@@ -543,7 +570,7 @@ export default function StateComparisonChart() {
             <span className="due">
                 <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
                 <span className="key"><p>*Click on points for detailed data</p></span><br />
-                {/* Log Scale Buttons
+                 Log Scale Buttons
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
                     Logarithmic Scale (Cases Only):&nbsp;
@@ -571,7 +598,7 @@ export default function StateComparisonChart() {
                         <div className="dataSource"></div>
                     </a>
 
-                    </span>*/}
+                </span>
             </span>
         </div>
     )

@@ -79,6 +79,10 @@ export default function OverallTrend() {
 
     }
 
+
+    console.log(deathData)
+
+
     //graph initial start point (2 weeks)
     let start = 100 - (14 / dateData.length * 100)
     let startPoint = parseInt(start)
@@ -179,7 +183,7 @@ export default function OverallTrend() {
                         },
                         dataZoom: [{
                             type: 'inside',
-                            start: startPoint,
+                            start: 0,
                             end: 100
                         }, {
                             start: 0,
