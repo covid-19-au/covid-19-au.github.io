@@ -86,7 +86,7 @@ function GoogleMap({ province, newData }) {
                 setMapGradient(blueGradient);
                 break;
         }
-        let temp = [["state", label]];
+        let temp = mapType==="test-strike"?[["state", label,{role: 'tooltip'}]]:[["state", label]];
 
         // Set data values
         for (let i = 0; i < newData.length; i++) {
@@ -122,9 +122,11 @@ function GoogleMap({ province, newData }) {
             if (value === "N/A") { continue; }
 
             // v: Tooltip text, f: ISO region code
+            mapType === 'test-strike'?
+                temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseInt(value),"Test Positive Rate: "+parseInt(value)+'%']):
             temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseInt(value)]);
         }
-
+        console.log(temp)
         setMyData(temp)
 
     }, [province, mapType]);
