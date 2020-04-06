@@ -477,8 +477,8 @@ export default function StateComparisonChart() {
             <span className="due">
                 <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
                 <span className="key"><p>*Click on points for detailed data</p></span><br />
-                 Log Scale Buttons
-                <span className="key" style={{ marginTop: "0.5rem" }}>
+                <span className="key"><p>*Dotted line indicates no new data was obtained</p></span><br />
+                {/*<span className="key" style={{ marginTop: "0.5rem" }}>
 
                     Logarithmic Scale (Cases Only):&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
@@ -505,7 +505,7 @@ export default function StateComparisonChart() {
                         <div className="dataSource"></div>
                     </a>
 
-                </span>
+                    </span>*/}
             </span>
         </div>
     )
