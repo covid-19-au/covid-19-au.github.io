@@ -90,7 +90,8 @@ function Header({ province }) {
         style={{
           fontSize: "160%",
           color: "white",
-          textAlign: "center"
+          textAlign: "center",
+            fontWeight:"bold"
         }}
       >
         Real-Time Report
