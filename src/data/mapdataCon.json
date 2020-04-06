@@ -844,5 +844,14 @@
     "time": "N/A",
     "description": "Two of the new cases are healthcare workers. This includes a healthcare worker from Broome Hospital with a history of intrastate travel.",
     "coor": ["-17.960318", "122.236525"]
+  },
+  {
+    "state": "SA",
+    "area": "Barossa",
+    "name": "Barossa cluster",
+    "date": "14/3/20",
+    "time": "N/A",
+    "description": "There are 38 confirmed cases linked to areas within the Barossa region including Tanunda, Nuriootpa, Williamstown, Angaston and Lyndoch.Anyone in these areas from Saturday 14 March 2020 who develops symptoms should immediately self-isolate and be tested.",
+    "coor": ["-34.601510", "139.000404"]
   }
 ]
