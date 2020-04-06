@@ -264,7 +264,10 @@ export default function StateComparisonChart() {
                 itemStyle: {
                     color: stateColours[orderedStates[i]]
                 },
-                data: testedDataFinal[orderedStates[i]][j]
+                data: testedDataFinal[orderedStates[i]][j],
+                tooltip: {
+                    trigger: "none"
+                }
             }
 
             lineSeries.push(newLine)
