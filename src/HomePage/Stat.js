@@ -73,6 +73,7 @@ export default function Stat({
                     number={confirmedCount}
                     fColor={"#ff603c"}
                     increased={confCountIncrease}
+                    typeOfCases={"Confirmed"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>">
@@ -86,6 +87,7 @@ export default function Stat({
                     number={deadCount}
                     fColor={"#c11700"}
                     increased={deadCountIncrease}
+                    typeOfCases={"Deaths"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
@@ -96,9 +98,10 @@ export default function Stat({
             <div className="row">
                 <Tag
                     // number={curedCount}
-                    number={"2300+"}
+                    number={"2400+"}
                     fColor={"#00c177"}
                     increased={curedCountIncrease}
+                    typeOfCases={"Recovered"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people that have recovered from COVID-19.</em>">
@@ -109,6 +112,7 @@ export default function Stat({
                     number={testedCount}
                     fColor={"#007cf2"}
                     increased={testedCountIncrease}
+                    typeOfCases={"Tested"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people that have been tested for COVID-19.</em>">
