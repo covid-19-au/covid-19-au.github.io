@@ -46,7 +46,7 @@ export default function Stat({
             ];
         confCountIncrease = confirmedCount - lastTotal[0];
         deadCountIncrease = deadCount - lastTotal[2];
-        curedCountIncrease = curedCount - lastTotal[1];
+        // curedCountIncrease = curedCount - lastTotal[1];
         testedCountIncrease = testedCount - lastTotal[4]
     } else {
         confirmedCount = 0;
