@@ -46,7 +46,7 @@ export default function Stat({
             ];
         confCountIncrease = confirmedCount - lastTotal[0];
         deadCountIncrease = deadCount - lastTotal[2];
-        curedCountIncrease = curedCount - lastTotal[1];
+        // curedCountIncrease = curedCount - lastTotal[1];
         testedCountIncrease = testedCount - lastTotal[4]
     } else {
         confirmedCount = 0;
@@ -95,7 +95,8 @@ export default function Stat({
             </div>
             <div className="row">
                 <Tag
-                    number={curedCount}
+                    // number={curedCount}
+                    number={"2300+"}
                     fColor={"#00c177"}
                     increased={curedCountIncrease}
                 >
@@ -118,7 +119,7 @@ export default function Stat({
             </div>
 
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
-                Time in AEDT, last updated at: {stateCaseData.updatedTime}
+                Time in AEST, last updated at: {stateCaseData.updatedTime}
             </span>
 
             {/*<div>*/}

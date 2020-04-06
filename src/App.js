@@ -117,6 +117,7 @@ function Header({ province }) {
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "instagram"})}} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "github"})}} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
         </div>
+
       {/*<i>By Students from Monash</i>*/}
     </header>
   );

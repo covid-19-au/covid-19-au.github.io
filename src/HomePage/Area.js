@@ -48,7 +48,7 @@ export default function Area({ area, onChange, data }) {
                     <strong>{numberWithCommas(x[DEATH])}</strong>&nbsp;<div className="dailyIncrease">{(x[DEATH] - lastTotal[x[0]][1]) > 0 ? ` (+${x[2] - lastTotal[x[0]][1]})` : null}</div>
                 </div>
                 <div className="cured">
-                    <strong>{numberWithCommas(x[CURED])}</strong>&nbsp;<div className="dailyIncrease">{(x[CURED] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}</div>
+                    <strong>{(x[0]==="NSW")?<div style={{fontWeight:'normal', color:'grey'}}>N/A</div>:numberWithCommas(x[CURED])}</strong>&nbsp;<div className="dailyIncrease">{(x[CURED] - lastTotal[x[0]][2]) > 0 ? `(+${x[3] - lastTotal[x[0]][2]})` : null}</div>
                 </div>
                 <div className="tested">{numberWithCommas(x[TESTED])}</div>
             </div>
@@ -66,7 +66,8 @@ export default function Area({ area, onChange, data }) {
                 <div className="area">Total</div>
                 <div className="confirmed">{numberWithCommas(sumRow(CONFIRMED, data))}</div>
                 <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-                <div className="cured">{numberWithCommas(sumRow(CURED, data))}</div>
+                {/*<div className="cured">{numberWithCommas(sumRow(CURED, data))}</div>*/}
+                <div className="cured">*2300+</div>
                 <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
             </div>
         )
@@ -84,7 +85,7 @@ export default function Area({ area, onChange, data }) {
             {renderArea()}
             <Total data={data} />
 
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>* We currently do not have a consistent source of data for recovered cases in NSW, QLD, and TAS.</span>
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>* We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data is based on gov report.</span>
         </div>
     );
 }
