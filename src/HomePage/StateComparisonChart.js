@@ -247,9 +247,12 @@ export default function StateComparisonChart() {
     let caseDates = createdCaseDates(stateData, logScale)
 
     let testedDataFinal = createdTestedDataSets(testedData, orderedStates)
-    console.log(testedDataFinal)
 
+
+    //List of lines to pass into "series" option
     let lineSeries = []
+
+    //Add solid lines
 
     let i = 0
     while (i < orderedStates.length) {
@@ -316,12 +319,6 @@ export default function StateComparisonChart() {
 
         i = i + 1
     }
-
-
-    //Add Confirmed Cases
-
-
-
 
     //graph initial start point (2 weeks)
     let startCase = parseInt(100 - (14 / caseDates.length * 100))

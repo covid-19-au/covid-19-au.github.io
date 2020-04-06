@@ -80,8 +80,6 @@ export default function OverallTrend() {
     }
 
 
-    console.log(deathData)
-
 
     //graph initial start point (2 weeks)
     let start = 100 - (14 / dateData.length * 100)
