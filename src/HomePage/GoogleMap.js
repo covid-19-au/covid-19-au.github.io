@@ -6,6 +6,7 @@ import Acknowledgement from "../Acknowledgment"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
+import Tooltip from '@material-ui/core/Tooltip';
 import RadioGroup from '@material-ui/core/RadioGroup';
 
 import { Chart } from "react-google-charts";
@@ -149,17 +150,32 @@ function GoogleMap({ province, newData }) {
 
 
     const activeStyles = {
-        color: 'black',
+        color: 'darkBlue',
         borderColor: '#8ccfff',
-        padding: "0px",
+        backgroundColor: '#e6ffff',
+        padding: "1px",
         zIndex:10,
-        outline: "none"
+        outline: "none",
+        paddingLeft: "5px",
+        paddingRight: "5px"
+    };
+    const activeStylesRed = {
+        color: 'darkRed',
+        borderColor: '#ff1a1a',
+        backgroundColor: '#ffe6e6',
+        padding: "1px",
+        zIndex:10,
+        outline: "none",
+        paddingLeft: "5px",
+        paddingRight: "5px"
     };
     const inactiveStyles = {
         color: 'grey',
         borderColor: '#e3f3ff',
-        padding: "0px",
-        outline: "none"
+        padding: "1px",
+        outline: "none",
+        paddingLeft: "5px",
+        paddingRight: "5px"
     };
 
     const handleChange = (mapType) => {
@@ -176,14 +192,25 @@ function GoogleMap({ province, newData }) {
 
                 </h2>
 
-
-                <ButtonGroup size="small" aria-label="small outlined button group">
-                  <Button value="confirmed-cases" onClick={()=>setMapType("confirmed-cases")}>CONFIRMED CASES</Button>
-                  <Button value="relative-cases"  onClick={()=>setMapType("relative-cases")}>CASES/MILLION PEOPLE</Button>
-                  <Button value="tested"  onClick={()=>setMapType("tested")}>TESTED</Button>
-                  <Button value="relative-tests" onClick={()=>setMapType("relative-tests")}>TESTS/MILLION PEOPLE</Button>
-                  <Button value="test-strike"  onClick={()=>setMapType("test-strike")}>POSITIVE TEST RATE</Button>
+                Select Map Type: &nbsp;
+                <ButtonGroup aria-label="small outlined button group">
+                  <Tooltip title="Confirmed cases so far" arrow>
+                    <Button style={mapType === "confirmed-cases" ? activeStylesRed : inactiveStyles} value="confirmed-cases" onClick={()=>setMapType("confirmed-cases")}>Cases</Button>
+                  </Tooltip>
+                  <Tooltip title="Confirmed cases per million people" arrow>
+                    <Button style={mapType === "relative-cases" ? activeStylesRed : inactiveStyles} value="relative-cases"  onClick={()=>setMapType("relative-cases")}>Cases/M</Button>
+                  </Tooltip>
+                  <Tooltip title="Tests carried out so far" arrow>
+                    <Button style={mapType === "tested" ? activeStyles : inactiveStyles} value="tested"  onClick={()=>setMapType("tested")}>Tested</Button>
+                  </Tooltip>
+                  <Tooltip title="Tests carried out per million people" arrow>
+                    <Button style={mapType === "relative-tests" ? activeStyles : inactiveStyles} value="relative-tests" onClick={()=>setMapType("relative-tests")}>Tests/M</Button>
+                  </Tooltip>
+                  <Tooltip title="Percentage of positive test cases" arrow>
+                    <Button style={mapType === "test-strike" ? activeStyles : inactiveStyles} value="test-strike"  onClick={()=>setMapType("test-strike")}>Positive (%)</Button>
+                  </Tooltip>
                 </ButtonGroup>
+
 
                 <Chart
                     width={window.innerWidth < 960 ? '100%' : 'auto'}
