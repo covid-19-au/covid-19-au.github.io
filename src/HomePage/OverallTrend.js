@@ -6,7 +6,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import stateData from "../data/state.json"
 
-export default function OverallTrend(data) {
+export default function OverallTrend() {
 
     const [logScale, setLogScale] = useState(false);
 
@@ -79,6 +79,8 @@ export default function OverallTrend(data) {
 
     }
 
+
+
     //graph initial start point (2 weeks)
     let start = 100 - (14 / dateData.length * 100)
     let startPoint = parseInt(start)
@@ -116,32 +118,6 @@ export default function OverallTrend(data) {
         padding: "0px",
         outline: "none"
     };
-
-    //TESTED CASES GRAPH STARTS HERE
-
-    //let nsw = []
-    //let vic = []
-    //let sa = []
-    //let qld = []
-    //let tas = []
-    //let nt = []
-    //let wa = []
-    //let act = []
-
-    //for (let key in stateData) {
-    //  let arr = key.split("-");
-    // let date = new Date(arr[0], arr[1] - 1, arr[2]);
-    //if (date.getMonth() > 1) {
-    //   if (date.getMonth() == 2) {
-    //      if (date.getDate() >= 22) {
-
-    //        nsw.push(stateData[key]["NSW"][3])
-    //      console.log(nsw)
-    // }
-
-    //}
-    //}
-    //}
 
 
     return (
