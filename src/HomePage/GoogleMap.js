@@ -126,7 +126,7 @@ function GoogleMap({ province, newData }) {
                 temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseInt(value),"Test Positive Rate: "+parseInt(value)+'%']):
             temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseInt(value)]);
         }
-        console.log(temp)
+
         setMyData(temp)
 
     }, [province, mapType]);
