@@ -270,7 +270,7 @@ function setGeneralBarOption(state) {
  * compute the general information line chart option
  * @param {String} state user selected state
  */
-function setGeneralLineOption(state) {
+function setGeneralLineOption(state, logScale, maxY) {
   const generalLineLegend = ["Confirmed", "Death", "Recovered", "Tested"];
   const dates = getAllDate();
   const generalData = getStateGeneralData(dates, state);
@@ -297,7 +297,7 @@ function setGeneralLineOption(state) {
       data: generalLineLegend,
       top: "7%",
       selected: {
-        Tested: false,
+        Tested: logScale,
       },
     },
     dataZoom: [
@@ -329,7 +329,7 @@ function setGeneralLineOption(state) {
     },
     yAxis: {
       type: "value",
-      // max: maxY,
+      max: maxY,
     },
     series: generalLineSeries.getSeriesList(),
   };
@@ -371,20 +371,25 @@ function StateChart({ state }) {
   // get choosen state data
   const expectStateData = getExpectStateData(state);
 
-  // const [showTested, setshowTested] = useState(false);
-  // const [maxY, setMaxY] = useState(0);
-  // let maxValue = getLatestData(state.toUpperCase());
-  // maxValue = Math.max(...maxValue);
-  // useEffect(() => {
-  //   setMaxY(calcMaxY(showTested, maxValue));
-  // }, [showTested]);
+  const [logScale, setLogScale] = useState(false);
+  const [maxY, setMaxY] = useState(0);
+  useEffect(() => {
+    let maxValue = getLatestData(state.toUpperCase());
+    if (logScale) {
+      maxValue = Math.max(...maxValue);
+    } else {
+      maxValue = Math.max(...maxValue.slice(0, 2));
+    }
+    console.log(maxValue);
+    setMaxY(calcMaxY(logScale, maxValue));
+  }, [logScale]);
 
   let genderOption;
   let ageOption;
   let barOption;
   let lineOption;
   barOption = setGeneralBarOption(state.toUpperCase());
-  lineOption = setGeneralLineOption(state.toUpperCase());
+  lineOption = setGeneralLineOption(state.toUpperCase(), logScale, maxY);
   if (expectStateData !== null) {
     genderOption = setGenderOption(expectStateData);
     ageOption = setAgeOption(expectStateData);
@@ -423,22 +428,22 @@ function StateChart({ state }) {
           <div className="card">
             <h2>General Information - Line</h2>
             <ReactEcharts option={lineOption} />
-            {/* <span className="key" style={{ marginTop: "0.5rem" }}>
+            <span className="key" style={{ marginTop: "0.5rem" }}>
               Logarithmic Scale:&nbsp;
               <ButtonGroup
                 size="small"
                 aria-label="small outlined button group"
               >
                 <Button
-                  style={showTested ? activeStyles : inactiveStyles}
+                  style={logScale ? activeStyles : inactiveStyles}
                   disableElevation={true}
-                  onClick={() => setshowTested(true)}
+                  onClick={() => setLogScale(true)}
                 >
                   On
                 </Button>
                 <Button
-                  style={showTested ? inactiveStyles : activeStyles}
-                  onClick={() => setshowTested(false)}
+                  style={logScale ? inactiveStyles : activeStyles}
+                  onClick={() => setLogScale(false)}
                 >
                   Off
                 </Button>
@@ -471,7 +476,7 @@ function StateChart({ state }) {
                 </svg>
                 <div className="dataSource"></div>
               </a>
-            </span> */}
+            </span>
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4} xl={4}>
