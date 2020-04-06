@@ -150,24 +150,28 @@ function GoogleMap({ province, newData }) {
 
 
     const activeStyles = {
-        color: 'darkBlue',
+        color: 'black',
         borderColor: '#8ccfff',
-        backgroundColor: '#e6ffff',
+        // backgroundColor: '#e6ffff',
         padding: "1px",
         zIndex:10,
         outline: "none",
         paddingLeft: "5px",
-        paddingRight: "5px"
+        paddingRight: "5px",
+        fontSize:"80%",
+        marginBottom:"1rem"
     };
     const activeStylesRed = {
-        color: 'darkRed',
-        borderColor: '#ff1a1a',
-        backgroundColor: '#ffe6e6',
+        color: 'black',
+        borderColor: '#ff7e5f',
+        // backgroundColor: '#ffe6e6',
         padding: "1px",
         zIndex:10,
         outline: "none",
         paddingLeft: "5px",
-        paddingRight: "5px"
+        paddingRight: "5px",
+        fontSize:"80%",
+        marginBottom:"1rem"
     };
     const inactiveStyles = {
         color: 'grey',
@@ -175,8 +179,21 @@ function GoogleMap({ province, newData }) {
         padding: "1px",
         outline: "none",
         paddingLeft: "5px",
-        paddingRight: "5px"
+        paddingRight: "5px",
+        fontSize:"80%",
+        marginBottom:"1rem"
     };
+    const inactiveStylesRed = {
+        color: 'grey',
+        borderColor: '#fce7e6',
+        padding: "1px",
+        outline: "none",
+        paddingLeft: "5px",
+        paddingRight: "5px",
+        fontSize:"80%",
+        marginBottom:"1rem"
+    };
+
 
     const handleChange = (mapType) => {
       setMapType(mapType.target.value);
@@ -195,10 +212,10 @@ function GoogleMap({ province, newData }) {
                 Select Map Type: &nbsp;
                 <ButtonGroup aria-label="small outlined button group">
                   <Tooltip title="Confirmed cases so far" arrow>
-                    <Button style={mapType === "confirmed-cases" ? activeStylesRed : inactiveStyles} value="confirmed-cases" onClick={()=>setMapType("confirmed-cases")}>Cases</Button>
+                    <Button style={mapType === "confirmed-cases" ? activeStylesRed : inactiveStylesRed} value="confirmed-cases" onClick={()=>setMapType("confirmed-cases")}>Cases</Button>
                   </Tooltip>
                   <Tooltip title="Confirmed cases per million people" arrow>
-                    <Button style={mapType === "relative-cases" ? activeStylesRed : inactiveStyles} value="relative-cases"  onClick={()=>setMapType("relative-cases")}>Cases/M</Button>
+                    <Button style={mapType === "relative-cases" ? activeStylesRed : inactiveStylesRed} value="relative-cases"  onClick={()=>setMapType("relative-cases")}>Cases/M</Button>
                   </Tooltip>
                   <Tooltip title="Tests carried out so far" arrow>
                     <Button style={mapType === "tested" ? activeStyles : inactiveStyles} value="tested"  onClick={()=>setMapType("tested")}>Tested</Button>
@@ -207,7 +224,7 @@ function GoogleMap({ province, newData }) {
                     <Button style={mapType === "relative-tests" ? activeStyles : inactiveStyles} value="relative-tests" onClick={()=>setMapType("relative-tests")}>Tests/M</Button>
                   </Tooltip>
                   <Tooltip title="Percentage of positive test cases" arrow>
-                    <Button style={mapType === "test-strike" ? activeStyles : inactiveStyles} value="test-strike"  onClick={()=>setMapType("test-strike")}>Positive (%)</Button>
+                    <Button style={mapType === "test-strike" ? activeStyles : inactiveStyles} value="test-strike"  onClick={()=>setMapType("test-strike")}>Positive(%)</Button>
                   </Tooltip>
                 </ButtonGroup>
 

@@ -73,22 +73,7 @@ function Header({ province }) {
 
   return (
     <header>
-      <div style={{
-        fontSize: "170%",
-        color: "white",
-        textAlign: "right"
-      }}>
-        <SocialMediaShareModal
-          visible={showSocialMediaIcons}
-          onCancel={ () => setShowSocialMediaIcons(false)}
-        />
-        <a onClick={() => {
-            ReactGA.event({category: 'Header',action: "share"});
-            setModalVisibility(true)}}><i class="fas fa-share-square"></i>&nbsp;&nbsp;</a>
-        <a href="https://twitter.com/covid19augithub"><i class="fab fa-twitter"></i>&nbsp;&nbsp;</a>
-        <a href="https://www.instagram.com/covid19_au/"><i class="fab fa-instagram"></i>&nbsp;&nbsp;</a>
-        <a href="https://www.facebook.com/covid19au.github/"><i class="fab fa-facebook"></i>&nbsp;&nbsp;</a>
-      </div>
+
 
       <div className="bg"></div>
       <h1
@@ -113,7 +98,24 @@ function Header({ province }) {
 
       <div className="slogan"><i>Stay Calm, Stay Informed</i></div>
 
-
+        <div style={{
+            fontSize: "120%",
+            color: "white",
+            textAlign: "center",
+            marginTop:"1rem"
+        }}>
+            <SocialMediaShareModal
+                visible={showSocialMediaIcons}
+                onCancel={() => setShowSocialMediaIcons(false)}
+            />
+            <a onClick={() => {
+                ReactGA.event({category: 'Header', action: "share"});
+                setModalVisibility(true)
+            }}><i className="fas fa-share-square"></i>&nbsp;&nbsp;</a>
+            <a href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i>&nbsp;&nbsp;</a>
+            <a href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i>&nbsp;&nbsp;</a>
+            <a href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i>&nbsp;&nbsp;</a>
+        </div>
       {/*<i>By Students from Monash</i>*/}
     </header>
   );
