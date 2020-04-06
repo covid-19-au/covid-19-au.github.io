@@ -80,7 +80,8 @@ function Header({ province }) {
         style={{
           fontSize: "170%",
           color: "white",
-          textAlign: "center"
+          textAlign: "center",
+          fontWeight:"bold"
         }}
       >
         COVID-19 in Australia
@@ -108,13 +109,13 @@ function Header({ province }) {
                 visible={showSocialMediaIcons}
                 onCancel={() => setShowSocialMediaIcons(false)}
             />
-            <a onClick={() => {
+            <a  onClick={() => {
                 ReactGA.event({category: 'Header', action: "share"});
                 setModalVisibility(true)
-            }}><i className="fas fa-share-square"></i>&nbsp;&nbsp;</a>
-            <a href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i>&nbsp;&nbsp;</a>
-            <a href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i>&nbsp;&nbsp;</a>
-            <a href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i>&nbsp;&nbsp;</a>
+            }}><i className="fas fa-share-square"></i></a>
+            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "twitter"})}} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
+            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "instagram"})}} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
+            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "github"})}} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
         </div>
       {/*<i>By Students from Monash</i>*/}
     </header>
