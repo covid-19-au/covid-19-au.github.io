@@ -6,8 +6,7 @@
     "date": "17/3/20",
     "time": "3.50pm",
     "description": "From Dickson Interchange to Kaleen, departing Dickson at approximately 3.50pm(scheduled at 3.33pm but was running late)",
-    "coor": ["-35.250418", "149.133760"],
-    "notes": "The Passengers should self-quarantine until 31-03-and should contact the Communicable Disease Control Section of ACT Health on 5124 9213 for more information."
+    "coor": ["-35.250418", "149.133760"]
   },
   {
     "state": "ACT",
@@ -16,8 +15,7 @@
     "date": "23/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-35.252397", "149.130497"],
-    "notes": ""
+    "coor": ["-35.252397", "149.130497"]
   },
   {
     "state": "ACT",
@@ -26,8 +24,7 @@
     "date": "14/3/20",
     "time": "4-5pm",
     "description": "",
-    "coor": ["-35.283987", "149.124527"],
-    "notes": ""
+    "coor": ["-35.283987", "149.124527"]
   },
   {
     "state": "ACT",
@@ -36,8 +33,7 @@
     "date": "14/3/20",
     "time": "5-6:30pm",
     "description": "",
-    "coor": ["-35.321500", "149.163379"],
-    "notes": ""
+    "coor": ["-35.321500", "149.163379"]
   },
   {
     "state": "NSW",
@@ -46,8 +42,7 @@
     "date": "14/3/20",
     "time": "N/A",
     "description": "From ACT",
-    "coor": ["-33.886336", "151.184437"],
-    "notes": ""
+    "coor": ["-33.886336", "151.184437"]
   },
   {
     "state": "NSW",
@@ -56,8 +51,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-33.721505", "151.088048"],
-    "notes": ""
+    "coor": ["-33.721505", "151.088048"]
   },
   {
     "state": "NSW",
@@ -66,8 +60,7 @@
     "date": "23/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-33.721505", "151.088048"],
-    "notes": ""
+    "coor": ["-33.721505", "151.088048"]
   },
   {
     "state": "NSW",
@@ -76,8 +69,7 @@
     "date": "31/3/20",
     "time": "N/A",
     "description": "16 residents, 5 staff",
-    "coor": ["-33.777053", "151.110612"],
-    "notes": ""
+    "coor": ["-33.777053", "151.110612"]
   },
   {
     "state": "NSW",
@@ -86,8 +78,7 @@
     "date": "25/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-33.932836", "151.026271"],
-    "notes": ""
+    "coor": ["-33.932836", "151.026271"]
   },
   {
     "state": "NSW",
@@ -96,8 +87,7 @@
     "date": "26/3/20",
     "time": "N/A",
     "description": "1 widwife",
-    "coor": ["-33.966684", "151.134449"],
-    "notes": ""
+    "coor": ["-33.966684", "151.134449"]
   },
   {
     "state": "NSW",
@@ -106,8 +96,7 @@
     "date": "8/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-33.717958", "151.116651"],
-    "notes": ""
+    "coor": ["-33.717958", "151.116651"]
   },
   {
     "state": "NSW",
@@ -116,8 +105,7 @@
     "date": "8/3/20",
     "time": "N/A",
     "description": "Seven people have been confirmed with COVID-19 after attending a Sydney Church of Christ service on 8-03-2020 at Ryde Civic Centre. More than 300 people attended this service.",
-    "coor": ["-33.811860", "151.104833"],
-    "notes": ""
+    "coor": ["-33.811860", "151.104833"]
   },
   {
     "state": "NSW",
@@ -126,8 +114,7 @@
     "date": "16/3/20",
     "time": "4pm - 11pm",
     "description": "Backpackers in Bondi",
-    "coor": ["-33.890103", "151.278161"],
-    "notes": ""
+    "coor": ["-33.890103", "151.278161"]
   },
   {
     "state": "NSW",
@@ -136,8 +123,7 @@
     "date": "16/3/20",
     "time": "12am - 4am",
     "description": "Backpackers in Bondi",
-    "coor": ["-33.874218", "151.215786"],
-    "notes": ""
+    "coor": ["-33.874218", "151.215786"]
   },
   {
     "state": "NSW",
@@ -146,8 +132,7 @@
     "date": "16/3/20",
     "time": "All hours",
     "description": "Childcare. All people who visited during the dates need to be isolated",
-    "coor": ["-34.034374", "150.762368"],
-    "notes": ""
+    "coor": ["-34.034374", "150.762368"]
   },
   {
     "state": "NSW",
@@ -156,8 +141,7 @@
     "date": "16/3/20",
     "time": "All hours",
     "description": "Childcare. All people who visited during the dates need to be isolated",
-    "coor": ["-33.850286", "151.275103"],
-    "notes": ""
+    "coor": ["-33.850286", "151.275103"]
   },
   {
     "state": "NSW",
@@ -176,8 +160,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "public health order",
-    "coor": ["-31.553509", "159.081786"],
-    "notes": ""
+    "coor": ["-31.553509", "159.081786"]
   },
   {
     "state": "NSW",
@@ -186,8 +169,169 @@
     "date": "23/3/20",
     "time": "N/A",
     "description": "Tracing Still underway",
-    "coor": ["-33.719297", "150.891671"],
-    "notes": ""
+    "coor": ["-33.719297", "150.891671"]
+  },
+  {
+    "state": "NSW",
+    "area": "Blacktown",
+    "name": "Tyndale Christian School",
+    "date": "30/3/20",
+    "time": "N/A",
+    "description": "Tyndale Christian School in Blacktown has three cases of COVID-19 (2 students and a staff member). The school will close on 30 and 31 March for contact tracing and cleaning.",
+    "coor": ["-33.781694", "150.885898"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Rose of Sharon childcare centre",
+    "date": "30/3/20",
+    "time": "N/A",
+    "description": "A childcare worker at Rose of Sharon childcare centre and two confirmed cases in children who attend this centre have been diagnosed. All children have been isolated as close contacts.",
+    "coor": ["-33.765252", "150.919613"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Kambala School",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "There has been a confirmed case in a teacher at Kambala School. The school is non operational today as further investigations are underway.",
+    "coor": ["-33.864752", "151.271541"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Wylie Park Girls High School",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "There has been a confirmed case in a teacher at Wylie Park Girls High School due to a positive case of COVID-19. The school is non operational today as further investigations are underway.",
+    "coor": ["-33.924164", "151.066968"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "St Marys Senior High School",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "St Marys Senior High School is non operational today due to a student of the school returning a positive test for COVID 19. Contact tracing and further investigations are underway.",
+    "coor": ["-33.763622", "150.770687"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Bondi Beach",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "If you are living or working in Bondi Beach or Bondi Junction and have a fever or history of fever or symptoms like a cough, shortness of breath or sore throat you can visit the clinic and be tested. The tests are free.",
+    "coor": ["-33.891325", "151.276716"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Bondi Junction",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "If you are living or working in Bondi Beach or Bondi Junction and have a fever or history of fever or symptoms like a cough, shortness of breath or sore throat you can visit the clinic and be tested. The tests are free.",
+    "coor": ["-33.892231", "151.248710"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Westmead Hospital",
+    "date": "3/4/20",
+    "time": "N/A",
+    "description": "2 radiation therapists have tested positive. Contact tracing is underway for these staff members, and all 14 staff and all but two of the 24 patients who have come into contact with these staff have been contacted by our public health teams",
+    "coor": ["-33.801978", "150.989816"]
+  },
+  {
+    "state": "NSW",
+    "area": "Belfield",
+    "name": "St Michael's Primary School",
+    "date": "3/4/20",
+    "time": "N/A",
+    "description": "Student here has tested positive",
+    "coor": ["-33.901302", "151.088144"]
+  },
+  {
+    "state": "NSW",
+    "area": "Erina",
+    "name": "Woodport Early Learning Centre",
+    "date": "3/4/20",
+    "time": "N/A",
+    "description": "Child who attended here has tested positive",
+    "coor": ["-33.440716", "151.379177"]
+  },
+  {
+    "state": "NSW",
+    "area": "Taree",
+    "name": "Storm Village Anglican residential care",
+    "date": "3/4/20",
+    "time": "N/A",
+    "description": "Nurse has tested positive",
+    "coor": ["-31.897947", "152.472356"]
+  },
+  {
+    "state": "NSW",
+    "area": "Brookvale",
+    "name": "Alexander Aged Care",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Nurse has tested positive",
+    "coor": ["-33.758809", "151.277065"]
+  },
+  {
+    "state": "NSW",
+    "area": "North Sydney",
+    "name": "Salabrini Allambie Heights",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Nurse has tested positive",
+    "coor": ["-33.764881", "151.247455"]
+  },
+  {
+    "state": "NSW",
+    "area": "Sydney CBD",
+    "name": "Tafe Ultimo",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Student here has tested positive",
+    "coor": ["-33.881845", "151.199970"]
+  },
+  {
+    "state": "NSW",
+    "area": "Bankstown",
+    "name": "Bankstown Senior College",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Student here has tested positive",
+    "coor": ["-33.930264", "151.021760"]
+  },
+  {
+    "state": "NSW",
+    "area": "St Marys",
+    "name": "St Mary's Senior High School",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Student here has tested positive",
+    "coor": ["-33.763764", "150.770697"]
+  },
+  {
+    "state": "NSW",
+    "area": "Gloucester",
+    "name": "Gloucester Primary School",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Staff Member has tested positive. School remains open as there has been 2 weeks since incident",
+    "coor": ["-32.009682", "151.961030"]
+  },
+  {
+    "state": "NSW",
+    "area": "Punchbowl",
+    "name": "Wiley Park Girls High School",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "School had now opened",
+    "coor": ["-33.924191", "151.066936"]
   },
   {
     "state": "QLD",
@@ -196,8 +340,7 @@
     "date": "13/3/20",
     "time": "6:45pm-8:45pm",
     "description": "N/A",
-    "coor": ["-26.407997", "153.043143"],
-    "notes": ""
+    "coor": ["-26.407997", "153.043143"]
   },
   {
     "state": "QLD",
@@ -206,8 +349,7 @@
     "date": "13/3/20",
     "time": "6:45pm-8:45pm",
     "description": "",
-    "coor": ["-26.405436", "153.110754"],
-    "notes": ""
+    "coor": ["-26.405436", "153.110754"]
   },
   {
     "state": "QLD",
@@ -216,8 +358,7 @@
     "date": "14/3/20",
     "time": "3:45pm-11:30pm",
     "description": "",
-    "coor": ["-26.386829", "153.091889"],
-    "notes": ""
+    "coor": ["-26.386829", "153.091889"]
   },
   {
     "state": "QLD",
@@ -226,8 +367,7 @@
     "date": "15/3/20",
     "time": "12:30pm-2:00pm",
     "description": "",
-    "coor": ["-26.386829", "153.091889"],
-    "notes": ""
+    "coor": ["-26.386829", "153.091889"]
   },
   {
     "state": "QLD",
@@ -236,8 +376,7 @@
     "date": "18/3/20",
     "time": "4:00pm-11:15pm",
     "description": "4 infected staff worked on 18th and 19 of March",
-    "coor": ["-26.386811", "153.093034"],
-    "notes": ""
+    "coor": ["-26.386811", "153.093034"]
   },
   {
     "state": "QLD",
@@ -246,8 +385,7 @@
     "date": "10/3/20",
     "time": "N/A",
     "description": "",
-    "coor": ["-27.554941", "152.336926"],
-    "notes": ""
+    "coor": ["-27.554941", "152.336926"]
   },
   {
     "state": "QLD",
@@ -256,8 +394,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "Between 6pm Friday 6-03-and 11pm Monday 9 March",
-    "coor": ["-27.463192", "153.034523"],
-    "notes": ""
+    "coor": ["-27.463192", "153.034523"]
   },
   {
     "state": "QLD",
@@ -266,8 +403,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "Between 12pm and 1:30pm, Friday 13-03-2020",
-    "coor": ["-28.089302", "153.454919"],
-    "notes": ""
+    "coor": ["-28.089302", "153.454919"]
   },
   {
     "state": "QLD",
@@ -276,8 +412,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-27.449613", "153.028046"],
-    "notes": ""
+    "coor": ["-27.449613", "153.028046"]
   },
   {
     "state": "QLD",
@@ -286,8 +421,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-27.498640", "153.034225"],
-    "notes": ""
+    "coor": ["-27.498640", "153.034225"]
   },
   {
     "state": "QLD",
@@ -296,8 +430,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-28.012149", "153.409150"],
-    "notes": ""
+    "coor": ["-28.012149", "153.409150"]
   },
   {
     "state": "QLD",
@@ -306,8 +439,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-26.649175", "153.065880"],
-    "notes": ""
+    "coor": ["-26.649175", "153.065880"]
   },
   {
     "state": "QLD",
@@ -316,8 +448,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-27.481774", "150.26604"],
-    "notes": ""
+    "coor": ["-27.481774", "150.26604"]
   },
   {
     "state": "QLD",
@@ -326,218 +457,7 @@
     "date": "21/3/20",
     "time": "N/A",
     "description": "confirmed on 21 Mar",
-    "coor": ["-25.904681", "153.092642"],
-    "notes": ""
-  },
-  {
-    "state": "TAS",
-    "area": "",
-    "name": "Morris Miller Library",
-    "date": "9/3/20",
-    "time": "9:30AM - 5:30 pm",
-    "description": "",
-    "coor": ["-42.903407", "147.325960"],
-    "notes": ""
-  },
-  {
-    "state": "TAS",
-    "area": "",
-    "name": "UTAS' Sandy Bay Campus",
-    "date": "9/3/20",
-    "time": "N/A",
-    "description": "",
-    "coor": ["-42.903756", "147.325108"],
-    "notes": ""
-  },
-  {
-    "state": "TAS",
-    "area": "",
-    "name": "Lazemby's Cafe",
-    "date": "9/3/20",
-    "time": "N/A",
-    "description": "",
-    "coor": ["-42.903948", "147.326218"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Pho Hung Vuong 2 Vietnamese Restaurant in Richmond",
-    "date": "6/3/20",
-    "time": "6pm - 7pm",
-    "description": "",
-    "coor": ["-37.809968", "144.995144"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Coles Waurn Ponds",
-    "date": "6/3/20",
-    "time": "8:45am - 5:00pm",
-    "description": "",
-    "coor": ["-38.198995", "144.318471"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "South Melbourne Market",
-    "date": "6/3/20",
-    "time": "8:30am - 10:00am",
-    "description": "",
-    "coor": ["-37.831816", "144.955928"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "AAMI Park (Rebels vs Lions rugby game)",
-    "date": "7/3/20",
-    "time": "Evening",
-    "description": "",
-    "coor": ["-37.825005", "144.983814"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Albert Park Hotel",
-    "date": "7/3/20",
-    "time": "6:00pm - 10:00pm",
-    "description": "",
-    "coor": ["-37.825005", "144.983814"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "South Melbourne Market",
-    "date": "7/3/20",
-    "time": "2:00pm - 3:00pm",
-    "description": "",
-    "coor": ["-37.831845", "144.955896"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Coles Waurn Ponds",
-    "date": "7/3/20",
-    "time": "1:00pm - 6:00pm",
-    "description": "",
-    "coor": ["-38.199037", "144.318418"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Ashburton Park",
-    "date": "7/3/20",
-    "time": "N/A",
-    "description": "",
-    "coor": ["-37.863086", "145.086915"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "T20 Cricket World Cup Final, Melbourne Cricket Ground, MCC Members Level 2",
-    "date": "8/3/20",
-    "time": "5:15pm - 11:30pm",
-    "description": "",
-    "coor": ["-37.819814", "144.983471"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Myrtle Oval, Macleay Park, North Balwyn",
-    "date": "8/3/20",
-    "time": "10:00am - 4:00pm",
-    "description": "",
-    "coor": ["-37.800857", "145.075181"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Ramsden Street Oval, Clifton Hill",
-    "date": "8/3/20",
-    "time": "8:30am - 5:00pm",
-    "description": "",
-    "coor": ["-37.791837", "145.003320"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Mary Miller Cafe, Fitzroy North",
-    "date": "10/3/20",
-    "time": "12:30pm - 2:00pm",
-    "description": "",
-    "coor": ["-37.776845", "144.987074"],
-    "notes": ""
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "No. 19 Cafe, Ascot Vale",
-    "date": "10/3/20",
-    "time": "8:00am - 9:30am",
-    "description": "",
-    "coor": ["-37.773059", "144.916153"],
-    "notes": ""
-  },
-  {
-    "state": "WA",
-    "area": "",
-    "name": "a concert at the Perth Concert Hall",
-    "date": "7/3/20",
-    "time": "N/A",
-    "description": "",
-    "coor": ["-31.957997", "115.863821"],
-    "notes": ""
-  },
-  {
-    "state": "WA",
-    "area": "Perth metropolitan area",
-    "name": "Perth metropolitan area: 17 new cases",
-    "date": "1/4/20",
-    "time": "N/A",
-    "description": "Seventeen new cases are from the Perth metropolitan area",
-    "coor": ["-31.946603", "115.849349"],
-    "notes": ""
-  },
-  {
-    "state": "NSW",
-    "area": "Blacktown",
-    "name": "Tyndale Christian School",
-    "date": "30/3/20",
-    "time": "",
-    "description": "Tyndale Christian School in Blacktown has three cases of COVID-19 (2 students and a staff member). The school will close on 30 and 31 March for contact tracing and cleaning.",
-    "coor": ["-33.781694", "150.885898"],
-    "notes": ""
-  },
-  {
-    "state": "NSW",
-    "area": "",
-    "name": "Rose of Sharon childcare centre",
-    "date": "30/3/20",
-    "time": "",
-    "description": "A childcare worker at Rose of Sharon childcare centre and two confirmed cases in children who attend this centre have been diagnosed. All children have been isolated as close contacts.",
-    "coor": ["-33.765252", "150.919613"],
-    "notes": ""
-  },
-  {
-    "state": "WA",
-    "area": "",
-    "name": "Broome Hospital",
-    "date": "30/3/20",
-    "time": "",
-    "description": "Two of the new cases are healthcare workers. This includes a healthcare worker from Broome Hospital with a history of intrastate travel.",
-    "coor": ["-17.960318", "122.236525"],
-    "notes": ""
+    "coor": ["-25.904681", "153.092642"]
   },
   {
     "state": "QLD",
@@ -546,18 +466,7 @@
     "date": "31/3/20",
     "time": "",
     "description": "Three comfirmed cases",
-    "coor": ["-17.016973", "145.725109"],
-    "notes": ""
-  },
-  {
-    "state": "TAS",
-    "area": "Devonport",
-    "name": "Devonport area",
-    "date": "31/3/20",
-    "time": "",
-    "description": "Public Health Services is continuing to investigate two cases in the Devonport area for which a source of infection has not been identified.",
-    "coor": ["-41.179439", "146.345319"],
-    "notes": ""
+    "coor": ["-17.016973", "145.725109"]
   },
   {
     "state": "SA",
@@ -566,58 +475,7 @@
     "date": "2/4/20",
     "time": "",
     "description": "Twelve baggage handlers and five close contacts have tested positive for COVID-19, taking the cluster to a total of 17 cases. The first case related to the cluster received a positive test result on 27 March.",
-    "coor": ["-34.946426", "138.533313"],
-    "notes": ""
-  },
-  {
-    "state": "NSW",
-    "area": "",
-    "name": "Kambala School",
-    "date": "2/4/20",
-    "time": "",
-    "description": "There has been a confirmed case in a teacher at Kambala School. The school is non operational today as further investigations are underway.",
-    "coor": ["-33.864752", "151.271541"],
-    "notes": ""
-  },
-  {
-    "state": "NSW",
-    "area": "",
-    "name": "Wylie Park Girls High School",
-    "date": "2/4/20",
-    "time": "",
-    "description": "There has been a confirmed case in a teacher at Wylie Park Girls High School due to a positive case of COVID-19. The school is non operational today as further investigations are underway.",
-    "coor": ["-33.924164", "151.066968"],
-    "notes": ""
-  },
-  {
-    "state": "NSW",
-    "area": "",
-    "name": "St Mary’s Senior High School",
-    "date": "2/4/20",
-    "time": "",
-    "description": "St Mary’s Senior High School is non operational today due to a student of the school returning a positive test for COVID 19. Contact tracing and further investigations are underway.",
-    "coor": ["-33.763622", "150.770687"],
-    "notes": ""
-  },
-  {
-    "state": "NSW",
-    "area": "",
-    "name": "Bondi Beach",
-    "date": "2/4/20",
-    "time": "",
-    "description": "If you are living or working in Bondi Beach or Bondi Junction and have a fever or history of fever or symptoms like a cough, shortness of breath or sore throat you can visit the clinic and be tested. The tests are free.",
-    "coor": ["-33.891325", "151.276716"],
-    "notes": ""
-  },
-  {
-    "state": "NSW",
-    "area": "",
-    "name": "Bondi Junction",
-    "date": "2/4/20",
-    "time": "",
-    "description": "If you are living or working in Bondi Beach or Bondi Junction and have a fever or history of fever or symptoms like a cough, shortness of breath or sore throat you can visit the clinic and be tested. The tests are free.",
-    "coor": ["-33.892231", "151.248710"],
-    "notes": ""
+    "coor": ["-34.946426", "138.533313"]
   },
   {
     "state": "SA",
@@ -626,47 +484,375 @@
     "date": "2/4/20",
     "time": "",
     "description": "The teenager is a student at Henley High School and the school has made the decision to close. There has been no further exposure to other students at this point in time however contact tracing is underway.",
-    "coor": ["-34.922099", "138.50105"],
-    "notes": ""
+    "coor": ["-34.922099", "138.50105"]
   },
   {
-    "state": "NSW",
+    "state": "TAS",
     "area": "",
-    "name": "Westmead Hospital",
-    "date": "3/4/20",
-    "time": "",
-    "description": "2 radiation therapists have tested positive. Contact tracing is underway for these staff members, and all 14 staff and all but two of the 24 patients who have come into contact with these staff have been contacted by our public health teams",
-    "coor": ["-33.801978", "150.989816"],
-    "notes": ""
+    "name": "Morris Miller Library",
+    "date": "9/3/20",
+    "time": "9:30AM - 5:30 pm",
+    "description": "",
+    "coor": ["-42.903407", "147.325960"]
   },
   {
-    "state": "NSW",
-    "area": "Belfield",
-    "name": "St Michael's Primary School",
-    "date": "3/4/20",
-    "time": "",
-    "description": "Student here has tested positive",
-    "coor": ["-33.901302", "151.088144"],
-    "notes": ""
+    "state": "TAS",
+    "area": "",
+    "name": "UTAS' Sandy Bay Campus",
+    "date": "9/3/20",
+    "time": "N/A",
+    "description": "",
+    "coor": ["-42.903756", "147.325108"]
   },
   {
-    "state": "NSW",
-    "area": "Erina",
-    "name": "Woodport Early Learning Centre",
-    "date": "3/4/20",
-    "time": "",
-    "description": "Child who attended here has tested positive",
-    "coor": ["-33.440716", "151.379177"],
-    "notes": ""
+    "state": "TAS",
+    "area": "",
+    "name": "Lazemby's Cafe",
+    "date": "9/3/20",
+    "time": "N/A",
+    "description": "",
+    "coor": ["-42.903948", "147.326218"]
   },
   {
-    "state": "NSW",
-    "area": "Taree",
-    "name": "Storm Village Anglican residential care",
-    "date": "3/4/20",
+    "state": "TAS",
+    "area": "Devonport",
+    "name": "Devonport area",
+    "date": "31/3/20",
     "time": "",
-    "description": "Nurse has tested positive",
-    "coor": ["-31.897947", "152.472356"],
-    "notes": ""
+    "description": "Public Health Services is continuing to investigate two cases in the Devonport area for which a source of infection has not been identified.",
+    "coor": ["-41.179439", "146.345319"]
+  },
+  {
+    "state": "TAS",
+    "area": "Burnie",
+    "name": "North West Regional Hospital",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "3 Health workers",
+    "coor": ["-41.047223", "145.880527"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Hobart Travel Lodge (12-19 March)",
+    "date": "19/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.885460", "147.326124"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Gray Line tour bus from Hobart to Port Arthur (morning of 13 March)",
+    "date": "13/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.884595", "147.332231"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Port Arthur Historic Site and visitor centre (13 March)",
+    "date": "13/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-43.145554", "147.850857"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Carnarvon Bay Navigators boat tour (afternoon of 13 March)",
+    "date": "13/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-43.154247", "147.858769"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Female Factory Site, South Hobart (morning of 14 March, 18 March)",
+    "date": "18/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.893791", "147.299315"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Cascade Gardens, South Hobart (morning of 14 March)",
+    "date": "14/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.893791", "147.299315"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "MONA ferry from Hobart (1.15pm, 14 March)",
+    "date": "14/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.884725", "147.33246"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "MONA (1.30 to 4pm, 14 March)",
+    "date": "14/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.811871", "147.260885"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Peppermint Bay Cruise and Restaurant (15 March)",
+    "date": "15/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.884818", "147.332920"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Freycinet Marine Farm (16 March)",
+    "date": "16/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.074515", "148.233883"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Kates Berry Farm (16 March)",
+    "date": "16/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.145949", "148.055956"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Pennicott Cruises on Bruny Island (17 March)",
+    "date": "17/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-43.364215", "147.355775"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Grape Food and Wine Bar, Salamanca (18 March)",
+    "date": "18/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.886854", "147.332902"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Launceston Leisure Inn (19-23 March)",
+    "date": "23/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.440845", "147.130307"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Bridestowe Lavender Farm (date unsure)",
+    "date": "1/4/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.128736", "147.342190"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Pyengana Cheese Factory (20 March)",
+    "date": "20/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.289258", "148.004963"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Lease 65, St Helens (20 March)",
+    "date": "20/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.293385", "148.274174"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Batman Bridge River Cruise, run by Tamar River Cruises (21 March)",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.216963", "146.914769"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Cradle Mountain Visitor Centre and Waldheim Chalet (22 March)",
+    "date": "22/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.679294", "145.940086"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Ashgrove Tasmanian Farm (22 March)",
+    "date": "22/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.430190", "146.558522"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Pho Hung Vuong 2 Vietnamese Restaurant in Richmond",
+    "date": "6/3/20",
+    "time": "6pm - 7pm",
+    "description": "",
+    "coor": ["-37.809968", "144.995144"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Coles Waurn Ponds",
+    "date": "6/3/20",
+    "time": "8:45am - 5:00pm",
+    "description": "",
+    "coor": ["-38.198995", "144.318471"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "South Melbourne Market",
+    "date": "6/3/20",
+    "time": "8:30am - 10:00am",
+    "description": "",
+    "coor": ["-37.831816", "144.955928"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "AAMI Park (Rebels vs Lions rugby game)",
+    "date": "7/3/20",
+    "time": "Evening",
+    "description": "",
+    "coor": ["-37.825005", "144.983814"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Albert Park Hotel",
+    "date": "7/3/20",
+    "time": "6:00pm - 10:00pm",
+    "description": "",
+    "coor": ["-37.825005", "144.983814"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "South Melbourne Market",
+    "date": "7/3/20",
+    "time": "2:00pm - 3:00pm",
+    "description": "",
+    "coor": ["-37.831845", "144.955896"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Coles Waurn Ponds",
+    "date": "7/3/20",
+    "time": "1:00pm - 6:00pm",
+    "description": "",
+    "coor": ["-38.199037", "144.318418"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Ashburton Park",
+    "date": "7/3/20",
+    "time": "N/A",
+    "description": "",
+    "coor": ["-37.863086", "145.086915"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "T20 Cricket World Cup Final, Melbourne Cricket Ground, MCC Members Level 2",
+    "date": "8/3/20",
+    "time": "5:15pm - 11:30pm",
+    "description": "",
+    "coor": ["-37.819814", "144.983471"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Myrtle Oval, Macleay Park, North Balwyn",
+    "date": "8/3/20",
+    "time": "10:00am - 4:00pm",
+    "description": "",
+    "coor": ["-37.800857", "145.075181"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Ramsden Street Oval, Clifton Hill",
+    "date": "8/3/20",
+    "time": "8:30am - 5:00pm",
+    "description": "",
+    "coor": ["-37.791837", "145.003320"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Mary Miller Cafe, Fitzroy North",
+    "date": "10/3/20",
+    "time": "12:30pm - 2:00pm",
+    "description": "",
+    "coor": ["-37.776845", "144.987074"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "No. 19 Cafe, Ascot Vale",
+    "date": "10/3/20",
+    "time": "8:00am - 9:30am",
+    "description": "",
+    "coor": ["-37.773059", "144.916153"]
+  },
+  {
+    "state": "WA",
+    "area": "",
+    "name": "a concert at the Perth Concert Hall",
+    "date": "7/3/20",
+    "time": "N/A",
+    "description": "",
+    "coor": ["-31.957997", "115.863821"]
+  },
+  {
+    "state": "WA",
+    "area": "Perth metropolitan area",
+    "name": "Perth metropolitan area: 16 new cases",
+    "date": "5/4/20",
+    "time": "N/A",
+    "description": "Sixteen new confirme cases today are from the Perth metropolitan area",
+    "coor": ["-31.946603", "115.849349"]
+  },
+  {
+    "state": "WA",
+    "area": "",
+    "name": "Broome Hospital",
+    "date": "30/3/20",
+    "time": "N/A",
+    "description": "Two of the new cases are healthcare workers. This includes a healthcare worker from Broome Hospital with a history of intrastate travel.",
+    "coor": ["-17.960318", "122.236525"]
   }
 ]
