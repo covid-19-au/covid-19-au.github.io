@@ -369,7 +369,7 @@ function setGeneralLineOption(state, logScale, maxY) {
     },
     yAxis: {
       type: yAxisType,
-      max: maxY,
+      // max: maxY,
       min: minY,
     },
     series: generalLineSeries.getSeriesList(),
@@ -451,7 +451,7 @@ function StateChart({ state }) {
     } else {
       maxValue = Math.max(...maxValue.slice(0, 2));
     }
-    setMaxY(calcMaxY(logScale, maxValue));
+    // setMaxY(calcMaxY(logScale, maxValue));
   }, [logScale]);
 
   let genderOption;
