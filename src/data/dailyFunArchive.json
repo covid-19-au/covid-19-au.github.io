@@ -3,6 +3,20 @@
         {
             "image": [
                 {
+                    "imgLink": "https://www.abc.net.au/news/image/12118058-3x4-340x453.jpg",
+                    "source": "ABC News"
+                }
+            ],
+            "video": [],
+            "title": "Community in a pot of curry",
+            "source": "ABC News",
+            "content": "<p>Pictured above is Paramdeep Singh, a resident of Canberra that is coordinating a team of Australian Sikhs who have been cooking, packing and delivering 100 meals a day to the doorsteps of fellow Canberrans. A core concept in Sikhism is the practice of the \"langar\" or a \"free kitchen\". People are fed at the langar regardless of  religion, caste, colour, creed, age, gender or social status, to uphold the principle of equality among all people.<p/><p>When interviewed by ABC News, they said, \"Any person who is not able to cook for themselves, we are trying to provide food.\" This is just one of a number if heartwarming stories coming out of Canberra. Check out more in the linked article!<p/>",
+            "type": "motivation",
+            "date": "7/4/2020"
+        },
+        {
+            "image": [
+                {
                     "imgLink": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/2020/03/18/1584491092127_Adopthealth.jpg?width=922&height=&mode=crop&anchor=topcenter&quality=75",
                     "source": "https://www.facebook.com/groups/adoptaHCWVictoria/"
                 }
@@ -26,17 +40,6 @@
             "video": [],
             "type": "fun",
             "date": "5/4/2020"
-        },
-        {
-            "image": [],
-            "video": [
-                {
-                    "link": "https://www.youtube.com/watch?v=F5pgG1M_h_U",
-                    "description": "Some good news from around the world with John Krasinski"
-                }
-            ],
-            "type": "distraction",
-            "date": "4/4/2020"
         },
         {
             "image": [],
