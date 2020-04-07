@@ -59,7 +59,7 @@ export default function Area({ area, onChange, data }) {
         <div className={"area"}>
           <A href={`/state/${x[0].toLowerCase()}`}>
             <strong>
-              {x[0]}{" "}
+                <u>{x[0]}</u>{" "}
               {fill ? (
                 <svg
                   className="bi bi-caret-right"
