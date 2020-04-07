@@ -242,6 +242,13 @@ function setGeneralBarOption(state) {
   }
 
   let tempOption = {
+      grid: {
+          containLabel: true,
+          left: 0,
+          right: "5%"
+          , bottom: "10%",
+          top: "20%"
+      },
     tooltip: lineBarTooltip,
     title: {
       text: "General Info Bar Chart",
@@ -296,6 +303,13 @@ function setGeneralLineOption(state, logScale, maxY) {
   let startPoint = parseInt(start);
 
   let tempOption = {
+      grid: {
+          containLabel: true,
+          left: 0,
+          right: "5%"
+          , bottom: "10%",
+          top: "20%"
+      },
     tooltip: lineBarTooltip,
     title: {
       text: "General Info Line Chart",
