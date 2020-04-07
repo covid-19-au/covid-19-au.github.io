@@ -107,7 +107,7 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="cured">
-          <strong>{numberWithCommas(x[CURED])}</strong>&nbsp;
+          <strong>{(x[0]==="NSW")?<div style={{fontWeight:'normal', color:'grey'}}>N/A</div>:numberWithCommas(x[CURED])}</strong>&nbsp;
           <div className="dailyIncrease">
             {x[CURED] - lastTotal[x[0]][2] > 0
               ? `(+${x[3] - lastTotal[x[0]][2]})`
@@ -133,7 +133,7 @@ export default function Area({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">{numberWithCommas(sumRow(CURED, data))}</div>
+        <div className="cured">*2400+</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
     );

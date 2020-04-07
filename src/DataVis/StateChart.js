@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
 import ReactEcharts from "echarts-for-react";
+import ReactGA from "react-ga";
 import latestAusData from "../data/stateCaseData";
 
 const colorMapping = {
@@ -463,6 +464,7 @@ function StateChart({ state }) {
     genderOption = setGenderOption(expectStateData);
     ageOption = setAgeOption(expectStateData);
   }
+  ReactGA.pageview("/state/"+state);
 
   if (expectStateData !== null) {
     return (
