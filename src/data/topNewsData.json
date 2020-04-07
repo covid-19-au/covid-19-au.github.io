@@ -1,6 +1,62 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/world/2020/apr/06/new-coronavirus-cases-in-australia-could-number-almost-zero-by-july-modelling-suggests",
+            "title": "New coronavirus cases in Australia could number almost zero by July, modelling suggests ",
+            "source": "TheGuardian",
+            "date": "06 April 2020",
+            "time": "15:50",
+            "summary": "The prevalence of Covid-19 in Australia could peak in mid-April and new cases reduce to almost zero by July, according to modelling by the University of Sydney. But the story doesn’t end there: without widespread testing to detect asymptomatic cases of Covid-19, and a firm hold on social distancing measures that remain in place up to four weeks after the person with the last known infection has recovered, the curve will shoot back up."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-06/doctors-designing-medical-equipment-to-face-coronavirus-covid-19/12120588",
+            "title": "Australian doctors design and make life-saving equipment needed for coronavirus pandemic",
+            "source": "ABCNews",
+            "date": "06 April 2020",
+            "time": "10:25",
+            "summary": "Australian doctors who are worried the system will not be able to provide them with the equipment they need to protect themselves and their patients during the COVID-19 pandemic are looking at ways to design and produce their own. A large centralised group involving Victorian university staff, clinicians and manufacturers has been working tirelessly to develop suitable products and to co-ordinate the supply and demand of these essential items."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-free-hotel-stay-for-victorias-healthcare-workers-on-the-frontline-c-957213",
+            "title": "Coronavirus Australia: Free hotel stay for Victoria’s healthcare workers on the frontline",
+            "source": "7News",
+            "date": "05 April 2020",
+            "time": "12:01",
+            "summary": "Victoria’s frontline health workers will have free hotel stays if they need to self-isolate during the coronavirus crises, as the state recorded 20 new cases overnight. Premier Daniel Andrews said on Sunday the government will provide $20 million to buy a range of hotel rooms for up to 8000 frontline workers."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-05/chief-medical-officer-brendan-murphy-confident-coronavirus/12123154",
+            "title": "Chief Medical Officer Brendan Murphy 'increasingly confident' Australia can stay on top of coronavirus",
+            "source": "ABCNews",
+            "date": "05 April 2020",
+            "time": "19:09",
+            "summary": "Chief Medical Officer Brendan Murphy says Australia is succeeding at flattening the curve and that he is increasingly confident Australia will avoid the kind of devastation the coronavirus has caused in countries like Italy and the United States. However, his biggest concern remains community transmission, which accounts for 10 per cent of cases in Australia."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-visa-changes-open-the-door-for-foreign-workers-to-extend-their-stay-c-956257",
+            "title": "Coronavirus Australia: Visa changes open the door for foreign workers to extend their stay",
+            "source": "7News",
+            "date": "04 April 2020",
+            "time": "13:35",
+            "summary": "A series of visa changes have been made which means working holidaymakers who are working in critical sectors will be exempt from the six-month work limitation with one employer and eligible for a further visa to keep working if their current visa is due to expire in the next six months. Additionally, temporary visa holders who have already worked in Australia will also have access to their superannuation and New Zealanders who arrived in Australia before February 26, 2001, will gain access to welfare payments and JobKeeper."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coles-and-woolworths-introduce-coronavirus-measures-to-limit-number-of-customers-inside-stores-c-956081",
+            "title": "Coles and Woolworths introduce coronavirus measures to limit number of customers inside stores",
+            "source": "7News",
+            "date": "04 April 2020",
+            "time": "09:16",
+            "summary": "Coles and Woolworths are dramatically escalating their social distancing policies by introducing a limit on the number of customers inside stores. From Monday 6th of April, until the foreseeable future, shoppers will be forced to wait in cordoned off queues outside until people inside leave. The number of customers allowed inside varies depending on the size of the store itself."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-03/coronavirus-scott-morrison-national-cabinet-meeting-update/12120584",
+            "title": "Scott Morrison gave a rundown of the latest coronavirus measures after today's National Cabinet meeting. Here's what he said.",
+            "source": "ABCNews",
+            "date": "03 April 2020",
+            "time": "20:00",
+            "summary": "Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy gave an update after today's National Cabinet meeting. They discussed big changes for how we live our lives, with business closures, social distancing rules, Easter services, commercial leases, the fate of seasonal workers and international students, and more."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/apr/02/free-childcare-what-do-the-governments-coronavirus-changes-mean-for-my-family",
             "title": "Free childcare: what do the Australian government's coronavirus changes mean for my family?",
             "source": "TheGuardian",
@@ -55,54 +111,6 @@
             "date": "31 March 2020",
             "time": "00:32",
             "summary": "The Government expects up to 6 million people will access a $1,500 fortnightly wage subsidy. The so-called JobKeeper payment is designed to keep people in work. The Government will also lift the means-testing threshold for the partners of JobSeeker recipients."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-update-australia-scott-morrison-announces-strictest-gathering-measures-yet-c-769960",
-            "title": "Coronavirus update Australia: Scott Morrison announces strictest gathering measures yet",
-            "source": "7News",
-            "date": "29 March 2020",
-            "time": "19:32",
-            "summary": "Prime Minister Scott Morrison has announced the strictest gathering recommendations to date - that no more than two people gather in public spaces at any given time. This move also spells the closure for public areas, such as playgrounds, outdoor gyms and skate parks, though restrictions on weddings and funerals will stay the same."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus. In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/health-minister-says-early-signs-australia-is-flattening-the-curve-even-as-coronavirus-cases-increase",
-            "title": "Health Minister Greg Hunt says there are early signs that Australia is flattening the curve, even though coronavirus cases are still on the rise.",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "13:00",
-            "summary": "The Federal Government said the rate of increase of cases was about 25-30 per cent a day last week, which has fallen to about 13-15 per cent this weekend. However, they warn that Australians must continue to follow social distancing and self-isolation guidelines."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Coronavirus patients’ average age only 48 as Australian tally soars beyond 3,400",
-            "source": "7News",
-            "date": "28 March 2020",
-            "time": "16:15",
-            "summary": "There are now 3,400 cases of the virus in Australia, a vast majority of which have been diagnosed in New South Wales and Victoria. The median age of Australians diagnosed with novel coronavirus has been revealed to be 48 years old. However, the average age of fatalities is 77."
-        },
-        {
-            "link": "https://7news.com.au/business/global-economy-is-in-recession-imf-head-c-768395",
-            "title": "Global economy is in recession: IMF head",
-            "source": "7News",
-            "date": "28 March 2020",
-            "time": "07:07",
-            "summary": "The head of the International Monetary Fund says it is clear that the global economy has now entered a recession that could be as bad or worse than the 2009 downturn. IMF Managing Director Kristalina Georgieva forecasted a recovery in 2021, but she said this would only occur if countries succeed in containing the coronavirus and limiting the economic damage."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-in-australia-army-called-in-to-help-enforce-strict-new-quarantine-rules--c-766521",
-            "title": "Coronavirus in Australia: Army called in to help enforce strict new quarantine rules ",
-            "source": "7News",
-            "date": "28 March 2020",
-            "time": "09:08",
-            "summary": "The Australian Army will be deployed across all states and territories, stepping in to assist governments with new measures. The ADF will assist in both monitoring Friday’s regulations for returned overseas travellers and ensuring compliance checks with those in self-isolation at their homes. However, the prime minister says the army will not have the power to prosecute or arrest."
         }
     ]
 }

@@ -74,7 +74,7 @@ function Information({ hospitalData, columns }) {
                                                 <img
                                                     src={i1.imgLink}
                                                     alt={i1.name}
-                                                    style={{ height: "50vh" }}
+                                                    style={{ maxWidth: "98%", maxHeight: "400px" }}
                                                 />
 
                                             </div>
