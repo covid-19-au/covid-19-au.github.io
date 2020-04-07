@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
 import ReactEcharts from "echarts-for-react";
+import latestAusData from "../data/stateCaseData";
 
 const colorMapping = {
   Confirmed: "#ff603c",
@@ -18,7 +19,7 @@ const genderColorMapping = {
   Female: "#24adff",
   All: "#ffa48c",
   NotStated: "#8cdaaf",
-}
+};
 
 const stateNameMapping = {
   VIC: "Victoria",
@@ -110,7 +111,7 @@ function getExpectStateData(state) {
  * @param {String} state user selected state
  * @return {Array} latest data of user choosen state
  */
-function getLatestData(state) {
+function getLastData(state) {
   return stateData[Object.keys(stateData)[Object.keys(stateData).length - 1]][
     state
   ];
@@ -245,7 +246,7 @@ function setAgeOption(state) {
  * @param {String} state user selected state
  */
 function setGeneralBarOption(state) {
-  let latestData = getLatestData(state);
+  let latestData = getLastData(state);
   let generalBarLegend = ["Confirmed", "Death", "Recovered", "Tested"];
   let generalLabel = ["General Information"];
   let generalBarSeries = new Series();
@@ -380,7 +381,14 @@ function setGeneralLineOption(state, logScale, maxY) {
  * @param {String} state user selected state
  */
 function renderTable(state) {
-  let latestData = getLatestData(state);
+  let lastData = getLastData(state.toUpperCase());
+  let latestData = latestAusData["values"];
+  for (let i = 0; i < latestData.length; i++) {
+    if (latestData[i][0].toString() === state.toUpperCase()) {
+      latestData = latestData[i].slice(1, latestData.length);
+    }
+  }
+
   return (
     <div role={"button"} className="province">
       <div className={"area"}>
@@ -388,12 +396,27 @@ function renderTable(state) {
       </div>
       <div className="confirmed">
         <strong>{latestData[0]}</strong>&nbsp;
+        <div className="dailyIncrease">
+          {latestData[0] - lastData[0] > 0
+            ? `(+${latestData[0] - lastData[0]})`
+            : `null`}
+        </div>
       </div>
       <div className="death">
         <strong>{latestData[1]}</strong>&nbsp;
+        <div className="dailyIncrease">
+          {latestData[1] - lastData[1] > 0
+            ? `(+${latestData[1] - lastData[1]})`
+            : `null`}
+        </div>
       </div>
       <div className="cured">
         <strong>{latestData[2]}</strong>&nbsp;
+        <div className="dailyIncrease">
+          {latestData[2] - lastData[2] > 0
+            ? `(+${latestData[2] - lastData[2]})`
+            : `null`}
+        </div>
       </div>
       <div className="tested">{latestData[3]}</div>
     </div>
@@ -421,7 +444,7 @@ function StateChart({ state }) {
   const [logScale, setLogScale] = useState(false);
   const [maxY, setMaxY] = useState(0);
   useEffect(() => {
-    let maxValue = getLatestData(state.toUpperCase());
+    let maxValue = getLastData(state.toUpperCase());
     if (logScale) {
       maxValue = Math.max(...maxValue);
     } else {
