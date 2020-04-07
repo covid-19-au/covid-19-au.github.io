@@ -14,10 +14,10 @@ const colorMapping = {
 };
 
 const genderColorMapping = {
-  Male: "#007cf2",
-  Female: "#63beff",
-  All: "#c11700",
-  NotStated: "#ff603c",
+  Male: "#8ccfff",
+  Female: "#24adff",
+  All: "#ffa48c",
+  NotStated: "#8cdaaf",
 }
 
 const stateNameMapping = {
