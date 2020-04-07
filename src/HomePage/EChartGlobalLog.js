@@ -8,72 +8,55 @@ class EChartglobalLog extends Component {
     static defaultProps = {
         countryColours: {
             AU: {
-                backgroundColor: 'rgb(0, 0, 139)',
-                borderColor: 'rgba(0, 0, 139, 0.2)'
+                backgroundColor: 'rgb(0, 0, 139)'
             },
             Canada: {
-                backgroundColor: 'rgb(255, 0, 0)',
-                borderColor: 'rgba(255, 0, 0, 0.2)'
+                backgroundColor: 'rgb(255, 0, 0)'
             },
             China: {
-                backgroundColor: 'rgb(170, 56, 30)',
-                borderColor: 'rgba(170, 56, 30, 0.2)'
+                backgroundColor: 'rgb(170, 56, 30)'
             },
             Denmark: {
-                backgroundColor: 'rgb(198, 12, 48)',
-                borderColor: 'rgba(198, 12, 48, 0.2)'
+                backgroundColor: 'rgb(198, 12, 48)'
             },
             France: {
-                backgroundColor: 'rgb(0, 85, 164)',
-                borderColor: 'rgba(0, 85, 164, 0.2)'
+                backgroundColor: 'rgb(0, 85, 164)'
             },
             Germany: {
-                backgroundColor: 'rgb(255, 206, 0)',
-                borderColor: 'rgba(255, 206, 0, 0.2)'
+                backgroundColor: 'rgb(255, 206, 0)'
             },
             Iran: {
-                backgroundColor: 'rgb(35, 159, 64)',
-                borderColor: 'rgba(35, 159, 64, 0.2)'
+                backgroundColor: 'rgb(35, 159, 64)'
             },
             Italy: {
-                backgroundColor: 'rgb(0, 140, 69)',
-                borderColor: 'rgba(0, 140, 69, 0.2)'
+                backgroundColor: 'rgb(0, 140, 69)'
             },
             Japan: {
-                backgroundColor: 'rgb(188, 0, 45)',
-                borderColor: 'rgba(188, 0, 45, 0.2)'
+                backgroundColor: 'rgb(188, 0, 45)'
             },
             'South Korea': {
-                backgroundColor: 'rgb(0, 0, 0)',
-                borderColor: 'rgba(0, 0, 0, 0.2)'
+                backgroundColor: 'rgb(0, 0, 0)'
             },
             Norway: {
-                backgroundColor: 'rgb(0, 48, 135)',
-                borderColor: 'rgba(0, 48, 135, 0.2)'
+                backgroundColor: 'rgb(0, 48, 135)'
             },
             Singapore: {
-                backgroundColor: 'rgb(239, 51, 64)',
-                borderColor: 'rgba(239, 51, 64, 0.2)'
+                backgroundColor: 'rgb(239, 51, 64)'
             },
             Spain: {
-                backgroundColor: 'rgb(237, 114, 170)',
-                borderColor: 'rgba(237, 114, 170, 0.2)'
+                backgroundColor: 'rgb(237, 114, 170)'
             },
             Sweden: {
-                backgroundColor: 'rgb(0, 75, 135)',
-                borderColor: 'rgba(0, 75, 135, 0.2)'
+                backgroundColor: 'rgb(0, 75, 135)'
             },
             Switzerland: {
-                backgroundColor: 'rgb(213, 43, 30)',
-                borderColor: 'rgba(213, 43, 30, 0.2)'
+                backgroundColor: 'rgb(213, 43, 30)'
             },
             UK: {
-                backgroundColor: 'rgb(207, 20, 43)',
-                borderColor: 'rgba(207, 20, 43, 0.2)'
+                backgroundColor: 'rgb(207, 20, 43)'
             },
             US: {
-                backgroundColor: 'rgb(60, 59, 110)',
-                borderColor: 'rgba(60, 59, 110, 0.2)'
+                backgroundColor: 'rgb(60, 59, 110)'
             }
         },
         activeStyles: {
@@ -322,7 +305,7 @@ class EChartglobalLog extends Component {
                         grid: {
                             containLabel: true,
                             left: 0,
-                            right: "5%",
+                            right: "10%",
                             bottom: "10%",
                             top: "20%"
                         },
@@ -342,6 +325,9 @@ class EChartglobalLog extends Component {
                         series: this.state.dataSets,
                         yAxis: {
                             name: "New Cases This Week",
+                            nameTextStyle: {
+                                align: 'left'
+                            },
                             type: this.state.logScale ? "log" : "value",
                             boundaryGap: true,
                             axisLabel: {
@@ -351,6 +337,9 @@ class EChartglobalLog extends Component {
                         },
                         xAxis: {
                             name: "Total",
+                            nameTextStyle: {
+                                align: 'center'
+                            },
                             type: this.state.logScale ? "log" : "value",
                             boundaryGap: true,
                             scale: true,
@@ -382,6 +371,7 @@ class EChartglobalLog extends Component {
                 <span className="due">
                 <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
                 <span className="key"><p>*Click on points for detailed data</p></span><br />
+                <span className="key"><p>*Watch this <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">video</a> for a detailed explanation on this graph!</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
                     Logarithmic Scale:&nbsp;
