@@ -399,7 +399,7 @@ function renderTable(state) {
         <div className="dailyIncrease">
           {latestData[0] - lastData[0] > 0
             ? `(+${latestData[0] - lastData[0]})`
-            : `null`}
+            : null}
         </div>
       </div>
       <div className="death">
@@ -407,7 +407,7 @@ function renderTable(state) {
         <div className="dailyIncrease">
           {latestData[1] - lastData[1] > 0
             ? `(+${latestData[1] - lastData[1]})`
-            : `null`}
+            : null}
         </div>
       </div>
       <div className="cured">
@@ -415,7 +415,7 @@ function renderTable(state) {
         <div className="dailyIncrease">
           {latestData[2] - lastData[2] > 0
             ? `(+${latestData[2] - lastData[2]})`
-            : `null`}
+            : null}
         </div>
       </div>
       <div className="tested">{latestData[3]}</div>
