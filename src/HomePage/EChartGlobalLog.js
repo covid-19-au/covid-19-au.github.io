@@ -26,31 +26,31 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#edbd64'
             },
             Iran: {
-                backgroundColor: '#006327'
+                backgroundColor: '#37694b'
             },
             Italy: {
                 backgroundColor: '#79d9b4'
             },
             Japan: {
-                backgroundColor: '#ff603c'
+                backgroundColor: '#ff8f75'
             },
             'South Korea': {
-                backgroundColor: '#1700c1'
+                backgroundColor: '#7066ba'
             },
             Norway: {
-                backgroundColor: '#72008d'
+                backgroundColor: '#855a8f'
             },
             Singapore: {
-                backgroundColor: '#41cac9'
+                backgroundColor: '#8fc4c4'
             },
             Spain: {
                 backgroundColor: '#9fa4fc'
             },
             Sweden: {
-                backgroundColor: '#f9399d'
+                backgroundColor: '#f587c0'
             },
             Switzerland: {
-                backgroundColor: '#795548'
+                backgroundColor: '#c79e8f'
             },
             UK: {
                 backgroundColor: '#7c4e57'
