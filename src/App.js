@@ -24,7 +24,9 @@ import DailyHistoryPage from "./DailyHistoryPage";
 import NewsPage from "./NewsPage";
 import InfoPage from "./InfoPage";
 import Navbar from "./Navbar";
-import HomePage from "./HomePage/HomePage"
+import HomePage from "./HomePage/HomePage";
+
+import StateChart from "./DataVis/StateChart";
 
 import "./App.css";
 import uuid from "react-uuid";
@@ -113,7 +115,7 @@ function Header({ province }) {
             <a  onClick={() => {
                 ReactGA.event({category: 'Header', action: "share"});
                 setModalVisibility(true)
-            }}><i className="fas fa-share-square"></i></a>
+            }}><i className="fas fa-share-alt"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "twitter"})}} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "instagram"})}} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "github"})}} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
@@ -263,6 +265,14 @@ function App() {
     "/news": () => <NewsPage province={province} gspace={gspace} />,
     "/faq": () => <FAQPage />,
     "/dailyHistory": () => <DailyHistoryPage />,
+    "/state/vic": () => <StateChart state="VIC" />,
+    "/state/nsw": () => <StateChart state="NSW" />,
+    "/state/qld": () => <StateChart state="QLD" />,
+    "/state/act": () => <StateChart state="ACT" />,
+    "/state/sa": () => <StateChart state="SA" />,
+    "/state/wa": () => <StateChart state="WA" />,
+    "/state/nt": () => <StateChart state="NT" />,
+    "/state/tas": () => <StateChart state="TAS" />,
   };
   //
   // // The hook used to render the routes.

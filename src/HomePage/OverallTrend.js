@@ -79,8 +79,6 @@ export default function OverallTrend() {
 
     }
 
-
-
     //graph initial start point (2 weeks)
     let start = 100 - (14 / dateData.length * 100)
     let startPoint = parseInt(start)
