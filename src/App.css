@@ -356,7 +356,7 @@ h2 small {
     justify-content: space-around;
     align-items: center;
     background-color: #bae1ff;
-    filter: saturate(65%)
+    filter: saturate(65%);
 }
 
 .navBarStuck {
@@ -383,7 +383,7 @@ h2 small {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 100;
 }
 
 .navItems {
@@ -511,8 +511,3 @@ h2 small {
   padding-bottom: 15px;
 }
 
-.slogan {
-    text-align: center;
-    margin-top: -5px;
-    margin-bottom: -10px;
-}

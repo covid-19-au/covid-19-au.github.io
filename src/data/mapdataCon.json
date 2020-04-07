@@ -517,8 +517,8 @@
     "area": "Burnie",
     "name": "North West Regional Hospital",
     "date": "4/4/20",
-    "time": "",
-    "description": "Health workers",
+    "time": "N/A",
+    "description": "3 Health workers",
     "coor": ["-41.047223", "145.880527"]
   },
   {
@@ -830,10 +830,10 @@
   {
     "state": "WA",
     "area": "Perth metropolitan area",
-    "name": "Perth metropolitan area: 17 new cases",
-    "date": "1/4/20",
+    "name": "Perth metropolitan area: 16 new cases",
+    "date": "5/4/20",
     "time": "N/A",
-    "description": "Seventeen new cases are from the Perth metropolitan area",
+    "description": "Sixteen new confirme cases today are from the Perth metropolitan area",
     "coor": ["-31.946603", "115.849349"]
   },
   {
@@ -844,5 +844,14 @@
     "time": "N/A",
     "description": "Two of the new cases are healthcare workers. This includes a healthcare worker from Broome Hospital with a history of intrastate travel.",
     "coor": ["-17.960318", "122.236525"]
+  },
+  {
+    "state": "SA",
+    "area": "Barossa",
+    "name": "Barossa cluster",
+    "date": "14/3/20",
+    "time": "N/A",
+    "description": "There are 38 confirmed cases linked to areas within the Barossa region including Tanunda, Nuriootpa, Williamstown, Angaston and Lyndoch.Anyone in these areas from Saturday 14 March 2020 who develops symptoms should immediately self-isolate and be tested.",
+    "coor": ["-34.601510", "139.000404"]
   }
 ]
