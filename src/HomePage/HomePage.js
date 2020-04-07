@@ -10,6 +10,7 @@ import MbMap from "./ConfirmedMap";
 import Stat from "./Stat"
 import HistoryGraph from "./HistoryGraph"
 import LineChart from "./LineChart";
+import EChartGlobalLog from "./EChartGlobalLog"
 
 import uuid from "react-uuid";
 import CanvasJSReact from "../assets/canvasjs.react";
@@ -68,7 +69,7 @@ export default function HomePage({
             </Grid>
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
                 <StateGraph stateData={stateData} />
-                <LineChart />
+                <EChartGlobalLog />
             </Grid>
 
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
