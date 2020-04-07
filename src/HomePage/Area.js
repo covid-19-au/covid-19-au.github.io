@@ -152,8 +152,11 @@ export default function Area({ area, onChange, data }) {
       <Total data={data} />
 
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * We currently do not have a consistent source of data for recovered
-        cases in NSW, QLD, and TAS.
+        * We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data is based on gov report.
+      </span>
+        <br/>
+        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+            * Click on the <strong>State</strong> name for details.
       </span>
     </div>
   );
