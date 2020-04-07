@@ -8,55 +8,55 @@ class EChartglobalLog extends Component {
     static defaultProps = {
         countryColours: {
             AU: {
-                backgroundColor: 'rgb(0, 0, 139)'
+                backgroundColor: '#8ccfff'
             },
             Canada: {
-                backgroundColor: 'rgb(255, 0, 0)'
+                backgroundColor: '#c27cb9'
             },
             China: {
-                backgroundColor: 'rgb(170, 56, 30)'
+                backgroundColor: '#547dbf'
             },
             Denmark: {
-                backgroundColor: 'rgb(198, 12, 48)'
+                backgroundColor: '#8e9191'
             },
             France: {
-                backgroundColor: 'rgb(0, 85, 164)'
+                backgroundColor: '#ed7d51'
             },
             Germany: {
-                backgroundColor: 'rgb(255, 206, 0)'
+                backgroundColor: '#edbd64'
             },
             Iran: {
-                backgroundColor: 'rgb(35, 159, 64)'
+                backgroundColor: '#006327'
             },
             Italy: {
-                backgroundColor: 'rgb(0, 140, 69)'
+                backgroundColor: '#79d9b4'
             },
             Japan: {
-                backgroundColor: 'rgb(188, 0, 45)'
+                backgroundColor: '#ff603c'
             },
             'South Korea': {
-                backgroundColor: 'rgb(0, 0, 0)'
+                backgroundColor: '#1700c1'
             },
             Norway: {
-                backgroundColor: 'rgb(0, 48, 135)'
+                backgroundColor: '#72008d'
             },
             Singapore: {
-                backgroundColor: 'rgb(239, 51, 64)'
+                backgroundColor: '#41cac9'
             },
             Spain: {
-                backgroundColor: 'rgb(237, 114, 170)'
+                backgroundColor: '#9fa4fc'
             },
             Sweden: {
-                backgroundColor: 'rgb(0, 75, 135)'
+                backgroundColor: '#f9399d'
             },
             Switzerland: {
-                backgroundColor: 'rgb(213, 43, 30)'
+                backgroundColor: '#795548'
             },
             UK: {
-                backgroundColor: 'rgb(207, 20, 43)'
+                backgroundColor: '#7c4e57'
             },
             US: {
-                backgroundColor: 'rgb(60, 59, 110)'
+                backgroundColor: '#c74c4a'
             }
         },
         activeStyles: {
@@ -98,7 +98,7 @@ class EChartglobalLog extends Component {
     calcWeeklyNewCases = (totalCases) => {
         let weeklySum = totalCases.slice(0, 7);
         for (let i = 7; i < totalCases.length; i++) {
-            weeklySum.push(totalCases[i]-totalCases[i-7]);
+            weeklySum.push(totalCases[i] - totalCases[i - 7]);
         }
         return weeklySum;
     }
@@ -116,19 +116,19 @@ class EChartglobalLog extends Component {
             label = Math.round(Math.abs((new Date(2020, month - 1, day) - new Date()) / one_day));
             xlabelsFunc.push(label);
         })
-        this.setState({xlabels: xlabelsFunc});
+        this.setState({ xlabels: xlabelsFunc });
     }
 
     // Merge two columns of ints
     mergeColumns = (column1, column2) => {
-        return column1.map(function (v, i) {return v + this[i];}, column2);
+        return column1.map(function (v, i) { return v + this[i]; }, column2);
     }
 
     // Turn array of strings to numbers.
     parseArray = (column1) => {
-        return column1.map(function (v, i) {return parseInt(v)});
+        return column1.map(function (v, i) { return parseInt(v) });
     }
-    
+
     // Filter the countries to the ones we want
     filterCountries = (country) => {
         const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan"];
@@ -151,34 +151,34 @@ class EChartglobalLog extends Component {
         const data = await response.text();
 
         // Get x-axis Labels
-        let dates = data.trim().split('\n').slice(0,1)[0].split(',').slice(4)
-        this.setState({dates: this.formatDates(dates)});
-        
+        let dates = data.trim().split('\n').slice(0, 1)[0].split(',').slice(4)
+        this.setState({ dates: this.formatDates(dates) });
+
         this.daysSince(dates);
 
         // parse table
         const table = data.trim().split('\n').slice(1);
         table.forEach(row => {
             // Filter for relevant countries
-            const country = row.split(',').slice(1,2);
+            const country = row.split(',').slice(1, 2);
             if (this.filterCountries(country[0])) {
 
                 // Parse out columns we don't want from row
-                let parsedRow = row.split(',').slice(1,2).concat(row.split(',').slice(4));
+                let parsedRow = row.split(',').slice(1, 2).concat(row.split(',').slice(4));
 
                 if (parsedRow[0] === "\"Korea") {
-                    parsedRow = row.split(',').slice(1,2).concat(row.split(',').slice(5));
+                    parsedRow = row.split(',').slice(1, 2).concat(row.split(',').slice(5));
                     parsedRow[0] = "South Korea";
                 }
                 if (parsedRow[0] === "United Kingdom") {
-                    parsedRow = row.split(',').slice(1,2).concat(row.split(',').slice(5));
+                    parsedRow = row.split(',').slice(1, 2).concat(row.split(',').slice(5));
                     parsedRow[0] = "UK";
                 }
                 if (parsedRow[0] === "Australia") {
-                    parsedRow = row.split(',').slice(1,2).concat(row.split(',').slice(5));
+                    parsedRow = row.split(',').slice(1, 2).concat(row.split(',').slice(5));
                     parsedRow[0] = "AU";
                 }
-                
+
                 // If the hashmap doesn't have the key, then insert, otherwise add the values.
                 if (!this.state.arrMap[parsedRow[0]]) {
                     this.state.arrMap[parsedRow[0]] = {};
@@ -188,7 +188,7 @@ class EChartglobalLog extends Component {
                     this.state.arrMap[parsedRow[0]]["x"] = this.mergeColumns(this.parseArray(this.state.arrMap[parsedRow[0]]["x"]), this.parseArray(parsedRow.slice(1)));
                 }
             }
-            
+
         })
     }
 
@@ -196,10 +196,10 @@ class EChartglobalLog extends Component {
         await this.getData();
         // const ctx = document.getElementById('chart').getContext('2d');
         let arrMapKeys = Object.keys(this.state.arrMap);
-        
+
         arrMapKeys.forEach(key => {
             let i = 0;
-            for (i; i<this.state.arrMap[key]["x"].length; i++) {
+            for (i; i < this.state.arrMap[key]["x"].length; i++) {
                 if (this.state.arrMap[key]["x"][i] >= 100) {
                     break;
                 }
@@ -210,7 +210,7 @@ class EChartglobalLog extends Component {
             this.state.arrMap[key]["x,y"] = this.mergeXY(this.state.arrMap[key]["x"], this.state.arrMap[key]["y"]);
         })
 
-        
+
         const dataSets = [];
         for (let i = 0; i < arrMapKeys.length; i++) {
             let newDataSet = {};
@@ -247,7 +247,7 @@ class EChartglobalLog extends Component {
 
             dataSets.push(newDataSet);
         }
-        this.setState({dataSets: dataSets});
+        this.setState({ dataSets: dataSets });
 
     }
 
@@ -270,10 +270,10 @@ class EChartglobalLog extends Component {
     }
 
     render() {
-        return(
+        return (
             <div className="card">
                 <h2>Global Log</h2>
-                <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px"}}
+                <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
                     ref={this.chartReference}
                     /*
                     onEvents={{
@@ -369,44 +369,44 @@ class EChartglobalLog extends Component {
                     }}
                 />
                 <span className="due">
-                <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
-                <span className="key"><p>*Click on points for detailed data</p></span><br />
-                <span className="key"><p>*Watch this <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">video</a> for a detailed explanation on this graph!</p></span><br />
-                <span className="key"><p>*Data Source: <a target="_blank" rel="noopener noreferrer" href="https://github.com/CSSEGISandData/COVID-19">
-                    <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clipRule="evenodd" />
-                        <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-                    </svg>    
-                </a></p></span><br />
-                <span className="key" style={{ marginTop: "0.5rem" }}>
-
-                    Logarithmic Scale:&nbsp;
-                    <ButtonGroup size="small" aria-label="small outlined button group">
-                        <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({logScale: true})}>On</Button>
-                        <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({logScale: false})}>Off</Button>
-                    </ButtonGroup>
-                    <a
-                        style={{
-                            display: "inline-flex",
-                            backgroundColor: "white",
-                            verticalAlign: "middle"
-                        }}
-                        className="badge badge-light"
-                        href="https://en.wikipedia.org/wiki/Logarithmic_scale"
-                        target="blank"
-                    >
-                        <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
-                                clipRule="evenodd" />
-                            <path
-                                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                    <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
+                    <span className="key"><p>*Click on points for detailed data</p></span><br />
+                    <span className="key"><p>*Watch this <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">video</a> for a detailed explanation on this graph!</p></span><br />
+                    <span className="key"><p>*Data Source: <a target="_blank" rel="noopener noreferrer" href="https://github.com/CSSEGISandData/COVID-19">
+                        <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clipRule="evenodd" />
+                            <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
                         </svg>
-                        <div className="dataSource"></div>
-                    </a>
+                    </a></p></span><br />
+                    <span className="key" style={{ marginTop: "0.5rem" }}>
 
+                        Logarithmic Scale:&nbsp;
+                    <ButtonGroup size="small" aria-label="small outlined button group">
+                            <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>On</Button>
+                            <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({ logScale: false })}>Off</Button>
+                        </ButtonGroup>
+                        <a
+                            style={{
+                                display: "inline-flex",
+                                backgroundColor: "white",
+                                verticalAlign: "middle"
+                            }}
+                            className="badge badge-light"
+                            href="https://en.wikipedia.org/wiki/Logarithmic_scale"
+                            target="blank"
+                        >
+                            <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
+                                    clipRule="evenodd" />
+                                <path
+                                    d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                            </svg>
+                            <div className="dataSource"></div>
+                        </a>
+
+                    </span>
                 </span>
-            </span>
             </div>
         )
     }
