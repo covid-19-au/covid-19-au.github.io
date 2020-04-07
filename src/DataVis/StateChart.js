@@ -284,6 +284,13 @@ function setGeneralLineOption(state, logScale, maxY) {
     generalLineSeries.addSubSeries(tempLineSeries);
   }
 
+  let yAxisType = "value";
+  if (logScale) {
+    yAxisType = "log";
+  }
+
+  console.log("Max Y: ", maxY);
+
   //graph initial start point
   let start = 100 - (14 / dates.length) * 100;
   let startPoint = parseInt(start);
@@ -328,8 +335,11 @@ function setGeneralLineOption(state, logScale, maxY) {
       data: dates,
     },
     yAxis: {
-      type: "value",
-      max: maxY,
+      type: yAxisType,
+      max: parseInt(maxY),
+      axisLabel: {
+        show: true,
+      },
     },
     series: generalLineSeries.getSeriesList(),
   };
@@ -380,7 +390,6 @@ function StateChart({ state }) {
     } else {
       maxValue = Math.max(...maxValue.slice(0, 2));
     }
-    console.log(maxValue);
     setMaxY(calcMaxY(logScale, maxValue));
   }, [logScale]);
 
@@ -526,6 +535,55 @@ function StateChart({ state }) {
           <div className="card">
             <h2>General Information - Line</h2>
             <ReactEcharts option={lineOption} />
+            <span className="key" style={{ marginTop: "0.5rem" }}>
+              Logarithmic Scale:&nbsp;
+              <ButtonGroup
+                size="small"
+                aria-label="small outlined button group"
+              >
+                <Button
+                  style={logScale ? activeStyles : inactiveStyles}
+                  disableElevation={true}
+                  onClick={() => setLogScale(true)}
+                >
+                  On
+                </Button>
+                <Button
+                  style={logScale ? inactiveStyles : activeStyles}
+                  onClick={() => setLogScale(false)}
+                >
+                  Off
+                </Button>
+              </ButtonGroup>
+              <a
+                style={{
+                  display: "inline-flex",
+                  backgroundColor: "white",
+                  verticalAlign: "middle",
+                }}
+                className="badge badge-light"
+                href="https://en.wikipedia.org/wiki/Logarithmic_scale"
+                target="blank"
+              >
+                <svg
+                  className="bi bi-question-circle"
+                  width="1.1em"
+                  height="1.1em"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  backgroundcolor="white"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
+                    clipRule="evenodd"
+                  />
+                  <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                </svg>
+                <div className="dataSource"></div>
+              </a>
+            </span>
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={5}>
