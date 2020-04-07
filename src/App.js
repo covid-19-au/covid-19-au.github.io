@@ -113,7 +113,7 @@ function Header({ province }) {
             <a  onClick={() => {
                 ReactGA.event({category: 'Header', action: "share"});
                 setModalVisibility(true)
-            }}><i className="fas fa-share-square"></i></a>
+            }}><i className="fas fa-share-alt"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "twitter"})}} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "instagram"})}} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "github"})}} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
