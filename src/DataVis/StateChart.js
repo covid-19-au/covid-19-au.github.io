@@ -5,7 +5,6 @@ import Button from "@material-ui/core/Button";
 import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
 import ReactEcharts from "echarts-for-react";
-import { max } from "date-fns";
 
 const colorMapping = {
   Confirmed: "#ff603c",
@@ -13,6 +12,13 @@ const colorMapping = {
   Recovered: "#00c177",
   Tested: "#007cf2",
 };
+
+const genderColorMapping = {
+  Male: "#007cf2",
+  Female: "#63beff",
+  All: "#c11700",
+  NotStated: "#ff603c",
+}
 
 const stateNameMapping = {
   VIC: "Victoria",
@@ -153,7 +159,7 @@ function getStateGeneralData(dateList, state) {
  * @param {String} state user selected state
  */
 function setGenderOption(state) {
-  const genderLabel = ["Male", "Female", "Not Stated"];
+  const genderLabel = ["Male", "Female", "NotStated"];
   const genderData = getGenderData(state);
   // create dataset for gender graph display
   let dataArr = [];
@@ -166,6 +172,15 @@ function setGenderOption(state) {
   let pieSeries = new PieSeries("gender", dataArr);
   pieSeries.setRadius("40%", "70%");
   series.addSubSeries(pieSeries);
+
+  // set colors
+  let colors = [];
+  for (let i = 0; i < genderLabel.length; i++) {
+    colors.push(genderColorMapping[genderLabel[i]]);
+  }
+  let tempSeriesList = series.getSeriesList();
+  tempSeriesList[0]["color"] = colors;
+  series.setSeriesList(tempSeriesList);
 
   let tempOption = {
     title: {
@@ -187,7 +202,7 @@ function setGenderOption(state) {
  */
 function setAgeOption(state) {
   const ageChartLabels = getAgeChartLabels(state);
-  const ageChartLegend = ["All", "Male", "Female", "Not Stated"];
+  const ageChartLegend = ["All", "Male", "Female", "NotStated"];
   let ageDataList = [];
   ageDataList.push(getAgeData(ageChartLabels, ALL_INDEX, state)); // all age data
   ageDataList.push(getAgeData(ageChartLabels, MALE_INDEX, state)); // male age data
@@ -196,6 +211,7 @@ function setAgeOption(state) {
   let ageOptionSeries = new Series();
   for (let i = 0; i < ageDataList.length && i < ageChartLegend.length; i++) {
     let tempBarSeries = new BarSeries(ageChartLegend[i], ageDataList[i]);
+    tempBarSeries.setItemStyle(genderColorMapping[ageChartLegend[i]]);
     ageOptionSeries.addSubSeries(tempBarSeries);
   }
 
@@ -242,13 +258,13 @@ function setGeneralBarOption(state) {
   }
 
   let tempOption = {
-      grid: {
-          containLabel: true,
-          left: 0,
-          right: "5%"
-          , bottom: "10%",
-          top: "20%"
-      },
+    grid: {
+      containLabel: true,
+      left: 0,
+      right: "5%",
+      bottom: "10%",
+      top: "20%",
+    },
     tooltip: lineBarTooltip,
     title: {
       text: "General Info Bar Chart",
@@ -303,13 +319,13 @@ function setGeneralLineOption(state, logScale, maxY) {
   let startPoint = parseInt(start);
 
   let tempOption = {
-      grid: {
-          containLabel: true,
-          left: 0,
-          right: "5%"
-          , bottom: "10%",
-          top: "20%"
-      },
+    grid: {
+      containLabel: true,
+      left: 0,
+      right: "5%",
+      bottom: "10%",
+      top: "20%",
+    },
     tooltip: lineBarTooltip,
     title: {
       text: "General Info Line Chart",
@@ -340,6 +356,7 @@ function setGeneralLineOption(state, logScale, maxY) {
           shadowOffsetX: 2,
           shadowOffsetY: 2,
         },
+        top: "92%",
         bottom: "1%",
         left: "center",
       },
@@ -646,6 +663,14 @@ class Series {
    */
   getSeriesList() {
     return this.list;
+  }
+
+  /**
+   * set series list
+   * @param {Array} list series list
+   */
+  setSeriesList(list) {
+    this.list = list;
   }
 }
 
