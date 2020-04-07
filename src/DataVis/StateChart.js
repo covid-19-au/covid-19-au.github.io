@@ -284,12 +284,12 @@ function setGeneralLineOption(state, logScale, maxY) {
     generalLineSeries.addSubSeries(tempLineSeries);
   }
 
+  let minY = 0;
   let yAxisType = "value";
   if (logScale) {
     yAxisType = "log";
+    minY = 1;
   }
-
-  console.log("Max Y: ", maxY);
 
   //graph initial start point
   let start = 100 - (14 / dates.length) * 100;
@@ -336,10 +336,8 @@ function setGeneralLineOption(state, logScale, maxY) {
     },
     yAxis: {
       type: yAxisType,
-      max: parseInt(maxY),
-      axisLabel: {
-        show: true,
-      },
+      max: maxY,
+      min: minY,
     },
     series: generalLineSeries.getSeriesList(),
   };
@@ -371,10 +369,18 @@ function renderTable(state) {
   );
 }
 
+/**
+ * calculate max y axis according to max value
+ * @param {Boolean} logScale if log scale in enabled
+ * @param {Int} maxValue max value to calculate the max y axis
+ */
 function calcMaxY(logScale, maxValue) {
-  return logScale
-    ? Math.ceil(maxValue / 10000) * 10000
-    : Math.ceil(maxValue / 1000) * 1000;
+  let len = Math.ceil(Math.log(maxValue + 1) / Math.LN10);
+  let base = Math.pow(10, len - 1);
+  if (logScale) {
+    base = Math.pow(10, len);
+  }
+  return Math.ceil(maxValue / base) * base;
 }
 
 function StateChart({ state }) {
