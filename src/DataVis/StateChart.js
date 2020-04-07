@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
 import ReactEcharts from "echarts-for-react";
+import latestData from "../data/stateCaseData";
 
 const colorMapping = {
   Confirmed: "#ff603c",
@@ -111,9 +112,14 @@ function getExpectStateData(state) {
  * @return {Array} latest data of user choosen state
  */
 function getLatestData(state) {
-  return stateData[Object.keys(stateData)[Object.keys(stateData).length - 1]][
-    state
-  ];
+  let valueArr = latestData["values"];
+  let dataArr = []
+  for (let i = 0; i < valueArr.length; i++) {
+    if (valueArr[i][0].toString() === state.toUpperCase()) {
+      dataArr = valueArr[i].slice(1, valueArr[i].length);
+    }
+  }
+  return dataArr;
 }
 
 /**
