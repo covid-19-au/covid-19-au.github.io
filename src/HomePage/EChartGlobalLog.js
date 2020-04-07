@@ -258,7 +258,7 @@ class EChartglobalLog extends Component {
                 return {
                     name: this.state.dates[(this.state.dates.length - 1) - (this.state.arrMap[arrMapKeys[i]]["x,y"].length - 1) + index],
                     value: val,
-                    symbolSize: 0
+                    symbolSize: 1
                 };
             });
 
@@ -269,6 +269,7 @@ class EChartglobalLog extends Component {
     }
 
     // lineOnMouseOver = (e) => {
+    //     console.log(this.chartReference)
     //     let datasets = this.chartReference.current.props.option.series;
     //     datasets[e.componentIndex].lineStyle.width = 2;
     //     this.chartReference.current.rerender();
@@ -293,7 +294,7 @@ class EChartglobalLog extends Component {
                     ref={this.chartReference}
                     /*
                     onEvents={{
-                        'mouseover': this.lineOnMouseOver,
+                        'mouseover': this.lineOnMouseOver
                         'mouseout': this.lineOnMouseOut
                     }}*/
                     option={{
@@ -303,7 +304,19 @@ class EChartglobalLog extends Component {
                             top: "top",
                             itemGap: 5,
                             selected: {
-                                'series 1': false
+                                'Singapore': false,
+                                'Canada': false,
+                                'Norway': false,
+                                'France': false,
+                                'Switzerland': false,
+                                'Sweden': false,
+                                'Denmark': false,
+                                'Iran': false,
+                                'Spain': false,
+                                'Germany': false,
+                                'Japan': false,
+                                'South Korea': false,
+                                'UK': false
                             }
                         },
                         grid: {
