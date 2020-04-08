@@ -29,10 +29,10 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#79d9b4'
             },
             Italy: {
-                backgroundColor: '#7c4e57'
+                backgroundColor: '#3281f7'
             },
             Japan: {
-                backgroundColor: '#000d85'
+                backgroundColor: '#d24a24'
             },
             'South Korea': {
                 backgroundColor: '#8ccfff'
@@ -56,7 +56,7 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#377d22'
             },
             US: {
-                backgroundColor: '#547dbf'
+                backgroundColor: '#000d85'
             }
         },
         activeStyles: {
