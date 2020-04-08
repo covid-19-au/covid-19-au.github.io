@@ -272,7 +272,7 @@ class EChartglobalLog extends Component {
     render() {
         return (
             <div className="card">
-                <h2>Global Log</h2>
+                <h2>Global Comparison</h2>
                 <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
                     ref={this.chartReference}
                     /*
