@@ -297,9 +297,7 @@ class EChartglobalLog extends Component {
                                 'Iran': false,
                                 'Spain': false,
                                 'Germany': false,
-                                'Japan': false,
-                                'South Korea': false,
-                                'UK': false
+                                'South Korea': false
                             }
                         },
                         grid: {
