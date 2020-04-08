@@ -9,13 +9,13 @@ class EChartglobalLog extends Component {
     static defaultProps = {
         countryColours: {
             AU: {
-                backgroundColor: '#f9d649'
+                backgroundColor: '#00843D'
             },
             Canada: {
                 backgroundColor: '#ff8f75'
             },
             China: {
-                backgroundColor: '#c74c4a'
+                backgroundColor: '#eb3423'
             },
             Denmark: {
                 backgroundColor: '#8e9191'
@@ -24,7 +24,7 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#ed7d51'
             },
             Germany: {
-                backgroundColor: '#7066ba'
+                backgroundColor: '#f9d649'
             },
             Iran: {
                 backgroundColor: '#79d9b4'
@@ -54,7 +54,7 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#c79e8f'
             },
             UK: {
-                backgroundColor: '#377d22'
+                backgroundColor: '#bf2a2c'
             },
             US: {
                 backgroundColor: '#4d538a'
@@ -216,6 +216,7 @@ class EChartglobalLog extends Component {
         for (let i = 0; i < arrMapKeys.length; i++) {
             let newDataSet = {};
             newDataSet["name"] = arrMapKeys[i];
+            newDataSet["z"] = arrMapKeys[i] === "AU" ? 3 : arrMapKeys[i] === "US" ? 1 : 2;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;
             /*
@@ -313,7 +314,6 @@ class EChartglobalLog extends Component {
                             bottom: "10%",
 
                             top: window.innerWidth > 500 ? "15%" : "26%"
-
                         },
                         tooltip: {
                             trigger: 'axis',
