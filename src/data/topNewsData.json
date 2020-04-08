@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://7news.com.au/news/health/australians-urged-to-stay-home-over-easter-c-962838",
+            "title": "No time to relax in costly virus fight: PM",
+            "source": "7News",
+            "date": "08 April 2020",
+            "time": "18:11",
+            "summary": "Australia's death toll from the coronavirus has hit 50 as political leaders warn now is not the time to ease the measures that are preventing much higher fatality rates. The daily increase in new cases has dropped to about three per cent, but health experts are concerned COVID-19 could be widely transmitted among unwitting community members. However, Health Minister Greg Hunt warned abandoning social distancing rules over the long weekend would undo everything done to curtail the crisis."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-08/scientists-developing-test-for-coronavirus-severity-in-patients/12124402",
+            "title": "",
+            "source": "",
+            "date": "08 April 2020",
+            "time": "10:30",
+            "summary": "Australian researchers are working on a test they say will be able to predict the severity of symptoms in COVID-19 patients, telling them how hard the virus will hit them after they contract it and what their immunity will be when they recover."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-07/scott-morrison-press-conference-coronavirus-crisis-modelling/12129550",
             "title": "Scott Morrison's press conference: Coronavirus modelling, rental tenancies and what you shouldn't do this Easter ",
             "source": "ABCNews",
@@ -111,22 +127,6 @@
             "date": "02 April 2020",
             "time": "15:30",
             "summary": "Eligible Australian employees are now entitled to two weeks' \"pandemic leave\" if they need to self-isolate during the coronavirus pandemic as part of sweeping industrial relations changes announced today. The Minister for Industrial Relations, Christian Porter, has announced changes to 103 of Australia's 121 existing employee awards."
-        },
-        {
-            "link": "https://www.abc.net.au/news/health/2020-04-01/australians-urged-to-get-flu-vaccination-coronavirus-covid-19/12107264",
-            "title": "Get flu vaccinations earlier than usual because of coronavirus, GPs urge Australians",
-            "source": "ABCNews",
-            "date": "01 April 2020",
-            "time": "04:00",
-            "summary": "Australians are being urged to get their flu vaccination as soon as possible to reduce strain on the health system caused by COVID-19. The flu vaccine won't combat COVID-19, but it will help to reduce the severity and spread of seasonal influenza, which can lower a person's immunity and make them susceptible to other illnesses. Flu vaccines are available from your local GP - though be sure to call ahead to check they’re in stock."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-01/retired-nurses-doctors-pharmacists-recalled-to-fight-coronavirus/12109608",
-            "title": "Retired nurses, doctors, pharmacists to be re-instated to help fight coronavirus",
-            "source": "ABCNews",
-            "date": "01 April 2020",
-            "time": "23:31",
-            "summary": "More than 40,000 former doctors, nurses, midwives and pharmacists are being urged to re-join the medical workforce, to bolster the front line in Australia's fight against coronavirus. The former medical professionals would be added to the general register for a year, under a pandemic sub-register. To ensure public safety, practitioners who have been struck off the register will not be eligible to take part."
         }
     ]
 }
