@@ -398,7 +398,7 @@ class MbMap extends React.Component {
 
             function addPointer(id_geosjon) {
                 map.on('click', id_geosjon, function (e) {
-                    ReactGA.event({ category: 'ConfirmMap', action: "StateClick", label: e.features[0].properties.vic_lga__2 });
+                    ReactGA.event({ category: 'ConfirmMap', action: "StateClick", label: e.features[0].properties.city });
                     var cases = e.features[0].properties.cases;
                     var date = e.features[0].properties.date;
 
