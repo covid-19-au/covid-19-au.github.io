@@ -871,5 +871,23 @@
     "time": "N/A",
     "description": "Active cluster investigations in NSW: 2 cases. Local Transmission.",
     "coor": ["-32.739604", "151.324764"]
+  },
+  {
+    "state": "NSW",
+    "area": "Mosman",
+    "name": "Middle Harbour Public School",
+    "date": "8/3/20",
+    "time": "N/A",
+    "description": "A teacher is a confirmed case",
+    "coor": ["-33.823380", "151.232922"]
+  },
+  {
+    "state": "TAS",
+    "area": "",
+    "name": "North West Regional Hospital",
+    "date": "8/4/20",
+    "time": "N/A",
+    "description": "A further eight people have tested positive to coronavirus in relation to the current outbreak at the North West Regional Hospital.",
+    "coor": ["-41.047280", "145.880549"]
   }
 ]
