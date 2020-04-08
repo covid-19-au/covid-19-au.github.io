@@ -4,6 +4,7 @@ import ReactEcharts from "echarts-for-react";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 
+
 class EChartglobalLog extends Component {
     static defaultProps = {
         countryColours: {
@@ -251,6 +252,9 @@ class EChartglobalLog extends Component {
 
     }
 
+
+
+
     // lineOnMouseOver = (e) => {
     //     console.log(this.chartReference)
     //     let datasets = this.chartReference.current.props.option.series;
@@ -268,6 +272,8 @@ class EChartglobalLog extends Component {
         this.chartIt();
         console.log(this.chartReference)
     }
+
+
 
     render() {
         return (
@@ -305,7 +311,7 @@ class EChartglobalLog extends Component {
                             left: 0,
                             right: "10%",
                             bottom: "10%",
-                            top: "20%"
+                            top: window.innerWidth > 500 ? "15%" : "26%"
                         },
                         tooltip: {
                             trigger: 'axis',
