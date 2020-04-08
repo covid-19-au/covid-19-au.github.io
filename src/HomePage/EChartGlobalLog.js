@@ -215,6 +215,7 @@ class EChartglobalLog extends Component {
         for (let i = 0; i < arrMapKeys.length; i++) {
             let newDataSet = {};
             newDataSet["name"] = arrMapKeys[i];
+            newDataSet["z"]=arrMapKeys[i]==="AU"?3:1;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;
             /*
