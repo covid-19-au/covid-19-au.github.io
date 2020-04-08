@@ -29,13 +29,28 @@ function UpdatesToday() {
 
     let values = todayData["values"]
 
-    //let i = 0
-    //while (i < values.length){
-    //     todayDataObject[values[i][0]]
+    let i = 0
+    while (i < values.length) {
 
-    //  }
+        let currentState = values[i][0]
+        todayDataObject[currentState] = []
+        todayDataObject[currentState].push(values[i][1])
+        todayDataObject[currentState].push(values[i][2])
+        todayDataObject[currentState].push(values[i][3])
+        todayDataObject[currentState].push(values[i][4])
 
-    console.log(values.length)
+        i = i + 1
+    }
+
+    for (let state in stateUpdateStatus) {
+        if (todayDataObject[state][0] != yesterdayData[state][0]) {
+            stateUpdateStatus[state] = true
+        }
+    }
+
+    console.log(todayDataObject)
+    console.log(yesterdayData)
+    console.log(stateUpdateStatus)
 
 
 
