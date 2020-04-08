@@ -98,7 +98,7 @@ export default function Stat({
             <div className="row">
                 <Tag
                     // number={curedCount}
-                    number={"2500+"}
+                    number={"2800+"}
                     fColor={"#00c177"}
                     increased={curedCountIncrease}
                     typeOfCases={"Recovered"}

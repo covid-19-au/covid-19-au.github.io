@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/health/2020-04-01/australians-urged-to-get-flu-vaccination-coronavirus-covid-19/12107264",
+            "title": "Get flu vaccinations earlier than usual because of coronavirus, GPs urge Australians",
+            "source": "ABCNews",
+            "date": "01 April 2020",
+            "time": "04:00",
+            "summary": "Australians are being urged to get their flu vaccination as soon as possible to reduce strain on the health system caused by COVID-19. The flu vaccine won't combat COVID-19, but it will help to reduce the severity and spread of seasonal influenza, which can lower a person's immunity and make them susceptible to other illnesses. Flu vaccines are available from your local GP - though be sure to call ahead to check they’re in stock."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-01/retired-nurses-doctors-pharmacists-recalled-to-fight-coronavirus/12109608",
+            "title": "Retired nurses, doctors, pharmacists to be re-instated to help fight coronavirus",
+            "source": "ABCNews",
+            "date": "01 April 2020",
+            "time": "23:31",
+            "summary": "More than 40,000 former doctors, nurses, midwives and pharmacists are being urged to re-join the medical workforce, to bolster the front line in Australia's fight against coronavirus. The former medical professionals would be added to the general register for a year, under a pandemic sub-register. To ensure public safety, practitioners who have been struck off the register will not be eligible to take part."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-03-30/coronavirus-wage-subsidies-government-businesses-workers/12103108",
             "title": "Federal Government offers $130b in coronavirus wage subsidies for businesses to pay workers",
             "source": "ABCNews",
