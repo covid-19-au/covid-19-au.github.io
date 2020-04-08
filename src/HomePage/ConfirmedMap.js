@@ -544,7 +544,7 @@ class MbMap extends React.Component {
                 display: 'flex',
                 flexDirection: 'column',
             }}>
-                <h2 style={{ display: "flex" }}>Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+                <h2 style={{ display: "flex" }} aria-label="Hospital and Case Map">Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div></h2>
                 <div ref={el => this.mapContainer = el} >
