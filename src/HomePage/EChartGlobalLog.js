@@ -29,7 +29,7 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#79d9b4'
             },
             Italy: {
-                backgroundColor: '#3281f7'
+                backgroundColor: '#79aaf2'
             },
             Japan: {
                 backgroundColor: '#ff91a9'
