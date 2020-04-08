@@ -2,8 +2,66 @@ import React from "react";
 import Tag from "./Tag";
 import ReactGA from "react-ga";
 import stateCaseData from "../data/stateCaseData";
-import Acknowledgement from "../Acknowledgment"
+import Acknowledgement from "../Acknowledgment";
+import todayData from "../data/stateCaseData.json";
+import previousData from "../data/state.json";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
 
+function UpdatesToday() {
+
+    let today = new Date()
+    let yesterday = new Date(today)
+
+    yesterday.setDate(yesterday.getDate() - 1)
+
+    let yesterdayKey = yesterday.getFullYear().toString() + "-" + parseInt(yesterday.getMonth() + 1).toString() + "-" + yesterday.getDate().toString()
+
+    let yesterdayData = previousData[yesterdayKey]
+
+
+    let stateUpdateStatus = {}
+    for (let state in yesterdayData) {
+        stateUpdateStatus[state] = false
+    }
+
+    let todayDataObject = {}
+
+    let values = todayData["values"]
+
+    //let i = 0
+    //while (i < values.length){
+    //     todayDataObject[values[i][0]]
+
+    //  }
+
+    console.log(values.length)
+
+
+
+    const activeStyles = {
+        color: 'black',
+        borderColor: '#8ccfff',
+        padding: "0px",
+        outline: "none",
+        zIndex: 10
+    };
+    const inactiveStyles = {
+        color: 'grey',
+        borderColor: '#e3f3ff',
+        padding: "0px",
+        outline: "none"
+    };
+
+    return (
+
+        <ButtonGroup size="normal" aria-label="small outlined button group">
+            <Button style={inactiveStyles} disableElevation={true}>On</Button>
+            <Button style={activeStyles}>Off</Button>
+        </ButtonGroup>
+    )
+
+}
 
 export default function Stat({
     modifyTime,
@@ -121,6 +179,7 @@ export default function Stat({
                 </Tag>
 
             </div>
+            <UpdatesToday></UpdatesToday>
 
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
                 Time in AEST, last updated at: {stateCaseData.updatedTime}
