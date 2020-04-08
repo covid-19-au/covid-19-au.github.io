@@ -1,6 +1,62 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-03-30/coronavirus-wage-subsidies-government-businesses-workers/12103108",
+            "title": "Federal Government offers $130b in coronavirus wage subsidies for businesses to pay workers",
+            "source": "ABCNews",
+            "date": "31 March 2020",
+            "time": "00:32",
+            "summary": "The Government expects up to 6 million people will access a $1,500 fortnightly wage subsidy. The so-called JobKeeper payment is designed to keep people in work. The Government will also lift the means-testing threshold for the partners of JobSeeker recipients."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-update-australia-scott-morrison-announces-strictest-gathering-measures-yet-c-769960",
+            "title": "Coronavirus update Australia: Scott Morrison announces strictest gathering measures yet",
+            "source": "7News",
+            "date": "29 March 2020",
+            "time": "19:32",
+            "summary": "Prime Minister Scott Morrison has announced the strictest gathering recommendations to date - that no more than two people gather in public spaces at any given time. This move also spells the closure for public areas, such as playgrounds, outdoor gyms and skate parks, though restrictions on weddings and funerals will stay the same."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
+            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
+            "source": "ABCNews",
+            "date": "29 March 2020",
+            "time": "23:22",
+            "summary": "The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus. In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/health-minister-says-early-signs-australia-is-flattening-the-curve-even-as-coronavirus-cases-increase",
+            "title": "Health Minister Greg Hunt says there are early signs that Australia is flattening the curve, even though coronavirus cases are still on the rise.",
+            "source": "ABCNews",
+            "date": "29 March 2020",
+            "time": "13:00",
+            "summary": "The Federal Government said the rate of increase of cases was about 25-30 per cent a day last week, which has fallen to about 13-15 per cent this weekend. However, they warn that Australians must continue to follow social distancing and self-isolation guidelines."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
+            "title": "Coronavirus patients’ average age only 48 as Australian tally soars beyond 3,400",
+            "source": "7News",
+            "date": "28 March 2020",
+            "time": "16:15",
+            "summary": "There are now 3,400 cases of the virus in Australia, a vast majority of which have been diagnosed in New South Wales and Victoria. The median age of Australians diagnosed with novel coronavirus has been revealed to be 48 years old. However, the average age of fatalities is 77."
+        },
+        {
+            "link": "https://7news.com.au/business/global-economy-is-in-recession-imf-head-c-768395",
+            "title": "Global economy is in recession: IMF head",
+            "source": "7News",
+            "date": "28 March 2020",
+            "time": "07:07",
+            "summary": "The head of the International Monetary Fund says it is clear that the global economy has now entered a recession that could be as bad or worse than the 2009 downturn. IMF Managing Director Kristalina Georgieva forecasted a recovery in 2021, but she said this would only occur if countries succeed in containing the coronavirus and limiting the economic damage."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-in-australia-army-called-in-to-help-enforce-strict-new-quarantine-rules--c-766521",
+            "title": "Coronavirus in Australia: Army called in to help enforce strict new quarantine rules ",
+            "source": "7News",
+            "date": "28 March 2020",
+            "time": "09:08",
+            "summary": "The Australian Army will be deployed across all states and territories, stepping in to assist governments with new measures. The ADF will assist in both monitoring Friday’s regulations for returned overseas travellers and ensuring compliance checks with those in self-isolation at their homes. However, the prime minister says the army will not have the power to prosecute or arrest."
+        },
+        {
             "link": "https://www.9news.com.au/national/coronavirus-scott-morrison-no-national-decision-schools-state-premiers-to-decide/a13197c6-0d82-4129-9bc6-6459a476ef35",
             "title": "No national decision on school closures over coronavirus, PM says states must decide",
             "source": "9News",

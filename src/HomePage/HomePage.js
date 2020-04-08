@@ -9,7 +9,7 @@ import StateGraph from "./StateGraph";
 import MbMap from "./ConfirmedMap";
 import Stat from "./Stat"
 import HistoryGraph from "./HistoryGraph"
-import LineChart from "./LineChart";
+import EChartGlobalLog from "./EChartGlobalLog"
 
 import uuid from "react-uuid";
 import CanvasJSReact from "../assets/canvasjs.react";
@@ -20,6 +20,7 @@ import country from "../data/country";
 import all from "../data/overall";
 
 import OverallTrend from "./OverallTrend"
+import StateComparisonChart from "./StateComparisonChart"
 
 
 const provincesByName = keyBy(provinces, "name");
@@ -66,16 +67,11 @@ export default function HomePage({
 
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
                 <MbMap />
-                <div className="card">
-                    <h2>Historical Data</h2>
-                    <OverallTrend />
-                    <hr />
-                    <HistoryGraph countryData={country} />
-                </div>
+                <OverallTrend />
             </Grid>
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
-                <StateGraph stateData={stateData} />
-                <LineChart />
+                <StateComparisonChart />
+                <EChartGlobalLog />
             </Grid>
 
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>

@@ -76,7 +76,7 @@ This site is developed and maintained by a volunteer team:
 * Marcel Masque
 * Yaoye Lu
 * Tuan Khoi Nguyen
-
+* Oscar Morrisono
 
 
 
