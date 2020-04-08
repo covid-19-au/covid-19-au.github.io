@@ -8,13 +8,13 @@ class EChartglobalLog extends Component {
     static defaultProps = {
         countryColours: {
             AU: {
-                backgroundColor: '#8ccfff'
+                backgroundColor: '#f9d649'
             },
             Canada: {
-                backgroundColor: '#c27cb9'
+                backgroundColor: '#ff8f75'
             },
             China: {
-                backgroundColor: '#547dbf'
+                backgroundColor: '#c74c4a'
             },
             Denmark: {
                 backgroundColor: '#8e9191'
@@ -23,19 +23,19 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#ed7d51'
             },
             Germany: {
-                backgroundColor: '#edbd64'
+                backgroundColor: '#7066ba'
             },
             Iran: {
-                backgroundColor: '#37694b'
-            },
-            Italy: {
                 backgroundColor: '#79d9b4'
             },
+            Italy: {
+                backgroundColor: '#7c4e57'
+            },
             Japan: {
-                backgroundColor: '#ff8f75'
+                backgroundColor: '#000d85'
             },
             'South Korea': {
-                backgroundColor: '#7066ba'
+                backgroundColor: '#8ccfff'
             },
             Norway: {
                 backgroundColor: '#855a8f'
@@ -53,10 +53,10 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#c79e8f'
             },
             UK: {
-                backgroundColor: '#7c4e57'
+                backgroundColor: '#377d22'
             },
             US: {
-                backgroundColor: '#c74c4a'
+                backgroundColor: '#547dbf'
             }
         },
         activeStyles: {
