@@ -93,17 +93,17 @@ class MbMap extends React.Component {
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
-                updated_date = '6/4/20';
+                updated_date = '7/4/20';
             } else if (state === 'NSW') {
                 city_name = city_name.toLowerCase();
-                updated_date = '6/4/20';
+                updated_date = '7/4/20';
             } else if (state === 'WA') {
                 city_name = city_name.toLowerCase();
-                updated_date = '6/4/20';
+                updated_date = '7/4/20';
             }
             else {
                 city_name = city_name.toLowerCase();
-                updated_date = '6/4/20';
+                updated_date = '7/4/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
@@ -398,7 +398,7 @@ class MbMap extends React.Component {
 
             function addPointer(id_geosjon) {
                 map.on('click', id_geosjon, function (e) {
-                    ReactGA.event({ category: 'ConfirmMap', action: "StateClick", label: e.features[0].properties.vic_lga__2 });
+                    ReactGA.event({ category: 'ConfirmMap', action: "StateClick", label: e.features[0].properties.city });
                     var cases = e.features[0].properties.cases;
                     var date = e.features[0].properties.date;
 

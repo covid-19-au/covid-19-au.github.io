@@ -57,7 +57,7 @@ export default function Area({ area, onChange, data }) {
         {/*<div className="death">{ x.deadCount }</div>*/}
         {/*<div className="cured">{ x.curedCount }</div>*/}
         <div className={"area"}>
-          <A href={`/state/${x[0].toLowerCase()}`}>
+          <A href={`/state/${x[0].toLowerCase()}`} onClick={()=>{window.scrollTo(0, 0);}}>
             <strong>
                 <u>{x[0]}</u>{" "}
               {fill ? (
@@ -133,7 +133,7 @@ export default function Area({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">*2400+</div>
+        <div className="cured">*2500+</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
     );

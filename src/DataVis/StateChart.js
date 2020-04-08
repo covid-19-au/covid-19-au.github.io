@@ -41,6 +41,23 @@ const lineBarTooltip = {
     },
   },
 };
+
+const ageTooltip = {
+    trigger: "axis",
+    axisPointer: {
+        crossStyle: {
+            color: "#999",
+        },
+    },
+    formatter: function (params) {
+        let str = '<div><p>Age: '+params[0].name+'</p></div>';
+        for(let i=0;i<params.length;i++){
+            str+=params[i].marker+' '+params[i].seriesName+': '+params[i].data+'<br/>'
+        }
+        return str
+    }
+};
+
 const pieTooltip = {
   trigger: "item",
   formatter: "{a} <br /> {b}: {c} ({d}%)",
@@ -218,7 +235,7 @@ function setAgeOption(state) {
   }
 
   let tempOption = {
-    tooltip: lineBarTooltip,
+    tooltip: ageTooltip,
     title: {
       text: "Age Group Chart",
     },
@@ -369,7 +386,7 @@ function setGeneralLineOption(state, logScale, maxY) {
     },
     yAxis: {
       type: yAxisType,
-      max: maxY,
+      // max: maxY,
       min: minY,
     },
     series: generalLineSeries.getSeriesList(),
@@ -451,7 +468,7 @@ function StateChart({ state }) {
     } else {
       maxValue = Math.max(...maxValue.slice(0, 2));
     }
-    setMaxY(calcMaxY(logScale, maxValue));
+    // setMaxY(calcMaxY(logScale, maxValue));
   }, [logScale]);
 
   let genderOption;
