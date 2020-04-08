@@ -305,7 +305,7 @@ class EChartglobalLog extends Component {
                             left: 0,
                             right: "10%",
                             bottom: "10%",
-                            top: "20%"
+                            top: window.innerWidth>500?"20%":"30%"
                         },
                         tooltip: {
                             trigger: 'axis',
