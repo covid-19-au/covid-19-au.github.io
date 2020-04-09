@@ -367,6 +367,9 @@ class EChartglobalLog extends Component {
                     }}
                 />
                 <span className="due">
+                    <span className="key" style={{ fontSize: "80%", paddingTop: 0 }}>
+                        Last updated on: {this.state.dates[this.state.dates.length - 1]}
+                    </span><br /><br />
                     <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
                     <span className="key"><p>*Click on points for detailed data</p></span><br />
                     <span className="key"><p>*Watch this <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">video</a> for a detailed explanation on this graph!</p></span><br />
@@ -405,6 +408,7 @@ class EChartglobalLog extends Component {
 
                     </span>
                 </span>
+
             </div>
         )
     }
