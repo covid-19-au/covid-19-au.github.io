@@ -12,11 +12,45 @@
         "washingHandLink": "Here's a step-by-step guide you can save",
         "media3Descrip": "How to properly wear and dispose of masks."
     },
-    "generalInformation":{},
-    "currentRegulation":{},
-    "selfDiagnosis":{},
-    "prevention":{},
-    "coronavirusHelpline":{},
-    "interestingLinks":{},
-    "testingCentres":{}
+    "generalInformation":{
+        "title":"General Information"
+    },
+    "currentRegulation":{
+        "title":"Current Regulations"
+    },
+    "selfDiagnosis":{
+        "title":"Think you have COVID-19?"
+    },
+    "prevention":{
+        "title":"Protecting Yourself and Others"
+    },
+    "coronavirusHelpline":{
+        "title":"Coronavirus Helplines",
+        "sect1heading":"National helplines operating 24 hours a day, seven days a week.",
+        "sect1point1":"For information on coronavirus (COVID-19) at the National Helpline:",
+        "sect1point2":"If you are feeling unwell, call Healthdirect:",
+        "sect2heading":"Some states have dedicated helplines as well: ",
+        "sect2point1":"Victoria: ",
+        "sect2point2":"Queensland: ",
+        "sect2point3":"Northern Territory: ",
+        "sect2point3part1":"-  If you are in Darwin and need to arrange testing call the Public Health Unit on: ",
+        "sect2point4":"Tasmania: ",
+        "sect2point4part1d1":"-  If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) on ",
+        "sect2point4part1d2":" and tell them your language.",
+        "sect2point4part2":"-  Tell the interpreter your name and that you’re calling the Tasmanian Department of Health "
+    },
+    "interestingLinks":{
+        "title":"Other interesting links to learn about the current situation",
+        "point1":"Coronavirus: The Hammer and the Dance",
+        "point2part1":"The New York Times",
+        "point2part2":" and the ",
+        "point2part3":"Economist",
+        "point2part4":" are giving people free access to their coronavirus coverage. It's really good!"
+    },
+    "testingCentres":{
+        "title":"List of Hospitals doing Coronavirus testing",
+        "sect1heading":"Note: ",
+        "sect1body":"For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on ",
+        "tableNote":"Filter the table by clicking the dropdown below state."
+    }
 }

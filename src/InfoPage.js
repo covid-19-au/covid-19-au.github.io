@@ -15,7 +15,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import dailyFun from "./data/dailyFun"
 import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
-// import i18n (needs to be bundled ;)) 
+// import i18n bundle
 import i18next from './i18n';
 
 // Info page to present information about the virus.
@@ -133,7 +133,7 @@ function Information({ hospitalData, columns }) {
             <div className="card" >
 
 
-                <h2 className="responsiveH2">General Information</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:generalInformation:title")}</h2>
                 {information.generalCovidInfo.map(info => (
                     <div key={uuid()}>
                         <div>
@@ -196,7 +196,7 @@ function Information({ hospitalData, columns }) {
                 ))
                 }</div>
             <div className="card" >
-                <h2 className="responsiveH2">Current Regulations</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:currentRegulation:title")}</h2>
                 {information.regulations.map(info => (
                     <div key={uuid()}>
                         <div>
@@ -264,7 +264,7 @@ function Information({ hospitalData, columns }) {
                 ))
                 }</div>
             <div className="card" >
-                <h2 className="responsiveH2">Think you have COVID-19?</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:selfDiagnosis:title")}</h2>
                 {information.haveCovid.map(info => (
                     <div key={uuid()}>
                         <div>
@@ -327,7 +327,7 @@ function Information({ hospitalData, columns }) {
                 ))
                 }</div>
             <div className="card" >
-                <h2 className="responsiveH2">Protecting Yourself and Others</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:prevention:title")}</h2>
 
                 {information.protect.map(info => (
                     <div key={uuid()}>
@@ -418,44 +418,44 @@ function Information({ hospitalData, columns }) {
                 ))
                 }</div>
             <div className="card" >
-                <h2 className="responsiveH2">Coronavirus Helplines</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:coronavirusHelpline:title")}</h2>
                 <div className="row alignStyles responsiveText">
                     <div>
-                        <h3>National helplines operating 24 hours a day, seven days a week.</h3>
+                        <h3>{i18next.t("infoPage:coronavirusHelpline:sect1heading")}</h3>
                         <ul>
-                            <li>For information on coronavirus (COVID-19) at the National Helpline: <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
-                            <li>If you are feeling unwell, call Healthdirect: <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect1point1")} <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect1point2")} <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
                         </ul>
-                        <h3>Some states have dedicated helplines aswell: </h3>
+                        <h3>{i18next.t("infoPage:coronavirusHelpline:sect2heading")}</h3>
                         <ul>
-                            <li>Victoria: <a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
-                            <li>Queensland: <a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
-                            <li>Northern Territory: <a className="citationLink" href="tel:1800008002">1800 008 002</a>
-                                <p>-  If you are in Darwin and need to arrange testing call the Public Health Unit on: <a className="citationLink" href="tel:89228044">8922 8044</a></p>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point1")}<a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point2")}<a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point3")}<a className="citationLink" href="tel:1800008002">1800 008 002</a>
+                                <p>{i18next.t("infoPage:coronavirusHelpline:sect2point3part1")}<a className="citationLink" href="tel:89228044">8922 8044</a></p>
                             </li>
-                            <li>Tasmania: <a className="citationLink" href="tel:1800671738">1800 671 738</a>
-                                <p>-  If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) on <a className="citationLink" href="tel:131450">131 450</a> and tell them your language.</p>
-                                <p>-  Tell the interpreter your name and that you’re calling the Tasmanian Department of Health <a className="citationLink" href="tel:1800671738" >1800 671 738</a>.</p>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point4")}<a className="citationLink" href="tel:1800671738">1800 671 738</a>
+                                <p>{i18next.t("infoPage:coronavirusHelpline:sect2point4part1d1")}<a className="citationLink" href="tel:131450">131 450</a>{i18next.t("infoPage:coronavirusHelpline:sect2point4part1d2")} </p>
+                                <p>{i18next.t("infoPage:coronavirusHelpline:sect2point4part2")}<a className="citationLink" href="tel:1800671738">1800 671 738</a>.</p>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div className="card" >
-                <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:interestingLinks:title")}</h2>
                 <div className="row alignStyles responsiveText">
                     <div>
                         <ul>
-                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">Coronavirus: The Hammer and the Dance</a></li>
-                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/news-event/coronavirus">The New York Times</a> and the <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.economist.com/news/2020/03/11/the-economists-coverage-of-the-coronavirus">Economist</a> are giving people free access to their coronavirus coverage. It's really good!</li>
+                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">{i18next.t("infoPage:interestingLinks:point1")}</a></li>
+                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/news-event/coronavirus">{i18next.t("infoPage:interestingLinks:point2part1")}</a>{i18next.t("infoPage:interestingLinks:point2part2")}<a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.economist.com/news/2020/03/11/the-economists-coverage-of-the-coronavirus">{i18next.t("infoPage:interestingLinks:point2part3")}</a>{i18next.t("infoPage:interestingLinks:point2part4")}</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div className="card" >
-                <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
-                <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
-                <small>Filter the table by clicking the dropdown below state.</small>
+                <h2 className="responsiveH2">{i18next.t("infoPage:testingCentres:title")}</h2>
+                <p className="responsiveText"><strong>{i18next.t("infoPage:testingCentres:sect1heading")}</strong>{i18next.t("infoPage:testingCentres:sect1body")}<a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
+                <small>{i18next.t("infoPage:testingCentres:tableNote")}</small>
                 <div className="row centerMedia">
                     <div>
                         <Table className="formatMedia" columns={columns} data={hospitalData} />
