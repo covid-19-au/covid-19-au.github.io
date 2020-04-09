@@ -93,17 +93,17 @@ class MbMap extends React.Component {
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
-                updated_date = '8/4/20';
+                updated_date = '9/4/20';
             } else if (state === 'NSW') {
                 city_name = city_name.toLowerCase();
-                updated_date = '8/4/20';
+                updated_date = '9/4/20';
             } else if (state === 'WA') {
                 city_name = city_name.toLowerCase();
-                updated_date = '8/4/20';
+                updated_date = '9/4/20';
             }
             else {
                 city_name = city_name.toLowerCase();
-                updated_date = '8/4/20';
+                updated_date = '9/4/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
@@ -544,7 +544,7 @@ class MbMap extends React.Component {
                 display: 'flex',
                 flexDirection: 'column',
             }}>
-                <h2 style={{ display: "flex" }}>Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+                <h2 style={{ display: "flex" }} aria-label="Hospital and Case Map">Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div></h2>
                 <div ref={el => this.mapContainer = el} >
