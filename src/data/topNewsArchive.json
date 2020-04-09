@@ -1,6 +1,38 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/02/free-childcare-what-do-the-governments-coronavirus-changes-mean-for-my-family",
+            "title": "Free childcare: what do the Australian government's coronavirus changes mean for my family?",
+            "source": "TheGuardian",
+            "date": "02 April 2020",
+            "time": "21:34",
+            "summary": "The federal government says it will make Australian childcare services free during the coronavirus crisis, with priority given to parents who need to continue working. It is also promoting its plan as a way to help childcare centres remain open and viable through the crisis."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/csiro-tests-potential-covid-19-vaccines-c-947346",
+            "title": "Coronavirus Australia update: CSIRO tests potential COVID-19 vaccines",
+            "source": "7News",
+            "date": "02 April 2020",
+            "time": "05:39",
+            "summary": "CSIRO scientists are performing the first stage of testing for two vaccine candidates at the agency’s high-containment biosecurity facility in Geelong. The pre-clinical trials, which are expected to take three months, will use animal subjects to test whether the potential vaccines from the University of Oxford and Inovio Pharmaceuticals are safe and effective."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-02/coronavirus-covid-19-testing-1-per-cent-australia-population/12114004",
+            "title": "Australian coronavirus testing hits world-leading levels above 1 per cent of population, Scott Morison says",
+            "source": "ABCNews",
+            "date": "02 April 2020",
+            "time": "21:45",
+            "summary": "More than 260,000 coronavirus tests have been carried out across the country as Australia continues to respond to the spread of the deadly pandemic. Those testing levels equate to more than 1 per cent of the population, which Prime Minister Scott Morrison said was a world-leading rate. By 4:00pm on Thursday, Australia had conducted 268,554 coronavirus tests. Nationally, there are more than 5,100 confirmed cases of the coronavirus, and the death toll has risen to 24."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-pandemic-leave-for-australian-employees-during-covid19/023ed63d-8a46-4137-ac79-9326047a2d87",
+            "title": "Australian employees entitled to 'pandemic leave' as part of sweeping industrial relations changes caused by coronavirus",
+            "source": "9News",
+            "date": "02 April 2020",
+            "time": "15:30",
+            "summary": "Eligible Australian employees are now entitled to two weeks' \"pandemic leave\" if they need to self-isolate during the coronavirus pandemic as part of sweeping industrial relations changes announced today. The Minister for Industrial Relations, Christian Porter, has announced changes to 103 of Australia's 121 existing employee awards."
+        },
+        {
             "link": "https://www.abc.net.au/news/health/2020-04-01/australians-urged-to-get-flu-vaccination-coronavirus-covid-19/12107264",
             "title": "Get flu vaccinations earlier than usual because of coronavirus, GPs urge Australians",
             "source": "ABCNews",
