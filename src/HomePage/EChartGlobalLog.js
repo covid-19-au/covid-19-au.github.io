@@ -34,6 +34,9 @@ class EChartglobalLog extends Component {
             Japan: {
                 backgroundColor: '#ff91a9'
             },
+            NZ: {
+                backgroundColor:'#000000'
+            },
             'South Korea': {
                 backgroundColor: '#8ccfff'
             },
@@ -131,7 +134,7 @@ class EChartglobalLog extends Component {
 
     // Filter the countries to the ones we want
     filterCountries = (country) => {
-        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan"];
+        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan","New Zealand"];
         if (viableCountries.includes(country)) {
             return true;
         }
@@ -178,7 +181,10 @@ class EChartglobalLog extends Component {
                     parsedRow = row.split(',').slice(1, 2).concat(row.split(',').slice(5));
                     parsedRow[0] = "AU";
                 }
-
+                if (parsedRow[0] === "New Zealand") {
+                    parsedRow = row.split(',').slice(1, 2).concat(row.split(',').slice(5));
+                    parsedRow[0] = "NZ";
+                }
                 // If the hashmap doesn't have the key, then insert, otherwise add the values.
                 if (!this.state.arrMap[parsedRow[0]]) {
                     this.state.arrMap[parsedRow[0]] = {};
