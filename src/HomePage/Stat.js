@@ -53,17 +53,19 @@ function UpdatesToday() {
 
 
     const activeStyles = {
-        color: 'black',
+        color: '#00c177',
         borderColor: '#ff603c',
         padding: "0px",
         outline: "none",
+        border: "none",
         zIndex: 10
     };
     const inactiveStyles = {
         color: 'grey',
         borderColor: '#e3f3ff',
         padding: "0px",
-        outline: "none"
+        outline: "none",
+        border: "none"
     };
 
     const buttonGroupStyles = {
@@ -71,13 +73,16 @@ function UpdatesToday() {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 0
     }
 
 
 
     return (
-        <div>
-            <p>State Update Status:</p>
+        <div style={{
+            marginTop: '1rem'
+        }}>
+            <p>States with no new cases:</p>
             <ButtonGroup color="primary" aria-label="outlined primary button group" style={{ buttonGroupStyles }} fullWidth="true" >
 
                 {Object.keys(stateUpdateStatus).map((state, status) => ([
@@ -209,9 +214,11 @@ export default function Stat({
 
             <UpdatesToday></UpdatesToday>
 
+
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
                 Time in AEST, last updated at: {stateCaseData.updatedTime}
             </span>
+
 
             {/*<div>*/}
             {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
