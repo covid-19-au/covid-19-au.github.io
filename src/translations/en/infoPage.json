@@ -6,8 +6,11 @@
         "body2": "for previous posts!"
     },
     "informativeMedia":{
-        "title": "Informative Media"
-
+        "title": "Informative Media",
+        "media1Descrip": "The Coronavirus explained and what you should do.",
+        "media2Descrip": "How to properly wash your hands.",
+        "washingHandLink": "Here's a step-by-step guide you can save",
+        "media3Descrip": "How to properly wear and dispose of masks."
     },
     "generalInformation":{},
     "currentRegulation":{},

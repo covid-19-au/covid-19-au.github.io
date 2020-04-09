@@ -105,28 +105,28 @@ function Information({ hospitalData, columns }) {
 
 
             <div className="card" >
-                <h2 className="responsiveH2">Informative Media</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:informativeMedia:title")}</h2>
                 <div className="row centerMedia">
                     <div>
                         <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-                        <small className="mediaText">The Coronavirus explained and what you should do.</small>
+                        <small className="mediaText">{i18next.t("infoPage:informativeMedia:media1Descrip")}</small>
                     </div>
                 </div>
 
                 <div className="row centerMedia">
                     <div>
                         <ReactPlayer alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
-                        <small className="mediaText">How to properly wash your hands.</small> <br />
+                        <small className="mediaText">{i18next.t("infoPage:informativeMedia:media2Descrip")}</small> <br />
                         <small style={{ color: "#3366BB" }}><a target="_blank"
                             rel="noopener noreferrer"
-                            href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{"Here's a step-by-step guide you can save"}</a></small>
+                            href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{i18next.t("infoPage:informativeMedia:washingHandLink")}</a></small>
                     </div>
                 </div>
 
                 <div className="row centerMedia">
                     <div>
                         <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />
-                        <small className="mediaText">How to properly wear and dispose of masks.</small>
+                        <small className="mediaText">{i18next.t("infoPage:informativeMedia:media3Descrip")}</small>
                     </div>
                 </div>
             </div>
