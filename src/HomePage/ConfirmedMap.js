@@ -6,6 +6,7 @@ import mapDataArea from "../data/mapdataarea"
 import vicLgaData from "../data/vic_lga.geojson"
 import nswLgaData from "../data/nsw_lga.geojson"
 import qldHhsData from "../data/qld_hhs.geojson"
+import actSaData from "../data/sa3_act.geojson"
 import waLgaData from "../data/wa_lga.geojson"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
@@ -94,12 +95,6 @@ class MbMap extends React.Component {
                 city.pop();
                 city_name = city.join(' ');
                 updated_date = '9/4/20';
-            } else if (state === 'NSW') {
-                city_name = city_name.toLowerCase();
-                updated_date = '9/4/20';
-            } else if (state === 'WA') {
-                city_name = city_name.toLowerCase();
-                updated_date = '9/4/20';
             }
             else {
                 city_name = city_name.toLowerCase();
@@ -136,6 +131,10 @@ class MbMap extends React.Component {
                 else if (state === 'NSW') {
                     var values = get_html(data.properties.nsw_lga__3, state);
                     data.properties['city'] = data.properties.nsw_lga__3;
+                }
+                else if (state === 'ACT') {
+                    var values = get_html(data.properties['name'], state);
+                    data.properties['city'] = data.properties['name'];
                 }
                 else if (state === 'WA') {
                     var values = get_html(data.properties.wa_lga_s_3, state);
@@ -393,18 +392,78 @@ class MbMap extends React.Component {
                         filter: ['==', '$type', 'Polygon']
                     });
                 });
+                var geosjondata = loadJSON(actSaData).then(data => {
+                    data = formNewJson(data, 'ACT');
+                    map.addLayer({
+                        id: 'id_poly_act',
+                        type: 'fill',
+                        minzoom: 2,
+                        source: {
+                            type: 'geojson',
+                            data: data
+                        },
+                        'paint': {
+                            'fill-color': [
+                                'interpolate',
+                                ['linear'],
+                                ['get', 'cases'],
+                                0,
+                                '#E3F2FD',
+                                1,
+                                '#BBDEFB',
+                                5,
+                                '#90CAF9',
+                                10,
+                                '#64B5F6',
+                                20,
+                                '#42A5F5',
+                                30,
+                                '#2196F3',
+                                40,
+                                '#1E88E5',
+                                50,
+                                '#1976D2',
+                                60,
+                                '#1565C0',
+                                70,
+                                '#0D47A1'
+                            ],
+                            'fill-opacity': 0.75
+                        },
+                        filter: ['==', '$type', 'Polygon']
+                    });
+                    map.addLayer({
+                        id: 'id_line_ploy_act',
+                        minzoom: 2,
+                        type: 'line',
+                        source: {
+                            type: 'geojson',
+                            data: data
+                        },
+                        paint: {
+                            // 'line-color': '#088',
+                            'line-opacity': 1,
+                            'line-width': 1,
+                        },
+                        filter: ['==', '$type', 'Polygon']
+                    });
+                });
 
             })()
+
 
             function addPointer(id_geosjon) {
                 map.on('click', id_geosjon, function (e) {
                     ReactGA.event({ category: 'ConfirmMap', action: "StateClick", label: e.features[0].properties.city });
                     var cases = e.features[0].properties.cases;
                     var date = e.features[0].properties.date;
-
+                    console.log(e.features)
+                    if(e.features[0].source==='id_poly_act'&&cases===5){
+                        cases='< 5'
+                    }
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
-                        .setHTML(e.features[0].properties.city + '<br/>Cases:' + cases + '<br/>By: ' + date)
+                        .setHTML(e.features[0].properties.city + '<br/>Cases: ' + cases + '<br/>By: ' + date)
                         .addTo(map);
                 });
 
@@ -423,6 +482,7 @@ class MbMap extends React.Component {
             addPointer('id_poly_nsw');
             addPointer('id_poly_qld');
             addPointer('id_poly_wa');
+            addPointer('id_poly_act');
 
         });
 
@@ -449,7 +509,7 @@ class MbMap extends React.Component {
             });
         });
         confirmedData.map((item) => {
-            if (item['state'] !== 'VIC' && item['state'] !== 'NSW' && item['state'] !== 'QLD' && item['state'] !== 'WA') {
+            if (item['state'] !== 'VIC' && item['state'] !== 'NSW' && item['state'] !== 'QLD' && item['state'] !== 'WA'&& item['state'] !== 'ACT') {
                 if (item['state'] === 'VIC' && item['area'].length > 0) {
                     item['description'] = "This case number is just the suburb confirmed number, not the case number at this geo point."
                     item['date'] = '26/3/20'
