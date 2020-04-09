@@ -2,22 +2,26 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 //import translation files
 import infoPage_en from "./translations/en/infoPage.json";
-import infoPage_cn from "./translations/cn/infoPage.json";
+import infoPage_zh from "./translations/zh/infoPage.json";
+import infoPage_ko from "./translations/ko/infoPage.json";
 
 
 i18n
   .init({
     fallbackLng: 'en',
     debug: true,
-    lng: 'en',                              // language to use, will change later when a button/auto detection will be used to set this
+    lng: 'ko',                              // language to use, will change later when a button/auto detection will be used to set this
     resources: {
         en: {
             infoPage: infoPage_en               
             //the key to call the json is infoPage:dailyDistraction.title
         },
-        cn: {
-            infoPage: infoPage_cn
+        zh: {
+            infoPage: infoPage_zh
         },
+        ko: {
+          infoPage: infoPage_ko
+        },        
     },
 
     interpolation: {
