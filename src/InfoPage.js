@@ -16,8 +16,7 @@ import dailyFun from "./data/dailyFun"
 import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
 // import i18n (needs to be bundled ;)) 
-import './i18n';
-import i18next from "i18next";
+import i18next from './i18n';
 
 // Info page to present information about the virus.
 export default function InfoPage({ columns }) {
@@ -100,8 +99,8 @@ function Information({ hospitalData, columns }) {
                 }
                 <p style={{ textAlign: "center" }}>{i18next.t("infoPage:dailyDistraction.body1")}</p>
 
-                <p style={{ textAlign: "center" }}>{i18next.t("infoPage:dailyDistraction.body2")} <a style={{ color: "#3366BB" }} target="_blank"
-                    rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
+                <p style={{ textAlign: "center" }}><a style={{ color: "#3366BB" }} target="_blank"
+                    rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{i18next.t("infoPage:dailyDistraction.link")}</a> {i18next.t("infoPage:dailyDistraction.body2")}  </p>
             </div>
 
 

@@ -2,9 +2,13 @@
     "dailyDistraction":{
         "title": "Daily Distractions",
         "body1": "We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!",
-        "body2": "If you have something that you would like us to share, you can submit it"
+        "link" : "Click here",
+        "body2": "for previous posts!"
     },
-    "informativeMedia":{},
+    "informativeMedia":{
+        "title": "Informative Media"
+
+    },
     "generalInformation":{},
     "currentRegulation":{},
     "selfDiagnosis":{},
