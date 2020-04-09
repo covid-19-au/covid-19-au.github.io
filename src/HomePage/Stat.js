@@ -7,6 +7,7 @@ import todayData from "../data/stateCaseData.json";
 import previousData from "../data/state.json";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
 function UpdatesToday() {
 
@@ -18,7 +19,6 @@ function UpdatesToday() {
     let yesterdayKey = yesterday.getFullYear().toString() + "-" + parseInt(yesterday.getMonth() + 1).toString() + "-" + yesterday.getDate().toString()
 
     let yesterdayData = previousData[yesterdayKey]
-
 
     let stateUpdateStatus = {}
     for (let state in yesterdayData) {
@@ -42,21 +42,19 @@ function UpdatesToday() {
         i = i + 1
     }
 
+
+
     for (let state in stateUpdateStatus) {
         if (todayDataObject[state][0] != yesterdayData[state][0]) {
             stateUpdateStatus[state] = true
         }
     }
 
-    console.log(todayDataObject)
-    console.log(yesterdayData)
-    console.log(stateUpdateStatus)
-
 
 
     const activeStyles = {
         color: 'black',
-        borderColor: '#8ccfff',
+        borderColor: '#ff603c',
         padding: "0px",
         outline: "none",
         zIndex: 10
@@ -68,12 +66,26 @@ function UpdatesToday() {
         outline: "none"
     };
 
-    return (
+    const buttonGroupStyles = {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 
-        <ButtonGroup size="normal" aria-label="small outlined button group">
-            <Button style={inactiveStyles} disableElevation={true}>On</Button>
-            <Button style={activeStyles}>Off</Button>
-        </ButtonGroup>
+
+
+    return (
+        <div>
+            <p>State Update Status:</p>
+            <ButtonGroup color="primary" aria-label="outlined primary button group" style={{ buttonGroupStyles }} fullWidth="true" >
+
+                {Object.keys(stateUpdateStatus).map((state, status) => ([
+                    <Button style={stateUpdateStatus[state] ? activeStyles : inactiveStyles}>{state}</Button>, console.log(stateUpdateStatus[state])]
+
+                ))}
+            </ButtonGroup>
+        </div>
     )
 
 }
@@ -194,6 +206,7 @@ export default function Stat({
                 </Tag>
 
             </div>
+
             <UpdatesToday></UpdatesToday>
 
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
