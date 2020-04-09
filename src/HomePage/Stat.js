@@ -80,13 +80,16 @@ function UpdatesToday() {
 
     return (
         <div style={{
-            marginTop: '1rem'
+            marginTop: '1rem',
+            marginBottom: '2rem'
         }}>
-            <p>States with no new cases:</p>
+            <p style={{ marginBottom: "5px" }}>States with no new cases:</p>
             <ButtonGroup color="primary" aria-label="outlined primary button group" style={{ buttonGroupStyles }} fullWidth="true" >
 
                 {Object.keys(stateUpdateStatus).map((state, status) => ([
-                    <Button style={stateUpdateStatus[state] ? activeStyles : inactiveStyles}>{state}</Button>, console.log(stateUpdateStatus[state])]
+                    <Button
+                        href={("./state/" + state).toLowerCase()}
+                        style={stateUpdateStatus[state] ? activeStyles : inactiveStyles}>{state}</Button>, console.log(stateUpdateStatus[state])]
 
                 ))}
             </ButtonGroup>
