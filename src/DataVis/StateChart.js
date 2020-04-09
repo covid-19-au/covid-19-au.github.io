@@ -419,7 +419,7 @@ function renderTable(state) {
         <strong>{state.toUpperCase()}</strong>
       </div>
       <div className="confirmed">
-        <strong>{latestData[0]}</strong>&nbsp;
+        <strong>{numberWithCommas(latestData[0])}</strong>&nbsp;
         <div className="dailyIncrease">
           {latestData[0] - lastData[0] > 0
             ? `(+${latestData[0] - lastData[0]})`
@@ -427,7 +427,7 @@ function renderTable(state) {
         </div>
       </div>
       <div className="death">
-        <strong>{latestData[1]}</strong>&nbsp;
+        <strong>{numberWithCommas(latestData[1])}</strong>&nbsp;
         <div className="dailyIncrease">
           {latestData[1] - lastData[1] > 0
             ? `(+${latestData[1] - lastData[1]})`
@@ -435,14 +435,14 @@ function renderTable(state) {
         </div>
       </div>
       <div className="cured">
-        <strong>{latestData[2]}</strong>&nbsp;
+        <strong>{numberWithCommas(latestData[2])}</strong>&nbsp;
         <div className="dailyIncrease">
           {latestData[2] - lastData[2] > 0
             ? `(+${latestData[2] - lastData[2]})`
             : null}
         </div>
       </div>
-      <div className="tested">{latestData[3]}</div>
+      <div className="tested">{numberWithCommas(latestData[3])}</div>
     </div>
   );
 }
@@ -716,6 +716,10 @@ function StateChart({ state }) {
       </Grid>
     );
   }
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 /**
