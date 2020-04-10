@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 //import translation files
 import infoPage_en from "./translations/en/infoPage.json";
 import homePage_en from "./translations/en/homePage.json";
+import faq_en from "./translations/en/faq.json";
 import infoPage_zh from "./translations/zh/infoPage.json";
 import infoPage_ko from "./translations/ko/infoPage.json";
 
@@ -27,7 +28,8 @@ i18n
     resources: {
         en: {
             infoPage: infoPage_en,
-            homePage: homePage_en               
+            homePage: homePage_en,
+            faq: faq_en           
             //the key to call the json is infoPage:dailyDistraction.title
         },
         zh: {
