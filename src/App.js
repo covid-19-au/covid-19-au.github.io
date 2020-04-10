@@ -37,7 +37,8 @@ import { useRoutes, A } from 'hookrouter';
 // import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import ReactGA from "react-ga";
-
+// import i18n bundle
+import i18next from './i18n';
 
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
@@ -86,7 +87,7 @@ function Header({ province }) {
           fontWeight:"bold"
         }}
       >
-        COVID-19 in Australia
+        {i18next.t("homePage:misc.title")}
       </h1>
       <h1
         style={{
@@ -96,11 +97,11 @@ function Header({ province }) {
             fontWeight:"bold"
         }}
       >
-        Real-Time Report
+        {i18next.t("homePage:misc.descrip")}
 
       </h1>
 
-      <div className="slogan"><i>Stay Calm, Stay Informed</i></div>
+      <div className="slogan"><i>{i18next.t("homePage:misc.slogan")}</i></div>
 
         <div style={{
             fontSize: "120%",
