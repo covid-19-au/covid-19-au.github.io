@@ -42,8 +42,10 @@ export default function Navbar({ setNav, nav }) {
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><strong>{i18next.t("nav:lang")}</strong></a>
             <div class="dropdown-menu" id= "langSelection">
                 <a onClick={changeLanguage('en')} class="dropdown-item">English</a>
-                <a onClick={changeLanguage('zh')}href="#" class="dropdown-item">简体中文</a>
-                <a onClick={changeLanguage('ko')}href="#" class="dropdown-item">한국어</a>
+                <a onClick={changeLanguage('zh')} class="dropdown-item">简体中文</a>
+                <a onClick={changeLanguage('tw')} class="dropdown-item">繁體中文</a>
+                <a onClick={changeLanguage('ko')} class="dropdown-item">한국어</a>
+
             </div>
         </div>
         

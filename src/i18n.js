@@ -11,14 +11,20 @@ import homePage_zh from "./translations/zh/homePage.json";
 import faq_zh from "./translations/zh/faq.json";
 import nav_zh from "./translations/zh/nav.json"
 
+import infoPage_tw from "./translations/zh-tw/infoPage.json";
+import homePage_tw from "./translations/zh-tw/homePage.json";
+import faq_tw from "./translations/zh-tw/faq.json";
+import nav_tw from "./translations/zh-tw/nav.json"
+
 import infoPage_ko from "./translations/ko/infoPage.json";
 import homePage_ko from "./translations/ko/homePage.json";
 import faq_ko from "./translations/ko/faq.json";
 import nav_ko from "./translations/ko/nav.json"
 
-const allowedLanguages = ['en', 'ko','zh'];
 
-const defaultLng = 'ko';
+const allowedLanguages = ['en','ko','zh','tw'];
+
+const defaultLng = 'en';
 let lng = defaultLng;
 
 //language detection
@@ -46,6 +52,12 @@ i18n
             homePage: homePage_zh,
             faq: faq_zh,    
             nav: nav_zh 
+        },
+        tw: {
+          infoPage: infoPage_tw,
+          homePage: homePage_tw,
+          faq: faq_tw,    
+          nav: nav_tw 
         },
         ko: {
           infoPage: infoPage_ko,
