@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import Tag from "./Tag";
 import ReactGA from "react-ga";
 import stateCaseData from "../data/stateCaseData";
@@ -9,7 +9,31 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 function UpdatesToday() {
+
+    const [update, setUpdate] = useState("Cases");
+
+
+    const updateStates = ["Cases", "Deaths", "Recoveries", "Tested"]
+
+    let currentView
+
+    if (update == "Cases") {
+        currentView = 0
+    }
+
+    if (update == "Deaths") {
+        currentView = 1
+    }
+
+    if (update == "Recoveries") {
+        currentView = 2
+    }
+
+    if (update == "Tested") {
+        currentView = 3
+    }
 
     let today = new Date()
     let yesterday = new Date(today)
@@ -22,8 +46,9 @@ function UpdatesToday() {
 
     let stateUpdateStatus = {}
     for (let state in yesterdayData) {
-        stateUpdateStatus[state] = false
+        stateUpdateStatus[state] = [false, false, false, false]
     }
+    console.log(stateUpdateStatus)
 
     let todayDataObject = {}
 
@@ -46,53 +71,185 @@ function UpdatesToday() {
 
     for (let state in stateUpdateStatus) {
         if (todayDataObject[state][0] != yesterdayData[state][0]) {
-            stateUpdateStatus[state] = true
+            stateUpdateStatus[state][0] = true
+        }
+        if (todayDataObject[state][1] != yesterdayData[state][1]) {
+            stateUpdateStatus[state][1] = true
+        }
+        if (todayDataObject[state][2] != yesterdayData[state][2]) {
+            stateUpdateStatus[state][2] = true
+        }
+        if (todayDataObject[state][3] != yesterdayData[state][3]) {
+            stateUpdateStatus[state][3] = true
         }
     }
 
 
+    const switchStyles = [
+        {
+            //Cases
+            color: 'black',
+            borderColor: '#ff603c',
+            padding: "1px",
+            zIndex: 10,
+            outline: "none",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            fontSize: "80%",
+            marginBottom: "1rem"
+        },
+        {
+            //Deaths
+            color: 'black',
+            borderColor: '#c11700',
+            padding: "1px",
+            zIndex: 10,
+            outline: "none",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            fontSize: "80%",
+            marginBottom: "1rem"
+        },
+        {
+            //Recoveries
+            color: 'black',
+            borderColor: '#00c177',
+            padding: "1px",
+            zIndex: 10,
+            outline: "none",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            fontSize: "80%",
+            marginBottom: "1rem"
+        },
+        {
+            //Tested
+            color: 'black',
+            borderColor: '#007cf2',
+            padding: "1px",
+            zIndex: 10,
+            outline: "none",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            fontSize: "80%",
+            marginBottom: "1rem"
+        }]
 
-    const activeStyles = {
-        color: '#00c177',
-        borderColor: '#ff603c',
+
+    const dataStyles = [{
+        color: '#ff603c',
+        borderColor: 'black',
         padding: "0px",
-        outline: "none",
         border: "none",
-        zIndex: 10
-    };
-    const inactiveStyles = {
-        color: 'grey',
-        borderColor: '#e3f3ff',
+        zIndex: 10,
+        backgroundColor: "#f2f4f4",
+        fontWeight: "bold"
+    }, {
+        color: '#c11700',
+        borderColor: 'black',
         padding: "0px",
-        outline: "none",
-        border: "none"
+        border: "none",
+        zIndex: 10,
+        backgroundColor: "#f2f4f4",
+        fontWeight: "bold"
+    }, {
+        color: '#00c177',
+        borderColor: 'black',
+        padding: "0px",
+        border: "none",
+        zIndex: 10,
+        backgroundColor: "#f2f4f4",
+        fontWeight: "bold"
+    }, {
+        color: '#007cf2',
+        borderColor: 'black',
+        padding: "0px",
+        border: "none",
+        zIndex: 10,
+        backgroundColor: "#f2f4f4",
+        fontWeight: "bold"
+    }]
+    const inactiveStyles = {
+        color: '#ccd1d1',
+        borderColor: 'grey',
+        padding: "0px",
+        border: "none",
+        backgroundColor: "#f2f4f4"
     };
 
-    const buttonGroupStyles = {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 0
-    }
+
+    const inactiveStylesSwitch = {
+        color: 'grey',
+        borderColor: '#fce7e6',
+        padding: "1px",
+        outline: "none",
+        paddingLeft: "5px",
+        paddingRight: "5px",
+        fontSize: "80%",
+        marginBottom: "1rem"
+    };
+
 
 
 
     return (
         <div style={{
             marginTop: '1rem',
-            marginBottom: '2rem'
+            marginBottom: '1rem'
         }}>
-            <p style={{ marginBottom: "5px" }}>States with no new cases:</p>
-            <ButtonGroup color="primary" aria-label="outlined primary button group" style={{ buttonGroupStyles }} fullWidth="true" >
+            Daily Update Status: &nbsp;
 
-                {Object.keys(stateUpdateStatus).map((state, status) => ([
+            <ButtonGroup color="primary" aria-label="outlined primary button group">
+
+                {updateStates.map((updateType, index) => (
+                    <Button
+                        style={updateType == update ? switchStyles[index] : inactiveStylesSwitch}
+                        onClick={() => setUpdate(updateType)} size="small">{updateType}</Button>
+                ))}
+            </ButtonGroup>
+
+            <ButtonGroup color="primary" aria-label="outlined primary button group" fullWidth="true" >
+
+                {Object.keys(stateUpdateStatus).map((state, status) => (
                     <Button
                         href={("./state/" + state).toLowerCase()}
-                        style={stateUpdateStatus[state] ? activeStyles : inactiveStyles}>{state}</Button>, console.log(stateUpdateStatus[state])]
+                        style={stateUpdateStatus[state][currentView] ? dataStyles[currentView] : inactiveStyles}>{state}</Button>
 
                 ))}
             </ButtonGroup>
+
+            {/*<p style={{ marginBottom: "5px", marginTop: "10px" }}>New Deaths:</p>
+            <ButtonGroup color="primary" aria-label="outlined primary button group" style={{ buttonGroupStyles }} fullWidth="true" >
+
+                {Object.keys(stateUpdateStatus).map((state, status) => (
+                    <Button
+                        href={("./state/" + state).toLowerCase()}
+                        style={stateUpdateStatus[state][1] ? deathActiveStyles : inactiveStyles}>{state}</Button>
+
+                ))}
+            </ButtonGroup>
+
+            <p style={{ marginBottom: "5px", marginTop: "10px" }}>New Recoveries:</p>
+            <ButtonGroup color="primary" aria-label="outlined primary button group" style={{ buttonGroupStyles }} fullWidth="true" >
+
+                {Object.keys(stateUpdateStatus).map((state, status) => (
+                    <Button
+                        href={("./state/" + state).toLowerCase()}
+                        style={stateUpdateStatus[state][2] ? recoveredActiveStyles : inactiveStyles}>{state}</Button>
+
+                ))}
+            </ButtonGroup>
+
+            <p style={{ marginBottom: "5px", marginTop: "10px" }}>New Tested:</p>
+            <ButtonGroup color="primary" aria-label="outlined primary button group" style={{ buttonGroupStyles }} fullWidth="true" >
+
+                {Object.keys(stateUpdateStatus).map((state, status) => (
+                    <Button
+                        href={("./state/" + state).toLowerCase()}
+                        style={stateUpdateStatus[state][3] ? testedActiveStyles : inactiveStyles}>{state}</Button>
+
+                ))}
+                </ButtonGroup>*/}
         </div>
     )
 
@@ -213,7 +370,31 @@ export default function Stat({
 
                 </Tag>
 
+
             </div>
+            <div className="row">
+                <Tag
+                    number={2150}
+                    fColor={"#00aac1"}
+                    increased={50}
+                    typeOfCases={"Active Cases"}
+                >
+                    <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                        title="<em>Number of people that have been tested for COVID-19.</em>">
+                        Active Cases</button>
+
+                </Tag>
+                <Tag
+                    number={159}
+                    fColor={"#c100aa"}
+                    increased={2}
+                    typeOfCases={"In ICU"}
+                >
+                    <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                        title="<em>Number of people that have been tested for COVID-19.</em>">
+                        In ICU</button>
+
+                </Tag></div>
 
             <UpdatesToday></UpdatesToday>
 
