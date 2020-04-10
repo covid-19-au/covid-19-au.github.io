@@ -208,9 +208,7 @@ function setGenderOption(state) {
   series.setSeriesList(tempSeriesList);
 
   let tempOption = {
-    title: {
-      text: "Gender Chart",
-    },
+
     tooltip: pieTooltip,
     legend: {
       data: genderLabel,
@@ -242,9 +240,7 @@ function setAgeOption(state) {
 
   let tempOption = {
     tooltip: ageTooltip,
-    title: {
-      text: "Age Group Chart",
-    },
+
     legend: {
       data: ageChartLegend,
       top: "7%",
@@ -291,9 +287,7 @@ function setGeneralBarOption(state) {
       top: "20%",
     },
     tooltip: lineBarTooltip,
-    title: {
-      text: "General Info Bar Chart",
-    },
+
     legend: {
       data: generalBarLegend,
       top: "7%",
@@ -352,9 +346,6 @@ function setGeneralLineOption(state, logScale, maxY) {
       top: "20%",
     },
     tooltip: lineBarTooltip,
-    title: {
-      text: "General Info Line Chart",
-    },
     legend: {
       data: generalLineLegend,
       top: "7%",
