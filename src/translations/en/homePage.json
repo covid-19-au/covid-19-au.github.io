@@ -5,7 +5,25 @@
         "descrip":"Real-Time Report",
         "slogan":"Stay Calm, Stay Informed"
     },
-    "dataAck":{},
+    "dataAck":{
+        "title":"Data Acknowledgement",
+        "body1":"The data on our site is publicly available and is obtained from a variety of official government sources. A full list of acknowledgements is found below.",
+        "source1":"© State of New South Wales NSW Ministry of Health. For current information go to ",
+        "source2":"© The State of Queensland (Queensland Health) at ",
+        "source3":"The Government of South Australia, SA Health at ",
+        "source4":"Australian Capital Territory Government, ACT Health at ",
+        "source5":"Government of Tasmania. at ",
+        "source6":"Victoria State Government, Department of Health and Human Services at ",
+        "source7":"Northern Territory Government, at ",
+        "source8":"Government of Western Australia, Department of Health at ",
+        "body2":"We are not affiliated with, nor endorsed by these organisations in any way. We are a volunteer team and we use the data we collect strictly for non-commercial, educational, reporting and research purposes. Care is taken to ensure the data is accurate and not reframed or misrepresented.",
+        "body3":"We strongly recommend that users of this website adhere to the advice and regulations provided by their respective local and federal governments and authorities.",
+        "body4":"If you have concerns, please contact us through our ",
+        "body5":"feedback form.",
+        "body6":"Covid-19-au, ",
+        "body7":"Stay calm, stay informed.",
+        "exitButton":"Close"
+    },
     "status":{
         "confirm":"Confirmed",
         "death":"Deaths",
