@@ -2,9 +2,11 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 //import translation files
 import infoPage_en from "./translations/en/infoPage.json";
-import homePage_en from "./translations/en/homePage.json";
+import info_en from "./translations/en/info.json";
 import infoPage_zh from "./translations/zh/infoPage.json";
+import info_zh from "./translations/zh/info.json";
 import infoPage_ko from "./translations/ko/infoPage.json";
+import info_ko from "./translations/ko/info.json";
 
 const allowedLanguages = ['en', 'ko','zh'];
 
@@ -26,14 +28,16 @@ i18n
     resources: {
         en: {
             infoPage: infoPage_en,
-            homePage: homePage_en               
+            info: info_en               
             //the key to call the json is infoPage:dailyDistraction.title
         },
         zh: {
             infoPage: infoPage_zh,
+            info: info_zh
         },
         ko: {
           infoPage: infoPage_ko,
+          info: info_ko
         },        
     },
 

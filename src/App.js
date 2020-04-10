@@ -31,8 +31,7 @@ import StateChart from "./DataVis/StateChart";
 import "./App.css";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
-// import i18n bundle
-import i18next from './i18n';
+
 // routes
 import { useRoutes, A } from 'hookrouter';
 // import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
@@ -87,7 +86,7 @@ function Header({ province }) {
           fontWeight:"bold"
         }}
       >
-        {i18next.t("homePage:misc.title")}
+        COVID-19 in Australia
       </h1>
       <h1
         style={{
