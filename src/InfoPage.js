@@ -156,12 +156,12 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
 
-                <div className="row centerMedia">
-                    <div>
-                        <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />
-                        <small className="mediaText">How to properly wear and dispose of masks.</small>
-                    </div>
-                </div>
+                {/*<div className="row centerMedia">*/}
+                    {/*<div>*/}
+                        {/*<ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />*/}
+                        {/*<small className="mediaText">How to properly wear and dispose of masks.</small>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
             </div>
             <div className="card" >
 

@@ -1,6 +1,28 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=oilZ1hNZPRM",
+                    "description": "John Krasinski is back with more good news!"
+                }
+            ],
+            "type": "distraction",
+            "date": "9/4/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=27fbGpIoYMM",
+                    "description": "Coronavirus: More good news stories as Australians unite during the pandemic | 7NEWS"
+                }
+            ],
+            "type": "distraction",
+            "date": "8/4/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://www.abc.net.au/news/image/12118058-3x4-340x453.jpg",
