@@ -1,12 +1,18 @@
 {
     "misc":{
-        "loadingText":"Loading",
+        "loadingText":"Loading...",
         "title":"COVID-19 in Australia",
         "descrip":"Real-Time Report",
         "slogan":"Stay Calm, Stay Informed"
     },
     "dataAck":{},
-    "status":{},
+    "status":{
+        "confirm":"Confirmed",
+        "death":"Deaths",
+        "recover":"Recovered",
+        "tested":"Tested",
+        "note":"Time in AEST, last updated at: "
+    },
     "caseByState":{},
     "hospitalCaseMap":{}
 

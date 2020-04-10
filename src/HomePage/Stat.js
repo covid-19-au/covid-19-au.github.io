@@ -3,6 +3,8 @@ import Tag from "./Tag";
 import ReactGA from "react-ga";
 import stateCaseData from "../data/stateCaseData";
 import Acknowledgement from "../Acknowledgment"
+// import i18n bundle
+import i18next from '../i18n';
 
 /**
  * Method for adding suffix to date
@@ -122,7 +124,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>">
-                        Confirmed</button>
+                        {i18next.t("homePage:status.confirm")}</button>
 
                 </Tag>
                 {/*<Tag number={suspectedCount || '-'}>*/}
@@ -136,7 +138,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
-                        Deaths</button>
+                        {i18next.t("homePage:status.death")}</button>
 
                 </Tag>
             </div>
@@ -150,7 +152,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people that have recovered from COVID-19.</em>">
-                        Recovered</button>
+                        {i18next.t("homePage:status.recover")}</button>
 
                 </Tag>
                 <Tag
@@ -161,7 +163,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people that have been tested for COVID-19.</em>">
-                        Tested</button>
+                        {i18next.t("homePage:status.tested")}</button>
 
                 </Tag>
 
@@ -170,7 +172,7 @@ export default function Stat({
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}
             aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)} 
             aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
-                Time in AEST, last updated at: {stateCaseData.updatedTime}
+                {i18next.t("homePage:status.note")}{stateCaseData.updatedTime}
             </span>
 
             {/*<div>*/}
