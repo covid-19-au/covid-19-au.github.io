@@ -38,7 +38,7 @@ function formatAMPM(date) {
     var ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0'+minutes : minutes;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
     var strTime = hours + ' ' + minutes + ' ' + ampm;
     return strTime;
 }
@@ -330,6 +330,8 @@ export default function Stat({
     let deadCountIncrease = 0;
     let curedCountIncrease = 0;
     let testedCountIncrease = 0;
+    let hospitalCountIncrease = 0;
+    let icuCountIncrease = 0;
     if (data && countryData) {
         confirmedCount = 0;
         testedCount = 0;
@@ -362,6 +364,8 @@ export default function Stat({
         deadCountIncrease = deadCount - lastTotal[2];
         // curedCountIncrease = curedCount - lastTotal[1];
         testedCountIncrease = testedCount - lastTotal[4]
+        hospitalCountIncrease = hospitalCount - lastTotal[5]
+        icuCountIncrease = icuCount - lastTotal[6]
     } else {
         confirmedCount = 0;
         deadCount = 0;
@@ -442,7 +446,7 @@ export default function Stat({
                 <Tag
                     number={hospitalCount}
                     fColor={"#9d71ea"}
-                    increased={0}
+                    increased={hospitalCountIncrease}
                     typeOfCases={"In Hospital"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
@@ -453,7 +457,7 @@ export default function Stat({
                 <Tag
                     number={icuCount}
                     fColor={"#00aac1"}
-                    increased={0}
+                    increased={icuCountIncrease}
                     typeOfCases={"In ICU"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
@@ -466,8 +470,8 @@ export default function Stat({
 
 
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}
-            aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)} 
-            aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
+                aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}
+                aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
                 Time in AEST, last updated at: {stateCaseData.updatedTime}
             </span>
 
