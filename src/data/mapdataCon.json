@@ -46,38 +46,29 @@
   },
   {
     "state": "NSW",
-    "area": "Thornleigh",
-    "name": "Normanhurst West Public School",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "",
-    "coor": ["-33.721505", "151.088048"]
-  },
-  {
-    "state": "NSW",
-    "area": "Thornleigh",
+    "area": "Hornsby",
     "name": "Normanhurst West Public School",
     "date": "23/3/20",
     "time": "N/A",
-    "description": "",
+    "description": "Active cluster investigations in NSW: 3 cases. Local Transmission.",
     "coor": ["-33.721505", "151.088048"]
   },
   {
     "state": "NSW",
-    "area": "Macquarie Park",
+    "area": "Ryde",
     "name": "Dorothy Henderson Lodge",
     "date": "31/3/20",
     "time": "N/A",
-    "description": "16 residents, 5 staff",
+    "description": "Active cluster investigations in NSW: 22 cases. Local Transmission.",
     "coor": ["-33.777053", "151.110612"]
   },
   {
     "state": "NSW",
-    "area": "Bankstown",
+    "area": "Canterbury- Bankstown",
     "name": "Bankstown Opal Care Facility",
-    "date": "25/3/20",
+    "date": "22/3/20",
     "time": "N/A",
-    "description": "",
+    "description": "1 has died, currently 2 resident and 3 staff are infected",
     "coor": ["-33.932836", "151.026271"]
   },
   {
@@ -100,20 +91,20 @@
   },
   {
     "state": "NSW",
-    "area": "Sydney - Ryde Civic Centre",
-    "name": "Sydney Church of Christ - Ryde Civic Centre: 7 cases",
+    "area": "Ryde",
+    "name": "Sydney Church of Christ - Ryde Civic Centre",
     "date": "8/3/20",
     "time": "N/A",
-    "description": "Seven people have been confirmed with COVID-19 after attending a Sydney Church of Christ service on 8-03-2020 at Ryde Civic Centre. More than 300 people attended this service.",
+    "description": "Active cluster investigations in NSW: 19 cases. Local Transmission.",
     "coor": ["-33.811860", "151.104833"]
   },
   {
     "state": "NSW",
-    "area": "Bondi",
+    "area": "Waverley",
     "name": "Boogie Wonderland party at the Bucket List",
     "date": "16/3/20",
     "time": "4pm - 11pm",
-    "description": "Backpackers in Bondi",
+    "description": "Active cluster investigations in NSW: 34 cases. Local Transmission.",
     "coor": ["-33.890103", "151.278161"]
   },
   {
@@ -176,7 +167,7 @@
     "name": "Rose of Sharon childcare centre",
     "date": "30/3/20",
     "time": "N/A",
-    "description": "A childcare worker at Rose of Sharon childcare centre and two confirmed cases in children who attend this centre have been diagnosed. All children have been isolated as close contacts.",
+    "description": "Active cluster investigations in NSW: 6 cases. Local Transmission.",
     "coor": ["-33.765252", "150.919613"]
   },
   {
@@ -853,5 +844,50 @@
     "time": "N/A",
     "description": "There are 38 confirmed cases linked to areas within the Barossa region including Tanunda, Nuriootpa, Williamstown, Angaston and Lyndoch.Anyone in these areas from Saturday 14 March 2020 who develops symptoms should immediately self-isolate and be tested.",
     "coor": ["-34.601510", "139.000404"]
+  },
+  {
+    "state": "NSW",
+    "area": "Wollongong",
+    "name": "Stanwell Tops Wedding",
+    "date": "9/3/20",
+    "time": "N/A",
+    "description": "Active cluster investigations in NSW: 38 cases. Local Transmission.",
+    "coor": ["-34.221553", "150.978854"]
+  },
+  {
+    "state": "NSW",
+    "area": "Waverley",
+    "name": "Bondi Hardware Restaurant",
+    "date": "17/3/20",
+    "time": "N/A",
+    "description": "Active cluster investigations in NSW: 14 cases. Local Transmission.",
+    "coor": ["-33.890226", "151.272886"]
+  },
+  {
+    "state": "NSW",
+    "area": "Cessnock",
+    "name": "Pokolbin Wedding",
+    "date": "16/3/20",
+    "time": "N/A",
+    "description": "Active cluster investigations in NSW: 2 cases. Local Transmission.",
+    "coor": ["-32.739604", "151.324764"]
+  },
+  {
+    "state": "NSW",
+    "area": "Mosman",
+    "name": "Middle Harbour Public School",
+    "date": "8/3/20",
+    "time": "N/A",
+    "description": "A teacher is a confirmed case",
+    "coor": ["-33.823380", "151.232922"]
+  },
+  {
+    "state": "TAS",
+    "area": "",
+    "name": "North West Regional Hospital",
+    "date": "8/4/20",
+    "time": "N/A",
+    "description": "A further eight people have tested positive to coronavirus in relation to the current outbreak at the North West Regional Hospital.",
+    "coor": ["-41.047280", "145.880549"]
   }
 ]

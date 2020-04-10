@@ -8,6 +8,8 @@ import Flights from "./Flights";
 import StateGraph from "./StateGraph";
 import MbMap from "./ConfirmedMap";
 import Stat from "./Stat"
+import HistoryGraph from "./HistoryGraph"
+import EChartGlobalLog from "./EChartGlobalLog"
 
 import uuid from "react-uuid";
 import CanvasJSReact from "../assets/canvasjs.react";
@@ -69,6 +71,7 @@ export default function HomePage({
             </Grid>
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
                 <StateComparisonChart />
+                <EChartGlobalLog />
             </Grid>
 
             <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>

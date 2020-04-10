@@ -24,7 +24,9 @@ import DailyHistoryPage from "./DailyHistoryPage";
 import NewsPage from "./NewsPage";
 import InfoPage from "./InfoPage";
 import Navbar from "./Navbar";
-import HomePage from "./HomePage/HomePage"
+import HomePage from "./HomePage/HomePage";
+
+import StateChart from "./DataVis/StateChart";
 
 import "./App.css";
 import uuid from "react-uuid";
@@ -263,6 +265,14 @@ function App() {
     "/news": () => <NewsPage province={province} gspace={gspace} />,
     "/faq": () => <FAQPage />,
     "/dailyHistory": () => <DailyHistoryPage />,
+    "/state/vic": () => <StateChart state="VIC" />,
+    "/state/nsw": () => <StateChart state="NSW" />,
+    "/state/qld": () => <StateChart state="QLD" />,
+    "/state/act": () => <StateChart state="ACT" />,
+    "/state/sa": () => <StateChart state="SA" />,
+    "/state/wa": () => <StateChart state="WA" />,
+    "/state/nt": () => <StateChart state="NT" />,
+    "/state/tas": () => <StateChart state="TAS" />,
   };
   //
   // // The hook used to render the routes.
