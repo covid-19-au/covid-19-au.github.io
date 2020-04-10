@@ -39,21 +39,29 @@ export default function Navbar({ setNav, nav }) {
         >
           <strong>Home</strong>
         </A>
-                <A
-                    className={`navItems ${
-                        window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""
-                        } ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `}
-                    onClick={onClick} href="/info"
-                >
+        <A
+            className={`navItems ${
+                window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""
+                } ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `}
+            onClick={onClick} href="/info"
+        >
           <strong>Info</strong>
+        </A>
+        <A
+            className={`navItems ${
+                window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""
+                } ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `}
+            onClick={onClick} href="/news"
+        >
+          <strong>News</strong>
         </A>
                 <A
                     className={`navItems ${
-                        window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""
-                        } ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `}
-                    onClick={onClick} href="/news"
+                        window.location.pathname === "/blog" && !isSticky ? "navCurrentPage " : ""
+                        } ${window.location.pathname === "/blog" && isSticky ? "navCurrentPageSticky" : ""} `}
+                    onClick={onClick} href="/blog"
                 >
-          <strong>News</strong>
+          <strong>Blog</strong>
         </A>
 
             </div>

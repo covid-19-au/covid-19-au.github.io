@@ -25,6 +25,8 @@ import NewsPage from "./NewsPage";
 import InfoPage from "./InfoPage";
 import Navbar from "./Navbar";
 import HomePage from "./HomePage/HomePage";
+import BlogPage from "./BlogPage/BlogPage";
+import Blog from "./BlogPage/Blog";
 
 import StateChart from "./DataVis/StateChart";
 
@@ -273,6 +275,8 @@ function App() {
     "/state/wa": () => <StateChart state="WA" />,
     "/state/nt": () => <StateChart state="NT" />,
     "/state/tas": () => <StateChart state="TAS" />,
+    "/blog": () => <Blog />,
+    "/blog/:id": ({id}) => <BlogPage id={id} />
   };
   //
   // // The hook used to render the routes.
