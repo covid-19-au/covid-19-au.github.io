@@ -48,7 +48,6 @@ function UpdatesToday() {
     for (let state in yesterdayData) {
         stateUpdateStatus[state] = [false, false, false, false]
     }
-    console.log(stateUpdateStatus)
 
     let todayDataObject = {}
 
@@ -96,7 +95,8 @@ function UpdatesToday() {
             paddingLeft: "5px",
             paddingRight: "5px",
             fontSize: "80%",
-            marginTop: "0.5rem"
+            marginTop: "0.5rem",
+            textTransform: "none"
         },
         {
             //Deaths
@@ -108,7 +108,8 @@ function UpdatesToday() {
             paddingLeft: "5px",
             paddingRight: "5px",
             fontSize: "80%",
-            marginTop: "0.5rem"
+            marginTop: "0.5rem",
+            textTransform: "none"
         },
         {
             //Recoveries
@@ -120,7 +121,8 @@ function UpdatesToday() {
             paddingLeft: "5px",
             paddingRight: "5px",
             fontSize: "80%",
-            marginTop: "0.5rem"
+            marginTop: "0.5rem",
+            textTransform: "none"
         },
         {
             //Tested
@@ -132,7 +134,8 @@ function UpdatesToday() {
             paddingLeft: "5px",
             paddingRight: "5px",
             fontSize: "80%",
-            marginTop: "0.5rem"
+            marginTop: "0.5rem",
+            textTransform: "none"
         }]
 
 
@@ -180,14 +183,16 @@ function UpdatesToday() {
 
     const inactiveStylesSwitch = {
         color: 'grey',
-        borderColor: '#fce7e6',
+        borderColor: '#e3e3e3',
         padding: "1px",
         outline: "none",
         paddingLeft: "5px",
         paddingRight: "5px",
         fontSize: "80%",
-        marginTop: "0.5rem"
-    };
+        marginTop: "0.5rem",
+        textTransform: "none",
+        fontWeight: "normal"
+    }
 
 
 
@@ -197,9 +202,15 @@ function UpdatesToday() {
             marginTop: '1rem',
             marginBottom: '1rem'
         }}>
-            Daily Update Status: &nbsp;
+            Daily Update Status <svg className="bi bi-question-circle" width="0.7em" height="0.7em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
+                    clipRule="evenodd" />
+                <path
+                    d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+            </svg> : &nbsp;
 
-            <ButtonGroup color="primary" aria-label="outlined primary button group" fullWidth="true">
+            <ButtonGroup color="primary" aria-label="outlined primary button group">
 
                 {updateStates.map((updateType, index) => (
                     <Button
@@ -208,7 +219,7 @@ function UpdatesToday() {
                 ))}
             </ButtonGroup>
 
-            <ButtonGroup color="primary" aria-label="outlined primary button group" fullWidth="true" >
+            <ButtonGroup color="primary" aria-label="outlined primary button group" fullWidth="true" style={{ marginTop: "0.5rem" }} >
 
                 {Object.keys(stateUpdateStatus).map((state, status) => (
                     <Button
@@ -377,11 +388,11 @@ export default function Stat({
                     number={2150}
                     fColor={"#00aac1"}
                     increased={50}
-                    typeOfCases={"Active Cases"}
+                    typeOfCases={"In Hospital"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                        title="<em>Number of people that have been tested for COVID-19.</em>">
-                        Active Cases</button>
+                        title="<em>Number of people in hospital with COVID-19.</em>">
+                        in Hospital</button>
 
                 </Tag>
                 <Tag
@@ -391,8 +402,8 @@ export default function Stat({
                     typeOfCases={"In ICU"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                        title="<em>Number of people that have been tested for COVID-19.</em>">
-                        In ICU</button>
+                        title="<em>Number of people with COVID-19 in intensive care.</em>">
+                        in ICU</button>
 
                 </Tag></div>
 
