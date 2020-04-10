@@ -155,14 +155,14 @@ export default function OverallTrend() {
                             }
                         },
                         yAxis: [{
-                            name: "Totals",
+                            name: i18next.t("homePage:overallTrend.yaxis1"),
                             axisLabel: {
                                 show: true
                             },
                             type: yAxisType,
                             max: maxY
                         }, {
-                            name: "New Cases",
+                            name: i18next.t("homePage:overallTrend.yaxis2"),
                             axisLabel: {
                                 show: true
                             },
@@ -201,7 +201,7 @@ export default function OverallTrend() {
                         series: [
 
                             {
-                                name: 'Confirmed Cases',
+                                name: i18next.t("homePage:overallTrend.series1"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -212,7 +212,7 @@ export default function OverallTrend() {
                                 },
                                 data: confirmedData
                             }, {
-                                name: 'Deaths',
+                                name: i18next.t("homePage:overallTrend.series2"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -223,7 +223,7 @@ export default function OverallTrend() {
                                 },
                                 data: deathData
                             }, {
-                                name: 'Recoveries',
+                                name: i18next.t("homePage:overallTrend.series3"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -235,7 +235,7 @@ export default function OverallTrend() {
                                 data: recoveryData
                             },
                             {
-                                name: 'New Cases',
+                                name: i18next.t("homePage:overallTrend.series4"),
                                 type: 'bar',
                                 yAxisIndex: '1',
                                 sampling: 'average',

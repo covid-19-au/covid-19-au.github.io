@@ -331,7 +331,7 @@ class EChartglobalLog extends Component {
                         },
                         series: this.state.dataSets,
                         yAxis: {
-                            name: "New Cases This Week",
+                            name: i18next.t("homePage:globalChart.yaxis"),
                             nameTextStyle: {
                                 align: 'left'
                             },
@@ -343,7 +343,7 @@ class EChartglobalLog extends Component {
                             scale: true
                         },
                         xAxis: {
-                            name: "Total",
+                            name: i18next.t("homePage:globalChart.xaxis"),
                             nameTextStyle: {
                                 align: 'center'
                             },

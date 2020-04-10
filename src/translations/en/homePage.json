@@ -59,7 +59,13 @@
         "marker":"Markers: "
     },
     "overallTrend":{
-        "title":"Cases, Deaths and Recoveries"
+        "title":"Cases, Deaths and Recoveries",
+        "yaxis1":"Totals",
+        "yaxis2":"New Cases",
+        "series1":"Confirmed Cases",
+        "series2":"Deaths",
+        "series3":"Recoveries",
+        "series4":"New Cases"
     },
     "stateComparisons":{
         "title":"State Comparisons",
@@ -74,6 +80,8 @@
     },
     "globalChart":{
         "title":"Global Comparison",
+        "yaxis":"New Cases This Week",
+        "xaxis":"Total",
         "append1":"*Watch this",
         "append2":"video",
         "append3":" for a detailed explanation on this graph!",

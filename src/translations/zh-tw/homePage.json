@@ -58,7 +58,13 @@
     "marker": "標記："
   },
   "overallTrend": {
-    "title": "病例，死亡和恢復"
+    "title": "病例，死亡和恢復",
+    "yaxis1": "合計",
+    "yaxis2": "新案件",
+    "series1": "確診病例",
+    "series2": "死亡人數",
+    "series3": "回收率",
+    "series4": "新案件"
   },
   "stateComparisons": {
     "title": "狀態比較",
@@ -75,7 +81,9 @@
     "append1": "*看這個",
     "append2": "視頻",
     "append3": " 有關此圖的詳細說明！",
-    "append4": "*數據源："
+    "append4": "*數據源：",
+    "yaxis": "本週新案件",
+    "xaxis": "總"
   },
   "flights": {
     "title": "航班",

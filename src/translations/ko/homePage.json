@@ -58,7 +58,13 @@
     "marker": "마커 :"
   },
   "overallTrend": {
-    "title": "사례, 사망 및 회복"
+    "title": "사례, 사망 및 회복",
+    "yaxis1": "합계",
+    "yaxis2": "새로운 사례",
+    "series1": "확인 된 사례",
+    "series2": "죽음",
+    "series3": "회복",
+    "series4": "새로운 사례"
   },
   "stateComparisons": {
     "title": "상태 비교",
@@ -75,7 +81,9 @@
     "append1": "*이것을보세요",
     "append2": "비디오",
     "append3": " 이 그래프에 대한 자세한 설명!",
-    "append4": "* 데이터 소스 :"
+    "append4": "* 데이터 소스 :",
+    "yaxis": "이번 주 새로운 사례",
+    "xaxis": "합계"
   },
   "flights": {
     "title": "항공편",
