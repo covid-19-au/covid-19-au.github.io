@@ -8,12 +8,23 @@ import info_zh from "./translations/zh/info.json";
 import infoPage_ko from "./translations/ko/infoPage.json";
 import info_ko from "./translations/ko/info.json";
 
+const allowedLanguages = ['en', 'ko','zh'];
+
+const defaultLng = 'ko';
+let lng = defaultLng;
+
+//language detection
+const storageLanguage = localStorage.getItem('language');
+if (storageLanguage && allowedLanguages.indexOf(storageLanguage) > -1) {
+  lng = storageLanguage;
+}
+
 i18n
   .use(initReactI18next)
   .init({
+    lng,
     fallbackLng: 'en',
-    debug: true,
-    lng: 'ko',                              // language to use, will change later when a button/auto detection will be used to set this
+    debug: true,                              
     resources: {
         en: {
             infoPage: infoPage_en,
