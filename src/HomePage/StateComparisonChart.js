@@ -6,6 +6,8 @@ import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import stateData from "../data/state.json"
+// import i18n bundle
+import i18next from '../i18n';
 
 function createdCaseDates(stateData, logScale) {
 
@@ -356,7 +358,7 @@ export default function StateComparisonChart() {
 
     return (
         <div className="card">
-            <h2>State Comparisons</h2>
+            <h2>{i18next.t("homePage:stateComparisons.title")}</h2>
 
             <ReactEcharts style={{ height: "550px" }} option={
                 {
@@ -375,7 +377,7 @@ export default function StateComparisonChart() {
                     }],
                     title: [
                         {
-                            text: "Tests Conducted",
+                            text: i18next.t("homePage:stateComparisons.yaxislegend1"),
                             left: '5%',
                             top: '7%',
                             textStyle: {
@@ -384,7 +386,7 @@ export default function StateComparisonChart() {
                             }
                         },
                         {
-                            text: "Confirmed Cases",
+                            text: i18next.t("homePage:stateComparisons.yaxislegend2"),
                             top: '55%',
                             left: '5%',
                             textStyle: {
@@ -475,9 +477,9 @@ export default function StateComparisonChart() {
 
                 }}></ReactEcharts>
             <span className="due">
-                <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
-                <span className="key"><p>*Click on points for detailed data</p></span><br />
-                <span className="key"><p>*Dotted line indicates no new data was obtained</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickLegend")}</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.dottedLine")}</p></span><br />
                 {/*<span className="key" style={{ marginTop: "0.5rem" }}>
 
                     Logarithmic Scale (Cases Only):&nbsp;

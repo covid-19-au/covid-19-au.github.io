@@ -249,8 +249,8 @@ export default function OverallTrend() {
 
             />
             <span className="due">
-                <span className="key"><p>{i18next.t("homePage:overallTrend.note1")}</p></span><br />
-                <span className="key"><p>{i18next.t("homePage:overallTrend.note2")}</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickLegend")}</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
                 {i18next.t("homePage:misc.logScale")}&nbsp;

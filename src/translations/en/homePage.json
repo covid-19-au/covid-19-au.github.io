@@ -50,20 +50,44 @@
         "append2":"* Click on the ",
         "append3":"name for details"
     },
-    "hospitalCaseMap":{},
+    "hospitalCaseMap":{
+        "title":"Hospital & Case Map",
+        "hospitalLegend": "Hospital or COVID-19 assessment centre",
+        "casesLegend":  "Case over {oldCaseDays} days old",
+        "confirmedLegend": "Recently confirmed case(not all, collecting)",
+        "note1":"*City-level data is only present for ACT,NSW,VIC and WA, HHS Data for QLD. Other states are being worked on.",
+        "marker":"Markers: "
+    },
     "overallTrend":{
-        "title":"Cases, Deaths and Recoveries",
-        "note1":"*Click on legend to add/remove graphs",
-        "note2":"*Click on points for detailed data"
+        "title":"Cases, Deaths and Recoveries"
+    },
+    "stateComparisons":{
+        "title":"State Comparisons",
+        "yaxislegend1":"Tests Conducted",
+        "yaxislegend2":"Confirmed Cases"
+    },
+    "chartCommon":{
+        "clickLegend":"*Click on legend to add/remove graphs",
+        "clickPoint":"*Click on points for detailed data",
+        "dottedLine":"*Dotted line indicates no new data was obtained"
+        
     },
     "globalChart":{
         "title":"Global Comparison",
-        "append1":"*Click on legend to add/remove graphs",
-        "append2":"*Click on points for detailed data",
-        "append3":"*Watch this",
-        "append4":"video",
-        "append5":" for a detailed explanation on this graph!",
-        "append6":"*Data Source: "
+        "append1":"*Watch this",
+        "append2":"video",
+        "append3":" for a detailed explanation on this graph!",
+        "append4":"*Data Source: "
+    },
+    "flights":{
+        "title":"Flights",
+        "searchButton":"Search",
+        "searchPlaceholder":"Enter flight number, route, arrival date",
+        "tableHeader1":"Flight No",
+        "tableHeader2":"Airline",
+        "tableHeader3":"Route",
+        "tableHeader4":"Arrival",
+        "tableHeader5":"Close Contact Row"
     }
 
 
