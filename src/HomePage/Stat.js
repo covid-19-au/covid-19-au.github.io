@@ -277,7 +277,9 @@ export default function Stat({
     quanguoTrendChart,
     hbFeiHbTrendChart,
     data,
-    countryData
+    countryData,
+    hospitalCount,
+    icuCount
 }) {
     let confCountIncrease = 0;
     let deadCountIncrease = 0;
@@ -288,10 +290,16 @@ export default function Stat({
         testedCount = 0;
         deadCount = 0;
         curedCount = 0;
+        hospitalCount = 0;
+        icuCount = 0;
         for (let i = 0; i < data.length; i++) {
             confirmedCount += parseInt(data[i][1]);
             deadCount += parseInt(data[i][2]);
             curedCount += parseInt(data[i][3]);
+            console.log(data[i])
+            hospitalCount += parseInt(data[i][5]);
+            icuCount += parseInt(data[i][6]);
+
 
             if (data[i][4] == "N/A") {
                 //do nothing
@@ -314,6 +322,8 @@ export default function Stat({
         deadCount = 0;
         curedCount = 0;
         testedCount = 0;
+        hospitalCount = 0;
+        icuCount = 0;
     }
 
     return (
@@ -385,9 +395,9 @@ export default function Stat({
             </div>
             <div className="row">
                 <Tag
-                    number={2150}
+                    number={hospitalCount}
                     fColor={"#00aac1"}
-                    increased={50}
+                    increased={0}
                     typeOfCases={"In Hospital"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
@@ -396,9 +406,9 @@ export default function Stat({
 
                 </Tag>
                 <Tag
-                    number={159}
+                    number={icuCount}
                     fColor={"#c100aa"}
-                    increased={2}
+                    increased={0}
                     typeOfCases={"In ICU"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"

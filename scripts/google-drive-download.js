@@ -18,7 +18,7 @@ function downloadStateCaseData(dataUrl, writePath) {
         resp.on('end', () => {
             const parsedData = JSON.parse(data)
             const requiredData = parsedData.valueRanges[0].values
-
+            console.log(requiredData)
 
             formattedData = JSON.parse('{}')
             formattedData["values"] = []
