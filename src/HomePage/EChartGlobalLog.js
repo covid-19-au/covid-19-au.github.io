@@ -36,7 +36,7 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#ff91a9'
             },
             NZ: {
-                backgroundColor:'#000000'
+                backgroundColor: '#363636'
             },
             'South Korea': {
                 backgroundColor: '#8ccfff'
@@ -135,7 +135,7 @@ class EChartglobalLog extends Component {
 
     // Filter the countries to the ones we want
     filterCountries = (country) => {
-        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan","New Zealand"];
+        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan", "New Zealand"];
         if (viableCountries.includes(country)) {
             return true;
         }
