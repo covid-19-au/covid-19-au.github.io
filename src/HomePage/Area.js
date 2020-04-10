@@ -2,7 +2,8 @@ import uuid from "react-uuid";
 import React, { useState, useEffect } from "react";
 import stateData from "../data/state";
 import testedCases from "../data/testedCases";
-
+// import i18n bundle
+import i18next from '../i18n';
 import { A } from "hookrouter";
 
 const CONFIRMED = 1;
@@ -113,7 +114,7 @@ export default function Area({ area, onChange, data }) {
 
     return (
       <div className="province table-footer">
-        <div className="area">Total</div>
+        <div className="area">{i18next.t("homePage:caseByState.total")}</div>
         <div className="confirmed">
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
@@ -127,21 +128,21 @@ export default function Area({ area, onChange, data }) {
   return (
     <div role={"table"}>
       <div className="province header">
-        <div className="area header statetitle">State</div>
-        <div className="confirmed header confirmedtitle">Confirmed</div>
-        <div className="death header deathtitle">Deaths</div>
-        <div className="cured header recoveredtitle">Recovered</div>
-        <div className="tested header testedtitle">Tested</div>
+        <div className="area header statetitle">{i18next.t("homePage:caseByState.state")}</div>
+        <div className="confirmed header confirmedtitle">{i18next.t("homePage:status.confirm")}</div>
+        <div className="death header deathtitle">{i18next.t("homePage:status.death")}</div>
+        <div className="cured header recoveredtitle">{i18next.t("homePage:status.recover")}</div>
+        <div className="tested header testedtitle">{i18next.t("homePage:status.tested")}</div>
       </div>
       {renderArea()}
       <Total data={data} />
 
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data is based on gov report.
+      {i18next.t("homePage:caseByState.append1")}
       </span>
         <br/>
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-            * Click on the <strong>State</strong> name for details.
+        {i18next.t("homePage:caseByState.append2")}<strong>{i18next.t("homePage:caseByState.state")}</strong>{i18next.t("homePage:caseByState.append3")}.
       </span>
     </div>
   );

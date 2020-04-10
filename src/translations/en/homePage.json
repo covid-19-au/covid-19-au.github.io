@@ -32,6 +32,7 @@
         "recover":"Recovered",
         "tested":"Tested",
         "note":"Time in AEST, last updated at: "
+ 
     },
     "caseByState":{
         "title":"Case by State",
@@ -40,7 +41,12 @@
         "button2":"Cases/M",
         "button3":"Tested",
         "button4":"Tests/M",
-        "button5":"Positive(%)"
+        "button5":"Positive(%)",
+        "total":"Total",
+        "state":"State"
+,       "append1":"* We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data is based on gov report.",
+        "append2":"* Click on the ",
+        "append3":"name for details"
     },
     "hospitalCaseMap":{},
     "globalChart":{
