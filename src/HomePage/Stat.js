@@ -105,7 +105,7 @@ export default function Stat({
     return (
         <div className="card">
 
-            <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Status {name ? `· ${name}` : false}
+            <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">{i18next.t("homePage:status.title")}{name ? `· ${name}` : false}
                 <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div>

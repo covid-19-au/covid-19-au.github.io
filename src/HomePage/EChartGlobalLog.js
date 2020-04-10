@@ -387,7 +387,7 @@ class EChartglobalLog extends Component {
                     </a></p></span><br />
                     <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                    {i18next.t("homePage:globalChart.scaleTitle")}&nbsp;
+                    {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
                             <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>{i18next.t("homePage:misc.onButton")}</Button>
                             <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({ logScale: false })}>{i18next.t("homePage:misc.offButton")}</Button>

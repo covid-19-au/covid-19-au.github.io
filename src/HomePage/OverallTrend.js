@@ -5,6 +5,8 @@ import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import stateData from "../data/state.json"
+// import i18n bundle
+import i18next from '../i18n';
 
 export default function OverallTrend() {
 
@@ -120,7 +122,7 @@ export default function OverallTrend() {
 
     return (
         <div className="card">
-            <h2>Cases, Deaths and Recoveries</h2>
+            <h2>{i18next.t("homePage:overallTrend.title")}</h2>
             <ReactEcharts style={{ height: "400px" }}
                 option={
                     {
@@ -247,14 +249,14 @@ export default function OverallTrend() {
 
             />
             <span className="due">
-                <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
-                <span className="key"><p>*Click on points for detailed data</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:overallTrend.note1")}</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:overallTrend.note2")}</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                    Logarithmic Scale:&nbsp;
+                {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                        <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>On</Button>
-                        <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>Off</Button>
+                        <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>{i18next.t("homePage:misc.onButton")}</Button>
+                        <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>{i18next.t("homePage:misc.offButton")}</Button>
                     </ButtonGroup>
                     <a
                         style={{
