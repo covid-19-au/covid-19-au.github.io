@@ -396,7 +396,7 @@ export default function Stat({
             <div className="row">
                 <Tag
                     number={hospitalCount}
-                    fColor={"#00aac1"}
+                    fColor={"#9d71ea"}
                     increased={0}
                     typeOfCases={"In Hospital"}
                 >
@@ -407,7 +407,7 @@ export default function Stat({
                 </Tag>
                 <Tag
                     number={icuCount}
-                    fColor={"#c100aa"}
+                    fColor={"#00aac1"}
                     increased={0}
                     typeOfCases={"In ICU"}
                 >
