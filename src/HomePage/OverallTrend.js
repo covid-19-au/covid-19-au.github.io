@@ -35,6 +35,7 @@ export default function OverallTrend() {
     let confirmedData = []
     let deathData = []
     let recoveryData = []
+    let activeData = []
     let newConfirmed = []
     let newDeath = []
     //Create array of date data for x-axis
@@ -53,6 +54,7 @@ export default function OverallTrend() {
                 confirmedData.push(countryData[key][0])
                 deathData.push(countryData[key][2])
                 recoveryData.push(countryData[key][1])
+                activeData.push(countryData[key][3])
 
                 newConfirmed.push(countryData[key][0] - preConfirmed)
                 newDeath.push(countryData[key][2] - preDeath)
@@ -69,6 +71,7 @@ export default function OverallTrend() {
             confirmedData.push(countryData[key][0])
             deathData.push(countryData[key][2])
             recoveryData.push(countryData[key][1])
+            activeData.push(countryData[key][3])
 
             newConfirmed.push(countryData[key][0] - preConfirmed)
             newDeath.push(countryData[key][2] - preDeath)
@@ -231,6 +234,17 @@ export default function OverallTrend() {
                                     color: "#00c177"
                                 },
                                 data: recoveryData
+                            }, {
+                                name: 'Active Cases',
+                                type: 'line',
+                                smooth: true,
+                                symbol: 'circle',
+                                symbolSize: 8,
+                                sampling: 'average',
+                                itemStyle: {
+                                    color: "#00aac1"
+                                },
+                                data: activeData
                             },
                             {
                                 name: 'New Cases',
