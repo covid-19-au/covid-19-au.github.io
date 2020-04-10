@@ -514,7 +514,7 @@ function StateChart({ state }) {
               {renderTable(state.toUpperCase())}
             </div>
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Last Update: {ageGenderUpdateTime}
+              Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
           </div>
         </Grid>
@@ -523,7 +523,7 @@ function StateChart({ state }) {
             <h2>General Information - Bar</h2>
             <ReactEcharts option={barOption} />
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Last Update: {ageGenderUpdateTime}
+              Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
           </div>
         </Grid>
@@ -581,7 +581,7 @@ function StateChart({ state }) {
               </a>
             </span>
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Last Update: {ageGenderUpdateTime}
+              Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
           </div>
         </Grid>
@@ -590,7 +590,7 @@ function StateChart({ state }) {
             <h2>Cases by Gender</h2>
             <ReactEcharts option={genderOption} />
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Last Update: {ageGenderUpdateTime}
+              Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
           </div>
         </Grid>
@@ -599,7 +599,7 @@ function StateChart({ state }) {
             <h2>Cases by Age Group</h2>
             <ReactEcharts option={ageOption} />
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Last Update: {ageGenderUpdateTime}
+              Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
           </div>
         </Grid>
@@ -627,7 +627,7 @@ function StateChart({ state }) {
               {renderTable(state.toUpperCase())}
             </div>
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Last Update: {ageGenderUpdateTime}
+               Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
           </div>
         </Grid>
@@ -636,7 +636,7 @@ function StateChart({ state }) {
             <h2>General Information - Bar</h2>
             <ReactEcharts option={barOption} />
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Last Update: {statusUpdateTime}
+               Time in AEST, Last Update: {statusUpdateTime}
             </span>
           </div>
         </Grid>
@@ -694,7 +694,7 @@ function StateChart({ state }) {
               </a>
             </span>
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Last Update: {ageGenderUpdateTime}
+               Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
           </div>
         </Grid>
@@ -706,8 +706,11 @@ function StateChart({ state }) {
           <br />
           <h5 style={{ textAlign: "center" }}>
             If you have reliable source for such data, please let us know
-            through the{" "}
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
+            through{" "}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
+              style={{ color: "blue", "text-decoration": "underline" }}
+            >
               this
             </a>{" "}
             form.
