@@ -1,0 +1,14 @@
+{
+    "misc":{
+        "loadingText":"Loading",
+        "title":"COVID-19 in Australia",
+        "descrip":"Real-Time Report",
+        "slogon":"Stay Calm, Stay Informed"
+    },
+    "dataAck":{},
+    "status":{},
+    "caseByState":{},
+    "hospitalCaseMap":{}
+
+
+}
