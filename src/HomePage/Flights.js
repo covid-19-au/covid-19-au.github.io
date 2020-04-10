@@ -66,14 +66,52 @@ function SearchFlights(searchKey, flights) {
   if (dateArrivalKeyResult.length === 0 || dateArrivalKeyResult.length === flights.length) {
     return []
   }
-  return dateArrivalKeyResult.sort(function (a, b) {
-    let arr = a.dateArrival.split("-");
-    let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-    arr = b.dateArrival.split("-");
+  return sortFlight(dateArrivalKeyResult);
+}
 
-    let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-    return new Date(dateB) - new Date(dateA);
-  });
+/**
+ * Sort flight from latest arrival date to oldest arrival date
+ * @param {Array} flights list of flight need to be sorted
+ */
+function sortFlight(flights) {
+  return flights.sort((a, b) => {
+    let arr = a.dateArrival.split("-");
+    let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]) - 1, parseInt(arr[0]));
+    arr = b.dateArrival.split("-");
+    let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]) - 1, parseInt(arr[0]));
+    return dateB - dateA;
+  })
+}
+
+/**
+ * Method for formatting time into am/pm format
+ * @param {Date} date date
+ */
+function ordinal_suffix_of(i) {
+  var j = i % 10,
+      k = i % 100;
+  if (j == 1 && k != 11) {
+      return i + "st";
+  }
+  if (j == 2 && k != 12) {
+      return i + "nd";
+  }
+  if (j == 3 && k != 13) {
+      return i + "rd";
+  }
+  return i + "th";
+}
+
+/**
+ * Method for adding aria label for accessibility to flight row details
+ * @param {JSON} flight flight information
+ */
+function getAriaLabelForFlight(flight) {
+  var flightDateArrival = new Date(flight.dateArrival)
+  var flightDateStr = ordinal_suffix_of(flightDateArrival.getDate()) + ' of '
+  const month = flightDateArrival.toLocaleString('default', { month: 'long' });
+  flightDateStr += month + ' ' + flightDateArrival.getFullYear()
+  return `The close contact rows in Flight number ${flight.flightNo} of ${flight.airline} flying from ${flight.path} whose scheduled arrival date was ${flightDateStr} are ${flight.closeContactRow.split(",").join(",")}`
 }
 
 /**
@@ -82,14 +120,7 @@ function SearchFlights(searchKey, flights) {
  */
 function Flights({ flights }) {
   // sort data first
-  flights.sort(function (a, b) {
-    let arr = a.dateArrival.split("-");
-    let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-    arr = b.dateArrival.split("-");
-
-    let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]), parseInt(arr[0]));
-    return new Date(dateB) - new Date(dateA);
-  });
+  flights = sortFlight(flights);
 
   const [flightResult, setFlightResult] = useState([]);
   const [searchKey, setSearchKey] = useState("");
@@ -116,11 +147,11 @@ function Flights({ flights }) {
   return (
     <div className="card">
 
-      <h2 style={{ display: "flex" }}>Flights<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+      <h2 style={{ display: "flex" }} aria-label="Flights with reported COVID 19 cases">Flights<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
         <Acknowledgement>
         </Acknowledgement></div></h2>
       <div className="centerContent">
-        <div className="selfCenter standardWidth">
+        <div role={"table"} className="selfCenter standardWidth">
           <div className="searchArea">
             <div className="input-group mb-3">
               <div className="input-group-prepend">
@@ -143,18 +174,18 @@ function Flights({ flights }) {
             <div className="area header">Close Contact Row</div>
           </div>
           {outputList.length ? (
-            outputList.map(flight => (
-              <div key={uuid()} className="flightInfo header">
-                <div className="flightArea">{flight.flightNo}</div>
-                <div className="flightArea">{flight.airline}</div>
-                <div className="flightArea">{flight.path}</div>
-                <div className="flightArea">{flight.dateArrival}</div>
-                <div className="flightArea">{flight.closeContactRow}</div>
-              </div>
-            ))
-          ) : (
-              <></>
-            )}
+        outputList.map(flight => (
+          <div role={"button"} aria-label={getAriaLabelForFlight(flight)} aria-describedby={getAriaLabelForFlight(flight)} className="flightInfo header" key={uuid()}>
+            <div className="flightArea">{flight.flightNo}</div>
+            <div className="flightArea">{flight.airline}</div>
+            <div className="flightArea">{flight.path}</div>
+            <div className="flightArea">{flight.dateArrival}</div>
+            <div className="flightArea">{flight.closeContactRow}</div>
+          </div>
+        ))
+      ) : (
+          <></>
+        )}
         </div>
       </div>
     </div>

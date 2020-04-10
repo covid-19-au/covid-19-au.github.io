@@ -4,6 +4,51 @@ import ReactGA from "react-ga";
 import stateCaseData from "../data/stateCaseData";
 import Acknowledgement from "../Acknowledgment"
 
+/**
+ * Method for adding suffix to date
+ * @param {int} i date
+ */
+function ordinal_suffix_of(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
+
+/**
+ * Method for formatting time into am/pm format
+ * @param {Date} date date
+ */
+function formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ' ' + minutes + ' ' + ampm;
+    return strTime;
+}
+
+/**
+ * Method for adding aria label to datetime of status update
+ * @param {String} updatedTime update time for status information
+ */
+function getAriaLabelForUpdatedTime(updatedTime) {
+    var timeElem = updatedTime.split(" ")[0].split(":")
+    var dateElem = updatedTime.split(" ")[1].split("/")
+    var tempDate = new Date(dateElem[2], dateElem[1], dateElem[0], timeElem[0], timeElem[1])
+    const month = tempDate.toLocaleString('default', { month: 'long' });
+    return `Time in AEST, last updated at: ${ordinal_suffix_of(tempDate.getDate())} of ${month} ${tempDate.getFullYear()} at ${formatAMPM(tempDate)}`
+}
 
 export default function Stat({
     modifyTime,
@@ -46,7 +91,7 @@ export default function Stat({
             ];
         confCountIncrease = confirmedCount - lastTotal[0];
         deadCountIncrease = deadCount - lastTotal[2];
-        curedCountIncrease = curedCount - lastTotal[1];
+        // curedCountIncrease = curedCount - lastTotal[1];
         testedCountIncrease = testedCount - lastTotal[4]
     } else {
         confirmedCount = 0;
@@ -58,7 +103,7 @@ export default function Stat({
     return (
         <div className="card">
 
-            <h2 style={{ display: "flex" }}>Status {name ? `· ${name}` : false}
+            <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Status {name ? `· ${name}` : false}
                 <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div>
@@ -73,6 +118,7 @@ export default function Stat({
                     number={confirmedCount}
                     fColor={"#ff603c"}
                     increased={confCountIncrease}
+                    typeOfCases={"Confirmed"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>">
@@ -86,6 +132,7 @@ export default function Stat({
                     number={deadCount}
                     fColor={"#c11700"}
                     increased={deadCountIncrease}
+                    typeOfCases={"Deaths"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
@@ -95,9 +142,11 @@ export default function Stat({
             </div>
             <div className="row">
                 <Tag
-                    number={curedCount}
+                    // number={curedCount}
+                    number={"2900+"}
                     fColor={"#00c177"}
                     increased={curedCountIncrease}
+                    typeOfCases={"Recovered"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people that have recovered from COVID-19.</em>">
@@ -108,6 +157,7 @@ export default function Stat({
                     number={testedCount}
                     fColor={"#007cf2"}
                     increased={testedCountIncrease}
+                    typeOfCases={"Tested"}
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people that have been tested for COVID-19.</em>">
@@ -117,8 +167,10 @@ export default function Stat({
 
             </div>
 
-            <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
-                Time in AEDT, last updated at: {stateCaseData.updatedTime}
+            <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}
+            aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)} 
+            aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
+                Time in AEST, last updated at: {stateCaseData.updatedTime}
             </span>
 
             {/*<div>*/}

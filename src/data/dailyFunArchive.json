@@ -1,6 +1,107 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=oilZ1hNZPRM",
+                    "description": "John Krasinski is back with more good news!"
+                }
+            ],
+            "type": "distraction",
+            "date": "9/4/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=27fbGpIoYMM",
+                    "description": "Coronavirus: More good news stories as Australians unite during the pandemic | 7NEWS"
+                }
+            ],
+            "type": "distraction",
+            "date": "8/4/2020"
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://www.abc.net.au/news/image/12118058-3x4-340x453.jpg",
+                    "source": "https://www.abc.net.au/news/2020-04-04/coronavirus-canberra-feel-good-community-stories/12114724"
+                }
+            ],
+            "video": [],
+            "title": "Community in a pot of curry",
+            "source": "https://www.abc.net.au/news/2020-04-04/coronavirus-canberra-feel-good-community-stories/12114724",
+            "content": "<p>Pictured above is Paramdeep Singh, a resident of Canberra that is coordinating a team of Australian Sikhs who have been cooking, packing and delivering 100 meals a day to the doorsteps of fellow Canberrans. A core concept in Sikhism is the practice of the \"langar\" or a \"free kitchen\". People are fed at the langar regardless of  religion, caste, colour, creed, age, gender or social status, to uphold the principle of equality among all people.<p/><p>When interviewed by ABC News, they said, \"Any person who is not able to cook for themselves, we are trying to provide food.\" This is just one of a number if heartwarming stories coming out of Canberra. Check out more in the linked article!<p/>",
+            "type": "motivation",
+            "date": "7/4/2020"
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/2020/03/18/1584491092127_Adopthealth.jpg?width=922&height=&mode=crop&anchor=topcenter&quality=75",
+                    "source": "https://www.facebook.com/groups/adoptaHCWVictoria/"
+                }
+            ],
+            "video": [],
+            "title": "Adopt a Healthcare Worker",
+            "source": "https://www.nowtolove.com.au/news/local-news/adopt-a-healthcare-worker-facebook-group-63103",
+            "content": "<p>A Facegroup group called \"Adopt a Healthcare Worker\" is now home to thousands of Australians who have offered to assist frontline health worders.</p> <p>We think this is a wonderful effort and you should definitely check out the Facebook page (click on the image source)!<p/>",
+            "type": "motivation",
+            "date": "6/4/2020"
+        },
+        {
+            "image": [
+                {
+                    "name": "Community Mobility Report",
+                    "imgLink": "https://i.imgur.com/Uzbx6V9.jpg",
+                    "description": "See how your community is moving around differently due to COVID-19",
+                    "source": "https://www.google.com/covid19/mobility/"
+                }
+            ],
+            "video": [],
+            "type": "fun",
+            "date": "5/4/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=F5pgG1M_h_U",
+                    "description": "Some good news from around the world with John Krasinski"
+                }
+            ],
+            "type": "distraction",
+            "date": "4/4/2020"
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/nicholas.nakos/e4ee9b36-6fbe-41eb-94f7-63480b9754c8.jpg/r0_0_4324_6856_w1200_h678_fmax.jpg",
+                    "source": "https://www.bendigoadvertiser.com.au/story/6700179/gowns-for-doctors-takes-off-in-a-big-way/?fbclid=IwAR23NrJdL0zKDcUlKML4S6TWz9AWpEuvsGt_6_mcaGAmTQSRJ6NiPpQiIlk"
+                }
+            ],
+            "video": [],
+            "title": "Bendigo Community Unite",
+            "source": "https://www.bendigoadvertiser.com.au/story/6697267/the-gps-who-are-sewing-their-own-ppe-equipment/",
+            "content": "<p>When facing a pandemic such as COVID-19, it is essential for medical professionals to have adequate supply of vital defence gear to protect them from the droplets that spread the virus. However, there has been a shortage of gowns, goggles, shields, and gloves, especially in the Bendigo area.</p><p>Doctors desperate for supplies have resorted to making their own gowns in order to continue to treat those in critical need.</p><p>Luckily, nearly 300 Bendigo locals and small businesses have volunteered to help fund, cut and sew homemade protective gowns for doctors to allow them to continue their life saving efforts.</p><p>A massive thank you to these selfless and generous individuals who are doing what they can to help health professionals to continue to treat their patients. You are a great example to how Australians can still unite and contribute to help combat the outbreak during self-isolation at home. Extraordinary work Australia!</p><p>If you know how to sew or would like to donate materials please contact gownsfordoctors@gmail.com!</p>",
+            "type": "motivation",
+            "date": "3/4/2020"
+        },
+        {
+            "image": [
+                {
+                    "name": "Search trends related to COVID-19 in Australia",
+                    "imgLink": "https://i.imgur.com/EpfEWKI.jpg",
+                    "description": "Check out the the rest of Google's coronavirus trends here!",
+                    "source": "https://trends.google.com.au/trends/story/US_cu_4Rjdh3ABAABMHM_en_en-AU"
+                }
+            ],
+            "video": [],
+            "type": "fun",
+            "date": "2/4/2020"
+        },
+        {
             "image": [
                 {
                     "name": "Zoos around the world are live-streaming their animals!",
@@ -10,8 +111,8 @@
                 }
             ],
             "video": [],
-            "type":"fun",
-            "date":"1/4/2020"
+            "type": "fun",
+            "date": "1/4/2020"
         },
         {
             "image": [],
@@ -22,8 +123,8 @@
                     "description": "Self-isolating and social distancing can be tough, but maybe this video could help us all cope with it all a little better!"
                 }
             ],
-            "type":"fun",
-            "date":"31/3/2020"
+            "type": "fun",
+            "date": "31/3/2020"
         },
         {
             "image": [
@@ -35,8 +136,8 @@
                 }
             ],
             "video": [],
-            "type":"fun",
-            "date":"30/3/2020"
+            "type": "fun",
+            "date": "30/3/2020"
         },
         {
             "image": [],
@@ -47,8 +148,8 @@
                     "description": "Minute Physics explains how we can tell if we're beating COVID-19."
                 }
             ],
-            "type":"fun",
-            "date":"29/3/2020"
+            "type": "fun",
+            "date": "29/3/2020"
         },
         {
             "image": [],
@@ -59,8 +160,8 @@
                     "description": "Watch Quentin spend 24 hours in the \"world's most virus proof house!\""
                 }
             ],
-            "type":"fun",
-            "date":"28/3/2020"
+            "type": "fun",
+            "date": "28/3/2020"
         }
     ]
 }

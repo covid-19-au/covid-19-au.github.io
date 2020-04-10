@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useRef
 } from "react";
+
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -19,10 +20,13 @@ import mapDataHos from "./data/mapdataHos";
 import Fallback from "./fallback"
 
 import FAQPage from "./FAQPage";
+import DailyHistoryPage from "./DailyHistoryPage";
 import NewsPage from "./NewsPage";
 import InfoPage from "./InfoPage";
 import Navbar from "./Navbar";
-import HomePage from "./HomePage/HomePage"
+import HomePage from "./HomePage/HomePage";
+
+import StateChart from "./DataVis/StateChart";
 
 import "./App.css";
 import uuid from "react-uuid";
@@ -62,19 +66,61 @@ const provincesByPinyin = keyBy(provinces, "pinyin");
 
 
 function Header({ province }) {
+
+  const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
+
+  const setModalVisibility = state => {
+    setShowSocialMediaIcons(state);
+  };
+
   return (
     <header>
+
+
       <div className="bg"></div>
       <h1
         style={{
-          fontSize: "120%",
+          fontSize: "170%",
           color: "white",
-          textAlign: "center"
+          textAlign: "center",
+          fontWeight:"bold"
         }}
       >
-        COVID-19 in Australia — Real-Time Report
+        COVID-19 in Australia
       </h1>
-        <div className="slogan"><i>Stay Calm Stay Informed</i></div>
+      <h1
+        style={{
+          fontSize: "160%",
+          color: "white",
+          textAlign: "center",
+            fontWeight:"bold"
+        }}
+      >
+        Real-Time Report
+
+      </h1>
+
+      <div className="slogan"><i>Stay Calm, Stay Informed</i></div>
+
+        <div style={{
+            fontSize: "120%",
+            color: "white",
+            textAlign: "center",
+            marginTop:"1rem"
+        }}>
+            <SocialMediaShareModal
+                visible={showSocialMediaIcons}
+                onCancel={() => setShowSocialMediaIcons(false)}
+            />
+            <a  onClick={() => {
+                ReactGA.event({category: 'Header', action: "share"});
+                setModalVisibility(true)
+            }}><i className="fas fa-share-alt"></i></a>
+            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "twitter"})}} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
+            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "instagram"})}} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
+            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "github"})}} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
+        </div>
+
       {/*<i>By Students from Monash</i>*/}
     </header>
   );
@@ -217,7 +263,16 @@ function App() {
     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
     "/info": () => <InfoPage columns={columns} gspace={gspace} />,
     "/news": () => <NewsPage province={province} gspace={gspace} />,
-    "/faq": () => <FAQPage />
+    "/faq": () => <FAQPage />,
+    "/dailyHistory": () => <DailyHistoryPage />,
+    "/state/vic": () => <StateChart state="VIC" />,
+    "/state/nsw": () => <StateChart state="NSW" />,
+    "/state/qld": () => <StateChart state="QLD" />,
+    "/state/act": () => <StateChart state="ACT" />,
+    "/state/sa": () => <StateChart state="SA" />,
+    "/state/wa": () => <StateChart state="WA" />,
+    "/state/nt": () => <StateChart state="NT" />,
+    "/state/tas": () => <StateChart state="TAS" />,
   };
   //
   // // The hook used to render the routes.
@@ -229,7 +284,7 @@ function App() {
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
-          onCancel={() => setShowSocialMediaIcons(false)}
+          onCancel={ () => setShowSocialMediaIcons(false)}
         />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">

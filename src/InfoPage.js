@@ -17,6 +17,10 @@ import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
 // import i18n bundle
 import i18next from './i18n';
+import ReactGA from "react-ga";
+import ReactHtmlParser from 'react-html-parser';
+import { A } from 'hookrouter';
+
 
 // Info page to present information about the virus.
 export default function InfoPage({ columns }) {
@@ -58,43 +62,72 @@ function Information({ hospitalData, columns }) {
                 <h2 className="responsiveH2">{i18next.t("infoPage:dailyDistraction.title")}</h2>
 
                 {dailyFun.dailyFunStuff.map(stuff => (
-                    <div key={uuid()}>
-                        <div>
-                            {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text.
-                        */}
-                            <div>
-                                {/* First image */}
+                    stuff.type === "motivation" ? (
+                        <div key={uuid()}>
+                            <div className="shadow-none p-3 mb-5 bg-light rounded">
+                                <h4 style={{ textAlign: 'center' }}>{stuff.title}</h4>
+                                <div style={{ color: "grey", textAlign: 'center' }}>
+                                    <a href={stuff.source}
+                                        target="_blank"
+                                        rel="noopener noreferrer"><u>Story Source</u></a></div>
                                 {stuff.image.map(i1 => (
                                     <div key={uuid()}>
-                                        <div className="row centerMedia">
-                                            <div className="imageContainer" style={{ height: "auto" }} >
+                                        <div className=" centerMedia">
+                                            <div style={{ height: "auto", margin: 0 }} >
                                                 <img
-                                                    className="formatImage"
                                                     src={i1.imgLink}
                                                     alt={i1.name}
-                                                    style={{}}
+                                                    style={{ maxWidth: "98%", maxHeight: "400px" }}
                                                 />
-                                                <small className="mediaText" >{i1.name}</small>
-                                                <br />
-                                                <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
+
                                             </div>
+                                            <a href={i1.source} style={{ color: "grey" }}><u>Image Source</u></a>
                                         </div>
 
                                     </div>
                                 ))}
-                                {/* Video */}
-                                {stuff.video.map(vid => (
-                                    <div key={uuid()} className="row centerMedia">
-                                        <div>
-                                            <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-                                            <small className="mediaText">{vid.description}</small>
-                                        </div>
-                                    </div>
-                                ))}
+                                <div>{ReactHtmlParser(stuff.content)}</div>
 
                             </div>
                         </div>
-                    </div>
+                    ) :
+                        (<div key={uuid()}>
+                            <div>
+                                {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text.
+                        */}
+                                <div>
+                                    {/* First image */}
+                                    {stuff.image.map(i1 => (
+                                        <div key={uuid()}>
+                                            <div className="row centerMedia">
+                                                <div className="imageContainer" style={{ height: "auto" }} >
+                                                    <img
+                                                        className="formatImage"
+                                                        src={i1.imgLink}
+                                                        alt={i1.name}
+                                                        style={{}}
+                                                    />
+                                                    <small className="mediaText" >{i1.name}</small>
+                                                    <br />
+                                                    <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    ))}
+                                    {/* Video */}
+                                    {stuff.video.map(vid => (
+                                        <div key={uuid()} className="row centerMedia">
+                                            <div>
+                                                <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                                                <small className="mediaText">{vid.description}</small>
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                </div>
+                            </div>
+                        </div>)
                 ))
                 }
                 <p style={{ textAlign: "center" }}>{i18next.t("infoPage:dailyDistraction.body1")}</p>
@@ -123,12 +156,12 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
 
-                <div className="row centerMedia">
-                    <div>
-                        <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />
-                        <small className="mediaText">{i18next.t("infoPage:informativeMedia:media3Descrip")}</small>
-                    </div>
-                </div>
+                {/*<div className="row centerMedia">*/}
+                    {/*<div>*/}
+                        {/*<ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />*/}
+                        {/*<small className="mediaText">How to properly wear and dispose of masks.</small>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
             </div>
             <div className="card" >
 
@@ -184,8 +217,8 @@ function Information({ hospitalData, columns }) {
                                         ))}
 
                                         {/* Citation tag */}
-                                        {info.text.citation.map(cit => (<div>
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        {info.text.citation.map(cit => (<div key={uuid()}>
+                                            <small ><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
                                         </div>
                                         ))}
                                     </div>
