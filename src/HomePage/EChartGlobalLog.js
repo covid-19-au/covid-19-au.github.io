@@ -85,7 +85,26 @@ class EChartglobalLog extends Component {
             arrMap: {},
             dates: [],
             dataSets: [],
-            logScale: true
+            logScale: true,
+            selected: {
+                'AU': true,
+                'China': true,
+                'Italy': true,
+                'Japan': true,
+                'UK': true,
+                'US': true,
+                'Singapore': false,
+                'Canada': false,
+                'Norway': false,
+                'France': false,
+                'Switzerland': false,
+                'Sweden': false,
+                'Denmark': false,
+                'Iran': false,
+                'Spain': false,
+                'Germany': false,
+                'South Korea': false
+            }
         }
     }
 
@@ -259,59 +278,90 @@ class EChartglobalLog extends Component {
 
     }
 
+    onSelectAllClick = () => {
+        this.setState({
+            selected: {
+                'AU': true,
+                'China': true,
+                'Italy': true,
+                'Japan': true,
+                'UK': true,
+                'US': true,
+                'Singapore': true,
+                'Canada': true,
+                'Norway': true,
+                'France': true,
+                'Switzerland': true,
+                'Sweden': true,
+                'Denmark': true,
+                'Iran': true,
+                'Spain': true,
+                'Germany': true,
+                'South Korea': true,
+                'NZ': true
+            }
+        })
+    }
 
-
-
-    // lineOnMouseOver = (e) => {
-    //     console.log(this.chartReference)
-    //     let datasets = this.chartReference.current.props.option.series;
-    //     datasets[e.componentIndex].lineStyle.width = 2;
-    //     this.chartReference.current.rerender();
-    // }
-
-    // lineOnMouseOut = (e) => {
-    //     let datasets = this.chartReference.current.props.option.series;
-    //     datasets[e.componentIndex].lineStyle.width = 0.5;
-    //     this.chartReference.current.rerender();
-    // }
+    onDeselectAllClick = () => {
+        this.setState({
+            selected: {
+                'AU': false,
+                'China': false,
+                'Italy': false,
+                'Japan': false,
+                'UK': false,
+                'US': false,
+                'Singapore': false,
+                'Canada': false,
+                'Norway': false,
+                'France': false,
+                'Switzerland': false,
+                'Sweden': false,
+                'Denmark': false,
+                'Iran': false,
+                'Spain': false,
+                'Germany': false,
+                'South Korea': false,
+                'NZ': false
+            }
+        })
+    }
 
     componentDidMount() {
         this.chartIt();
-        console.log(this.chartReference)
+        console.log(this.chartReference);
     }
-
 
 
     render() {
         return (
             <div className="card">
                 <h2>Global Comparison</h2>
+                <ButtonGroup style={{ justifyContent: "center" }} size="small" aria-label="small outlined button group">
+                    <Button style={{
+                        textTransform: 'none',
+                        paddingTop: '0.1rem',
+                        paddingBottom: '0.1rem',
+                        outline: "none"
+                    }} disableElevation={true} onClick={this.onSelectAllClick}>Select All</Button>
+                    <Button style={{
+                        textTransform: 'none',
+                        paddingTop: '0.1rem',
+                        paddingBottom: '0.1rem',
+                        outline: "none"
+                    }} onClick={this.onDeselectAllClick}>Select None</Button>
+                </ButtonGroup>
                 <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
                     ref={this.chartReference}
-                    /*
-                    onEvents={{
-                        'mouseover': this.lineOnMouseOver
-                        'mouseout': this.lineOnMouseOut
-                    }}*/
+                    lazyUpdate={true}
                     option={{
                         legend: {
                             show: true,
                             left: "center",
                             top: "top",
                             itemGap: 5,
-                            selected: {
-                                'Singapore': false,
-                                'Canada': false,
-                                'Norway': false,
-                                'France': false,
-                                'Switzerland': false,
-                                'Sweden': false,
-                                'Denmark': false,
-                                'Iran': false,
-                                'Spain': false,
-                                'Germany': false,
-                                'South Korea': false
-                            }
+                            selected: this.state.selected
                         },
                         grid: {
                             containLabel: true,
@@ -329,14 +379,16 @@ class EChartglobalLog extends Component {
                             textStyle: {
                                 color: "black"
                             },
-                            formatter: "{a}<br /> Date: {b}<br /> Total,Weekly: {c}"
+                            formatter: function (params, ticket, callback) {
+                                return params[0].seriesName + "<br /> Date: " + params[0].name + "<br /> Total: " + params[0].value[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "<br /> Weekly: " + params[0].value[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            }
                         },
                         toolbox: {
                             show: false
                         },
                         series: this.state.dataSets,
                         yAxis: {
-                            name: "New Cases This Week",
+                            name: "New Cases In Past 7 Days",
                             nameTextStyle: {
                                 align: 'left'
                             },
@@ -381,8 +433,12 @@ class EChartglobalLog extends Component {
                     }}
                 />
                 <span className="due">
+                    <span className="key" style={{ fontSize: "80%", paddingTop: 0 }}>
+                        Last updated on: {this.state.dates[this.state.dates.length - 1]}
+                    </span><br /><br />
                     <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
                     <span className="key"><p>*Click on points for detailed data</p></span><br />
+                    <span className="key"><p>*Each data point on the Y-axis is the total number of new confirmed cases in the past 7 days.</p></span><br />
                     <span className="key"><p>*Watch this <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">video</a> for a detailed explanation on this graph!</p></span><br />
                     <span className="key"><p>*Data Source: <a target="_blank" rel="noopener noreferrer" href="https://github.com/CSSEGISandData/COVID-19">
                         <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -419,6 +475,7 @@ class EChartglobalLog extends Component {
 
                     </span>
                 </span>
+
             </div>
         )
     }

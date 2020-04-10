@@ -43,19 +43,25 @@ const lineBarTooltip = {
 };
 
 const ageTooltip = {
-    trigger: "axis",
-    axisPointer: {
-        crossStyle: {
-            color: "#999",
-        },
+  trigger: "axis",
+  axisPointer: {
+    crossStyle: {
+      color: "#999",
     },
-    formatter: function (params) {
-        let str = '<div><p>Age: '+params[0].name+'</p></div>';
-        for(let i=0;i<params.length;i++){
-            str+=params[i].marker+' '+params[i].seriesName+': '+params[i].data+'<br/>'
-        }
-        return str
+  },
+  formatter: function (params) {
+    let str = "<div><p>Age: " + params[0].name + "</p></div>";
+    for (let i = 0; i < params.length; i++) {
+      str +=
+        params[i].marker +
+        " " +
+        params[i].seriesName +
+        ": " +
+        params[i].data +
+        "<br/>";
     }
+    return str;
+  },
 };
 
 const pieTooltip = {
@@ -202,9 +208,7 @@ function setGenderOption(state) {
   series.setSeriesList(tempSeriesList);
 
   let tempOption = {
-    title: {
-      text: "Gender Chart",
-    },
+
     tooltip: pieTooltip,
     legend: {
       data: genderLabel,
@@ -236,9 +240,7 @@ function setAgeOption(state) {
 
   let tempOption = {
     tooltip: ageTooltip,
-    title: {
-      text: "Age Group Chart",
-    },
+
     legend: {
       data: ageChartLegend,
       top: "7%",
@@ -285,9 +287,7 @@ function setGeneralBarOption(state) {
       top: "20%",
     },
     tooltip: lineBarTooltip,
-    title: {
-      text: "General Info Bar Chart",
-    },
+
     legend: {
       data: generalBarLegend,
       top: "7%",
@@ -346,9 +346,6 @@ function setGeneralLineOption(state, logScale, maxY) {
       top: "20%",
     },
     tooltip: lineBarTooltip,
-    title: {
-      text: "General Info Line Chart",
-    },
     legend: {
       data: generalLineLegend,
       top: "7%",
@@ -413,7 +410,7 @@ function renderTable(state) {
         <strong>{state.toUpperCase()}</strong>
       </div>
       <div className="confirmed">
-        <strong>{latestData[0]}</strong>&nbsp;
+        <strong>{numberWithCommas(latestData[0])}</strong>&nbsp;
         <div className="dailyIncrease">
           {latestData[0] - lastData[0] > 0
             ? `(+${latestData[0] - lastData[0]})`
@@ -421,7 +418,7 @@ function renderTable(state) {
         </div>
       </div>
       <div className="death">
-        <strong>{latestData[1]}</strong>&nbsp;
+        <strong>{numberWithCommas(latestData[1])}</strong>&nbsp;
         <div className="dailyIncrease">
           {latestData[1] - lastData[1] > 0
             ? `(+${latestData[1] - lastData[1]})`
@@ -429,14 +426,14 @@ function renderTable(state) {
         </div>
       </div>
       <div className="cured">
-        <strong>{latestData[2]}</strong>&nbsp;
+        <strong>{numberWithCommas(latestData[2])}</strong>&nbsp;
         <div className="dailyIncrease">
           {latestData[2] - lastData[2] > 0
             ? `(+${latestData[2] - lastData[2]})`
             : null}
         </div>
       </div>
-      <div className="tested">{latestData[3]}</div>
+      <div className="tested">{numberWithCommas(latestData[3])}</div>
     </div>
   );
 }
@@ -456,6 +453,9 @@ function calcMaxY(logScale, maxValue) {
 }
 
 function StateChart({ state }) {
+  const statusUpdateTime = latestAusData["updatedTime"];
+  const ageGenderUpdateTime = ageGenderData["DateUpdate"];
+
   // get choosen state data
   const expectStateData = getExpectStateData(state);
 
@@ -481,7 +481,7 @@ function StateChart({ state }) {
     genderOption = setGenderOption(expectStateData);
     ageOption = setAgeOption(expectStateData);
   }
-  ReactGA.pageview("/state/"+state);
+  ReactGA.pageview("/state/" + state);
 
   if (expectStateData !== null) {
     return (
@@ -504,12 +504,18 @@ function StateChart({ state }) {
               </div>
               {renderTable(state.toUpperCase())}
             </div>
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+              Time in AEST, Last Update: {ageGenderUpdateTime}
+            </span>
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4}>
           <div className="card">
             <h2>General Information - Bar</h2>
             <ReactEcharts option={barOption} />
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+              Time in AEST, Last Update: {ageGenderUpdateTime}
+            </span>
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4}>
@@ -565,18 +571,27 @@ function StateChart({ state }) {
                 <div className="dataSource"></div>
               </a>
             </span>
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+              Time in AEST, Last Update: {ageGenderUpdateTime}
+            </span>
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4} xl={4}>
           <div className="card">
             <h2>Cases by Gender</h2>
             <ReactEcharts option={genderOption} />
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+              Time in AEST, Last Update: {ageGenderUpdateTime}
+            </span>
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4} xl={6}>
           <div className="card">
             <h2>Cases by Age Group</h2>
             <ReactEcharts option={ageOption} />
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+              Time in AEST, Last Update: {ageGenderUpdateTime}
+            </span>
           </div>
         </Grid>
       </Grid>
@@ -602,12 +617,18 @@ function StateChart({ state }) {
               </div>
               {renderTable(state.toUpperCase())}
             </div>
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+               Time in AEST, Last Update: {ageGenderUpdateTime}
+            </span>
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4}>
           <div className="card">
             <h2>General Information - Bar</h2>
             <ReactEcharts option={barOption} />
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+               Time in AEST, Last Update: {statusUpdateTime}
+            </span>
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={4}>
@@ -663,6 +684,9 @@ function StateChart({ state }) {
                 <div className="dataSource"></div>
               </a>
             </span>
+            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+               Time in AEST, Last Update: {ageGenderUpdateTime}
+            </span>
           </div>
         </Grid>
         <Grid item xs={11} sm={11} md={5}>
@@ -673,8 +697,11 @@ function StateChart({ state }) {
           <br />
           <h5 style={{ textAlign: "center" }}>
             If you have reliable source for such data, please let us know
-            through the{" "}
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link">
+            through{" "}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
+              style={{ color: "blue", "text-decoration": "underline" }}
+            >
               this
             </a>{" "}
             form.
@@ -683,6 +710,10 @@ function StateChart({ state }) {
       </Grid>
     );
   }
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 /**

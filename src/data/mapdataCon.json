@@ -455,7 +455,7 @@
     "name": "Adelaide Airport",
     "date": "2/4/20",
     "time": "",
-    "description": "Twelve baggage handlers and five close contacts have tested positive for COVID-19, taking the cluster to a total of 17 cases. The first case related to the cluster received a positive test result on 27 March.",
+    "description": "Investigations are ongoing into the cluster of 33 cases identified at Adelaide Airport. Anyone who is sick with symptoms of COVID-19 and has been at the Adelaide Airport, including in the terminal or car park, since Tuesday 17 March should present for testing.",
     "coor": ["-34.946426", "138.533313"]
   },
   {
@@ -889,5 +889,32 @@
     "time": "N/A",
     "description": "A further eight people have tested positive to coronavirus in relation to the current outbreak at the North West Regional Hospital.",
     "coor": ["-41.047280", "145.880549"]
+  },
+  {
+    "state": "NSW",
+    "area": "Gosford",
+    "name": "Gosford Hospital",
+    "date": "9/4/20",
+    "time": "N/A",
+    "description": "12 new cases at Gosford Hospital including two patients and six staff and four family/friend cases",
+    "coor": ["-33.420279", "151.339405"]
+  },
+  {
+    "state": "TAS",
+    "area": "",
+    "name": "North West Regional Hospital",
+    "date": "9/4/20",
+    "time": "N/A",
+    "description": "Three of the cases are healthcare workers who have worked at the North West Regional Hospital and/or the North West Private Hospital.",
+    "coor": ["-41.047280", "145.880549"]
+  },
+  {
+    "state": "TAS",
+    "area": "",
+    "name": "North West Private Hospital",
+    "date": "9/4/20",
+    "time": "N/A",
+    "description": "Three of the cases are healthcare workers who have worked at the North West Regional Hospital and/or the North West Private Hospital.",
+    "coor": ["-41.046442", "145.880955"]
   }
 ]
