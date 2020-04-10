@@ -1,10 +1,9 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState } from "react";
 import ReactEcharts from 'echarts-for-react';
 import countryData from "../data/country.json";
 import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import stateData from "../data/state.json"
 
 export default function OverallTrend() {
 
@@ -42,7 +41,6 @@ export default function OverallTrend() {
 
     let preConfirmed = 0
     let preDeath = 0
-    console.log(countryData)
     for (let key in countryData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
@@ -74,8 +72,6 @@ export default function OverallTrend() {
             recoveryData.push(countryData[key][1])
             activeData.push(countryData[key][3])
 
-            activeData.push(countryData[key][3])
-
             newConfirmed.push(countryData[key][0] - preConfirmed)
             newDeath.push(countryData[key][2] - preDeath)
 
@@ -86,8 +82,8 @@ export default function OverallTrend() {
     }
 
     //graph initial start point (2 weeks)
-    let start = 100 - (14 / dateData.length * 100)
-    let startPoint = parseInt(start)
+    //let start = 100 - (14 / dateData.length * 100)
+    //let startPoint = parseInt(start)
 
     // set max Y value by rounding max data value to nearest 1000
     let maxValue = parseInt(Math.max(...confirmedData))
@@ -104,8 +100,8 @@ export default function OverallTrend() {
     maxValue = parseInt(Math.max(...newConfirmed))
     let maxY2 = Math.ceil(maxValue / 100) * 100
 
-    let y1Interval = parseInt(Math.max(...confirmedData)) / 5
-    let y2Interval = parseInt(Math.max(...newConfirmed)) / 5
+    //let y1Interval = parseInt(Math.max(...confirmedData)) / 5
+    //let y2Interval = parseInt(Math.max(...newConfirmed)) / 5
 
 
 
@@ -283,7 +279,7 @@ export default function OverallTrend() {
                         href="https://en.wikipedia.org/wiki/Logarithmic_scale"
                         target="blank"
                     >
-                        <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" backgroundColor="white"
+                        <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" backgroundcolor="white"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
                                 clipRule="evenodd" />

@@ -1,13 +1,11 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState } from "react";
 import Tag from "./Tag";
-import ReactGA from "react-ga";
 import stateCaseData from "../data/stateCaseData";
 import Acknowledgement from "../Acknowledgment";
 import todayData from "../data/stateCaseData.json";
 import previousData from "../data/state.json";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 
 /**
  * Method for adding suffix to date
@@ -16,13 +14,13 @@ import { makeStyles } from '@material-ui/core/styles';
 function ordinal_suffix_of(i) {
     var j = i % 10,
         k = i % 100;
-    if (j == 1 && k != 11) {
+    if (j === 1 && k !== 11) {
         return i + "st";
     }
-    if (j == 2 && k != 12) {
+    if (j === 2 && k !== 12) {
         return i + "nd";
     }
-    if (j == 3 && k != 13) {
+    if (j === 3 && k !== 13) {
         return i + "rd";
     }
     return i + "th";
@@ -64,19 +62,19 @@ function UpdatesToday() {
 
     let currentView
 
-    if (update == "Cases") {
+    if (update === "Cases") {
         currentView = 0
     }
 
-    if (update == "Deaths") {
+    if (update === "Deaths") {
         currentView = 1
     }
 
-    if (update == "Recoveries") {
+    if (update === "Recoveries") {
         currentView = 2
     }
 
-    if (update == "Tested") {
+    if (update === "Tested") {
         currentView = 3
     }
 
@@ -114,16 +112,16 @@ function UpdatesToday() {
 
 
     for (let state in stateUpdateStatus) {
-        if (todayDataObject[state][0] != yesterdayData[state][0]) {
+        if (parseInt(todayDataObject[state][0]) !== parseInt(yesterdayData[state][0])) {
             stateUpdateStatus[state][0] = true
         }
-        if (todayDataObject[state][1] != yesterdayData[state][1]) {
+        if (parseInt(todayDataObject[state][1]) !== parseInt(yesterdayData[state][1])) {
             stateUpdateStatus[state][1] = true
         }
-        if (todayDataObject[state][2] != yesterdayData[state][2]) {
+        if (parseInt(todayDataObject[state][2]) !== parseInt(yesterdayData[state][2])) {
             stateUpdateStatus[state][2] = true
         }
-        if (todayDataObject[state][3] != yesterdayData[state][3]) {
+        if (parseInt(todayDataObject[state][3]) !== parseInt(yesterdayData[state][3])) {
             stateUpdateStatus[state][3] = true
         }
     }
@@ -240,36 +238,40 @@ function UpdatesToday() {
     }
 
 
-
-
     return (
         <div style={{
             marginTop: '1rem',
             marginBottom: '1rem'
         }}>
-            Daily Update Status <svg className="bi bi-question-circle" width="0.7em" height="0.7em" viewBox="0 0 16 16" fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
-                    clipRule="evenodd" />
-                <path
-                    d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-            </svg> : &nbsp;
+            Daily Update Status <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                title="<em>Highlighted states have updated selected data today. Click on state to go to state page.</em>"><svg className="bi bi-question-circle" width="0.7em" height="0.7em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
+                        clipRule="evenodd" />
+                    <path
+                        d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                </svg></button> : &nbsp;
 
             <ButtonGroup color="primary" aria-label="outlined primary button group">
 
                 {updateStates.map((updateType, index) => (
                     <Button
-                        style={updateType == update ? switchStyles[index] : inactiveStylesSwitch}
-                        onClick={() => setUpdate(updateType)} size="small">{updateType}</Button>
+                        style={updateType === update ? switchStyles[index] : inactiveStylesSwitch}
+                        onClick={() => setUpdate(updateType)}
+                        size="small"
+                        key={updateType}
+                    >{updateType}</Button>
                 ))}
             </ButtonGroup>
 
-            <ButtonGroup color="primary" aria-label="outlined primary button group" fullWidth="true" style={{ marginTop: "0.5rem" }} >
+            <ButtonGroup color="primary" aria-label="outlined primary button group" fullWidth={true} style={{ marginTop: "0.5rem" }} >
 
                 {Object.keys(stateUpdateStatus).map((state, status) => (
                     <Button
                         href={("./state/" + state).toLowerCase()}
-                        style={stateUpdateStatus[state][currentView] ? dataStyles[currentView] : inactiveStyles}>{state}</Button>
+                        style={stateUpdateStatus[state][currentView] ? dataStyles[currentView] : inactiveStyles}
+                        key={state}
+                    >{state}</Button>
 
                 ))}
             </ButtonGroup>
@@ -306,7 +308,7 @@ function UpdatesToday() {
 
                 ))}
                 </ButtonGroup>*/}
-        </div>
+        </div >
     )
 
 }
@@ -343,12 +345,11 @@ export default function Stat({
             confirmedCount += parseInt(data[i][1]);
             deadCount += parseInt(data[i][2]);
             curedCount += parseInt(data[i][3]);
-            console.log(data[i])
             hospitalCount += parseInt(data[i][5]);
             icuCount += parseInt(data[i][6]);
 
 
-            if (data[i][4] == "N/A") {
+            if (data[i][4] === "N/A") {
                 //do nothing
             }
             else {
