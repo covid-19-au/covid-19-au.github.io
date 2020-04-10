@@ -517,3 +517,8 @@ h2 small {
     margin-top: -5px;
     margin-bottom: -10px;
 }
+.navBar{
+  position: absolute;
+  z-index: 1000;
+  margin: 0px;
+}
