@@ -1,11 +1,10 @@
 const https = require('https');
 const fs = require('fs');
 
-const token = 'AIzaSyCdVGuu4uV0CObdlZKkoci1RgY4N-lBvDw'
 //Download State Case Data
 function downloadStateCaseData(dataUrl, writePath) {
 
-    //let token = process.env.REACT_APP_DRIVE_KEY;
+    let token = process.env.REACT_APP_DRIVE_KEY;
     let url = 'https://sheets.googleapis.com/v4/spreadsheets/1N3YWRf3CqbIfzZeyRXHr7G6u-FEXqWa2zbzXBrTx7y4/values:batchGet?ranges=Sheet1&majorDimension=COLUMNS&key=' + token
     https.get(url, (resp) => {
         let data = '';
@@ -39,7 +38,7 @@ function downloadStateCaseData(dataUrl, writePath) {
             formattedData["updatedTime"] = requiredData[timeIndex][1]
 
             dataString = JSON.stringify(formattedData)
-            fs.writeFile('../src/data/stateCaseData.json', dataString, function (err) {
+            fs.writeFile('src/data/stateCaseData.json', dataString, function (err) {
                 if (err) throw err;
                 console.log('complete');
             });
@@ -55,7 +54,7 @@ function downloadStateCaseData(dataUrl, writePath) {
 // Download Timeline data
 function downloadTimelineData(dataUrl, writePath) {
 
-    // let token = process.env.REACT_APP_DRIVE_KEY;
+    let token = process.env.REACT_APP_DRIVE_KEY;
     let url = 'https://sheets.googleapis.com/v4/spreadsheets/1uuE8cA5P1DY3gWpqUfD-wr4p2GSGhb87H1JtONg8_ec/values:batchGet?ranges=Sheet1&majorDimension=COLUMNS&key=' + token
     https.get(url, (resp) => {
         let data = '';
@@ -90,7 +89,7 @@ function downloadTimelineData(dataUrl, writePath) {
             formattedData["updatedTime"] = requiredData[timeIndex][1]
 
             dataString = JSON.stringify(formattedData)
-            fs.writeFile('../src/data/timelinedata.json', dataString, function (err) {
+            fs.writeFile('src/data/timelinedata.json', dataString, function (err) {
                 if (err) throw err;
                 console.log('complete');
             });
