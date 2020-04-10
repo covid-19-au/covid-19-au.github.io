@@ -296,7 +296,8 @@ class EChartglobalLog extends Component {
                 'Iran': true,
                 'Spain': true,
                 'Germany': true,
-                'South Korea': true
+                'South Korea': true,
+                'NZ': true
             }
         })
     }
@@ -320,7 +321,8 @@ class EChartglobalLog extends Component {
                 'Iran': false,
                 'Spain': false,
                 'Germany': false,
-                'South Korea': false
+                'South Korea': false,
+                'NZ': false
             }
         })
     }
@@ -330,13 +332,22 @@ class EChartglobalLog extends Component {
         console.log(this.chartReference);
     }
 
+
     render() {
         return (
             <div className="card">
                 <h2>Global Comparison</h2>
                 <ButtonGroup style={{justifyContent: "center"}} size="small" aria-label="small outlined button group">
-                    <Button disableElevation={true} onClick={this.onSelectAllClick}>Select All</Button>
-                    <Button onClick={this.onDeselectAllClick}>Deselect All</Button>
+                    <Button style={{
+                        textTransform: 'none',
+                        paddingTop:'0.1rem',
+                        paddingBottom:'0.1rem',
+                        outline: "none"}} disableElevation={true} onClick={this.onSelectAllClick}>Select All</Button>
+                    <Button style={{
+                        textTransform: 'none',
+                        paddingTop:'0.1rem',
+                        paddingBottom:'0.1rem',
+                        outline: "none"}} onClick={this.onDeselectAllClick}>Select None</Button>
                 </ButtonGroup>
                 <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
                     ref={this.chartReference}
