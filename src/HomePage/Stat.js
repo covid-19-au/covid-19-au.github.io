@@ -9,6 +9,51 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
+/**
+ * Method for adding suffix to date
+ * @param {int} i date
+ */
+function ordinal_suffix_of(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
+
+/**
+ * Method for formatting time into am/pm format
+ * @param {Date} date date
+ */
+function formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ' ' + minutes + ' ' + ampm;
+    return strTime;
+}
+
+/**
+ * Method for adding aria label to datetime of status update
+ * @param {String} updatedTime update time for status information
+ */
+function getAriaLabelForUpdatedTime(updatedTime) {
+    var timeElem = updatedTime.split(" ")[0].split(":")
+    var dateElem = updatedTime.split(" ")[1].split("/")
+    var tempDate = new Date(dateElem[2], dateElem[1], dateElem[0], timeElem[0], timeElem[1])
+    const month = tempDate.toLocaleString('default', { month: 'long' });
+    return `Time in AEST, last updated at: ${ordinal_suffix_of(tempDate.getDate())} of ${month} ${tempDate.getFullYear()} at ${formatAMPM(tempDate)}`
+}
 
 function UpdatesToday() {
 
@@ -329,7 +374,7 @@ export default function Stat({
     return (
         <div className="card">
 
-            <h2 style={{ display: "flex" }}>Status {name ? `· ${name}` : false}
+            <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Status {name ? `· ${name}` : false}
                 <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div>
@@ -369,7 +414,7 @@ export default function Stat({
             <div className="row">
                 <Tag
                     // number={curedCount}
-                    number={"2500+"}
+                    number={"3100+"}
                     fColor={"#00c177"}
                     increased={curedCountIncrease}
                     typeOfCases={"Recovered"}
@@ -420,7 +465,9 @@ export default function Stat({
             <UpdatesToday></UpdatesToday>
 
 
-            <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}>
+            <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}
+            aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)} 
+            aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
                 Time in AEST, last updated at: {stateCaseData.updatedTime}
             </span>
 

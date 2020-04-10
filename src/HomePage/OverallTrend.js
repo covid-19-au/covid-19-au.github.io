@@ -72,6 +72,7 @@ export default function OverallTrend() {
             confirmedData.push(countryData[key][0])
             deathData.push(countryData[key][2])
             recoveryData.push(countryData[key][1])
+            activeData.push(countryData[key][3])
 
             activeData.push(countryData[key][3])
 
@@ -244,7 +245,7 @@ export default function OverallTrend() {
                                 symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
-                                    color: "#00aac1"
+                                    color: "#ba9bef"
                                 },
                                 data: activeData
                             },

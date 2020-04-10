@@ -1,15 +1,20 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=27fbGpIoYMM",
-                    "description": "Coronavirus: More good news stories as Australians unite during the pandemic | 7NEWS"
+                    "name": "Letter.Wiki",
+                    "imgLink": "https://i.imgur.com/3nvZTEn.png",
+                    "description": "A conversation between 2 strangers on the internet.",
+                    "source": "https://letter.wiki/conversation/469"
                 }
             ],
+            "video": [],
+            "title": "",
+            "source": "",
+            "content": "",
             "type": "distraction",
-            "date": "8/4/2020"
+            "date": "11/4/2020"
         }
     ]
 }

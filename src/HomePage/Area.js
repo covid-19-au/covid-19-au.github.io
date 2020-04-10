@@ -60,22 +60,7 @@ export default function Area({ area, onChange, data }) {
           <A href={`/state/${x[0].toLowerCase()}`} onClick={()=>{window.scrollTo(0, 0);}}>
             <strong>
                 <u>{x[0]}</u>{" "}
-              {fill ? (
-                <svg
-                  className="bi bi-caret-right"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M6 12.796L11.481 8 6 3.204v9.592zm.659.753l5.48-4.796a1 1 0 000-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 001.659.753z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              ) : (
+
                 <svg
                   className="bi bi-caret-right-fill"
                   width="1em"
@@ -86,7 +71,7 @@ export default function Area({ area, onChange, data }) {
                 >
                   <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 011.659-.753l5.48 4.796a1 1 0 010 1.506z" />
                 </svg>
-              )}
+
             </strong>
           </A>
         </div>
@@ -133,7 +118,7 @@ export default function Area({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">*2500+</div>
+        <div className="cured">*3100+</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
     );

@@ -1,6 +1,70 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.smh.com.au/national/stop-looking-for-loopholes-what-are-the-new-covid-19-social-rules-20200407-p54hyd.html ",
+            "title": "'Stop looking for loopholes': What are the new COVID-19 social rules?",
+            "source": "TheSydneyMorningHerald",
+            "date": "10 April 2020",
+            "time": "",
+            "summary": "Government urges people to stop looking for loopholes over the Easter weekend, so as not to undo all of the hard work that has been done to stop the spread of COVID-19. This article covers questions such as whether you can have people over, whether you can go away at Easter and whether you can babysit, state-by-state."
+        },
+        {
+            "link": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
+            "title": "Aussie households to be given access to COVID-19 financial stress for bills",
+            "source": "9News",
+            "date": "10 April 2020",
+            "time": "17:52",
+            "summary": "Australian households struggling with financial stress brought on by the coronavirus pandemic will soon have access to hardship provisions for their energy and water bills. Prime Minister Scott Morrison said the new measures would be in line with those across the energy and telecommunications sectors to scale-up hardship support provided by those industries."
+        },
+        {
+            "link": "https://www.9news.com.au/national/covid19-vaccine-researched-at-university-of-queensland-critical-test-on-live-coronavirus-ahead-of-human-trials/a49fe4b6-0ff7-4cbe-ae06-8cb4772e0404",
+            "title": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
+            "source": "9News",
+            "date": "10 April 2020",
+            "time": "19:43",
+            "summary": "The effectiveness of a University of Queensland (UQ) vaccine against the coronavirus is about to be tested in a biosecurity facility in the Netherlands. The vaccine will be used on live coronavirus for the first time to determine how effectively it induces protection against infection. UQ's vaccine program co-leader Dr Keith Chappell says the trial will establish a critical package of data ahead of human clinical trials later this year.Clinical studies will be conducted by Viroclinics Xplore, which offers myriad pre-clinical tests including toxicology of drugs, antibodies, and antivirals targeting viral infectious diseases."
+        },
+        {
+            "link": "https://thewest.com.au/news/coronavirus/coronavirus-crisis-prime-minister-scott-morrison-urges-australians-to-stay-at-home-in-easter-message-ng-b881515344z",
+            "title": "Coronavirus crisis: Prime Minister Scott Morrison urges Australians to stay at home in Easter message",
+            "source": "TheWestAustralian",
+            "date": "09 April 2020",
+            "time": "17:00",
+            "summary": "Scott Morrison has used his annual Easter message to urge Australians to stay home, saying the country “cannot undo the tremendous progress” it has made towards flattening the curve of coronavirus cases. He states that immediate - but not extended - family may spend their Easter together, and that Australians will not be able to attend Easter services."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-09/backpacker-accommodation-shortage-risks-veg-harvest-coronavirus/12132718",
+            "title": "Essential fruit and veg pickers 'homeless' due to coronavirus, meaning crops may be left to rot",
+            "source": "ABCNews",
+            "date": "09 April 2020",
+            "time": "06:42",
+            "summary": "The fruit and vegetable industry has warned that crops may be left to rot in fields because of a major shortage of accommodation for backpackers who pick the produce. These young travellers say they are camping illegally and sleeping in their cars because many hostels and caravan parks are closed."
+        },
+        {
+            "link": "https://www.theguardian.com/world/2020/apr/09/australias-small-medical-practices-on-brink-of-collapse-amid-coronavirus",
+            "title": "Australia's small medical practices on brink of collapse amid coronavirus ",
+            "source": "TheGuardian",
+            "date": "09 April 2020",
+            "time": "03:30",
+            "summary": "Smaller doctor-owned general practices are on the brink of financial collapse due to revenue losses from Covid-19, prompting fears more patients will be unnecessarily pushed into an already overstretched hospital system. Peak medical bodies and the health minster, Greg Hunt, on Thursday urged Australians to continue seeing their GPs, saying Covid-19 should not mean people “ignore the doctor” or their ordinary health needs."
+        },
+        {
+            "link": "https://7news.com.au/news/health/australians-urged-to-stay-home-over-easter-c-962838",
+            "title": "No time to relax in costly virus fight: PM",
+            "source": "7News",
+            "date": "08 April 2020",
+            "time": "18:11",
+            "summary": "Australia's death toll from the coronavirus has hit 50 as political leaders warn now is not the time to ease the measures that are preventing much higher fatality rates. The daily increase in new cases has dropped to about three per cent, but health experts are concerned COVID-19 could be widely transmitted among unwitting community members. However, Health Minister Greg Hunt warned abandoning social distancing rules over the long weekend would undo everything done to curtail the crisis."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-08/scientists-developing-test-for-coronavirus-severity-in-patients/12124402",
+            "title": "Are you immune to coronavirus after recovering? This test might be able to tell you",
+            "source": "ABCNews",
+            "date": "08 April 2020",
+            "time": "10:30",
+            "summary": "Australian researchers are working on a test they say will be able to predict the severity of symptoms in COVID-19 patients, telling them how hard the virus will hit them after they contract it and what their immunity will be when they recover."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-07/scott-morrison-press-conference-coronavirus-crisis-modelling/12129550",
             "title": "Scott Morrison's press conference: Coronavirus modelling, rental tenancies and what you shouldn't do this Easter ",
             "source": "ABCNews",
@@ -71,62 +135,6 @@
             "date": "04 April 2020",
             "time": "09:16",
             "summary": "Coles and Woolworths are dramatically escalating their social distancing policies by introducing a limit on the number of customers inside stores. From Monday 6th of April, until the foreseeable future, shoppers will be forced to wait in cordoned off queues outside until people inside leave. The number of customers allowed inside varies depending on the size of the store itself."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-03/coronavirus-scott-morrison-national-cabinet-meeting-update/12120584",
-            "title": "Scott Morrison gave a rundown of the latest coronavirus measures after today's National Cabinet meeting. Here's what he said.",
-            "source": "ABCNews",
-            "date": "03 April 2020",
-            "time": "20:00",
-            "summary": "Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy gave an update after today's National Cabinet meeting. They discussed big changes for how we live our lives, with business closures, social distancing rules, Easter services, commercial leases, the fate of seasonal workers and international students, and more."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/apr/02/free-childcare-what-do-the-governments-coronavirus-changes-mean-for-my-family",
-            "title": "Free childcare: what do the Australian government's coronavirus changes mean for my family?",
-            "source": "TheGuardian",
-            "date": "02 April 2020",
-            "time": "21:34",
-            "summary": "The federal government says it will make Australian childcare services free during the coronavirus crisis, with priority given to parents who need to continue working. It is also promoting its plan as a way to help childcare centres remain open and viable through the crisis."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/csiro-tests-potential-covid-19-vaccines-c-947346",
-            "title": "Coronavirus Australia update: CSIRO tests potential COVID-19 vaccines",
-            "source": "7News",
-            "date": "02 April 2020",
-            "time": "05:39",
-            "summary": "CSIRO scientists are performing the first stage of testing for two vaccine candidates at the agency’s high-containment biosecurity facility in Geelong. The pre-clinical trials, which are expected to take three months, will use animal subjects to test whether the potential vaccines from the University of Oxford and Inovio Pharmaceuticals are safe and effective."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-02/coronavirus-covid-19-testing-1-per-cent-australia-population/12114004",
-            "title": "Australian coronavirus testing hits world-leading levels above 1 per cent of population, Scott Morison says",
-            "source": "ABCNews",
-            "date": "02 April 2020",
-            "time": "21:45",
-            "summary": "More than 260,000 coronavirus tests have been carried out across the country as Australia continues to respond to the spread of the deadly pandemic. Those testing levels equate to more than 1 per cent of the population, which Prime Minister Scott Morrison said was a world-leading rate. By 4:00pm on Thursday, Australia had conducted 268,554 coronavirus tests. Nationally, there are more than 5,100 confirmed cases of the coronavirus, and the death toll has risen to 24."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-pandemic-leave-for-australian-employees-during-covid19/023ed63d-8a46-4137-ac79-9326047a2d87",
-            "title": "Australian employees entitled to 'pandemic leave' as part of sweeping industrial relations changes caused by coronavirus",
-            "source": "9News",
-            "date": "02 April 2020",
-            "time": "15:30",
-            "summary": "Eligible Australian employees are now entitled to two weeks' \"pandemic leave\" if they need to self-isolate during the coronavirus pandemic as part of sweeping industrial relations changes announced today. The Minister for Industrial Relations, Christian Porter, has announced changes to 103 of Australia's 121 existing employee awards."
-        },
-        {
-            "link": "https://www.abc.net.au/news/health/2020-04-01/australians-urged-to-get-flu-vaccination-coronavirus-covid-19/12107264",
-            "title": "Get flu vaccinations earlier than usual because of coronavirus, GPs urge Australians",
-            "source": "ABCNews",
-            "date": "01 April 2020",
-            "time": "04:00",
-            "summary": "Australians are being urged to get their flu vaccination as soon as possible to reduce strain on the health system caused by COVID-19. The flu vaccine won't combat COVID-19, but it will help to reduce the severity and spread of seasonal influenza, which can lower a person's immunity and make them susceptible to other illnesses. Flu vaccines are available from your local GP - though be sure to call ahead to check they’re in stock."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-01/retired-nurses-doctors-pharmacists-recalled-to-fight-coronavirus/12109608",
-            "title": "Retired nurses, doctors, pharmacists to be re-instated to help fight coronavirus",
-            "source": "ABCNews",
-            "date": "01 April 2020",
-            "time": "23:31",
-            "summary": "More than 40,000 former doctors, nurses, midwives and pharmacists are being urged to re-join the medical workforce, to bolster the front line in Australia's fight against coronavirus. The former medical professionals would be added to the general register for a year, under a pandemic sub-register. To ensure public safety, practitioners who have been struck off the register will not be eligible to take part."
         }
     ]
 }

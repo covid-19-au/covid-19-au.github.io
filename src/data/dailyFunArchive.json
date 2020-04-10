@@ -3,6 +3,44 @@
         {
             "image": [
                 {
+                    "name": "TED Talk by Alanna Shaikh",
+                    "imgLink": "https://i.imgur.com/8zthVWP.png",
+                    "description": "Why COVID-19 is hitting us now - and how to prepare for the next outbreak",
+                    "source": "https://www.ted.com/talks/alanna_shaikh_why_covid_19_is_hitting_us_now_and_how_to_prepare_for_the_next_outbreak?language=en"
+                }
+            ],
+            "video": [],
+            "title": "",
+            "source": "",
+            "content": "",
+            "type": "distraction",
+            "date": "10/4/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=oilZ1hNZPRM",
+                    "description": "John Krasinski is back with more good news!"
+                }
+            ],
+            "type": "distraction",
+            "date": "9/4/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=27fbGpIoYMM",
+                    "description": "Coronavirus: More good news stories as Australians unite during the pandemic | 7NEWS"
+                }
+            ],
+            "type": "distraction",
+            "date": "8/4/2020"
+        },
+        {
+            "image": [
+                {
                     "imgLink": "https://www.abc.net.au/news/image/12118058-3x4-340x453.jpg",
                     "source": "https://www.abc.net.au/news/2020-04-04/coronavirus-canberra-feel-good-community-stories/12114724"
                 }
