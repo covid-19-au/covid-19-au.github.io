@@ -242,7 +242,7 @@ export default function OverallTrend() {
                                 symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
-                                    color: "#00aac1"
+                                    color: "#ba9bef"
                                 },
                                 data: activeData
                             },
