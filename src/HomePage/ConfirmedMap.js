@@ -100,6 +100,7 @@ class MbMap extends React.Component {
                 city_name = city_name.toLowerCase();
                 updated_date = '10/4/20';
             }
+            
             // if (city_type === 'city'){
             //   city_name += '(c)';
             // }else if(city_type==='rural city'){
