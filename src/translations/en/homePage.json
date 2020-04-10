@@ -3,7 +3,9 @@
         "loadingText":"Loading...",
         "title":"COVID-19 in Australia",
         "descrip":"Real-Time Report",
-        "slogan":"Stay Calm, Stay Informed"
+        "slogan":"Stay Calm, Stay Informed",
+        "onButton":"On",
+        "offButton":"Off"
     },
     "dataAck":{
         "title":"Data Acknowledgement",
@@ -40,7 +42,19 @@
         "button4":"Tests/M",
         "button5":"Positive(%)"
     },
-    "hospitalCaseMap":{}
+    "hospitalCaseMap":{},
+    "globalChart":{
+        "title":"Global Comparison",
+        "append1":"*Click on legend to add/remove graphs",
+        "append2":"*Click on points for detailed data",
+        "append3":"*Watch this",
+        "append4":"video",
+        "append5":" for a detailed explanation on this graph!",
+        "append6":"*Data Source: ",
+        "scaleTitle":"Logarithmic Scale:"
+
+    }
+
 
 
 }

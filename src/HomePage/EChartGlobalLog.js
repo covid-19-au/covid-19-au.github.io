@@ -3,6 +3,8 @@ import globalConfirmed from '../data/time_series_covid19_confirmed_global.csv';
 import ReactEcharts from "echarts-for-react";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+// import i18n bundle
+import i18next from '../i18n';
 
 class EChartglobalLog extends Component {
     static defaultProps = {
@@ -279,7 +281,7 @@ class EChartglobalLog extends Component {
     render() {
         return (
             <div className="card">
-                <h2>Global Comparison</h2>
+                <h2>{i18next.t("homePage:globalChart.title")}</h2>
                 <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
                     ref={this.chartReference}
                     /*
@@ -374,10 +376,10 @@ class EChartglobalLog extends Component {
                     }}
                 />
                 <span className="due">
-                    <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
-                    <span className="key"><p>*Click on points for detailed data</p></span><br />
-                    <span className="key"><p>*Watch this <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">video</a> for a detailed explanation on this graph!</p></span><br />
-                    <span className="key"><p>*Data Source: <a target="_blank" rel="noopener noreferrer" href="https://github.com/CSSEGISandData/COVID-19">
+                    <span className="key">{i18next.t("homePage:globalChart.append1")}<p></p></span><br />
+                    <span className="key">{i18next.t("homePage:globalChart.append2")}<p></p></span><br />
+                    <span className="key">{i18next.t("homePage:globalChart.append3")}<p> <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">{i18next.t("homePage:globalChart.append4")}</a>{i18next.t("homePage:globalChart.append5")}</p></span><br />
+                    <span className="key">{i18next.t("homePage:globalChart.append6")}<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/CSSEGISandData/COVID-19">
                         <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clipRule="evenodd" />
                             <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
@@ -385,10 +387,10 @@ class EChartglobalLog extends Component {
                     </a></p></span><br />
                     <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                        Logarithmic Scale:&nbsp;
+                    {i18next.t("homePage:globalChart.scaleTitle")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                            <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>On</Button>
-                            <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({ logScale: false })}>Off</Button>
+                            <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>{i18next.t("homePage:misc.onButton")}</Button>
+                            <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({ logScale: false })}>{i18next.t("homePage:misc.offButton")}</Button>
                         </ButtonGroup>
                         <a
                             style={{
