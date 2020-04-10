@@ -31,7 +31,15 @@
         "tested":"Tested",
         "note":"Time in AEST, last updated at: "
     },
-    "caseByState":{},
+    "caseByState":{
+        "title":"Case by State",
+        "buttonPrompt":"Select Map Type: ",
+        "button1":"Cases",
+        "button2":"Cases/M",
+        "button3":"Tested",
+        "button4":"Tests/M",
+        "button5":"Positive(%)"
+    },
     "hospitalCaseMap":{}
 
 
