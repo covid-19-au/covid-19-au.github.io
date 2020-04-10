@@ -96,7 +96,7 @@ function UpdatesToday() {
             paddingLeft: "5px",
             paddingRight: "5px",
             fontSize: "80%",
-            marginBottom: "1rem"
+            marginTop: "0.5rem"
         },
         {
             //Deaths
@@ -108,7 +108,7 @@ function UpdatesToday() {
             paddingLeft: "5px",
             paddingRight: "5px",
             fontSize: "80%",
-            marginBottom: "1rem"
+            marginTop: "0.5rem"
         },
         {
             //Recoveries
@@ -120,7 +120,7 @@ function UpdatesToday() {
             paddingLeft: "5px",
             paddingRight: "5px",
             fontSize: "80%",
-            marginBottom: "1rem"
+            marginTop: "0.5rem"
         },
         {
             //Tested
@@ -132,7 +132,7 @@ function UpdatesToday() {
             paddingLeft: "5px",
             paddingRight: "5px",
             fontSize: "80%",
-            marginBottom: "1rem"
+            marginTop: "0.5rem"
         }]
 
 
@@ -186,7 +186,7 @@ function UpdatesToday() {
         paddingLeft: "5px",
         paddingRight: "5px",
         fontSize: "80%",
-        marginBottom: "1rem"
+        marginTop: "0.5rem"
     };
 
 
@@ -199,7 +199,7 @@ function UpdatesToday() {
         }}>
             Daily Update Status: &nbsp;
 
-            <ButtonGroup color="primary" aria-label="outlined primary button group">
+            <ButtonGroup color="primary" aria-label="outlined primary button group" fullWidth="true">
 
                 {updateStates.map((updateType, index) => (
                     <Button
