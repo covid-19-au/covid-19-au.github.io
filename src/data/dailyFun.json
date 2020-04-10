@@ -1,0 +1,20 @@
+{
+    "dailyFunStuff": [
+        {
+            "image": [
+                {
+                    "name": "TED Talk by Alanna Shaikh",
+                    "imgLink": "https://i.imgur.com/8zthVWP.png",
+                    "description": "Why COVID-19 is hitting us now - and how to prepare for the next outbreak",
+                    "source": "https://www.ted.com/talks/alanna_shaikh_why_covid_19_is_hitting_us_now_and_how_to_prepare_for_the_next_outbreak?language=en"
+                }
+            ],
+            "video": [],
+            "title": "",
+            "source": "",
+            "content": "",
+            "type": "distraction",
+            "date": "7/4/2020"
+        }
+    ]
+}

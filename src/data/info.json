@@ -262,18 +262,23 @@
                     "You will only be tested if your doctor decides you meet the criteria: "
                 ],
                 "ulist_1": [
-                    "You have returned from overseas in the past 14 days and you develop respiratory illness with or without fever ",
-                    "You have been in close contact with a confirmed COVID-19 case in the past 14 days and you develop respiratory illness with or without fever ",
-                    "You have severe community-acquired pneumonia and there is no clear cause ",
-                    "You are a healthcare worker who works directly with patients and you have a respiratory illness and a fever Coronavirus disease (COVID-19) "
+                    "You have returned from overseas or spent time on a cruise ship in the past 14 days and you develop respiratory illness with or without fever ",
+                    "You have been in close contact with a confirmed COVID-19 case in the past 14 days and you develop respiratory illness with or without fever",
+                    "You have severe community-acquired pneumonia and there is no clear cause (including patients that have already been hospitalised for this condition)",
+                    "You have a fever or acute respiratory infection and you work in the healthcare or aged/residential care sectors, or you have spent time in a location that's defined by a state or territory as having an elevated risk of community transmission, or you have spent time at a \"high-risk\" location where there are two or more linked cases of COVID-19, such as an aged-care home, a remote Aboriginal community, a correctional facility, a boarding school, or a military base (including Navy ships) with live-in accommodation."
                 ],
                 "olist_1": [],
                 "text_2": [
                     "If you meet any of these criteria, your doctor can request you are tested for COVID-19. It is important to remember that many people with symptoms similar to COVID-19 will not have the virus. Only suspected cases are tested to ensure our labs are able to cope with the demand. There is no need to test people who feel well and do not meet the criteria above.",
                     "There is a global shortage of testing kits, so that is why testing is targeted rather than widespread.",
-                    "It may take a few days for you to get your test results. In this time, if you have serious symptoms, you will be kept in the hospital and isolated from other patients to keep them safe. If your doctor says you are well enough to go home, you should self-isolate at home and take measures to protect yourself and others. "
+                    "It may take a few days for you to get your test results. In this time, if you have serious symptoms, you will be kept in the hospital and isolated from other patients to keep them safe. If your doctor says you are well enough to go home, you should self-isolate at home and take measures to protect yourself and others. ",
+                    "The Government has also decided to allow states and territories to expand their testting criteria as required. Please ensure you check your state's health department's resources."
                 ],
                 "citation": [
+                    {
+                        "name": "How to get a coronavirus test: who is eligible, how many have been done and how are they carried out - ABC News",
+                        "link": "https://www.abc.net.au/news/2020-03-27/coronavirus-covid-19-testing-criteria-eligibility/12097990"
+                    },
                     {
                         "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
                         "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
@@ -612,22 +617,24 @@
             "name": "What are the current government limits on indoor and outdoor gatherings?",
             "text": {
                 "text_1": [
-                    "Essential indoor gatherings limited to 100 people, and essential outdoor gatherings are limited to 500 people.",
-                    "Essential activities include:"
+                    "As of March 30th, both indoor and outdoor gatherings have been limited to two persons only. Exceptions to this limit include:"
                 ],
                 "ulist_1": [
-                    "Wash your hands frequently using soap and water or alcohol-based hand rub",
-                    "Essential workplaces",
-                    "Healthcare settings",
-                    "Pharmacies",
-                    "Food shopping",
-                    "Schools and universities",
-                    "Public transport and airports"
+                    "People of the same household going out together",
+                    "Weddings are restricted to no more than five people, including the couple, the celebrant and the witnesses. The 4 square metre rule and social distancing must be observed.",
+                    "Funerals must be limited to no more than 10 people. The 4 square metre rule and social distancing must be observed.",
+                    "Family units"
                 ],
-                "olist_1": [],
-                "text_2": [
-                    "You can find a current list of the coronavirus measures in place by the government below."
+                "text_middle": [
+                    "It is recommended that you stay home except for:"
                 ],
+                "olist_1": [
+                    "Shopping for what you need - food and necessary supplies",
+                    "Medical or health care needs, including compassionate requirements",
+                    "Exercise in compliance with the public gathering requirements",
+                    "Work and study if you can’t work or learn remotely"
+                ],
+                "text_2": [],
                 "citation": [
                     {
                         "name": "Limits on public gatherings for coronavirus (COVID-19) - Australia Government Department of Health",
@@ -640,7 +647,7 @@
             "name": "What are the current government limits on public facilities and businesses?",
             "text": {
                 "text_1": [
-                    "The following facilities have been restricted from opening as of 26th of March at 12am:"
+                    "The following facilities have been restricted from opening as of 30th of March:"
                 ],
                 "ulist_1": [
                     "Pubs, registered and licensed clubs (excluding bottle shops attached to these venues), hotels (excluding accommodation)",
@@ -658,9 +665,12 @@
                     "Health clubs, fitness centres, yoga, barre and spin facilities, saunas, bathhouses and wellness centres and swimming pools",
                     "Community facilities such as community halls, libraries and youth centres, RSL and PCYC",
                     "Gaming and gambling venues",
-                    "Indoor and outdoor markets (excluding food markets). States and territories will make their own announcements about this."
+                    "Indoor and outdoor markets (excluding food markets). States and territories will make their own announcements about this.",
+                    "Playgrounds, skate parks and outside gyms in public places will be closed",
+                    "Bootcamps will be reduced to two persons, including the trainer."
                 ],
                 "olist_1": [],
+                "text_middle": [],
                 "text_2": [
                     "These measures also apply to the outdoor areas associated with each of these venues. Australians should expect these measures to be in place for at least 6 months. Isolated remote community hubs are not included in these restrictions. ",
                     "Public transport is considered essential and, at this stage, the 100 person limit does not apply. If traveling on public transport, always use appropriate social distancing and hygiene practices, and avoid non-essential travel.",
@@ -668,29 +678,13 @@
                 ],
                 "citation": [
                     {
+                        "name": "National Cabinet Statement",
+                        "link": "https://www.pm.gov.au/media/national-cabinet-statement"
+                    },
+                    {
                         "name": "Fact Sheet: For families and residents on restricted visits to residential aged care facilities - Australian Government",
                         "link": "https://health.govcms.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-for-families-and-residents-on-restricted-visits-to-residential-aged-care-facilities_0.pdf"
                     },
-                    {
-                        "name": "Limits on public gatherings for coronavirus (COVID-19) - Australia Government Department of Health",
-                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/limits-on-public-gatherings-for-coronavirus-covid-19"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "Addition rules:",
-            "text": {
-                "text_1": [],
-                "ulist_1": [
-                    "Weddings are restricted to no more than five people, including the couple, the celebrant and the witnesses. The 4 square metre rule and social distancing must be observed.",
-                    "Funerals must be limited to no more than 10 people. The 4 square metre rule and social distancing must be observed.",
-                    "Hairdressers and barbers can continue to operate under strict new rules. The four square metre rule and social distancing must be observed. Clients must also not spend more than 30 minutes inside the premises.",
-                    "Bootcamps and personal training can be conducted outdoors with no more than 10 people and social distancing observed."
-                ],
-                "olist_1": [],
-                "text_2": [],
-                "citation": [
                     {
                         "name": "Limits on public gatherings for coronavirus (COVID-19) - Australia Government Department of Health",
                         "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/limits-on-public-gatherings-for-coronavirus-covid-19"
@@ -706,6 +700,7 @@
                 ],
                 "ulist_1": [],
                 "olist_1": [],
+                "text_middle": [],
                 "text_2": [],
                 "citation": [
                     {

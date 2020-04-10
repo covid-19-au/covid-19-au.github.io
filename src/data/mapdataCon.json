@@ -2,24 +2,11 @@
   {
     "state": "ACT",
     "area": "",
-    "name": "the Art Not Apart event in New Acton",
-    "date": "14/3/20",
-    "time": "4-5pm",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-35.283987", "149.124527"],
-    "type": "0"
-  },
-  {
-    "state": "ACT",
-    "area": "",
-    "name": "Capital Brewing Co in Fyshwick",
-    "date": "14/3/20",
-    "time": "5-6:30pm",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-35.321500", "149.163379"],
-    "type": "0"
+    "name": "the number 31 bus",
+    "date": "17/3/20",
+    "time": "3.50pm",
+    "description": "From Dickson Interchange to Kaleen, departing Dickson at approximately 3.50pm(scheduled at 3.33pm but was running late)",
+    "coor": ["-35.250418", "149.133760"]
   },
   {
     "state": "ACT",
@@ -28,141 +15,25 @@
     "date": "23/3/20",
     "time": "N/A",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-35.252397", "149.130497"],
-    "type": "0"
+    "coor": ["-35.252397", "149.130497"]
   },
   {
     "state": "ACT",
     "area": "",
-    "name": "the number 31 bus",
-    "date": "17/3/20",
-    "time": "3.50pm",
-    "description": "From Dickson Interchange to Kaleen, departing Dickson at approximately 3.50pm(scheduled at 3.33pm but was running late)",
-    "numberOfCases": "N/A",
-    "coor": ["-35.250418", "149.133760"],
-    "type": "0"
+    "name": "the Art Not Apart event in New Acton",
+    "date": "14/3/20",
+    "time": "4-5pm",
+    "description": "",
+    "coor": ["-35.283987", "149.124527"]
   },
   {
-    "state": "NSW",
-    "area": "Vaucluse",
-    "name": "Vaucluse Cottage Childcare Centre",
-    "date": "16/3/20",
-    "time": "All hours",
-    "description": "Childcare. All people who visited during the dates need to be isolated",
-    "numberOfCases": "1",
-    "coor": ["-33.850286", "151.275103"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
-    "area": "Quaker's Hill",
-    "name": "Quaker's Hill Nursing Home",
-    "date": "23/3/20",
-    "time": "N/A",
-    "description": "Tracing Still underway",
-    "numberOfCases": "1",
-    "coor": ["-33.719297", "150.891671"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
-    "area": "Bondi",
-    "name": "Boogie Wonderland party at the Bucket List",
-    "date": "16/3/20",
-    "time": "4pm - 11pm",
-    "description": "Backpackers in Bondi",
-    "numberOfCases": "N/A",
-    "coor": ["-33.890103", "151.278161"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
-    "area": "Darlinghurst",
-    "name": "Party at Club 77",
-    "date": "16/3/20",
-    "time": "12am - 4am",
-    "description": "Backpackers in Bondi",
-    "numberOfCases": "N/A",
-    "coor": ["-33.874218", "151.215786"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
-    "area": "Smeaton Grange",
-    "name": "Young Academics Child Care Centre",
-    "date": "16/3/20",
-    "time": "All hours",
-    "description": "Childcare. All people who visited during the dates need to be isolated",
-    "numberOfCases": "N/A",
-    "coor": ["-34.034374", "150.762368"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
-    "area": "Lord Howe Island",
-    "name": "Lord Howe Island: unclear cases",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "public health order",
-    "numberOfCases": "N/A",
-    "coor": ["-31.553509", "159.081786"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
-    "area": "Sydney - Ryde Civic Centre",
-    "name": "Sydney Church of Christ - Ryde Civic Centre: 7 cases",
-    "date": "8/3/20",
-    "time": "N/A",
-    "description": "Seven people have been confirmed with COVID-19 after attending a Sydney Church of Christ service on 8-03-2020 at Ryde Civic Centre. More than 300 people attended this service.",
-    "numberOfCases": "13",
-    "coor": ["-33.811860", "151.104833"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
+    "state": "ACT",
     "area": "",
-    "name": "Pastadelli, 11 Railway Avenue, Wahroonga",
-    "date": "8/3/20",
-    "time": "N/A",
+    "name": "Capital Brewing Co in Fyshwick",
+    "date": "14/3/20",
+    "time": "5-6:30pm",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-33.717958", "151.116651"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
-    "area": "Thornleigh",
-    "name": "Normanhurst West Public School",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "",
-    "numberOfCases": "2",
-    "coor": ["-33.721505", "151.088048"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
-    "area": "Thornleigh",
-    "name": "Normanhurst West Public School",
-    "date": "23/3/20",
-    "time": "N/A",
-    "description": "",
-    "numberOfCases": "2",
-    "coor": ["-33.721505", "151.088048"],
-    "type": "0"
-  },
-  {
-    "state": "NSW",
-    "area": "Macquarie Park",
-    "name": "Dorothy Henderson Lodge",
-    "date": "24/3/20",
-    "time": "N/A",
-    "description": "11 Residents, 5 staff",
-    "numberOfCases": "16",
-    "coor": ["-33.777053", "151.110612"],
-    "type": "0"
+    "coor": ["-35.321500", "149.163379"]
   },
   {
     "state": "NSW",
@@ -171,20 +42,34 @@
     "date": "14/3/20",
     "time": "N/A",
     "description": "From ACT",
-    "numberOfCases": "1",
-    "coor": ["-33.886336", "151.184437"],
-    "type": "0"
+    "coor": ["-33.886336", "151.184437"]
   },
   {
     "state": "NSW",
-    "area": "Bankstown",
-    "name": "Bankstown Opal Care Facility",
-    "date": "25/3/20",
+    "area": "Hornsby",
+    "name": "Normanhurst West Public School",
+    "date": "23/3/20",
     "time": "N/A",
-    "description": "",
-    "numberOfCases": "1",
-    "coor": ["-33.932836", "151.026271"],
-    "type": "0"
+    "description": "Active cluster investigations in NSW: 3 cases. Local Transmission.",
+    "coor": ["-33.721505", "151.088048"]
+  },
+  {
+    "state": "NSW",
+    "area": "Ryde",
+    "name": "Dorothy Henderson Lodge",
+    "date": "31/3/20",
+    "time": "N/A",
+    "description": "Active cluster investigations in NSW: 22 cases. Local Transmission.",
+    "coor": ["-33.777053", "151.110612"]
+  },
+  {
+    "state": "NSW",
+    "area": "Canterbury- Bankstown",
+    "name": "Bankstown Opal Care Facility",
+    "date": "22/3/20",
+    "time": "N/A",
+    "description": "1 has died, currently 2 resident and 3 staff are infected",
+    "coor": ["-33.932836", "151.026271"]
   },
   {
     "state": "NSW",
@@ -193,97 +78,286 @@
     "date": "26/3/20",
     "time": "N/A",
     "description": "1 widwife",
-    "numberOfCases": "1",
-    "coor": ["-33.966684", "151.134449"],
-    "type": "0"
+    "coor": ["-33.966684", "151.134449"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Pastadelli, 11 Railway Avenue, Wahroonga",
+    "date": "8/3/20",
+    "time": "N/A",
+    "description": "",
+    "coor": ["-33.717958", "151.116651"]
+  },
+  {
+    "state": "NSW",
+    "area": "Ryde",
+    "name": "Sydney Church of Christ - Ryde Civic Centre",
+    "date": "8/3/20",
+    "time": "N/A",
+    "description": "Active cluster investigations in NSW: 19 cases. Local Transmission.",
+    "coor": ["-33.811860", "151.104833"]
+  },
+  {
+    "state": "NSW",
+    "area": "Waverley",
+    "name": "Boogie Wonderland party at the Bucket List",
+    "date": "16/3/20",
+    "time": "4pm - 11pm",
+    "description": "Active cluster investigations in NSW: 34 cases. Local Transmission.",
+    "coor": ["-33.890103", "151.278161"]
+  },
+  {
+    "state": "NSW",
+    "area": "Darlinghurst",
+    "name": "Party at Club 77",
+    "date": "16/3/20",
+    "time": "12am - 4am",
+    "description": "Backpackers in Bondi",
+    "coor": ["-33.874218", "151.215786"]
+  },
+  {
+    "state": "NSW",
+    "area": "Smeaton Grange",
+    "name": "Young Academics Child Care Centre",
+    "date": "16/3/20",
+    "time": "All hours",
+    "description": "Childcare. All people who visited during the dates need to be isolated",
+    "coor": ["-34.034374", "150.762368"]
+  },
+  {
+    "state": "NSW",
+    "area": "Vaucluse",
+    "name": "Vaucluse Cottage Childcare Centre",
+    "date": "16/3/20",
+    "time": "All hours",
+    "description": "Childcare. All people who visited during the dates need to be isolated",
+    "coor": ["-33.850286", "151.275103"]
+  },
+  {
+    "state": "NSW",
+    "area": "Lord Howe Island",
+    "name": "Lord Howe Island: unclear cases",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "public health order",
+    "coor": ["-31.553509", "159.081786"]
+  },
+  {
+    "state": "NSW",
+    "area": "Quaker's Hill",
+    "name": "Quaker's Hill Nursing Home",
+    "date": "23/3/20",
+    "time": "N/A",
+    "description": "Tracing Still underway",
+    "coor": ["-33.719297", "150.891671"]
+  },
+  {
+    "state": "NSW",
+    "area": "Blacktown",
+    "name": "Tyndale Christian School",
+    "date": "30/3/20",
+    "time": "N/A",
+    "description": "Tyndale Christian School in Blacktown has three cases of COVID-19 (2 students and a staff member). The school will close on 30 and 31 March for contact tracing and cleaning.",
+    "coor": ["-33.781694", "150.885898"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Rose of Sharon childcare centre",
+    "date": "30/3/20",
+    "time": "N/A",
+    "description": "Active cluster investigations in NSW: 6 cases. Local Transmission.",
+    "coor": ["-33.765252", "150.919613"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Kambala School",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "There has been a confirmed case in a teacher at Kambala School. The school is non operational today as further investigations are underway.",
+    "coor": ["-33.864752", "151.271541"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Wylie Park Girls High School",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "There has been a confirmed case in a teacher at Wylie Park Girls High School due to a positive case of COVID-19. The school is non operational today as further investigations are underway.",
+    "coor": ["-33.924164", "151.066968"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "St Marys Senior High School",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "St Marys Senior High School is non operational today due to a student of the school returning a positive test for COVID 19. Contact tracing and further investigations are underway.",
+    "coor": ["-33.763622", "150.770687"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Bondi Beach",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "If you are living or working in Bondi Beach or Bondi Junction and have a fever or history of fever or symptoms like a cough, shortness of breath or sore throat you can visit the clinic and be tested. The tests are free.",
+    "coor": ["-33.891325", "151.276716"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Bondi Junction",
+    "date": "2/4/20",
+    "time": "N/A",
+    "description": "If you are living or working in Bondi Beach or Bondi Junction and have a fever or history of fever or symptoms like a cough, shortness of breath or sore throat you can visit the clinic and be tested. The tests are free.",
+    "coor": ["-33.892231", "151.248710"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Westmead Hospital",
+    "date": "3/4/20",
+    "time": "N/A",
+    "description": "2 radiation therapists have tested positive. Contact tracing is underway for these staff members, and all 14 staff and all but two of the 24 patients who have come into contact with these staff have been contacted by our public health teams",
+    "coor": ["-33.801978", "150.989816"]
+  },
+  {
+    "state": "NSW",
+    "area": "Belfield",
+    "name": "St Michael's Primary School",
+    "date": "3/4/20",
+    "time": "N/A",
+    "description": "Student here has tested positive",
+    "coor": ["-33.901302", "151.088144"]
+  },
+  {
+    "state": "NSW",
+    "area": "Erina",
+    "name": "Woodport Early Learning Centre",
+    "date": "3/4/20",
+    "time": "N/A",
+    "description": "Child who attended here has tested positive",
+    "coor": ["-33.440716", "151.379177"]
+  },
+  {
+    "state": "NSW",
+    "area": "Taree",
+    "name": "Storm Village Anglican residential care",
+    "date": "3/4/20",
+    "time": "N/A",
+    "description": "Nurse has tested positive",
+    "coor": ["-31.897947", "152.472356"]
+  },
+  {
+    "state": "NSW",
+    "area": "Brookvale",
+    "name": "Alexander Aged Care",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Nurse has tested positive",
+    "coor": ["-33.758809", "151.277065"]
+  },
+  {
+    "state": "NSW",
+    "area": "North Sydney",
+    "name": "Salabrini Allambie Heights",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Nurse has tested positive",
+    "coor": ["-33.764881", "151.247455"]
+  },
+  {
+    "state": "NSW",
+    "area": "Sydney CBD",
+    "name": "Tafe Ultimo",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Student here has tested positive",
+    "coor": ["-33.881845", "151.199970"]
+  },
+  {
+    "state": "NSW",
+    "area": "Bankstown",
+    "name": "Bankstown Senior College",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Student here has tested positive",
+    "coor": ["-33.930264", "151.021760"]
+  },
+  {
+    "state": "NSW",
+    "area": "St Marys",
+    "name": "St Mary's Senior High School",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Student here has tested positive",
+    "coor": ["-33.763764", "150.770697"]
+  },
+  {
+    "state": "NSW",
+    "area": "Gloucester",
+    "name": "Gloucester Primary School",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "Staff Member has tested positive. School remains open as there has been 2 weeks since incident",
+    "coor": ["-32.009682", "151.961030"]
+  },
+  {
+    "state": "NSW",
+    "area": "Punchbowl",
+    "name": "Wiley Park Girls High School",
+    "date": "4/4/20",
+    "time": "N/A",
+    "description": "School had now opened",
+    "coor": ["-33.924191", "151.066936"]
   },
   {
     "state": "QLD",
-    "area": "Brisbane - Friday's Nightclub",
-    "name": "Brisbane - Friday's Nightclub: unclear cases",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "Between 6pm Friday 6-03-and 11pm Monday 9 March",
-    "numberOfCases": "N/A",
-    "coor": ["-27.463192", "153.034523"],
-    "type": "0"
+    "area": "Noosaville",
+    "name": "Land & Sea Brewery: The Noosa Beer Company",
+    "date": "13/3/20",
+    "time": "6:45pm-8:45pm",
+    "description": "N/A",
+    "coor": ["-26.407997", "153.043143"]
   },
   {
     "state": "QLD",
-    "area": "Gold Coast - Rick Shores restaurant",
-    "name": "Gold Coast - Rick Shores restaurant: unclear cases",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "Between 12pm and 1:30pm, Friday 13-03-2020",
-    "numberOfCases": "N/A",
-    "coor": ["-28.089302", "153.454919"],
-    "type": "0"
+    "area": "Sunshine Beach",
+    "name": "Sum Yung Guys Restaurant",
+    "date": "13/3/20",
+    "time": "6:45pm-8:45pm",
+    "description": "",
+    "coor": ["-26.405436", "153.110754"]
   },
   {
     "state": "QLD",
-    "area": "Metro North",
-    "name": "Metro North: 16 cases",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "confirmed on 21 Mar",
-    "numberOfCases": "16",
-    "coor": ["-27.449613", "153.028046"],
-    "type": "0"
+    "area": "Sunshine Beach",
+    "name": "The Sunshine Beach Surf Life Saving Club",
+    "date": "14/3/20",
+    "time": "3:45pm-11:30pm",
+    "description": "",
+    "coor": ["-26.386829", "153.091889"]
   },
   {
     "state": "QLD",
-    "area": "Metro South",
-    "name": "Metro South: 6 cases",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "confirmed on 21 Mar",
-    "numberOfCases": "6",
-    "coor": ["-27.498640", "153.034225"],
-    "type": "0"
+    "area": "Sunshine Beach",
+    "name": "The Sunshine Beach Surf Life Saving Club",
+    "date": "15/3/20",
+    "time": "12:30pm-2:00pm",
+    "description": "",
+    "coor": ["-26.386829", "153.091889"]
   },
   {
     "state": "QLD",
-    "area": "Gold Coast",
-    "name": "Gold Coast: 5 cases",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "confirmed on 21 Mar",
-    "numberOfCases": "5",
-    "coor": ["-28.012149", "153.409150"],
-    "type": "0"
-  },
-  {
-    "state": "QLD",
-    "area": "Sunshine Coast",
-    "name": "Sunshine Coast: 5 cases",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "confirmed on 21 Mar",
-    "numberOfCases": "5",
-    "coor": ["-26.649175", "153.065880"],
-    "type": "0"
-  },
-  {
-    "state": "QLD",
-    "area": "Darling Downs",
-    "name": "Darling Downs: 4 cases",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "confirmed on 21 Mar",
-    "numberOfCases": "4",
-    "coor": ["-27.481774", "150.26604"],
-    "type": "0"
-  },
-  {
-    "state": "QLD",
-    "area": "Wide Bay",
-    "name": "Wide Bay: 1 cases",
-    "date": "21/3/20",
-    "time": "N/A",
-    "description": "confirmed on 21 Mar",
-    "numberOfCases": "1",
-    "coor": ["-25.904681", "153.092642"],
-    "type": "0"
+    "area": "Noosa",
+    "name": "Sails Restaurant",
+    "date": "18/3/20",
+    "time": "4:00pm-11:15pm",
+    "description": "4 infected staff worked on 18th and 19 of March",
+    "coor": ["-26.386811", "153.093034"]
   },
   {
     "state": "QLD",
@@ -292,20 +366,106 @@
     "date": "10/3/20",
     "time": "N/A",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-27.554941", "152.336926"],
-    "type": "0"
+    "coor": ["-27.554941", "152.336926"]
   },
   {
     "state": "QLD",
-    "area": "Noosa",
-    "name": "Sails Restaurant",
-    "date": "18/3/20",
-    "time": "4:00pm-11:15pm",
-    "description": "4 infected staff worked on 18th and 19th of Mar",
-    "numberOfCases": "4",
-    "coor": ["-26.386811", "153.093034"],
-    "type": "0"
+    "area": "Brisbane - Friday's Nightclub",
+    "name": "Brisbane - Friday's Nightclub: unclear cases",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "Between 6pm Friday 6-03-and 11pm Monday 9 March",
+    "coor": ["-27.463192", "153.034523"]
+  },
+  {
+    "state": "QLD",
+    "area": "Gold Coast - Rick Shores restaurant",
+    "name": "Gold Coast - Rick Shores restaurant: unclear cases",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "Between 12pm and 1:30pm, Friday 13-03-2020",
+    "coor": ["-28.089302", "153.454919"]
+  },
+  {
+    "state": "QLD",
+    "area": "Metro North",
+    "name": "Metro North: 16 cases",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "confirmed on 21 Mar",
+    "coor": ["-27.449613", "153.028046"]
+  },
+  {
+    "state": "QLD",
+    "area": "Metro South",
+    "name": "Metro South: 6 cases",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "confirmed on 21 Mar",
+    "coor": ["-27.498640", "153.034225"]
+  },
+  {
+    "state": "QLD",
+    "area": "Gold Coast",
+    "name": "Gold Coast: 5 cases",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "confirmed on 21 Mar",
+    "coor": ["-28.012149", "153.409150"]
+  },
+  {
+    "state": "QLD",
+    "area": "Sunshine Coast",
+    "name": "Sunshine Coast: 5 cases",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "confirmed on 21 Mar",
+    "coor": ["-26.649175", "153.065880"]
+  },
+  {
+    "state": "QLD",
+    "area": "Darling Downs",
+    "name": "Darling Downs: 4 cases",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "confirmed on 21 Mar",
+    "coor": ["-27.481774", "150.26604"]
+  },
+  {
+    "state": "QLD",
+    "area": "Wide Bay",
+    "name": "Wide Bay: 1 cases",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "confirmed on 21 Mar",
+    "coor": ["-25.904681", "153.092642"]
+  },
+  {
+    "state": "QLD",
+    "area": "Edmonton PCYC",
+    "name": "a wreslting event",
+    "date": "31/3/20",
+    "time": "",
+    "description": "Three comfirmed cases",
+    "coor": ["-17.016973", "145.725109"]
+  },
+  {
+    "state": "SA",
+    "area": "",
+    "name": "Adelaide Airport",
+    "date": "2/4/20",
+    "time": "",
+    "description": "Investigations are ongoing into the cluster of 33 cases identified at Adelaide Airport. Anyone who is sick with symptoms of COVID-19 and has been at the Adelaide Airport, including in the terminal or car park, since Tuesday 17 March should present for testing.",
+    "coor": ["-34.946426", "138.533313"]
+  },
+  {
+    "state": "SA",
+    "area": "",
+    "name": "Henley High School",
+    "date": "2/4/20",
+    "time": "",
+    "description": "The teenager is a student at Henley High School and the school has made the decision to close. There has been no further exposure to other students at this point in time however contact tracing is underway.",
+    "coor": ["-34.922099", "138.50105"]
   },
   {
     "state": "TAS",
@@ -314,9 +474,7 @@
     "date": "9/3/20",
     "time": "9:30AM - 5:30 pm",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-42.903407", "147.325960"],
-    "type": "0"
+    "coor": ["-42.903407", "147.325960"]
   },
   {
     "state": "TAS",
@@ -325,9 +483,7 @@
     "date": "9/3/20",
     "time": "N/A",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-42.903756", "147.325108"],
-    "type": "0"
+    "coor": ["-42.903756", "147.325108"]
   },
   {
     "state": "TAS",
@@ -336,119 +492,205 @@
     "date": "9/3/20",
     "time": "N/A",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-42.903948", "147.326218"],
-    "type": "0"
+    "coor": ["-42.903948", "147.326218"]
   },
   {
-    "state": "VIC",
-    "area": "",
-    "name": "Mary Miller Cafe, Fitzroy North",
-    "date": "10/3/20",
-    "time": "12:30pm - 2:00pm",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.776845", "144.987074"],
-    "type": "0"
+    "state": "TAS",
+    "area": "Devonport",
+    "name": "Devonport area",
+    "date": "31/3/20",
+    "time": "",
+    "description": "Public Health Services is continuing to investigate two cases in the Devonport area for which a source of infection has not been identified.",
+    "coor": ["-41.179439", "146.345319"]
   },
   {
-    "state": "VIC",
-    "area": "",
-    "name": "No. 19 Cafe, Ascot Vale",
-    "date": "10/3/20",
-    "time": "8:00am - 9:30am",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.773059", "144.916153"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "T20 Cricket World Cup Final, Melbourne Cricket Ground, MCC Members Level 2",
-    "date": "8/3/20",
-    "time": "5:15pm - 11:30pm",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.819814", "144.983471"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Myrtle Oval, Macleay Park, North Balwyn",
-    "date": "8/3/20",
-    "time": "10:00am - 4:00pm",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.800857", "145.075181"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Ramsden Street Oval, Clifton Hill",
-    "date": "8/3/20",
-    "time": "8:30am - 5:00pm",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.791837", "145.003320"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "AAMI Park (Rebels vs Lions rugby game)",
-    "date": "7/3/20",
-    "time": "Evening",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.825005", "144.983814"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Albert Park Hotel",
-    "date": "7/3/20",
-    "time": "6:00pm - 10:00pm",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.825005", "144.983814"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "South Melbourne Market",
-    "date": "7/3/20",
-    "time": "2:00pm - 3:00pm",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.831845", "144.955896"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Coles Waurn Ponds",
-    "date": "7/3/20",
-    "time": "1:00pm - 6:00pm",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-38.199037", "144.318418"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "",
-    "name": "Ashburton Park",
-    "date": "7/3/20",
+    "state": "TAS",
+    "area": "Burnie",
+    "name": "North West Regional Hospital",
+    "date": "4/4/20",
     "time": "N/A",
-    "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.863086", "145.086915"],
-    "type": "0"
+    "description": "3 Health workers",
+    "coor": ["-41.047223", "145.880527"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Hobart Travel Lodge (12-19 March)",
+    "date": "19/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.885460", "147.326124"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Gray Line tour bus from Hobart to Port Arthur (morning of 13 March)",
+    "date": "13/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.884595", "147.332231"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Port Arthur Historic Site and visitor centre (13 March)",
+    "date": "13/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-43.145554", "147.850857"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Carnarvon Bay Navigators boat tour (afternoon of 13 March)",
+    "date": "13/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-43.154247", "147.858769"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Female Factory Site, South Hobart (morning of 14 March, 18 March)",
+    "date": "18/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.893791", "147.299315"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Cascade Gardens, South Hobart (morning of 14 March)",
+    "date": "14/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.893791", "147.299315"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "MONA ferry from Hobart (1.15pm, 14 March)",
+    "date": "14/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.884725", "147.33246"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "MONA (1.30 to 4pm, 14 March)",
+    "date": "14/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.811871", "147.260885"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Peppermint Bay Cruise and Restaurant (15 March)",
+    "date": "15/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.884818", "147.332920"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Freycinet Marine Farm (16 March)",
+    "date": "16/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.074515", "148.233883"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Kates Berry Farm (16 March)",
+    "date": "16/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.145949", "148.055956"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Pennicott Cruises on Bruny Island (17 March)",
+    "date": "17/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-43.364215", "147.355775"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Grape Food and Wine Bar, Salamanca (18 March)",
+    "date": "18/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-42.886854", "147.332902"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Launceston Leisure Inn (19-23 March)",
+    "date": "23/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.440845", "147.130307"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Bridestowe Lavender Farm (date unsure)",
+    "date": "1/4/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.128736", "147.342190"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Pyengana Cheese Factory (20 March)",
+    "date": "20/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.289258", "148.004963"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Lease 65, St Helens (20 March)",
+    "date": "20/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.293385", "148.274174"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Batman Bridge River Cruise, run by Tamar River Cruises (21 March)",
+    "date": "21/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.216963", "146.914769"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Cradle Mountain Visitor Centre and Waldheim Chalet (22 March)",
+    "date": "22/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.679294", "145.940086"]
+  },
+  {
+    "state": "TAS",
+    "area": "Hobart",
+    "name": "Ashgrove Tasmanian Farm (22 March)",
+    "date": "22/3/20",
+    "time": "N/A",
+    "description": "Coronavirus Public Health Alert 1 April 2020. Anyone who was at these locations on these days and who developed or develops respiratory symptoms in the 14 days after they were there should contact the Public Health Hotline on 1800 671 738.",
+    "coor": ["-41.430190", "146.558522"]
   },
   {
     "state": "VIC",
@@ -457,9 +699,7 @@
     "date": "6/3/20",
     "time": "6pm - 7pm",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.809968", "144.995144"],
-    "type": "0"
+    "coor": ["-37.809968", "144.995144"]
   },
   {
     "state": "VIC",
@@ -468,9 +708,7 @@
     "date": "6/3/20",
     "time": "8:45am - 5:00pm",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-38.198995", "144.318471"],
-    "type": "0"
+    "coor": ["-38.198995", "144.318471"]
   },
   {
     "state": "VIC",
@@ -479,42 +717,97 @@
     "date": "6/3/20",
     "time": "8:30am - 10:00am",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-37.831845", "144.955896"],
-    "type": "0"
+    "coor": ["-37.831816", "144.955928"]
   },
   {
     "state": "VIC",
     "area": "",
-    "name": "Monash University- Clayton",
-    "date": "early Mar",
-    "time": "N/A",
-    "description": "A person who attended Caulfield and Clayton campuses in early March tested positive",
-    "numberOfCases": "1",
-    "coor": ["-37.910484", "145.136259"],
-    "type": "1"
+    "name": "AAMI Park (Rebels vs Lions rugby game)",
+    "date": "7/3/20",
+    "time": "Evening",
+    "description": "",
+    "coor": ["-37.825005", "144.983814"]
   },
   {
     "state": "VIC",
     "area": "",
-    "name": "Monash University- Caulfield",
-    "date": "early Mar",
-    "time": "N/A",
-    "description": "A person who attended Caulfield and Clayton campuses in early March tested positive",
-    "numberOfCases": "1",
-    "coor": ["-37.876967", "145.044968"],
-    "type": "2"
+    "name": "Albert Park Hotel",
+    "date": "7/3/20",
+    "time": "6:00pm - 10:00pm",
+    "description": "",
+    "coor": ["-37.825005", "144.983814"]
   },
   {
-    "state": "WA",
-    "area": "Perth metropolitan area",
-    "name": "Perth metropolitan area: 28 cases",
-    "date": "24/3/20",
+    "state": "VIC",
+    "area": "",
+    "name": "South Melbourne Market",
+    "date": "7/3/20",
+    "time": "2:00pm - 3:00pm",
+    "description": "",
+    "coor": ["-37.831845", "144.955896"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Coles Waurn Ponds",
+    "date": "7/3/20",
+    "time": "1:00pm - 6:00pm",
+    "description": "",
+    "coor": ["-38.199037", "144.318418"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Ashburton Park",
+    "date": "7/3/20",
     "time": "N/A",
-    "description": "The Department can confirm that 15 of these new confirmed cases have travelled overseas or are linked to overseas travel - UK, USA, Ireland, Spain (via Dubai), New Zealand, France and Europe.",
-    "numberOfCases": "28",
-    "coor": ["-31.946603", "115.849349"],
-    "type": "0"
+    "description": "",
+    "coor": ["-37.863086", "145.086915"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "T20 Cricket World Cup Final, Melbourne Cricket Ground, MCC Members Level 2",
+    "date": "8/3/20",
+    "time": "5:15pm - 11:30pm",
+    "description": "",
+    "coor": ["-37.819814", "144.983471"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Myrtle Oval, Macleay Park, North Balwyn",
+    "date": "8/3/20",
+    "time": "10:00am - 4:00pm",
+    "description": "",
+    "coor": ["-37.800857", "145.075181"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Ramsden Street Oval, Clifton Hill",
+    "date": "8/3/20",
+    "time": "8:30am - 5:00pm",
+    "description": "",
+    "coor": ["-37.791837", "145.003320"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "Mary Miller Cafe, Fitzroy North",
+    "date": "10/3/20",
+    "time": "12:30pm - 2:00pm",
+    "description": "",
+    "coor": ["-37.776845", "144.987074"]
+  },
+  {
+    "state": "VIC",
+    "area": "",
+    "name": "No. 19 Cafe, Ascot Vale",
+    "date": "10/3/20",
+    "time": "8:00am - 9:30am",
+    "description": "",
+    "coor": ["-37.773059", "144.916153"]
   },
   {
     "state": "WA",
@@ -523,624 +816,105 @@
     "date": "7/3/20",
     "time": "N/A",
     "description": "",
-    "numberOfCases": "N/A",
-    "coor": ["-31.957997", "115.863821"],
-    "type": "0"
+    "coor": ["-31.957997", "115.863821"]
   },
   {
-    "state": "VIC",
-    "area": "Ballarat(C)",
-    "name": "Ballarat: 5 cases",
-    "date": "27/3/20",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "5",
-    "coor": ["-37.567369", "143.858223"],
-    "type": "0"
+    "state": "WA",
+    "area": "Perth metropolitan area",
+    "name": "Perth metropolitan area: 16 new cases",
+    "date": "5/4/20",
+    "time": "N/A",
+    "description": "Sixteen new confirme cases today are from the Perth metropolitan area",
+    "coor": ["-31.946603", "115.849349"]
   },
   {
-    "state": "VIC",
-    "area": "Banyule(C)",
-    "name": "Banyule: 21 cases",
-    "date": "27/3/21",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "21",
-    "coor": ["-37.736550", "145.083017"],
-    "type": "0"
+    "state": "WA",
+    "area": "",
+    "name": "Broome Hospital",
+    "date": "30/3/20",
+    "time": "N/A",
+    "description": "Two of the new cases are healthcare workers. This includes a healthcare worker from Broome Hospital with a history of intrastate travel.",
+    "coor": ["-17.960318", "122.236525"]
   },
   {
-    "state": "VIC",
-    "area": "Bass Coast(S)",
-    "name": "Bass Coast: 2 cases",
-    "date": "27/3/22",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "2",
-    "coor": ["-38.511664", "145.573109"],
-    "type": "0"
+    "state": "SA",
+    "area": "Barossa",
+    "name": "Barossa cluster",
+    "date": "14/3/20",
+    "time": "N/A",
+    "description": "There are 38 confirmed cases linked to areas within the Barossa region including Tanunda, Nuriootpa, Williamstown, Angaston and Lyndoch.Anyone in these areas from Saturday 14 March 2020 who develops symptoms should immediately self-isolate and be tested.",
+    "coor": ["-34.601510", "139.000404"]
   },
   {
-    "state": "VIC",
-    "area": "Baw Baw(S)",
-    "name": "Baw Baw: 3 cases",
-    "date": "27/3/23",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "3",
-    "coor": ["-38.024972", "146.143920"],
-    "type": "0"
+    "state": "NSW",
+    "area": "Wollongong",
+    "name": "Stanwell Tops Wedding",
+    "date": "9/3/20",
+    "time": "N/A",
+    "description": "Active cluster investigations in NSW: 38 cases. Local Transmission.",
+    "coor": ["-34.221553", "150.978854"]
   },
   {
-    "state": "VIC",
-    "area": "Bayside(C)",
-    "name": "Bayside: 18 cases",
-    "date": "27/3/24",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "18",
-    "coor": ["-37.944727", "145.018333"],
-    "type": "0"
+    "state": "NSW",
+    "area": "Waverley",
+    "name": "Bondi Hardware Restaurant",
+    "date": "17/3/20",
+    "time": "N/A",
+    "description": "Active cluster investigations in NSW: 14 cases. Local Transmission.",
+    "coor": ["-33.890226", "151.272886"]
   },
   {
-    "state": "VIC",
-    "area": "Boroondara(C)",
-    "name": "Boroondara: 28 cases",
-    "date": "27/3/25",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "28",
-    "coor": ["-37.820479", "145.062259"],
-    "type": "0"
+    "state": "NSW",
+    "area": "Cessnock",
+    "name": "Pokolbin Wedding",
+    "date": "16/3/20",
+    "time": "N/A",
+    "description": "Active cluster investigations in NSW: 2 cases. Local Transmission.",
+    "coor": ["-32.739604", "151.324764"]
   },
   {
-    "state": "VIC",
-    "area": "Brimbank(C)",
-    "name": "Brimbank: 12 cases",
-    "date": "27/3/26",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "12",
-    "coor": ["-37.755813", "144.803270"],
-    "type": "0"
+    "state": "NSW",
+    "area": "Mosman",
+    "name": "Middle Harbour Public School",
+    "date": "8/3/20",
+    "time": "N/A",
+    "description": "A teacher is a confirmed case",
+    "coor": ["-33.823380", "151.232922"]
   },
   {
-    "state": "VIC",
-    "area": "Cardinia(S)",
-    "name": "Cardinia: 4 cases",
-    "date": "27/3/27",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "4",
-    "coor": ["-38.146884", "145.422791"],
-    "type": "0"
+    "state": "TAS",
+    "area": "",
+    "name": "North West Regional Hospital",
+    "date": "8/4/20",
+    "time": "N/A",
+    "description": "A further eight people have tested positive to coronavirus in relation to the current outbreak at the North West Regional Hospital.",
+    "coor": ["-41.047280", "145.880549"]
   },
   {
-    "state": "VIC",
-    "area": "Casey(C)",
-    "name": "Casey: 20 cases",
-    "date": "27/3/28",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "20",
-    "coor": ["-38.098385", "145.319985"],
-    "type": "0"
+    "state": "NSW",
+    "area": "Gosford",
+    "name": "Gosford Hospital",
+    "date": "9/4/20",
+    "time": "N/A",
+    "description": "12 new cases at Gosford Hospital including two patients and six staff and four family/friend cases",
+    "coor": ["-33.420279", "151.339405"]
   },
   {
-    "state": "VIC",
-    "area": "Darebin(C)",
-    "name": "Darebin: 11 cases",
-    "date": "27/3/29",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "11",
-    "coor": ["-37.734503", "145.011195"],
-    "type": "0"
+    "state": "TAS",
+    "area": "",
+    "name": "North West Regional Hospital",
+    "date": "9/4/20",
+    "time": "N/A",
+    "description": "Three of the cases are healthcare workers who have worked at the North West Regional Hospital and/or the North West Private Hospital.",
+    "coor": ["-41.047280", "145.880549"]
   },
   {
-    "state": "VIC",
-    "area": "East Gippsland(S)",
-    "name": "East Gippsland: 1 case",
-    "date": "27/3/30",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-37.580098", "148.230398"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Frankston(C)",
-    "name": "Frankston: 15 cases",
-    "date": "27/3/31",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "15",
-    "coor": ["-38.148173", "145.135585"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Gannawarra(S)",
-    "name": "Gannawarra: 1 case",
-    "date": "27/3/32",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-35.741935", "143.759675"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Glen Eira(C)",
-    "name": "Glen Eira: 27 cases",
-    "date": "27/3/33",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "27",
-    "coor": ["-37.901635", "145.041023"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Glenelg(S)",
-    "name": "Glenelg: 1 case",
-    "date": "27/3/34",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-37.906849", "141.436705"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Greater Bendigo(C)",
-    "name": "Greater Bendigo: 1 case",
-    "date": "27/3/35",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-36.761087", "144.285744"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Greater Dandenong(C)",
-    "name": "Greater Dandenong: 3 cases",
-    "date": "27/3/36",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "3",
-    "coor": ["-37.986233", "145.217259"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Greater Geelong(C)",
-    "name": "Greater Geelong: 23 cases",
-    "date": "27/3/37",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "23",
-    "coor": ["-38.157720", "144.357048"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Greater Shepparton(C)",
-    "name": "Greater Shepparton: 3 cases",
-    "date": "27/3/38",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "3",
-    "coor": ["-36.384975", "145.400054"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Hepburn(S)",
-    "name": "Hepburn: 1 case",
-    "date": "27/3/39",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-37.311658", "144.126696"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Hobsons Bay(C)",
-    "name": "Hobsons Bay: 7 cases",
-    "date": "27/3/40",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "7",
-    "coor": ["-37.849337", "144.822787"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Hume(C)",
-    "name": "Hume: 10 cases",
-    "date": "27/3/41",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "10",
-    "coor": ["-37.590031", "144.836699"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Kingston(C)",
-    "name": "Kingston: 6 cases",
-    "date": "27/3/42",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "6",
-    "coor": ["-37.997968", "145.120036"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Knox(C)",
-    "name": "Knox: 3 cases",
-    "date": "27/3/43",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "3",
-    "coor": ["-37.894149", "145.261681"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Latrobe",
-    "name": "Latrobe: 3 cases",
-    "date": "27/3/44",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "3",
-    "coor": ["-38.339565", "146.413628"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Macedon Ranges(S)",
-    "name": "Macedon Ranges: 3 cases",
-    "date": "27/3/45",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "3",
-    "coor": ["-37.317542", "144.606472"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Manningham(C)",
-    "name": "Manningham: 8 cases",
-    "date": "27/3/46",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "8",
-    "coor": ["-37.773885", "145.170949"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Mansfield(S)",
-    "name": "Mansfield: 1 case",
-    "date": "27/3/47",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-37.064168", "146.073513"],
-    "type": ""
-  },
-  {
-    "state": "VIC",
-    "area": "Maribyrnong(C)",
-    "name": "Maribyrnong: 5 cases",
-    "date": "27/3/48",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "5",
-    "coor": ["-37.769431", "144.883568"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Maroondah(C)",
-    "name": "Maroondah: 3 cases",
-    "date": "27/3/49",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "3",
-    "coor": ["-37.800690", "145.264308"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Melbourne(C)",
-    "name": "Melbourne: 33 cases",
-    "date": "27/3/50",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "33",
-    "coor": ["-37.813732", "144.957202"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Melton(C)",
-    "name": "Melton: 11 cases",
-    "date": "27/3/51",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "11",
-    "coor": ["-37.682600", "144.554220"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Mildura(RC)",
-    "name": "Mildura: 1 case",
-    "date": "27/3/52",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-34.206791", "142.124009"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Mitchell(S)",
-    "name": "Mitchell: 5 cases",
-    "date": "27/3/53",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "4",
-    "coor": ["-37.132436", "144.957826"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Moira(S)",
-    "name": "Moira: 3 case",
-    "date": "27/3/54",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "3",
-    "coor": ["-36.080385", "145.677722"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Monash(C)",
-    "name": "Monash: 14 cases",
-    "date": "27/3/55",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "14",
-    "coor": ["-37.893533", "145.141460"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Moonee Valley(13)",
-    "name": "Moonee Valley: 14 cases",
-    "date": "27/3/56",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "14",
-    "coor": ["-37.746174", "144.893937"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Moorabool(S)",
-    "name": "Moorabool: 1 case",
-    "date": "27/3/57",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-37.634060", "144.213913"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Moreland(C)",
-    "name": "Moreland: 25 cases",
-    "date": "27/3/58",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "25",
-    "coor": ["-37.740222", "144.951886"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Mornington Peninsula(S)",
-    "name": "Mornington Peninsula: 39 cases",
-    "date": "27/3/59",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "39",
-    "coor": ["-38.348163", "145.055341"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Mount Alexander(S)",
-    "name": "Mount Alexander: 5 cases",
-    "date": "27/3/60",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "5",
-    "coor": ["-37.085551", "144.212560"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Moyne(S)",
-    "name": "Moyne: 1 case",
-    "date": "27/3/61",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-38.208097", "142.335676"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Nillumbik(S)",
-    "name": "Nillumbik: 8 cases",
-    "date": "27/3/62",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "8",
-    "coor": ["-37.627736", "145.232220"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Northern Grampians(S)",
-    "name": "Northern Grampians: 2 cases",
-    "date": "27/3/63",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "2",
-    "coor": ["-36.821919", "142.955099"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Port Phillip(C)",
-    "name": "Port Phillip: 26 cases",
-    "date": "27/3/64",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "26",
-    "coor": ["-37.847419", "144.965442"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "South Gippsland(S)",
-    "name": "South Gippsland: 1 case",
-    "date": "27/3/65",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-38.585994", "145.987197"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Stonnington(C)",
-    "name": "Stonnington: 58 cases",
-    "date": "27/3/66",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "58",
-    "coor": ["-37.856301", "145.036929"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Surf Coast(S)",
-    "name": "Surf Coast: 4 cases",
-    "date": "27/3/67",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "4",
-    "coor": ["-38.326681", "144.097410"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Warrnambool(C)",
-    "name": "Warrnambool: 4 cases",
-    "date": "27/3/68",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "4",
-    "coor": ["-38.370020", "142.494555"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Wellington(S)",
-    "name": "Wellington: 2 cases",
-    "date": "27/3/69",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "2",
-    "coor": ["-37.837437","146.785606"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Whitehorse(C)",
-    "name": "Whitehorse: 4 cases",
-    "date": "27/3/70",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "4",
-    "coor": ["-37.829762", "145.154148"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Whittlesea(C)",
-    "name": "Whittlesea: 11 cases",
-    "date": "27/3/71",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "11",
-    "coor": ["-37.513046", "145.121774"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Wyndham(C)",
-    "name": "Wyndham: 16 cases",
-    "date": "27/3/72",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "16",
-    "coor": ["-37.890597", "144.604762"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Yarra(C)",
-    "name": "Yarra: 7 cases",
-    "date": "27/3/73",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "7",
-    "coor": ["-37.801811", "144.993413"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Yarra Ranges(S)",
-    "name": "Yarra Ranges: 15 cases",
-    "date": "27/3/74",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "15",
-    "coor": ["-37.738135", "145.629704"],
-    "type": "0"
-  },
-  {
-    "state": "VIC",
-    "area": "Yarriambiack(S)",
-    "name": "Yarriambiack: 1 case",
-    "date": "27/3/75",
-    "time": "",
-    "description": "confirmed cases in LGA of VIC",
-    "numberOfCases": "1",
-    "coor": ["-35.980938", "142.403768"],
-    "type": "0"
+    "state": "TAS",
+    "area": "",
+    "name": "North West Private Hospital",
+    "date": "9/4/20",
+    "time": "N/A",
+    "description": "Three of the cases are healthcare workers who have worked at the North West Regional Hospital and/or the North West Private Hospital.",
+    "coor": ["-41.046442", "145.880955"]
   }
 ]

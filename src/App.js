@@ -1,23 +1,171 @@
-import React, { useState, useEffect } from "react";
+import React, {
+  useState,
+  Suspense,
+  useEffect,
+  useRef
+} from "react";
+
 import keyBy from "lodash.keyby";
-import { useRoutes } from "hookrouter";
-import Grid from "@material-ui/core/Grid";
-import SocialMediaShareModal from "./socialMediaShare/SocialMediaShareModal";
-import SelectColumnFilter from "./SelectColumnFilter";
-import Header from "./Header";
-import Navbar from "./Navbar";
-import InfoPage from "./InfoPage";
-import HomePage from "./Homepage";
-import NewsPage from "./NewsPage";
-import FAQPage from "./FAQPage";
-import Fallback from "./fallback";
+import dayjs from "dayjs";
+import "dayjs/locale/en-au";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+
 import all from "./data/overall";
 import provinces from "./data/area";
-import stateCaseData from "./data/stateCaseData";
+import information from "./data/info";
+import mapDataHos from "./data/mapdataHos";
+
+
+import Fallback from "./fallback"
+
+import FAQPage from "./FAQPage";
+import DailyHistoryPage from "./DailyHistoryPage";
+import NewsPage from "./NewsPage";
+import InfoPage from "./InfoPage";
+import Navbar from "./Navbar";
+import HomePage from "./HomePage/HomePage";
+
+import StateChart from "./DataVis/StateChart";
+
 import "./App.css";
+import uuid from "react-uuid";
+import ReactPlayer from "react-player";
+
+// routes
+import { useRoutes, A } from 'hookrouter';
+// import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+
+import ReactGA from "react-ga";
+
+
+import { TwitterTimelineEmbed } from "react-twitter-embed";
+
+import Grid from "@material-ui/core/Grid";
+import NewsTimeline from "./NewsTimeline";
+import { useTable, useFilters, useGlobalFilter, usePagination } from 'react-table'
+
+import stateCaseData from "./data/stateCaseData";
+import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Alert, AlertTitle } from '@material-ui/lab';
+
+
+
+dayjs.extend(relativeTime);
+ReactGA.initialize("UA-160673543-1");
+
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
+
+
+function Header({ province }) {
+
+  const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
+
+  const setModalVisibility = state => {
+    setShowSocialMediaIcons(state);
+  };
+
+  return (
+    <header>
+
+
+      <div className="bg"></div>
+      <h1
+        style={{
+          fontSize: "170%",
+          color: "white",
+          textAlign: "center",
+          fontWeight:"bold"
+        }}
+      >
+        COVID-19 in Australia
+      </h1>
+      <h1
+        style={{
+          fontSize: "160%",
+          color: "white",
+          textAlign: "center",
+            fontWeight:"bold"
+        }}
+      >
+        Real-Time Report
+
+      </h1>
+
+      <div className="slogan"><i>Stay Calm, Stay Informed</i></div>
+
+        <div style={{
+            fontSize: "120%",
+            color: "white",
+            textAlign: "center",
+            marginTop:"1rem"
+        }}>
+            <SocialMediaShareModal
+                visible={showSocialMediaIcons}
+                onCancel={() => setShowSocialMediaIcons(false)}
+            />
+            <a  onClick={() => {
+                ReactGA.event({category: 'Header', action: "share"});
+                setModalVisibility(true)
+            }}><i className="fas fa-share-alt"></i></a>
+            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "twitter"})}} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
+            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "instagram"})}} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
+            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "github"})}} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
+        </div>
+
+      {/*<i>By Students from Monash</i>*/}
+    </header>
+  );
+}
+
+
+
+
+
+
+
+// This is a custom filter UI for selecting
+// a unique option from a list
+function SelectColumnFilter({
+  column: { filterValue, setFilter, preFilteredRows, id },
+}) {
+  // Calculate the options for filtering
+  // using the preFilteredRows
+  const options = React.useMemo(() => {
+    const options = new Set()
+    preFilteredRows.forEach(row => {
+      options.add(row.values[id])
+    })
+    return [...options.values()]
+  }, [id, preFilteredRows])
+
+  // Render a multi-select box
+  return (
+    <select
+      className="customStateSelect"
+      value={filterValue}
+      onChange={e => {
+        setFilter(e.target.value || undefined)
+      }}
+    >
+      <option style={{ textAlign: "center" }} value="">All</option>
+      {options.map((option, i) => (
+        <option key={i} value={option}>
+          {option}
+        </option>
+      ))}
+    </select>
+  )
+}
+
 
 
 function App() {
@@ -110,24 +258,33 @@ function App() {
   const setModalVisibility = state => {
     setShowSocialMediaIcons(state);
   };
-  // Set the routes for each page and pass in props.
+  // // Set the routes for each page and pass in props.
   const routes = {
-      "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace}/>,
-      "/info": () => <InfoPage  columns={columns} gspace={gspace}/>,
-      "/news": () => <NewsPage province={province} gspace={gspace} />,
-      "/faq": () => <FAQPage />
+    "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
+    "/info": () => <InfoPage columns={columns} gspace={gspace} />,
+    "/news": () => <NewsPage province={province} gspace={gspace} />,
+    "/faq": () => <FAQPage />,
+    "/dailyHistory": () => <DailyHistoryPage />,
+    "/state/vic": () => <StateChart state="VIC" />,
+    "/state/nsw": () => <StateChart state="NSW" />,
+    "/state/qld": () => <StateChart state="QLD" />,
+    "/state/act": () => <StateChart state="ACT" />,
+    "/state/sa": () => <StateChart state="SA" />,
+    "/state/wa": () => <StateChart state="WA" />,
+    "/state/nt": () => <StateChart state="NT" />,
+    "/state/tas": () => <StateChart state="TAS" />,
   };
-  
-  // The hook used to render the routes.
+  //
+  // // The hook used to render the routes.
   const routeResult = useRoutes(routes);
-
+  // const [urlPath, setUrlPath] = useState(window.location.pathname);
   if (myData) {
     return (
 
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
-          onCancel={() => setShowSocialMediaIcons(false)}
+          onCancel={ () => setShowSocialMediaIcons(false)}
         />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">
@@ -146,13 +303,26 @@ function App() {
               setNav={setNav} nav={nav}
             />
           </Grid>
-
+          {/*{nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}*/}
+          {/*{nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}*/}
+          {/*{nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}*/}
+          {/*{nav === "About" ? <FAQPage /> : ""}*/}
           {/* routeResult renders the routes onto this area of the app function.
           E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
           {routeResult}
-
-          <Grid item xs={12}>
-
+          {/*<Switch>*/}
+          {/*<Route path="/" render={() => (*/}
+          {/*<HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />*/}
+          {/*)} exact/>*/}
+          {/*<Route path="/info" render={() => (*/}
+          {/*<InfoPage columns={columns} />*/}
+          {/*)} exact/>*/}
+          {/*<Route path="/news" render={() => (*/}
+          {/*<NewsPage province={province} gspace={gspace}/>*/}
+          {/*)} exact/>*/}
+          {/*<Route path="/faq" component={FAQPage} exact/>*/}
+          {/*</Switch>*/}
+          <Grid item xs={11}>
             <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
 
           </Grid>
