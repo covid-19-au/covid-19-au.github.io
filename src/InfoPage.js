@@ -15,6 +15,11 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import dailyFun from "./data/dailyFun"
 import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
+// import i18n bundle
+import i18next from './i18n';
+import ReactGA from "react-ga";
+import ReactHtmlParser from 'react-html-parser';
+import { A } from 'hookrouter';
 
 
 // Info page to present information about the virus.
@@ -54,85 +59,114 @@ function Information({ hospitalData, columns }) {
     return (
         <div>
             <div className="card">
-                <h2 className="responsiveH2">Daily Distractions</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:dailyDistraction.title")}</h2>
 
                 {dailyFun.dailyFunStuff.map(stuff => (
-                    <div key={uuid()}>
-                        <div>
-                            {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text.
-                        */}
-                            <div>
-                                {/* First image */}
+                    stuff.type === "motivation" ? (
+                        <div key={uuid()}>
+                            <div className="shadow-none p-3 mb-5 bg-light rounded">
+                                <h4 style={{ textAlign: 'center' }}>{stuff.title}</h4>
+                                <div style={{ color: "grey", textAlign: 'center' }}>
+                                    <a href={stuff.source}
+                                        target="_blank"
+                                        rel="noopener noreferrer"><u>Story Source</u></a></div>
                                 {stuff.image.map(i1 => (
                                     <div key={uuid()}>
-                                        <div className="row centerMedia">
-                                            <div className="imageContainer" style={{ height: "auto" }} >
+                                        <div className=" centerMedia">
+                                            <div style={{ height: "auto", margin: 0 }} >
                                                 <img
-                                                    className="formatImage"
                                                     src={i1.imgLink}
                                                     alt={i1.name}
-                                                    style={{}}
+                                                    style={{ maxWidth: "98%", maxHeight: "400px" }}
                                                 />
-                                                <small className="mediaText" >{i1.name}</small>
-                                                <br />
-                                                <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
+
                                             </div>
+                                            <a href={i1.source} style={{ color: "grey" }}><u>Image Source</u></a>
                                         </div>
 
                                     </div>
                                 ))}
-                                {/* Video */}
-                                {stuff.video.map(vid => (
-                                    <div key={uuid()} className="row centerMedia">
-                                        <div>
-                                            <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-                                            <small className="mediaText">{vid.description}</small>
-                                        </div>
-                                    </div>
-                                ))}
+                                <div>{ReactHtmlParser(stuff.content)}</div>
 
                             </div>
                         </div>
-                    </div>
+                    ) :
+                        (<div key={uuid()}>
+                            <div>
+                                {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text.
+                        */}
+                                <div>
+                                    {/* First image */}
+                                    {stuff.image.map(i1 => (
+                                        <div key={uuid()}>
+                                            <div className="row centerMedia">
+                                                <div className="imageContainer" style={{ height: "auto" }} >
+                                                    <img
+                                                        className="formatImage"
+                                                        src={i1.imgLink}
+                                                        alt={i1.name}
+                                                        style={{}}
+                                                    />
+                                                    <small className="mediaText" >{i1.name}</small>
+                                                    <br />
+                                                    <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    ))}
+                                    {/* Video */}
+                                    {stuff.video.map(vid => (
+                                        <div key={uuid()} className="row centerMedia">
+                                            <div>
+                                                <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                                                <small className="mediaText">{vid.description}</small>
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                </div>
+                            </div>
+                        </div>)
                 ))
                 }
-                <p style={{ textAlign: "center" }}>We will be regularly sharing fun and interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
+                <p style={{ textAlign: "center" }}>{i18next.t("infoPage:dailyDistraction.body1")}</p>
 
-                <p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can submit it <a style={{ color: "#3366BB" }} target="_blank"
-                    rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"here!"}</a> </p>
+                <p style={{ textAlign: "center" }}><a style={{ color: "#3366BB" }} target="_blank"
+                    rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{i18next.t("infoPage:dailyDistraction.link")}</a> {i18next.t("infoPage:dailyDistraction.body2")}  </p>
             </div>
 
 
             <div className="card" >
-                <h2 className="responsiveH2">Informative Media</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:informativeMedia:title")}</h2>
                 <div className="row centerMedia">
                     <div>
                         <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-                        <small className="mediaText">The Coronavirus explained and what you should do.</small>
+                        <small className="mediaText">{i18next.t("infoPage:informativeMedia:media1Descrip")}</small>
                     </div>
                 </div>
 
                 <div className="row centerMedia">
                     <div>
                         <ReactPlayer alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
-                        <small className="mediaText">How to properly wash your hands.</small> <br />
+                        <small className="mediaText">{i18next.t("infoPage:informativeMedia:media2Descrip")}</small> <br />
                         <small style={{ color: "#3366BB" }}><a target="_blank"
                             rel="noopener noreferrer"
-                            href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{"Here's a step-by-step guide you can save"}</a></small>
+                            href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{i18next.t("infoPage:informativeMedia:washingHandLink")}</a></small>
                     </div>
                 </div>
 
-                <div className="row centerMedia">
-                    <div>
-                        <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />
-                        <small className="mediaText">How to properly wear and dispose of masks.</small>
-                    </div>
-                </div>
+                {/*<div className="row centerMedia">*/}
+                    {/*<div>*/}
+                        {/*<ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />*/}
+                        {/*<small className="mediaText">How to properly wear and dispose of masks.</small>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
             </div>
             <div className="card" >
 
 
-                <h2 className="responsiveH2">General Information</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:generalInformation:title")}</h2>
                 {information.generalCovidInfo.map(info => (
                     <div key={uuid()}>
                         <div>
@@ -183,8 +217,8 @@ function Information({ hospitalData, columns }) {
                                         ))}
 
                                         {/* Citation tag */}
-                                        {info.text.citation.map(cit => (<div>
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        {info.text.citation.map(cit => (<div key={uuid()}>
+                                            <small ><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
                                         </div>
                                         ))}
                                     </div>
@@ -195,7 +229,7 @@ function Information({ hospitalData, columns }) {
                 ))
                 }</div>
             <div className="card" >
-                <h2 className="responsiveH2">Current Regulations</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:currentRegulation:title")}</h2>
                 {information.regulations.map(info => (
                     <div key={uuid()}>
                         <div>
@@ -263,7 +297,7 @@ function Information({ hospitalData, columns }) {
                 ))
                 }</div>
             <div className="card" >
-                <h2 className="responsiveH2">Think you have COVID-19?</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:selfDiagnosis:title")}</h2>
                 {information.haveCovid.map(info => (
                     <div key={uuid()}>
                         <div>
@@ -326,7 +360,7 @@ function Information({ hospitalData, columns }) {
                 ))
                 }</div>
             <div className="card" >
-                <h2 className="responsiveH2">Protecting Yourself and Others</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:prevention:title")}</h2>
 
                 {information.protect.map(info => (
                     <div key={uuid()}>
@@ -417,44 +451,44 @@ function Information({ hospitalData, columns }) {
                 ))
                 }</div>
             <div className="card" >
-                <h2 className="responsiveH2">Coronavirus Helplines</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:coronavirusHelpline:title")}</h2>
                 <div className="row alignStyles responsiveText">
                     <div>
-                        <h3>National helplines operating 24 hours a day, seven days a week.</h3>
+                        <h3>{i18next.t("infoPage:coronavirusHelpline:sect1heading")}</h3>
                         <ul>
-                            <li>For information on coronavirus (COVID-19) at the National Helpline: <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
-                            <li>If you are feeling unwell, call Healthdirect: <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect1point1")} <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect1point2")} <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
                         </ul>
-                        <h3>Some states have dedicated helplines aswell: </h3>
+                        <h3>{i18next.t("infoPage:coronavirusHelpline:sect2heading")}</h3>
                         <ul>
-                            <li>Victoria: <a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
-                            <li>Queensland: <a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
-                            <li>Northern Territory: <a className="citationLink" href="tel:1800008002">1800 008 002</a>
-                                <p>-  If you are in Darwin and need to arrange testing call the Public Health Unit on: <a className="citationLink" href="tel:89228044">8922 8044</a></p>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point1")}<a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point2")}<a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point3")}<a className="citationLink" href="tel:1800008002">1800 008 002</a>
+                                <p>{i18next.t("infoPage:coronavirusHelpline:sect2point3part1")}<a className="citationLink" href="tel:89228044">8922 8044</a></p>
                             </li>
-                            <li>Tasmania: <a className="citationLink" href="tel:1800671738">1800 671 738</a>
-                                <p>-  If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) on <a className="citationLink" href="tel:131450">131 450</a> and tell them your language.</p>
-                                <p>-  Tell the interpreter your name and that you’re calling the Tasmanian Department of Health <a className="citationLink" href="tel:1800671738" >1800 671 738</a>.</p>
+                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point4")}<a className="citationLink" href="tel:1800671738">1800 671 738</a>
+                                <p>{i18next.t("infoPage:coronavirusHelpline:sect2point4part1d1")}<a className="citationLink" href="tel:131450">131 450</a>{i18next.t("infoPage:coronavirusHelpline:sect2point4part1d2")} </p>
+                                <p>{i18next.t("infoPage:coronavirusHelpline:sect2point4part2")}<a className="citationLink" href="tel:1800671738">1800 671 738</a>.</p>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div className="card" >
-                <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
+                <h2 className="responsiveH2">{i18next.t("infoPage:interestingLinks:title")}</h2>
                 <div className="row alignStyles responsiveText">
                     <div>
                         <ul>
-                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">Coronavirus: The Hammer and the Dance</a></li>
-                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/news-event/coronavirus">The New York Times</a> and the <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.economist.com/news/2020/03/11/the-economists-coverage-of-the-coronavirus">Economist</a> are giving people free access to their coronavirus coverage. It's really good!</li>
+                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">{i18next.t("infoPage:interestingLinks:point1")}</a></li>
+                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/news-event/coronavirus">{i18next.t("infoPage:interestingLinks:point2part1")}</a>{i18next.t("infoPage:interestingLinks:point2part2")}<a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.economist.com/news/2020/03/11/the-economists-coverage-of-the-coronavirus">{i18next.t("infoPage:interestingLinks:point2part3")}</a>{i18next.t("infoPage:interestingLinks:point2part4")}</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div className="card" >
-                <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
-                <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
-                <small>Filter the table by clicking the dropdown below state.</small>
+                <h2 className="responsiveH2">{i18next.t("infoPage:testingCentres:title")}</h2>
+                <p className="responsiveText"><strong>{i18next.t("infoPage:testingCentres:sect1heading")}</strong>{i18next.t("infoPage:testingCentres:sect1body")}<a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
+                <small>{i18next.t("infoPage:testingCentres:tableNote")}</small>
                 <div className="row centerMedia">
                     <div>
                         <Table className="formatMedia" columns={columns} data={hospitalData} />

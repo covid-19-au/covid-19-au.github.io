@@ -3,9 +3,15 @@ import ReactGA from "react-ga";
 import ausPop from '../data/ausPop'
 
 import Acknowledgement from "../Acknowledgment"
-import NativeSelect from '@material-ui/core/NativeSelect'
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+import Radio from '@material-ui/core/Radio';
+import Tooltip from '@material-ui/core/Tooltip';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 import { Chart } from "react-google-charts";
+// import i18n bundle
+import i18next from '../i18n';
 
 function GoogleMap({ province, newData }) {
     // Colour gradients for the map: https://material.io/design/color/#tools-for-picking-colors
@@ -42,7 +48,7 @@ function GoogleMap({ province, newData }) {
 
     const [myData, setMyData] = useState(null);
     useEffect(() => {
-
+        ReactGA.event({ category: 'casesMap', action: mapType});
         let translate = {
             "NSW": "AU-NSW",
             "ACT": "AU-ACT",
@@ -82,7 +88,7 @@ function GoogleMap({ province, newData }) {
                 setMapGradient(blueGradient);
                 break;
         }
-        let temp = [["state", label]];
+        let temp = mapType==="test-strike"?[["state", label,{role: 'tooltip'}]]:[["state", label]];
 
         // Set data values
         for (let i = 0; i < newData.length; i++) {
@@ -118,6 +124,8 @@ function GoogleMap({ province, newData }) {
             if (value === "N/A") { continue; }
 
             // v: Tooltip text, f: ISO region code
+            mapType === 'test-strike'?
+                temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseInt(value),"Test Positive Rate: "+parseInt(value)+'%']):
             temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseInt(value)]);
         }
 
@@ -137,34 +145,93 @@ function GoogleMap({ province, newData }) {
         }
     };
 
-    const toggleData = (e) => {
-        setMapType(e.target.value);
-        ReactGA.event({ category: 'casesMap', action: e.target.value });
-    }
+    // const toggleData = (value) => {
+    //     setMapType(value);
+    //     ReactGA.event({ category: 'casesMap', action: value});
+    //
+    // }
+
+
+
+    const activeStyles = {
+        color: 'black',
+        borderColor: '#8ccfff',
+        // backgroundColor: '#e6ffff',
+        padding: "1px",
+        zIndex:10,
+        outline: "none",
+        paddingLeft: "5px",
+        paddingRight: "5px",
+        fontSize:"80%",
+        marginBottom:"1rem"
+    };
+    const activeStylesRed = {
+        color: 'black',
+        borderColor: '#ff7e5f',
+        // backgroundColor: '#ffe6e6',
+        padding: "1px",
+        zIndex:10,
+        outline: "none",
+        paddingLeft: "5px",
+        paddingRight: "5px",
+        fontSize:"80%",
+        marginBottom:"1rem"
+    };
+    const inactiveStyles = {
+        color: 'grey',
+        borderColor: '#e3f3ff',
+        padding: "1px",
+        outline: "none",
+        paddingLeft: "5px",
+        paddingRight: "5px",
+        fontSize:"80%",
+        marginBottom:"1rem"
+    };
+    const inactiveStylesRed = {
+        color: 'grey',
+        borderColor: '#fce7e6',
+        padding: "1px",
+        outline: "none",
+        paddingLeft: "5px",
+        paddingRight: "5px",
+        fontSize:"80%",
+        marginBottom:"1rem"
+    };
+
+
+    const handleChange = (mapType) => {
+      setMapType(mapType.target.value);
+    };
 
     return (
-        loading ? <div className="loading">Loading...</div> :
+        loading ? <div className="loading">{i18next.t("homePage:misc.loadingText")}</div> :
             <div className="stateMap">
-                <h2 style={{ display: "flex" }}>Cases by State {province ? `· ${province.name}` : false}
+                <h2 style={{ display: "flex" }} aria-label="Cases of COVID 19 by state">{i18next.t("homePage:caseByState.title")}{province ? `· ${province.name}` : false}
                     <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                         <Acknowledgement>
                         </Acknowledgement></div>
 
                 </h2>
-                <span className="selection-grid">
-                    <NativeSelect
-                        className="mapToggle"
-                        onChange={toggleData}
-                    >
-                        <option value="confirmed-cases">Confirmed cases</option>
-                        <option value="relative-cases">Cases per million people</option>
-                        <option value="tested">Tested</option>
-                        <option value="relative-tests">Tests per million people</option>
-                        {/*<option value="deaths">Deaths</option>*/}
 
-                        <option value="test-strike">Positive test rate</option>
-                    </NativeSelect>
-                </span>
+                {i18next.t("homePage:caseByState.buttonPrompt")}&nbsp;
+                <ButtonGroup aria-label="small outlined button group">
+                  <Tooltip title="Confirmed cases so far" arrow>
+                    <Button style={mapType === "confirmed-cases" ? activeStylesRed : inactiveStylesRed} value="confirmed-cases" onClick={()=>setMapType("confirmed-cases")}>{i18next.t("homePage:caseByState.button1")}</Button>
+                  </Tooltip>
+                  <Tooltip title="Confirmed cases per million people" arrow>
+                    <Button style={mapType === "relative-cases" ? activeStylesRed : inactiveStylesRed} value="relative-cases"  onClick={()=>setMapType("relative-cases")}>{i18next.t("homePage:caseByState.button2")}</Button>
+                  </Tooltip>
+                  <Tooltip title="Tests carried out so far" arrow>
+                    <Button style={mapType === "tested" ? activeStyles : inactiveStyles} value="tested"  onClick={()=>setMapType("tested")}>{i18next.t("homePage:caseByState.button3")}</Button>
+                  </Tooltip>
+                  <Tooltip title="Tests carried out per million people" arrow>
+                    <Button style={mapType === "relative-tests" ? activeStyles : inactiveStyles} value="relative-tests" onClick={()=>setMapType("relative-tests")}>{i18next.t("homePage:caseByState.button4")}</Button>
+                  </Tooltip>
+                  <Tooltip title="Percentage of positive test cases" arrow>
+                    <Button style={mapType === "test-strike" ? activeStyles : inactiveStyles} value="test-strike"  onClick={()=>setMapType("test-strike")}>{i18next.t("homePage:caseByState.button5")}</Button>
+                  </Tooltip>
+                </ButtonGroup>
+
 
                 <Chart
                     width={window.innerWidth < 960 ? '100%' : 'auto'}

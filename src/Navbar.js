@@ -1,7 +1,14 @@
 import ReactGA from "react-ga";
 import React, { useState, useEffect, useRef } from "react";
 import { A } from "hookrouter";
+// import i18n bundle
+import i18next from './i18n';
 
+//change language
+export const changeLanguage = code => e => {
+    localStorage.setItem('language', code);
+    window.location.reload();
+}
 
 export default function Navbar({ setNav, nav }) {
     // const [nav, setNav] = useState("Home");
@@ -31,13 +38,24 @@ export default function Navbar({ setNav, nav }) {
                 className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
                 style={{marginRight:0,marginLeft:0}}
             >
+        <div class="nav-item dropdown" >
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><strong>{i18next.t("nav:lang")}</strong></a>
+            <div class="dropdown-menu" id= "langSelection">
+                <a onClick={changeLanguage('en')} class="dropdown-item">English</a>
+                <a onClick={changeLanguage('zh')} class="dropdown-item">简体中文</a>
+                <a onClick={changeLanguage('tw')} class="dropdown-item">繁體中文</a>
+                <a onClick={changeLanguage('ko')} class="dropdown-item">한국어</a>
+
+            </div>
+        </div>
+        
         <A
             className={`navItems ${
                 window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""
                 } ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `}
             onClick={onClick} href="/"
         >
-          <strong>Home</strong>
+          <strong>{i18next.t("nav:home")}</strong>
         </A>
                 <A
                     className={`navItems ${
@@ -45,7 +63,7 @@ export default function Navbar({ setNav, nav }) {
                         } ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `}
                     onClick={onClick} href="/info"
                 >
-          <strong>Info</strong>
+          <strong>{i18next.t("nav:info")}</strong>
         </A>
                 <A
                     className={`navItems ${
@@ -53,7 +71,7 @@ export default function Navbar({ setNav, nav }) {
                         } ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `}
                     onClick={onClick} href="/news"
                 >
-          <strong>News</strong>
+          <strong>{i18next.t("nav:news")}</strong>
         </A>
 
             </div>
