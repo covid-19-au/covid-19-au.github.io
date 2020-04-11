@@ -499,6 +499,9 @@ class MbMap extends React.Component {
         //Add Zoom Controls
         map.addControl(new mapboxgl.NavigationControl());
 
+        //Add Full Screen Controls
+        map.addControl(new mapboxgl.FullscreenControl());
+
         map.on('move', () => {
             const { lng, lat } = map.getCenter();
 
