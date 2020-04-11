@@ -693,12 +693,41 @@
             }
         },
         {
+            "name": "What about places of worship?",
+            "text": {
+                "text_1": [
+                    "From 3 April, churches and other places of worship, will be considered places of work so services can be streamed to the community. This will ensure that religious services, including Easter services, remain accessibleto congregations. Services may be conducted and streamed providing:"
+                ],
+                "ulist_1": [
+                    "Only essential staff are present",
+                    "The venue/facility remains closed to the public",
+                    "Social distancing principles are adhered to — 1 person per 4 square metres"
+                ],
+                "olist_1": [],
+                "text_middle": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Limits on public gatherings for coronavirus (COVID-19) ",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/limits-on-public-gatherings-for-coronavirus-covid-19"
+                    }
+                ]
+            }
+        },
+        {
             "name": "Travel Restrictions:",
             "text": {
                 "text_1": [
-                    "All people entering Australia must self-isolate for 14 days. You may board a domestic flight to your intended destination in Australia to self-isolate there. You can travel to Australia if you are an Australian citizen, a permanent resident, an immediate family member of an Australian citizen or permanent resident or are a New Zealand citizen usually resident in Australia. If you are an immediate family member holding a temporary visa you will need to provide evidence of your relationship."
+                    "All people entering Australia must self-isolate for 14 days. You may board a domestic flight to your intended destination in Australia to self-isolate there. You can travel to Australia if you are an Australian citizen, a permanent resident, an immediate family member of an Australian citizen or permanent resident or are a New Zealand citizen usually resident in Australia. If you are an immediate family member holding a temporary visa you will need to provide evidence of your relationship. Exemptions to the 14-day mandatory quarantine period for international travellers are listed below."
                 ],
-                "ulist_1": [],
+                "ulist_1": [
+                    "Aviation crew",
+                    "Maritime crew excluding crew ships",
+                    "Unaccompanied minors – they are required to self-quarantine with a parentor guardian at home",
+                    "Transit passengers under certain circumstances",
+                    "Diplomats",
+                    "People may be exempt on a case-by-case basis on compassionate or medical grounds"
+                ],
                 "olist_1": [],
                 "text_middle": [],
                 "text_2": [],
@@ -714,8 +743,205 @@
                     {
                         "name": "Update on coronavirus measures",
                         "link": "https://www.pm.gov.au/media/update-coronavirus-measures-220320"
+                    },
+                    {
+                        "name": "Exemptions to the 14 day mandatory quarantine period for international travellers",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/04/coronavirus-covid-19-exemptions-to-the-14-day-mandatory-quarantine-period_0.pdf"
                     }
                 ]
+            }
+        }
+    ],
+    "helplines": [
+        {
+            "name": "Coronavirus Helplines",
+            "text": {
+                "text_1": [
+                    "National Coronavirus helplines are operating 24 hours a day, seven days a week."
+                ],
+                "numberList_1": [
+                    {
+                        "text": "For information on coronavirus (COVID-19) at the National Helpline:",
+                        "numberLink": "1800020080",
+                        "numberDisplay": "1800 020 080"
+                    },
+                    {
+                        "text": "If you are feeling unwell, call Healthdirect:",
+                        "numberLink": "1800022222",
+                        "numberDisplay": "1800 022 222"
+                    }
+                ],
+                "text_2": [
+                    "Some states have dedicated helplines as well: "
+                ],
+                "numberList_2": [
+                    {
+                        "text": "Victoria:",
+                        "numberLink": "1800675398",
+                        "numberDisplay": "1800 675 398"
+                    },
+                    {
+                        "text": "Queensland:",
+                        "numberLink": "13432584",
+                        "numberDisplay": "13 432 584"
+                    },
+                    {
+                        "text": "Northern Territory",
+                        "numberLink": "1800008002",
+                        "numberDisplay": "1800 008 002",
+                        "extras": [
+                            {
+                                "text": "If you are in Darwin and need to arrange testing call the Public Health Unit on: ",
+                                "numberLink": "89228044",
+                                "numberDisplay": "8922 8044"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Tasmania:",
+                        "numberLink": "1800671738",
+                        "numberDisplay": "1800 671 738",
+                        "extras": [
+                            {
+                                "text": "If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) and tell them your language on",
+                                "numberLink": "131450",
+                                "numberDisplay": "13 14 50"
+                            },
+                            {
+                                "text": "Tell the interpreter your name and that you’re calling the Tasmanian Department of Health:",
+                                "numberLink": "1800671738",
+                                "numberDisplay": "1800 671 738"
+                            }
+                        ]
+                    }
+                ],
+                "citation": []
+            }
+        },
+        {
+            "name": "Violence / Abuse Helplines",
+            "text": {
+                "text_1": [],
+                "numberList_1": [
+                    {
+                        "text": "1800Respect",
+                        "numberLink": "1800737732",
+                        "numberDisplay": "1800 737 732",
+                        "extras": [
+                            {
+                                "text": "For confidential information, counselling and support service about sexual assault, domestic or family violence and abuse"
+                            },
+                            {
+                                "text": "Available 24/7"
+                            },
+                            {
+                                "link": "https://www.1800respect.org.au/",
+                                "text": " Online chat services also available"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Relationships Australia",
+                        "numberLink": "1800737732",
+                        "numberDisplay": "1800 737 732",
+                        "extras": [
+                            {
+                                "text": "Support groups and counselling on relationships, and for abusive and abused partners."
+                            },
+                            {
+                                "link": "http://www.relationships.org.au/",
+                                "text": "For the cost of a local call."
+                            }
+                        ]
+                    }
+                ],
+                "text_2": [],
+                "numberList_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "Mental Health Helplines",
+            "text": {
+                "text_1": [],
+                "numberList_1": [
+                    {
+                        "text": "Lifeline",
+                        "numberLink": "131114",
+                        "numberDisplay": "13 11 14",
+                        "extras": [
+                            {
+                                "text": "Crisis counselling, support groups and suicide prevention services"
+                            },
+                            {
+                                "link": "www.lifeline.org.au",
+                                "text": "24-hour telephone services"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Suicide Callback Services",
+                        "numberLink": "1300659467",
+                        "numberDisplay": "1300 659 467",
+                        "extras": [
+                            {
+                                "text": "Free telephone service to support people at risk of suicide and their carers"
+                            },
+                            {
+                                "text": "50 minute telephone counselling sessions can be scheduled"
+                            },
+                            {
+                                "link": "https://www.suicidecallbackservice.org.au/",
+                                "text": "Operates 7 days a week"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "BeyondBlue",
+                        "numberLink": "1300224636",
+                        "numberDisplay": "1300 22 4636",
+                        "extras": [
+                            {
+                                "text": "Information and counselling for depression and anxiety"
+                            },
+                            {
+                                "text": "Available 24/7"
+                            },
+                            {
+                                "link": "www.beyondblue.org.au",
+                                "text": "Online chat services also available"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Kids Helpline",
+                        "numberLink": "1800551800",
+                        "numberDisplay": "1800 55 1800",
+                        "extras": [
+                            {
+                                "text": "Free, confidential and private counselling service specifically for children and young people aged 5 to 25"
+                            },
+                            {
+                                "link": "www.kidshelp.com.au",
+                                "text": "Available 24/7"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Mensline Australia",
+                        "numberLink": "1300789978",
+                        "numberDisplay": "1300 789 978",
+                        "extras": [
+                            {
+                                "link": "www.mensline.org.au",
+                                "text": "Free, confidential and anonymous telephone counselling service for men needingemotional support or in crisis"
+                            }
+                        ]
+                    }
+                ],
+                "text_2": [],
+                "numberList_2": [],
+                "citation": []
             }
         }
     ]
