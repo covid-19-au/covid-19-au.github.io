@@ -7,6 +7,7 @@ import stateData from "../data/state";
 import ReactEcharts from "echarts-for-react";
 import ReactGA from "react-ga";
 import latestAusData from "../data/stateCaseData";
+import Tag from "../HomePage/Tag";
 
 const colorMapping = {
   Confirmed: "#ff603c",
@@ -219,7 +220,7 @@ function setGenderOption(state) {
     tooltip: pieTooltip,
     legend: {
       data: genderLabel,
-      top: "7%",
+      top: "5%",
     },
     series: series.getSeriesList(),
   };
@@ -250,7 +251,7 @@ function setAgeOption(state) {
 
     legend: {
       data: ageChartLegend,
-      top: "7%",
+      top: "5%",
       selected: {
         All: false,
       },
@@ -304,7 +305,7 @@ function setGeneralBarOption(state) {
 
     legend: {
       data: generalBarLegend,
-      top: "7%",
+      top: "5%",
       selected: {
         Tested: false,
       },
@@ -369,7 +370,7 @@ function setGeneralLineOption(state, logScale) {
     tooltip: lineBarTooltip,
     legend: {
       data: generalLineLegend,
-      top: "7%",
+      top: "5%",
       selected: {
         Tested: logScale,
       },
@@ -425,35 +426,109 @@ function renderStatus(state) {
   }
 
   return (
-    <div role={"button"} className="province">
-      <div className={"area"}>
-        <strong>{state.toUpperCase()}</strong>
+    <div>
+      <div className="row">
+        <Tag
+          number={numberWithCommas(latestData[0])}
+          fColor={"#ff603c"}
+          increased={latestData[0] - lastData[0]}
+          typeOfCases={"Confirmed"}
+        >
+          <button
+            className="hoverButton"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            data-html="true"
+            title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>"
+          >
+            Confirmed
+          </button>
+        </Tag>
+        <Tag
+          number={numberWithCommas(latestData[1])}
+          fColor={"#c11700"}
+          increased={latestData[1] - lastData[1]}
+          typeOfCases={"Death"}
+        >
+          <button
+            className="hoverButton"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            data-html="true"
+            title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>"
+          >
+            Deaths
+          </button>
+        </Tag>
       </div>
-      <div className="confirmed">
-        <strong>{numberWithCommas(latestData[0])}</strong>&nbsp;
-        <div className="dailyIncrease">
-          {latestData[0] - lastData[0] > 0
-            ? `(+${latestData[0] - lastData[0]})`
-            : null}
-        </div>
+      <div className="row">
+        <Tag
+          number={numberWithCommas(latestData[2])}
+          fColor={"#00c177"}
+          increased={latestData[2] - lastData[2]}
+          typeOfCases={"Recovered"}
+        >
+          <button
+            className="hoverButton"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            data-html="true"
+            title="<em>Number of people that have recovered from COVID-19.</em>"
+          >
+            Recovered
+          </button>
+        </Tag>
+        <Tag
+          number={numberWithCommas(latestData[3])}
+          fColor={"#007cf2"}
+          increased={latestData[3] - lastData[3]}
+          typeOfCases={"Tested"}
+        >
+          <button
+            className="hoverButton"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            data-html="true"
+            title="<em>Number of people that have been tested for COVID-19.</em>"
+          >
+            Tested
+          </button>
+        </Tag>
       </div>
-      <div className="death">
-        <strong>{numberWithCommas(latestData[1])}</strong>&nbsp;
-        <div className="dailyIncrease">
-          {latestData[1] - lastData[1] > 0
-            ? `(+${latestData[1] - lastData[1]})`
-            : null}
-        </div>
+      <div className="row">
+        <Tag
+          number={numberWithCommas(latestData[4])}
+          fColor={"#9d71ea"}
+          increased={latestData[4] - lastData[4]}
+          typeOfCases={"In Hosptial"}
+        >
+          <button
+            className="hoverButton"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            data-html="true"
+            title="<em>Number of people in hospital with COVID-19.</em>"
+          >
+            In Hospital
+          </button>
+        </Tag>
+        <Tag
+          number={numberWithCommas(latestData[5])}
+          fColor={"#00aac1"}
+          increased={latestData[5] - lastData[5]}
+          typeOfCases={"ICU"}
+        >
+          <button
+            className="hoverButton"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            data-html="true"
+            title="<em>Number of people with COVID-19 in intensive care.</em>"
+          >
+            ICU
+          </button>
+        </Tag>
       </div>
-      <div className="cured">
-        <strong>{numberWithCommas(latestData[2])}</strong>&nbsp;
-        <div className="dailyIncrease">
-          {latestData[2] - lastData[2] > 0
-            ? `(+${latestData[2] - lastData[2]})`
-            : null}
-        </div>
-      </div>
-      <div className="tested">{numberWithCommas(latestData[3])}</div>
     </div>
   );
 }
@@ -489,17 +564,8 @@ function StateChart({ state }) {
         </Grid>
         <Grid item xs={11} sm={11} md={4}>
           <div className="card">
-            <h2>Status</h2>
-            <div role={"table"}>
-              <div className="province header">
-                <div className="area header statetitle">State</div>
-                <div className="confirmed header confirmedtitle">Confirmed</div>
-                <div className="death header deathtitle">Deaths</div>
-                <div className="cured header recoveredtitle">Recovered</div>
-                <div className="tested header testedtitle">Tested</div>
-              </div>
-              {renderStatus(state.toUpperCase())}
-            </div>
+            <h2>Status - {stateNameMapping[state]}</h2>
+            {renderStatus(state.toUpperCase())}
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
               Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
@@ -583,7 +649,11 @@ function StateChart({ state }) {
         </Grid>
         <Grid item xs={11} sm={11} md={4} xl={6}>
           <div className="card">
-            <h2>Cases by Age Group</h2>
+            {state.toUpperCase() === "ACT" ? (
+              <h2>Age bar chart</h2>
+            ) : (
+              <h2>Cases by Age Group</h2>
+            )}
             <ReactEcharts option={ageOption} />
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
               Time in AEST, Last Update: {ageGenderUpdateTime}
@@ -602,17 +672,8 @@ function StateChart({ state }) {
         </Grid>
         <Grid item xs={11} sm={11} md={4}>
           <div className="card">
-            <h2>Status</h2>
-            <div role={"table"}>
-              <div className="province header">
-                <div className="area header statetitle">State</div>
-                <div className="confirmed header confirmedtitle">Confirmed</div>
-                <div className="death header deathtitle">Deaths</div>
-                <div className="cured header recoveredtitle">Recovered</div>
-                <div className="tested header testedtitle">Tested</div>
-              </div>
-              {renderStatus(state.toUpperCase())}
-            </div>
+            <h2>Status - {stateNameMapping[state]}</h2>
+            {renderStatus(state.toUpperCase())}
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
               Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
@@ -696,7 +757,7 @@ function StateChart({ state }) {
             through{" "}
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
-              style={{ color: "blue", "text-decoration": "underline" }}
+              style={{ color: "blue", textDecoration: "underline" }}
             >
               this
             </a>{" "}
