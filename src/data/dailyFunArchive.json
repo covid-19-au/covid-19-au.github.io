@@ -3,6 +3,22 @@
         {
             "image": [
                 {
+                    "name": "Letter.Wiki",
+                    "imgLink": "https://i.imgur.com/3nvZTEn.png",
+                    "description": "A conversation between 2 strangers on the internet.",
+                    "source": "https://letter.wiki/conversation/469"
+                }
+            ],
+            "video": [],
+            "title": "",
+            "source": "",
+            "content": "",
+            "type": "distraction",
+            "date": "11/4/2020"
+        },
+        {
+            "image": [
+                {
                     "name": "TED Talk by Alanna Shaikh",
                     "imgLink": "https://i.imgur.com/8zthVWP.png",
                     "description": "Why COVID-19 is hitting us now - and how to prepare for the next outbreak",

@@ -1,18 +1,13 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "name": "Letter.Wiki",
-                    "imgLink": "https://i.imgur.com/3nvZTEn.png",
-                    "description": "A conversation between 2 strangers on the internet.",
-                    "source": "https://letter.wiki/conversation/469"
+                    "link": "https://www.youtube.com/watch?v=kx6ie9Cm0Zo",
+                    "description": "Coronavirus: Another 10 minutes of good news stories | 7NEWS"
                 }
             ],
-            "video": [],
-            "title": "",
-            "source": "",
-            "content": "",
             "type": "distraction",
             "date": "11/4/2020"
         }
