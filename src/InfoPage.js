@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     useTable,
     useFilters,
@@ -20,10 +20,27 @@ import i18next from './i18n';
 import ReactGA from "react-ga";
 import ReactHtmlParser from 'react-html-parser';
 import { A } from 'hookrouter';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import Fab from '@material-ui/core/Fab';
+import MenuIcon from '@material-ui/icons/Menu';
+import Typography from '@material-ui/core/Typography';
+import { Link, animateScroll as scroll } from "react-scroll";
+import CloseIcon from '@material-ui/icons/Close';
 
 
 // Info page to present information about the virus.
+
+
+
 export default function InfoPage({ columns }) {
+
+    const [drawerOpen, setDrawerOpen] = useState(false)
 
     const stateAbrev = {
         "Victoria": "VIC",
@@ -55,11 +72,99 @@ export default function InfoPage({ columns }) {
     )
 }
 
-function Information({ hospitalData, columns }) {
+
+function InfoDrawer() {
+    const [state, setState] = React.useState(false);
+
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState(open);
+    };
+
+    const sections = [
+        { id: "dailyDistractions", title: "Daily Distractions" },
+        { id: "media", title: "Informative Media" },
+        { id: "general", title: "General Information" },
+        { id: "regulations", title: "Current Regulations" },
+        { id: "haveCovid", title: "Think you have COVID-19?" },
+        { id: "protect", title: "Protecting Yourself and Others" },
+        { id: "helplines", title: "Coronavirus Helplines" },
+        { id: "other", title: "Other interesting links" },
+        { id: "hospitalList", title: "List of Hospitals doing Coronavirus testing" }
+    ]
+
+    const list = () => (
+        <div
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+        >
+            <Grid container direction="row" alignItems="center" style={{ backgroundColor: "#bae1ff", paddingLeft: "0px", paddingTop: "0.5rem", paddingBottom: "0.5rem", marginBottom: "0px" }}>
+                <Grid item >
+                    <Typography variant="h4" align="left" style={{ marginLeft: "1rem" }}>
+                        Sections
+                </Typography>
+                </Grid>
+                <Grid item style={{
+                    alignSelf: "flex-end", marginLeft: "auto", marginRight: "0.8rem", marginBottom: "0.2rem"
+                }}>
+                    <CloseIcon onClick={toggleDrawer(false)} fontSize="large" />
+                </Grid>
+            </Grid>
+            <List style={{ marginTop: "0px" }}>
+                {sections.map((section, index) => (
+                    <div>
+                        <ListItem>
+                            <Link
+                                activeClass="active"
+                                to={section["id"]}
+                                spy={true}
+                                smooth={true}
+                                offset={-60}
+                                duration={700}
+                                onClick={toggleDrawer(false)}
+                                style={{ width: "100%" }}
+                            ><Typography align="left" variant="h6">{index + 1}. {section["title"]}</Typography></Link>
+
+                        </ListItem>
+                        <Divider />
+                    </div>
+                ))}
+            </List>
+
+        </div>
+    );
+
     return (
         <div>
-            <div className="card">
+            <React.Fragment>
+                <Fab size="medium" color="secondary" aria-label="menu" onClick={toggleDrawer(true)} style={{
+                    position: "fixed", zIndex: 95,
+                    bottom: "3rem",
+                    right: "2rem", backgroundColor: "#8ccfff"
+                }}>
+                    <MenuIcon style={{ color: "black" }} />
+                </Fab>
+                <Drawer anchor={'bottom'} open={state} onClose={toggleDrawer(false)}  >
+                    {list()}
+                </Drawer>
+            </React.Fragment>
+        </div>
+    );
+}
+
+function Information({ hospitalData, columns }) {
+
+
+    return (
+
+        <div>
+    <InfoDrawer></InfoDrawer>
+            <div className="card" id="dailyDistractions">
                 <h2 className="responsiveH2">{i18next.t("infoPage:dailyDistraction.title")}</h2>
+
 
                 {dailyFun.dailyFunStuff.map(stuff => (
                     stuff.type === "motivation" ? (
@@ -138,7 +243,8 @@ function Information({ hospitalData, columns }) {
 
 
             <div className="card" >
-                <h2 className="responsiveH2">{i18next.t("infoPage:informativeMedia:title")}</h2>
+                <h2 className="responsiveH2" id="media">{i18next.t("infoPage:informativeMedia:title")}</h2>
+
                 <div className="row centerMedia">
                     <div>
                         <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
@@ -156,14 +262,14 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
 
-                {/*<div className="row centerMedia">*/}
-                    {/*<div>*/}
-                        {/*<ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />*/}
-                        {/*<small className="mediaText">How to properly wear and dispose of masks.</small>*/}
-                    {/*</div>*/}
-                {/*</div>*/}
+                <div className="row centerMedia">
+                    <div>
+                        <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?v=M4olt47pr_o" controls={true} />
+                        <small className="mediaText">When and how to wear medical masks to protect against the new coronavirus.</small>
+                    </div>
+                </div>
             </div>
-            <div className="card" >
+            <div className="card" id="general">
 
 
                 <h2 className="responsiveH2">{i18next.t("infoPage:generalInformation:title")}</h2>
@@ -228,8 +334,10 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+
+            <div className="card" id="regulations">
                 <h2 className="responsiveH2">{i18next.t("infoPage:currentRegulation:title")}</h2>
+
                 {information.regulations.map(info => (
                     <div key={uuid()}>
                         <div>
@@ -296,7 +404,8 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+
+            <div className="card"  id="haveCovid">
                 <h2 className="responsiveH2">{i18next.t("infoPage:selfDiagnosis:title")}</h2>
                 {information.haveCovid.map(info => (
                     <div key={uuid()}>
@@ -359,7 +468,8 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+
+            <div className="card" id="protect" >
                 <h2 className="responsiveH2">{i18next.t("infoPage:prevention:title")}</h2>
 
                 {information.protect.map(info => (
@@ -450,7 +560,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+            <div className="card" id="helplines">
                 <h2 className="responsiveH2">{i18next.t("infoPage:coronavirusHelpline:title")}</h2>
                 <div className="row alignStyles responsiveText">
                     <div>
@@ -474,7 +584,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
             </div>
-            <div className="card" >
+            <div className="card" id="other">
                 <h2 className="responsiveH2">{i18next.t("infoPage:interestingLinks:title")}</h2>
                 <div className="row alignStyles responsiveText">
                     <div>
@@ -485,7 +595,8 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
             </div>
-            <div className="card" >
+
+            <div className="card" id="hospitalList" >
                 <h2 className="responsiveH2">{i18next.t("infoPage:testingCentres:title")}</h2>
                 <p className="responsiveText"><strong>{i18next.t("infoPage:testingCentres:sect1heading")}</strong>{i18next.t("infoPage:testingCentres:sect1body")}<a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
                 <small>{i18next.t("infoPage:testingCentres:tableNote")}</small>

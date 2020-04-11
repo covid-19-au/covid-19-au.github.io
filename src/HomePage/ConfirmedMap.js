@@ -94,11 +94,11 @@ class MbMap extends React.Component {
                 var city_type = city.slice(-1)[0];
                 city.pop();
                 city_name = city.join(' ');
-                updated_date = '9/4/20';
+                updated_date = '10/4/20';
             }
             else {
                 city_name = city_name.toLowerCase();
-                updated_date = '9/4/20';
+                updated_date = '10/4/20';
             }
             // if (city_type === 'city'){
             //   city_name += '(c)';
@@ -498,6 +498,9 @@ class MbMap extends React.Component {
 
         //Add Zoom Controls
         map.addControl(new mapboxgl.NavigationControl());
+
+        //Add Full Screen Controls
+        map.addControl(new mapboxgl.FullscreenControl());
 
         map.on('move', () => {
             const { lng, lat } = map.getCenter();
