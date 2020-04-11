@@ -1,7 +1,6 @@
 const https = require('https');
 const fs = require('fs');
 
-
 //Download State Case Data
 function downloadStateCaseData(dataUrl, writePath) {
 
@@ -18,7 +17,6 @@ function downloadStateCaseData(dataUrl, writePath) {
         resp.on('end', () => {
             const parsedData = JSON.parse(data)
             const requiredData = parsedData.valueRanges[0].values
-
 
             formattedData = JSON.parse('{}')
             formattedData["values"] = []
