@@ -184,7 +184,6 @@ function UpdatesToday() {
 
     const dataStyles = [{
         color: '#ff603c',
-        borderColor: 'black',
         padding: "0px",
         border: "none",
         zIndex: 10,
@@ -192,7 +191,6 @@ function UpdatesToday() {
         fontWeight: "bold"
     }, {
         color: '#c11700',
-        borderColor: 'black',
         padding: "0px",
         border: "none",
         zIndex: 10,
@@ -200,7 +198,6 @@ function UpdatesToday() {
         fontWeight: "bold"
     }, {
         color: '#00c177',
-        borderColor: 'black',
         padding: "0px",
         border: "none",
         zIndex: 10,
@@ -208,7 +205,6 @@ function UpdatesToday() {
         fontWeight: "bold"
     }, {
         color: '#007cf2',
-        borderColor: 'black',
         padding: "0px",
         border: "none",
         zIndex: 10,
@@ -217,7 +213,6 @@ function UpdatesToday() {
     }]
     const inactiveStyles = {
         color: '#ccd1d1',
-        borderColor: 'grey',
         padding: "0px",
         border: "none",
         backgroundColor: "#f2f4f4"
