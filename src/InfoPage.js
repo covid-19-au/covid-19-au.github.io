@@ -106,7 +106,7 @@ function InfoDrawer() {
                 </Typography>
                 </Grid>
                 <Grid item style={{
-                    alignSelf: "flex-end", marginLeft: "auto", marginRight: "0.5rem", marginBottom: "0.2rem"
+                    alignSelf: "flex-end", marginLeft: "auto", marginRight: "0.8rem", marginBottom: "0.2rem"
                 }}>
                     <CloseIcon onClick={toggleDrawer(false)} fontSize="large" />
                 </Grid>
