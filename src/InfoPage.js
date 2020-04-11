@@ -29,6 +29,7 @@ import Fab from '@material-ui/core/Fab';
 import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import { Link, animateScroll as scroll } from "react-scroll";
+import CloseIcon from '@material-ui/icons/Close';
 
 
 // Info page to present information about the virus.
@@ -98,13 +99,18 @@ function InfoDrawer() {
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
         >
-            <div style={{ backgroundColor: "#bae1ff", paddingLeft: "0px", paddingTop: "0.5rem", paddingBottom: "0.5rem", marginBottom: "0px" }}>
-                <Typography variant="h4" align="left" style={{ marginLeft: "1rem" }}>
-                    Sections
+            <Grid container direction="row" alignItems="center" style={{ backgroundColor: "#bae1ff", paddingLeft: "0px", paddingTop: "0.5rem", paddingBottom: "0.5rem", marginBottom: "0px" }}>
+                <Grid item >
+                    <Typography variant="h4" align="left" style={{ marginLeft: "1rem" }}>
+                        Sections
                 </Typography>
-
-
-            </div>
+                </Grid>
+                <Grid item style={{
+                    alignSelf: "flex-end", marginLeft: "auto", marginRight: "0.5rem", marginBottom: "0.2rem"
+                }}>
+                    <CloseIcon onClick={toggleDrawer(false)} fontSize="large" />
+                </Grid>
+            </Grid>
             <List style={{ marginTop: "0px" }}>
                 {sections.map((section, index) => (
                     <div>
