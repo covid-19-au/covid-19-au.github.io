@@ -25,13 +25,11 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import Fab from '@material-ui/core/Fab';
 import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
+import { Link, animateScroll as scroll } from "react-scroll";
+
 
 // Info page to present information about the virus.
 
@@ -71,17 +69,8 @@ export default function InfoPage({ columns }) {
     )
 }
 
-const useStyles = makeStyles({
-    list: {
-        width: 250,
-    },
-    fullList: {
-        width: 'auto',
-    },
-});
 
 function InfoDrawer() {
-    const classes = useStyles();
     const [state, setState] = React.useState(false);
 
     const toggleDrawer = (open) => (event) => {
@@ -92,18 +81,51 @@ function InfoDrawer() {
         setState(open);
     };
 
+    const sections = [
+        { id: "dailyDistractions", title: "Daily Distractions" },
+        { id: "media", title: "Informative Media" },
+        { id: "general", title: "General Information" },
+        { id: "regulations", title: "Current Regulations" },
+        { id: "haveCovid", title: "Think you have COVID-19?" },
+        { id: "protect", title: "Protecting Yourself and Others" },
+        { id: "helplines", title: "Coronavirus Helplines" },
+        { id: "other", title: "Other interesting links" },
+        { id: "hospitalList", title: "List of Hospitals doing Coronavirus testing" }
+    ]
+
     const list = () => (
         <div
-            className={clsx(classes.list)}
-            role="presentation"
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
         >
-            <List>
-                <ListItem>
-                    <Typography style={{ alignContent: "center" }} >SUP</Typography>
-                </ListItem>
+            <div style={{ backgroundColor: "#bae1ff", paddingLeft: "0px", paddingTop: "0.5rem", paddingBottom: "0.5rem", marginBottom: "0px" }}>
+                <Typography variant="h4" align="left" style={{ marginLeft: "1rem" }}>
+                    Sections
+                </Typography>
+
+
+            </div>
+            <List style={{ marginTop: "0px" }}>
+                {sections.map((section, index) => (
+                    <div>
+                        <ListItem>
+                            <Link
+                                activeClass="active"
+                                to={section["id"]}
+                                spy={true}
+                                smooth={true}
+                                offset={-60}
+                                duration={700}
+                                onClick={toggleDrawer(false)}
+                                style={{ width: "100%" }}
+                            ><Typography align="left" variant="h6">{index + 1}. {section["title"]}</Typography></Link>
+
+                        </ListItem>
+                        <Divider />
+                    </div>
+                ))}
             </List>
+
         </div>
     );
 
@@ -117,7 +139,7 @@ function InfoDrawer() {
                 }}>
                     <MenuIcon style={{ color: "black" }} />
                 </Fab>
-                <Drawer anchor={'bottom'} open={state} onClose={toggleDrawer(false)}>
+                <Drawer anchor={'bottom'} open={state} onClose={toggleDrawer(false)}  >
                     {list()}
                 </Drawer>
             </React.Fragment>
@@ -132,8 +154,8 @@ function Information({ hospitalData, columns }) {
 
         <div>
 
-            <div className="card">
-                <InfoDrawer></InfoDrawer>
+            <InfoDrawer></InfoDrawer>
+            <div className="card" id="dailyDistractions">
                 <h2 className="responsiveH2">Daily Distractions</h2>
                 {dailyFun.dailyFunStuff.map(stuff => (
                     stuff.type === "motivation" ? (
@@ -215,7 +237,7 @@ function Information({ hospitalData, columns }) {
 
 
             <div className="card" >
-                <h2 className="responsiveH2">Informative Media</h2>
+                <h2 className="responsiveH2" id="media">Informative Media</h2>
                 <div className="row centerMedia">
                     <div>
                         <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
@@ -240,7 +262,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
             </div>
-            <div className="card" >
+            <div className="card" id="general">
 
 
                 <h2 className="responsiveH2">General Information</h2>
@@ -305,7 +327,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+            <div className="card" id="regulations">
                 <h2 className="responsiveH2">Current Regulations</h2>
                 {information.regulations.map(info => (
                     <div key={uuid()}>
@@ -373,7 +395,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+            <div className="card" id="haveCovid">
                 <h2 className="responsiveH2">Think you have COVID-19?</h2>
                 {information.haveCovid.map(info => (
                     <div key={uuid()}>
@@ -436,7 +458,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+            <div className="card" id="protect">
                 <h2 className="responsiveH2">Protecting Yourself and Others</h2>
 
                 {information.protect.map(info => (
@@ -527,7 +549,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+            <div className="card" id="helplines">
                 <h2 className="responsiveH2">Coronavirus Helplines</h2>
                 <div className="row alignStyles responsiveText">
                     <div>
@@ -551,7 +573,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
             </div>
-            <div className="card" >
+            <div className="card" id="other">
                 <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
                 <div className="row alignStyles responsiveText">
                     <div>
@@ -562,7 +584,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
             </div>
-            <div className="card" >
+            <div className="card" id="hospitalList" >
                 <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
                 <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
                 <small>Filter the table by clicking the dropdown below state.</small>
