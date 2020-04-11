@@ -13,6 +13,8 @@ const colorMapping = {
   Death: "#c11700",
   Recovered: "#00c177",
   Tested: "#007cf2",
+  "In Hosptial": "#9d71ea",
+  ICU: "#00aac1",
 };
 
 const genderColorMapping = {
@@ -161,6 +163,8 @@ function getStateGeneralData(dateList, state) {
     death: [],
     recovered: [],
     tested: [],
+    inHosptial: [],
+    icu: [],
   };
   for (let i = 0; i < dateList.length; i++) {
     let tempData = stateData[dateList[i]][state];
@@ -170,10 +174,14 @@ function getStateGeneralData(dateList, state) {
       generalData["death"].push(tempData[1]);
       generalData["recovered"].push(tempData[2]);
       generalData["tested"].push(tempData[3]);
+      generalData["inHosptial"].push(tempData[4]);
+      generalData["icu"].push(tempData[5]);
     } else {
       generalData["death"].push(0);
       generalData["recovered"].push(0);
       generalData["tested"].push(0);
+      generalData["inHosptial"].push(0);
+      generalData["icu"].push(0);
     }
   }
   return generalData;
@@ -266,7 +274,14 @@ function setAgeOption(state) {
  */
 function setGeneralBarOption(state) {
   let latestData = getLastData(state);
-  let generalBarLegend = ["Confirmed", "Death", "Recovered", "Tested"];
+  let generalBarLegend = [
+    "Confirmed",
+    "Death",
+    "Recovered",
+    "Tested",
+    "In Hosptial",
+    "ICU",
+  ];
   let generalLabel = ["General Information"];
   let generalBarSeries = new Series();
   for (let i = 0; i < generalBarLegend.length; i++) {
@@ -312,7 +327,14 @@ function setGeneralBarOption(state) {
  * @param {String} state user selected state
  */
 function setGeneralLineOption(state, logScale) {
-  const generalLineLegend = ["Confirmed", "Death", "Recovered", "Tested"];
+  const generalLineLegend = [
+    "Confirmed",
+    "Death",
+    "Recovered",
+    "Tested",
+    "In Hosptial",
+    "ICU",
+  ];
   const dates = getAllDate();
   const generalData = getStateGeneralData(dates, state);
   let generalLineSeries = new Series();
