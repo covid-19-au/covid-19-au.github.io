@@ -556,28 +556,82 @@ function Information({ hospitalData, columns }) {
                 ))
                 }</div>
             <div className="card" id="helplines">
-                <h2 className="responsiveH2">Coronavirus Helplines</h2>
-                <div className="row alignStyles responsiveText">
-                    <div>
-                        <h3>National helplines operating 24 hours a day, seven days a week.</h3>
-                        <ul>
-                            <li>For information on coronavirus (COVID-19) at the National Helpline: <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
-                            <li>If you are feeling unwell, call Healthdirect: <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
-                        </ul>
-                        <h3>Some states have dedicated helplines aswell: </h3>
-                        <ul>
-                            <li>Victoria: <a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
-                            <li>Queensland: <a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
-                            <li>Northern Territory: <a className="citationLink" href="tel:1800008002">1800 008 002</a>
-                                <p>-  If you are in Darwin and need to arrange testing call the Public Health Unit on: <a className="citationLink" href="tel:89228044">8922 8044</a></p>
-                            </li>
-                            <li>Tasmania: <a className="citationLink" href="tel:1800671738">1800 671 738</a>
-                                <p>-  If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) on <a className="citationLink" href="tel:131450">131 450</a> and tell them your language.</p>
-                                <p>-  Tell the interpreter your name and that you’re calling the Tasmanian Department of Health <a className="citationLink" href="tel:1800671738" >1800 671 738</a>.</p>
-                            </li>
-                        </ul>
+                <h2 className="responsiveH2">Helplines</h2>
+
+
+                {information.helplines.map(info => (
+                    <div key={uuid()}>
+                        <div>
+                            <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                    <h3 className="responsiveH3">{info.name}</h3>
+                                </ExpansionPanelSummary>
+                                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                    <div>
+                                        {/* First block of text */}
+                                        {info.text.text_1.map(t1 => (
+                                            <p key={uuid()}>{t1}</p>
+                                        ))}
+                                        {/* First number List */}
+                                        {info.text.numberList_1 ? (
+                                            <ul>
+                                                {info.text.numberList_1.map(helpline => ([
+
+                                                    <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
+                                                    helpline.extras ? <ul>{helpline.extras.map(extra => [
+                                                        <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
+                                                        extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
+
+                                                    </ul> : ""
+                                                ]))}
+                                            </ul>
+                                        ) : (
+                                                ""
+                                            )}
+
+                                        {/* Middle Block of text */}
+                                        {info.text.text_2.map(t2 => (
+                                            <p key={uuid()}>{t2}</p>
+                                        ))}
+
+                                        {/* Second Number List */}
+                                        {info.text.numberList_2 ? (
+                                            <ul>
+                                                {info.text.numberList_2.map(helpline => ([
+
+                                                    <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
+                                                    helpline.extras ? <ul>{helpline.extras.map(extra => [
+                                                        <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
+                                                        extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
+
+                                                    </ul> : ""
+                                                ]))}
+                                            </ul>
+                                        ) : (
+                                                ""
+                                            )}
+                                        {/* Citation tag */}
+                                        {info.text.citation.map(cit => (<div>
+                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        </div>
+                                        ))}
+                                    </div>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                        </div>
                     </div>
-                </div>
+                ))
+                }
+
             </div>
             <div className="card" id="other">
                 <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>

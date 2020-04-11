@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.9news.com.au/world/coronavirus-antibody-test-could-soon-be-available/34216e0a-ceac-492b-953c-32d74cb0f8e2",
+            "title": "Antibody tests for the novel coronavirus could be available within 'a week or so'",
+            "source": "9News",
+            "date": "11 April 2020",
+            "time": "03:23",
+            "summary": "Antibody tests that would verify whether a person recently had the novel coronavirus could be available within a week, according to the America's top infectious disease expert. Having antibodies to the coronavirus could mean someone is protected from getting re-infected, making such tests important for medical workers and others on the frontlines fighting the pandemic."
+        },
+        {
             "link": "https://www.smh.com.au/national/stop-looking-for-loopholes-what-are-the-new-covid-19-social-rules-20200407-p54hyd.html ",
             "title": "'Stop looking for loopholes': What are the new COVID-19 social rules?",
             "source": "TheSydneyMorningHerald",
@@ -119,22 +127,6 @@
             "date": "05 April 2020",
             "time": "19:09",
             "summary": "Chief Medical Officer Brendan Murphy says Australia is succeeding at flattening the curve and that he is increasingly confident Australia will avoid the kind of devastation the coronavirus has caused in countries like Italy and the United States. However, his biggest concern remains community transmission, which accounts for 10 per cent of cases in Australia."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-visa-changes-open-the-door-for-foreign-workers-to-extend-their-stay-c-956257",
-            "title": "Coronavirus Australia: Visa changes open the door for foreign workers to extend their stay",
-            "source": "7News",
-            "date": "04 April 2020",
-            "time": "13:35",
-            "summary": "A series of visa changes have been made which means working holidaymakers who are working in critical sectors will be exempt from the six-month work limitation with one employer and eligible for a further visa to keep working if their current visa is due to expire in the next six months. Additionally, temporary visa holders who have already worked in Australia will also have access to their superannuation and New Zealanders who arrived in Australia before February 26, 2001, will gain access to welfare payments and JobKeeper."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coles-and-woolworths-introduce-coronavirus-measures-to-limit-number-of-customers-inside-stores-c-956081",
-            "title": "Coles and Woolworths introduce coronavirus measures to limit number of customers inside stores",
-            "source": "7News",
-            "date": "04 April 2020",
-            "time": "09:16",
-            "summary": "Coles and Woolworths are dramatically escalating their social distancing policies by introducing a limit on the number of customers inside stores. From Monday 6th of April, until the foreseeable future, shoppers will be forced to wait in cordoned off queues outside until people inside leave. The number of customers allowed inside varies depending on the size of the store itself."
         }
     ]
 }
