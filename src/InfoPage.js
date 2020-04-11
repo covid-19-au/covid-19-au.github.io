@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     useTable,
     useFilters,
@@ -18,10 +18,28 @@ import mapDataHos from "./data/mapdataHos";
 import ReactGA from "react-ga";
 import ReactHtmlParser from 'react-html-parser';
 import { A } from 'hookrouter';
-
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import Fab from '@material-ui/core/Fab';
+import MenuIcon from '@material-ui/icons/Menu';
+import Typography from '@material-ui/core/Typography';
 
 // Info page to present information about the virus.
+
+
+
 export default function InfoPage({ columns }) {
+
+    const [drawerOpen, setDrawerOpen] = useState(false)
 
     const stateAbrev = {
         "Victoria": "VIC",
@@ -53,10 +71,69 @@ export default function InfoPage({ columns }) {
     )
 }
 
-function Information({ hospitalData, columns }) {
+const useStyles = makeStyles({
+    list: {
+        width: 250,
+    },
+    fullList: {
+        width: 'auto',
+    },
+});
+
+function InfoDrawer() {
+    const classes = useStyles();
+    const [state, setState] = React.useState(false);
+
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState(open);
+    };
+
+    const list = () => (
+        <div
+            className={clsx(classes.list)}
+            role="presentation"
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+        >
+            <List>
+                <ListItem>
+                    <Typography style={{ alignContent: "center" }} >SUP</Typography>
+                </ListItem>
+            </List>
+        </div>
+    );
+
     return (
         <div>
+            <React.Fragment>
+                <Fab size="medium" color="secondary" aria-label="menu" onClick={toggleDrawer(true)} style={{
+                    position: "fixed", zIndex: 95,
+                    bottom: "3rem",
+                    right: "2rem", backgroundColor: "#8ccfff"
+                }}>
+                    <MenuIcon style={{ color: "black" }} />
+                </Fab>
+                <Drawer anchor={'bottom'} open={state} onClose={toggleDrawer(false)}>
+                    {list()}
+                </Drawer>
+            </React.Fragment>
+        </div>
+    );
+}
+
+function Information({ hospitalData, columns }) {
+
+
+    return (
+
+        <div>
+
             <div className="card">
+                <InfoDrawer></InfoDrawer>
                 <h2 className="responsiveH2">Daily Distractions</h2>
                 {dailyFun.dailyFunStuff.map(stuff => (
                     stuff.type === "motivation" ? (
