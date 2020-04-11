@@ -44,7 +44,13 @@ function formatAMPM(date) {
  */
 function getAriaLabelForUpdatedTime(updatedTime) {
     var timeElem = updatedTime.split(" ")[0].split(":")
-    var dateElem = updatedTime.split(" ")[1].split("/")
+    var dateElem = []
+    if (updatedTime.split(" ")[1].includes("/")) {
+        dateElem = updatedTime.split(" ")[1].split("/")
+    }
+    else if (updatedTime.split(" ")[1].includes("-")) {
+        dateElem = updatedTime.split(" ")[1].split("-")
+    }
     var tempDate = new Date(dateElem[2], dateElem[1], dateElem[0], timeElem[0], timeElem[1])
     const month = tempDate.toLocaleString('default', { month: 'long' });
     return `Time in AEST, last updated at: ${ordinal_suffix_of(tempDate.getDate())} of ${month} ${tempDate.getFullYear()} at ${formatAMPM(tempDate)}`
