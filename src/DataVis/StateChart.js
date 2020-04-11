@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
@@ -208,7 +208,6 @@ function setGenderOption(state) {
   series.setSeriesList(tempSeriesList);
 
   let tempOption = {
-
     tooltip: pieTooltip,
     legend: {
       data: genderLabel,
@@ -312,7 +311,7 @@ function setGeneralBarOption(state) {
  * compute the general information line chart option
  * @param {String} state user selected state
  */
-function setGeneralLineOption(state, logScale, maxY) {
+function setGeneralLineOption(state, logScale) {
   const generalLineLegend = ["Confirmed", "Death", "Recovered", "Tested"];
   const dates = getAllDate();
   const generalData = getStateGeneralData(dates, state);
@@ -383,7 +382,6 @@ function setGeneralLineOption(state, logScale, maxY) {
     },
     yAxis: {
       type: yAxisType,
-      // max: maxY,
       min: minY,
     },
     series: generalLineSeries.getSeriesList(),
@@ -395,7 +393,7 @@ function setGeneralLineOption(state, logScale, maxY) {
  * Render the state's status table
  * @param {String} state user selected state
  */
-function renderTable(state) {
+function renderStatus(state) {
   let lastData = getLastData(state.toUpperCase());
   let latestData = latestAusData["values"];
   for (let i = 0; i < latestData.length; i++) {
@@ -438,20 +436,6 @@ function renderTable(state) {
   );
 }
 
-/**
- * calculate max y axis according to max value
- * @param {Boolean} logScale if log scale in enabled
- * @param {Int} maxValue max value to calculate the max y axis
- */
-function calcMaxY(logScale, maxValue) {
-  let len = Math.ceil(Math.log(maxValue + 1) / Math.LN10);
-  let base = Math.pow(10, len - 1);
-  if (logScale) {
-    base = Math.pow(10, len);
-  }
-  return Math.ceil(maxValue / base) * base;
-}
-
 function StateChart({ state }) {
   const statusUpdateTime = latestAusData["updatedTime"];
   const ageGenderUpdateTime = ageGenderData["DateUpdate"];
@@ -460,23 +444,13 @@ function StateChart({ state }) {
   const expectStateData = getExpectStateData(state);
 
   const [logScale, setLogScale] = useState(false);
-  const [maxY, setMaxY] = useState(0);
-  useEffect(() => {
-    let maxValue = getLastData(state.toUpperCase());
-    if (logScale) {
-      maxValue = Math.max(...maxValue);
-    } else {
-      maxValue = Math.max(...maxValue.slice(0, 2));
-    }
-    // setMaxY(calcMaxY(logScale, maxValue));
-  }, [logScale]);
 
   let genderOption;
   let ageOption;
   let barOption;
   let lineOption;
   barOption = setGeneralBarOption(state.toUpperCase());
-  lineOption = setGeneralLineOption(state.toUpperCase(), logScale, maxY);
+  lineOption = setGeneralLineOption(state.toUpperCase(), logScale);
   if (expectStateData !== null) {
     genderOption = setGenderOption(expectStateData);
     ageOption = setAgeOption(expectStateData);
@@ -502,7 +476,7 @@ function StateChart({ state }) {
                 <div className="cured header recoveredtitle">Recovered</div>
                 <div className="tested header testedtitle">Tested</div>
               </div>
-              {renderTable(state.toUpperCase())}
+              {renderStatus(state.toUpperCase())}
             </div>
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
               Time in AEST, Last Update: {ageGenderUpdateTime}
@@ -615,10 +589,10 @@ function StateChart({ state }) {
                 <div className="cured header recoveredtitle">Recovered</div>
                 <div className="tested header testedtitle">Tested</div>
               </div>
-              {renderTable(state.toUpperCase())}
+              {renderStatus(state.toUpperCase())}
             </div>
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-               Time in AEST, Last Update: {ageGenderUpdateTime}
+              Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
           </div>
         </Grid>
@@ -627,7 +601,7 @@ function StateChart({ state }) {
             <h2>General Information - Bar</h2>
             <ReactEcharts option={barOption} />
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-               Time in AEST, Last Update: {statusUpdateTime}
+              Time in AEST, Last Update: {statusUpdateTime}
             </span>
           </div>
         </Grid>
@@ -685,7 +659,7 @@ function StateChart({ state }) {
               </a>
             </span>
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-               Time in AEST, Last Update: {ageGenderUpdateTime}
+              Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>
           </div>
         </Grid>
