@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     useTable,
     useFilters,
@@ -18,10 +18,27 @@ import mapDataHos from "./data/mapdataHos";
 import ReactGA from "react-ga";
 import ReactHtmlParser from 'react-html-parser';
 import { A } from 'hookrouter';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import Fab from '@material-ui/core/Fab';
+import MenuIcon from '@material-ui/icons/Menu';
+import Typography from '@material-ui/core/Typography';
+import { Link, animateScroll as scroll } from "react-scroll";
+import CloseIcon from '@material-ui/icons/Close';
 
 
 // Info page to present information about the virus.
+
+
+
 export default function InfoPage({ columns }) {
+
+    const [drawerOpen, setDrawerOpen] = useState(false)
 
     const stateAbrev = {
         "Victoria": "VIC",
@@ -53,10 +70,98 @@ export default function InfoPage({ columns }) {
     )
 }
 
-function Information({ hospitalData, columns }) {
+
+function InfoDrawer() {
+    const [state, setState] = React.useState(false);
+
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState(open);
+    };
+
+    const sections = [
+        { id: "dailyDistractions", title: "Daily Distractions" },
+        { id: "media", title: "Informative Media" },
+        { id: "general", title: "General Information" },
+        { id: "regulations", title: "Current Regulations" },
+        { id: "haveCovid", title: "Think you have COVID-19?" },
+        { id: "protect", title: "Protecting Yourself and Others" },
+        { id: "helplines", title: "Coronavirus Helplines" },
+        { id: "other", title: "Other interesting links" },
+        { id: "hospitalList", title: "List of Hospitals doing Coronavirus testing" }
+    ]
+
+    const list = () => (
+        <div
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+        >
+            <Grid container direction="row" alignItems="center" style={{ backgroundColor: "#bae1ff", paddingLeft: "0px", paddingTop: "0.5rem", paddingBottom: "0.5rem", marginBottom: "0px" }}>
+                <Grid item >
+                    <Typography variant="h4" align="left" style={{ marginLeft: "1rem" }}>
+                        Sections
+                </Typography>
+                </Grid>
+                <Grid item style={{
+                    alignSelf: "flex-end", marginLeft: "auto", marginRight: "0.8rem", marginBottom: "0.2rem"
+                }}>
+                    <CloseIcon onClick={toggleDrawer(false)} fontSize="large" />
+                </Grid>
+            </Grid>
+            <List style={{ marginTop: "0px" }}>
+                {sections.map((section, index) => (
+                    <div>
+                        <ListItem>
+                            <Link
+                                activeClass="active"
+                                to={section["id"]}
+                                spy={true}
+                                smooth={true}
+                                offset={-60}
+                                duration={700}
+                                onClick={toggleDrawer(false)}
+                                style={{ width: "100%" }}
+                            ><Typography align="left" variant="h6">{index + 1}. {section["title"]}</Typography></Link>
+
+                        </ListItem>
+                        <Divider />
+                    </div>
+                ))}
+            </List>
+
+        </div>
+    );
+
     return (
         <div>
-            <div className="card">
+            <React.Fragment>
+                <Fab size="medium" color="secondary" aria-label="menu" onClick={toggleDrawer(true)} style={{
+                    position: "fixed", zIndex: 95,
+                    bottom: "3rem",
+                    right: "2rem", backgroundColor: "#8ccfff"
+                }}>
+                    <MenuIcon style={{ color: "black" }} />
+                </Fab>
+                <Drawer anchor={'bottom'} open={state} onClose={toggleDrawer(false)}  >
+                    {list()}
+                </Drawer>
+            </React.Fragment>
+        </div>
+    );
+}
+
+function Information({ hospitalData, columns }) {
+
+
+    return (
+
+        <div>
+
+            <InfoDrawer></InfoDrawer>
+            <div className="card" id="dailyDistractions">
                 <h2 className="responsiveH2">Daily Distractions</h2>
                 {dailyFun.dailyFunStuff.map(stuff => (
                     stuff.type === "motivation" ? (
@@ -138,7 +243,7 @@ function Information({ hospitalData, columns }) {
 
 
             <div className="card" >
-                <h2 className="responsiveH2">Informative Media</h2>
+                <h2 className="responsiveH2" id="media">Informative Media</h2>
                 <div className="row centerMedia">
                     <div>
                         <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
@@ -156,14 +261,14 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
 
-                {/*<div className="row centerMedia">*/}
-                    {/*<div>*/}
-                        {/*<ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?time_continue=107&v=lrvFrH_npQI&feature=emb_title" controls={true} />*/}
-                        {/*<small className="mediaText">How to properly wear and dispose of masks.</small>*/}
-                    {/*</div>*/}
-                {/*</div>*/}
+                <div className="row centerMedia">
+                    <div>
+                        <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?v=M4olt47pr_o" controls={true} />
+                        <small className="mediaText">When and how to wear medical masks to protect against the new coronavirus.</small>
+                    </div>
+                </div>
             </div>
-            <div className="card" >
+            <div className="card" id="general">
 
 
                 <h2 className="responsiveH2">General Information</h2>
@@ -228,7 +333,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+            <div className="card" id="regulations">
                 <h2 className="responsiveH2">Current Regulations</h2>
                 {information.regulations.map(info => (
                     <div key={uuid()}>
@@ -296,7 +401,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+            <div className="card" id="haveCovid">
                 <h2 className="responsiveH2">Think you have COVID-19?</h2>
                 {information.haveCovid.map(info => (
                     <div key={uuid()}>
@@ -359,7 +464,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
+            <div className="card" id="protect">
                 <h2 className="responsiveH2">Protecting Yourself and Others</h2>
 
                 {information.protect.map(info => (
@@ -450,31 +555,85 @@ function Information({ hospitalData, columns }) {
                     </div>
                 ))
                 }</div>
-            <div className="card" >
-                <h2 className="responsiveH2">Coronavirus Helplines</h2>
-                <div className="row alignStyles responsiveText">
-                    <div>
-                        <h3>National helplines operating 24 hours a day, seven days a week.</h3>
-                        <ul>
-                            <li>For information on coronavirus (COVID-19) at the National Helpline: <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
-                            <li>If you are feeling unwell, call Healthdirect: <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
-                        </ul>
-                        <h3>Some states have dedicated helplines aswell: </h3>
-                        <ul>
-                            <li>Victoria: <a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
-                            <li>Queensland: <a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
-                            <li>Northern Territory: <a className="citationLink" href="tel:1800008002">1800 008 002</a>
-                                <p>-  If you are in Darwin and need to arrange testing call the Public Health Unit on: <a className="citationLink" href="tel:89228044">8922 8044</a></p>
-                            </li>
-                            <li>Tasmania: <a className="citationLink" href="tel:1800671738">1800 671 738</a>
-                                <p>-  If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) on <a className="citationLink" href="tel:131450">131 450</a> and tell them your language.</p>
-                                <p>-  Tell the interpreter your name and that you’re calling the Tasmanian Department of Health <a className="citationLink" href="tel:1800671738" >1800 671 738</a>.</p>
-                            </li>
-                        </ul>
+            <div className="card" id="helplines">
+                <h2 className="responsiveH2">Helplines</h2>
+
+
+                {information.helplines.map(info => (
+                    <div key={uuid()}>
+                        <div>
+                            <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                    <h3 className="responsiveH3">{info.name}</h3>
+                                </ExpansionPanelSummary>
+                                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                    <div>
+                                        {/* First block of text */}
+                                        {info.text.text_1.map(t1 => (
+                                            <p key={uuid()}>{t1}</p>
+                                        ))}
+                                        {/* First number List */}
+                                        {info.text.numberList_1 ? (
+                                            <ul>
+                                                {info.text.numberList_1.map(helpline => ([
+
+                                                    <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
+                                                    helpline.extras ? <ul>{helpline.extras.map(extra => [
+                                                        <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
+                                                        extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
+
+                                                    </ul> : ""
+                                                ]))}
+                                            </ul>
+                                        ) : (
+                                                ""
+                                            )}
+
+                                        {/* Middle Block of text */}
+                                        {info.text.text_2.map(t2 => (
+                                            <p key={uuid()}>{t2}</p>
+                                        ))}
+
+                                        {/* Second Number List */}
+                                        {info.text.numberList_2 ? (
+                                            <ul>
+                                                {info.text.numberList_2.map(helpline => ([
+
+                                                    <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
+                                                    helpline.extras ? <ul>{helpline.extras.map(extra => [
+                                                        <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
+                                                        extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
+
+                                                    </ul> : ""
+                                                ]))}
+                                            </ul>
+                                        ) : (
+                                                ""
+                                            )}
+                                        {/* Citation tag */}
+                                        {info.text.citation.map(cit => (<div>
+                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        </div>
+                                        ))}
+                                    </div>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                        </div>
                     </div>
-                </div>
+                ))
+                }
+
             </div>
-            <div className="card" >
+            <div className="card" id="other">
                 <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
                 <div className="row alignStyles responsiveText">
                     <div>
@@ -485,7 +644,7 @@ function Information({ hospitalData, columns }) {
                     </div>
                 </div>
             </div>
-            <div className="card" >
+            <div className="card" id="hospitalList" >
                 <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
                 <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
                 <small>Filter the table by clicking the dropdown below state.</small>

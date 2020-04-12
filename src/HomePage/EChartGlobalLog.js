@@ -3,6 +3,7 @@ import globalConfirmed from '../data/time_series_covid19_confirmed_global.csv';
 import ReactEcharts from "echarts-for-react";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+import ReactGA from "react-ga";
 
 class EChartglobalLog extends Component {
     static defaultProps = {
@@ -35,7 +36,7 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#ff91a9'
             },
             NZ: {
-                backgroundColor:'#000000'
+                backgroundColor: '#363636'
             },
             'South Korea': {
                 backgroundColor: '#8ccfff'
@@ -153,7 +154,7 @@ class EChartglobalLog extends Component {
 
     // Filter the countries to the ones we want
     filterCountries = (country) => {
-        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan","New Zealand"];
+        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan", "New Zealand"];
         if (viableCountries.includes(country)) {
             return true;
         }
@@ -240,7 +241,7 @@ class EChartglobalLog extends Component {
         for (let i = 0; i < arrMapKeys.length; i++) {
             let newDataSet = {};
             newDataSet["name"] = arrMapKeys[i];
-            newDataSet["z"]=arrMapKeys[i]==="AU"?3:arrMapKeys[i]==="US"?1:2;
+            newDataSet["z"] = arrMapKeys[i] === "AU" ? 3 : arrMapKeys[i] === "US" ? 1 : 2;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;
             /*
@@ -329,7 +330,12 @@ class EChartglobalLog extends Component {
 
     componentDidMount() {
         this.chartIt();
-        console.log(this.chartReference);
+        let echarts_instance = this.chartReference.getEchartsInstance();
+        echarts_instance.on('legendselectchanged', function (props) {
+            ReactGA.initialize("UA-160673543-1");
+            ReactGA.event({ category: 'globalChart', action: props.name,label: props.selected[props.name]?'true':'false'})
+
+        });
     }
 
 
@@ -337,20 +343,22 @@ class EChartglobalLog extends Component {
         return (
             <div className="card">
                 <h2>Global Comparison</h2>
-                <ButtonGroup style={{justifyContent: "center"}} size="small" aria-label="small outlined button group">
+                <ButtonGroup style={{ justifyContent: "center" }} size="small" aria-label="small outlined button group">
                     <Button style={{
                         textTransform: 'none',
-                        paddingTop:'0.1rem',
-                        paddingBottom:'0.1rem',
-                        outline: "none"}} disableElevation={true} onClick={this.onSelectAllClick}>Select All</Button>
+                        paddingTop: '0.1rem',
+                        paddingBottom: '0.1rem',
+                        outline: "none"
+                    }} disableElevation={true} onClick={this.onSelectAllClick}>Select All</Button>
                     <Button style={{
                         textTransform: 'none',
-                        paddingTop:'0.1rem',
-                        paddingBottom:'0.1rem',
-                        outline: "none"}} onClick={this.onDeselectAllClick}>Select None</Button>
+                        paddingTop: '0.1rem',
+                        paddingBottom: '0.1rem',
+                        outline: "none"
+                    }} onClick={this.onDeselectAllClick}>Select None</Button>
                 </ButtonGroup>
                 <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
-                    ref={this.chartReference}
+                    ref={(e) => { this.chartReference = e; }}
                     lazyUpdate={true}
                     option={{
                         legend: {
@@ -365,7 +373,8 @@ class EChartglobalLog extends Component {
                             left: 0,
                             right: "10%",
                             bottom: "10%",
-                            top: window.innerWidth>500?"15%":"26%"
+
+                            top: window.innerWidth > 500 ? "15%" : "26%"
                         },
                         tooltip: {
                             trigger: 'axis',
@@ -375,7 +384,7 @@ class EChartglobalLog extends Component {
                             textStyle: {
                                 color: "black"
                             },
-                            formatter: function(params, ticket, callback) {
+                            formatter: function (params, ticket, callback) {
                                 return params[0].seriesName + "<br /> Date: " + params[0].name + "<br /> Total: " + params[0].value[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "<br /> Weekly: " + params[0].value[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                             }
                         },

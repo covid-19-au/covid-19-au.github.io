@@ -78,6 +78,7 @@
     "react-modal": "^3.11.2",
     "react-player": "^1.15.2",
     "react-router-dom": "^5.1.2",
+    "react-scroll": "^1.7.16",
     "react-share": "4.1.0",
     "react-table": "^7.0.0",
     "react-twitter-embed": "^3.0.3",
