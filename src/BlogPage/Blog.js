@@ -26,7 +26,10 @@ function replaceAll(str, replace) {
 
 const filterPickList = [
     {title: 'Informative'},
-    {title: 'Fun'}
+    {title: 'Fun'},
+    {title: 'Feature'},
+    {title: 'Lifestyle'},
+    {title: 'Other'}
 ];
 
 class Blog extends Component {
