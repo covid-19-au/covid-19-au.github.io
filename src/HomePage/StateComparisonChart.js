@@ -377,7 +377,7 @@ export default function StateComparisonChart() {
                     }],
                     title: [
                         {
-                            text: i18next.t("homePage:stateComparisons.yaxislegend1"),
+                            text: i18next.t("homePage:status.testConducted"),
                             left: '5%',
                             top: '7%',
                             textStyle: {
@@ -386,7 +386,7 @@ export default function StateComparisonChart() {
                             }
                         },
                         {
-                            text: i18next.t("homePage:stateComparisons.yaxislegend2"),
+                            text: i18next.t("homePage:status.confirmCase"),
                             top: '55%',
                             left: '5%',
                             textStyle: {

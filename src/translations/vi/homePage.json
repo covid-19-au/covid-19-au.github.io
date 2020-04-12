@@ -36,7 +36,13 @@
     "hospital": "trong bệnh viện",
     "icu": "trong ICU",
     "updateTitle": "Tình trạng cập nhật hàng ngày",
-    "note": "Thời gian trong AEST, cập nhật lần cuối tại:"
+    "note": "Thời gian trong AEST, cập nhật lần cuối tại:",
+    "confirmCase": "Các trường hợp được xác nhận",
+    "activeCase": "Các trường hợp hoạt động",
+    "newCase": "Trường hợp mới",
+    "newCaseWeek": "Trường hợp mới trong tuần này",
+    "testConducted": "Các xét nghiệm tiến hành",
+    "total": "Toàn bộ"
   },
   "caseByState": {
     "title": "Trường hợp của nhà nước",
@@ -46,7 +52,6 @@
     "button3": "Thử nghiệm",
     "button4": "Xét nghiệm / M",
     "button5": "Tích cực(%)",
-    "total": "Toàn bộ",
     "state": "Tiểu bang",
     "append1": "* Hiện tại chúng tôi không có nguồn dữ liệu phù hợp cho các trường hợp được phục hồi ở NSW. Tổng dữ liệu được phục hồi dựa trên báo cáo của chính phủ.",
     "append2": "* Bấm vào",
@@ -61,18 +66,10 @@
     "marker": "Điểm đánh dấu:"
   },
   "overallTrend": {
-    "title": "Các trường hợp, cái chết và phục hồi",
-    "yaxis1": "Tổng cộng",
-    "yaxis2": "Trường hợp mới",
-    "series1": "Các trường hợp được xác nhận",
-    "series2": "Tử thần",
-    "series3": "Phục hồi",
-    "series4": "Trường hợp mới"
+    "title": "Các trường hợp, cái chết và phục hồi"
   },
   "stateComparisons": {
-    "title": "So sánh nhà nước",
-    "yaxislegend1": "Các xét nghiệm tiến hành",
-    "yaxislegend2": "Các trường hợp được xác nhận"
+    "title": "So sánh nhà nước"
   },
   "chartCommon": {
     "clickLegend": "* Nhấp vào chú thích để thêm / xóa biểu đồ",
@@ -83,8 +80,6 @@
     "title": "So sánh toàn cầu",
     "selectAll": "Chọn tất cả",
     "selectNo": "Chọn Không có",
-    "yaxis": "Trường hợp mới trong tuần này",
-    "xaxis": "Toàn bộ",
     "updateNotice": "Cập nhật lần cuối vào:",
     "append0": "* Mỗi điểm dữ liệu trên trục Y là tổng số trường hợp được xác nhận mới trong 7 ngày qua.",
     "append1": "*Hay xem nay",

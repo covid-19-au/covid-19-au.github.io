@@ -36,7 +36,13 @@
     "hospital": "병원에서",
     "icu": "중환자 실에서",
     "updateTitle": "매일 업데이트 상태",
-    "note": "AEST 시간, 마지막 업데이트 날짜 :"
+    "note": "AEST 시간, 마지막 업데이트 날짜 :",
+    "confirmCase": "확인 된 사례",
+    "activeCase": "활성 사례",
+    "newCase": "새로운 사례",
+    "newCaseWeek": "이번 주 새로운 사례",
+    "testConducted": "수행 된 테스트",
+    "total": "합계"
   },
   "caseByState": {
     "title": "국가 별 사례",
@@ -46,7 +52,6 @@
     "button3": "테스트",
     "button4": "테스트 / M",
     "button5": "양(%)",
-    "total": "합계",
     "state": "상태",
     "append1": "* 현재 NSW에서 복구 된 사례에 대한 일관된 데이터 소스가 없습니다. 복구 된 총 데이터는 정부 보고서를 기반으로합니다.",
     "append2": "* 클릭",
@@ -61,18 +66,10 @@
     "marker": "마커 :"
   },
   "overallTrend": {
-    "title": "사례, 사망 및 회복",
-    "yaxis1": "합계",
-    "yaxis2": "새로운 사례",
-    "series1": "확인 된 사례",
-    "series2": "죽음",
-    "series3": "회복",
-    "series4": "새로운 사례"
+    "title": "사례, 사망 및 회복"
   },
   "stateComparisons": {
-    "title": "상태 비교",
-    "yaxislegend1": "수행 된 테스트",
-    "yaxislegend2": "확인 된 사례"
+    "title": "상태 비교"
   },
   "chartCommon": {
     "clickLegend": "* 범례를 클릭하여 그래프를 추가 / 제거하십시오",
@@ -83,8 +80,6 @@
     "title": "글로벌 비교",
     "selectAll": "모두 선택",
     "selectNo": "없음을 선택하십시오",
-    "yaxis": "이번 주 새로운 사례",
-    "xaxis": "합계",
     "updateNotice": "마지막 업데이트 :",
     "append0": "* Y 축의 각 데이터 포인트는 지난 7 일 동안 새로 확인 된 총 사례 수입니다.",
     "append1": "*이것을보세요",

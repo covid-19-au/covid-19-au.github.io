@@ -36,7 +36,13 @@
     "hospital": "en el hospital",
     "icu": "en la UCI",
     "updateTitle": "Estado de actualización diaria",
-    "note": "Hora en AEST, última actualización en:"
+    "note": "Hora en AEST, última actualización en:",
+    "confirmCase": "Casos confirmados",
+    "activeCase": "Casos activos",
+    "newCase": "Nuevos casos",
+    "newCaseWeek": "Nuevos casos esta semana",
+    "testConducted": "Pruebas realizadas",
+    "total": "Total"
   },
   "caseByState": {
     "title": "Caso por estado",
@@ -46,7 +52,6 @@
     "button3": "Probado",
     "button4": "Pruebas / M",
     "button5": "Positivo(%)",
-    "total": "Total",
     "state": "Estado",
     "append1": "* Actualmente no tenemos una fuente constante de datos para casos recuperados en Nueva Gales del Sur. El total de datos recuperados se basa en el informe del gobierno.",
     "append2": "* Haga clic en el",
@@ -61,18 +66,10 @@
     "marker": "Marcadores:"
   },
   "overallTrend": {
-    "title": "Casos, defunciones y recuperaciones",
-    "yaxis1": "Totales",
-    "yaxis2": "Nuevos casos",
-    "series1": "Casos confirmados",
-    "series2": "Muertes",
-    "series3": "Recuperaciones",
-    "series4": "Nuevos casos"
+    "title": "Casos, defunciones y recuperaciones"
   },
   "stateComparisons": {
-    "title": "Comparaciones estatales",
-    "yaxislegend1": "Pruebas realizadas",
-    "yaxislegend2": "Casos confirmados"
+    "title": "Comparaciones estatales"
   },
   "chartCommon": {
     "clickLegend": "* Haga clic en la leyenda para agregar / eliminar gráficos",
@@ -83,8 +80,6 @@
     "title": "Comparación global",
     "selectAll": "Seleccionar todo",
     "selectNo": "No seleccionar ninguno",
-    "yaxis": "Nuevos casos esta semana",
-    "xaxis": "Total",
     "updateNotice": "Ultima actualización en:",
     "append0": "* Cada punto de datos en el eje Y es el número total de casos nuevos confirmados en los últimos 7 días.",
     "append1": "*Ver este",

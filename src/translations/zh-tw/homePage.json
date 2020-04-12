@@ -36,7 +36,13 @@
     "hospital": "在醫院",
     "icu": "在ICU中",
     "updateTitle": "每日更新狀態",
-    "note": "AEST時間，最近更新時間："
+    "note": "AEST時間，最近更新時間：",
+    "confirmCase": "確診病例",
+    "activeCase": "活躍案例",
+    "newCase": "新案件",
+    "newCaseWeek": "本週新案件",
+    "testConducted": "進行測試",
+    "total": "總"
   },
   "caseByState": {
     "title": "國家案例",
@@ -46,7 +52,6 @@
     "button3": "經過測試",
     "button4": "測試/ M",
     "button5": "正（％）",
-    "total": "總",
     "state": "州",
     "append1": "*我們目前在新南威爾士州沒有統一的數據來源。回收的總數據基於gov報告。",
     "append2": "*點擊",
@@ -61,18 +66,10 @@
     "marker": "標記："
   },
   "overallTrend": {
-    "title": "病例，死亡和恢復",
-    "yaxis1": "合計",
-    "yaxis2": "新案件",
-    "series1": "確診病例",
-    "series2": "死亡人數",
-    "series3": "回收率",
-    "series4": "新案件"
+    "title": "病例，死亡和恢復"
   },
   "stateComparisons": {
-    "title": "狀態比較",
-    "yaxislegend1": "進行測試",
-    "yaxislegend2": "確診病例"
+    "title": "狀態比較"
   },
   "chartCommon": {
     "clickLegend": "*單擊圖例以添加/刪除圖形",
@@ -83,8 +80,6 @@
     "title": "全局比較",
     "selectAll": "全選",
     "selectNo": "選擇無",
-    "yaxis": "本週新案件",
-    "xaxis": "總",
     "updateNotice": "上次更新時間：",
     "append0": "* Y軸上的每個數據點都是過去7天內新確診病例的總數。",
     "append1": "*看這個",

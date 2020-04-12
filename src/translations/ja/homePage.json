@@ -36,7 +36,13 @@
     "hospital": "病院で",
     "icu": "ICUで",
     "updateTitle": "毎日の更新ステータス",
-    "note": "AESTでの時刻、最終更新日："
+    "note": "AESTでの時刻、最終更新日：",
+    "confirmCase": "確認済みのケース",
+    "activeCase": "アクティブなケース",
+    "newCase": "新しいケース",
+    "newCaseWeek": "今週の新しいケース",
+    "testConducted": "実施したテスト",
+    "total": "合計"
   },
   "caseByState": {
     "title": "州別のケース",
@@ -46,7 +52,6 @@
     "button3": "テスト済み",
     "button4": "テスト/ M",
     "button5": "正（％）",
-    "total": "合計",
     "state": "状態",
     "append1": "*現在、NSWで復旧したケースに関する一貫したデータソースはありません。回収されたデータの合計は政府報告書に基づいています。",
     "append2": "* クリックしてください",
@@ -61,18 +66,10 @@
     "marker": "マーカー："
   },
   "overallTrend": {
-    "title": "事件、死と回復",
-    "yaxis1": "合計",
-    "yaxis2": "新しいケース",
-    "series1": "確認済みのケース",
-    "series2": "死",
-    "series3": "回収",
-    "series4": "新しいケース"
+    "title": "事件、死と回復"
   },
   "stateComparisons": {
-    "title": "状態比較",
-    "yaxislegend1": "実施したテスト",
-    "yaxislegend2": "確認済みのケース"
+    "title": "状態比較"
   },
   "chartCommon": {
     "clickLegend": "*凡例をクリックしてグラフを追加/削除します",
@@ -83,8 +80,6 @@
     "title": "グローバル比較",
     "selectAll": "すべて選択",
     "selectNo": "何も選択しない",
-    "yaxis": "今週の新しいケース",
-    "xaxis": "合計",
     "updateNotice": "最終更新日：",
     "append0": "* Y軸の各データポイントは、過去7日間に新たに確認された症例の総数です。",
     "append1": "*これを見て",

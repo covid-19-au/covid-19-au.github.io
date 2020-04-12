@@ -114,7 +114,7 @@ export default function Area({ area, onChange, data }) {
 
     return (
       <div className="province table-footer">
-        <div className="area">{i18next.t("homePage:caseByState.total")}</div>
+        <div className="area">{i18next.t("homePage:status.total")}</div>
         <div className="confirmed">
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>

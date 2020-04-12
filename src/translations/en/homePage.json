@@ -30,14 +30,19 @@
     "status":{
         "title":"Status",
         "confirm":"Confirmed",
+        "confirmCase":"Confirmed Cases",
+        "activeCase":"Active Cases",
+        "newCase":"New Cases",
+        "newCaseWeek":"New Cases This Week",
         "death":"Deaths",
         "recover":"Recovered",
         "tested":"Tested",
         "hospital":"in Hospital",
         "icu":"in ICU",
+        "testConducted":"Tests Conducted",
+        "total":"Total",
         "updateTitle":"Daily Update Status ",
         "note":"Time in AEST, last updated at: "
- 
     },
     "caseByState":{
         "title":"Case by State",
@@ -47,9 +52,8 @@
         "button3":"Tested",
         "button4":"Tests/M",
         "button5":"Positive(%)",
-        "total":"Total",
-        "state":"State"
-,       "append1":"* We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data is based on gov report.",
+        "state":"State",
+        "append1":"* We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data is based on gov report.",
         "append2":"* Click on the ",
         "append3":"name for details"
     },
@@ -62,18 +66,11 @@
         "marker":"Markers: "
     },
     "overallTrend":{
-        "title":"Cases, Deaths and Recoveries",
-        "yaxis1":"Totals",
-        "yaxis2":"New Cases",
-        "series1":"Confirmed Cases",
-        "series2":"Deaths",
-        "series3":"Recoveries",
-        "series4":"New Cases"
+        "title":"Cases, Deaths and Recoveries"
+
     },
     "stateComparisons":{
-        "title":"State Comparisons",
-        "yaxislegend1":"Tests Conducted",
-        "yaxislegend2":"Confirmed Cases"
+        "title":"State Comparisons"
     },
     "chartCommon":{
         "clickLegend":"*Click on legend to add/remove graphs",
@@ -85,8 +82,6 @@
         "title":"Global Comparison",
         "selectAll":"Select All",
         "selectNo":"Select None",
-        "yaxis":"New Cases This Week",
-        "xaxis":"Total",
         "updateNotice":"Last updated on: ",
         "append0":"*Each data point on the Y-axis is the total number of new confirmed cases in the past 7 days.",
         "append1":"*Watch this",
