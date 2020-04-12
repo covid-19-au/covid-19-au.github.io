@@ -30,9 +30,6 @@
   "status": {
     "title": "狀態",
     "confirm": "已確認",
-    "death": "死亡人數",
-    "recover": "已恢復",
-    "tested": "經過測試",
     "hospital": "在醫院",
     "icu": "在ICU中",
     "updateTitle": "每日更新狀態",
@@ -42,17 +39,19 @@
     "newCase": "新案件",
     "newCaseWeek": "本週新案件",
     "testConducted": "進行測試",
-    "total": "總"
+    "total": "總",
+    "Cases": "案例",
+    "casePM": "箱/ M",
+    "Deaths": "死亡人數",
+    "Recoveries": "已恢復",
+    "testPM": "測試/ M",
+    "positiveP": "正（％）",
+    "state": "州",
+    "Tested": "經過測試"
   },
   "caseByState": {
     "title": "國家案例",
     "buttonPrompt": "選擇地圖類型：",
-    "button1": "案例",
-    "button2": "箱/ M",
-    "button3": "經過測試",
-    "button4": "測試/ M",
-    "button5": "正（％）",
-    "state": "州",
     "append1": "*我們目前在新南威爾士州沒有統一的數據來源。回收的總數據基於gov報告。",
     "append2": "*點擊",
     "append3": "詳細名稱"

@@ -30,9 +30,6 @@
   "status": {
     "title": "Trạng thái",
     "confirm": "Đã xác nhận",
-    "death": "Tử thần",
-    "recover": "Phục hồi",
-    "tested": "Thử nghiệm",
     "hospital": "trong bệnh viện",
     "icu": "trong ICU",
     "updateTitle": "Tình trạng cập nhật hàng ngày",
@@ -42,17 +39,19 @@
     "newCase": "Trường hợp mới",
     "newCaseWeek": "Trường hợp mới trong tuần này",
     "testConducted": "Các xét nghiệm tiến hành",
-    "total": "Toàn bộ"
+    "total": "Toàn bộ",
+    "Cases": "Các trường hợp",
+    "casePM": "Trường hợp / M",
+    "Deaths": "Tử thần",
+    "Recoveries": "Phục hồi",
+    "testPM": "Xét nghiệm / M",
+    "positiveP": "Tích cực(%)",
+    "state": "Tiểu bang",
+    "Tested": "Thử nghiệm"
   },
   "caseByState": {
     "title": "Trường hợp của nhà nước",
     "buttonPrompt": "Chọn Loại bản đồ:",
-    "button1": "Các trường hợp",
-    "button2": "Trường hợp / M",
-    "button3": "Thử nghiệm",
-    "button4": "Xét nghiệm / M",
-    "button5": "Tích cực(%)",
-    "state": "Tiểu bang",
     "append1": "* Hiện tại chúng tôi không có nguồn dữ liệu phù hợp cho các trường hợp được phục hồi ở NSW. Tổng dữ liệu được phục hồi dựa trên báo cáo của chính phủ.",
     "append2": "* Bấm vào",
     "append3": "tên để biết chi tiết"

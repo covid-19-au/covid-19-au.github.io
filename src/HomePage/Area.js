@@ -128,11 +128,11 @@ export default function Area({ area, onChange, data }) {
   return (
     <div role={"table"}>
       <div className="province header">
-        <div className="area header statetitle">{i18next.t("homePage:caseByState.state")}</div>
+        <div className="area header statetitle">{i18next.t("homePage:status.state")}</div>
         <div className="confirmed header confirmedtitle">{i18next.t("homePage:status.confirm")}</div>
-        <div className="death header deathtitle">{i18next.t("homePage:status.death")}</div>
-        <div className="cured header recoveredtitle">{i18next.t("homePage:status.recover")}</div>
-        <div className="tested header testedtitle">{i18next.t("homePage:status.tested")}</div>
+        <div className="death header deathtitle">{i18next.t("homePage:status.Deaths")}</div>
+        <div className="cured header recoveredtitle">{i18next.t("homePage:status.Recoveries")}</div>
+        <div className="tested header testedtitle">{i18next.t("homePage:status.Tested")}</div>
       </div>
       {renderArea()}
       <Total data={data} />

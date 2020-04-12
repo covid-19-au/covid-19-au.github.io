@@ -30,9 +30,6 @@
   "status": {
     "title": "상태",
     "confirm": "확인",
-    "death": "죽음",
-    "recover": "회복 된",
-    "tested": "테스트",
     "hospital": "병원에서",
     "icu": "중환자 실에서",
     "updateTitle": "매일 업데이트 상태",
@@ -42,17 +39,19 @@
     "newCase": "새로운 사례",
     "newCaseWeek": "이번 주 새로운 사례",
     "testConducted": "수행 된 테스트",
-    "total": "합계"
+    "total": "합계",
+    "Cases": "사례",
+    "casePM": "케이스 / M",
+    "Deaths": "죽음",
+    "Recoveries": "회복 된",
+    "testPM": "테스트 / M",
+    "positiveP": "양(%)",
+    "state": "상태",
+    "Tested": "테스트"
   },
   "caseByState": {
     "title": "국가 별 사례",
     "buttonPrompt": "지도 유형을 선택하십시오.",
-    "button1": "사례",
-    "button2": "케이스 / M",
-    "button3": "테스트",
-    "button4": "테스트 / M",
-    "button5": "양(%)",
-    "state": "상태",
     "append1": "* 현재 NSW에서 복구 된 사례에 대한 일관된 데이터 소스가 없습니다. 복구 된 총 데이터는 정부 보고서를 기반으로합니다.",
     "append2": "* 클릭",
     "append3": "세부 사항의 이름"

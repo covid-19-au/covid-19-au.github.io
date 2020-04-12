@@ -30,9 +30,6 @@
   "status": {
     "title": "状態",
     "confirm": "確認済み",
-    "death": "死",
-    "recover": "回復した",
-    "tested": "テスト済み",
     "hospital": "病院で",
     "icu": "ICUで",
     "updateTitle": "毎日の更新ステータス",
@@ -42,17 +39,19 @@
     "newCase": "新しいケース",
     "newCaseWeek": "今週の新しいケース",
     "testConducted": "実施したテスト",
-    "total": "合計"
+    "total": "合計",
+    "Cases": "ケース",
+    "casePM": "ケース/ M",
+    "Deaths": "死",
+    "Recoveries": "回復した",
+    "testPM": "テスト/ M",
+    "positiveP": "正（％）",
+    "state": "状態",
+    "Tested": "テスト済み"
   },
   "caseByState": {
     "title": "州別のケース",
     "buttonPrompt": "マップタイプを選択：",
-    "button1": "ケース",
-    "button2": "ケース/ M",
-    "button3": "テスト済み",
-    "button4": "テスト/ M",
-    "button5": "正（％）",
-    "state": "状態",
     "append1": "*現在、NSWで復旧したケースに関する一貫したデータソースはありません。回収されたデータの合計は政府報告書に基づいています。",
     "append2": "* クリックしてください",
     "append3": "詳細は名前"

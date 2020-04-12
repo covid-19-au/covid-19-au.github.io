@@ -30,9 +30,6 @@
   "status": {
     "title": "Estado",
     "confirm": "Confirmado",
-    "death": "Muertes",
-    "recover": "Recuperado",
-    "tested": "Probado",
     "hospital": "en el hospital",
     "icu": "en la UCI",
     "updateTitle": "Estado de actualización diaria",
@@ -42,17 +39,19 @@
     "newCase": "Nuevos casos",
     "newCaseWeek": "Nuevos casos esta semana",
     "testConducted": "Pruebas realizadas",
-    "total": "Total"
+    "total": "Total",
+    "Cases": "Casos",
+    "casePM": "Casos / M",
+    "Deaths": "Muertes",
+    "Recoveries": "Recuperado",
+    "testPM": "Pruebas / M",
+    "positiveP": "Positivo(%)",
+    "state": "Estado",
+    "Tested": "Probado"
   },
   "caseByState": {
     "title": "Caso por estado",
     "buttonPrompt": "Seleccionar tipo de mapa:",
-    "button1": "Casos",
-    "button2": "Casos / M",
-    "button3": "Probado",
-    "button4": "Pruebas / M",
-    "button5": "Positivo(%)",
-    "state": "Estado",
     "append1": "* Actualmente no tenemos una fuente constante de datos para casos recuperados en Nueva Gales del Sur. El total de datos recuperados se basa en el informe del gobierno.",
     "append2": "* Haga clic en el",
     "append3": "nombre para detalles"

@@ -217,7 +217,7 @@ export default function OverallTrend() {
                                 },
                                 data: confirmedData
                             }, {
-                                name: i18next.t("homePage:status.death"),
+                                name: i18next.t("homePage:status.Deaths"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -228,7 +228,7 @@ export default function OverallTrend() {
                                 },
                                 data: deathData
                             }, {
-                                name: i18next.t("homePage:status.recover"),
+                                name: i18next.t("homePage:status.Recoveries"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
