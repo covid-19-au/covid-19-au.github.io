@@ -4,11 +4,6 @@ import { A } from "hookrouter";
 // import i18n bundle
 import i18next from './i18n';
 
-//change language
-export const changeLanguage = code => e => {
-    localStorage.setItem('language', code);
-    window.location.reload();
-}
 
 export default function Navbar({ setNav, nav }) {
     // const [nav, setNav] = useState("Home");
@@ -38,16 +33,6 @@ export default function Navbar({ setNav, nav }) {
                 className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
                 style={{marginRight:0,marginLeft:0}}
             >
-        <div class="nav-item dropdown" >
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><strong>{i18next.t("nav:lang")}</strong></a>
-            <div class="dropdown-menu" id= "langSelection">
-                <a onClick={changeLanguage('en')} class="dropdown-item">English</a>
-                <a onClick={changeLanguage('zh')} class="dropdown-item">简体中文</a>
-                <a onClick={changeLanguage('tw')} class="dropdown-item">繁體中文</a>
-                <a onClick={changeLanguage('ko')} class="dropdown-item">한국어</a>
-
-            </div>
-        </div>
         
         <A
             className={`navItems ${
