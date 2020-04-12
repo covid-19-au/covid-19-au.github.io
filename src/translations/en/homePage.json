@@ -33,6 +33,9 @@
         "death":"Deaths",
         "recover":"Recovered",
         "tested":"Tested",
+        "hospital":"in Hospital",
+        "icu":"in ICU",
+        "updateTitle":"Daily Update Status ",
         "note":"Time in AEST, last updated at: "
  
     },

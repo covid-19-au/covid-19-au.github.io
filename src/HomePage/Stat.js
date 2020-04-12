@@ -247,7 +247,7 @@ function UpdatesToday() {
             marginTop: '1rem',
             marginBottom: '1rem'
         }}>
-            Daily Update Status <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+            {i18next.t("homePage:status.updateTitle")}<button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                 title="<em>Highlighted states have updated selected data today. Click state for details.</em>"><svg className="bi bi-question-circle" width="0.7em" height="0.7em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
@@ -456,7 +456,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people in hospital with COVID-19.</em>">
-                        in Hospital</button>
+                        {i18next.t("homePage:status.hospital")}</button>
 
                 </Tag>
                 <Tag
@@ -467,7 +467,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people with COVID-19 in intensive care.</em>">
-                        in ICU</button>
+                        {i18next.t("homePage:status.icu")}</button>
 
                 </Tag></div>
 
