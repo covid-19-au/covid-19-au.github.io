@@ -103,8 +103,20 @@
         "tableHeader3":"Route",
         "tableHeader4":"Arrival",
         "tableHeader5":"Close Contact Row"
+
+    },
+    "state":{
+        "NSW":"NSW",
+        "VIC":"VIC",
+        "QLD":"QLD",
+        "WA":"WA",
+        "SA":"SA",
+        "TAS":"TAS",
+        "ACT":"ACT",
+        "NT":"NT"
+    },
+    "country":{
+
     }
-
-
 
 }

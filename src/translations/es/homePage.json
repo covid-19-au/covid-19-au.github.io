@@ -1,0 +1,115 @@
+{
+  "misc": {
+    "loadingText": "Cargando...",
+    "title": "COVID-19 en Australia",
+    "descrip": "Informe en tiempo real",
+    "slogan": "Mantén la calma, mantente informado",
+    "onButton": "En",
+    "offButton": "Apagado",
+    "logScale": "Escala logarítmica:"
+  },
+  "dataAck": {
+    "title": "Reconocimiento de datos",
+    "body1": "Los datos en nuestro sitio están disponibles públicamente y se obtienen de una variedad de fuentes oficiales del gobierno. Una lista completa de agradecimientos se encuentra a continuación.",
+    "source1": "© Estado de Nueva Gales del Sur NSW Ministerio de Salud. Para obtener información actual, vaya a",
+    "source2": "© El Estado de Queensland (Queensland Health) en",
+    "source3": "El Gobierno de Australia del Sur, SA Health at",
+    "source4": "Gobierno del Territorio de la Capital Australiana, ACT Health at",
+    "source5": "Gobierno de Tasmania. a",
+    "source6": "Gobierno del Estado de Victoria, Departamento de Salud y Servicios Humanos en",
+    "source7": "Gobierno del Territorio del Norte, en",
+    "source8": "Gobierno de Australia Occidental, Departamento de Salud en",
+    "body2": "No estamos afiliados ni respaldados por estas organizaciones de ninguna manera. Somos un equipo de voluntarios y utilizamos los datos que recopilamos estrictamente para fines no comerciales, educativos, de informes y de investigación. Se debe tener cuidado para garantizar que los datos sean precisos y no se vuelvan a encuadrar o falsificar.",
+    "body3": "Recomendamos encarecidamente que los usuarios de este sitio web se adhieran a los consejos y regulaciones provistos por sus respectivos gobiernos y autoridades locales y federales.",
+    "body4": "Si tiene dudas, contáctenos a través de nuestro",
+    "body5": "formulario de comentarios.",
+    "body6": "Covid-19-au,",
+    "body7": "Mantén la calma, mantente informado.",
+    "exitButton": "Cerrar"
+  },
+  "status": {
+    "title": "Estado",
+    "confirm": "Confirmado",
+    "death": "Muertes",
+    "recover": "Recuperado",
+    "tested": "Probado",
+    "hospital": "en el hospital",
+    "icu": "en la UCI",
+    "updateTitle": "Estado de actualización diaria",
+    "note": "Hora en AEST, última actualización en:"
+  },
+  "caseByState": {
+    "title": "Caso por estado",
+    "buttonPrompt": "Seleccionar tipo de mapa:",
+    "button1": "Casos",
+    "button2": "Casos / M",
+    "button3": "Probado",
+    "button4": "Pruebas / M",
+    "button5": "Positivo(%)",
+    "total": "Total",
+    "state": "Estado",
+    "append1": "* Actualmente no tenemos una fuente constante de datos para casos recuperados en Nueva Gales del Sur. El total de datos recuperados se basa en el informe del gobierno.",
+    "append2": "* Haga clic en el",
+    "append3": "nombre para detalles"
+  },
+  "hospitalCaseMap": {
+    "title": "Hospital y mapa de casos",
+    "hospitalLegend": "Hospital o centro de evaluación COVID-19",
+    "casesLegend": "Caso de más de 7 días.",
+    "confirmedLegend": "Caso confirmado recientemente (no todos, recolectando)",
+    "note1": "* Los datos a nivel de ciudad solo están presentes para ACT, NSW, VIC y WA, HHS para QLD. Se están trabajando en otros estados.",
+    "marker": "Marcadores:"
+  },
+  "overallTrend": {
+    "title": "Casos, defunciones y recuperaciones",
+    "yaxis1": "Totales",
+    "yaxis2": "Nuevos casos",
+    "series1": "Casos confirmados",
+    "series2": "Muertes",
+    "series3": "Recuperaciones",
+    "series4": "Nuevos casos"
+  },
+  "stateComparisons": {
+    "title": "Comparaciones estatales",
+    "yaxislegend1": "Pruebas realizadas",
+    "yaxislegend2": "Casos confirmados"
+  },
+  "chartCommon": {
+    "clickLegend": "* Haga clic en la leyenda para agregar / eliminar gráficos",
+    "clickPoint": "* Haga clic en los puntos para obtener información detallada",
+    "dottedLine": "* La línea punteada indica que no se obtuvieron datos nuevos"
+  },
+  "globalChart": {
+    "title": "Comparación global",
+    "selectAll": "Seleccionar todo",
+    "selectNo": "No seleccionar ninguno",
+    "yaxis": "Nuevos casos esta semana",
+    "xaxis": "Total",
+    "updateNotice": "Ultima actualización en:",
+    "append0": "* Cada punto de datos en el eje Y es el número total de casos nuevos confirmados en los últimos 7 días.",
+    "append1": "*Ver este",
+    "append2": "vídeo",
+    "append3": " para una explicación detallada en este gráfico!",
+    "append4": "*Fuente de datos:"
+  },
+  "flights": {
+    "title": "Vuelos",
+    "searchButton": "Buscar",
+    "searchPlaceholder": "Ingrese el número de vuelo, ruta, fecha de llegada",
+    "tableHeader1": "Vuelo no",
+    "tableHeader2": "Aerolínea",
+    "tableHeader3": "Ruta",
+    "tableHeader4": "Llegada",
+    "tableHeader5": "Cerrar fila de contactos"
+  },
+  "state": {
+    "NSW": "NSW",
+    "VIC": "VIC",
+    "QLD": "QLD",
+    "WA": "Washington",
+    "SA": "SA",
+    "TAS": "TAS",
+    "ACT": "ACTUAR",
+    "NT": "Nuevo Testamento"
+  }
+}
