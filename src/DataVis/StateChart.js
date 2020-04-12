@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import Grid from "@material-ui/core/Grid";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
@@ -14,7 +14,7 @@ const colorMapping = {
   Death: "#c11700",
   Recovered: "#00c177",
   Tested: "#007cf2",
-  "In Hosptial": "#9d71ea",
+  "In Hospital": "#9d71ea",
   ICU: "#00aac1",
 };
 
@@ -164,7 +164,7 @@ function getStateGeneralData(dateList, state) {
     death: [],
     recovered: [],
     tested: [],
-    inHosptial: [],
+    inHospital: [],
     icu: [],
   };
   for (let i = 0; i < dateList.length; i++) {
@@ -175,13 +175,13 @@ function getStateGeneralData(dateList, state) {
       generalData["death"].push(tempData[1]);
       generalData["recovered"].push(tempData[2]);
       generalData["tested"].push(tempData[3]);
-      generalData["inHosptial"].push(tempData[4]);
+      generalData["inHospital"].push(tempData[4]);
       generalData["icu"].push(tempData[5]);
     } else {
       generalData["death"].push(0);
       generalData["recovered"].push(0);
       generalData["tested"].push(0);
-      generalData["inHosptial"].push(0);
+      generalData["inHospital"].push(0);
       generalData["icu"].push(0);
     }
   }
@@ -280,7 +280,7 @@ function setGeneralBarOption(state) {
     "Death",
     "Recovered",
     "Tested",
-    "In Hosptial",
+    "In Hospital",
     "ICU",
   ];
   let generalLabel = ["General Information"];
@@ -333,7 +333,7 @@ function setGeneralLineOption(state, logScale) {
     "Death",
     "Recovered",
     "Tested",
-    "In Hosptial",
+    "In Hospital",
     "ICU",
   ];
   const dates = getAllDate();
@@ -500,7 +500,7 @@ function renderStatus(state) {
           number={numberWithCommas(latestData[4])}
           fColor={"#9d71ea"}
           increased={latestData[4] - lastData[4]}
-          typeOfCases={"In Hosptial"}
+          typeOfCases={"In Hospital"}
         >
           <button
             className="hoverButton"
@@ -538,7 +538,7 @@ function StateChart({ state }) {
   const ageGenderUpdateTime = ageGenderData["DateUpdate"];
 
   // get choosen state data
-  const expectStateData = getExpectStateData(state);
+  const stateAgeGenderData = getExpectStateData(state);
 
   const [logScale, setLogScale] = useState(false);
 
@@ -548,204 +548,120 @@ function StateChart({ state }) {
   let lineOption;
   barOption = setGeneralBarOption(state.toUpperCase());
   lineOption = setGeneralLineOption(state.toUpperCase(), logScale);
-  if (expectStateData !== null) {
-    genderOption = setGenderOption(expectStateData);
-    ageOption = setAgeOption(expectStateData);
+  if (stateAgeGenderData !== null) {
+    genderOption = setGenderOption(stateAgeGenderData);
+    ageOption = setAgeOption(stateAgeGenderData);
   }
   ReactGA.pageview("/state/" + state);
 
-  if (expectStateData !== null) {
-    return (
-      <Grid container spacing={1} justify="center" wrap="wrap">
-        <Grid item xs={11}>
-          <h1 style={{ textAlign: "center", paddingTop: "1%" }}>
-            {stateNameMapping[state]}
-          </h1>
-        </Grid>
-        <Grid item xs={11} sm={11} md={4}>
-          <div className="card">
-            <h2>Status - {stateNameMapping[state]}</h2>
-            {renderStatus(state.toUpperCase())}
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Time in AEST, Last Update: {ageGenderUpdateTime}
-            </span>
-          </div>
-        </Grid>
-        <Grid item xs={11} sm={11} md={4}>
-          <div className="card">
-            <h2>General Information - Bar</h2>
-            <ReactEcharts option={barOption} />
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Time in AEST, Last Update: {ageGenderUpdateTime}
-            </span>
-          </div>
-        </Grid>
-        <Grid item xs={11} sm={11} md={4}>
-          <div className="card">
-            <h2>General Information - Line</h2>
-            <ReactEcharts option={lineOption} />
-            <span className="key" style={{ marginTop: "0.5rem" }}>
-              Logarithmic Scale:&nbsp;
-              <ButtonGroup
-                size="small"
-                aria-label="small outlined button group"
-              >
-                <Button
-                  style={logScale ? activeStyles : inactiveStyles}
-                  disableElevation={true}
-                  onClick={() => setLogScale(true)}
-                >
-                  On
-                </Button>
-                <Button
-                  style={logScale ? inactiveStyles : activeStyles}
-                  onClick={() => setLogScale(false)}
-                >
-                  Off
-                </Button>
-              </ButtonGroup>
-              <a
-                style={{
-                  display: "inline-flex",
-                  backgroundColor: "white",
-                  verticalAlign: "middle",
-                }}
-                className="badge badge-light"
-                href="https://en.wikipedia.org/wiki/Logarithmic_scale"
-                target="blank"
-              >
-                <svg
-                  className="bi bi-question-circle"
-                  width="1.1em"
-                  height="1.1em"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  backgroundcolor="white"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
-                    clipRule="evenodd"
-                  />
-                  <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-                </svg>
-                <div className="dataSource"></div>
-              </a>
-            </span>
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Time in AEST, Last Update: {ageGenderUpdateTime}
-            </span>
-          </div>
-        </Grid>
-        <Grid item xs={11} sm={11} md={4} xl={4}>
-          <div className="card">
-            <h2>Cases by Gender</h2>
-            <ReactEcharts option={genderOption} />
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Time in AEST, Last Update: {ageGenderUpdateTime}
-            </span>
-          </div>
-        </Grid>
-        <Grid item xs={11} sm={11} md={4} xl={6}>
-          <div className="card">
-            {state.toUpperCase() === "ACT" ? (
-              <h2>Age bar chart</h2>
-            ) : (
-              <h2>Cases by Age Group</h2>
-            )}
-            <ReactEcharts option={ageOption} />
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Time in AEST, Last Update: {ageGenderUpdateTime}
-            </span>
-          </div>
-        </Grid>
+  return (
+    <Grid container spacing={1} justify="center" wrap="wrap">
+      <Grid item xs={11}>
+        <h1 style={{ textAlign: "center", paddingTop: "1%" }}>
+          {stateNameMapping[state]}
+        </h1>
       </Grid>
-    );
-  } else {
-    return (
-      <Grid container spacing={1} justify="center" wrap="wrap">
-        <Grid item xs={11}>
-          <h1 style={{ textAlign: "center", paddingTop: "1%" }}>
-            {stateNameMapping[state]}
-          </h1>
-        </Grid>
-        <Grid item xs={11} sm={11} md={4}>
-          <div className="card">
+      <Grid item xs={11} sm={11} md={4}>
+        <div className="card">
+          <div className="table">
             <h2>Status - {stateNameMapping[state]}</h2>
             {renderStatus(state.toUpperCase())}
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Time in AEST, Last Update: {ageGenderUpdateTime}
-            </span>
-          </div>
-        </Grid>
-        <Grid item xs={11} sm={11} md={4}>
-          <div className="card">
-            <h2>General Information - Bar</h2>
-            <ReactEcharts option={barOption} />
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
               Time in AEST, Last Update: {statusUpdateTime}
             </span>
           </div>
-        </Grid>
-        <Grid item xs={11} sm={11} md={4}>
-          <div className="card">
-            <h2>General Information - Line</h2>
-            <ReactEcharts option={lineOption} />
-            <span className="key" style={{ marginTop: "0.5rem" }}>
-              Logarithmic Scale:&nbsp;
-              <ButtonGroup
-                size="small"
-                aria-label="small outlined button group"
+        </div>
+      </Grid>
+      <Grid item xs={11} sm={11} md={4}>
+        <div className="card">
+          <h2>General Information - Bar</h2>
+          <ReactEcharts option={barOption} />
+          <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+            Time in AEST, Last Update: {ageGenderUpdateTime}
+          </span>
+        </div>
+      </Grid>
+      <Grid item xs={11} sm={11} md={4}>
+        <div className="card">
+          <h2>General Information - Line</h2>
+          <ReactEcharts option={lineOption} />
+          <span className="key" style={{ marginTop: "0.5rem" }}>
+            Logarithmic Scale:&nbsp;
+            <ButtonGroup size="small" aria-label="small outlined button group">
+              <Button
+                style={logScale ? activeStyles : inactiveStyles}
+                disableElevation={true}
+                onClick={() => setLogScale(true)}
               >
-                <Button
-                  style={logScale ? activeStyles : inactiveStyles}
-                  disableElevation={true}
-                  onClick={() => setLogScale(true)}
-                >
-                  On
-                </Button>
-                <Button
-                  style={logScale ? inactiveStyles : activeStyles}
-                  onClick={() => setLogScale(false)}
-                >
-                  Off
-                </Button>
-              </ButtonGroup>
-              <a
-                style={{
-                  display: "inline-flex",
-                  backgroundColor: "white",
-                  verticalAlign: "middle",
-                }}
-                className="badge badge-light"
-                href="https://en.wikipedia.org/wiki/Logarithmic_scale"
-                target="blank"
+                On
+              </Button>
+              <Button
+                style={logScale ? inactiveStyles : activeStyles}
+                onClick={() => setLogScale(false)}
               >
-                <svg
-                  className="bi bi-question-circle"
-                  width="1.1em"
-                  height="1.1em"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  backgroundcolor="white"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
-                    clipRule="evenodd"
-                  />
-                  <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-                </svg>
-                <div className="dataSource"></div>
-              </a>
-            </span>
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Time in AEST, Last Update: {ageGenderUpdateTime}
-            </span>
-          </div>
-        </Grid>
+                Off
+              </Button>
+            </ButtonGroup>
+            <a
+              style={{
+                display: "inline-flex",
+                backgroundColor: "white",
+                verticalAlign: "middle",
+              }}
+              className="badge badge-light"
+              href="https://en.wikipedia.org/wiki/Logarithmic_scale"
+              target="blank"
+            >
+              <svg
+                className="bi bi-question-circle"
+                width="1.1em"
+                height="1.1em"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                backgroundcolor="white"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
+                  clipRule="evenodd"
+                />
+                <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+              </svg>
+              <div className="dataSource"></div>
+            </a>
+          </span>
+          <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+            Time in AEST, Last Update: {ageGenderUpdateTime}
+          </span>
+        </div>
+      </Grid>
+      {stateAgeGenderData !== null ? (
+        <Fragment>
+          <Grid item xs={11} sm={11} md={4} xl={4}>
+            <div className="card">
+              <h2>Cases by Gender</h2>
+              <ReactEcharts option={genderOption} />
+              <span className="" style={{ fontSize: "80%", padding: 0 }}>
+                Time in AEST, Last Update: {ageGenderUpdateTime}
+              </span>
+            </div>
+          </Grid>
+          <Grid item xs={11} sm={11} md={4} xl={6}>
+            <div className="card">
+              {state.toUpperCase() === "ACT" ? (
+                <h2>Gender bar chart</h2>
+              ) : (
+                <h2>Cases by Age Group</h2>
+              )}
+              <ReactEcharts option={ageOption} />
+              <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+                Time in AEST, Last Update: {ageGenderUpdateTime}
+              </span>
+            </div>
+          </Grid>
+        </Fragment>
+      ) : (
         <Grid item xs={11} sm={11} md={5}>
           <h2 style={{ textAlign: "center" }}>
             We are working on acquiring detailed age group and gender data for{" "}
@@ -764,9 +680,9 @@ function StateChart({ state }) {
             form.
           </h5>
         </Grid>
-      </Grid>
-    );
-  }
+      )}
+    </Grid>
+  );
 }
 
 function numberWithCommas(x) {
