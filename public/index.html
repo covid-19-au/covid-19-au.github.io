@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+
+    <meta charset="utf-8">
     
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Track Coronavirus (COVID-19) cases in Australia with trends, analytics and state-by-state breakdowns.
-Updated with the latest announcements, news and data."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Track Coronavirus (COVID-19) cases in Australia with the latest number of confirmed, death, recovery, test cases of NSW, VIC, QLD, WA, SA, ACT, NT, TAS. Also search the flight number with confirmed cases, find the number of confirmed cases in each city map. The historical data visualization charts help you know the trend, and the knowledge of COVID-19 from government and WHO sites. Updated with the latest announcements, news and data.">
+    <meta property="og:image" content="%PUBLIC_URL%/logo/covidlogo-01.png" >
+    <meta name="twitter:title" content="COVID-19 Case Tracker Australia">
+    <meta name="og:title" content="COVID-19 Case Tracker Australia">
+    <meta name="twitter:site" content="@covid19augithub">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="%PUBLIC_URL%/logo/covidlogo-01.png">
+    <meta name="keywords" content="covid19, outbreak, Australia, corona, Corona, Covid, Covid19, covid, pandemic, Pandemic, numbers, deaths, recovered, information, health, Melbourne, NSW, Sydney, Perth, VIC, QLD, WA, SA, ACT, NT, TAS, test, hospital,">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+    <meta name="twitter:description" content="Track Coronavirus (COVID-19) cases in Australia with the latest number of confirmed, death, recovery, test cases of NSW, VIC, QLD, WA, SA, ACT, NT, TAS. Also search the flight number with confirmed cases, find the number of confirmed cases in each city map. The historical data visualization charts help you know the trend, and the knowledge of COVID-19 from government and WHO sites. Updated with the latest announcements, news and data."/>
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo/96x96.png" />
     <link rel="icon" href="%PUBLIC_URL%/logo/16x16.png" type="image/png" sizes="16x16" />
     <link rel="icon" href="%PUBLIC_URL%/logo/32x32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="%PUBLIC_URL%/logo/96x96.png" type="image/png" sizes="96x96" />
-   
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -30,20 +43,30 @@ Updated with the latest announcements, news and data."/>
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
     <title>COVID-19 Case Tracker Australia</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
 
     <script>
-    $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-    })
+      $(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
     </script>
   </head>
   <body>
-
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

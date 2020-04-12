@@ -1,84 +1,132 @@
 {
     "weeklyTopNews": [
         {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-update-australia-scott-morrison-announces-strictest-gathering-measures-yet-c-769960",
-            "title": "Coronavirus update Australia: Scott Morrison announces strictest gathering measures yet",
-            "source": "7News",
-            "date": "29 March 2020",
-            "time": "19:32",
-            "summary": "Prime Minister Scott Morrison has announced the strictest gathering recommendations to date - that no more than two people gather in public spaces at any given time. This move also spells the closure for public areas, such as playgrounds, outdoor gyms and skate parks, though restrictions on weddings and funerals will stay the same."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Federal Government launches Coronavirus Australia app and WhatsApp feature",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "23:22",
-            "summary": "The Coronavirus Australia app allows users to navigate the latest advice and information about coronavirus. In addition to the new features, the Federal Government also detailed its $1.1 billion healthcare package."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/health-minister-says-early-signs-australia-is-flattening-the-curve-even-as-coronavirus-cases-increase",
-            "title": "Health Minister Greg Hunt says there are early signs that Australia is flattening the curve, even though coronavirus cases are still on the rise.",
-            "source": "ABCNews",
-            "date": "29 March 2020",
-            "time": "13:00",
-            "summary": "The Federal Government said the rate of increase of cases was about 25-30 per cent a day last week, which has fallen to about 13-15 per cent this weekend. However, they warn that Australians must continue to follow social distancing and self-isolation guidelines."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-03-29/federal-government-launches-coronavirus-australia-app/12100680",
-            "title": "Coronavirus patients’ average age only 48 as Australian tally soars beyond 3,400",
-            "source": "7News",
-            "date": "28 March 2020",
-            "time": "16:15",
-            "summary": "There are now 3,400 cases of the virus in Australia, a vast majority of which have been diagnosed in New South Wales and Victoria. The median age of Australians diagnosed with novel coronavirus has been revealed to be 48 years old. However, the average age of fatalities is 77."
-        },
-        {
-            "link": "https://7news.com.au/business/global-economy-is-in-recession-imf-head-c-768395",
-            "title": "Global economy is in recession: IMF head",
-            "source": "7News",
-            "date": "28 March 2020",
-            "time": "07:07",
-            "summary": "The head of the International Monetary Fund says it is clear that the global economy has now entered a recession that could be as bad or worse than the 2009 downturn. IMF Managing Director Kristalina Georgieva forecasted a recovery in 2021, but she said this would only occur if countries succeed in containing the coronavirus and limiting the economic damage."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-in-australia-army-called-in-to-help-enforce-strict-new-quarantine-rules--c-766521",
-            "title": "Coronavirus in Australia: Army called in to help enforce strict new quarantine rules ",
-            "source": "7News",
-            "date": "28 March 2020",
-            "time": "09:08",
-            "summary": "The Australian Army will be deployed across all states and territories, stepping in to assist governments with new measures. The ADF will assist in both monitoring Friday’s regulations for returned overseas travellers and ensuring compliance checks with those in self-isolation at their homes. However, the prime minister says the army will not have the power to prosecute or arrest."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-scott-morrison-no-national-decision-schools-state-premiers-to-decide/a13197c6-0d82-4129-9bc6-6459a476ef35",
-            "title": "No national decision on school closures over coronavirus, PM says states must decide",
+            "link": "https://www.9news.com.au/world/coronavirus-antibody-test-could-soon-be-available/34216e0a-ceac-492b-953c-32d74cb0f8e2",
+            "title": "Antibody tests for the novel coronavirus could be available within 'a week or so'",
             "source": "9News",
-            "date": "27 March 2020",
-            "time": "15:07",
-            "summary": "Prime Minister Scott Morrison has announced that the decision on whether to close schools before the end of term will be up to each state premier. He also stated that over the next few weeks, the schools themselves will be preparing, on a national basis, to get some consistency about when schools will reopen on the other side of school holidays."
+            "date": "11 April 2020",
+            "time": "03:23",
+            "summary": "Antibody tests that would verify whether a person recently had the novel coronavirus could be available within a week, according to the America's top infectious disease expert. Having antibodies to the coronavirus could mean someone is protected from getting re-infected, making such tests important for medical workers and others on the frontlines fighting the pandemic."
         },
         {
-            "link": "https://www.sbs.com.au/news/international-travellers-returning-to-australia-to-be-sent-to-quarantine-facilities-for-two-weeks",
-            "title": "International travellers returning to Australia to be sent to quarantine facilities for two weeks",
-            "source": "SBSNews",
-            "date": "27 March 2020",
+            "link": "https://www.smh.com.au/national/stop-looking-for-loopholes-what-are-the-new-covid-19-social-rules-20200407-p54hyd.html ",
+            "title": "'Stop looking for loopholes': What are the new COVID-19 social rules?",
+            "source": "TheSydneyMorningHerald",
+            "date": "10 April 2020",
             "time": "",
-            "summary": "Australians returning from international travel will be quarantined in hotels and other accommodation facilities for two weeks before being allowed to go home, under new measures to control the spread of coronavirus. The measure will affect all international travellers returning after midnight on Saturday 28th of March."
+            "summary": "Government urges people to stop looking for loopholes over the Easter weekend, so as not to undo all of the hard work that has been done to stop the spread of COVID-19. This article covers questions such as whether you can have people over, whether you can go away at Easter and whether you can babysit, state-by-state."
         },
         {
-            "link": "https://thewest.com.au/politics/virus-halts-auctions-weddings-tattoos-ng-s-2002000",
-            "title": "Jobless queues to grow amid virus shutdown",
+            "link": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
+            "title": "Aussie households to be given access to COVID-19 financial stress for bills",
+            "source": "9News",
+            "date": "10 April 2020",
+            "time": "17:52",
+            "summary": "Australian households struggling with financial stress brought on by the coronavirus pandemic will soon have access to hardship provisions for their energy and water bills. Prime Minister Scott Morrison said the new measures would be in line with those across the energy and telecommunications sectors to scale-up hardship support provided by those industries."
+        },
+        {
+            "link": "https://www.9news.com.au/national/covid19-vaccine-researched-at-university-of-queensland-critical-test-on-live-coronavirus-ahead-of-human-trials/a49fe4b6-0ff7-4cbe-ae06-8cb4772e0404",
+            "title": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
+            "source": "9News",
+            "date": "10 April 2020",
+            "time": "19:43",
+            "summary": "The effectiveness of a University of Queensland (UQ) vaccine against the coronavirus is about to be tested in a biosecurity facility in the Netherlands. The vaccine will be used on live coronavirus for the first time to determine how effectively it induces protection against infection. UQ's vaccine program co-leader Dr Keith Chappell says the trial will establish a critical package of data ahead of human clinical trials later this year.Clinical studies will be conducted by Viroclinics Xplore, which offers myriad pre-clinical tests including toxicology of drugs, antibodies, and antivirals targeting viral infectious diseases."
+        },
+        {
+            "link": "https://thewest.com.au/news/coronavirus/coronavirus-crisis-prime-minister-scott-morrison-urges-australians-to-stay-at-home-in-easter-message-ng-b881515344z",
+            "title": "Coronavirus crisis: Prime Minister Scott Morrison urges Australians to stay at home in Easter message",
             "source": "TheWestAustralian",
-            "date": "25 March 2020",
-            "time": "22:23",
-            "summary": "Thousands of people have been queuing at Centrelink offices as tighter restrictions on businesses, community facilities and public spaces came into effect, causing many people to lose their jobs. Economists predict 814,000 Australians will be added to dole queues before the end of June. Centrelink is rapidly recruiting an extra 5000 staff to deal with the influx of demand."
+            "date": "09 April 2020",
+            "time": "17:00",
+            "summary": "Scott Morrison has used his annual Easter message to urge Australians to stay home, saying the country “cannot undo the tremendous progress” it has made towards flattening the curve of coronavirus cases. He states that immediate - but not extended - family may spend their Easter together, and that Australians will not be able to attend Easter services."
         },
         {
-            "link": "https://www.theguardian.com/business/2020/mar/25/coronavirus-jobs-fallout-at-least-35000-workers-stood-down-in-three-days-as-businesses-reel",
-            "title": "Coronavirus jobs fallout: at least 35,000 workers stood down in three days as businesses reel",
+            "link": "https://www.abc.net.au/news/2020-04-09/backpacker-accommodation-shortage-risks-veg-harvest-coronavirus/12132718",
+            "title": "Essential fruit and veg pickers 'homeless' due to coronavirus, meaning crops may be left to rot",
+            "source": "ABCNews",
+            "date": "09 April 2020",
+            "time": "06:42",
+            "summary": "The fruit and vegetable industry has warned that crops may be left to rot in fields because of a major shortage of accommodation for backpackers who pick the produce. These young travellers say they are camping illegally and sleeping in their cars because many hostels and caravan parks are closed."
+        },
+        {
+            "link": "https://www.theguardian.com/world/2020/apr/09/australias-small-medical-practices-on-brink-of-collapse-amid-coronavirus",
+            "title": "Australia's small medical practices on brink of collapse amid coronavirus ",
             "source": "TheGuardian",
-            "date": "25 March 2020",
-            "time": "18:16",
-            "summary": "At least 35,000 people have been put out of work in just three days by casinos, airlines, retailers and other businesses that have stood down their workers in response to the coronavirus crisis. Westpac’s chief economist, Bill Evans, said the coronavirus crisis would cost 814,000 jobs by June, more than doubling the unemployment rate to 11.1%."
+            "date": "09 April 2020",
+            "time": "03:30",
+            "summary": "Smaller doctor-owned general practices are on the brink of financial collapse due to revenue losses from Covid-19, prompting fears more patients will be unnecessarily pushed into an already overstretched hospital system. Peak medical bodies and the health minster, Greg Hunt, on Thursday urged Australians to continue seeing their GPs, saying Covid-19 should not mean people “ignore the doctor” or their ordinary health needs."
+        },
+        {
+            "link": "https://7news.com.au/news/health/australians-urged-to-stay-home-over-easter-c-962838",
+            "title": "No time to relax in costly virus fight: PM",
+            "source": "7News",
+            "date": "08 April 2020",
+            "time": "18:11",
+            "summary": "Australia's death toll from the coronavirus has hit 50 as political leaders warn now is not the time to ease the measures that are preventing much higher fatality rates. The daily increase in new cases has dropped to about three per cent, but health experts are concerned COVID-19 could be widely transmitted among unwitting community members. However, Health Minister Greg Hunt warned abandoning social distancing rules over the long weekend would undo everything done to curtail the crisis."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-08/scientists-developing-test-for-coronavirus-severity-in-patients/12124402",
+            "title": "Are you immune to coronavirus after recovering? This test might be able to tell you",
+            "source": "ABCNews",
+            "date": "08 April 2020",
+            "time": "10:30",
+            "summary": "Australian researchers are working on a test they say will be able to predict the severity of symptoms in COVID-19 patients, telling them how hard the virus will hit them after they contract it and what their immunity will be when they recover."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-07/scott-morrison-press-conference-coronavirus-crisis-modelling/12129550",
+            "title": "Scott Morrison's press conference: Coronavirus modelling, rental tenancies and what you shouldn't do this Easter ",
+            "source": "ABCNews",
+            "date": "07 April 2020",
+            "time": "21:00",
+            "summary": "Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy addressed the nation this afternoon with some more important updates about the COVID-19 crisis. Topics included progress on flattening the curve, Easter weekend, the modelling that was released today, rental issues, asymptomatic carriers, schools, and more."
+        },
+        {
+            "link": "https://7news.com.au/business/finance/atos-coronavirus-measures-what-you-can-claim-on-your-tax-return-if-youre-working-from-home-c-961850",
+            "title": "ATO’s coronavirus measures: What you can claim on your tax return if you’re working from home",
+            "source": "7News",
+            "date": "07 April 2020",
+            "time": "18:08",
+            "summary": "With COVID-19 restrictions forcing more Australians than ever to work from home, come tax time, people are going to be able to claim deductions on anything they use to do their job - such as office furniture, computers, tablets, phone and internet bills. For running expenses like heating, cooling and lighting, the Australian Tax Office is offering a special COVID-19 flat rate tax deduction of 80 cents an hour that you can claim instead of having to calculate the costs manually."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-drop-in-testing-rates-sign-of-australia-flattening-the-curve-deputy-chief-medical-officer/c3283f99-076b-4990-8901-946bf3d598ea",
+            "title": "Drop in daily testing coronavirus rates possible sign of Australia 'flattening the curve'",
+            "source": "9News",
+            "date": "07 April 2020",
+            "time": "07:59",
+            "summary": "A major drop in the number of people being tested daily for COVID-19 is not a result of a lack of testing kits, but of a drop in the number of people presenting with symptoms, Deputy Chief Medical officer Professor Michael Kidd said. Last month, more than 4000 tests were being conducted daily however that number has fallen to closer to 2700 a day. Professor Kidd told Today this was more likely a result of Australia beginning to flatten the curve."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/07/lack-of-ppe-forces-aboriginal-health-groups-to-stop-testing-for-coronavirus",
+            "title": "Lack of PPE forces Aboriginal health groups to stop testing for coronavirus ",
+            "source": "TheGuardian",
+            "date": "07 April 2020",
+            "time": "03:30",
+            "summary": "A number of Aboriginal health groups in Victoria have been forced to cease COVID-19 testing and consider shutting their doors due to a lack of personal protective equipment. Some clinics had just two weeks of personal protective equipment left with no immediate prospect of re-supply, creating a situation they described as “catastrophic”.The NSW Government has now written to the Commonwealth asking for the urgent release of supplies to the state’s Aboriginal medical services and for direct access to the Government’s national medical stockpile."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-06/doctors-designing-medical-equipment-to-face-coronavirus-covid-19/12120588",
+            "title": "Australian doctors design and make life-saving equipment needed for coronavirus pandemic",
+            "source": "ABCNews",
+            "date": "06 April 2020",
+            "time": "10:25",
+            "summary": "Australian doctors who are worried the system will not be able to provide them with the equipment they need to protect themselves and their patients during the COVID-19 pandemic are looking at ways to design and produce their own. A large centralised group involving Victorian university staff, clinicians and manufacturers has been working tirelessly to develop suitable products and to co-ordinate the supply and demand of these essential items."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-free-hotel-stay-for-victorias-healthcare-workers-on-the-frontline-c-957213",
+            "title": "Coronavirus Australia: Free hotel stay for Victoria’s healthcare workers on the frontline",
+            "source": "7News",
+            "date": "05 April 2020",
+            "time": "12:01",
+            "summary": "Victoria’s frontline health workers will have free hotel stays if they need to self-isolate during the coronavirus crises, as the state recorded 20 new cases overnight. Premier Daniel Andrews said on Sunday the government will provide $20 million to buy a range of hotel rooms for up to 8000 frontline workers."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-05/chief-medical-officer-brendan-murphy-confident-coronavirus/12123154",
+            "title": "Chief Medical Officer Brendan Murphy 'increasingly confident' Australia can stay on top of coronavirus",
+            "source": "ABCNews",
+            "date": "05 April 2020",
+            "time": "19:09",
+            "summary": "Chief Medical Officer Brendan Murphy says Australia is succeeding at flattening the curve and that he is increasingly confident Australia will avoid the kind of devastation the coronavirus has caused in countries like Italy and the United States. However, his biggest concern remains community transmission, which accounts for 10 per cent of cases in Australia."
         }
     ]
 }

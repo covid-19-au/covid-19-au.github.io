@@ -103,6 +103,7 @@
         "tableHeader3":"Route",
         "tableHeader4":"Arrival",
         "tableHeader5":"Close Contact Row"
+
     },
     "state":{
         "NSW":"NSW",
@@ -117,4 +118,5 @@
     "country":{
 
     }
+
 }

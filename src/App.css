@@ -43,6 +43,7 @@ header i {
 .province {
   display: flex;
   text-align: center;
+  font-size: 90%;
 }
 
 .flightInfo
@@ -356,7 +357,7 @@ h2 small {
     justify-content: space-around;
     align-items: center;
     background-color: #bae1ff;
-    filter: saturate(65%)
+    filter: saturate(65%);
 }
 
 .navBarStuck {
@@ -383,7 +384,7 @@ h2 small {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 100;
 }
 
 .navItems {
@@ -500,4 +501,24 @@ h2 small {
     text-align: center;
     margin-top: -5px;
     margin-bottom: -10px;
+}
+.dailyIncrease {
+    font-size: 60%;
+}
+
+.selection-grid {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 15px;
+}
+
+.slogan {
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: -10px;
+}
+.navBar{
+  position: absolute;
+  z-index: 1000;
+  margin: 0px;
 }
