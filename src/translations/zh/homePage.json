@@ -101,15 +101,5 @@
     "tableHeader3": "路线",
     "tableHeader4": "到达",
     "tableHeader5": "关闭联系人行"
-  },
-  "state": {
-    "NSW": "新南威尔士",
-    "VIC": "维州",
-    "QLD": "昆士兰",
-    "WA": "西澳",
-    "SA": "南非",
-    "TAS": "塔斯",
-    "ACT": "法案",
-    "NT": "新台币"
   }
 }
