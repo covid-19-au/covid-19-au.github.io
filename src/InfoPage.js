@@ -89,7 +89,7 @@ function InfoDrawer() {
         { id: "regulations", title: "Current Regulations" },
         { id: "haveCovid", title: "Think you have COVID-19?" },
         { id: "protect", title: "Protecting Yourself and Others" },
-        { id: "helplines", title: "Coronavirus Helplines" },
+        { id: "helplines", title: "Helplines" },
         { id: "other", title: "Other interesting links" },
         { id: "hospitalList", title: "List of Hospitals doing Coronavirus testing" }
     ]
