@@ -126,15 +126,18 @@ function Header({ province }) {
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "twitter"})}} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "instagram"})}} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "github"})}} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
-            <Dropdown colour="bae1ff">
+            <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
               {i18next.t("nav:lang")}
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item onClick={changeLanguage('en')}>English</Dropdown.Item>
+                <Dropdown.Item onClick={changeLanguage('es')}>Español</Dropdown.Item>
+                <Dropdown.Item onClick={changeLanguage('vi')}>Tiếng Việt</Dropdown.Item>
                 <Dropdown.Item onClick={changeLanguage('zh')}>简体中文</Dropdown.Item>
                 <Dropdown.Item onClick={changeLanguage('tw')}>繁體中文</Dropdown.Item>
                 <Dropdown.Item onClick={changeLanguage('ko')}>한국어</Dropdown.Item>
+                <Dropdown.Item onClick={changeLanguage('ja')}>日本語</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
         </div>

@@ -21,8 +21,22 @@ import homePage_ko from "./translations/ko/homePage.json";
 import faq_ko from "./translations/ko/faq.json";
 import nav_ko from "./translations/ko/nav.json";
 
+import infoPage_ja from "./translations/ja/infoPage.json";
+import homePage_ja from "./translations/ja/homePage.json";
+import faq_ja from "./translations/ja/faq.json";
+import nav_ja from "./translations/ja/nav.json";
 
-const allowedLanguages = ['en','ko','zh','tw'];
+import infoPage_es from "./translations/es/infoPage.json";
+import homePage_es from "./translations/es/homePage.json";
+import faq_es from "./translations/es/faq.json";
+import nav_es from "./translations/es/nav.json";
+
+import infoPage_vi from "./translations/vi/infoPage.json";
+import homePage_vi from "./translations/vi/homePage.json";
+import faq_vi from "./translations/vi/faq.json";
+import nav_vi from "./translations/vi/nav.json";
+
+const allowedLanguages = ['en','ko','zh','tw','ja','es','vi'];
 
 const defaultLng = 'en';
 let lng = defaultLng;
@@ -64,7 +78,25 @@ i18n
           homePage: homePage_ko,
           faq: faq_ko,  
           nav: nav_ko   
-        },        
+        },
+        ja: {
+          infoPage: infoPage_ja,
+          homePage: homePage_ja,
+          faq: faq_ja,  
+          nav: nav_ja   
+        }, 
+        es: {
+          infoPage: infoPage_es,
+          homePage: homePage_es,
+          faq: faq_es,  
+          nav: nav_es   
+        }, 
+        vi: {
+          infoPage: infoPage_vi,
+          homePage: homePage_vi,
+          faq: faq_vi,  
+          nav: nav_vi   
+        },         
     },
 
     interpolation: {
