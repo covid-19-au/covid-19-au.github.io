@@ -55,7 +55,7 @@
   "hospitalCaseMap": {
     "title": "병원 및 사례지도",
     "hospitalLegend": "병원 또는 COVID-19 평가 센터",
-    "casesLegend": "{oldCaseDays} 일이 지난 사례",
+    "casesLegend": "7 일이 지난 사례",
     "confirmedLegend": "최근에 확인 된 사례 (모두가 아니라 수집)",
     "note1": "* 도시 수준 데이터는 QLD에 대한 ACT, NSW, VIC 및 WA, HHS 데이터에만 존재합니다. 다른 주가 진행되고 있습니다.",
     "marker": "마커 :"
@@ -81,8 +81,12 @@
   },
   "globalChart": {
     "title": "글로벌 비교",
+    "selectAll": "모두 선택",
+    "selectNo": "없음을 선택하십시오",
     "yaxis": "이번 주 새로운 사례",
     "xaxis": "합계",
+    "updateNotice": "마지막 업데이트 :",
+    "append0": "* Y 축의 각 데이터 포인트는 지난 7 일 동안 새로 확인 된 총 사례 수입니다.",
     "append1": "*이것을보세요",
     "append2": "비디오",
     "append3": " 이 그래프에 대한 자세한 설명!",

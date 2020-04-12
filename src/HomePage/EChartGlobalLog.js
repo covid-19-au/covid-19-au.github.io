@@ -351,13 +351,13 @@ class EChartglobalLog extends Component {
                         paddingTop: '0.1rem',
                         paddingBottom: '0.1rem',
                         outline: "none"
-                    }} disableElevation={true} onClick={this.onSelectAllClick}>Select All</Button>
+                    }} disableElevation={true} onClick={this.onSelectAllClick}>{i18next.t("homePage:globalChart.selectAll")}</Button>
                     <Button style={{
                         textTransform: 'none',
                         paddingTop: '0.1rem',
                         paddingBottom: '0.1rem',
                         outline: "none"
-                    }} onClick={this.onDeselectAllClick}>Select None</Button>
+                    }} onClick={this.onDeselectAllClick}>{i18next.t("homePage:globalChart.selectNo")}</Button>
                 </ButtonGroup>
                 <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
                     ref={(e) => { this.chartReference = e; }}
@@ -441,11 +441,11 @@ class EChartglobalLog extends Component {
                 />
                 <span className="due">
                     <span className="key" style={{ fontSize: "80%", paddingTop: 0 }}>
-                        Last updated on: {this.state.dates[this.state.dates.length - 1]}
+                    {i18next.t("homePage:globalChart.updateNotice")}{this.state.dates[this.state.dates.length - 1]}
                     </span><br /><br />
                     <span className="key">{i18next.t("homePage:chartCommon.clickLegend")}<p></p></span><br />
                     <span className="key">{i18next.t("homePage:chartCommon.clickPoint")}<p></p></span><br />
-                    <span className="key"><p>*Each data point on the Y-axis is the total number of new confirmed cases in the past 7 days.</p></span><br />
+                    <span className="key"><p>{i18next.t("homePage:globalChart.append0")}</p></span><br />
                     <span className="key">{i18next.t("homePage:globalChart.append1")}<p> <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">{i18next.t("homePage:globalChart.append2")}</a>{i18next.t("homePage:globalChart.append3")}</p></span><br />
                     <span className="key">{i18next.t("homePage:globalChart.append4")}<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/CSSEGISandData/COVID-19">
                         <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

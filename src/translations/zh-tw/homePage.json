@@ -55,7 +55,7 @@
   "hospitalCaseMap": {
     "title": "醫院和病例圖",
     "hospitalLegend": "醫院或COVID-19評估中心",
-    "casesLegend": "超過{oldCaseDays}天的案例",
+    "casesLegend": "案件超過7天",
     "confirmedLegend": "最近確認的病例（不是全部，正在收集）",
     "note1": "*僅針對ACT，NSW，VIC和WA，QHS的HHS數據提供城市級別的數據。其他州正在研究中。",
     "marker": "標記："
@@ -81,8 +81,12 @@
   },
   "globalChart": {
     "title": "全局比較",
+    "selectAll": "全選",
+    "selectNo": "選擇無",
     "yaxis": "本週新案件",
     "xaxis": "總",
+    "updateNotice": "上次更新時間：",
+    "append0": "* Y軸上的每個數據點都是過去7天內新確診病例的總數。",
     "append1": "*看這個",
     "append2": "視頻",
     "append3": " 有關此圖的詳細說明！",
