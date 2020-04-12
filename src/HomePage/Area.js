@@ -118,7 +118,7 @@ export default function Area({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">*3200+</div>
+        <div className="cured">*3300+</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
     );
@@ -141,7 +141,7 @@ export default function Area({ area, onChange, data }) {
       </span>
         <br/>
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * ACT and NSW have reduced their confirmed case numbers by 1 and 10 today respectively due to reporting errors.
+        * NSW Health's statistics show an additional death as they count a Queensland resident that passed away in NSW.
       </span>
         <br/>
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>

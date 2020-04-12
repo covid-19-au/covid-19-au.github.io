@@ -26,6 +26,9 @@ class EChartglobalLog extends Component {
             Germany: {
                 backgroundColor: '#f9d649'
             },
+            India: {
+                backgroundColor: '#f19d49'
+            },
             Iran: {
                 backgroundColor: '#79d9b4'
             },
@@ -103,7 +106,8 @@ class EChartglobalLog extends Component {
                 'Iran': false,
                 'Spain': false,
                 'Germany': false,
-                'South Korea': false
+                'South Korea': false,
+                'India': false
             }
         }
     }
@@ -154,7 +158,7 @@ class EChartglobalLog extends Component {
 
     // Filter the countries to the ones we want
     filterCountries = (country) => {
-        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan", "New Zealand"];
+        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan", "New Zealand", "India"];
         if (viableCountries.includes(country)) {
             return true;
         }
@@ -298,7 +302,8 @@ class EChartglobalLog extends Component {
                 'Spain': true,
                 'Germany': true,
                 'South Korea': true,
-                'NZ': true
+                'NZ': true,
+                'India':true
             }
         })
     }
@@ -323,7 +328,8 @@ class EChartglobalLog extends Component {
                 'Spain': false,
                 'Germany': false,
                 'South Korea': false,
-                'NZ': false
+                'NZ': false,
+                'India':false
             }
         })
     }
