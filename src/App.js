@@ -31,8 +31,7 @@ import StateChart from "./DataVis/StateChart";
 import "./App.css";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+
 // routes
 import { useRoutes, A } from 'hookrouter';
 // import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
@@ -126,20 +125,27 @@ function Header({ province }) {
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "twitter"})}} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "instagram"})}} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
             <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "github"})}} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <div className="dropdown">
+                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {i18next.t("nav:lang")}
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item onClick={changeLanguage('en')}>English</Dropdown.Item>
-                <Dropdown.Item onClick={changeLanguage('es')}>Español</Dropdown.Item>
-                <Dropdown.Item onClick={changeLanguage('vi')}>Tiếng Việt</Dropdown.Item>
-                <Dropdown.Item onClick={changeLanguage('zh')}>简体中文</Dropdown.Item>
-                <Dropdown.Item onClick={changeLanguage('tw')}>繁體中文</Dropdown.Item>
-                <Dropdown.Item onClick={changeLanguage('ko')}>한국어</Dropdown.Item>
-                <Dropdown.Item onClick={changeLanguage('ja')}>日本語</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+              </button>
+                <div className="dropdown-menu" >
+                <a className="dropdown-item" onClick={changeLanguage('en')}>English</a>
+                    <div className="dropdown-divider"></div>
+                <a className="dropdown-item" onClick={changeLanguage('es')}>Español</a>
+                    <div className="dropdown-divider"></div>
+                <a className="dropdown-item" onClick={changeLanguage('vi')}>Tiếng Việt</a>
+                    <div className="dropdown-divider"></div>
+                <a className="dropdown-item" onClick={changeLanguage('zh')}>简体中文</a>
+                    <div className="dropdown-divider"></div>
+                <a className="dropdown-item" onClick={changeLanguage('tw')}>繁體中文</a>
+                    <div className="dropdown-divider"></div>
+                <a className="dropdown-item" onClick={changeLanguage('ko')}>한국어</a>
+                    <div className="dropdown-divider"></div>
+                <a className="dropdown-item" onClick={changeLanguage('ja')}>日本語</a>
+              </div>
+            </div>
         </div>
 
       {/*<i>By Students from Monash</i>*/}
