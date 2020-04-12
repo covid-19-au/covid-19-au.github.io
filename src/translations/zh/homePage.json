@@ -1,7 +1,6 @@
 {
   "misc": {
     "loadingText": "载入中...",
-
     "title": "澳大利亚的新冠病毒",
     "descrip": "实时报告",
     "slogan": "保持冷静，保持知情",
@@ -31,24 +30,28 @@
   "status": {
     "title": "当前状态",
     "confirm": "已确认",
-    "death": "死亡人数",
     "hospital": "在医院",
     "icu": "在ICU中",
     "updateTitle": "每日更新状态",
-    "recover": "已治愈",
-    "tested": "已测试",
-    "note": "AEST时间，最近更新时间："
+    "note": "AEST时间，最近更新时间：",
+    "confirmCase": "确诊病例",
+    "activeCase": "活跃案例",
+    "newCase": "新案件",
+    "newCaseWeek": "本周新案件",
+    "testConducted": "进行测试",
+    "total": "总",
+    "Cases": "案例",
+    "casePM": "箱/ M",
+    "Deaths": "死亡人数",
+    "Recoveries": "已恢复",
+    "testPM": "测试/ M",
+    "positiveP": "正（％）",
+    "state": "州",
+    "Tested": "经过测试"
   },
   "caseByState": {
     "title": "各州数据",
     "buttonPrompt": "选择地图类型：",
-    "button1": "案例",
-    "button2": "例/百万人",
-    "button3": "已测试",
-    "button4": "测试/百万人",
-    "button5": "确诊率（％）",
-    "total": "总数",
-    "state": "州",
     "append1": "*我们目前没有新南威尔士州治愈的数据来源。治愈的总数据来源于gov报告。",
     "append2": "*点击",
     "append3": "名字获取详细信息"
@@ -62,18 +65,10 @@
     "marker": "标记："
   },
   "overallTrend": {
-    "title": "病例，死亡和恢复",
-    "yaxis1": "合计",
-    "yaxis2": "新案件",
-    "series1": "确诊病例",
-    "series2": "死亡人数",
-    "series3": "回收率",
-    "series4": "新案件"
+    "title": "病例，死亡和恢复"
   },
   "stateComparisons": {
-    "title": "状态比较",
-    "yaxislegend1": "进行测试",
-    "yaxislegend2": "确诊病例"
+    "title": "状态比较"
   },
   "chartCommon": {
     "clickLegend": "*单击图例以添加/删除图形",
@@ -84,8 +79,6 @@
     "title": "全局比较",
     "selectAll": "全选",
     "selectNo": "选择无",
-    "yaxis": "本周新案件",
-    "xaxis": "总",
     "updateNotice": "上次更新时间：",
     "append0": "* Y轴上的每个数据点都是过去7天内新确诊病例的总数。",
     "append1": "*看这个",
@@ -112,5 +105,25 @@
     "TAS": "塔斯社",
     "ACT": "法案",
     "NT": "新台币"
+  },
+  "country": {
+    "AU": "澳洲",
+    "Canada": "加拿大",
+    "China": "中国",
+    "Denmark": "丹麦",
+    "France": "法国",
+    "Germany": "德国",
+    "Iran": "伊朗",
+    "Italy": "意大利",
+    "Japan": "日本",
+    "South Korea": "韩国",
+    "NZ": "纽西兰",
+    "Norway": "挪威",
+    "Singapore": "新加坡",
+    "Spain": "西班牙",
+    "Sweden": "瑞典",
+    "Switzerland": "瑞士",
+    "UK": "英国",
+    "US": "美国"
   }
 }

@@ -242,7 +242,7 @@ class EChartglobalLog extends Component {
         const dataSets = [];
         for (let i = 0; i < arrMapKeys.length; i++) {
             let newDataSet = {};
-            newDataSet["name"] = arrMapKeys[i];
+            newDataSet["name"] = i18next.t("homePage:country."+arrMapKeys[i]);
             newDataSet["z"] = arrMapKeys[i] === "AU" ? 3 : arrMapKeys[i] === "US" ? 1 : 2;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;
@@ -395,7 +395,7 @@ class EChartglobalLog extends Component {
                         },
                         series: this.state.dataSets,
                         yAxis: {
-                            name: i18next.t("homePage:globalChart.yaxis"),
+                            name: i18next.t("homePage:status.newCaseWeek"),
                             nameTextStyle: {
                                 align: 'left'
                             },
@@ -407,7 +407,7 @@ class EChartglobalLog extends Component {
                             scale: true
                         },
                         xAxis: {
-                            name: i18next.t("homePage:globalChart.xaxis"),
+                            name: i18next.t("homePage:status.total"),
                             nameTextStyle: {
                                 align: 'center'
                             },

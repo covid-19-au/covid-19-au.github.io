@@ -30,24 +30,28 @@
   "status": {
     "title": "Estado",
     "confirm": "Confirmado",
-    "death": "Muertes",
-    "recover": "Recuperado",
-    "tested": "Probado",
     "hospital": "en el hospital",
     "icu": "en la UCI",
     "updateTitle": "Estado de actualización diaria",
-    "note": "Hora en AEST, última actualización en:"
+    "note": "Hora en AEST, última actualización en:",
+    "confirmCase": "Casos confirmados",
+    "activeCase": "Casos activos",
+    "newCase": "Nuevos casos",
+    "newCaseWeek": "Nuevos casos esta semana",
+    "testConducted": "Pruebas realizadas",
+    "total": "Total",
+    "Cases": "Casos",
+    "casePM": "Casos / M",
+    "Deaths": "Muertes",
+    "Recoveries": "Recuperado",
+    "testPM": "Pruebas / M",
+    "positiveP": "Positivo(%)",
+    "state": "Estado",
+    "Tested": "Probado"
   },
   "caseByState": {
     "title": "Caso por estado",
     "buttonPrompt": "Seleccionar tipo de mapa:",
-    "button1": "Casos",
-    "button2": "Casos / M",
-    "button3": "Probado",
-    "button4": "Pruebas / M",
-    "button5": "Positivo(%)",
-    "total": "Total",
-    "state": "Estado",
     "append1": "* Actualmente no tenemos una fuente constante de datos para casos recuperados en Nueva Gales del Sur. El total de datos recuperados se basa en el informe del gobierno.",
     "append2": "* Haga clic en el",
     "append3": "nombre para detalles"
@@ -61,18 +65,10 @@
     "marker": "Marcadores:"
   },
   "overallTrend": {
-    "title": "Casos, defunciones y recuperaciones",
-    "yaxis1": "Totales",
-    "yaxis2": "Nuevos casos",
-    "series1": "Casos confirmados",
-    "series2": "Muertes",
-    "series3": "Recuperaciones",
-    "series4": "Nuevos casos"
+    "title": "Casos, defunciones y recuperaciones"
   },
   "stateComparisons": {
-    "title": "Comparaciones estatales",
-    "yaxislegend1": "Pruebas realizadas",
-    "yaxislegend2": "Casos confirmados"
+    "title": "Comparaciones estatales"
   },
   "chartCommon": {
     "clickLegend": "* Haga clic en la leyenda para agregar / eliminar gráficos",
@@ -83,8 +79,6 @@
     "title": "Comparación global",
     "selectAll": "Seleccionar todo",
     "selectNo": "No seleccionar ninguno",
-    "yaxis": "Nuevos casos esta semana",
-    "xaxis": "Total",
     "updateNotice": "Ultima actualización en:",
     "append0": "* Cada punto de datos en el eje Y es el número total de casos nuevos confirmados en los últimos 7 días.",
     "append1": "*Ver este",
@@ -111,5 +105,25 @@
     "TAS": "TAS",
     "ACT": "ACTUAR",
     "NT": "Nuevo Testamento"
+  },
+  "country": {
+    "AU": "AU",
+    "Canada": "Canadá",
+    "China": "China",
+    "Denmark": "Dinamarca",
+    "France": "Francia",
+    "Germany": "Alemania",
+    "Iran": "Corrí",
+    "Italy": "Italia",
+    "Japan": "Japón",
+    "South Korea": "Corea del Sur",
+    "NZ": "Nueva Zelanda",
+    "Norway": "Noruega",
+    "Singapore": "Singapur",
+    "Spain": "España",
+    "Sweden": "Suecia",
+    "Switzerland": "Suiza",
+    "UK": "Reino Unido",
+    "US": "NOSOTROS"
   }
 }

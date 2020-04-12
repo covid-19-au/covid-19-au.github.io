@@ -160,14 +160,14 @@ export default function OverallTrend() {
                             }
                         },
                         yAxis: [{
-                            name: i18next.t("homePage:overallTrend.yaxis1"),
+                            name: i18next.t("homePage:status.total"),
                             axisLabel: {
                                 show: true
                             },
                             type: yAxisType,
                             max: maxY
                         }, {
-                            name: i18next.t("homePage:overallTrend.yaxis2"),
+                            name: i18next.t("homePage:status.newCase"),
                             axisLabel: {
                                 show: true
                             },
@@ -206,7 +206,7 @@ export default function OverallTrend() {
                         series: [
 
                             {
-                                name: i18next.t("homePage:overallTrend.series1"),
+                                name: i18next.t("homePage:status.confirmCase"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -217,7 +217,7 @@ export default function OverallTrend() {
                                 },
                                 data: confirmedData
                             }, {
-                                name: i18next.t("homePage:overallTrend.series2"),
+                                name: i18next.t("homePage:status.Deaths"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -228,7 +228,7 @@ export default function OverallTrend() {
                                 },
                                 data: deathData
                             }, {
-                                name: i18next.t("homePage:overallTrend.series3"),
+                                name: i18next.t("homePage:status.Recoveries"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -239,7 +239,7 @@ export default function OverallTrend() {
                                 },
                                 data: recoveryData
                             }, {
-                                name: 'Active Cases',
+                                name: i18next.t("homePage:status.activeCase"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -251,7 +251,7 @@ export default function OverallTrend() {
                                 data: activeData
                             },
                             {
-                                name: i18next.t("homePage:overallTrend.series4"),
+                                name: i18next.t("homePage:status.newCase"),
                                 type: 'bar',
                                 yAxisIndex: '1',
                                 sampling: 'average',

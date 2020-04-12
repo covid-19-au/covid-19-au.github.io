@@ -266,7 +266,7 @@ function UpdatesToday() {
                         onClick={() => setUpdate(updateType)}
                         size="small"
                         key={updateType}
-                    >{updateType}</Button>
+                    >{i18next.t("homePage:status."+updateType)}</Button>
                 ))}
             </ButtonGroup>
 
@@ -277,7 +277,7 @@ function UpdatesToday() {
                         href={("./state/" + state).toLowerCase()}
                         style={stateUpdateStatus[state][currentView] ? dataStyles[currentView] : inactiveStyles}
                         key={state}
-                    >{state}</Button>
+                    >{i18next.t("homePage:state."+state)}</Button>
 
                 ))}
             </ButtonGroup>
@@ -418,7 +418,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
-                        {i18next.t("homePage:status.death")}</button>
+                        {i18next.t("homePage:status.Deaths")}</button>
 
                 </Tag>
             </div>
@@ -432,7 +432,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people that have recovered from COVID-19.</em>">
-                        {i18next.t("homePage:status.recover")}</button>
+                        {i18next.t("homePage:status.Recoveries")}</button>
 
                 </Tag>
                 <Tag
@@ -443,7 +443,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people that have been tested for COVID-19.</em>">
-                        {i18next.t("homePage:status.tested")}</button>
+                        {i18next.t("homePage:status.Tested")}</button>
 
                 </Tag>
 

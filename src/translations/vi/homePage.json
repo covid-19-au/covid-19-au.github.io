@@ -30,24 +30,28 @@
   "status": {
     "title": "Trạng thái",
     "confirm": "Đã xác nhận",
-    "death": "Tử thần",
-    "recover": "Phục hồi",
-    "tested": "Thử nghiệm",
     "hospital": "trong bệnh viện",
     "icu": "trong ICU",
     "updateTitle": "Tình trạng cập nhật hàng ngày",
-    "note": "Thời gian trong AEST, cập nhật lần cuối tại:"
+    "note": "Thời gian trong AEST, cập nhật lần cuối tại:",
+    "confirmCase": "Các trường hợp được xác nhận",
+    "activeCase": "Các trường hợp hoạt động",
+    "newCase": "Trường hợp mới",
+    "newCaseWeek": "Trường hợp mới trong tuần này",
+    "testConducted": "Các xét nghiệm tiến hành",
+    "total": "Toàn bộ",
+    "Cases": "Các trường hợp",
+    "casePM": "Trường hợp / M",
+    "Deaths": "Tử thần",
+    "Recoveries": "Phục hồi",
+    "testPM": "Xét nghiệm / M",
+    "positiveP": "Tích cực(%)",
+    "state": "Tiểu bang",
+    "Tested": "Thử nghiệm"
   },
   "caseByState": {
     "title": "Trường hợp của nhà nước",
     "buttonPrompt": "Chọn Loại bản đồ:",
-    "button1": "Các trường hợp",
-    "button2": "Trường hợp / M",
-    "button3": "Thử nghiệm",
-    "button4": "Xét nghiệm / M",
-    "button5": "Tích cực(%)",
-    "total": "Toàn bộ",
-    "state": "Tiểu bang",
     "append1": "* Hiện tại chúng tôi không có nguồn dữ liệu phù hợp cho các trường hợp được phục hồi ở NSW. Tổng dữ liệu được phục hồi dựa trên báo cáo của chính phủ.",
     "append2": "* Bấm vào",
     "append3": "tên để biết chi tiết"
@@ -61,18 +65,10 @@
     "marker": "Điểm đánh dấu:"
   },
   "overallTrend": {
-    "title": "Các trường hợp, cái chết và phục hồi",
-    "yaxis1": "Tổng cộng",
-    "yaxis2": "Trường hợp mới",
-    "series1": "Các trường hợp được xác nhận",
-    "series2": "Tử thần",
-    "series3": "Phục hồi",
-    "series4": "Trường hợp mới"
+    "title": "Các trường hợp, cái chết và phục hồi"
   },
   "stateComparisons": {
-    "title": "So sánh nhà nước",
-    "yaxislegend1": "Các xét nghiệm tiến hành",
-    "yaxislegend2": "Các trường hợp được xác nhận"
+    "title": "So sánh nhà nước"
   },
   "chartCommon": {
     "clickLegend": "* Nhấp vào chú thích để thêm / xóa biểu đồ",
@@ -83,8 +79,6 @@
     "title": "So sánh toàn cầu",
     "selectAll": "Chọn tất cả",
     "selectNo": "Chọn Không có",
-    "yaxis": "Trường hợp mới trong tuần này",
-    "xaxis": "Toàn bộ",
     "updateNotice": "Cập nhật lần cuối vào:",
     "append0": "* Mỗi điểm dữ liệu trên trục Y là tổng số trường hợp được xác nhận mới trong 7 ngày qua.",
     "append1": "*Hay xem nay",
@@ -111,5 +105,25 @@
     "TAS": "TAS",
     "ACT": "HÀNH ĐỘNG",
     "NT": "NT"
+  },
+  "country": {
+    "AU": "À",
+    "Canada": "Canada",
+    "China": "Trung Quốc",
+    "Denmark": "Đan mạch",
+    "France": "Pháp",
+    "Germany": "nước Đức",
+    "Iran": "Iran",
+    "Italy": "Nước Ý",
+    "Japan": "Nhật Bản",
+    "South Korea": "Nam Triều Tiên",
+    "NZ": "New Zealand",
+    "Norway": "Na Uy",
+    "Singapore": "Singapore",
+    "Spain": "Tây Ban Nha",
+    "Sweden": "Thụy Điển",
+    "Switzerland": "Thụy sĩ",
+    "UK": "Anh",
+    "US": "CHÚNG TA"
   }
 }

@@ -30,24 +30,28 @@
   "status": {
     "title": "狀態",
     "confirm": "已確認",
-    "death": "死亡人數",
-    "recover": "已恢復",
-    "tested": "經過測試",
     "hospital": "在醫院",
     "icu": "在ICU中",
     "updateTitle": "每日更新狀態",
-    "note": "AEST時間，最近更新時間："
+    "note": "AEST時間，最近更新時間：",
+    "confirmCase": "確診病例",
+    "activeCase": "活躍案例",
+    "newCase": "新案件",
+    "newCaseWeek": "本週新案件",
+    "testConducted": "進行測試",
+    "total": "總",
+    "Cases": "案例",
+    "casePM": "箱/ M",
+    "Deaths": "死亡人數",
+    "Recoveries": "已恢復",
+    "testPM": "測試/ M",
+    "positiveP": "正（％）",
+    "state": "州",
+    "Tested": "經過測試"
   },
   "caseByState": {
     "title": "國家案例",
     "buttonPrompt": "選擇地圖類型：",
-    "button1": "案例",
-    "button2": "箱/ M",
-    "button3": "經過測試",
-    "button4": "測試/ M",
-    "button5": "正（％）",
-    "total": "總",
-    "state": "州",
     "append1": "*我們目前在新南威爾士州沒有統一的數據來源。回收的總數據基於gov報告。",
     "append2": "*點擊",
     "append3": "詳細名稱"
@@ -61,18 +65,10 @@
     "marker": "標記："
   },
   "overallTrend": {
-    "title": "病例，死亡和恢復",
-    "yaxis1": "合計",
-    "yaxis2": "新案件",
-    "series1": "確診病例",
-    "series2": "死亡人數",
-    "series3": "回收率",
-    "series4": "新案件"
+    "title": "病例，死亡和恢復"
   },
   "stateComparisons": {
-    "title": "狀態比較",
-    "yaxislegend1": "進行測試",
-    "yaxislegend2": "確診病例"
+    "title": "狀態比較"
   },
   "chartCommon": {
     "clickLegend": "*單擊圖例以添加/刪除圖形",
@@ -83,8 +79,6 @@
     "title": "全局比較",
     "selectAll": "全選",
     "selectNo": "選擇無",
-    "yaxis": "本週新案件",
-    "xaxis": "總",
     "updateNotice": "上次更新時間：",
     "append0": "* Y軸上的每個數據點都是過去7天內新確診病例的總數。",
     "append1": "*看這個",
@@ -111,5 +105,25 @@
     "TAS": "塔斯社",
     "ACT": "法案",
     "NT": "新台幣"
+  },
+  "country": {
+    "AU": "非盟",
+    "Canada": "加拿大",
+    "China": "中國",
+    "Denmark": "丹麥",
+    "France": "法國",
+    "Germany": "德國",
+    "Iran": "伊朗",
+    "Italy": "意大利",
+    "Japan": "日本",
+    "South Korea": "南韓",
+    "NZ": "紐西蘭",
+    "Norway": "挪威",
+    "Singapore": "新加坡",
+    "Spain": "西班牙",
+    "Sweden": "瑞典",
+    "Switzerland": "瑞士",
+    "UK": "英國",
+    "US": "我們"
   }
 }
