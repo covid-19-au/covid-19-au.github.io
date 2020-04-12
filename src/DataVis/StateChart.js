@@ -14,8 +14,8 @@ const colorMapping = {
   Death: "#c11700",
   Recovered: "#00c177",
   Tested: "#007cf2",
-  "In Hospital": "#9d71ea",
-  ICU: "#00aac1",
+  "in Hospital": "#9d71ea",
+  "in ICU": "#00aac1",
 };
 
 const genderColorMapping = {
@@ -280,8 +280,8 @@ function setGeneralBarOption(state) {
     "Death",
     "Recovered",
     "Tested",
-    "In Hospital",
-    "ICU",
+    "in Hospital",
+    "in ICU",
   ];
   let generalLabel = ["General Information"];
   let generalBarSeries = new Series();
@@ -333,8 +333,8 @@ function setGeneralLineOption(state, logScale) {
     "Death",
     "Recovered",
     "Tested",
-    "In Hospital",
-    "ICU",
+    "in Hospital",
+    "in ICU",
   ];
   const dates = getAllDate();
   const generalData = getStateGeneralData(dates, state);
@@ -509,7 +509,7 @@ function renderStatus(state) {
             data-html="true"
             title="<em>Number of people in hospital with COVID-19.</em>"
           >
-            In Hospital
+            in Hospital
           </button>
         </Tag>
         <Tag
@@ -525,7 +525,7 @@ function renderStatus(state) {
             data-html="true"
             title="<em>Number of people with COVID-19 in intensive care.</em>"
           >
-            ICU
+            in ICU
           </button>
         </Tag>
       </div>
