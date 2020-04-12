@@ -1,0 +1,645 @@
+{
+  "generalCovidInfo": [
+    {
+      "name": "Vi rút coronavirus là gì?",
+      "text": {
+        "text_1": [
+          "Virus corona là một nhóm vi-rút có thể ảnh hưởng đến người và động vật. Ở người, coronavirus có thể gây bệnh nhẹ, chẳng hạn như nhiễm trùng cảm lạnh và đường tiêu hóa thông thường, cũng như bệnh nặng hơn, như do SARS (Hội chứng hô hấp cấp tính nặng) và MERS (Hội chứng hô hấp Trung Đông)."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế NSW",
+            "link": "https://www.health.nsw.gov.au/Ininfious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "COVID-19 là gì?",
+      "text": {
+        "text_1": [
+          "Hiện tại có một đợt bùng phát của một căn bệnh gọi là ‘COVID-19, gây ra bởi một chủng coronavirus mới. COVID-19 gây ra một phổ bệnh, từ nhẹ đến rất nặng. Vụ dịch đầu tiên được xác định ở Vũ Hán, tỉnh Hồ Bắc, Trung Quốc và đã lan sang nhiều quốc gia khác. Virus có thể lây từ người sang người, vì vậy vệ sinh tốt là rất quan trọng trong việc làm chậm sự lây lan của nhiễm trùng."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế NSW",
+            "link": "https://www.health.nsw.gov.au/Ininfious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Các triệu chứng của COVID-19 là gì?",
+      "text": {
+        "text_1": [
+          "Các triệu chứng chính của COVID-19 là:"
+        ],
+        "ulist_1": [
+          "sốt",
+          "ho",
+          "khó thở",
+          "đau họng"
+        ],
+        "text_2": [
+          "Ước tính hiện tại về thời gian cần thiết để các triệu chứng phát triển sau khi tiếp xúc với vi-rút gây ra COVID-19 trong khoảng từ 2-14 ngày.",
+          "Trong trường hợp nghiêm trọng hơn, COVID-19 cũng có thể dẫn đến viêm phổi. Ước tính hiện tại về thời gian cần thiết để các triệu chứng phát triển sau khi tiếp xúc với vi-rút gây ra COVID-19 trong khoảng từ 2-14 ngày."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế NSW",
+            "link": "https://www.health.nsw.gov.au/Ininfious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "COVID-19 lây lan như thế nào?",
+      "text": {
+        "text_1": [
+          "Mọi người có thể bắt COVID-19 từ những người khác có virus. Bệnh có thể lây từ người sang người qua những giọt nhỏ từ mũi hoặc miệng lây lan khi người bị COVID-19 ho hoặc thở ra. Những giọt này rơi xuống các vật thể và bề mặt xung quanh người. Những người khác sau đó bắt COVID-19 bằng cách chạm vào những vật thể hoặc bề mặt này, sau đó chạm vào mắt, mũi hoặc miệng của họ. Mọi người cũng có thể bắt gặp COVID-19 nếu họ hít vào những giọt nước từ người bị COVID-19 ho ra hoặc thở ra những giọt nước."
+        ],
+        "citation": [
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Có cách chữa trị hay vắc-xin không?",
+      "text": {
+        "text_1": [
+          "Hiện tại không có vắc-xin hoặc điều trị cụ thể bảo vệ chống lại COVID-19.",
+          "Chẩn đoán sớm và chăm sóc hỗ trợ chung là rất quan trọng. Hầu hết thời gian, các triệu chứng sẽ tự giải quyết. Những người mắc bệnh nghiêm trọng với các biến chứng có thể được chăm sóc tại bệnh viện."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế NSW",
+            "link": "https://www.health.nsw.gov.au/Ininfious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ai có nguy cơ mắc COVID-19 cao nhất?",
+      "text": {
+        "text_1": [
+          "Ở Úc, những người có nguy cơ nhiễm virut cao nhất là những người có:"
+        ],
+        "ulist_1": [
+          "Gần đây ở một quốc gia hoặc khu vực có nguy cơ cao (Trung Quốc đại lục, Iran, Ý hoặc Hàn Quốc)",
+          "Đã tiếp xúc gần gũi với người có trường hợp được xác nhận là COVID-19"
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế NSW",
+            "link": "https://www.health.nsw.gov.au/Ininfious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ai có nguy cơ bị nhiễm trùng nghiêm trọng nhất?",
+      "text": {
+        "text_1": [
+          "Dựa trên những gì chúng ta biết về coronavirus, những người có nguy cơ nhiễm trùng nghiêm trọng nhất là:"
+        ],
+        "ulist_1": [
+          "Những người có hệ thống miễn dịch bị tổn thương (như những người bị ung thư)",
+          "Người cao tuổi",
+          "Thổ dân và dân đảo Torres St Eo (vì họ có tỷ lệ mắc bệnh mãn tính cao hơn)",
+          "Người mắc bệnh mãn tính",
+          "Những người ở trong khu dân cư",
+          "Người trong trại giam"
+        ],
+        "text_2": [
+          "Điều quan trọng là tất cả các cá nhân phải thực hành vệ sinh tốt và thực hiện xa cách xã hội để giảm khả năng bệnh lây lan sang các bộ phận dễ bị tổn thương hơn trong dân số."
+        ],
+        "citation": [
+          {
+            "name": "Bảo vệ chính bạn và những người khác - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/news/health-alerts/nigs-coronavirus-2019-ncov-health-alert/what-you-need-to-ledge-about-coronavirus-covid-19#protect- chính mình và người khác"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Tôi có nên mua số lượng lớn để chuẩn bị?",
+      "text": {
+        "text_1": [
+          "Không cần phải mua số lượng lớn sản phẩm tại các siêu thị bao gồm giấy vệ sinh, paracetamol và thực phẩm đóng hộp.",
+          "Các hộ gia đình nên có một lượng nhỏ các cửa hàng tạp hóa không dễ hỏng để trang trải cho sự kiện rằng trong những tháng tới, hộ gia đình đã được yêu cầu tự cách ly trong 14 ngày."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế NSW",
+            "link": "https://www.health.nsw.gov.au/Ininfious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Những gì tôi không nên làm?",
+      "text": {
+        "text_1": [
+          "Các biện pháp sau đây không hiệu quả đối với COVID-19:"
+        ],
+        "ulist_1": [
+          "Hút thuốc",
+          "Đeo nhiều mặt nạ",
+          "Dùng kháng sinh"
+        ],
+        "text_2": [
+          "Thông tin thêm về huyền thoại coronavirus có thể được tìm thấy trong trang web dưới đây."
+        ],
+        "citation": [
+          {
+            "name": "Lời khuyên về bệnh coronavirus (COVID-19) cho cộng đồng: Những kẻ bán thân hoang đường - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/emergencies/disease/nigs-coronavirus-2019/advice-for-public/myth-buster"
+          }
+        ]
+      }
+    }
+  ],
+  "haveCovid": [
+    {
+      "name": "Tôi nên làm gì?",
+      "text": {
+        "text_1": [
+          "Nếu gần đây bạn đã đi du lịch nước ngoài hoặc có liên hệ với một trường hợp được xác nhận là COVID-19, bạn nên theo dõi chặt chẽ các triệu chứng trong 14 ngày rời khỏi nước ngoài hoặc sau lần tiếp xúc cuối cùng với người có COVID-19.",
+          "Nếu bạn ở trong khoảng thời gian 14 ngày đó và lo ngại rằng bạn có thể có các triệu chứng, điều quan trọng là bạn phải thực hiện các bước để giảm nguy cơ lây truyền và sắp xếp để được kiểm tra nếu cần."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế NSW",
+            "link": "https://www.health.nsw.gov.au/Ininfious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Làm cách nào để tìm kiếm sự chăm sóc y tế cho COVID-19?",
+      "text": {
+        "text_1": [
+          "Nếu gần đây bạn đã đi du lịch nước ngoài hoặc có liên hệ với một trường hợp được xác nhận là COVID-19, bạn nên theo dõi chặt chẽ các triệu chứng trong 14 ngày rời khỏi nước ngoài hoặc sau lần tiếp xúc cuối cùng với người có COVID-19.",
+          "Nếu bạn ở trong khoảng thời gian 14 ngày đó và lo ngại rằng bạn có thể có các triệu chứng, điều quan trọng là bạn phải thực hiện các bước để giảm nguy cơ lây truyền và sắp xếp để được kiểm tra nếu cần. Thực hiện các bước sau:"
+        ],
+        "ulist_1": [
+          "Hạn chế tiếp xúc với người khác bằng cách tự cách ly tại nhà (nếu bạn chưa được cách ly tại nhà).",
+          "Gọi cho bác sĩ gia đình của bạn và cho họ biết bạn đang lo lắng rằng bạn có thể có COVID-19. Gọi trước sẽ cho phép bác sĩ của bạn cung cấp lời khuyên và kế hoạch cho chuyến thăm của bạn. Bạn không nên truy cập GP của bạn mà không gọi trước. Việc kiểm tra sẽ được sắp xếp bởi bác sĩ gia đình của bạn nếu họ xác định là cần thiết.",
+          "Nếu bạn có thể gặp bác sĩ gia đình, bạn có thể đến Phòng khám Đánh giá Hô hấp. Nhân viên tại các phòng khám này sẽ đánh giá nguy cơ COVID-19 của bạn và kiểm tra bạn nếu cần. Bạn không cần phải gọi trước.",
+          "Khi đi đến GP hoặc Phòng khám Đánh giá Hô hấp, không tham dự bất kỳ địa điểm nào, chẳng hạn như cửa hàng hoặc quán cà phê / nhà hàng, trên đường đi. Nếu có thể, bạn nên đi du lịch bằng phương thức vận tải riêng, chẳng hạn như ô tô riêng, để giảm thiểu tiếp xúc với người khác.",
+          "Tuy nhiên, nếu sử dụng phương tiện giao thông công cộng là lựa chọn duy nhất của bạn, bạn nên đeo khẩu trang, tránh tiếp xúc trực tiếp với người khác (bao gồm cả hành khách, tài xế và nhân viên vận chuyển khác), ho / hắt hơi vào khuỷu tay và rửa tay trước và sau khi bạn đi du lịch .",
+          "Bạn không cần phải đến Khoa Cấp cứu trừ khi bạn có các triệu chứng nghiêm trọng, chẳng hạn như khó thở, đau ngực hoặc sốt rất cao."
+        ],
+        "citation": [
+          {
+            "name": "Bảo vệ chính bạn và những người khác - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/news/health-alerts/nigs-coronavirus-2019-ncov-health-alert/what-you-need-to-ledge-about-coronavirus-covid-19#protect- chính mình và người khác"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Tôi có nên được xét nghiệm COVID-19 không?",
+      "text": {
+        "text_1": [
+          "Bác sĩ sẽ cho bạn biết nếu bạn nên được kiểm tra, và họ sẽ sắp xếp để kiểm tra",
+          "Bạn sẽ chỉ được kiểm tra nếu bác sĩ quyết định bạn đáp ứng các tiêu chí:"
+        ],
+        "ulist_1": [
+          "Bạn đã trở về từ nước ngoài hoặc dành thời gian trên tàu du lịch trong 14 ngày qua và bạn bị bệnh hô hấp có hoặc không bị sốt",
+          "Bạn đã tiếp xúc gần gũi với trường hợp COVID-19 được xác nhận trong 14 ngày qua và bạn bị bệnh hô hấp có hoặc không có sốt",
+          "Bạn bị viêm phổi mắc phải cộng đồng nghiêm trọng và không có nguyên nhân rõ ràng (bao gồm cả những bệnh nhân đã nhập viện vì tình trạng này)",
+          "Bạn bị sốt hoặc nhiễm trùng đường hô hấp cấp tính và bạn làm việc trong lĩnh vực chăm sóc sức khỏe hoặc chăm sóc người già / dân cư, hoặc bạn đã dành thời gian ở một địa điểm được xác định bởi một tiểu bang hoặc vùng lãnh thổ có nguy cơ lây truyền cộng đồng cao hoặc bạn đã dành thời gian tại một địa điểm \"nguy cơ cao\" nơi có hai hoặc nhiều trường hợp liên kết của COVID-19, như nhà chăm sóc người già, cộng đồng thổ dân ở xa, cơ sở cải huấn, trường nội trú hoặc căn cứ quân sự (bao gồm cả tàu Hải quân ) với chỗ ở trong."
+        ],
+        "text_2": [
+          "Nếu bạn đáp ứng bất kỳ tiêu chí nào trong số này, bác sĩ có thể yêu cầu bạn được xét nghiệm COVID-19. Điều quan trọng cần nhớ là nhiều người có triệu chứng tương tự COVID-19 sẽ không có vi-rút. Chỉ những trường hợp nghi ngờ mới được thử nghiệm để đảm bảo phòng thí nghiệm của chúng tôi có thể đáp ứng nhu cầu. Không cần phải kiểm tra những người cảm thấy tốt và không đáp ứng các tiêu chí trên.",
+          "Có một sự thiếu hụt toàn cầu của bộ dụng cụ thử nghiệm, vì vậy đó là lý do tại sao thử nghiệm được nhắm mục tiêu chứ không phải là phổ biến.",
+          "Có thể mất vài ngày để bạn có được kết quả kiểm tra của mình. Trong thời gian này, nếu bạn có các triệu chứng nghiêm trọng, bạn sẽ được giữ trong bệnh viện và cách ly với các bệnh nhân khác để giữ an toàn cho họ. Nếu bác sĩ của bạn nói rằng bạn đủ khỏe để về nhà, bạn nên tự cô lập ở nhà và thực hiện các biện pháp để bảo vệ bản thân và những người khác.",
+          "Chính phủ cũng đã quyết định cho phép các tiểu bang và vùng lãnh thổ mở rộng các tiêu chí thử nghiệm của họ theo yêu cầu. Vui lòng đảm bảo bạn kiểm tra tài nguyên của bộ y tế tiểu bang của bạn."
+        ],
+        "citation": [
+          {
+            "name": "Cách nhận xét nghiệm coronavirus: ai đủ điều kiện, bao nhiêu đã được thực hiện và chúng được thực hiện như thế nào - ABC News",
+            "link": "https://www.abc.net.au/news/2020-03-27/coronavirus-covid-19-testing-criteria-eliteria/12097990"
+          },
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế NSW",
+            "link": "https://www.health.nsw.gov.au/Ininfious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Không cô lập trong nhà của bạn có nghĩa là gì?",
+      "text": {
+        "text_1": [
+          "Nếu bạn đã được chẩn đoán mắc COVID-19, bạn phải ở nhà để ngăn chặn nó lây lan sang người khác. Bạn cũng có thể được yêu cầu ở nhà nếu bạn có thể đã tiếp xúc với vi-rút.",
+          "Ở nhà có nghĩa là bạn:"
+        ],
+        "ulist_1": [
+          "Không đến những nơi công cộng như nơi làm việc, trường học, trung tâm mua sắm, chăm sóc trẻ em hoặc trường đại học",
+          "Yêu cầu ai đó lấy thức ăn và các nhu yếu phẩm khác cho bạn và để chúng ở cửa trước của bạn",
+          "Không cho khách vào - chỉ những người thường sống với bạn nên ở trong nhà bạn"
+        ],
+        "text_2": [
+          "Bạn không cần phải đeo mặt nạ trong nhà của bạn. Nếu bạn cần ra ngoài để tìm kiếm sự chăm sóc y tế, hãy đeo mặt nạ phẫu thuật (nếu bạn có) để bảo vệ người khác.",
+          "Tất cả những người đến Úc từ nửa đêm ngày 15 tháng 3 năm 2020, hoặc nghĩ rằng họ có thể đã tiếp xúc gần gũi với một trường hợp xác nhận nhiễm coronavirus, được yêu cầu tự cách ly trong 14 ngày.",
+          "Tham khảo các nguồn dưới đây để biết thêm thông tin."
+        ],
+        "citation": [
+          {
+            "name": "Hướng dẫn cách ly tại nhà khi không khỏe (trường hợp nghi ngờ hoặc được xác nhận) - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-inif-about-home-isolation-when-unwell-suspected-or-confirmed-case. pdf"
+          },
+          {
+            "name": "Hướng dẫn cách ly - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-isolation-guidance_7.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ai cần cách ly?",
+      "text": {
+        "text_1": [
+          "Tất cả những người đến Úc từ nửa đêm ngày 15 tháng 3 năm 2020, hoặc nghĩ rằng họ có thể đã tiếp xúc gần gũi với một trường hợp xác nhận nhiễm coronavirus, được yêu cầu tự cách ly trong 14 ngày.",
+          "Theo khóa hiện tại, chính phủ cũng yêu cầu những người không được xác nhận hoặc nghi ngờ các trường hợp COVID-19 không được rời khỏi nhà trừ khi họ cần đến cửa hàng tạp hóa, tập thể dục, nhu cầu y tế, chăm sóc hoặc hỗ trợ hoặc làm việc không thể ở nhà."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.pm.gov.au/media/update-coronavirus-measure-24-March-2020"
+          }
+        ]
+      }
+    }
+  ],
+  "protect": [
+    {
+      "name": "Làm thế nào tôi có thể bảo vệ bản thân và những người khác?",
+      "text": {
+        "text_1": [
+          "Cách tốt nhất để bảo vệ bạn khỏi COVID-19 cũng giống như cách bạn bảo vệ bản thân khỏi bị cúm hoặc các bệnh về đường hô hấp khác:"
+        ],
+        "ulist_1": [
+          "Làm sạch tay trong ít nhất 20 giây bằng xà phòng và nước, hoặc sử dụng chất khử trùng có cồn với ít nhất 60% cồn. [Tham khảo hình ảnh ở đầu trang]",
+          "Che hắt hơi hoặc ho bằng khuỷu tay hoặc bằng khăn giấy.",
+          "Vứt bỏ khăn giấy đúng cách",
+          "Tránh chạm vào mắt, mũi và miệng của bạn.",
+          "Làm sạch và khử trùng bề mặt và các vật thường xuyên sử dụng như điện thoại, ví và chìa khóa thường xuyên",
+          "Tránh tiếp xúc gần với những người bị bệnh.",
+          "Ở nhà nếu bạn bị bệnh.",
+          "Tránh du lịch không cần thiết",
+          "Đeo khẩu trang phẫu thuật nếu bạn bị ho hoặc hắt hơi. Lưu ý có rất ít bằng chứng cho thấy rằng sử dụng rộng rãi mặt nạ phẫu thuật ở người khỏe mạnh ngăn ngừa lây truyền ở nơi công cộng.",
+          "Hãy tiêm phòng cúm khi có sẵn. Bị cúm và COVID-19 cùng một lúc có thể khiến bạn bị bệnh nặng.",
+          "Thực hành cách xa xã hội",
+          "Tuân thủ tất cả các quy định và khuyến nghị khóa của chính phủ"
+        ],
+        "citation": [
+          {
+            "name": "Bảo vệ chính bạn và những người khác - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/news/health-alerts/nigs-coronavirus-2019-ncov-health-alert/what-you-need-to-ledge-about-coronavirus-covid-19#protect- chính mình và người khác"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Xa cách xã hội là gì?",
+      "text": {
+        "text_1": [
+          "Xa cách xã hội là một cách giúp làm chậm sự lây lan của vi-rút như COVID-19. Xa cách xã hội bao gồm ở nhà khi bạn không khỏe, tránh các cuộc tụ họp công cộng lớn nếu không cần thiết, giữ khoảng cách 1,5 mét giữa bạn và người khác bất cứ khi nào có thể và giảm thiểu tiếp xúc thân thể như bắt tay, đặc biệt là với những người có nguy cơ cao hơn phát triển các triệu chứng nghiêm trọng, chẳng hạn như người già và người có tình trạng sức khỏe hiện có."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Câu hỏi thường gặp - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-frequently-asked-questions_5.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Lý thuyết đằng sau sự xa cách xã hội là gì?",
+      "text": {
+        "text_1": [
+          "Sự đồng thuận khoa học hiện nay là virus này có thể lây lan trong vòng 2 mét (6 feet) nếu có người ho. Nếu không, những giọt nước rơi xuống đất và không thể lây nhiễm cho bạn.",
+          "Nhiễm trùng tồi tệ nhất sau đó trở thành qua các bề mặt: Virus tồn tại đến 9 ngày trên các bề mặt khác nhau như kim loại, gốm sứ và nhựa. Điều đó có nghĩa là những thứ như tay nắm cửa, bàn hoặc nút thang máy có thể là những vectơ lây nhiễm khủng khiếp.",
+          "Cách duy nhất để thực sự giảm điều đó là với sự xa cách xã hội: Giữ mọi người ở nhà càng nhiều càng tốt, càng lâu càng tốt cho đến khi điều này thoái trào."
+        ],
+        "citation": [
+          {
+            "name": "Coronavirus: Tại sao bạn phải hành động ngay - Tomas Pueyo",
+            "link": "https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Điều đó có nghĩa là gì khi mọi người nói, làm phẳng đường cong và ‘nâng cao đường thẳng và cách xa xã hội giúp đỡ như thế nào?",
+      "image_1": [
+        "https://i2.wp.com/flowingdata.com/wp-content/uploads/2020/03/flatten-the-curve-smaller.gif?fit=670%2C565&ssl=1"
+      ],
+      "video_1": [
+        {
+          "link": "https://www.youtube.com/watch?v=D7uQwQTRDew",
+          "desc": "Đánh bại coronavirus, làm phẳng đường cong, nâng cao đường"
+        }
+      ],
+      "text": {
+        "text_1": [
+          "Sau khi làm phẳng đường cong, thì đề cập đến việc giảm sự lây lan của virus để đảm bảo hệ thống y tế không bị quá tải. Nâng cao dòng, nâng cao đề cập đến việc tăng năng lực của hệ thống y tế. Điều bắt buộc là tất cả mọi người phải làm một phần của mình để làm phẳng đường cong và nâng cao đường lối thông qua xã hội và thực hành vệ sinh tốt, để giảm tác động của đại dịch.",
+          "Thông tin bổ sung về việc san phẳng đường cong, có thể tìm thấy đường dây và nâng cao đường dây, trong các tài nguyên dưới đây."
+        ],
+        "citation": [
+          {
+            "name": "Coronavirus: Búa và khiêu vũ - Tomas Pueyo",
+            "link": "https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56"
+          },
+          {
+            "name": "Coronavirus: Tại sao bạn phải hành động ngay - Tomas Pueyo",
+            "link": "https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Làm thế nào để tôi thực hành xa xã hội ở nơi công cộng?",
+      "text": {
+        "text_1": [
+          "Xa cách xã hội ở nơi công cộng có nghĩa là mọi người:"
+        ],
+        "ulist_1": [
+          "Ở nhà trừ khi thật cần thiết",
+          "Tránh xa người khác 1,5 mét",
+          "Tránh những lời chào thể xác như bắt tay, ôm và hôn",
+          "Sử dụng vòi và thanh toán thay vì tiền mặt",
+          "Du lịch vào thời gian yên tĩnh và tránh đám đông",
+          "Tránh các cuộc tụ họp công cộng và các nhóm nguy cơ",
+          "Thực hành vệ sinh tốt"
+        ],
+        "citation": [
+          {
+            "name": "Hướng dẫn cách xa xã hội - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-inif-on-social-distANCE_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Làm thế nào để tôi thực hành xa xã hội ở nhà?",
+      "text": {
+        "text_1": [
+          "Để giảm sự lây lan của vi trùng:"
+        ],
+        "ulist_1": [
+          "Ở nhà trừ khi đi ra ngoài là hoàn toàn cần thiết",
+          "Giữ khách truy cập ở mức tối thiểu",
+          "Giảm lượt truy cập vào các cửa hàng - thay vào đó, hãy mua thêm hàng hóa và dịch vụ trực tuyến nếu bạn có thể nhận, đặt hàng trước hoặc giao hàng",
+          "Xem xét cẩn thận những gì đi du lịch và đi chơi là cần thiết, cả cá nhân và gia đình",
+          "Thường xuyên khử trùng các bề mặt bị chạm nhiều, như bàn, ghế nhà bếp và tay nắm cửa",
+          "Tăng thông gió trong nhà bằng cách mở cửa sổ hoặc điều chỉnh điều hòa"
+        ],
+        "citation": [
+          {
+            "name": "Hướng dẫn cách xa xã hội - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-inif-on-social-distANCE_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Nếu những người trong gia đình tôi bị bệnh thì sao?",
+      "text": {
+        "text_1": [
+          "Các hộ gia đình có người bị bệnh (nghĩa là bị bệnh hô hấp hoặc sốt không được chẩn đoán), ngoài các biện pháp trên, nên:"
+        ],
+        "ulist_1": [
+          "Chăm sóc người bệnh trong một phòng đơn nếu có thể",
+          "Giữ số lượng người chăm sóc ở mức tối thiểu",
+          "Giữ cửa phòng người bệnh đóng cửa và nếu có thể, cửa sổ sẽ mở",
+          "Đeo khẩu trang phẫu thuật khi bạn ở cùng phòng với người bệnh. Người bệnh cũng nên đeo khẩu trang",
+          "Bảo vệ các thành viên gia đình dễ bị tổn thương khác bằng cách giữ họ tránh xa người bệnh. Những người có nguy cơ bao gồm những người trên 65 tuổi hoặc những người mắc bệnh mãn tính. Nếu có thể, hãy tìm chúng ở một nơi khác để sống trong khi thành viên gia đình bị ốm."
+        ],
+        "citation": [
+          {
+            "name": "Hướng dẫn cách xa xã hội - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-inif-on-social-distANCE_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Làm thế nào để tôi thực hành xa xã hội trong công việc?",
+      "text": {
+        "text_1": [
+          "Để giảm sự lây lan của vi trùng tại nơi làm việc:"
+        ],
+        "ulist_1": [
+          "Ở nhà trừ khi thật cần thiết",
+          "Dừng bắt tay như một lời chào",
+          "Tổ chức các cuộc họp thông qua hội nghị video hoặc cuộc gọi điện thoại",
+          "Trì hoãn các cuộc họp lớn",
+          "Tổ chức các cuộc họp thiết yếu ngoài trời nếu có thể",
+          "Thúc đẩy vệ sinh tay và hắt hơi / ho tốt và cung cấp thuốc khử trùng tay cho tất cả nhân viên và công nhân",
+          "Ăn trưa tại bàn của bạn hoặc bên ngoài chứ không phải trong phòng ăn trưa",
+          "Thường xuyên làm sạch và khử trùng bề mặt mà nhiều người chạm vào",
+          "Mở cửa sổ hoặc điều chỉnh điều hòa để thông gió hơn",
+          "Hạn chế xử lý thực phẩm và chia sẻ thực phẩm tại nơi làm việc",
+          "Tránh du lịch không cần thiết",
+          "Thúc đẩy vệ sinh nghiêm ngặt giữa các nhân viên chuẩn bị thực phẩm (căng tin) và liên hệ chặt chẽ của họ",
+          "Xem xét nếu bạn có thể lên lịch lại, sắp xếp lại hoặc hủy các cuộc họp không cần thiết"
+        ],
+        "citation": [
+          {
+            "name": "Hướng dẫn cách xa xã hội - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-inif-on-social-distANCE_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Làm thế nào con tôi có thể thực hành xa xã hội trong trường học?",
+      "text": {
+        "text_1": [
+          "Để giảm sự lây lan của vi trùng trong các trường học:"
+        ],
+        "ulist_1": [
+          "Rửa tay bằng xà phòng và nước hoặc sử dụng thuốc khử trùng tay khi đến trường và đều đặn",
+          "Dừng các hoạt động dẫn đến trộn lẫn giữa các lớp và năm",
+          "Tránh xếp hàng",
+          "Hủy bỏ hội đồng trường học",
+          "Có lịch rửa tay thường xuyên",
+          "Thường xuyên làm sạch và khử trùng bề mặt mà nhiều người chạm vào",
+          "Thực hiện các bài học ngoài trời nếu có thể",
+          "Xem xét mở cửa sổ và điều chỉnh điều hòa để thông gió hơn",
+          "Thúc đẩy vệ sinh nghiêm ngặt nhất trong số các nhân viên chuẩn bị thực phẩm (căng tin) và liên hệ chặt chẽ của họ"
+        ],
+        "text_2": [
+          "Nếu con bạn bị ốm, chúng không được đến trường hoặc chăm sóc trẻ. Bạn phải giữ chúng ở nhà và tránh xa những người khác."
+        ],
+        "citation": [
+          {
+            "name": "Hướng dẫn cách xa xã hội - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-inif-on-social-distANCE_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Tôi có thể làm gì khác để giúp giảm sự lây lan?",
+      "text": {
+        "text_1": [
+          "Để giúp giảm sự lây lan của coronavirus, WHO cũng khuyến nghị:"
+        ],
+        "ulist_1": [
+          "Rửa tay thường xuyên bằng xà phòng và nước hoặc chà tay bằng cồn",
+          "Tránh chạm vào mắt, mũi và miệng",
+          "Che miệng và mũi bằng khuỷu tay uốn cong hoặc khăn giấy khi bạn ho hoặc hắt hơi",
+          "Ở nhà nếu bạn cảm thấy ốm",
+          "Nếu bạn bị sốt, ho hoặc khó thở, hãy đi khám sớm - hãy nhớ gọi điện trước và làm theo chỉ dẫn của cơ quan y tế địa phương",
+          "Được thông báo và làm theo lời khuyên được cung cấp bởi nhà cung cấp chăm sóc sức khỏe của bạn"
+        ],
+        "citation": [
+          {
+            "name": "Hỏi và đáp về coronaviruses (COVID-19) - Tổ chức Y tế Thế giới",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    }
+  ],
+  "regulations": [
+    {
+      "name": "Các giới hạn hiện tại của chính phủ đối với các cuộc tụ họp trong nhà và ngoài trời là gì?",
+      "text": {
+        "text_1": [
+          "Kể từ ngày 30 tháng 3, cả hai cuộc tụ họp trong nhà và ngoài trời chỉ giới hạn ở hai người. Các ngoại lệ cho giới hạn này bao gồm:"
+        ],
+        "ulist_1": [
+          "Những người trong cùng một gia đình đi chơi cùng nhau",
+          "Đám cưới được giới hạn không quá năm người, bao gồm cả cặp vợ chồng, người sống và người làm chứng. Quy tắc 4 mét vuông và khoảng cách xã hội phải được quan sát.",
+          "Tang lễ phải giới hạn không quá 10 người. Quy tắc 4 mét vuông và khoảng cách xã hội phải được quan sát.",
+          "Đơn vị gia đình"
+        ],
+        "text_middle": [
+          "Bạn nên ở nhà ngoại trừ:"
+        ],
+        "olist_1": [
+          "Mua sắm những gì bạn cần - thực phẩm và nhu yếu phẩm cần thiết",
+          "Nhu cầu chăm sóc y tế hoặc chăm sóc sức khỏe, bao gồm các yêu cầu từ bi",
+          "Thực hiện tuân thủ các yêu cầu thu thập công cộng",
+          "Làm việc và học tập nếu bạn có thể làm việc hoặc học từ xa"
+        ],
+        "citation": [
+          {
+            "name": "Giới hạn đối với các cuộc tụ họp công cộng đối với coronavirus (COVID-19) - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/news/health-alerts/nigs-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/ giới hạn đối với công chúng-tập hợp-cho-coronavirus-covid-19"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Các giới hạn hiện tại của chính phủ đối với các cơ sở công cộng và doanh nghiệp là gì?",
+      "text": {
+        "text_1": [
+          "Các cơ sở sau đây đã bị hạn chế mở cửa kể từ ngày 30 tháng 3:"
+        ],
+        "ulist_1": [
+          "Quán rượu, câu lạc bộ đã đăng ký và được cấp phép (không bao gồm các cửa hàng chai gắn liền với các địa điểm này), khách sạn (không bao gồm chỗ ở)",
+          "Phòng tập thể dục và địa điểm thể thao trong nhà",
+          "Rạp chiếu phim, địa điểm giải trí, sòng bạc và câu lạc bộ đêm",
+          "Các nhà hàng và quán cà phê sẽ bị hạn chế mang đi và / hoặc giao hàng tận nhà",
+          "Các cuộc tụ họp tôn giáo, nơi thờ cúng hoặc đám tang (trong không gian kín và ngoài các nhóm rất nhỏ và áp dụng quy tắc 1 người trên 4 mét vuông)",
+          "Tòa án thực phẩm (trừ khi mang đi)",
+          "Nhà đấu giá, đấu giá bất động sản và nhà mở",
+          "Dịch vụ cá nhân (thẩm mỹ viện, làm móng, thuộc da, tẩy lông và xăm hình)",
+          "Spa và massage, không bao gồm các dịch vụ liên quan đến sức khỏe như vật lý trị liệu",
+          "Công viên giải trí, cung điện và trung tâm vui chơi (trong nhà và ngoài trời)",
+          "Câu lạc bộ thoát y, nhà thổ và quan hệ tình dục tại các địa điểm.",
+          "Phòng trưng bày, tổ chức quốc gia, di tích lịch sử và bảo tàng",
+          "Câu lạc bộ sức khỏe, trung tâm thể dục, yoga, barre và cơ sở quay, phòng tắm hơi, nhà tắm và trung tâm chăm sóc sức khỏe và hồ bơi",
+          "Các cơ sở cộng đồng như hội trường cộng đồng, thư viện và trung tâm thanh thiếu niên, RSL và PCYC",
+          "Địa điểm chơi game và đánh bạc",
+          "Chợ trong nhà và ngoài trời (không bao gồm chợ thực phẩm). Các tiểu bang và vùng lãnh thổ sẽ đưa ra thông báo riêng về việc này.",
+          "Sân chơi, công viên trượt băng và phòng tập thể dục ngoài trời ở những nơi công cộng sẽ bị đóng cửa",
+          "Bootcamp sẽ được giảm xuống còn hai người, bao gồm cả huấn luyện viên."
+        ],
+        "text_2": [
+          "Những biện pháp này cũng áp dụng cho các khu vực ngoài trời liên quan đến từng địa điểm này. Người Úc nên mong đợi các biện pháp này sẽ được thực hiện trong ít nhất 6 tháng. Các trung tâm cộng đồng từ xa bị cô lập không được bao gồm trong những hạn chế này.",
+          "Giao thông công cộng được coi là thiết yếu và, trong giai đoạn này, giới hạn 100 người không được áp dụng. Nếu đi trên phương tiện giao thông công cộng, luôn luôn sử dụng các biện pháp vệ sinh và vệ sinh xã hội phù hợp và tránh đi lại không cần thiết.",
+          "Có những quy định đặc biệt được đưa ra để thăm các cơ sở chăm sóc người già. Thông tin thêm có thể được tìm thấy trong các nguồn dưới đây."
+        ],
+        "citation": [
+          {
+            "name": "Tuyên bố nội các quốc gia",
+            "link": "https://www.pm.gov.au/media/national-cabinet-statement"
+          },
+          {
+            "name": "Tờ thông tin: Dành cho gia đình và người dân trong các chuyến thăm hạn chế đến các cơ sở chăm sóc người cao tuổi cư trú - Chính phủ Úc",
+            "link": "https://health.govcms.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-inif-for-famflower-and-resferences-on-restricted-visits-to-resquil- chăm sóc người già_0.pdf"
+          },
+          {
+            "name": "Giới hạn đối với các cuộc tụ họp công cộng đối với coronavirus (COVID-19) - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/news/health-alerts/nigs-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/ giới hạn đối với công chúng-tập hợp-cho-coronavirus-covid-19"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Các hạn chế đi lại:",
+      "text": {
+        "text_1": [
+          "Tất cả những người vào Úc phải tự cách ly trong 14 ngày. Bạn có thể lên một chuyến bay nội địa đến điểm đến dự định của bạn ở Úc để tự cô lập ở đó. Bạn có thể đi du lịch tới Úc nếu bạn là công dân Úc, thường trú nhân, thành viên gia đình trực tiếp của công dân Úc hoặc thường trú nhân hoặc là công dân New Zealand thường cư trú tại Úc. Nếu bạn là thành viên gia đình ngay lập tức cầm visa tạm thời, bạn sẽ cần cung cấp bằng chứng về mối quan hệ của mình."
+        ],
+        "citation": [
+          {
+            "name": "Hướng dẫn cách xa xã hội - Bộ Y tế Chính phủ Úc",
+            "link": "https://www.health.gov.au/sites/default/files/document/2020/03/coronavirus-covid-19-inif-on-social-distANCE_0.pdf"
+          },
+          {
+            "name": "COVID-19 (Coronavirus) và biên giới Úc - Bộ Nội vụ Chính phủ Úc",
+            "link": "https://www.homeaffairs.gov.au/news-media/civerse-alerts/nigs-coronavirus?fbclid=IwAR0CobpLulNLJmwXM4YM8nuctTyg9NgWCf8z7iXfu3n"
+          },
+          {
+            "name": "Cập nhật các biện pháp coronavirus",
+            "link": "https://www.pm.gov.au/media/update-coronavirus-measure-220320"
+          }
+        ]
+      }
+    }
+  ]
+}
