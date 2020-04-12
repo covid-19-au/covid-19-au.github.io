@@ -141,7 +141,7 @@ export default function Area({ area, onChange, data }) {
       </span>
         <br/>
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * NSW gov website counted one more death case who is a QLD resident who died in NSW.
+        * NSW Health's statistics show an additional death as they count a Queensland resident that passed away in NSW.
       </span>
         <br/>
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>
