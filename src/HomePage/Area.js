@@ -119,7 +119,7 @@ export default function Area({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">*2900+</div>
+        <div className="cured">*3200+</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
     );

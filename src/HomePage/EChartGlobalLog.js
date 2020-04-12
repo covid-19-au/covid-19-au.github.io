@@ -5,6 +5,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 // import i18n bundle
 import i18next from '../i18n';
+import ReactGA from "react-ga";
 
 class EChartglobalLog extends Component {
     static defaultProps = {
@@ -37,7 +38,7 @@ class EChartglobalLog extends Component {
                 backgroundColor: '#ff91a9'
             },
             NZ: {
-                backgroundColor:'#000000'
+                backgroundColor: '#363636'
             },
             'South Korea': {
                 backgroundColor: '#8ccfff'
@@ -86,7 +87,26 @@ class EChartglobalLog extends Component {
             arrMap: {},
             dates: [],
             dataSets: [],
-            logScale: true
+            logScale: true,
+            selected: {
+                'AU': true,
+                'China': true,
+                'Italy': true,
+                'Japan': true,
+                'UK': true,
+                'US': true,
+                'Singapore': false,
+                'Canada': false,
+                'Norway': false,
+                'France': false,
+                'Switzerland': false,
+                'Sweden': false,
+                'Denmark': false,
+                'Iran': false,
+                'Spain': false,
+                'Germany': false,
+                'South Korea': false
+            }
         }
     }
 
@@ -136,7 +156,7 @@ class EChartglobalLog extends Component {
 
     // Filter the countries to the ones we want
     filterCountries = (country) => {
-        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan","New Zealand"];
+        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan", "New Zealand"];
         if (viableCountries.includes(country)) {
             return true;
         }
@@ -223,7 +243,7 @@ class EChartglobalLog extends Component {
         for (let i = 0; i < arrMapKeys.length; i++) {
             let newDataSet = {};
             newDataSet["name"] = arrMapKeys[i];
-            newDataSet["z"]=arrMapKeys[i]==="AU"?3:arrMapKeys[i]==="US"?1:2;
+            newDataSet["z"] = arrMapKeys[i] === "AU" ? 3 : arrMapKeys[i] === "US" ? 1 : 2;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;
             /*
@@ -260,61 +280,103 @@ class EChartglobalLog extends Component {
 
     }
 
-    // lineOnMouseOver = (e) => {
-    //     console.log(this.chartReference)
-    //     let datasets = this.chartReference.current.props.option.series;
-    //     datasets[e.componentIndex].lineStyle.width = 2;
-    //     this.chartReference.current.rerender();
-    // }
+    onSelectAllClick = () => {
+        this.setState({
+            selected: {
+                'AU': true,
+                'China': true,
+                'Italy': true,
+                'Japan': true,
+                'UK': true,
+                'US': true,
+                'Singapore': true,
+                'Canada': true,
+                'Norway': true,
+                'France': true,
+                'Switzerland': true,
+                'Sweden': true,
+                'Denmark': true,
+                'Iran': true,
+                'Spain': true,
+                'Germany': true,
+                'South Korea': true,
+                'NZ': true
+            }
+        })
+    }
 
-    // lineOnMouseOut = (e) => {
-    //     let datasets = this.chartReference.current.props.option.series;
-    //     datasets[e.componentIndex].lineStyle.width = 0.5;
-    //     this.chartReference.current.rerender();
-    // }
+    onDeselectAllClick = () => {
+        this.setState({
+            selected: {
+                'AU': false,
+                'China': false,
+                'Italy': false,
+                'Japan': false,
+                'UK': false,
+                'US': false,
+                'Singapore': false,
+                'Canada': false,
+                'Norway': false,
+                'France': false,
+                'Switzerland': false,
+                'Sweden': false,
+                'Denmark': false,
+                'Iran': false,
+                'Spain': false,
+                'Germany': false,
+                'South Korea': false,
+                'NZ': false
+            }
+        })
+    }
 
     componentDidMount() {
         this.chartIt();
-        console.log(this.chartReference)
+        let echarts_instance = this.chartReference.getEchartsInstance();
+        echarts_instance.on('legendselectchanged', function (props) {
+            ReactGA.initialize("UA-160673543-1");
+            ReactGA.event({ category: 'globalChart', action: props.name,label: props.selected[props.name]?'true':'false'})
+
+        });
     }
+
 
     render() {
         return (
             <div className="card">
                 <h2>{i18next.t("homePage:globalChart.title")}</h2>
+                <ButtonGroup style={{ justifyContent: "center" }} size="small" aria-label="small outlined button group">
+                    <Button style={{
+                        textTransform: 'none',
+                        paddingTop: '0.1rem',
+                        paddingBottom: '0.1rem',
+                        outline: "none"
+                    }} disableElevation={true} onClick={this.onSelectAllClick}>{i18next.t("homePage:globalChart.selectAll")}</Button>
+                    <Button style={{
+                        textTransform: 'none',
+                        paddingTop: '0.1rem',
+                        paddingBottom: '0.1rem',
+                        outline: "none"
+                    }} onClick={this.onDeselectAllClick}>{i18next.t("homePage:globalChart.selectNo")}</Button>
+                </ButtonGroup>
                 <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
-                    ref={this.chartReference}
-                    /*
-                    onEvents={{
-                        'mouseover': this.lineOnMouseOver
-                        'mouseout': this.lineOnMouseOut
-                    }}*/
+                    ref={(e) => { this.chartReference = e; }}
+                    lazyUpdate={true}
                     option={{
                         legend: {
                             show: true,
                             left: "center",
                             top: "top",
                             itemGap: 5,
-                            selected: {
-                                'Singapore': false,
-                                'Canada': false,
-                                'Norway': false,
-                                'France': false,
-                                'Switzerland': false,
-                                'Sweden': false,
-                                'Denmark': false,
-                                'Iran': false,
-                                'Spain': false,
-                                'Germany': false,
-                                'South Korea': false
-                            }
+                            selected: this.state.selected
                         },
                         grid: {
                             containLabel: true,
                             left: 0,
                             right: "10%",
                             bottom: "10%",
-                            top: window.innerWidth>500?"15%":"26%"
+
+                            top: window.innerWidth > 500 ? "15%" : "26%"
                         },
                         tooltip: {
                             trigger: 'axis',
@@ -324,7 +386,9 @@ class EChartglobalLog extends Component {
                             textStyle: {
                                 color: "black"
                             },
-                            formatter: "{a}<br /> Date: {b}<br /> Total,Weekly: {c}"
+                            formatter: function (params, ticket, callback) {
+                                return params[0].seriesName + "<br /> Date: " + params[0].name + "<br /> Total: " + params[0].value[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "<br /> Weekly: " + params[0].value[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            }
                         },
                         toolbox: {
                             show: false
@@ -376,8 +440,12 @@ class EChartglobalLog extends Component {
                     }}
                 />
                 <span className="due">
+                    <span className="key" style={{ fontSize: "80%", paddingTop: 0 }}>
+                    {i18next.t("homePage:globalChart.updateNotice")}{this.state.dates[this.state.dates.length - 1]}
+                    </span><br /><br />
                     <span className="key">{i18next.t("homePage:chartCommon.clickLegend")}<p></p></span><br />
                     <span className="key">{i18next.t("homePage:chartCommon.clickPoint")}<p></p></span><br />
+                    <span className="key"><p>{i18next.t("homePage:globalChart.append0")}</p></span><br />
                     <span className="key">{i18next.t("homePage:globalChart.append1")}<p> <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">{i18next.t("homePage:globalChart.append2")}</a>{i18next.t("homePage:globalChart.append3")}</p></span><br />
                     <span className="key">{i18next.t("homePage:globalChart.append4")}<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/CSSEGISandData/COVID-19">
                         <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -414,6 +482,7 @@ class EChartglobalLog extends Component {
 
                     </span>
                 </span>
+
             </div>
         )
     }
