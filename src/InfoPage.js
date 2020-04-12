@@ -36,7 +36,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 
 
-export default function InfoPage({ columns }) {
+export default function InfoPage({ columns, gspace }) {
 
     const [drawerOpen, setDrawerOpen] = useState(false)
 
@@ -65,7 +65,7 @@ export default function InfoPage({ columns }) {
 
     return (
         <Grid item xs={11} sm={11} md={10}>
-            <Information columns={columns} hospitalData={hospitalData} />
+            <Information columns={columns} hospitalData={hospitalData} gspace={gspace} />
         </Grid>
     )
 }
@@ -153,508 +153,516 @@ function InfoDrawer() {
     );
 }
 
-function Information({ hospitalData, columns }) {
+function Information({ hospitalData, columns, gspace }) {
 
 
     return (
 
-        <div>
+        <Grid container spacing={gspace} justify="center" wrap="wrap">
 
             <InfoDrawer></InfoDrawer>
-            <div className="card" id="dailyDistractions">
-                <h2 className="responsiveH2">Daily Distractions</h2>
-                {dailyFun.dailyFunStuff.map(stuff => (
-                    stuff.type === "motivation" ? (
-                        <div key={uuid()}>
-                            <div className="shadow-none p-3 mb-5 bg-light rounded">
-                                <h4 style={{ textAlign: 'center' }}>{stuff.title}</h4>
-                                <div style={{ color: "grey", textAlign: 'center' }}>
-                                    <a href={stuff.source}
-                                        target="_blank"
-                                        rel="noopener noreferrer"><u>Story Source</u></a></div>
-                                {stuff.image.map(i1 => (
-                                    <div key={uuid()}>
-                                        <div className=" centerMedia">
-                                            <div style={{ height: "auto", margin: 0 }} >
-                                                <img
-                                                    src={i1.imgLink}
-                                                    alt={i1.name}
-                                                    style={{ maxWidth: "98%", maxHeight: "400px" }}
-                                                />
 
-                                            </div>
-                                            <a href={i1.source} style={{ color: "grey" }}><u>Image Source</u></a>
-                                        </div>
-
-                                    </div>
-                                ))}
-                                <div>{ReactHtmlParser(stuff.content)}</div>
-
-                            </div>
-                        </div>
-                    ) :
-                        (<div key={uuid()}>
-                            <div>
-                                {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text.
-                        */}
-                                <div>
-                                    {/* First image */}
+            <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
+                <div className="card" id="dailyDistractions">
+                    <h2 className="responsiveH2">Daily Distractions</h2>
+                    {dailyFun.dailyFunStuff.map(stuff => (
+                        stuff.type === "motivation" ? (
+                            <div key={uuid()}>
+                                <div className="shadow-none p-3 mb-5 bg-light rounded">
+                                    <h4 style={{ textAlign: 'center' }}>{stuff.title}</h4>
+                                    <div style={{ color: "grey", textAlign: 'center' }}>
+                                        <a href={stuff.source}
+                                            target="_blank"
+                                            rel="noopener noreferrer"><u>Story Source</u></a></div>
                                     {stuff.image.map(i1 => (
                                         <div key={uuid()}>
-                                            <div className="row centerMedia">
-                                                <div className="imageContainer" style={{ height: "auto" }} >
+                                            <div className=" centerMedia">
+                                                <div style={{ height: "auto", margin: 0 }} >
                                                     <img
-                                                        className="formatImage"
                                                         src={i1.imgLink}
                                                         alt={i1.name}
-                                                        style={{}}
+                                                        style={{ maxWidth: "98%", maxHeight: "400px" }}
                                                     />
-                                                    <small className="mediaText" >{i1.name}</small>
-                                                    <br />
-                                                    <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
+
                                                 </div>
+                                                <a href={i1.source} style={{ color: "grey" }}><u>Image Source</u></a>
                                             </div>
 
                                         </div>
                                     ))}
-                                    {/* Video */}
-                                    {stuff.video.map(vid => (
-                                        <div key={uuid()} className="row centerMedia">
-                                            <div>
-                                                <ReactPlayer alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-                                                <small className="mediaText">{vid.description}</small>
-                                            </div>
-                                        </div>
-                                    ))}
+                                    <div>{ReactHtmlParser(stuff.content)}</div>
 
                                 </div>
                             </div>
-                        </div>)
-                ))
-                }
-                <p style={{ textAlign: "center" }}>We will be regularly sharing motivating or interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
-                <p style={{ textAlign: "center" }}>Click <A href="/dailyHistory"><span style={{ color: "#3366BB" }} onClick={() => {
-                    ReactGA.event({ category: 'DailyStory', action: "more" });
-                    window.scrollTo(0, 0);
-                }}>{"here"}</span></A> for previous posts!</p>
-                {/*<p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can click <a style={{ color: "#3366BB" }} target="_blank"*/}
-                {/*rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"me!"}</a> </p>*/}
-            </div>
-
-
-            <div className="card" >
-                <h2 className="responsiveH2" id="media">Informative Media</h2>
-                <div className="row centerMedia">
-                    <div>
-                        <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-                        <small className="mediaText">The Coronavirus explained and what you should do.</small>
-                    </div>
-                </div>
-
-                <div className="row centerMedia">
-                    <div>
-                        <ReactPlayer alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
-                        <small className="mediaText">How to properly wash your hands.</small> <br />
-                        <small style={{ color: "#3366BB" }}><a target="_blank"
-                            rel="noopener noreferrer"
-                            href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{"Here's a step-by-step guide you can save"}</a></small>
-                    </div>
-                </div>
-
-                <div className="row centerMedia">
-                    <div>
-                        <ReactPlayer alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?v=M4olt47pr_o" controls={true} />
-                        <small className="mediaText">When and how to wear medical masks to protect against the new coronavirus.</small>
-                    </div>
-                </div>
-            </div>
-            <div className="card" id="general">
-
-
-                <h2 className="responsiveH2">General Information</h2>
-                {information.generalCovidInfo.map(info => (
-                    <div key={uuid()}>
-                        <div>
-                            <ExpansionPanel style={{ boxShadow: "none" }} >
-
-                                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
-                        This is so that we can reduce code smell while still retaining the ability to format text.
-                        Guide to adding more info points:
-                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        ) :
+                            (<div key={uuid()}>
+                                <div>
+                                    {/* Check /data/dailyFun.json for the information. Format is: Image/video, description, additional text.
                         */}
-                                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header"
-                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
-                                    <h3 className="responsiveH3">{info.name}</h3>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
-                                    <div>
-                                        {/* First block of text */}
-                                        {info.text.text_1.map(t1 => (
-                                            <p key={uuid()}>{t1}</p>
-                                        ))}
-                                        {/* First Unordered List */}
-                                        {info.text.ulist_1 ? (
-                                            <ul>
-                                                {info.text.ulist_1.map(ul1 => (
-                                                    <li key={uuid()}>{ul1}</li>
-                                                ))}
-                                            </ul>
-                                        ) : (
-                                                ""
-                                            )}
-
-                                        {/* First Ordered List */}
-                                        {info.text.olist_1 ? (
-                                            <ol>
-                                                {info.text.olist_1.map(ol1 => (
-                                                    <li key={uuid()}>{ol1}</li>
-                                                ))}
-                                            </ol>
-                                        ) : (
-                                                ""
-                                            )}
-
-                                        {/* Second Block of text */}
-                                        {info.text.text_2.map(t2 => (
-                                            <p key={uuid()}>{t2}</p>
-                                        ))}
-
-                                        {/* Citation tag */}
-                                        {info.text.citation.map(cit => (<div key={uuid()}>
-                                            <small ><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
-                                        </div>
-                                        ))}
-                                    </div>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
-                        </div>
-                    </div>
-                ))
-                }</div>
-            <div className="card" id="regulations">
-                <h2 className="responsiveH2">Current Regulations</h2>
-                {information.regulations.map(info => (
-                    <div key={uuid()}>
-                        <div>
-                            <ExpansionPanel style={{ boxShadow: "none" }} >
-
-                                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
-                        This is so that we can reduce code smell while still retaining the ability to format text.
-                        Guide to adding more info points:
-                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
-                        */}
-                                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header"
-                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
-                                    <h3 className="responsiveH3">{info.name}</h3>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
-                                    <div>
-                                        {/* First block of text */}
-                                        {info.text.text_1.map(t1 => (
-                                            <p key={uuid()}>{t1}</p>
-                                        ))}
-                                        {/* First Unordered List */}
-                                        {info.text.ulist_1 ? (
-                                            <ul>
-                                                {info.text.ulist_1.map(ul1 => (
-                                                    <li key={uuid()}>{ul1}</li>
-                                                ))}
-                                            </ul>
-                                        ) : (
-                                                ""
-                                            )}
-
-                                        {/* Middle Block of text */}
-                                        {info.text.text_middle.map(t2 => (
-                                            <p key={uuid()}>{t2}</p>
-                                        ))}
-
-                                        {/* First Ordered List */}
-                                        {info.text.olist_1 ? (
-                                            <ol>
-                                                {info.text.olist_1.map(ol1 => (
-                                                    <li key={uuid()}>{ol1}</li>
-                                                ))}
-                                            </ol>
-                                        ) : (
-                                                ""
-                                            )}
-
-                                        {/* Third Block of text */}
-                                        {info.text.text_2.map(t2 => (
-                                            <p key={uuid()}>{t2}</p>
-                                        ))}
-
-                                        {/* Citation tag */}
-                                        {info.text.citation.map(cit => (<div>
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
-                                        </div>
-                                        ))}
-                                    </div>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
-                        </div>
-                    </div>
-                ))
-                }</div>
-            <div className="card" id="haveCovid">
-                <h2 className="responsiveH2">Think you have COVID-19?</h2>
-                {information.haveCovid.map(info => (
-                    <div key={uuid()}>
-                        <div>
-                            <ExpansionPanel style={{ boxShadow: "none" }} >
-
-                                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
-                        This is so that we can reduce code smell while still retaining the ability to format text.
-                        Guide to adding more info points:
-                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
-                        */}
-                                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header"
-                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
-                                    <h3 className="responsiveH3">{info.name}</h3>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
-                                    <div>
-                                        {/* First block of text */}
-                                        {info.text.text_1.map(t1 => (
-                                            <p key={uuid()}>{t1}</p>
-                                        ))}
-                                        {/* First Unordered List */}
-                                        {info.text.ulist_1 ? (
-                                            <ul>
-                                                {info.text.ulist_1.map(ul1 => (
-                                                    <li key={uuid()}>{ul1}</li>
-                                                ))}
-                                            </ul>
-                                        ) : (
-                                                ""
-                                            )}
-
-                                        {/* First Ordered List */}
-                                        {info.text.olist_1 ? (
-                                            <ol>
-                                                {info.text.olist_1.map(ol1 => (
-                                                    <li key={uuid()}>{ol1}</li>
-                                                ))}
-                                            </ol>
-                                        ) : (
-                                                ""
-                                            )}
-
-                                        {/* Second Block of text */}
-                                        {info.text.text_2.map(t2 => (
-                                            <p key={uuid()}>{t2}</p>
-                                        ))}
-
-                                        {/* Citation tag */}
-                                        {info.text.citation.map(cit => (<div>
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
-                                        </div>
-                                        ))}
-                                    </div>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
-                        </div>
-                    </div>
-                ))
-                }</div>
-            <div className="card" id="protect">
-                <h2 className="responsiveH2">Protecting Yourself and Others</h2>
-
-                {information.protect.map(info => (
-                    <div key={uuid()}>
-                        <div>
-                            <ExpansionPanel style={{ boxShadow: "none" }} >
-
-                                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
-                        This is so that we can reduce code smell while still retaining the ability to format text.
-                        Guide to adding more info points:
-                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
-                        */}
-                                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header"
-                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
-                                    <h3 className="responsiveH3">{info.name}</h3>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
                                     <div>
                                         {/* First image */}
-                                        {info.image_1.map(i1 => (
-                                            <div className="row centerMedia" key={uuid()}>
-                                                <div className="imageContainer" style={{ height: "auto" }} >
-                                                    <img
-                                                        className="formatImage"
-                                                        src={i1}
-                                                        alt="Flatten the curve gif"
-                                                        style={{}}
-                                                    />
+                                        {stuff.image.map(i1 => (
+                                            <div key={uuid()}>
+                                                <div className="row centerMedia">
+                                                    <div className="imageContainer" style={{ height: "auto" }} >
+                                                        <img
+                                                            className="formatImage"
+                                                            src={i1.imgLink}
+                                                            alt={i1.name}
+                                                            style={{}}
+                                                        />
+                                                        <small className="mediaText" >{i1.name}</small>
+                                                        <br />
+                                                        <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
+                                                    </div>
                                                 </div>
+
                                             </div>
                                         ))}
-                                        {/* First block of text */}
-                                        {info.text.text_1.map(t1 => (
-                                            <p key={uuid()}>{t1}</p>
-                                        ))}
-                                        {/* First Unordered List */}
-                                        {info.text.ulist_1 ? (
-                                            <ul>
-                                                {info.text.ulist_1.map(ul1 => (
-                                                    <li key={uuid()}>{ul1}</li>
-                                                ))}
-                                            </ul>
-                                        ) : (
-                                                ""
-                                            )}
-
-                                        {/* First Ordered List */}
-                                        {info.text.olist_1 ? (
-                                            <ol>
-                                                {info.text.olist_1.map(ol1 => (
-                                                    <li key={uuid()}>{ol1}</li>
-                                                ))}
-                                            </ol>
-                                        ) : (
-                                                ""
-                                            )}
-
-                                        {/* Second Block of text */}
-                                        {info.text.text_2.map(t2 => (
-                                            <p key={uuid()}>{t2}</p>
-                                        ))}
-
-                                        {/* Citation tag */}
-                                        {info.text.citation.map(cit => (<div>
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
-                                        </div>
-                                        ))}
                                         {/* Video */}
-                                        {info.video_1.map(vid => (
-                                            <div className="row centerMedia" key={uuid()}>
+                                        {stuff.video.map(vid => (
+                                            <div key={uuid()} className="row centerMedia">
                                                 <div>
-                                                    <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19"
-                                                        className="formatMedia"
-                                                        url={vid.link}
-                                                        controls={true}
-                                                        config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-                                                    <small className="mediaText">{vid.desc}</small>
+                                                    <ReactPlayer width="100%" height="100%" alt={vid.name} className="formatMedia" url={vid.link} controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                                                    <small className="mediaText">{vid.description}</small>
                                                 </div>
                                             </div>
                                         ))}
 
                                     </div>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
+                                </div>
+                            </div>)
+                    ))
+                    }
+                    <p style={{ textAlign: "center" }}>We will be regularly sharing motivating or interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
+                    <p style={{ textAlign: "center" }}>Click <A href="/dailyHistory"><span style={{ color: "#3366BB" }} onClick={() => {
+                        ReactGA.event({ category: 'DailyStory', action: "more" });
+                        window.scrollTo(0, 0);
+                    }}>{"here"}</span></A> for previous posts!</p>
+                    {/*<p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can click <a style={{ color: "#3366BB" }} target="_blank"*/}
+                    {/*rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"me!"}</a> </p>*/}
+                </div>
+                <div className="card" >
+                    <h2 className="responsiveH2" id="media">Informative Media</h2>
+                    <div className="row centerMedia">
+                        <div>
+                            <ReactPlayer width="100%" height="100%" alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                            <small className="mediaText">The Coronavirus explained and what you should do.</small>
                         </div>
                     </div>
-                ))
-                }</div>
-            <div className="card" id="helplines">
-                <h2 className="responsiveH2">Helplines</h2>
 
-
-                {information.helplines.map(info => (
-                    <div key={uuid()}>
+                    <div className="row centerMedia">
                         <div>
-                            <ExpansionPanel style={{ boxShadow: "none" }} >
+                            <ReactPlayer width="100%" height="100%" alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
+                            <small className="mediaText">How to properly wash your hands.</small> <br />
+                            <small style={{ color: "#3366BB" }}><a target="_blank"
+                                rel="noopener noreferrer"
+                                href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{"Here's a step-by-step guide you can save"}</a></small>
+                        </div>
+                    </div>
 
-                                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                    <div className="row centerMedia">
+                        <div>
+                            <ReactPlayer width="100%" height="100%" alt="How to wear a mask - Coronavirus / COVID-19" className="formatMedia" url="https://www.youtube.com/watch?v=M4olt47pr_o" controls={true} />
+                            <small className="mediaText">When and how to wear medical masks to protect against the new coronavirus.</small>
+                        </div>
+                    </div>
+                </div>
+            </Grid>
+            <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
+                <div className="card" id="general">
+
+
+                    <h2 className="responsiveH2">General Information</h2>
+                    {information.generalCovidInfo.map(info => (
+                        <div key={uuid()}>
+                            <div>
+                                <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                                    {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
                         This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
                             - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
                         */}
-                                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header"
-                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
-                                    <h3 className="responsiveH3">{info.name}</h3>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
-                                    <div>
-                                        {/* First block of text */}
-                                        {info.text.text_1.map(t1 => (
-                                            <p key={uuid()}>{t1}</p>
-                                        ))}
-                                        {/* First number List */}
-                                        {info.text.numberList_1 ? (
-                                            <ul>
-                                                {info.text.numberList_1.map(helpline => ([
+                                    < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                        <h3 className="responsiveH3">{info.name}</h3>
+                                    </ExpansionPanelSummary>
+                                    <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                        <div>
+                                            {/* First block of text */}
+                                            {info.text.text_1.map(t1 => (
+                                                <p key={uuid()}>{t1}</p>
+                                            ))}
+                                            {/* First Unordered List */}
+                                            {info.text.ulist_1 ? (
+                                                <ul>
+                                                    {info.text.ulist_1.map(ul1 => (
+                                                        <li key={uuid()}>{ul1}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : (
+                                                    ""
+                                                )}
 
-                                                    <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
-                                                    helpline.extras ? <ul>{helpline.extras.map(extra => [
-                                                        <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
-                                                        extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
+                                            {/* First Ordered List */}
+                                            {info.text.olist_1 ? (
+                                                <ol>
+                                                    {info.text.olist_1.map(ol1 => (
+                                                        <li key={uuid()}>{ol1}</li>
+                                                    ))}
+                                                </ol>
+                                            ) : (
+                                                    ""
+                                                )}
 
-                                                    </ul> : ""
-                                                ]))}
-                                            </ul>
-                                        ) : (
-                                                ""
-                                            )}
+                                            {/* Second Block of text */}
+                                            {info.text.text_2.map(t2 => (
+                                                <p key={uuid()}>{t2}</p>
+                                            ))}
 
-                                        {/* Middle Block of text */}
-                                        {info.text.text_2.map(t2 => (
-                                            <p key={uuid()}>{t2}</p>
-                                        ))}
-
-                                        {/* Second Number List */}
-                                        {info.text.numberList_2 ? (
-                                            <ul>
-                                                {info.text.numberList_2.map(helpline => ([
-
-                                                    <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
-                                                    helpline.extras ? <ul>{helpline.extras.map(extra => [
-                                                        <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
-                                                        extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
-
-                                                    </ul> : ""
-                                                ]))}
-                                            </ul>
-                                        ) : (
-                                                ""
-                                            )}
-                                        {/* Citation tag */}
-                                        {info.text.citation.map(cit => (<div>
-                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                            {/* Citation tag */}
+                                            {info.text.citation.map(cit => (<div key={uuid()}>
+                                                <small ><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                            </div>
+                                            ))}
                                         </div>
-                                        ))}
-                                    </div>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
+                                    </ExpansionPanelDetails>
+                                </ExpansionPanel>
+                            </div>
+                        </div>
+                    ))
+                    }</div>
+                <div className="card" id="regulations">
+                    <h2 className="responsiveH2">Current Regulations</h2>
+                    {information.regulations.map(info => (
+                        <div key={uuid()}>
+                            <div>
+                                <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                                    {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                                    < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                        <h3 className="responsiveH3">{info.name}</h3>
+                                    </ExpansionPanelSummary>
+                                    <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                        <div>
+                                            {/* First block of text */}
+                                            {info.text.text_1.map(t1 => (
+                                                <p key={uuid()}>{t1}</p>
+                                            ))}
+                                            {/* First Unordered List */}
+                                            {info.text.ulist_1 ? (
+                                                <ul>
+                                                    {info.text.ulist_1.map(ul1 => (
+                                                        <li key={uuid()}>{ul1}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : (
+                                                    ""
+                                                )}
+
+                                            {/* Middle Block of text */}
+                                            {info.text.text_middle.map(t2 => (
+                                                <p key={uuid()}>{t2}</p>
+                                            ))}
+
+                                            {/* First Ordered List */}
+                                            {info.text.olist_1 ? (
+                                                <ol>
+                                                    {info.text.olist_1.map(ol1 => (
+                                                        <li key={uuid()}>{ol1}</li>
+                                                    ))}
+                                                </ol>
+                                            ) : (
+                                                    ""
+                                                )}
+
+                                            {/* Third Block of text */}
+                                            {info.text.text_2.map(t2 => (
+                                                <p key={uuid()}>{t2}</p>
+                                            ))}
+
+                                            {/* Citation tag */}
+                                            {info.text.citation.map(cit => (<div>
+                                                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                            </div>
+                                            ))}
+                                        </div>
+                                    </ExpansionPanelDetails>
+                                </ExpansionPanel>
+                            </div>
+                        </div>
+                    ))
+                    }</div>
+                <div className="card" id="haveCovid">
+                    <h2 className="responsiveH2">Think you have COVID-19?</h2>
+                    {information.haveCovid.map(info => (
+                        <div key={uuid()}>
+                            <div>
+                                <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                                    {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                                    < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                        <h3 className="responsiveH3">{info.name}</h3>
+                                    </ExpansionPanelSummary>
+                                    <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                        <div>
+                                            {/* First block of text */}
+                                            {info.text.text_1.map(t1 => (
+                                                <p key={uuid()}>{t1}</p>
+                                            ))}
+                                            {/* First Unordered List */}
+                                            {info.text.ulist_1 ? (
+                                                <ul>
+                                                    {info.text.ulist_1.map(ul1 => (
+                                                        <li key={uuid()}>{ul1}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : (
+                                                    ""
+                                                )}
+
+                                            {/* First Ordered List */}
+                                            {info.text.olist_1 ? (
+                                                <ol>
+                                                    {info.text.olist_1.map(ol1 => (
+                                                        <li key={uuid()}>{ol1}</li>
+                                                    ))}
+                                                </ol>
+                                            ) : (
+                                                    ""
+                                                )}
+
+                                            {/* Second Block of text */}
+                                            {info.text.text_2.map(t2 => (
+                                                <p key={uuid()}>{t2}</p>
+                                            ))}
+
+                                            {/* Citation tag */}
+                                            {info.text.citation.map(cit => (<div>
+                                                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                            </div>
+                                            ))}
+                                        </div>
+                                    </ExpansionPanelDetails>
+                                </ExpansionPanel>
+                            </div>
+                        </div>
+                    ))
+                    }</div>
+            </Grid>
+            <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
+                <div className="card" id="protect">
+                    <h2 className="responsiveH2">Protecting Yourself and Others</h2>
+
+                    {information.protect.map(info => (
+                        <div key={uuid()}>
+                            <div>
+                                <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                                    {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                                    < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                        <h3 className="responsiveH3">{info.name}</h3>
+                                    </ExpansionPanelSummary>
+                                    <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                        <div>
+                                            {/* First image */}
+                                            {info.image_1.map(i1 => (
+                                                <div className="row centerMedia" key={uuid()}>
+                                                    <div className="imageContainer" style={{ height: "auto" }} >
+                                                        <img
+                                                            className="formatImage"
+                                                            src={i1}
+                                                            alt="Flatten the curve gif"
+                                                            style={{}}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            ))}
+                                            {/* First block of text */}
+                                            {info.text.text_1.map(t1 => (
+                                                <p key={uuid()}>{t1}</p>
+                                            ))}
+                                            {/* First Unordered List */}
+                                            {info.text.ulist_1 ? (
+                                                <ul>
+                                                    {info.text.ulist_1.map(ul1 => (
+                                                        <li key={uuid()}>{ul1}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : (
+                                                    ""
+                                                )}
+
+                                            {/* First Ordered List */}
+                                            {info.text.olist_1 ? (
+                                                <ol>
+                                                    {info.text.olist_1.map(ol1 => (
+                                                        <li key={uuid()}>{ol1}</li>
+                                                    ))}
+                                                </ol>
+                                            ) : (
+                                                    ""
+                                                )}
+
+                                            {/* Second Block of text */}
+                                            {info.text.text_2.map(t2 => (
+                                                <p key={uuid()}>{t2}</p>
+                                            ))}
+
+                                            {/* Citation tag */}
+                                            {info.text.citation.map(cit => (<div>
+                                                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                            </div>
+                                            ))}
+                                            {/* Video */}
+                                            {info.video_1.map(vid => (
+                                                <div className="row centerMedia" key={uuid()}>
+                                                    <div>
+                                                        <ReactPlayer width="100%" height="100%" alt="Coronavirus explained and how to protect yourself from COVID-19"
+                                                            className="formatMedia"
+                                                            url={vid.link}
+                                                            controls={true}
+                                                            config={{ youtube: { playerVars: { showinfo: 1 } } }} />
+                                                        <small className="mediaText">{vid.desc}</small>
+                                                    </div>
+                                                </div>
+                                            ))}
+
+                                        </div>
+                                    </ExpansionPanelDetails>
+                                </ExpansionPanel>
+                            </div>
+                        </div>
+                    ))
+                    }</div>
+                <div className="card" id="helplines">
+                    <h2 className="responsiveH2">Helplines</h2>
+
+
+                    {information.helplines.map(info => (
+                        <div key={uuid()}>
+                            <div>
+                                <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                                    {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                                    < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                        <h3 className="responsiveH3">{info.name}</h3>
+                                    </ExpansionPanelSummary>
+                                    <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                        <div>
+                                            {/* First block of text */}
+                                            {info.text.text_1.map(t1 => (
+                                                <p key={uuid()}>{t1}</p>
+                                            ))}
+                                            {/* First number List */}
+                                            {info.text.numberList_1 ? (
+                                                <ul>
+                                                    {info.text.numberList_1.map(helpline => ([
+
+                                                        <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
+                                                        helpline.extras ? <ul>{helpline.extras.map(extra => [
+                                                            <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
+                                                            extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
+
+                                                        </ul> : ""
+                                                    ]))}
+                                                </ul>
+                                            ) : (
+                                                    ""
+                                                )}
+
+                                            {/* Middle Block of text */}
+                                            {info.text.text_2.map(t2 => (
+                                                <p key={uuid()}>{t2}</p>
+                                            ))}
+
+                                            {/* Second Number List */}
+                                            {info.text.numberList_2 ? (
+                                                <ul>
+                                                    {info.text.numberList_2.map(helpline => ([
+
+                                                        <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
+                                                        helpline.extras ? <ul>{helpline.extras.map(extra => [
+                                                            <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
+                                                            extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
+
+                                                        </ul> : ""
+                                                    ]))}
+                                                </ul>
+                                            ) : (
+                                                    ""
+                                                )}
+                                            {/* Citation tag */}
+                                            {info.text.citation.map(cit => (<div>
+                                                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                            </div>
+                                            ))}
+                                        </div>
+                                    </ExpansionPanelDetails>
+                                </ExpansionPanel>
+                            </div>
+                        </div>
+                    ))
+                    }
+
+                </div>
+                <div className="card" id="other">
+                    <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
+                    <div className="row alignStyles responsiveText">
+                        <div>
+                            <ul>
+                                <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">Coronavirus: The Hammer and the Dance</a></li>
+                                <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/news-event/coronavirus">The New York Times</a> and the <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.economist.com/news/2020/03/11/the-economists-coverage-of-the-coronavirus">Economist</a> are giving people free access to their coronavirus coverage. It's really good!</li>
+                            </ul>
                         </div>
                     </div>
-                ))
-                }
+                </div>
 
-            </div>
-            <div className="card" id="other">
-                <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
-                <div className="row alignStyles responsiveText">
-                    <div>
-                        <ul>
-                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56">Coronavirus: The Hammer and the Dance</a></li>
-                            <li><a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/news-event/coronavirus">The New York Times</a> and the <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.economist.com/news/2020/03/11/the-economists-coverage-of-the-coronavirus">Economist</a> are giving people free access to their coronavirus coverage. It's really good!</li>
-                        </ul>
+            </Grid>
+            <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
+                <div className="card" id="hospitalList" >
+                    <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
+                    <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
+                    <small>Filter the table by clicking the dropdown below state.</small>
+                    <div className="row centerMedia">
+                        <div>
+                            <Table className="formatMedia" columns={columns} data={hospitalData} />
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div className="card" id="hospitalList" >
-                <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
-                <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
-                <small>Filter the table by clicking the dropdown below state.</small>
-                <div className="row centerMedia">
-                    <div>
-                        <Table className="formatMedia" columns={columns} data={hospitalData} />
-                    </div>
-                </div>
-            </div >
-        </div>
+                </div >
+            </Grid>
+        </Grid>
     );
 }
 
