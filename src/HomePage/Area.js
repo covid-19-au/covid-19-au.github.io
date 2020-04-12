@@ -60,7 +60,7 @@ export default function Area({ area, onChange, data }) {
         <div className={"area"}>
           <A href={`/state/${x[0].toLowerCase()}`} onClick={()=>{window.scrollTo(0, 0);}}>
             <strong>
-                <u>{x[0]}</u>{" "}
+                <u>{i18next.t("homePage:state."+x[0])}</u>{" "}
 
                 <svg
                   className="bi bi-caret-right-fill"

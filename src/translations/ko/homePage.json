@@ -101,7 +101,6 @@
     "tableHeader3": "노선",
     "tableHeader4": "도착",
     "tableHeader5": "컨택 행 닫기"
-
   },
   "state": {
     "NSW": "NSW",
@@ -112,6 +111,5 @@
     "TAS": "TAS",
     "ACT": "행위",
     "NT": "NT"
-
   }
 }
