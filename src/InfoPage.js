@@ -244,7 +244,6 @@ function Information({ hospitalData, columns }) {
 
             <div className="card" >
                 <h2 className="responsiveH2" id="media">{i18next.t("infoPage:informativeMedia:title")}</h2>
-
                 <div className="row centerMedia">
                     <div>
                         <ReactPlayer alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
@@ -562,27 +561,80 @@ function Information({ hospitalData, columns }) {
                 }</div>
             <div className="card" id="helplines">
                 <h2 className="responsiveH2">{i18next.t("infoPage:coronavirusHelpline:title")}</h2>
-                <div className="row alignStyles responsiveText">
-                    <div>
-                        <h3>{i18next.t("infoPage:coronavirusHelpline:sect1heading")}</h3>
-                        <ul>
-                            <li>{i18next.t("infoPage:coronavirusHelpline:sect1point1")} <a className="citationLink" href="tel:1800020080">1800 020 080</a></li>
-                            <li>{i18next.t("infoPage:coronavirusHelpline:sect1point2")} <a className="citationLink" href="tel:1800022222">1800 022 222</a></li>
-                        </ul>
-                        <h3>{i18next.t("infoPage:coronavirusHelpline:sect2heading")}</h3>
-                        <ul>
-                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point1")}<a className="citationLink" href="tel:1800675398">1800 675 398</a></li>
-                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point2")}<a className="citationLink" href="tel:13432584">13 43 25 84</a></li>
-                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point3")}<a className="citationLink" href="tel:1800008002">1800 008 002</a>
-                                <p>{i18next.t("infoPage:coronavirusHelpline:sect2point3part1")}<a className="citationLink" href="tel:89228044">8922 8044</a></p>
-                            </li>
-                            <li>{i18next.t("infoPage:coronavirusHelpline:sect2point4")}<a className="citationLink" href="tel:1800671738">1800 671 738</a>
-                                <p>{i18next.t("infoPage:coronavirusHelpline:sect2point4part1d1")}<a className="citationLink" href="tel:131450">131 450</a>{i18next.t("infoPage:coronavirusHelpline:sect2point4part1d2")} </p>
-                                <p>{i18next.t("infoPage:coronavirusHelpline:sect2point4part2")}<a className="citationLink" href="tel:1800671738">1800 671 738</a>.</p>
-                            </li>
-                        </ul>
+
+                {information.helplines.map(info => (
+                    <div key={uuid()}>
+                        <div>
+                            <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                                {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                    <h3 className="responsiveH3">{info.name}</h3>
+                                </ExpansionPanelSummary>
+                                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                    <div>
+                                        {/* First block of text */}
+                                        {info.text.text_1.map(t1 => (
+                                            <p key={uuid()}>{t1}</p>
+                                        ))}
+                                        {/* First number List */}
+                                        {info.text.numberList_1 ? (
+                                            <ul>
+                                                {info.text.numberList_1.map(helpline => ([
+
+                                                    <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
+                                                    helpline.extras ? <ul>{helpline.extras.map(extra => [
+                                                        <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
+                                                        extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
+
+                                                    </ul> : ""
+                                                ]))}
+                                            </ul>
+                                        ) : (
+                                                ""
+                                            )}
+
+                                        {/* Middle Block of text */}
+                                        {info.text.text_2.map(t2 => (
+                                            <p key={uuid()}>{t2}</p>
+                                        ))}
+
+                                        {/* Second Number List */}
+                                        {info.text.numberList_2 ? (
+                                            <ul>
+                                                {info.text.numberList_2.map(helpline => ([
+
+                                                    <li key={uuid()}>{helpline.text} <a className={"citationLink"} href={helpline.numberLink}>{helpline.numberDisplay}</a></li>,
+                                                    helpline.extras ? <ul>{helpline.extras.map(extra => [
+                                                        <li key={uuid()}>{extra.text} <a className={"citationLink"} href={extra.numberLink}>{extra.numberDisplay}</a></li>,
+                                                        extra.link ? <li>Website: <a className={"citationLink"} target="_blank" rel="noopener noreferrer" href={extra.link}>{extra.link}</a></li> : ""])}
+
+                                                    </ul> : ""
+                                                ]))}
+                                            </ul>
+                                        ) : (
+                                                ""
+                                            )}
+                                        {/* Citation tag */}
+                                        {info.text.citation.map(cit => (<div>
+                                            <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                        </div>
+                                        ))}
+                                    </div>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                        </div>
                     </div>
-                </div>
+                ))
+                }
+
             </div>
             <div className="card" id="other">
                 <h2 className="responsiveH2">{i18next.t("infoPage:interestingLinks:title")}</h2>

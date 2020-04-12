@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import Tag from "./Tag";
 import stateCaseData from "../data/stateCaseData";
 
-import Acknowledgement from "../Acknowledgment"
-// import i18n bundle
-import i18next from '../i18n';
-
+import Acknowledgement from "../Acknowledgment";
 import todayData from "../data/stateCaseData.json";
 import previousData from "../data/state.json";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 
+
+// import i18n bundle
+import i18next from '../i18n';
 
 /**
  * Method for adding suffix to date
@@ -249,7 +249,7 @@ function UpdatesToday() {
             marginTop: '1rem',
             marginBottom: '1rem'
         }}>
-            Daily Update Status <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+            {i18next.t("homePage:status.updateTitle")}<button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                 title="<em>Highlighted states have updated selected data today. Click state for details.</em>"><svg className="bi bi-question-circle" width="0.7em" height="0.7em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
@@ -425,7 +425,7 @@ export default function Stat({
             <div className="row">
                 <Tag
                     // number={curedCount}
-                    number={"3100+"}
+                    number={"3200+"}
                     fColor={"#00c177"}
                     increased={curedCountIncrease}
                     typeOfCases={"Recovered"}
@@ -458,7 +458,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people in hospital with COVID-19.</em>">
-                        in Hospital</button>
+                        {i18next.t("homePage:status.hospital")}</button>
 
                 </Tag>
                 <Tag
@@ -469,7 +469,7 @@ export default function Stat({
                 >
                     <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                         title="<em>Number of people with COVID-19 in intensive care.</em>">
-                        in ICU</button>
+                        {i18next.t("homePage:status.icu")}</button>
 
                 </Tag></div>
 
@@ -480,6 +480,7 @@ export default function Stat({
             aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)} 
             aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
                 {i18next.t("homePage:status.note")}{stateCaseData.updatedTime}
+
 
             </span>
 

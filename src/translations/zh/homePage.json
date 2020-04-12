@@ -31,6 +31,9 @@
     "title": "当前状态",
     "confirm": "已确认",
     "death": "死亡人数",
+    "hospital": "在医院",
+    "icu": "在ICU中",
+    "updateTitle": "每日更新状态",
     "recover": "已治愈",
     "tested": "已测试",
     "note": "AEST时间，最近更新时间："
@@ -52,7 +55,7 @@
   "hospitalCaseMap": {
     "title": "医院和病例图",
     "hospitalLegend": "医院或COVID-19评估中心",
-    "casesLegend": "超过{oldCaseDays}天的案例",
+    "casesLegend": "案件超过7天",
     "confirmedLegend": "最近确认的病例（不是全部，正在收集）",
     "note1": "*仅针对ACT，NSW，VIC和WA，QHS的HHS数据提供城市级别的数据。其他州正在研究中。",
     "marker": "标记："
@@ -78,12 +81,16 @@
   },
   "globalChart": {
     "title": "全局比较",
+    "selectAll": "全选",
+    "selectNo": "选择无",
+    "yaxis": "本周新案件",
+    "xaxis": "总",
+    "updateNotice": "上次更新时间：",
+    "append0": "* Y轴上的每个数据点都是过去7天内新确诊病例的总数。",
     "append1": "*看这个",
     "append2": "视频",
     "append3": " 有关此图的详细说明！",
-    "append4": "*数据源：",
-    "yaxis": "本周新案件",
-    "xaxis": "总"
+    "append4": "*数据源："
   },
   "flights": {
     "title": "航班",
