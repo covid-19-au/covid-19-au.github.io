@@ -1,0 +1,92 @@
+.responsiveCardTop {
+    display: block;
+}
+
+@media screen and (max-width: 959px) {
+    .responsiveCardTop {
+        display: none;
+    }
+}
+
+.responsiveCardBottom {
+    display: none;
+}
+
+@media screen and (max-width: 959px) {
+    .responsiveCardBottom {
+        display: block;
+    }
+}
+
+.cardFormat {
+    margin-bottom: 2em
+}
+
+.noHover:hover {
+    text-decoration: none;
+    color: unset;
+}
+
+.blogSection {
+    width: 85%;
+}
+
+.blogText {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 4em;
+}
+
+@media screen and (max-width: 500px) {
+    .blogText {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .blogDateText {
+        font-size: 60%;
+    }
+}
+
+.classesRoot {
+    max-width: 900px;
+    width: 90%;
+}
+
+@media screen and (max-width: 959px) {
+    .classesRoot {
+        max-width: 800px;
+        width: 80%;
+    }
+}
+
+.classesH2 {
+    padding: 0;
+    border: none;
+}
+
+.blogImage {
+    width: '85%';
+    height: 400px;
+}
+
+@media screen and (max-width: 959px) {
+    .blogImage {
+        width: '85%';
+        height: auto;
+    }
+}
+
+.blogThumbnail {
+    height: 220px;
+}
+
+@media screen and (max-width: 959px) {
+    .blogThumbnail {
+        height: 150px;
+    }
+}
