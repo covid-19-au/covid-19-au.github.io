@@ -1,0 +1,54 @@
+{
+  "name": "messageformat-parser",
+  "version": "4.1.2",
+  "description": "A PEG.js parser for ICU MessageFormat strings",
+  "keywords": [
+    "icu",
+    "messageformat",
+    "parser"
+  ],
+  "contributors": [
+    "Alex Sexton <alexsexton@gmail.com>",
+    "Eemeli Aro <eemeli@gmail.com>",
+    "Nikola Kovacs <nikola.kovacs@gmail.com>",
+    "Adrian Vogelsgesang <adrian.vogelsgesang@tum.de>"
+  ],
+  "license": "MIT",
+  "homepage": "https://messageformat.github.io/",
+  "repository": "messageformat/messageformat",
+  "main": "parser.js",
+  "files": [
+    "parser.js",
+    "codemod-fix-backslash-escapes.js"
+  ],
+  "eslintConfig": {
+    "env": {
+      "commonjs": true,
+      "es6": true
+    },
+    "overrides": [
+      {
+        "files": [
+          "test.js"
+        ],
+        "env": {
+          "mocha": true
+        },
+        "rules": {
+          "no-unused-vars": 0
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "pegjs": "^0.10.0"
+  },
+  "scripts": {
+    "build": "pegjs parser.pegjs",
+    "prepublishOnly": "npm test",
+    "test": "mocha"
+  },
+  "gitHead": "cd47ed7db2b7a4f5e21df4cd6284ae3f7dad05a1"
+}

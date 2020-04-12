@@ -1,0 +1,645 @@
+{
+  "generalCovidInfo": [
+    {
+      "name": "¿Qué es el coronavirus?",
+      "text": {
+        "text_1": [
+          "Los coronavirus son un grupo de virus que pueden afectar a humanos y animales. En los humanos, los coronavirus pueden causar enfermedades leves, como el resfriado común y las infecciones gastrointestinales, así como enfermedades más graves, como la causada por el SARS (Síndrome Respiratorio Agudo Severo) y MERS (Síndrome Respiratorio del Medio Oriente)."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Preguntas frecuentes - NSW Ministry of Health",
+            "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Qué es COVID-19?",
+      "text": {
+        "text_1": [
+          "Actualmente hay un brote de una enfermedad llamada \"COVID-19\", que es causada por una nueva cepa de coronavirus. COVID-19 causa un espectro de enfermedades, de leves a muy graves. El brote se identificó por primera vez en Wuhan, provincia de Hubei, China, y se ha extendido a muchos otros países. El virus puede transmitirse de persona a persona, por lo que una buena higiene es muy importante para retrasar la propagación de la infección."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Preguntas frecuentes - NSW Ministry of Health",
+            "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Cuáles son los síntomas de COVID-19?",
+      "text": {
+        "text_1": [
+          "Los síntomas clave de COVID-19 son:"
+        ],
+        "ulist_1": [
+          "fiebre",
+          "tos",
+          "falta de aliento",
+          "dolor de garganta"
+        ],
+        "text_2": [
+          "Las estimaciones actuales del tiempo que tardan los síntomas en desarrollarse después de exponerse al virus que causa COVID-19 varían de 2 a 14 días.",
+          "En casos más graves, COVID-19 también puede provocar neumonía. Las estimaciones actuales del tiempo que tardan los síntomas en desarrollarse después de exponerse al virus que causa COVID-19 varían de 2 a 14 días."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Preguntas frecuentes - NSW Ministry of Health",
+            "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Cómo se propaga COVID-19?",
+      "text": {
+        "text_1": [
+          "Las personas pueden contraer COVID-19 de otras personas que tienen el virus. La enfermedad puede propagarse de persona a persona a través de pequeñas gotas de la nariz o la boca que se propagan cuando una persona con COVID-19 tose o exhala. Estas gotas caen sobre objetos y superficies alrededor de la persona. Luego, otras personas atrapan COVID-19 al tocar estos objetos o superficies, luego se tocan los ojos, la nariz o la boca. Las personas también pueden atrapar COVID-19 si inhalan gotitas de una persona con COVID-19 que tose o exhala gotitas."
+        ],
+        "citation": [
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Existe una cura o vacuna?",
+      "text": {
+        "text_1": [
+          "Actualmente no hay vacunas o tratamientos específicos que protejan contra COVID-19.",
+          "El diagnóstico temprano y la atención de apoyo general son importantes. La mayoría de las veces, los síntomas se resolverán por sí solos. Las personas que tienen enfermedades graves con complicaciones pueden ser atendidas en el hospital."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Preguntas frecuentes - NSW Ministry of Health",
+            "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Quién tiene mayor riesgo de contraer COVID-19?",
+      "text": {
+        "text_1": [
+          "En Australia, las personas con mayor riesgo de contraer el virus son aquellas que tienen:"
+        ],
+        "ulist_1": [
+          "Recientemente en un país o región de alto riesgo (China continental, Irán, Italia o Corea)",
+          "Estuvo en contacto cercano con alguien que tiene un caso confirmado de COVID-19"
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Preguntas frecuentes - NSW Ministry of Health",
+            "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Quién tiene mayor riesgo de contraer una infección grave?",
+      "text": {
+        "text_1": [
+          "Según lo que sabemos sobre los coronavirus, las personas con mayor riesgo de infección grave son:"
+        ],
+        "ulist_1": [
+          "Personas con sistemas inmunes comprometidos (como las personas que tienen cáncer)",
+          "Personas de edad avanzada",
+          "Pueblos aborígenes e isleños del estrecho de Torres (ya que tienen tasas más altas de enfermedades crónicas)",
+          "Personas con condiciones médicas crónicas.",
+          "Personas en entornos residenciales grupales",
+          "Personas en centros de detención."
+        ],
+        "text_2": [
+          "Es importante que todas las personas practiquen una buena higiene y lleven a cabo un distanciamiento social para reducir la probabilidad de que la enfermedad se propague a las partes más vulnerables de la población."
+        ],
+        "citation": [
+          {
+            "name": "Protéjase y proteja a los demás - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect- usted y otros"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Debo comprar a granel para prepararme?",
+      "text": {
+        "text_1": [
+          "No es necesario comprar productos a granel en los supermercados, como papel higiénico, paracetamol y alimentos enlatados.",
+          "Es prudente que los hogares tengan un pequeño stock de comestibles no perecederos para cubrir el evento de que en los próximos meses se le haya pedido al hogar que se aísle por 14 días."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Preguntas frecuentes - NSW Ministry of Health",
+            "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Qué más no debería estar haciendo?",
+      "text": {
+        "text_1": [
+          "Las siguientes medidas no son efectivas contra COVID-19:"
+        ],
+        "ulist_1": [
+          "De fumar",
+          "Usando máscaras múltiples",
+          "Tomar antibióticos"
+        ],
+        "text_2": [
+          "Se puede encontrar más información sobre los mitos del coronavirus en el siguiente sitio."
+        ],
+        "citation": [
+          {
+            "name": "Consejo para la enfermedad del coronavirus (COVID-19) para el público: destructores de mitos - Organización Mundial de la Salud",
+            "link": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters"
+          }
+        ]
+      }
+    }
+  ],
+  "haveCovid": [
+    {
+      "name": "¿Qué tengo que hacer?",
+      "text": {
+        "text_1": [
+          "Si ha viajado recientemente al extranjero o ha tenido contacto con un caso confirmado de COVID-19, debe controlar de cerca los síntomas durante 14 días después de salir de un país en el extranjero o después de su último contacto con alguien que tiene COVID-19.",
+          "Si está dentro de ese período de 14 días y le preocupa que pueda tener síntomas, es importante que tome medidas para reducir el riesgo de transmisión y haga los arreglos para hacerse la prueba si es necesario."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Preguntas frecuentes - NSW Ministry of Health",
+            "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Cómo busco atención médica para COVID-19?",
+      "text": {
+        "text_1": [
+          "Si ha viajado recientemente al extranjero o ha tenido contacto con un caso confirmado de COVID-19, debe controlar de cerca los síntomas durante 14 días después de salir de un país en el extranjero o después de su último contacto con alguien que tiene COVID-19.",
+          "Si está dentro de ese período de 14 días y le preocupa que pueda tener síntomas, es importante que tome medidas para reducir el riesgo de transmisión y haga los arreglos para hacerse la prueba si es necesario. Siga los siguientes pasos:"
+        ],
+        "ulist_1": [
+          "Limite su exposición a otras personas aislándose en su hogar (si aún no estaba en cuarentena).",
+          "Llame a su médico de cabecera y hágales saber que le preocupa que pueda tener COVID-19. Llamar con anticipación permitirá que su médico de cabecera le brinde asesoramiento y planifique su visita. No debe visitar a su médico de cabecera sin llamar con anticipación. Su médico de cabecera organizará las pruebas si determinan que es necesario.",
+          "Si no puede ver a su médico de cabecera, puede visitar una clínica de evaluación respiratoria. El personal de estas clínicas evaluará su riesgo de COVID-19 y lo evaluará si es necesario. No necesita llamar con anticipación.",
+          "Cuando viaje al GP o la Clínica de Evaluación Respiratoria, no asista a ningún lugar público, como tiendas o cafeterías / restaurantes, en el camino. Si es posible, debe viajar utilizando un medio de transporte privado, como un automóvil privado, para minimizar la exposición a los demás.",
+          "Sin embargo, si usar el transporte público es su única opción, debe usar una máscara, evitar el contacto directo con otras personas (incluidos otros pasajeros, conductores y personal de transporte), toser / estornudar en el codo y lavarse las manos antes y después de viajar .",
+          "No es necesario que visite el Departamento de emergencias a menos que tenga síntomas graves, como dificultad para respirar, dolor en el pecho o fiebre muy alta."
+        ],
+        "citation": [
+          {
+            "name": "Protéjase y proteja a los demás - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect- usted y otros"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Debo hacerme la prueba de COVID-19?",
+      "text": {
+        "text_1": [
+          "Su médico le dirá si debe hacerse la prueba y se encargará de la prueba.",
+          "Solo se le realizará una prueba si su médico decide que cumple con los criterios:"
+        ],
+        "ulist_1": [
+          "Regresó del extranjero o pasó un tiempo en un crucero en los últimos 14 días y desarrolla una enfermedad respiratoria con o sin fiebre.",
+          "Ha estado en contacto cercano con un caso COVID-19 confirmado en los últimos 14 días y desarrolla una enfermedad respiratoria con o sin fiebre.",
+          "Tiene neumonía grave adquirida en la comunidad y no hay una causa clara (incluidos los pacientes que ya han sido hospitalizados por esta afección)",
+          "Tiene fiebre o infección respiratoria aguda y trabaja en los sectores de atención médica o de atención a personas mayores / residenciales, o ha pasado un tiempo en un lugar que un estado o territorio define como un riesgo elevado de transmisión comunitaria, o ha pasado tiempo en un lugar de \"alto riesgo\" donde hay dos o más casos vinculados de COVID-19, como un hogar de ancianos, una comunidad aborigen remota, un centro penitenciario, un internado o una base militar (incluidos los buques de la Armada) ) con alojamiento en casa."
+        ],
+        "text_2": [
+          "Si cumple con alguno de estos criterios, su médico puede solicitar que le realicen la prueba de COVID-19. Es importante recordar que muchas personas con síntomas similares a COVID-19 no tendrán el virus. Solo los casos sospechosos se prueban para garantizar que nuestros laboratorios puedan hacer frente a la demanda. No es necesario evaluar a las personas que se sienten bien y no cumplen con los criterios anteriores.",
+          "Existe una escasez global de kits de prueba, por eso las pruebas están dirigidas en lugar de generalizadas.",
+          "Puede tomar algunos días para que obtenga los resultados de su prueba. En este momento, si tiene síntomas graves, lo mantendrán en el hospital y lo aislarán de otros pacientes para mantenerlos a salvo. Si su médico le dice que está lo suficientemente bien como para irse a casa, debe aislarse en su hogar y tomar medidas para protegerse y proteger a los demás.",
+          "El Gobierno también ha decidido permitir que los estados y territorios amplíen sus criterios de evaluación según sea necesario. Asegúrese de verificar los recursos del departamento de salud de su estado."
+        ],
+        "citation": [
+          {
+            "name": "Cómo hacerse una prueba de coronavirus: quién es elegible, cuántos se han hecho y cómo se llevan a cabo - ABC News",
+            "link": "https://www.abc.net.au/news/2020-03-27/coronavirus-covid-19-testing-criteria-eligibility/12097990"
+          },
+          {
+            "name": "COVID-19 - Preguntas frecuentes - NSW Ministry of Health",
+            "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+          },
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Qué significa aislar en su hogar?",
+      "text": {
+        "text_1": [
+          "Si le diagnosticaron COVID-19, debe quedarse en casa para evitar que se propague a otras personas. También es posible que se le solicite que se quede en casa si puede haber estado expuesto al virus.",
+          "Quedarse en casa significa que usted:"
+        ],
+        "ulist_1": [
+          "No vaya a lugares públicos como el trabajo, la escuela, los centros comerciales, la guardería o la universidad.",
+          "Pídale a alguien que le traiga alimentos y otras necesidades y los deje en la puerta de su casa.",
+          "No permita la entrada de visitantes: solo las personas que suelen vivir con usted deben estar en su hogar"
+        ],
+        "text_2": [
+          "No necesita usar una máscara en su hogar. Si necesita salir para buscar atención médica, use una máscara quirúrgica (si tiene una) para proteger a los demás.",
+          "Todas las personas que llegan a Australia desde la medianoche del 15 de marzo de 2020, o creen que pueden haber estado en contacto cercano con un caso confirmado de coronavirus, deben aislarse por 14 días.",
+          "Consulte las fuentes a continuación para obtener más información."
+        ],
+        "citation": [
+          {
+            "name": "Guía de aislamiento en el hogar cuando no está bien (casos sospechosos o confirmados) - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-about-home-isolation-when-unwell-suspected-or-confirmed-cases. pdf"
+          },
+          {
+            "name": "Guía de aislamiento - Departamento de Salud del Gobierno Australiano",
+            "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-isolation-guidance_7.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Quién necesita aislar?",
+      "text": {
+        "text_1": [
+          "Todas las personas que llegan a Australia desde la medianoche del 15 de marzo de 2020, o creen que pueden haber estado en contacto cercano con un caso confirmado de coronavirus, deben aislarse por 14 días.",
+          "Bajo el bloqueo actual, el gobierno también está pidiendo a las personas que no tienen casos confirmados o sospechosos de COVID-19 que no abandonen sus hogares a menos que lo necesiten para comprar alimentos, hacer ejercicio, necesidades médicas, atención o apoyo o trabajo que no puede ser de su hogar."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Preguntas frecuentes - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.pm.gov.au/media/update-coronavirus-measures-24-March-2020"
+          }
+        ]
+      }
+    }
+  ],
+  "protect": [
+    {
+      "name": "¿Cómo puedo protegerme a mí mismo y a los demás?",
+      "text": {
+        "text_1": [
+          "La mejor manera de protegerse contra COVID-19 es la misma manera en que se protegería contra la gripe u otras enfermedades respiratorias:"
+        ],
+        "ulist_1": [
+          "Lávese las manos durante al menos 20 segundos con agua y jabón, o use un desinfectante a base de alcohol con al menos 60% de alcohol. [Consulte la imagen en la parte superior de la página]",
+          "Cubra su estornudo o tos con su codo o con pañuelos desechables.",
+          "Deseche los tejidos adecuadamente",
+          "Evitar tocarse los ojos, la nariz y la boca.",
+          "Limpie y desinfecte superficies y objetos de uso frecuente como teléfonos, billeteras y llaves con regularidad",
+          "Evite el contacto cercano con personas enfermas.",
+          "Quédate en casa si estás enfermo.",
+          "Evitar viajes no esenciales",
+          "Use una máscara quirúrgica si está tosiendo o estornudando. Tenga en cuenta que hay poca evidencia que sugiera que el uso generalizado de máscaras quirúrgicas en personas sanas previene la transmisión en público.",
+          "Vacúnese contra la gripe cuando esté disponible. Contraer la gripe y COVID-19 al mismo tiempo puede enfermarlo gravemente.",
+          "Practica el distanciamiento social",
+          "Cumplir con todas las regulaciones y recomendaciones de cierre del gobierno"
+        ],
+        "citation": [
+          {
+            "name": "Protéjase y proteja a los demás - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect- usted y otros"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Qué es el distanciamiento social?",
+      "text": {
+        "text_1": [
+          "El distanciamiento social es una forma de ayudar a frenar la propagación de virus como COVID-19. El distanciamiento social incluye quedarse en casa cuando no está bien, evitar grandes reuniones públicas si no son esenciales, mantener una distancia de 1,5 metros entre usted y otras personas siempre que sea posible y minimizar el contacto físico, como darse la mano, especialmente con personas en mayor riesgo. de desarrollar síntomas graves, como personas mayores y personas con problemas de salud existentes."
+        ],
+        "citation": [
+          {
+            "name": "COVID-19 - Preguntas frecuentes - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-frequently-asked-questions_5.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Cuál es la teoría detrás del distanciamiento social?",
+      "text": {
+        "text_1": [
+          "El consenso científico actual es que este virus puede propagarse dentro de los 2 metros (6 pies) si alguien tose. De lo contrario, las gotas caen al suelo y no te infectan.",
+          "La peor infección se produce a través de las superficies: el virus sobrevive hasta 9 días en diferentes superficies, como metal, cerámica y plástico. Eso significa que los pomos de las puertas, las mesas o los botones de los elevadores pueden ser terribles vectores de infección.",
+          "La única forma de reducir realmente eso es con el distanciamiento social: mantener a las personas en casa lo más posible, durante el mayor tiempo posible hasta que esto retroceda."
+        ],
+        "citation": [
+          {
+            "name": "Coronavirus: Por qué debes actuar ahora - Tomas Pueyo",
+            "link": "https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Qué significa cuando la gente dice \"aplanar la curva\" y \"elevar la línea\" y cómo ayuda el distanciamiento social?",
+      "image_1": [
+        "https://i2.wp.com/flowingdata.com/wp-content/uploads/2020/03/flatten-the-curve-smaller.gif?fit=670%2C565&ssl=1"
+      ],
+      "video_1": [
+        {
+          "link": "https://www.youtube.com/watch?v=D7uQwQTRDew",
+          "desc": "Batir el coronavirus, aplanar la curva, elevar la línea"
+        }
+      ],
+      "text": {
+        "text_1": [
+          "\"Alisar la curva\" se refiere a reducir la propagación del virus para garantizar que el sistema de salud no se sobrecargue. \"Elevar la línea\" se refiere al aumento de la capacidad del sistema de salud. Es imperativo que todos hagan su parte para aplanar la curva y elevar la línea a través del distanciamiento social y la práctica de una buena higiene, para reducir el impacto de la pandemia.",
+          "Se puede encontrar información adicional sobre \"aplanar la curva\" y \"elevar la línea\" en los recursos a continuación."
+        ],
+        "citation": [
+          {
+            "name": "Coronavirus: el martillo y la danza - Tomas Pueyo",
+            "link": "https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56"
+          },
+          {
+            "name": "Coronavirus: Por qué debes actuar ahora - Tomas Pueyo",
+            "link": "https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Cómo practico el distanciamiento social en público?",
+      "text": {
+        "text_1": [
+          "El distanciamiento social en público significa que las personas:"
+        ],
+        "ulist_1": [
+          "Quedarse en casa a menos que sea absolutamente necesario",
+          "Mantener a 1,5 metros de distancia de los demás.",
+          "Evite los saludos físicos como el apretón de manos, los abrazos y los besos.",
+          "Use tocar y pagar en lugar de efectivo",
+          "Viaja en momentos tranquilos y evita las multitudes",
+          "Evitar reuniones públicas y grupos en riesgo.",
+          "Practica buena higiene"
+        ],
+        "citation": [
+          {
+            "name": "Orientación de distanciamiento social - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Cómo practico el distanciamiento social en casa?",
+      "text": {
+        "text_1": [
+          "Para reducir la propagación de gérmenes:"
+        ],
+        "ulist_1": [
+          "Quedarse en casa a menos que sea absolutamente necesario salir",
+          "Mantenga a los visitantes al mínimo",
+          "Reduzca las visitas a las tiendas; en su lugar, compre más productos y servicios en línea si puede para recogerlos, preordenarlos o entregarlos",
+          "Considere cuidadosamente qué viajes y salidas son necesarios, tanto individuales como familiares.",
+          "Desinfecte regularmente las superficies que se tocan mucho, como mesas, bancos de cocina y picaportes",
+          "Aumente la ventilación en el hogar abriendo ventanas o ajuste el aire acondicionado"
+        ],
+        "citation": [
+          {
+            "name": "Orientación de distanciamiento social - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Qué pasa si las personas en mi hogar están enfermas?",
+      "text": {
+        "text_1": [
+          "Los hogares donde las personas están enfermas (es decir, tienen una enfermedad respiratoria no diagnosticada o fiebre), además de las medidas anteriores, deben:"
+        ],
+        "ulist_1": [
+          "Cuidar a la persona enferma en una habitación individual si es posible",
+          "Mantenga el número de cuidadores al mínimo",
+          "Mantenga cerrada la puerta de la habitación de la persona enferma y, si es posible, una ventana abierta",
+          "Use una máscara quirúrgica cuando esté en la misma habitación que la persona enferma. La persona enferma también debe usar una máscara.",
+          "Proteja a otros miembros vulnerables de la familia manteniéndolos alejados de la persona enferma. Las personas en riesgo incluyen las personas mayores de 65 años o las personas con una enfermedad crónica. Si es posible, encuéntrelos en otro lugar para vivir mientras el miembro de la familia está enfermo."
+        ],
+        "citation": [
+          {
+            "name": "Orientación de distanciamiento social - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Cómo practico el distanciamiento social en el trabajo?",
+      "text": {
+        "text_1": [
+          "Para reducir la propagación de gérmenes en el lugar de trabajo:"
+        ],
+        "ulist_1": [
+          "Quedarse en casa a menos que sea absolutamente necesario",
+          "Deja de darle la mano como saludo",
+          "Organice reuniones a través de videoconferencias o llamadas telefónicas",
+          "Aplazar reuniones grandes",
+          "Realice reuniones esenciales al aire libre si es posible",
+          "Promover una buena higiene de manos y estornudos / tos y proporcionar desinfectantes de manos para todo el personal y los trabajadores.",
+          "Almuerce en su escritorio o afuera en lugar de en el comedor",
+          "Limpie y desinfecte regularmente las superficies que muchas personas tocan",
+          "Abra las ventanas o ajuste el aire acondicionado para obtener más ventilación.",
+          "Limite el manejo y la distribución de alimentos en el lugar de trabajo.",
+          "Evitar viajes no esenciales",
+          "Promover una higiene estricta entre el personal de preparación de alimentos (cantina) y sus contactos cercanos.",
+          "Considere si puede reprogramar, escalonar o cancelar reuniones no esenciales"
+        ],
+        "citation": [
+          {
+            "name": "Orientación de distanciamiento social - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Cómo pueden mis hijos practicar el distanciamiento social en la escuela?",
+      "text": {
+        "text_1": [
+          "Para reducir la propagación de gérmenes en las escuelas:"
+        ],
+        "ulist_1": [
+          "Lávese las manos con agua y jabón o use desinfectante para manos al ingresar a la escuela y a intervalos regulares",
+          "Detener las actividades que conducen a la mezcla entre clases y años.",
+          "Evite hacer cola",
+          "Cancelar asambleas escolares",
+          "Tener un horario regular de lavado de manos",
+          "Limpie y desinfecte regularmente las superficies que muchas personas tocan",
+          "Conduzca lecciones al aire libre donde sea posible",
+          "Considere abrir ventanas y ajustar el acondicionamiento para obtener más ventilación.",
+          "Promover la higiene más estricta entre el personal de preparación de alimentos (cantina) y sus contactos cercanos."
+        ],
+        "text_2": [
+          "Si su hijo está enfermo, no debe ir a la escuela ni a la guardería. Debes mantenerlos en casa y lejos de los demás."
+        ],
+        "citation": [
+          {
+            "name": "Orientación de distanciamiento social - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Qué más puedo hacer para ayudar a reducir la propagación?",
+      "text": {
+        "text_1": [
+          "Para ayudar a reducir la propagación del coronavirus, la OMS también recomienda:"
+        ],
+        "ulist_1": [
+          "Lávese las manos frecuentemente con agua y jabón o un desinfectante para manos a base de alcohol.",
+          "Evitar tocarse los ojos, la nariz y la boca",
+          "Cúbrase la boca y la nariz con el codo doblado o un pañuelo cuando tosa o estornude",
+          "Quédese en casa si se siente enfermo",
+          "Si tiene fiebre, tos o dificultad para respirar, busque atención médica temprano; asegúrese de llamar con anticipación y siga las instrucciones de su autoridad de salud local.",
+          "Manténgase informado y siga los consejos de su proveedor de atención médica."
+        ],
+        "citation": [
+          {
+            "name": "Preguntas y respuestas sobre coronavirus (COVID-19) - Organización Mundial de la Salud",
+            "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+          }
+        ]
+      }
+    }
+  ],
+  "regulations": [
+    {
+      "name": "¿Cuáles son los límites actuales del gobierno para las reuniones interiores y exteriores?",
+      "text": {
+        "text_1": [
+          "A partir del 30 de marzo, las reuniones en interiores y exteriores se han limitado a dos personas solamente. Las excepciones a este límite incluyen:"
+        ],
+        "ulist_1": [
+          "Gente de la misma casa saliendo juntos",
+          "Las bodas están restringidas a no más de cinco personas, incluida la pareja, el celebrante y los testigos. Se debe observar la regla de los 4 metros cuadrados y el distanciamiento social.",
+          "Los funerales deben limitarse a no más de 10 personas. Se debe observar la regla de los 4 metros cuadrados y el distanciamiento social.",
+          "Unidades familiares"
+        ],
+        "text_middle": [
+          "Se recomienda que se quede en casa excepto por:"
+        ],
+        "olist_1": [
+          "Comprar lo que necesita: alimentos y suministros necesarios",
+          "Necesidades médicas o de atención médica, incluidos los requisitos de compasión",
+          "Ejercer de conformidad con los requisitos de reunión pública",
+          "Trabaja y estudia si no puedes trabajar o aprender de forma remota"
+        ],
+        "citation": [
+          {
+            "name": "Límites en las reuniones públicas para el coronavirus (COVID-19) - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/ límites-en-reuniones-públicas-para-coronavirus-covid-19"
+          }
+        ]
+      }
+    },
+    {
+      "name": "¿Cuáles son los límites actuales del gobierno para las instalaciones públicas y las empresas?",
+      "text": {
+        "text_1": [
+          "Se ha restringido la apertura de las siguientes instalaciones a partir del 30 de marzo:"
+        ],
+        "ulist_1": [
+          "Pubs, clubes registrados y con licencia (excluyendo tiendas de botellas adjuntas a estos lugares), hoteles (excluyendo alojamiento)",
+          "Gimnasios y espacios deportivos de interior.",
+          "Cines, lugares de entretenimiento, casinos y clubes nocturnos.",
+          "Los restaurantes y cafeterías estarán restringidos a comida para llevar y / o servicio a domicilio.",
+          "Reuniones religiosas, lugares de culto o funerales (en espacios cerrados y que no sean grupos muy pequeños y donde se aplica la regla de 1 persona por 4 metros cuadrados)",
+          "Patios de comida (excepto para llevar)",
+          "Casas de subastas, subastas inmobiliarias y casas abiertas",
+          "Servicios personales (salones de belleza, uñas, bronceado, depilación y tatuajes)",
+          "Spa y salones de masajes, excluyendo servicios relacionados con la salud como fisioterapia",
+          "Parques de atracciones, salas de juego y centros de juego (interiores y exteriores)",
+          "Clubes de striptease, prostíbulos y locales de sexo en locales",
+          "Galerías, instituciones nacionales, sitios históricos y museos.",
+          "Clubes de salud, gimnasios, instalaciones de yoga, barra y spinning, saunas, baños y centros de bienestar y piscinas.",
+          "Instalaciones comunitarias como salas comunitarias, bibliotecas y centros juveniles, RSL y PCYC",
+          "Lugares de juego y apuestas",
+          "Mercados interiores y exteriores (excluidos los mercados de alimentos). Los estados y territorios harán sus propios anuncios sobre esto.",
+          "Los parques infantiles, los parques de patinaje y los gimnasios exteriores en lugares públicos estarán cerrados.",
+          "Los bootcamps se reducirán a dos personas, incluido el entrenador."
+        ],
+        "text_2": [
+          "Estas medidas también se aplican a las áreas al aire libre asociadas con cada uno de estos lugares. Los australianos deben esperar que estas medidas estén vigentes durante al menos 6 meses. Los centros comunitarios remotos aislados no están incluidos en estas restricciones.",
+          "El transporte público se considera esencial y, en esta etapa, no se aplica el límite de 100 personas. Si viaja en transporte público, use siempre prácticas apropiadas de distanciamiento social e higiene, y evite los viajes no esenciales.",
+          "Existen regulaciones especiales para visitar los centros de atención para personas mayores. Se puede encontrar más información en las fuentes a continuación."
+        ],
+        "citation": [
+          {
+            "name": "Declaración del gabinete nacional",
+            "link": "https://www.pm.gov.au/media/national-cabinet-statement"
+          },
+          {
+            "name": "Hoja informativa: Para familias y residentes en visitas restringidas a centros residenciales de cuidado para ancianos - Gobierno australiano",
+            "link": "https://health.govcms.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-for-families-and-residents-on-restricted-visits-to-residential- anciano-cuidado-instalaciones_0.pdf"
+          },
+          {
+            "name": "Límites en las reuniones públicas para el coronavirus (COVID-19) - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/ límites-en-reuniones-públicas-para-coronavirus-covid-19"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Restricciones para viajar:",
+      "text": {
+        "text_1": [
+          "Todas las personas que ingresan a Australia deben aislarse por 14 días. Puede abordar un vuelo nacional a su destino previsto en Australia para autoaislarse allí. Puede viajar a Australia si es ciudadano australiano, residente permanente, miembro de la familia inmediata de un ciudadano australiano o residente permanente o es un ciudadano neozelandés que generalmente reside en Australia. Si usted es un miembro de la familia inmediata que posee una visa temporal, deberá presentar evidencia de su relación."
+        ],
+        "citation": [
+          {
+            "name": "Orientación de distanciamiento social - Departamento de Salud del Gobierno de Australia",
+            "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+          },
+          {
+            "name": "COVID-19 (Coronavirus) y la frontera australiana - Departamento del Interior del Gobierno de Australia",
+            "link": "https://www.homeaffairs.gov.au/news-media/current-alerts/novel-coronavirus?fbclid=IwAR0CobpLulNLJmwXM4YM8nuctTyg9NgWCf8z7iXfu3cwiQZM-nNC0E0pnyc"
+          },
+          {
+            "name": "Actualización sobre medidas de coronavirus",
+            "link": "https://www.pm.gov.au/media/update-coronavirus-measures-220320"
+          }
+        ]
+      }
+    }
+  ]
+}
