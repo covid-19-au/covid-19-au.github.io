@@ -1,1766 +1,1752 @@
 [
   {
     "state": "ACT",
-    "schema": "SA4",
+    "schema": "SA3",
     "area": "Belconnen",
     "confirmedCases": "13",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": ""
   },
   {
     "state": "ACT",
-    "schema": "SA5",
+    "schema": "SA3",
     "area": "Canberra East",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": ""
   },
   {
     "state": "ACT",
-    "schema": "SA6",
+    "schema": "SA3",
     "area": "Gungahlin",
     "confirmedCases": "16",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": ""
   },
   {
     "state": "ACT",
-    "schema": "SA7",
+    "schema": "SA3",
     "area": "Molonglo",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": ""
   },
   {
     "state": "ACT",
-    "schema": "SA8",
+    "schema": "SA3",
     "area": "North Canberra",
     "confirmedCases": "12",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": ""
   },
   {
     "state": "ACT",
-    "schema": "SA9",
+    "schema": "SA3",
     "area": "South Canberra",
     "confirmedCases": "17",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": ""
   },
   {
     "state": "ACT",
-    "schema": "SA10",
+    "schema": "SA3",
     "area": "Tuggeranong",
-    "confirmedCases": "24",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "23",
+    "lastUpdateDate": ""
   },
   {
     "state": "ACT",
-    "schema": "SA11",
+    "schema": "SA3",
     "area": "Urriarra - Namadgi",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": ""
   },
   {
     "state": "ACT",
-    "schema": "SA12",
+    "schema": "SA3",
     "area": "Weston Creek",
     "confirmedCases": "7",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": ""
   },
   {
     "state": "ACT",
-    "schema": "SA13",
+    "schema": "SA3",
     "area": "Woden Valley",
     "confirmedCases": "11",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Armidale Regional",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Ballina",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Bellingen",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Blayney",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Broken Hill",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Coonamble",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Cootamundra-Gundagai Regional",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Glen Innes Severn",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Greater Hume Shire",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Griffith",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Gunnedah",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Hay",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Hilltops",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Inverell",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Kempsey",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Lithgow",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Liverpool Plains",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Mid-Western Regional",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Murrumbidgee",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Muswellbrook",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Nambucca",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Narrandera",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Narromine",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Parkes",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Richmond Valley",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Singleton",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Snowy Valleys",
-    "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Tenterfield",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Upper Hunter Shire",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Upper Lachlan Shire",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Uralla",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Warren",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Warrumbungle Shire",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Weddin",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Wollondilly",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Berrigan",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Cabonne",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Dubbo Regional",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Dungog",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Lismore",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Snowy Monaro Regional",
     "confirmedCases": "6",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Yass Valley",
     "confirmedCases": "6",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Albury",
     "confirmedCases": "7",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Kiama",
     "confirmedCases": "7",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Burwood",
     "confirmedCases": "8",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Clarence Valley",
     "confirmedCases": "8",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Federation",
     "confirmedCases": "8",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Goulburn Mulwaree",
     "confirmedCases": "8",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Bathurst Regional",
     "confirmedCases": "9",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Bega Valley",
     "confirmedCases": "9",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Orange",
     "confirmedCases": "9",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Eurobodalla",
     "confirmedCases": "10",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Queanbeyan-Palerang Regional",
     "confirmedCases": "10",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Wagga Wagga",
     "confirmedCases": "10",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Strathfield",
     "confirmedCases": "12",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Tamworth Regional",
     "confirmedCases": "12",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Coffs Harbour",
     "confirmedCases": "14",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Tweed",
     "confirmedCases": "14",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Byron",
     "confirmedCases": "16",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Shellharbour",
     "confirmedCases": "21",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Willoughby",
     "confirmedCases": "21",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Canada Bay",
     "confirmedCases": "22",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Hunters Hill",
     "confirmedCases": "22",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Blue Mountains",
     "confirmedCases": "23",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Wingecarribee",
+    "confirmedCases": "23",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Cessnock",
     "confirmedCases": "24",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Hawkesbury",
     "confirmedCases": "24",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Wingecarribee",
-    "confirmedCases": "24",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Fairfield",
     "confirmedCases": "28",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Port Macquarie-Hastings",
     "confirmedCases": "28",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Maitland",
-    "confirmedCases": "31",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Shoalhaven",
     "confirmedCases": "31",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Maitland",
+    "confirmedCases": "32",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Campbelltown",
-    "confirmedCases": "32",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "33",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Port Stephens",
     "confirmedCases": "33",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Camden",
     "confirmedCases": "36",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Lane Cove",
+    "confirmedCases": "37",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Mid-Coast",
     "confirmedCases": "39",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Lane Cove",
-    "confirmedCases": "40",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Mosman",
     "confirmedCases": "41",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Parramatta",
     "confirmedCases": "44",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Liverpool",
-    "confirmedCases": "45",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "46",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "North Sydney",
     "confirmedCases": "46",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Hornsby",
     "confirmedCases": "48",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Lake Macquarie",
     "confirmedCases": "49",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Wollongong",
     "confirmedCases": "51",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Newcastle",
     "confirmedCases": "53",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "The Hills Shire",
     "confirmedCases": "57",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Georges River",
     "confirmedCases": "58",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Bayside",
-    "confirmedCases": "61",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Penrith",
-    "confirmedCases": "61",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "60",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Bayside",
+    "confirmedCases": "62",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Cumberland",
     "confirmedCases": "65",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Ryde",
+    "confirmedCases": "66",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Ku-ring-gai",
     "confirmedCases": "69",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Inner West",
     "confirmedCases": "70",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Ku-ring-gai",
-    "confirmedCases": "70",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Randwick",
     "confirmedCases": "79",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Sutherland Shire",
-    "confirmedCases": "87",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "NSW",
-    "schema": "LGA",
-    "area": "Woollahra",
-    "confirmedCases": "88",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Canterbury-Bankstown",
-    "confirmedCases": "89",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "87",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
-    "area": "Blacktown",
-    "confirmedCases": "104",
-    "lastUpdateDate": "11/4/20"
+    "area": "Sutherland Shire",
+    "confirmedCases": "88",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Woollahra",
+    "confirmedCases": "91",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Central Coast",
-    "confirmedCases": "104",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "102",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "NSW",
+    "schema": "LGA",
+    "area": "Blacktown",
+    "confirmedCases": "105",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Northern Beaches",
     "confirmedCases": "150",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Sydney",
     "confirmedCases": "151",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Waverley",
     "confirmedCases": "175",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Cairns and Hinterland",
     "confirmedCases": "32",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Central Queensland",
-    "confirmedCases": "8",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "9",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Central West",
     "confirmedCases": "0",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Darling Downs",
-    "confirmedCases": "43",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "42",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Gold Coast",
     "confirmedCases": "181",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Mackay",
-    "confirmedCases": "13",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "14",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Metro North",
-    "confirmedCases": "295",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "302",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Metro South",
-    "confirmedCases": "232",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "233",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "North West",
     "confirmedCases": "0",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "South West",
     "confirmedCases": "0",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Sunshine Coast",
     "confirmedCases": "87",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Torres and Cape",
     "confirmedCases": "0",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Townsville",
     "confirmedCases": "23",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "West Moreton",
     "confirmedCases": "37",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Wide Bay",
     "confirmedCases": "23",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "QLD",
     "schema": "HHS",
     "area": "Overseas",
     "confirmedCases": "0",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "STONNINGTON",
-    "confirmedCases": "88",
-    "lastUpdateDate": "11/4/20"
+    "area": "Ararat (RC)",
+    "confirmedCases": "1",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "BANYULE",
+    "area": "Ballarat (C)",
+    "confirmedCases": "10",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Banyule (C)",
     "confirmedCases": "80",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "BOROONDARA",
-    "confirmedCases": "60",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "GREATER GEELONG",
-    "confirmedCases": "60",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MELBOURNE",
-    "confirmedCases": "56",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MORNINGTON PENINSULA",
-    "confirmedCases": "55",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "CASEY",
-    "confirmedCases": "49",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MORELAND",
-    "confirmedCases": "49",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "GLEN EIRA",
-    "confirmedCases": "46",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "PORT PHILLIP",
-    "confirmedCases": "44",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MONASH",
-    "confirmedCases": "42",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "FRANKSTON",
-    "confirmedCases": "36",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MOONEE VALLEY",
-    "confirmedCases": "35",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "HUME",
-    "confirmedCases": "34",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "DAREBIN",
-    "confirmedCases": "32",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "BRIMBANK",
-    "confirmedCases": "30",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "BAYSIDE",
-    "confirmedCases": "29",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "WYNDHAM",
-    "confirmedCases": "27",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MANNINGHAM",
-    "confirmedCases": "25",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "YARRA",
-    "confirmedCases": "23",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "KINGSTON",
-    "confirmedCases": "22",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "WHITEHORSE",
-    "confirmedCases": "22",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "WHITTLESEA",
-    "confirmedCases": "22",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "NILLUMBIK",
-    "confirmedCases": "21",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "YARRA RANGES",
-    "confirmedCases": "21",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MELTON",
-    "confirmedCases": "18",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "GREATER DANDENONG",
-    "confirmedCases": "15",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "HOBSONS BAY",
-    "confirmedCases": "13",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "KNOX",
-    "confirmedCases": "12",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "CARDINIA",
-    "confirmedCases": "11",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MOIRA",
-    "confirmedCases": "11",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "BALLARAT",
-    "confirmedCases": "10",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MARIBYRNONG",
-    "confirmedCases": "10",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "SURF COAST",
-    "confirmedCases": "10",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "WELLINGTON",
-    "confirmedCases": "10",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "GREATER BENDIGO",
-    "confirmedCases": "9",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "GREATER SHEPPARTON",
-    "confirmedCases": "9",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MAROONDAH",
-    "confirmedCases": "9",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MITCHELL",
-    "confirmedCases": "9",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "LATROBE",
-    "confirmedCases": "6",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MOUNT ALEXANDER",
-    "confirmedCases": "6",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "BAW BAW",
-    "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MACEDON RANGES",
-    "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MILDURA",
-    "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "SOUTH GIPPSLAND",
-    "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "WARRNAMBOOL",
-    "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "BASS COAST",
+    "area": "Bass Coast (S)",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "BENALLA",
+    "area": "Baw Baw (S)",
+    "confirmedCases": "5",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Bayside (C)",
+    "confirmedCases": "29",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Benalla (RC)",
     "confirmedCases": "3",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "HORSHAM",
-    "confirmedCases": "3",
-    "lastUpdateDate": "11/4/20"
+    "area": "Boroondara (C)",
+    "confirmedCases": "60",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "LODDON",
-    "confirmedCases": "3",
-    "lastUpdateDate": "11/4/20"
+    "area": "Brimbank (C)",
+    "confirmedCases": "31",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "MANSFIELD",
-    "confirmedCases": "3",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "NORTHERN GRAMPIANS",
-    "confirmedCases": "3",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "SWAN HILL",
-    "confirmedCases": "3",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "CAMPASPE",
+    "area": "Campaspe (S)",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "HEPBURN",
+    "area": "Cardinia (S)",
+    "confirmedCases": "11",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Casey (C)",
+    "confirmedCases": "49",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Central Goldfields (S)",
+    "confirmedCases": "1",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Corangamite (S)",
+    "confirmedCases": "1",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Darebin (C)",
+    "confirmedCases": "32",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "East Gippsland (S)",
+    "confirmedCases": "1",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Frankston (C)",
+    "confirmedCases": "36",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Gannawarra (S)",
+    "confirmedCases": "1",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Glen Eira (C)",
+    "confirmedCases": "47",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Golden Plains (S)",
+    "confirmedCases": "1",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Greater Bendigo (C)",
+    "confirmedCases": "9",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Greater Dandenong (C)",
+    "confirmedCases": "15",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Greater Geelong (C)",
+    "confirmedCases": "60",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Greater Shepparton (C)",
+    "confirmedCases": "9",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Hepburn (S)",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "SOUTHERN GRAMPIANS",
+    "area": "Hobsons Bay (C)",
+    "confirmedCases": "13",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Horsham (RC)",
+    "confirmedCases": "3",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Kingston (C)",
+    "confirmedCases": "22",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Hume (C)",
+    "confirmedCases": "34",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Knox (C)",
+    "confirmedCases": "12",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Latrobe (C)",
+    "confirmedCases": "6",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Loddon (S)",
+    "confirmedCases": "3",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Macedon Ranges (S)",
+    "confirmedCases": "5",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Manningham (C)",
+    "confirmedCases": "26",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Maribyrnong (C)",
+    "confirmedCases": "10",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mansfield (S)",
+    "confirmedCases": "3",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Melbourne (C)",
+    "confirmedCases": "55",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Maroondah (C)",
+    "confirmedCases": "9",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Melton (C)",
+    "confirmedCases": "18",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mildura (RC)",
+    "confirmedCases": "5",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mitchell (S)",
+    "confirmedCases": "9",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moira (S)",
+    "confirmedCases": "11",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Monash (C)",
+    "confirmedCases": "42",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moonee Valley (C)",
+    "confirmedCases": "36",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moorabool (S)",
+    "confirmedCases": "1",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moreland (C)",
+    "confirmedCases": "49",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mornington Peninsula (S)",
+    "confirmedCases": "55",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Mount Alexander (S)",
+    "confirmedCases": "6",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Moyne (S)",
+    "confirmedCases": "1",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Murrindindi (S)",
+    "confirmedCases": "1",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Nillumbik (S)",
+    "confirmedCases": "21",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Northern Grampians (S)",
+    "confirmedCases": "3",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Port Phillip (C)",
+    "confirmedCases": "45",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "South Gippsland (S)",
+    "confirmedCases": "5",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Southern Grampians (S)",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "STRATHBOGIE",
+    "area": "Stonnington (C)",
+    "confirmedCases": "88",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Strathbogie (S)",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "WANGARATTA",
+    "area": "Surf Coast (S)",
+    "confirmedCases": "10",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Wangaratta (RC)",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "ARARAT",
+    "area": "Swan Hill (RC)",
+    "confirmedCases": "3",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Warrnambool (C)",
+    "confirmedCases": "5",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Wellington (S)",
+    "confirmedCases": "10",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "West Wimmera (S)",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "CENTRAL GOLDFIELDS",
+    "area": "Whitehorse (C)",
+    "confirmedCases": "22",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Whittlesea (C)",
+    "confirmedCases": "22",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Wodonga (RC)",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "VIC",
     "schema": "LGA",
-    "area": "CORANGAMITE",
+    "area": "Wyndham (C)",
+    "confirmedCases": "27",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Yarra Ranges (S)",
+    "confirmedCases": "21",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Yarra (C)",
+    "confirmedCases": "23",
+    "lastUpdateDate": "12/4/20"
+  },
+  {
+    "state": "VIC",
+    "schema": "LGA",
+    "area": "Yarriambiack (S)",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "EAST GIPPSLAND",
-    "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "GANNAWARRA",
-    "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "GOLDEN PLAINS",
-    "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MOORABOOL",
-    "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MOYNE",
-    "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "MURRINDINDI",
-    "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "WEST WIMMERA",
-    "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "WODONGA",
-    "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "YARRIAMBIACK",
-    "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
-  },
-  {
-    "state": "VIC",
-    "schema": "LGA",
-    "area": "Unknown",
-    "confirmedCases": "7",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Albany",
     "confirmedCases": "7",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Armadale",
-    "confirmedCases": "7",
-    "lastUpdateDate": "11/4/20"
+    "confirmedCases": "8",
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Augusta-Margaret River",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Bassendean",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Bayswater",
     "confirmedCases": "15",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Belmont",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Boddington",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Bridgetown-Greenbushes",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Broome",
     "confirmedCases": "11",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Bunbury",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Busselton",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Cambridge",
     "confirmedCases": "3",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Canning",
     "confirmedCases": "10",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Carnarvon",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Claremont",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Cottesloe",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Dardanup",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Dumbleyung",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "East Fremantle",
     "confirmedCases": "3",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Fremantle",
     "confirmedCases": "6",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Gingin",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Goomalling",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Gosnells",
     "confirmedCases": "8",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Greater Geraldton",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Halls Creek",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Harvey",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Joondalup",
     "confirmedCases": "34",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Kalamunda",
     "confirmedCases": "7",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Kalgoorlie - Boulder",
     "confirmedCases": "6",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Karratha",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Kwinana",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Mandurah",
     "confirmedCases": "28",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Melville",
     "confirmedCases": "27",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Mosman Park",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Mundaring",
     "confirmedCases": "8",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Murray",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Nedlands",
     "confirmedCases": "8",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Northam",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Peppermint Grove",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Perth",
     "confirmedCases": "22",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Port Hedland",
     "confirmedCases": "1",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Serpentine-Jarrahdale",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "South Perth",
     "confirmedCases": "8",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Stirling",
     "confirmedCases": "37",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Subiaco",
     "confirmedCases": "4",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Swan",
     "confirmedCases": "13",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Toodyay",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Victoria Park",
     "confirmedCases": "7",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Vincent",
     "confirmedCases": "5",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Wanneroo",
     "confirmedCases": "32",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Wyndham-East Kimberley",
     "confirmedCases": "3",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Yilgarn",
     "confirmedCases": "2",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Cockburn",
     "confirmedCases": "17",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   },
   {
     "state": "WA",
     "schema": "LGA",
     "area": "Rockingham",
     "confirmedCases": "20",
-    "lastUpdateDate": "11/4/20"
+    "lastUpdateDate": "12/4/20"
   }
 ]
