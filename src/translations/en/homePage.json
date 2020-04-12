@@ -116,7 +116,24 @@
         "NT":"NT"
     },
     "country":{
-
+        "AU":"AU",
+        "Canada":"Canada",
+        "China":"China",
+        "Denmark":"Denmark",
+        "France":"France",
+        "Germany":"Germany",
+        "Iran":"Iran",
+        "Italy":"Italy",
+        "Japan":"Japan",
+        "South Korea":"South Korea",
+        "NZ":"NZ",
+        "Norway":"Norway",
+        "Singapore":"Singapore",
+        "Spain":"Spain",
+        "Sweden":"Sweden",
+        "Switzerland":"Switzerland",
+        "UK":"UK",
+        "US":"US"
     }
 
 }

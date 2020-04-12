@@ -242,7 +242,7 @@ class EChartglobalLog extends Component {
         const dataSets = [];
         for (let i = 0; i < arrMapKeys.length; i++) {
             let newDataSet = {};
-            newDataSet["name"] = arrMapKeys[i];
+            newDataSet["name"] = i18next.t("homePage:country."+arrMapKeys[i]);
             newDataSet["z"] = arrMapKeys[i] === "AU" ? 3 : arrMapKeys[i] === "US" ? 1 : 2;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;

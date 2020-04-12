@@ -111,5 +111,25 @@
     "TAS": "TAS",
     "ACT": "ACTUAR",
     "NT": "Nuevo Testamento"
+  },
+  "country": {
+    "AU": "AU",
+    "Canada": "Canadá",
+    "China": "China",
+    "Denmark": "Dinamarca",
+    "France": "Francia",
+    "Germany": "Alemania",
+    "Iran": "Corrí",
+    "Italy": "Italia",
+    "Japan": "Japón",
+    "South Korea": "Corea del Sur",
+    "NZ": "Nueva Zelanda",
+    "Norway": "Noruega",
+    "Singapore": "Singapur",
+    "Spain": "España",
+    "Sweden": "Suecia",
+    "Switzerland": "Suiza",
+    "UK": "Reino Unido",
+    "US": "NOSOTROS"
   }
 }

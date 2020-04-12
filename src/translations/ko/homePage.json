@@ -111,5 +111,25 @@
     "TAS": "TAS",
     "ACT": "행위",
     "NT": "NT"
+  },
+  "country": {
+    "AU": "AU",
+    "Canada": "캐나다",
+    "China": "중국",
+    "Denmark": "덴마크",
+    "France": "프랑스",
+    "Germany": "독일",
+    "Iran": "이란",
+    "Italy": "이탈리아",
+    "Japan": "일본",
+    "South Korea": "대한민국",
+    "NZ": "뉴질랜드",
+    "Norway": "노르웨이",
+    "Singapore": "싱가포르",
+    "Spain": "스페인",
+    "Sweden": "스웨덴",
+    "Switzerland": "스위스",
+    "UK": "영국",
+    "US": "우리"
   }
 }

@@ -1,7 +1,6 @@
 {
   "misc": {
     "loadingText": "载入中...",
-
     "title": "澳大利亚的新冠病毒",
     "descrip": "实时报告",
     "slogan": "保持冷静，保持知情",
@@ -112,5 +111,25 @@
     "TAS": "塔斯社",
     "ACT": "法案",
     "NT": "新台币"
+  },
+  "country": {
+    "AU": "澳洲",
+    "Canada": "加拿大",
+    "China": "中国",
+    "Denmark": "丹麦",
+    "France": "法国",
+    "Germany": "德国",
+    "Iran": "伊朗",
+    "Italy": "意大利",
+    "Japan": "日本",
+    "South Korea": "韩国",
+    "NZ": "纽西兰",
+    "Norway": "挪威",
+    "Singapore": "新加坡",
+    "Spain": "西班牙",
+    "Sweden": "瑞典",
+    "Switzerland": "瑞士",
+    "UK": "英国",
+    "US": "美国"
   }
 }

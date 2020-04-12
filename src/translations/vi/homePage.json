@@ -111,5 +111,25 @@
     "TAS": "TAS",
     "ACT": "HÀNH ĐỘNG",
     "NT": "NT"
+  },
+  "country": {
+    "AU": "À",
+    "Canada": "Canada",
+    "China": "Trung Quốc",
+    "Denmark": "Đan mạch",
+    "France": "Pháp",
+    "Germany": "nước Đức",
+    "Iran": "Iran",
+    "Italy": "Nước Ý",
+    "Japan": "Nhật Bản",
+    "South Korea": "Nam Triều Tiên",
+    "NZ": "New Zealand",
+    "Norway": "Na Uy",
+    "Singapore": "Singapore",
+    "Spain": "Tây Ban Nha",
+    "Sweden": "Thụy Điển",
+    "Switzerland": "Thụy sĩ",
+    "UK": "Anh",
+    "US": "CHÚNG TA"
   }
 }
