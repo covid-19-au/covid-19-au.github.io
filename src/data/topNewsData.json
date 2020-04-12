@@ -1,6 +1,38 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-12/victoria-coronavirus-state-of-emergency-extended-to-may-11/12143168",
+            "title": "Victorian state of emergency extended for another month as new coronavirus cases decline",
+            "source": "ABCNews",
+            "date": "12 April 2020",
+            "time": "16:47",
+            "summary": "Victorian Premier Daniel Andrews announced the state of emergency imposed in his state will be extended by four weeks to midnight on May 11"
+        },
+        {
+            "link": "https://www.9news.com.au/world/course-prices-slashed-after-coronavirus-pandemic/a78cc4fb-2f02-4264-a540-d02e1d7eaa1d",
+            "title": "Higher education institutions to offer cut-price courses after coronavirus pandemic",
+            "source": "9News",
+            "date": "12 April 2020",
+            "time": "08:06",
+            "summary": "The federal government has also announced that higher education institutions will be offering cut price courses starting in May to fill skill shortages to assist the economic rebound once the pandemic has run its course. The online courses will run for six months in what are deemed to be \"areas of national priority\", such as in nursing, teaching, counselling, IT and science."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-mercy-flight-with-covid-19-positive-passengers-lands-in-melbourne-c-971434",
+            "title": "Coronavirus ‘mercy’ flight with COVID-19 positive passengers lands in Melbourne",
+            "source": "7News",
+            "date": "12 April 2020",
+            "time": "08:44",
+            "summary": "A ‘mercy flight’ carrying 80 coronavirus-infected Australians has touched down in Melbourne. Emergency services were on standby at Tullamarine airport to meet the plane, which was carrying 112 passengers in total. Those passengers are among 1200 Australian nationals being flown home from overseas by the Commonwealth this weekend, with flights from India and Peru landing on Friday and Saturday."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-11/trial-to-test-if-tuberculosis-vaccine-boosts-covid-19-immunity/12142230",
+            "title": "Clinical trial to test if tuberculosis vaccine can be used to boost immunity against COVID-19 ",
+            "source": "ABC News",
+            "date": "11 April 2020",
+            "time": "23:42",
+            "summary": "Clinical trial for 500 frontline health workers in South Australia will test if the BCG vaccine normally used to combat tuberculosis, can boost immunity against COVID-19."
+        },
+        {
             "link": "https://www.9news.com.au/world/coronavirus-antibody-test-could-soon-be-available/34216e0a-ceac-492b-953c-32d74cb0f8e2",
             "title": "Antibody tests for the novel coronavirus could be available within 'a week or so'",
             "source": "9News",
@@ -111,22 +143,6 @@
             "date": "06 April 2020",
             "time": "10:25",
             "summary": "Australian doctors who are worried the system will not be able to provide them with the equipment they need to protect themselves and their patients during the COVID-19 pandemic are looking at ways to design and produce their own. A large centralised group involving Victorian university staff, clinicians and manufacturers has been working tirelessly to develop suitable products and to co-ordinate the supply and demand of these essential items."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-free-hotel-stay-for-victorias-healthcare-workers-on-the-frontline-c-957213",
-            "title": "Coronavirus Australia: Free hotel stay for Victoria’s healthcare workers on the frontline",
-            "source": "7News",
-            "date": "05 April 2020",
-            "time": "12:01",
-            "summary": "Victoria’s frontline health workers will have free hotel stays if they need to self-isolate during the coronavirus crises, as the state recorded 20 new cases overnight. Premier Daniel Andrews said on Sunday the government will provide $20 million to buy a range of hotel rooms for up to 8000 frontline workers."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-05/chief-medical-officer-brendan-murphy-confident-coronavirus/12123154",
-            "title": "Chief Medical Officer Brendan Murphy 'increasingly confident' Australia can stay on top of coronavirus",
-            "source": "ABCNews",
-            "date": "05 April 2020",
-            "time": "19:09",
-            "summary": "Chief Medical Officer Brendan Murphy says Australia is succeeding at flattening the curve and that he is increasingly confident Australia will avoid the kind of devastation the coronavirus has caused in countries like Italy and the United States. However, his biggest concern remains community transmission, which accounts for 10 per cent of cases in Australia."
         }
     ]
 }

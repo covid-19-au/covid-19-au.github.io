@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-free-hotel-stay-for-victorias-healthcare-workers-on-the-frontline-c-957213",
+            "title": "Coronavirus Australia: Free hotel stay for Victoria’s healthcare workers on the frontline",
+            "source": "7News",
+            "date": "05 April 2020",
+            "time": "12:01",
+            "summary": "Victoria’s frontline health workers will have free hotel stays if they need to self-isolate during the coronavirus crises, as the state recorded 20 new cases overnight. Premier Daniel Andrews said on Sunday the government will provide $20 million to buy a range of hotel rooms for up to 8000 frontline workers."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-05/chief-medical-officer-brendan-murphy-confident-coronavirus/12123154",
+            "title": "Chief Medical Officer Brendan Murphy 'increasingly confident' Australia can stay on top of coronavirus",
+            "source": "ABCNews",
+            "date": "05 April 2020",
+            "time": "19:09",
+            "summary": "Chief Medical Officer Brendan Murphy says Australia is succeeding at flattening the curve and that he is increasingly confident Australia will avoid the kind of devastation the coronavirus has caused in countries like Italy and the United States. However, his biggest concern remains community transmission, which accounts for 10 per cent of cases in Australia."
+        },
+        {
             "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-visa-changes-open-the-door-for-foreign-workers-to-extend-their-stay-c-956257",
             "title": "Coronavirus Australia: Visa changes open the door for foreign workers to extend their stay",
             "source": "7News",
@@ -159,6 +175,22 @@
             "date": "25 March 2020",
             "time": "18:16",
             "summary": "At least 35,000 people have been put out of work in just three days by casinos, airlines, retailers and other businesses that have stood down their workers in response to the coronavirus crisis. Westpac’s chief economist, Bill Evans, said the coronavirus crisis would cost 814,000 jobs by June, more than doubling the unemployment rate to 11.1%."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-free-hotel-stay-for-victorias-healthcare-workers-on-the-frontline-c-957213",
+            "title": "Coronavirus Australia: Free hotel stay for Victoria’s healthcare workers on the frontline",
+            "source": "7News",
+            "date": "05 April 2020",
+            "time": "12:01",
+            "summary": "Victoria’s frontline health workers will have free hotel stays if they need to self-isolate during the coronavirus crises, as the state recorded 20 new cases overnight. Premier Daniel Andrews said on Sunday the government will provide $20 million to buy a range of hotel rooms for up to 8000 frontline workers."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-05/chief-medical-officer-brendan-murphy-confident-coronavirus/12123154",
+            "title": "Chief Medical Officer Brendan Murphy 'increasingly confident' Australia can stay on top of coronavirus",
+            "source": "ABCNews",
+            "date": "05 April 2020",
+            "time": "19:09",
+            "summary": "Chief Medical Officer Brendan Murphy says Australia is succeeding at flattening the curve and that he is increasingly confident Australia will avoid the kind of devastation the coronavirus has caused in countries like Italy and the United States. However, his biggest concern remains community transmission, which accounts for 10 per cent of cases in Australia."
         }
     ]
 }
