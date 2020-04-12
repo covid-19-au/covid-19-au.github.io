@@ -141,6 +141,10 @@ export default function Area({ area, onChange, data }) {
       </span>
         <br/>
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+        * ACT and NSW have reduced their confirmed case numbers by 1 and 10 today respectively due to reporting errors.
+      </span>
+        <br/>
+        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
             * Click on the <strong>State</strong> name for details.
       </span>
     </div>
