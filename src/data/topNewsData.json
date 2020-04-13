@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-13/coronavirus-queensland-schools-announcement-term-two/12141380",
+            "title": "Queensland schools to open for term two for vulnerable students and children of essential workers amid coronavirus",
+            "source": "ABCNews",
+            "date": "13 April 2020",
+            "time": "14:00",
+            "summary": "Queensland schools will open for term two for vulnerable students and the children of essential workers, Premier Annastacia Palaszczuk says. Other students will be taught from home via remote learning online for at least the first five weeks of the term. These rules would be in place until May 22 and reviewed on May 15."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-13/nsw-coronavirus-to-announce-440-million-dollar-rental-assistance/12143646",
+            "title": "NSW Government to announce $440 million coronavirus rental assistance with moratorium on forced evictions",
+            "source": "ABCNews",
+            "date": "13 April 2020",
+            "time": "18:00",
+            "summary": "The New South Wales State Government has announced $440 million in relief for renters and landlords affected by Government-enforced COVID-19 restrictions. They are allocating $220 million to residential renters and landlords and a further $220 million towards shops, gyms, hairdressers and businesses affected by COVID-19."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-12/victoria-coronavirus-state-of-emergency-extended-to-may-11/12143168",
             "title": "Victorian state of emergency extended for another month as new coronavirus cases decline",
             "source": "ABCNews",
@@ -135,14 +151,6 @@
             "date": "07 April 2020",
             "time": "03:30",
             "summary": "A number of Aboriginal health groups in Victoria have been forced to cease COVID-19 testing and consider shutting their doors due to a lack of personal protective equipment. Some clinics had just two weeks of personal protective equipment left with no immediate prospect of re-supply, creating a situation they described as “catastrophic”.The NSW Government has now written to the Commonwealth asking for the urgent release of supplies to the state’s Aboriginal medical services and for direct access to the Government’s national medical stockpile."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-06/doctors-designing-medical-equipment-to-face-coronavirus-covid-19/12120588",
-            "title": "Australian doctors design and make life-saving equipment needed for coronavirus pandemic",
-            "source": "ABCNews",
-            "date": "06 April 2020",
-            "time": "10:25",
-            "summary": "Australian doctors who are worried the system will not be able to provide them with the equipment they need to protect themselves and their patients during the COVID-19 pandemic are looking at ways to design and produce their own. A large centralised group involving Victorian university staff, clinicians and manufacturers has been working tirelessly to develop suitable products and to co-ordinate the supply and demand of these essential items."
         }
     ]
 }

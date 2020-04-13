@@ -83,7 +83,7 @@ function InfoDrawer() {
     };
 
     const sections = [
-        { id: "dailyDistractions", title: "Daily Distractions" },
+        { id: "dailyDistractions", title: "Daily Distraction" },
         { id: "media", title: "Informative Media" },
         { id: "general", title: "General Information" },
         { id: "regulations", title: "Current Regulations" },
@@ -164,16 +164,12 @@ function Information({ hospitalData, columns, gspace }) {
 
             <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
                 <div className="card" id="dailyDistractions">
-                    <h2 className="responsiveH2">Daily Distractions</h2>
+                    <h2 className="responsiveH2">Daily Distraction</h2>
                     {dailyFun.dailyFunStuff.map(stuff => (
                         stuff.type === "motivation" ? (
                             <div key={uuid()}>
                                 <div className="shadow-none p-3 mb-5 bg-light rounded">
                                     <h4 style={{ textAlign: 'center' }}>{stuff.title}</h4>
-                                    <div style={{ color: "grey", textAlign: 'center' }}>
-                                        <a href={stuff.source}
-                                            target="_blank"
-                                            rel="noopener noreferrer"><u>Story Source</u></a></div>
                                     {stuff.image.map(i1 => (
                                         <div key={uuid()}>
                                             <div className=" centerMedia">
@@ -190,7 +186,15 @@ function Information({ hospitalData, columns, gspace }) {
 
                                         </div>
                                     ))}
+
                                     <div>{ReactHtmlParser(stuff.content)}</div>
+
+                                    <br />
+                                    {/* Citation tag */}
+                                    {stuff.citation.map(cit => (<div key={uuid()} >
+                                        <small ><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                    </div>
+                                    ))}
 
                                 </div>
                             </div>
@@ -229,11 +233,13 @@ function Information({ hospitalData, columns, gspace }) {
                                             </div>
                                         ))}
 
+
                                     </div>
                                 </div>
                             </div>)
                     ))
                     }
+
                     <p style={{ textAlign: "center" }}>We will be regularly sharing motivating or interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
                     <p style={{ textAlign: "center" }}>Click <A href="/dailyHistory"><span style={{ color: "#3366BB" }} onClick={() => {
                         ReactGA.event({ category: 'DailyStory', action: "more" });
