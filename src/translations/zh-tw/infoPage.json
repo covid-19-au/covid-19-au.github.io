@@ -1,16 +1,16 @@
 {
   "dailyDistraction": {
-    "title": "日常分心",
-    "body1": "我們將在本節中定期分享有趣和有趣的事情，因為我們相信在這樣的時間傳播積極性是一件好事！",
+    "title": "每日正能量",
+    "body1": "我們將在本節中定期分享有趣和有趣的事情，因為我們相信在這樣的時間傳播正能量是一件好事！",
     "link": "點擊這裡",
-    "body2": "對於以前的帖子！"
+    "body2": "觀看以前的帖子！"
   },
   "informativeMedia": {
-    "title": "信息媒體",
-    "media1Descrip": "冠狀病毒解釋了該怎麼辦。",
+    "title": "小知識",
+    "media1Descrip": "解釋冠狀病毒以及你該怎麼做。",
     "media2Descrip": "如何正確洗手。",
-    "washingHandLink": "這是您可以保存的分步指南",
-    "media3Descrip": "如何正確佩戴和處置口罩。"
+    "washingHandLink": "這是您可以保存的分解步驟",
+    "media3Descrip": "如何正確佩戴和丟棄口罩。"
   },
   "generalInformation": {
     "title": "一般信息"
@@ -27,16 +27,16 @@
   "coronavirusHelpline": {
     "title": "冠狀病毒幫助專線",
     "sect1heading": "全國熱線每週7天，每天24小時運行。",
-    "sect1point1": "有關國家幫助熱線中冠狀病毒（COVID-19）的信息，請：",
+    "sect1point1": "有關國家幫助熱線中冠狀病毒（COVID-19）的信息，請撥打全國熱線：",
     "sect1point2": "如果您感到不適，請致電Healthdirect：",
     "sect2heading": "一些州還設有專門的求助熱線：",
     "sect2point1": "維多利亞州：",
     "sect2point2": "昆士蘭州：",
-    "sect2point3": "北方領土：",
+    "sect2point3": "北領地：",
     "sect2point3part1": "-如果您在達爾文市且需要安排檢查，請致電：",
     "sect2point4": "塔斯馬尼亞州：",
     "sect2point4part1d1": "-如果您需要口譯員，請致電塔斯馬尼亞口譯服務（TIS），電話為",
-    "sect2point4part1d2": " 告訴他們你的語言。",
+    "sect2point4part1d2": " 告訴他們你使用的語言。",
     "sect2point4part2": "-告訴口譯員您的名字，並且您正在致電塔斯馬尼亞衛生部"
   },
   "interestingLinks": {
@@ -44,13 +44,13 @@
     "point1": "冠狀病毒：錘子和舞蹈",
     "point2part1": "紐約時報",
     "point2part2": " 和",
-    "point2part3": "經濟學家",
-    "point2part4": " 使人們可以免費使用冠狀病毒。真的很棒！"
+    "point2part3": "經濟學人",
+    "point2part4": " 免費提供冠狀病毒相關的報導文章。真的很棒！"
   },
   "testingCentres": {
-    "title": "進行冠狀病毒測試的醫院清單",
+    "title": "進行冠狀病毒檢測的醫院清單",
     "sect1heading": "注意：",
-    "sect1body": "對於塔斯馬尼亞州的任何人，所有四個測試診所都將不接受步測，任何認為自己可能需要測試的人都應首先通過以下方式聯繫公共衛生熱線：",
-    "tableNote": "通過單擊下面的狀態下拉列表來過濾表。"
+    "sect1body": "在塔斯馬尼亞州的民眾須知，所有四個測試診所都將不提供無預約的檢測，任何認為自己可能需要測試的人都應首先通過以下方式聯繫公共衛生熱線：",
+    "tableNote": "想進一步篩選，可在下拉列表選擇各州。"
   }
 }
