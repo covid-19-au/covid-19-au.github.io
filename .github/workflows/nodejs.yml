@@ -24,7 +24,7 @@ jobs:
         python-version: '3.x' # Semantic version range syntax or exact version of a Python version
         architecture: 'x64' # Optional - x64 or x86, defaults to x64
     # You can test your matrix by printing the current Python version
-    - name: Display Python version
+    - name: run python script
       run: |
         python -m pip install --upgrade pip
         pip install feedparser datetime dateparser python-dateutil

@@ -136,7 +136,7 @@ def newscrawler(
         for diction in news_articles["news"]:
             writer.writerow(diction)
 
-
+    print("crawling finished file init at {}!!".format(file_to_write))
 if __name__ == "__main__":
     ### default constants ###
 
@@ -160,4 +160,3 @@ if __name__ == "__main__":
     json_string = newscrawler(
         FNAME, HOUR_OFFSET, FILTER_BY, FTOWRITE, output_type="json"
     )
-    print("crawling finished!!")
