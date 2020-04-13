@@ -25,9 +25,10 @@ jobs:
         architecture: 'x64' # Optional - x64 or x86, defaults to x64
     # You can test your matrix by printing the current Python version
     - name: Display Python version
-      run: python -m pip install --upgrade pip
-      run: pip install feedparser datetime dateparser python-dateutil
-      run: python scripts/newscrawler.py
+      run: |
+        python -m pip install --upgrade pip
+        pip install feedparser datetime dateparser python-dateutil
+        python scripts/newscrawler.py
 
     - uses: actions/checkout@v1
       with:
