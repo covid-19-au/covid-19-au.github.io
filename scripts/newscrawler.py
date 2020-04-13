@@ -160,3 +160,4 @@ if __name__ == "__main__":
     json_string = newscrawler(
         FNAME, HOUR_OFFSET, FILTER_BY, FTOWRITE, output_type="json"
     )
+    print("crawling finished!!")
