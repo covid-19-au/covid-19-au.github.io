@@ -100,4 +100,4 @@ function downloadTimelineData(dataUrl, writePath) {
     });
 }
 downloadStateCaseData()
-//downloadTimelineData()
+downloadTimelineData()
