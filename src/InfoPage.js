@@ -83,7 +83,7 @@ function InfoDrawer() {
     };
 
     const sections = [
-        { id: "dailyDistractions", title: "Daily Distractions" },
+        { id: "dailyDistractions", title: "Daily Distraction" },
         { id: "media", title: "Informative Media" },
         { id: "general", title: "General Information" },
         { id: "regulations", title: "Current Regulations" },
@@ -164,7 +164,7 @@ function Information({ hospitalData, columns, gspace }) {
 
             <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
                 <div className="card" id="dailyDistractions">
-                    <h2 className="responsiveH2">Daily Distractions</h2>
+                    <h2 className="responsiveH2">Daily Distraction</h2>
                     {dailyFun.dailyFunStuff.map(stuff => (
                         stuff.type === "motivation" ? (
                             <div key={uuid()}>

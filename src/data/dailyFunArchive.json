@@ -1,6 +1,22 @@
 {
     "dailyFunStuff": [
         {
+            "image": [
+                {
+                    "name": "Genetic Network Analysis of COVID-19",
+                    "imgLink": "https://www.pnas.org/content/pnas/early/2020/04/07/2004999117/F1.large.jpg",
+                    "description": "COVID-19: genetic network analysis provides ‘snapshot’ of pandemic origins and could be used to help identify undocumented infection sources..",
+                    "source": "https://www.cam.ac.uk/research/news/covid-19-genetic-network-analysis-provides-snapshot-of-pandemic-origins?from=timeline&isappinstalled=0"
+                }
+            ],
+            "video": [],
+            "title": "",
+            "source": "",
+            "content": "",
+            "type": "distraction",
+            "date": "13/4/2020"
+        },
+        {
             "image": [],
             "video": [
                 {
