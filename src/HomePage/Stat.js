@@ -89,6 +89,7 @@ function UpdatesToday() {
         currentView = 3
     }
 
+
     let today = new Date()
     let yesterday = new Date(today)
 
