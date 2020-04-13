@@ -2,7 +2,7 @@
   "misc": {
     "loadingText": "Đang tải...",
     "title": "COVID-19 tại Úc Châu",
-    "descrip": "Cập nhật thời gian thực",
+    "descrip": "Cập nhật tốc hành",
     "slogan": "Nắm bắt vận mệnh, khai phá thiên cơ",
     "onButton": "On",
     "offButton": "Off",
@@ -11,17 +11,17 @@
   "dataAck": {
     "title": "Nguồn dữ liệu",
     "body1": "Dữ liệu trên trang web của chúng tôi có sẵn công khai và được lấy từ nhiều nguồn chính thức của chính phủ. Một danh sách đầy đủ được tìm thấy tại đây.",
-    "source1": "© Bộ Y tế bang New South Wales. Để biết thông tin hiện tại, truy cập",
-    "source2": "© Bang Queensland (Queensland Health) tại",
-    "source3": "Chính quyền South Australia tại",
-    "source4": "Chính quyền Australia Capital Territory (ACT Health) tại",
-    "source5": "Chính quyền Tasmania tại",
-    "source6": "Chính quyền bang Victoria, Bộ Y tế và Dịch vụ xã hội tại",
-    "source7": "Chính quyền Northern Territory, tại",
-    "source8": "Chính quyền South Australia, tại",
+    "source1": "© Bộ Y tế bang New South Wales. Để biết thông tin hiện tại, truy cập ",
+    "source2": "© Bang Queensland (Queensland Health) tại ",
+    "source3": "Chính quyền South Australia tại ",
+    "source4": "Chính quyền Australia Capital Territory (ACT Health) tại ",
+    "source5": "Chính quyền Tasmania tại ",
+    "source6": "Chính quyền bang Victoria, Bộ Y tế và Dịch vụ xã hội tại ",
+    "source7": "Chính quyền Northern Territory, tại ",
+    "source8": "Chính quyền South Australia, tại ",
     "body2": "Chúng tôi không liên kết, và cũng không được cấp quyền bởi các tổ chức này dưới bất kỳ hình thức nào. Chúng tôi là một nhóm tình nguyện viên và chúng tôi chỉ sử dụng dữ liệu thu thập được cho các mục đích phi thương mại, giáo dục, báo cáo và nghiên cứu. Việc sàng lọc được thực hiện để đảm bảo tính chính xác của dữ liệu.",
     "body3": "Chúng tôi đặc biệt khuyên người dùng của trang web này tuân thủ các lời khuyên và quy định được cung cấp bởi chính quyền và chính quyền địa phương và liên bang.",
-    "body4": "Nếu bạn có thắc mắc, xin vui lòng liên hệ với chúng tôi thông qua",
+    "body4": "Nếu bạn có thắc mắc, xin vui lòng liên hệ với chúng tôi thông qua ",
     "body5": "đơn phản hồi.",
     "body6": "Covid-19-au,",
     "body7": "Nắm bắt vận mệnh, khai phá thiên cơ.",
@@ -32,8 +32,8 @@
     "confirm": "Ca nhiễm",
     "hospital": "Nằm viện",
     "icu": "ICU",
-    "updateTitle": "Cập nhật trong ngày",
-    "note": "Thời gian theo múi giờ AEST, được cập nhật lần cuối lúc:",
+    "updateTitle": "Nguồn ca trong ngày",
+    "note": "Thời gian theo múi giờ AEST, được cập nhật lần cuối lúc: ",
     "confirmCase": "Ca nhiễm",
     "activeCase": "Đang chữa trị",
     "newCase": "Ca mới",
@@ -42,7 +42,7 @@
     "total": "Toàn bộ",
     "Cases": "Ca nhiễm",
     "casePM": "Ca nhiễm bình quân",
-    "Deaths": "Qua đời",
+    "Deaths": "Tử vong",
     "Recoveries": "Khỏi bệnh",
     "testPM": "Xét nghiệm bình quân",
     "positiveP": "Tỉ lệ dương tính (%)",
@@ -53,8 +53,8 @@
     "title": "Các ca nhiễm theo tiểu bang",
     "buttonPrompt": "Chọn Loại bản đồ:",
     "append1": "* Hiện tại chúng tôi không có nguồn dữ liệu phù hợp cho các trường hợp khỏi bệnh ở bang NSW. Tổng dữ liệu người khỏi bệnh được dựa trên báo cáo của chính phủ.",
-    "append2": "* Bấm vào",
-    "append3": "tên để biết thêm chi tiết"
+    "append2": "* Bấm vào tiểu bang ",
+    "append3": " để biết thêm chi tiết"
   },
   "hospitalCaseMap": {
     "title": "Vị trí bệnh viện & ca nhiễm",
@@ -72,19 +72,19 @@
   },
   "chartCommon": {
     "clickLegend": "* Click vào mục chú thích để bật/tắt biểu đồ",
-    "clickPoint": "* Click vào một vị trí để xem dữ liệu chi tiết",
+    "clickPoint": "* Di chuyển vào một vị trí để xem dữ liệu chi tiết",
     "dottedLine": "* Đường chấm gạch biểu thị không có dữ liệu mới"
   },
   "globalChart": {
     "title": "So sánh toàn cầu",
     "selectAll": "Chọn tất cả",
     "selectNo": "Chọn không có",
-    "updateNotice": "Cập nhật lần cuối:",
+    "updateNotice": "Cập nhật lần cuối: ",
     "append0": "* Mỗi điểm trên trục Y là tổng số ca nhiễm mới trong 7 ngày qua.",
     "append1": "*Xem",
     "append2": "video (Tiếng Anh)",
     "append3": " để được hướng dẫn chi tiết về biểu đồ này!",
-    "append4": "*Nguồn dữ liệu:"
+    "append4": "*Nguồn dữ liệu: "
   },
   "flights": {
     "title": "Chuyến bay",
@@ -94,7 +94,7 @@
     "tableHeader2": "Hãng",
     "tableHeader3": "Chặng",
     "tableHeader4": "Đáp",
-    "tableHeader5": "Vị trí ngồi gần ca nhiễm"
+    "tableHeader5": "Hàng ghế gần ca nhiễm"
   },
   "state": {
     "NSW": "NSW",
