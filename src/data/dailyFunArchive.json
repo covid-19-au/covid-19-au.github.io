@@ -3,6 +3,29 @@
         {
             "image": [
                 {
+                    "imgLink": "https://i.imgur.com/b6u2b7T.png",
+                    "source": "https://www.google.com/amp/s/amp.heraldsun.com.au/news/victoria/they-had-tears-in-their-eyes-why-john-the-generous-handed-out-cash-in-centrelink-queue/news-story/f3de6fbc7416d233dcddb6b22c41fe34"
+                }
+            ],
+            "video": [],
+            "title": "Melbourne’s Pete the Generous",
+            "content": "<p>Amidst the unemployment challenges for many individuals, good samaritans like Pete Darmos have been helping out whoever they can. Pete is just like any other business owner who owns a local cafe in Melbourne city, however, he was also affected by COVID-19 and was forced to shut down his business. Despite being shut down, Pete has been giving back to the community by donating money to individuals lining outside Centrelink in Box Hill. </p><p>Pete who is now dubbed “Pete the Generous”, withdrew $10 000 and handed $100 to each person standing outside Centrelink, as many have lost their jobs. Many of these individuals were in tears and disbelief that Pete had given them the money, which would help them put food on the table.</p><p>It is amazing how Pete, who is suffering hardships himself, is still supporting people who are struggling in the community. He also encourages other Australians to donate, if they are able to, to help those who have been affected by the pandemic. Thank you Pete for your generous actions, it is extremely heartwarming to see that people are selfless and considerate during these difficult times.</p>",
+            "type": "motivation",
+            "date": "14/4/2020",
+            "citation": [
+                {
+                    "link": "https://www.news.com.au/finance/work/melbourne-man-gives-out-10000-to-job-seekers-in-centrelink-queue/news-story/401f81ddda1dacb08c4918c1b0dcb22f",
+                    "name": "Melbourne man gives out $10,000 to job seekers in Centrelink queue - news.com.au"
+                },
+                {
+                    "link": "https://7news.com.au/lifestyle/health-wellbeing/pete-the-generous-hands-out-100-bills-to-melbourne-centrelink-queue-c-768417",
+                    "name": "Pete the generous hands out $100 bills to Melbourne Centrelink queue - 7 news"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
                     "name": "Genetic Network Analysis of COVID-19",
                     "imgLink": "https://www.pnas.org/content/pnas/early/2020/04/07/2004999117/F1.large.jpg",
                     "description": "COVID-19: genetic network analysis provides ‘snapshot’ of pandemic origins and could be used to help identify undocumented infection sources..",
