@@ -12,9 +12,7 @@ if hasattr(ssl, "_create_unverified_context"):
     ssl._create_default_https_context = ssl._create_unverified_context
 
 
-def newscrawler(
-    rss_links_name, hour_offset, filter_by, file_to_write, output_type="json"
-):
+def newscrawler(hour_offset, filter_by, file_to_write, output_type="json"):
     """
 	Crawls through the RSS links specified to get news, filtering by hour_offset (how old do you want the news) and
 	by keywords (filter_by)
@@ -30,50 +28,105 @@ def newscrawler(
 	"""
 
     rss_feeds = [
-        "https://www.abc.net.au/news/feed/8055316/rss.xml",
-        "https://www.abc.net.au/news/feed/8057136/rss.xml",
-        "https://www.abc.net.au/news/feed/8053540/rss.xml",
-        "https://www.abc.net.au/news/feed/8054562/rss.xml",
-        "https://www.abc.net.au/news/feed/8057540/rss.xml",
-        "https://www.abc.net.au/news/feed/8057648/rss.xml",
-        "https://www.abc.net.au/news/feed/8057096/rss.xml",
-        "https://www.watoday.com.au/rss/national.xml",
-        "https://www.theguardian.com/australia-news/rss",
-        "https://www.health.gov.au/news/rss.xml/",
-        "https://www.sbs.com.au/news/topic/australia/feed",
-        "https://www.smh.com.au/rss/national.xml",
-        "https://www.theage.com.au/rss/national.xml",
-        "https://www.health.nsw.gov.au/_layouts/feed.aspx?xsl=1&web=/news&page=4ac47e14-04a9-4016-b501-65a23280e841&wp=baabf81e-a904-44f1-8d59-5f6d56519965&pageurl=/news/Pages/rss-nsw-health.aspx",
-        "https://www2.health.vic.gov.au/rss/health-alerts-and-advisories",
-        "https://www2.health.vic.gov.au/rss/News",
-        "https://thewest.com.au/news/wa/rss",
-        "https://theconversation.com/au/covid-19/articles.atom",
-        "http://newsroom.nt.gov.au/api/RSS/NewsroomIndex",
-        "http://statements.qld.gov.au/Feed/Latest/25",
-        "http://statements.qld.gov.au/Feed/minister-for-health-and-minister-for-ambulance-services",
-        "https://www.brisbanetimes.com.au/rss/national/queensland.xml",
-        "https://www.canberratimes.com.au/rss.xml",
+        {
+            "link": "https://www.abc.net.au/news/feed/8055316/rss.xml",
+            "name": "ABC News",
+        },
+        {
+            "link": "https://www.abc.net.au/news/feed/8057136/rss.xml",
+            "name": "ABC News",
+        },
+        {
+            "link": "https://www.abc.net.au/news/feed/8053540/rss.xml",
+            "name": "ABC News",
+        },
+        {
+            "link": "https://www.abc.net.au/news/feed/8054562/rss.xml",
+            "name": "ABC News",
+        },
+        {
+            "link": "https://www.abc.net.au/news/feed/8057540/rss.xml",
+            "name": "ABC News",
+        },
+        {
+            "link": "https://www.abc.net.au/news/feed/8057648/rss.xml",
+            "name": "ABC News",
+        },
+        {
+            "link": "https://www.abc.net.au/news/feed/8057096/rss.xml",
+            "name": "ABC News",
+        },
+        {"link": "https://www.watoday.com.au/rss/national.xml", "name": "WA Today"},
+        {
+            "link": "https://www.theguardian.com/australia-news/rss",
+            "name": "The Guardian",
+        },
+        {
+            "link": "https://www.health.gov.au/news/rss.xml/",
+            "name": "Australian Government Department of Health",
+        },
+        {
+            "link": "https://www.sbs.com.au/news/topic/australia/feed",
+            "name": "SBS News",
+        },
+        {
+            "link": "https://www.health.nsw.gov.au/_layouts/feed.aspx?xsl=1&web=/news&page=4ac47e14-04a9-4016-b501-65a23280e841&wp=baabf81e-a904-44f1-8d59-5f6d56519965&pageurl=/news/Pages/rss-nsw-health.aspx",
+            "name": "New South Wales Government - Health",
+        },
+        {
+            "link": "https://www2.health.vic.gov.au/rss/health-alerts-and-advisories",
+            "name": "Victoria State Government",
+        },
+        {
+            "link": "https://www2.health.vic.gov.au/rss/News",
+            "name": "Victoria State Government",
+        },
+        {"link": "https://thewest.com.au/news/wa/rss", "name": "The West Australian"},
+        {
+            "link": "https://theconversation.com/au/covid-19/articles.atom",
+            "name": "The Conversation",
+        },
+        {
+            "link": "http://newsroom.nt.gov.au/api/RSS/NewsroomIndex",
+            "name": "Northern Territory Government",
+        },
+        {
+            "link": "http://statements.qld.gov.au/Feed/Latest/25",
+            "name": "Queensland Government",
+        },
+        {
+            "link": "http://statements.qld.gov.au/Feed/minister-for-health-and-minister-for-ambulance-services",
+            "name": "Queensland Government",
+        },
+        {
+            "link": "https://www.brisbanetimes.com.au/rss/national/queensland.xml",
+            "name": "Brisbane Times",
+        },
+        {
+            "link": "https://www.canberratimes.com.au/rss.xml",
+            "name": "The Canberra Times",
+        },
     ]
 
-    local_zone = tz.tzlocal()
-    now = datetime.now().astimezone(local_zone)
+    now = datetime.now().astimezone(tz.gettz("Australia/Melbourne"))
 
     ##### Get the current news related to the filters ####
     news_articles = {
-        "updateTime": now.strftime("%I:%M%p %d %B %Y"),
+        "updatedTime": now.strftime("%I:%M%p %d %B %Y"),
         "news": [],
     }
 
     # create json object
-    for url in rss_feeds:
-        d = feedparser.parse(url)
-        try:
-            author = d.feed.author
-        except:
-            author = url
+    for feed in rss_feeds:
+        d = feedparser.parse(feed["link"])
+
+        author = feed["name"]
+
         for entry in d.entries:
             # filter by date
-            article_date = dateparser.parse(entry.updated).astimezone(local_zone)
+            article_date = dateparser.parse(entry.updated).astimezone(
+                tz.gettz("Australia/Melbourne")
+            )
             if now - timedelta(hours=hour_offset) < article_date:
 
                 # filter by keywords
@@ -101,15 +154,19 @@ def newscrawler(
         ),
     )
     news_articles["news"].reverse()
-
+    print(len(news_articles["news"]))
     i = 0
     while i < len(news_articles["news"]) - 1:
         if news_articles["news"][i]["url"] == news_articles["news"][i + 1]["url"]:
             news_articles["news"].pop(i + 1)
+
+        elif news_articles["news"][i]["title"] == news_articles["news"][i + 1]["title"]:
+            news_articles["news"].pop(i + 1)
+
         else:
             i = i + 1
 
-    news_articles["news"] = news_articles["news"][:40]
+    news_articles["news"] = news_articles["news"][:45]
 
     if output_type == "json":
         json_string = dumps(news_articles, indent=4)
@@ -136,7 +193,7 @@ def newscrawler(
         for diction in news_articles["news"]:
             writer.writerow(diction)
 
-    print("crawling finished file init at {}!!".format(file_to_write))
+
 if __name__ == "__main__":
     ### default constants ###
 
@@ -155,8 +212,6 @@ if __name__ == "__main__":
     ]
 
     # rss feeds link file
-    FNAME = "rss_feeds.md"
     FTOWRITE = "src/data/timelinedata.json"
-    json_string = newscrawler(
-        FNAME, HOUR_OFFSET, FILTER_BY, FTOWRITE, output_type="json"
-    )
+    json_string = newscrawler(HOUR_OFFSET, FILTER_BY, FTOWRITE, output_type="json")
+

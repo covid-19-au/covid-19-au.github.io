@@ -1,6 +1,38 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-world-health-organisation-lists-criteria-for-removing-restrictions-c-973946",
+            "title": "Coronavirus Australia: World Health Organisation lists criteria for reducing restrictions",
+            "source": "7News",
+            "date": "14 April 2020",
+            "time": "07:46",
+            "summary": "The World Health Organisation (WHO) has released new criteria countries must adhere to before even considering lifting coronavirus restrictions. Six key factors that must be followed were announced on Tuesday morning. It follows countries easing their restrictions and seeing a second wave of outbreaks. The six WHO guidelines are: Transmission of the virus is controlled; Health systems can detect every case; Outbreak risks are minimised; Preventative measures are in place; Importation risks can be managed; and Communities are educated and empowered to adjust to the “new norm”."
+        },
+        {
+            "link": "https://www.theguardian.com/business/2020/apr/14/australia-will-need-to-raise-gst-to-pay-coronavirus-debt-tax-expert-says",
+            "title": "Australia will need to raise GST to pay coronavirus debt, tax expert says ",
+            "source": "TheGuardian",
+            "date": "14 April 2020",
+            "time": "03:30",
+            "summary": "Tax reform including a GST increase and higher land tax will be needed to avoid the debt burden of the $214bn Covid-19 economic response falling on young people, an academic tax expert has warned."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-schools-australia-states-closures-return-dates-term-two-guide/f44a37a7-a261-4c95-85f7-908cf6ed2bca",
+            "title": "School closures and recommencement dates across Australia",
+            "source": "9News",
+            "date": "14 April 2020",
+            "time": "12:18",
+            "summary": "As the Easter holidays come to a close for some states, students and parents are now turning their minds to how Term 2 will look at their schools. Each state and territory is slightly different across Australia. This article outlines the current plan from each State Government going into Term 2."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20",
+            "title": "The eligibility requirements you must meet to be tested for COVID-19 in each state",
+            "source": "9News",
+            "date": "14 April 2020",
+            "time": "13:33",
+            "summary": "With eligibility requirements for testing of COVID-19 changing all the time and with every state requiring different eligibility in order to be tested, it can be difficult to keep track. Here is a state-by-state break down of latest eligibility guidelines for each state and territory."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-13/coronavirus-queensland-schools-announcement-term-two/12141380",
             "title": "Queensland schools to open for term two for vulnerable students and children of essential workers amid coronavirus",
             "source": "ABCNews",
@@ -119,38 +151,6 @@
             "date": "08 April 2020",
             "time": "10:30",
             "summary": "Australian researchers are working on a test they say will be able to predict the severity of symptoms in COVID-19 patients, telling them how hard the virus will hit them after they contract it and what their immunity will be when they recover."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-07/scott-morrison-press-conference-coronavirus-crisis-modelling/12129550",
-            "title": "Scott Morrison's press conference: Coronavirus modelling, rental tenancies and what you shouldn't do this Easter ",
-            "source": "ABCNews",
-            "date": "07 April 2020",
-            "time": "21:00",
-            "summary": "Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy addressed the nation this afternoon with some more important updates about the COVID-19 crisis. Topics included progress on flattening the curve, Easter weekend, the modelling that was released today, rental issues, asymptomatic carriers, schools, and more."
-        },
-        {
-            "link": "https://7news.com.au/business/finance/atos-coronavirus-measures-what-you-can-claim-on-your-tax-return-if-youre-working-from-home-c-961850",
-            "title": "ATO’s coronavirus measures: What you can claim on your tax return if you’re working from home",
-            "source": "7News",
-            "date": "07 April 2020",
-            "time": "18:08",
-            "summary": "With COVID-19 restrictions forcing more Australians than ever to work from home, come tax time, people are going to be able to claim deductions on anything they use to do their job - such as office furniture, computers, tablets, phone and internet bills. For running expenses like heating, cooling and lighting, the Australian Tax Office is offering a special COVID-19 flat rate tax deduction of 80 cents an hour that you can claim instead of having to calculate the costs manually."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-drop-in-testing-rates-sign-of-australia-flattening-the-curve-deputy-chief-medical-officer/c3283f99-076b-4990-8901-946bf3d598ea",
-            "title": "Drop in daily testing coronavirus rates possible sign of Australia 'flattening the curve'",
-            "source": "9News",
-            "date": "07 April 2020",
-            "time": "07:59",
-            "summary": "A major drop in the number of people being tested daily for COVID-19 is not a result of a lack of testing kits, but of a drop in the number of people presenting with symptoms, Deputy Chief Medical officer Professor Michael Kidd said. Last month, more than 4000 tests were being conducted daily however that number has fallen to closer to 2700 a day. Professor Kidd told Today this was more likely a result of Australia beginning to flatten the curve."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/apr/07/lack-of-ppe-forces-aboriginal-health-groups-to-stop-testing-for-coronavirus",
-            "title": "Lack of PPE forces Aboriginal health groups to stop testing for coronavirus ",
-            "source": "TheGuardian",
-            "date": "07 April 2020",
-            "time": "03:30",
-            "summary": "A number of Aboriginal health groups in Victoria have been forced to cease COVID-19 testing and consider shutting their doors due to a lack of personal protective equipment. Some clinics had just two weeks of personal protective equipment left with no immediate prospect of re-supply, creating a situation they described as “catastrophic”.The NSW Government has now written to the Commonwealth asking for the urgent release of supplies to the state’s Aboriginal medical services and for direct access to the Government’s national medical stockpile."
         }
     ]
 }

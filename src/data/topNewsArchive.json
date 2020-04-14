@@ -1,6 +1,38 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-07/scott-morrison-press-conference-coronavirus-crisis-modelling/12129550",
+            "title": "Scott Morrison's press conference: Coronavirus modelling, rental tenancies and what you shouldn't do this Easter ",
+            "source": "ABCNews",
+            "date": "07 April 2020",
+            "time": "21:00",
+            "summary": "Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy addressed the nation this afternoon with some more important updates about the COVID-19 crisis. Topics included progress on flattening the curve, Easter weekend, the modelling that was released today, rental issues, asymptomatic carriers, schools, and more."
+        },
+        {
+            "link": "https://7news.com.au/business/finance/atos-coronavirus-measures-what-you-can-claim-on-your-tax-return-if-youre-working-from-home-c-961850",
+            "title": "ATO’s coronavirus measures: What you can claim on your tax return if you’re working from home",
+            "source": "7News",
+            "date": "07 April 2020",
+            "time": "18:08",
+            "summary": "With COVID-19 restrictions forcing more Australians than ever to work from home, come tax time, people are going to be able to claim deductions on anything they use to do their job - such as office furniture, computers, tablets, phone and internet bills. For running expenses like heating, cooling and lighting, the Australian Tax Office is offering a special COVID-19 flat rate tax deduction of 80 cents an hour that you can claim instead of having to calculate the costs manually."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-drop-in-testing-rates-sign-of-australia-flattening-the-curve-deputy-chief-medical-officer/c3283f99-076b-4990-8901-946bf3d598ea",
+            "title": "Drop in daily testing coronavirus rates possible sign of Australia 'flattening the curve'",
+            "source": "9News",
+            "date": "07 April 2020",
+            "time": "07:59",
+            "summary": "A major drop in the number of people being tested daily for COVID-19 is not a result of a lack of testing kits, but of a drop in the number of people presenting with symptoms, Deputy Chief Medical officer Professor Michael Kidd said. Last month, more than 4000 tests were being conducted daily however that number has fallen to closer to 2700 a day. Professor Kidd told Today this was more likely a result of Australia beginning to flatten the curve."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/07/lack-of-ppe-forces-aboriginal-health-groups-to-stop-testing-for-coronavirus",
+            "title": "Lack of PPE forces Aboriginal health groups to stop testing for coronavirus ",
+            "source": "TheGuardian",
+            "date": "07 April 2020",
+            "time": "03:30",
+            "summary": "A number of Aboriginal health groups in Victoria have been forced to cease COVID-19 testing and consider shutting their doors due to a lack of personal protective equipment. Some clinics had just two weeks of personal protective equipment left with no immediate prospect of re-supply, creating a situation they described as “catastrophic”.The NSW Government has now written to the Commonwealth asking for the urgent release of supplies to the state’s Aboriginal medical services and for direct access to the Government’s national medical stockpile."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-06/doctors-designing-medical-equipment-to-face-coronavirus-covid-19/12120588",
             "title": "Australian doctors design and make life-saving equipment needed for coronavirus pandemic",
             "source": "ABCNews",

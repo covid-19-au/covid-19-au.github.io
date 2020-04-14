@@ -298,14 +298,14 @@ function setGeneralBarOption(state) {
       containLabel: true,
       left: 0,
       right: "5%",
-      bottom: "10%",
-      top: "20%",
+      bottom: "5%",
+      top: "23%",
     },
     tooltip: lineBarTooltip,
 
     legend: {
       data: generalBarLegend,
-      top: "5%",
+      top: "2%",
       selected: {
         Tested: false,
       },
@@ -365,12 +365,12 @@ function setGeneralLineOption(state, logScale) {
       left: 0,
       right: "5%",
       bottom: "10%",
-      top: "20%",
+      top: "18%",
     },
     tooltip: lineBarTooltip,
     legend: {
       data: generalLineLegend,
-      top: "5%",
+      top: "2%",
       selected: {
         Tested: logScale,
       },
@@ -556,15 +556,10 @@ function StateChart({ state }) {
 
   return (
     <Grid container spacing={1} justify="center" wrap="wrap">
-      <Grid item xs={11}>
-        <h1 style={{ textAlign: "center", paddingTop: "1%" }}>
-          {stateNameMapping[state]}
-        </h1>
-      </Grid>
       <Grid item xs={11} sm={11} md={4}>
         <div className="card">
           <div className="table">
-            <h2>Status - {stateNameMapping[state]}</h2>
+            <h2>{stateNameMapping[state]}</h2>
             {renderStatus(state.toUpperCase())}
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
               Time in AEST, Last Update: {statusUpdateTime}
@@ -574,17 +569,19 @@ function StateChart({ state }) {
       </Grid>
       <Grid item xs={11} sm={11} md={4}>
         <div className="card">
-          <h2>General Information - Bar</h2>
+          <h2>Current Statistics</h2>
           <ReactEcharts option={barOption} />
           <span className="due" style={{ fontSize: "80%", padding: 0 }}>
             Time in AEST, Last Update: {ageGenderUpdateTime}
           </span>
+
+
         </div>
       </Grid>
       <Grid item xs={11} sm={11} md={4}>
         <div className="card">
-          <h2>General Information - Line</h2>
-          <ReactEcharts option={lineOption} />
+          <h2>Historical Data</h2>
+          <ReactEcharts option={lineOption} style={{ minHeight: "350px" }} />
           <span className="key" style={{ marginTop: "0.5rem" }}>
             Logarithmic Scale:&nbsp;
             <ButtonGroup size="small" aria-label="small outlined button group">
@@ -652,8 +649,8 @@ function StateChart({ state }) {
               {state.toUpperCase() === "ACT" ? (
                 <h2>Gender bar chart</h2>
               ) : (
-                <h2>Cases by Age Group</h2>
-              )}
+                  <h2>Cases by Age Group</h2>
+                )}
               <ReactEcharts option={ageOption} />
               <span className="due" style={{ fontSize: "80%", padding: 0 }}>
                 Time in AEST, Last Update: {ageGenderUpdateTime}
@@ -662,25 +659,25 @@ function StateChart({ state }) {
           </Grid>
         </Fragment>
       ) : (
-        <Grid item xs={11} sm={11} md={5}>
-          <h2 style={{ textAlign: "center" }}>
-            We are working on acquiring detailed age group and gender data for{" "}
-            {stateNameMapping[state]}!
+          <Grid item xs={11} sm={11} md={5}>
+            <h2 style={{ textAlign: "center" }}>
+              We are working on acquiring detailed age group and gender data for{" "}
+              {stateNameMapping[state]}!
           </h2>
-          <br />
-          <h5 style={{ textAlign: "center" }}>
-            If you have reliable source for such data, please let us know
+            <br />
+            <h5 style={{ textAlign: "center" }}>
+              If you have reliable source for such data, please let us know
             through{" "}
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
-              style={{ color: "blue", textDecoration: "underline" }}
-            >
-              this
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
+                style={{ color: "blue", textDecoration: "underline" }}
+              >
+                this
             </a>{" "}
             form.
           </h5>
-        </Grid>
-      )}
+          </Grid>
+        )}
     </Grid>
   );
 }
