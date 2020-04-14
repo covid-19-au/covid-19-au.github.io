@@ -298,14 +298,14 @@ function setGeneralBarOption(state) {
       containLabel: true,
       left: 0,
       right: "5%",
-      bottom: "10%",
-      top: "20%",
+      bottom: "5%",
+      top: "23%",
     },
     tooltip: lineBarTooltip,
 
     legend: {
       data: generalBarLegend,
-      top: "5%",
+      top: "2%",
       selected: {
         Tested: false,
       },
