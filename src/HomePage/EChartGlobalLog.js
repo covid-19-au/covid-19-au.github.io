@@ -279,55 +279,20 @@ class EChartglobalLog extends Component {
         this.setState({ dataSets: dataSets });
 
     }
-
+    changeAllState(state){
+        let arrMapKeys = Object.keys(this.state.arrMap);
+        let selectAll={}
+        for (let i = 0; i < arrMapKeys.length; i++) {
+            selectAll[i18next.t("homePage:country."+arrMapKeys[i])]=state;
+        };
+        this.setState({selected:selectAll});
+    }
     onSelectAllClick = () => {
-        this.setState({
-            selected: {
-                'AU': true,
-                'China': true,
-                'Italy': true,
-                'Japan': true,
-                'UK': true,
-                'US': true,
-                'Singapore': true,
-                'Canada': true,
-                'Norway': true,
-                'France': true,
-                'Switzerland': true,
-                'Sweden': true,
-                'Denmark': true,
-                'Iran': true,
-                'Spain': true,
-                'Germany': true,
-                'South Korea': true,
-                'NZ': true
-            }
-        })
+        this.changeAllState(true);
     }
 
     onDeselectAllClick = () => {
-        this.setState({
-            selected: {
-                'AU': false,
-                'China': false,
-                'Italy': false,
-                'Japan': false,
-                'UK': false,
-                'US': false,
-                'Singapore': false,
-                'Canada': false,
-                'Norway': false,
-                'France': false,
-                'Switzerland': false,
-                'Sweden': false,
-                'Denmark': false,
-                'Iran': false,
-                'Spain': false,
-                'Germany': false,
-                'South Korea': false,
-                'NZ': false
-            }
-        })
+        this.changeAllState(false);
     }
 
     componentDidMount() {
