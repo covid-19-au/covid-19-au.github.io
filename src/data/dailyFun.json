@@ -1,23 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "imgLink": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fee16d0aa-7ce9-11ea-af15-2abf27a967e9.jpg?crop=1689%2C950%2C0%2C88&resize=1180",
-                    "source": "https://www.thetimes.co.uk/article/himalayas-come-into-view-as-empty-roads-let-smog-clear-rgdlsmqks"
+                    "link": "https://www.youtube.com/watch?v=Kr4gBnXw5Jg",
+                    "description": "Superheroes, brides and pets: Australia brings joy (and style) to bin night | The Guardian"
                 }
             ],
-            "video": [],
-            "title": "Decreased pollution has greatly improved air quality in some Indian cities.",
-            "content": "<p>The picture above depicts the himalayas viewed from the city of Punjab. Some residents have claimed such a sight has not been seen in decades.</p> <p>Read about how this could offer a new vision for Indian cities, in the article below.</p>",
-            "type": "motivation",
-            "date": "15/4/2020",
-            "citation": [
-                {
-                    "link": "https://www.newyorker.com/news/dispatch/the-coronavirus-offers-a-radical-new-vision-for-indias-cities-pollution",
-                    "name": "The Coronavirus Offers a Radical New Vision for India’s Cities"
-                }
-            ]
+            "type": "distraction",
+            "date": "16/4/2020"
         }
     ]
 }
