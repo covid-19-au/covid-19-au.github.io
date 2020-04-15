@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://7news.com.au/news/health/australians-urged-to-stay-home-over-easter-c-962838",
+            "title": "No time to relax in costly virus fight: PM",
+            "source": "7News",
+            "date": "08 April 2020",
+            "time": "18:11",
+            "summary": "Australia's death toll from the coronavirus has hit 50 as political leaders warn now is not the time to ease the measures that are preventing much higher fatality rates. The daily increase in new cases has dropped to about three per cent, but health experts are concerned COVID-19 could be widely transmitted among unwitting community members. However, Health Minister Greg Hunt warned abandoning social distancing rules over the long weekend would undo everything done to curtail the crisis."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-08/scientists-developing-test-for-coronavirus-severity-in-patients/12124402",
+            "title": "Are you immune to coronavirus after recovering? This test might be able to tell you",
+            "source": "ABCNews",
+            "date": "08 April 2020",
+            "time": "10:30",
+            "summary": "Australian researchers are working on a test they say will be able to predict the severity of symptoms in COVID-19 patients, telling them how hard the virus will hit them after they contract it and what their immunity will be when they recover."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-07/scott-morrison-press-conference-coronavirus-crisis-modelling/12129550",
             "title": "Scott Morrison's press conference: Coronavirus modelling, rental tenancies and what you shouldn't do this Easter ",
             "source": "ABCNews",
