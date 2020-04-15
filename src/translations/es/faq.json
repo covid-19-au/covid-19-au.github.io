@@ -1,13 +1,13 @@
 {
   "faq": {
     "title": "Preguntas frecuentes del panel de control",
-    "sect1": "¿Quién comenzó el tablero?",
-    "sect1bod1": "El Dr. Chunyang Chen realizó un prototipo del tablero con sus estudiantes de posgrado, Han Wang, Chao Wu, Paldeep Singh, Boxuan Lu en la etapa inicial. Este panel es desarrollado y mantenido por un equipo de",
+    "sect1": "¿Quién comenzó la página web?",
+    "sect1bod1": "Dr. Chunyang Chen realizó un prototipo de la página con sus estudiantes de posgrado, Han Wang, Chao Wu, Paldeep Singh, Boxuan Lu en la etapa inicial. Este panel es desarrollado y mantenido por un equipo de",
     "sect1bod2": "estudiantes voluntarios",
-    "sect2": "¿Por qué y cuándo comenzó este tablero?",
+    "sect2": "¿Por qué y cuándo comenzó esta página?",
     "sect2bod1": "Este panel se desarrolló para proporcionar a los investigadores, las autoridades de salud pública y el público en general de Australia, una herramienta fácil de usar para rastrear la pandemia de COVID-19 a medida que se desarrolla. Este panel se compartió por primera vez públicamente el 17 de marzo de 2020. Todos los datos recopilados y mostrados se ponen a disposición gratuitamente a través de un",
     "sect2bod2": "Repositorio de GitHub",
-    "sect3": "¿El tablero tiene derechos de autor?",
+    "sect3": "¿La página tiene derechos de autor?",
     "sect3bod1": "Si usted es una agencia gubernamental, puede utilizar los datos para sus propios fines, siempre que acredite al Dr. Chunyang Chen. Todos los datos, mapas y análisis (sitio web, copyright 2020 Chunyang Chen, todos los derechos reservados) se proporcionan al público estrictamente con fines de investigación académica y educativa. Se permiten capturas de pantalla del sitio web siempre que se describa el crédito apropiado.",
     "sect4": "¿Con qué frecuencia se actualiza la información del tablero?",
     "sect4bod1": "El mapa se mantiene cada hora durante todo el día a través de una combinación de métodos de actualización manuales y automáticos. El mantenimiento ocasional puede resultar en actualizaciones más lentas.",
@@ -15,11 +15,11 @@
     "sect5bod1": "Las fuentes de datos incluyen el Departamento de Salud de cada estado australiano.",
     "sect5bod2": ", y medios de noticias clave como el",
     "sect5bod3": ". Se pueden ver recursos más detallados en nuestro",
-    "sect6": "¿Por qué los datos aquí difieren de los datos de otros sitios web?",
+    "sect6": "¿Por qué son diferentes los datos aquí y los datos de otros sitios web?",
     "sect6bod1": "El panel se basa en datos disponibles públicamente de múltiples fuentes que no siempre están de acuerdo. Las actualizaciones frecuentes del panel de control a menudo resultan en un mayor número de casos que otras fuentes que se actualizan con menos frecuencia. Otros sitios web similares pueden tener números diferentes en función de una combinación diferente de fuentes.",
     "sect7": "¿El sitio web proporciona orientación médica?",
     "sect7bod1": "Se prohíbe estrictamente la confianza en el sitio web para obtener orientación médica o el uso del sitio web en el comercio. Chunyang Chen por la presente renuncia a todas y cada una de las representaciones y garantías con respecto al sitio web, incluida la precisión, la idoneidad para el uso y la comerciabilidad.",
-    "sect8": "¿Con quién puedo hablar para obtener más información sobre el tablero?",
-    "sect8bod1": "Las preguntas generales sobre el tablero se pueden dirigir a"
+    "sect8": "¿Con quién puedo hablar para obtener más información sobre el sitio web?",
+    "sect8bod1": "Las preguntas generales sobre la página se pueden dirigir a"
   }
 }

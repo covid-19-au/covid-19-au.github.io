@@ -4,8 +4,8 @@
     "title": "COVID-19 en Australia",
     "descrip": "Informe en tiempo real",
     "slogan": "Mantén la calma, mantente informado",
-    "onButton": "En",
-    "offButton": "Apagado",
+    "onButton": "Si",
+    "offButton": "No",
     "logScale": "Escala logarítmica:"
   },
   "dataAck": {
@@ -19,7 +19,7 @@
     "source6": "Gobierno del Estado de Victoria, Departamento de Salud y Servicios Humanos en",
     "source7": "Gobierno del Territorio del Norte, en",
     "source8": "Gobierno de Australia Occidental, Departamento de Salud en",
-    "body2": "No estamos afiliados ni respaldados por estas organizaciones de ninguna manera. Somos un equipo de voluntarios y utilizamos los datos que recopilamos estrictamente para fines no comerciales, educativos, de informes y de investigación. Se debe tener cuidado para garantizar que los datos sean precisos y no se vuelvan a encuadrar o falsificar.",
+    "body2": "No estamos afiliados con estas organizaciones de ninguna manera. Somos un equipo de voluntarios y utilizamos los datos que recopilamos estrictamente para fines no comerciales, educativos, de informes y de investigación. Se debe tener cuidado para garantizar que los datos sean precisos y no se falsifiquen.",
     "body3": "Recomendamos encarecidamente que los usuarios de este sitio web se adhieran a los consejos y regulaciones provistos por sus respectivos gobiernos y autoridades locales y federales.",
     "body4": "Si tiene dudas, contáctenos a través de nuestro",
     "body5": "formulario de comentarios.",
@@ -33,12 +33,12 @@
     "hospital": "en el hospital",
     "icu": "en la UCI",
     "updateTitle": "Estado de actualización diaria",
-    "note": "Hora en AEST, última actualización en:",
+    "note": "Hora en AEST, última actualización:",
     "confirmCase": "Casos confirmados",
     "activeCase": "Casos activos",
     "newCase": "Nuevos casos",
     "newCaseWeek": "Nuevos casos esta semana",
-    "testConducted": "Pruebas realizadas",
+    "testConducted": "Tests realizados",
     "total": "Total",
     "Cases": "Casos",
     "casePM": "Casos / M",
@@ -83,7 +83,7 @@
     "append0": "* Cada punto de datos en el eje Y es el número total de casos nuevos confirmados en los últimos 7 días.",
     "append1": "*Ver este",
     "append2": "vídeo",
-    "append3": " para una explicación detallada en este gráfico!",
+    "append3": " para una explicación detallada sobre este gráfico!",
     "append4": "*Fuente de datos:"
   },
   "flights": {
@@ -100,11 +100,11 @@
     "NSW": "NSW",
     "VIC": "VIC",
     "QLD": "QLD",
-    "WA": "Washington",
+    "WA": "WA",
     "SA": "SA",
     "TAS": "TAS",
-    "ACT": "ACTUAR",
-    "NT": "Nuevo Testamento"
+    "ACT": "ACT",
+    "NT": "NT"
   },
   "country": {
     "AU": "AU",
