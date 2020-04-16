@@ -127,8 +127,8 @@ header i {
 }
 
 .confirmedtitle {
-  color: #5d1212 !important ;
-  font-size: 90% !important;
+  color: #0d0c0d ;
+  font-size: 90% ;
   font-weight: 500;
 }
 
@@ -143,8 +143,8 @@ header i {
 }
 
 .recoveredtitle {
-  color: #002a00 !important ;
-  font-size: 90% !important;
+  color: #0d0c0d ;
+  font-size: 90% ;
   font-weight: 500;
 }
 
@@ -159,8 +159,8 @@ header i {
 }
 
 .testedtitle {
-  color: #332533 !important ;
-  font-size: 90% !important;
+  color: #0d0c0d  ;
+  font-size: 90% ;
   font-weight: 500;
 }
 
@@ -175,13 +175,14 @@ header i {
 }
 
 .deathtitle {
-  color: #332533 !important ;
-  font-size: 90% !important;
+  color: #0d0c0d ;
+  font-size: 90% ;
   font-weight: 500;
 }
 
 .statetitle {
-  font-size: 100% !important;
+  color: #0d0c0d;
+  font-size: 100%;
   font-weight: 500;
 }
 
@@ -517,3 +518,21 @@ h2 small {
     margin-top: -5px;
     margin-bottom: -10px;
 }
+@media only screen and (min-width: 768px) and (orientation: portrait){
+  .confirmed,
+  .death,
+  .cured,
+  .tested,
+  .area{
+      font-size: 1.8rem
+  }
+  .area.header,
+  .death.header,
+  .confirmed.header,
+  .tested.header,
+  .cured.header {
+    font-size: 1.9rem;
+    font-weight: 600
+  }
+}
+
