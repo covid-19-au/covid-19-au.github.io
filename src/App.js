@@ -32,6 +32,8 @@ import "./App.css";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 
+import DashboardConfig from "./DashboardConfig"
+
 // routes
 import { useRoutes, A } from 'hookrouter';
 // import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
@@ -83,7 +85,7 @@ function Header({ province }) {
           fontSize: "170%",
           color: "white",
           textAlign: "center",
-          fontWeight:"bold"
+          fontWeight: "bold"
         }}
       >
         COVID-19 in Australia
@@ -93,7 +95,7 @@ function Header({ province }) {
           fontSize: "160%",
           color: "white",
           textAlign: "center",
-            fontWeight:"bold"
+          fontWeight: "bold"
         }}
       >
         Real-Time Report
@@ -102,24 +104,24 @@ function Header({ province }) {
 
       <div className="slogan"><i>Stay Calm, Stay Informed</i></div>
 
-        <div style={{
-            fontSize: "120%",
-            color: "white",
-            textAlign: "center",
-            marginTop:"1rem"
-        }}>
-            <SocialMediaShareModal
-                visible={showSocialMediaIcons}
-                onCancel={() => setShowSocialMediaIcons(false)}
-            />
-            <a  onClick={() => {
-                ReactGA.event({category: 'Header', action: "share"});
-                setModalVisibility(true)
-            }}><i className="fas fa-share-alt"></i></a>
-            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "twitter"})}} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
-            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "instagram"})}} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
-            <a style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer" onClick={() => {ReactGA.event({category: 'Header', action: "github"})}} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
-        </div>
+      <div style={{
+        fontSize: "120%",
+        color: "white",
+        textAlign: "center",
+        marginTop: "1rem"
+      }}>
+        <SocialMediaShareModal
+          visible={showSocialMediaIcons}
+          onCancel={() => setShowSocialMediaIcons(false)}
+        />
+        <a onClick={() => {
+          ReactGA.event({ category: 'Header', action: "share" });
+          setModalVisibility(true)
+        }}><i className="fas fa-share-alt"></i></a>
+        <a style={{ marginLeft: '0.5rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "twitter" }) }} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
+        <a style={{ marginLeft: '0.5rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "instagram" }) }} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
+        <a style={{ marginLeft: '0.5rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
+      </div>
 
       {/*<i>By Students from Monash</i>*/}
     </header>
@@ -272,7 +274,8 @@ function App() {
     "/state/sa": () => <StateChart state="SA" />,
     "/state/wa": () => <StateChart state="WA" />,
     "/state/nt": () => <StateChart state="NT" />,
-    "/state/tas": () => <StateChart state="TAS" />,
+    "/state/tas": () => <StateChart state="TAS" />//,
+    // "/dashboard": () => <DashboardConfig />
   };
   //
   // // The hook used to render the routes.
@@ -284,7 +287,7 @@ function App() {
       <div>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
-          onCancel={ () => setShowSocialMediaIcons(false)}
+          onCancel={() => setShowSocialMediaIcons(false)}
         />
         <Grid container spacing={gspace} justify="center" wrap="wrap">
           <Grid item xs={12} className="removePadding">

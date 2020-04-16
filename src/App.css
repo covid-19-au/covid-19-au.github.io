@@ -523,7 +523,8 @@ h2 small {
   .death,
   .cured,
   .tested,
-  .area{
+  .area,
+  .flightInfo{
       font-size: 1.8rem
   }
   .area.header,
