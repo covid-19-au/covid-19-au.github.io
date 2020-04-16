@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://thewest.com.au/news/coronavirus/coronavirus-crisis-prime-minister-scott-morrison-urges-australians-to-stay-at-home-in-easter-message-ng-b881515344z",
+            "title": "Coronavirus crisis: Prime Minister Scott Morrison urges Australians to stay at home in Easter message",
+            "source": "TheWestAustralian",
+            "date": "09 April 2020",
+            "time": "17:00",
+            "summary": "Scott Morrison has used his annual Easter message to urge Australians to stay home, saying the country “cannot undo the tremendous progress” it has made towards flattening the curve of coronavirus cases. He states that immediate - but not extended - family may spend their Easter together, and that Australians will not be able to attend Easter services."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-09/backpacker-accommodation-shortage-risks-veg-harvest-coronavirus/12132718",
+            "title": "Essential fruit and veg pickers 'homeless' due to coronavirus, meaning crops may be left to rot",
+            "source": "ABCNews",
+            "date": "09 April 2020",
+            "time": "06:42",
+            "summary": "The fruit and vegetable industry has warned that crops may be left to rot in fields because of a major shortage of accommodation for backpackers who pick the produce. These young travellers say they are camping illegally and sleeping in their cars because many hostels and caravan parks are closed."
+        },
+        {
+            "link": "https://www.theguardian.com/world/2020/apr/09/australias-small-medical-practices-on-brink-of-collapse-amid-coronavirus",
+            "title": "Australia's small medical practices on brink of collapse amid coronavirus ",
+            "source": "TheGuardian",
+            "date": "09 April 2020",
+            "time": "03:30",
+            "summary": "Smaller doctor-owned general practices are on the brink of financial collapse due to revenue losses from Covid-19, prompting fears more patients will be unnecessarily pushed into an already overstretched hospital system. Peak medical bodies and the health minster, Greg Hunt, on Thursday urged Australians to continue seeing their GPs, saying Covid-19 should not mean people “ignore the doctor” or their ordinary health needs."
+        },
+        {
             "link": "https://7news.com.au/news/health/australians-urged-to-stay-home-over-easter-c-962838",
             "title": "No time to relax in costly virus fight: PM",
             "source": "7News",
