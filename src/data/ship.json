@@ -1,0 +1,93 @@
+[
+  {
+    "name": "Celebrity Solstice",
+    "data": [
+      { "state": "NSW", "case": "17", "death": "0", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "Left NSW on 04/04/2020"
+  },
+  {
+    "name": "Ovation of the Seas",
+    "data": [
+      { "state": "NSW", "case": "98", "death": "0", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "Left NSW on 04/04/2020"
+  },
+  {
+    "name": "Ruby Princess",
+    "data": [
+      {
+        "state": "NSW",
+        "case": "467",
+        "death": "7",
+        "lastUpdate": "15/04/2020"
+      }
+    ],
+    "status": "Docked in Circular Quay, NSW"
+  },
+  {
+    "name": "Voyagers of the Sea",
+    "data": [
+      { "state": "NSW", "case": "45", "death": "0", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "Left NSW on 04/04/2020"
+  },
+  {
+    "name": "Diamond Princess",
+    "data": [
+      { "state": "QLD", "case": "3", "death": "1", "lastUpdate": "15/04/2020" },
+      { "state": "VIC", "case": "1", "death": "0", "lastUpdate": "15/04/2020" },
+      { "state": "SA", "case": "1", "death": "0", "lastUpdate": "15/04/2020" },
+      { "state": "SA", "case": "89", "death": "1", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "Charter Flight from NT, docked in Howard Springs"
+  },
+  {
+    "name": "Artania",
+    "data": [
+      { "state": "WA", "case": "65", "death": "2", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "Docked in Fremantle, WA"
+  },
+  {
+    "name": "Costa Victoria",
+    "data": [
+      { "state": "WA", "case": "8", "death": "0", "lastUpdate": "15/04/2020" },
+      { "state": "WA", "case": "1", "death": "1", "lastUpdate": "15/04/2020" },
+      { "state": "WA", "case": "4", "death": "0", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "Charter Flight from Victoria"
+  },
+  {
+    "name": "Ruby princess",
+    "data": [
+      { "state": "WA", "case": "15", "death": "1", "lastUpdate": "15/04/2020" },
+      { "state": "WA", "case": "6", "death": "0", "lastUpdate": "15/04/2020" },
+      { "state": "NT", "case": "2", "death": "0", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "Docked in Circular Quay, NSW"
+  },
+  {
+    "name": "MSC Fantasia",
+    "data": [
+      { "state": "NT", "case": "1", "death": "0", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "Returned from cruise"
+  },
+  {
+    "name": "Private yacht",
+    "data": [
+      { "state": "TAS", "case": "1", "death": "0", "lastUpdate": "15/04/2020" },
+      { "state": "TAS", "case": "9", "death": "1", "lastUpdate": "15/04/2020" },
+      { "state": "TAS", "case": "3", "death": "0", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "unknown"
+  },
+  {
+    "name": "Unknown",
+    "data": [
+      { "state": "ACT", "case": "29", "death": "1", "lastUpdate": "15/04/2020" }
+    ],
+    "status": "N/A"
+  }
+]

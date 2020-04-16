@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga";
 import uuid from "react-uuid";
-import Acknowledgement from "../Acknowledgment"
+import Acknowledgement from "../Acknowledgment";
 
 const flightNoRegex = /^[A-Za-z]{2}\d*$/;
 const flightRouteRegex = /^[A-Za-z]*$/;
 const flightDateArrivalRegex = /^\d{0,2}-{0,1}\d{2}-{0,1}\d{0,4}$/;
-
-
 
 /**
  * A universal search function based on SearchBase
@@ -18,18 +16,17 @@ const flightDateArrivalRegex = /^\d{0,2}-{0,1}\d{2}-{0,1}\d{0,4}$/;
  */
 function UniversalSearch(searchList, type, searchBase) {
   if (searchList.length === 0) {
-    return searchBase
+    return searchBase;
   }
   let returnList = [];
-  searchList.forEach(key => {
-    searchBase.forEach(item => {
+  searchList.forEach((key) => {
+    searchBase.forEach((item) => {
       if (item[type].toLowerCase().includes(key.toLowerCase())) {
-        returnList.push(item)
+        returnList.push(item);
       }
-    })
-  })
-  return returnList
-
+    });
+  });
+  return returnList;
 }
 
 /**
@@ -39,7 +36,11 @@ function UniversalSearch(searchList, type, searchBase) {
  * @returns {Array} list of matched flights
  */
 function SearchFlights(searchKey, flights) {
-  ReactGA.event({ category: 'SearchFlights', action: "search", label: searchKey });
+  ReactGA.event({
+    category: "SearchFlights",
+    action: "search",
+    label: searchKey,
+  });
   let keyList = searchKey.split(" ");
   let flightNoKeyList = [];
   let routeKeyList = [];
@@ -58,13 +59,20 @@ function SearchFlights(searchKey, flights) {
     }
   }
 
-  let flightNoResult = UniversalSearch(flightNoKeyList, 'flightNo', flights);
-  let routeKeyResult = UniversalSearch(routeKeyList, 'path', flightNoResult);
-  let dateArrivalKeyResult = UniversalSearch(dateArrivalKeyList, 'dateArrival', routeKeyResult);
+  let flightNoResult = UniversalSearch(flightNoKeyList, "flightNo", flights);
+  let routeKeyResult = UniversalSearch(routeKeyList, "path", flightNoResult);
+  let dateArrivalKeyResult = UniversalSearch(
+    dateArrivalKeyList,
+    "dateArrival",
+    routeKeyResult
+  );
 
   //sort or return
-  if (dateArrivalKeyResult.length === 0 || dateArrivalKeyResult.length === flights.length) {
-    return []
+  if (
+    dateArrivalKeyResult.length === 0 ||
+    dateArrivalKeyResult.length === flights.length
+  ) {
+    return [];
   }
   return sortFlight(dateArrivalKeyResult);
 }
@@ -76,11 +84,19 @@ function SearchFlights(searchKey, flights) {
 function sortFlight(flights) {
   return flights.sort((a, b) => {
     let arr = a.dateArrival.split("-");
-    let dateA = new Date(parseInt(arr[2]), parseInt(arr[1]) - 1, parseInt(arr[0]));
+    let dateA = new Date(
+      parseInt(arr[2]),
+      parseInt(arr[1]) - 1,
+      parseInt(arr[0])
+    );
     arr = b.dateArrival.split("-");
-    let dateB = new Date(parseInt(arr[2]), parseInt(arr[1]) - 1, parseInt(arr[0]));
+    let dateB = new Date(
+      parseInt(arr[2]),
+      parseInt(arr[1]) - 1,
+      parseInt(arr[0])
+    );
     return dateB - dateA;
-  })
+  });
 }
 
 /**
@@ -89,15 +105,15 @@ function sortFlight(flights) {
  */
 function ordinal_suffix_of(i) {
   var j = i % 10,
-      k = i % 100;
+    k = i % 100;
   if (j == 1 && k != 11) {
-      return i + "st";
+    return i + "st";
   }
   if (j == 2 && k != 12) {
-      return i + "nd";
+    return i + "nd";
   }
   if (j == 3 && k != 13) {
-      return i + "rd";
+    return i + "rd";
   }
   return i + "th";
 }
@@ -107,11 +123,17 @@ function ordinal_suffix_of(i) {
  * @param {JSON} flight flight information
  */
 function getAriaLabelForFlight(flight) {
-  var flightDateArrival = new Date(flight.dateArrival)
-  var flightDateStr = ordinal_suffix_of(flightDateArrival.getDate()) + ' of '
-  const month = flightDateArrival.toLocaleString('default', { month: 'long' });
-  flightDateStr += month + ' ' + flightDateArrival.getFullYear()
-  return `The close contact rows in Flight number ${flight.flightNo} of ${flight.airline} flying from ${flight.path} whose scheduled arrival date was ${flightDateStr} are ${flight.closeContactRow.split(",").join(",")}`
+  var flightDateArrival = new Date(flight.dateArrival);
+  var flightDateStr = ordinal_suffix_of(flightDateArrival.getDate()) + " of ";
+  const month = flightDateArrival.toLocaleString("default", { month: "long" });
+  flightDateStr += month + " " + flightDateArrival.getFullYear();
+  return `The close contact rows in Flight number ${flight.flightNo} of ${
+    flight.airline
+  } flying from ${
+    flight.path
+  } whose scheduled arrival date was ${flightDateStr} are ${flight.closeContactRow
+    .split(",")
+    .join(",")}`;
 }
 
 /**
@@ -127,7 +149,7 @@ function Flights({ flights }) {
 
   useEffect(() => {
     if (searchKey !== "") {
-      setFlightResult(flightResult => SearchFlights(searchKey, flights));
+      setFlightResult((flightResult) => SearchFlights(searchKey, flights));
     }
   }, [searchKey]);
 
@@ -146,10 +168,17 @@ function Flights({ flights }) {
 
   return (
     <div className="card">
-
-      <h2 style={{ display: "flex" }} aria-label="Flights with reported COVID 19 cases">Flights<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
-        <Acknowledgement>
-        </Acknowledgement></div></h2>
+      <h2
+        style={{ display: "flex" }}
+        aria-label="Flights with reported COVID 19 cases"
+      >
+        Flights
+        <div
+          style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}
+        >
+          <Acknowledgement></Acknowledgement>
+        </div>
+      </h2>
       <div className="centerContent">
         <div role={"table"} className="selfCenter standardWidth">
           <div className="searchArea">
@@ -161,7 +190,7 @@ function Flights({ flights }) {
                 type="text"
                 className="form-control"
                 placeholder="Enter flight number, route, arrival date"
-                onChange={e => setSearchKey(e.target.value)}
+                onChange={(e) => setSearchKey(e.target.value)}
               ></input>
             </div>
           </div>
@@ -174,18 +203,24 @@ function Flights({ flights }) {
             <div className="area header">Close Contact Row</div>
           </div>
           {outputList.length ? (
-        outputList.map(flight => (
-          <div role={"button"} aria-label={getAriaLabelForFlight(flight)} aria-describedby={getAriaLabelForFlight(flight)} className="flightInfo header" key={uuid()}>
-            <div className="flightArea">{flight.flightNo}</div>
-            <div className="flightArea">{flight.airline}</div>
-            <div className="flightArea">{flight.path}</div>
-            <div className="flightArea">{flight.dateArrival}</div>
-            <div className="flightArea">{flight.closeContactRow}</div>
-          </div>
-        ))
-      ) : (
-          <></>
-        )}
+            outputList.map((flight) => (
+              <div
+                role={"button"}
+                aria-label={getAriaLabelForFlight(flight)}
+                aria-describedby={getAriaLabelForFlight(flight)}
+                className="flightInfo header"
+                key={uuid()}
+              >
+                <div className="flightArea">{flight.flightNo}</div>
+                <div className="flightArea">{flight.airline}</div>
+                <div className="flightArea">{flight.path}</div>
+                <div className="flightArea">{flight.dateArrival}</div>
+                <div className="flightArea">{flight.closeContactRow}</div>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>
