@@ -146,8 +146,8 @@ header i {
 }
 
 .activetitle {
-    color: #002a00 !important ;
-    font-size: 90% !important;
+    color: #002a00;
+    font-size: 90% ;
     font-weight: 500;
 }
 
@@ -543,6 +543,7 @@ h2 small {
   .confirmed,
   .death,
   .cured,
+  .activeCase,
   .tested,
   .area{
       font-size: 1.8rem
@@ -551,6 +552,7 @@ h2 small {
   .death.header,
   .confirmed.header,
   .tested.header,
+  .activeCase.header,
   .cured.header {
     font-size: 1.9rem;
     font-weight: 600
