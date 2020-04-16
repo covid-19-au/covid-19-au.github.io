@@ -119,7 +119,7 @@ export default function Area({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">*3,600+</div>
+        <div className="cured">*3,700+</div>
         <div className="activeCase">*2,600+</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
@@ -141,7 +141,7 @@ export default function Area({ area, onChange, data }) {
       <Total data={data} />
 
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data is based on gov report.
+        * We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data and the active data is based on gov report.
       </span>
       <br />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
