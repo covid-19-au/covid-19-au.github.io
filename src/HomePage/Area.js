@@ -32,7 +32,7 @@ export default function Area({ area, onChange, data }) {
   const renderArea = () => {
     let latest =
       testedCases[
-        Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+      Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
 
     return data.map((x) => (
@@ -50,20 +50,20 @@ export default function Area({ area, onChange, data }) {
         {/*<div className="death">{ x.deadCount }</div>*/}
         {/*<div className="cured">{ x.curedCount }</div>*/}
         <div className={"area"}>
-          <A href={`/state/${x[0].toLowerCase()}`} onClick={()=>{window.scrollTo(0, 0);}}>
+          <A href={`/state/${x[0].toLowerCase()}`} onClick={() => { window.scrollTo(0, 0); }}>
             <strong>
-                <u>{x[0]}</u>{" "}
+              <u>{x[0]}</u>{" "}
 
-                <svg
-                  className="bi bi-caret-right-fill"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 011.659-.753l5.48 4.796a1 1 0 010 1.506z" />
-                </svg>
+              <svg
+                className="bi bi-caret-right-fill"
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 011.659-.753l5.48 4.796a1 1 0 010 1.506z" />
+              </svg>
 
             </strong>
           </A>
@@ -85,7 +85,7 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="cured">
-          <strong>{(x[0]==="NSW")?<div style={{fontWeight:'normal', color:'grey'}}>N/A</div>:numberWithCommas(x[CURED])}</strong>&nbsp;
+          <strong>{(x[0] === "NSW") ? <div style={{ fontWeight: 'normal', color: 'grey' }}>N/A</div> : numberWithCommas(x[CURED])}</strong>&nbsp;
           <div className="dailyIncrease">
             {x[CURED] - lastTotal[x[0]][2] > 0
               ? `(+${x[3] - lastTotal[x[0]][2]})`
@@ -143,13 +143,13 @@ export default function Area({ area, onChange, data }) {
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         * We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data is based on gov report.
       </span>
-        <br/>
-        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+      <br />
+      <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         * NSW Health's statistics show an additional death as they count a Queensland resident that passed away in NSW.
       </span>
-        <br/>
-        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-            * Click on the <strong>State</strong> name for details.
+      <br />
+      <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+        * Click on the <strong>State</strong> name for details.
       </span>
     </div>
   );
