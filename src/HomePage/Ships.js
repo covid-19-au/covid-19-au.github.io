@@ -36,6 +36,7 @@ export default class Ships extends Component {
         key={"row-data-" + item.name}
         style={{
           "background-color": "#bae1ff",
+          filter: "saturate(65%)",
           border: "2px solid white",
           height: "30px",
         }}
