@@ -455,7 +455,7 @@
     "name": "Adelaide Airport",
     "date": "2/4/20",
     "time": "",
-    "description": "Investigations are ongoing into the cluster of 33 cases identified at Adelaide Airport. Anyone who is sick with symptoms of COVID-19 and has been at the Adelaide Airport, including in the terminal or car park, since Tuesday 17 March should present for testing.",
+    "description": "Investigations are ongoing into the cluster of cases identified at Adelaide Airport, linked to 34 people. Further investigations have found cases in another type of airport worker. Approximately 750 Qantas staff who have worked from Wednesday 18 March, across three specific staff areas within the Adelaide Airport, are now being requested to self-isolate at home immediately. At this stage, no public areas are believed to have been affected, however, anyone who is sick with symptoms of COVID-19 and has been at the Adelaide Airport, including in the terminal or car park, should present for testing.",
     "coor": ["-34.946426", "138.533313"]
   },
   {
@@ -842,7 +842,7 @@
     "name": "Barossa cluster",
     "date": "14/3/20",
     "time": "N/A",
-    "description": "There are 38 confirmed cases linked to areas within the Barossa region including Tanunda, Nuriootpa, Williamstown, Angaston and Lyndoch.Anyone in these areas from Saturday 14 March 2020 who develops symptoms should immediately self-isolate and be tested.",
+    "description": "There are 40 confirmed cases linked to areas within the Barossa region including Tanunda, Nuriootpa, Williamstown, Angaston and Lyndoch. Anyone in these areas from Saturday 14 March 2020 who develops symptoms should immediately self-isolate and be tested.",
     "coor": ["-34.601510", "139.000404"]
   },
   {
@@ -916,5 +916,23 @@
     "time": "N/A",
     "description": "Three of the cases are healthcare workers who have worked at the North West Regional Hospital and/or the North West Private Hospital.",
     "coor": ["-41.046442", "145.880955"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Anglicare Newmarch House aged care facility",
+    "date": "13/04/20",
+    "time": "N/A",
+    "description": "One healthcare worker and one resident at the Anglicare Newmarch House aged care facility in Caddens have tested positive. A number of other staff and residents have been identified as close contacts and in isolation. One other symptomatic contact is being tested with the result pending. Visitor restriction are in place. The worker also worked two shifts at Greystanes Disability Services in Leura. All residents in the service have been identified as close contacts and are being isolated in their own rooms, while 6 staff are in home isolation. ",
+    "coor": ["-33.767996", "150.725128"]
+  },
+  {
+    "state": "NSW",
+    "area": "",
+    "name": "Greystanes Disability Services",
+    "date": "13/04/20",
+    "time": "N/A",
+    "description": "The worker also worked two shifts at Greystanes Disability Services in Leura. All residents in the service have been identified as close contacts and are being isolated in their own rooms, while 6 staff are in home isolation.",
+    "coor": ["-33.712375", "150.334150"]
   }
 ]
