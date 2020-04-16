@@ -28,13 +28,6 @@ export default function Area({ area, onChange, data }) {
     ${recovered} recovered and ${tested} were tested`;
   };
 
-  const [fill, setFill] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setFill(!fill);
-    }, 800);
-    return () => clearTimeout(timer);
-  }, [fill]);
 
   const renderArea = () => {
     let latest =
@@ -99,6 +92,14 @@ export default function Area({ area, onChange, data }) {
               : null}
           </div>
         </div>
+          <div className="activeCase">
+              <strong>{(x[0]==="NSW")?<div style={{fontWeight:'normal', color:'grey'}}>N/A</div>:numberWithCommas(x[CONFIRMED]-x[DEATH]-x[CURED])}</strong>&nbsp;
+              <div className="dailyIncrease">
+                  {(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) > 0
+                      ? `(+${(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])})`
+                      : null}
+              </div>
+          </div>
         <div className="tested">{numberWithCommas(x[TESTED])}</div>
       </div>
     ));
@@ -118,7 +119,8 @@ export default function Area({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">*3600+</div>
+        <div className="cured">*3,600+</div>
+        <div className="activeCase">*2,600+</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
     );
@@ -131,7 +133,9 @@ export default function Area({ area, onChange, data }) {
         <div className="confirmed header confirmedtitle">Confirmed</div>
         <div className="death header deathtitle">Deaths</div>
         <div className="cured header recoveredtitle">Recovered</div>
+        <div className="activeCase header activetitle">Active</div>
         <div className="tested header testedtitle">Tested</div>
+
       </div>
       {renderArea()}
       <Total data={data} />
