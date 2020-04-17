@@ -38,37 +38,6 @@ class MbMap extends React.Component {
         };
     }
 
-    // Check if a date was more than two weeks ago
-    isOld(date) {
-        // Working with raw data, so try-catch just in case
-        try {
-            // 'DD/MM/YY' format
-            // Assume entries with incorrect formats are old
-            const eventDay = date.split("/");
-            if (eventDay.length !== 3 || eventDay === 'N/A') { return true; }
-
-            // Default constructor has current time
-            const today = new Date();
-
-            // Day of the event. Transform to YYYY/MM/DD format
-            const day = eventDay[0], month = parseInt(eventDay[1]) - 1;
-            const year = '20' + eventDay[2]
-            let caseDate = new Date(year, month, day);
-
-            // Add two weeks for comparison
-            caseDate.setDate(caseDate.getDate() + oldCaseDays);
-
-            // True iff the original date was more than two weeks old
-            if (today > caseDate) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch {
-            return true;
-        }
-    }
-
     componentDidMount() {
         this.Hospitalvisible = false;
         const { lng, lat, zoom } = this.state;
@@ -121,73 +90,14 @@ class MbMap extends React.Component {
                 zoom: map.getZoom().toFixed(2)
             });
         });
+
         confirmedData.map((item) => {
             if (!(['VIC', 'NSW', 'QLD', 'WA', 'ACT'].includes(item['state']))) {
-                if (item['state'] === 'VIC' && item['area'].length > 0) {
-                    item['description'] =
-                        "This case number is just the suburb confirmed " +
-                        "number, not the case number at this geo point.";
-                    item['date'] = '26/3/20'
-                }
-                // create a HTML element for each feature
-                var el = document.createElement('div');
-                el.className = 'marker';
-                el.style.height = '20px';
-                el.style.width = '20px';
-                el.style.backgroundSize = 'cover';
-                if (this.isOld(item['date'])) {
-                    el.style.backgroundImage = `url(${confirmedOldImg})`;
-                } else {
-                    el.style.backgroundImage = `url(${confirmedImg})`;
-                }
-                el.style.borderRadius = '50%';
-                el.style.cursor = 'pointer';
-
-                let coor = [item['coor'][1], item['coor'][0]]
-
-                // make a marker for each feature and add to the map
-                new mapboxgl
-                    .Marker(el)
-                    .setLngLat(coor)
-                    .setPopup(
-                        new mapboxgl
-                            .Popup({ offset: 25 }) // add popups
-                            .setHTML(
-                                '<h3 style="margin:0;">' + item['name'] + '</h3>' +
-                                '<p style="margin:0;">' + item['date'] + '</p>' +
-                                '<p style="margin:0;">' + item['description'] + '</p>'
-                            )
-                    )
-                    .addTo(map);
+                return new ConfirmedMarker(map, item);
             }
         });
-
         hospitalData.map((item) => {
-            // create a HTML element for each feature
-            var el = document.createElement('div');
-            el.className = 'marker';
-            el.style.height = '20px';
-            el.style.width = '20px';
-            el.style.backgroundSize = 'cover';
-            el.style.backgroundImage = `url(${hospitalImg})`;
-            el.style.borderRadius = '50%';
-            el.style.cursor = 'pointer';
-
-            let coor = [item['coor'][1], item['coor'][0]]
-            // make a marker for each feature and add to the map
-            new mapboxgl
-                .Marker(el)
-                .setLngLat(coor)
-                .setPopup(
-                    new mapboxgl
-                        .Popup({ offset: 25 }) // add popups
-                        .setHTML(
-                            '<h3 style="margin:0;">' + item['name'] + '</h3>' +
-                            '<p style="margin:0;">Phone: ' + item['hospitalPhone'] + '</p>' +
-                            '<p style="margin:0;">Addr: ' + item['address'] + '</p>'
-                        )
-                )
-                .addTo(map);
+            return new HospitalMarker(map, item);
         })
     }
 
@@ -517,6 +427,135 @@ class VicBoundaries extends JSONGeoBoundariesBase {
             city.pop();
             city_name = city.join(' ');
         return city_name
+    }
+}
+
+class ConfirmedMarker {
+    constructor(map, item) {
+        this.map = map;
+        this.item = item;
+
+        if (item['state'] === 'VIC' && item['area'].length > 0) {
+            item['description'] =
+                "This case number is just the suburb confirmed " +
+                "number, not the case number at this geo point.";
+            item['date'] = '26/3/20'
+        }
+
+        // create a HTML element for each feature
+        var el = this.el = document.createElement('div');
+
+        this.setStyles(el);
+        this.addMarker(el);
+    }
+    setStyles(el) {
+        el.className = 'marker';
+        el.style.height = '20px';
+        el.style.width = '20px';
+        el.style.backgroundSize = 'cover';
+        if (this.isOld(this.item['date'])) {
+            el.style.backgroundImage = `url(${confirmedOldImg})`;
+        } else {
+            el.style.backgroundImage = `url(${confirmedImg})`;
+        }
+        el.style.borderRadius = '50%';
+        el.style.cursor = 'pointer';
+    }
+    isOld(date) {
+        // Check if a date was more than two weeks ago
+        // Working with raw data, so try-catch just in case
+
+        try {
+            // 'DD/MM/YY' format
+            // Assume entries with incorrect formats are old
+            const eventDay = date.split("/");
+            if (eventDay.length !== 3 || eventDay === 'N/A') { return true; }
+
+            // Default constructor has current time
+            const today = new Date();
+
+            // Day of the event. Transform to YYYY/MM/DD format
+            const day = eventDay[0], month = parseInt(eventDay[1]) - 1;
+            const year = '20' + eventDay[2];
+            let caseDate = new Date(year, month, day);
+
+            // Add two weeks for comparison
+            caseDate.setDate(caseDate.getDate() + oldCaseDays);
+
+            // True iff the original date was more than two weeks old
+            if (today > caseDate) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch {
+            return true;
+        }
+    }
+    addMarker(el) {
+        const map = this.map;
+        let coor = [
+            this.item['coor'][1],
+            this.item['coor'][0]
+        ];
+
+        // make a marker for each feature and add to the map
+        new mapboxgl
+            .Marker(el)
+            .setLngLat(coor)
+            .setPopup(
+                new mapboxgl
+                    .Popup({ offset: 25 }) // add popups
+                    .setHTML(
+                        '<h3 style="margin:0;">' + this.item['name'] + '</h3>' +
+                        '<p style="margin:0;">' + this.item['date'] + '</p>' +
+                        '<p style="margin:0;">' + this.item['description'] + '</p>'
+                    )
+            )
+            .addTo(map);
+    }
+}
+
+class HospitalMarker {
+    constructor(map, item) {
+        this.map = map;
+        this.item = item;
+
+        // create a HTML element for each feature
+        var el = this.el = document.createElement('div');
+
+        this.setStyles(el);
+        this.addMarker(el);
+    }
+    setStyles(el) {
+        el.className = 'marker';
+        el.style.height = '20px';
+        el.style.width = '20px';
+        el.style.backgroundSize = 'cover';
+        el.style.backgroundImage = `url(${hospitalImg})`;
+        el.style.borderRadius = '50%';
+        el.style.cursor = 'pointer';
+    }
+    addMarker(el) {
+        let coor = [
+            this.item['coor'][1],
+            this.item['coor'][0]
+        ];
+
+        // make a marker for each feature and add to the map
+        new mapboxgl
+            .Marker(el)
+            .setLngLat(coor)
+            .setPopup(
+                new mapboxgl
+                    .Popup({offset: 25}) // add popups
+                    .setHTML(
+                        '<h3 style="margin:0;">' + this.item['name'] + '</h3>' +
+                        '<p style="margin:0;">Phone: ' + this.item['hospitalPhone'] + '</p>' +
+                        '<p style="margin:0;">Addr: ' + this.item['address'] + '</p>'
+                    )
+            )
+            .addTo(this.map);
     }
 }
 
