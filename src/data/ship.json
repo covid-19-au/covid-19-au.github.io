@@ -61,7 +61,7 @@
   {
     "name": "MSC FANTASIA",
     "data": [
-      { "state": "NT", "case": "1", "death": "", "lastUpdate": "31/03/2020" }
+      { "state": "NT", "case": "1", "death": "0", "lastUpdate": "31/03/2020" }
     ],
     "status": "Returned from cruise"
   },
@@ -89,10 +89,10 @@
         "lastUpdate": "15/04/2020"
       },
       { "state": "SA", "case": "89", "death": "2", "lastUpdate": "11/04/2020" },
-      { "state": "QLD", "case": "32", "death": "3", "lastUpdate": "" },
+      { "state": "QLD", "case": "32", "death": "3", "lastUpdate": "0" },
       { "state": "WA", "case": "18", "death": "1", "lastUpdate": "06/04/2020" },
       { "state": "TAS", "case": "9", "death": "1", "lastUpdate": "07/04/2020" },
-      { "state": "NT", "case": "2", "death": "", "lastUpdate": "22/03/2020" }
+      { "state": "NT", "case": "2", "death": "0", "lastUpdate": "22/03/2020" }
     ],
     "status": "Docked in Circular Quay, NSW"
   },
