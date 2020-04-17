@@ -45,7 +45,7 @@ export default class Ships extends Component {
           style={{
             "font-weight": "bold",
             "text-decoration": "underline",
-            width: "132px",
+            width: "147px",
           }}
         >
           {isExpanded} {item.name}
