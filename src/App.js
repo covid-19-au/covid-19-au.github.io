@@ -260,6 +260,8 @@ function App() {
   const setModalVisibility = state => {
     setShowSocialMediaIcons(state);
   };
+
+  console.log(myData)
   // // Set the routes for each page and pass in props.
   const routes = {
     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
@@ -275,7 +277,7 @@ function App() {
     "/state/wa": () => <StateChart state="WA" />,
     "/state/nt": () => <StateChart state="NT" />,
     "/state/tas": () => <StateChart state="TAS" />,
-    "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={overall} data={data} setProvince={setProvince} area={area} />
+    "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={overall} inputData={data} setProvince={setProvince} area={area} />
   };
   //
   // // The hook used to render the routes.

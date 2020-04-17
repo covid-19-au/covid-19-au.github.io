@@ -18,8 +18,7 @@ const provincesByName = keyBy(provinces, "name");
 
 const GoogleMap = React.lazy(() => import("./HomePage/GoogleMap"));
 
-export default function DashBoardConfig(province, myData, overall, data, setProvince, area) {
-
+export default function DashBoardConfig({ province, myData, overall, inputData, setProvince, area }) {
     let dashboardItemsPortrait = [
         <Stat
             {...{ ...all, ...overall }}
@@ -30,7 +29,7 @@ export default function DashBoardConfig(province, myData, overall, data, setProv
         <Suspense fallback={<div className="loading">Loading...</div>}>
             <GoogleMap
                 province={province}
-                data={data}
+                data={inputData}
                 onClick={name => {
                     const p = provincesByName[name];
                     if (p) {
@@ -39,7 +38,13 @@ export default function DashBoardConfig(province, myData, overall, data, setProv
                 }}
                 newData={myData}
             />
-        </Suspense>]
+        </Suspense>
+        , <Suspense fallback={<div className="loading">Loading...</div>}>
+            <Area area={area} onChange={setProvince} data={myData} />
+        </Suspense>
+    ]
+
+    console.log(inputData)
 
 
 
