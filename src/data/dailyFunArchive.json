@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=Kr4gBnXw5Jg",
+                    "description": "Superheroes, brides and pets: Australia brings joy (and style) to bin night | The Guardian"
+                }
+            ],
+            "type": "distraction",
+            "date": "16/4/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fee16d0aa-7ce9-11ea-af15-2abf27a967e9.jpg?crop=1689%2C950%2C0%2C88&resize=1180",
