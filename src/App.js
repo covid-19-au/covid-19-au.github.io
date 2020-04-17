@@ -274,8 +274,8 @@ function App() {
     "/state/sa": () => <StateChart state="SA" />,
     "/state/wa": () => <StateChart state="WA" />,
     "/state/nt": () => <StateChart state="NT" />,
-    "/state/tas": () => <StateChart state="TAS" />//,
-    // "/dashboard": () => <DashboardConfig />
+    "/state/tas": () => <StateChart state="TAS" />,
+    "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={overall} data={data} setProvince={setProvince} area={area} />
   };
   //
   // // The hook used to render the routes.
