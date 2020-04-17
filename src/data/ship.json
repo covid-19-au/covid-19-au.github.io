@@ -67,7 +67,7 @@
     "data": [
       { "state": "QLD", "case": "3", "death": "1", "lastUpdate": "05/04/2020" },
       { "state": "TAS", "case": "3", "death": "0", "lastUpdate": "29/03/2020" },
-      { "state": "NT", "case": "2", "death": "", "lastUpdate": "22/03/2020" },
+      { "state": "NT", "case": "2", "death": "0", "lastUpdate": "22/03/2020" },
       { "state": "VIC", "case": "1", "death": "0", "lastUpdate": "01/03/2020" },
       { "state": "SA", "case": "1", "death": "0", "lastUpdate": "24/02/2020" },
       { "state": "WA", "case": "1", "death": "1", "lastUpdate": "01/03/2020" }
@@ -77,14 +77,14 @@
   {
     "name": "MSC Fantasia",
     "data": [
-      { "state": "NT", "case": "1", "death": "", "lastUpdate": "31/03/2020" }
+      { "state": "NT", "case": "1", "death": "0", "lastUpdate": "31/03/2020" }
     ],
     "status": "Returned from cruise"
   },
   {
     "name": "Private yacht",
     "data": [
-      { "state": "TAS", "case": "1", "death": "", "lastUpdate": "15/03/2020" }
+      { "state": "TAS", "case": "1", "death": "0", "lastUpdate": "15/03/2020" }
     ],
     "status": "unknown"
   },
