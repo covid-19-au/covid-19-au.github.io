@@ -430,7 +430,7 @@ export default function Stat({
                 <Grid item xs={6} sm={4} lg={2}>
                     <Tag
                         // number={curedCount}
-                        number={"3700+"}
+                        number={"3800+"}
                         fColor={"#00c177"}
                         increased={curedCountIncrease}
                         typeOfCases={"Recovered"}

@@ -97,7 +97,7 @@ export default function Area({ area, onChange, data }) {
               <div className="dailyIncrease">
                   {(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) > 0 && (x[0]!=="NSW")
                       ? `(+${(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])})`
-                      : null}
+                      : ((x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) < 0 && (x[0]!=="NSW")?`(-${(lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])-(x[CONFIRMED]-x[DEATH]-x[CURED])})`:null)}
               </div>
           </div>
         <div className="tested">{numberWithCommas(x[TESTED])}</div>
@@ -119,7 +119,7 @@ export default function Area({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">*3,700+</div>
+        <div className="cured">*3,800+</div>
         <div className="activeCase">*2,600+</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
