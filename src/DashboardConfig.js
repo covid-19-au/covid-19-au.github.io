@@ -19,7 +19,9 @@ const provincesByName = keyBy(provinces, "name");
 const GoogleMap = React.lazy(() => import("./HomePage/GoogleMap"));
 
 export default function DashBoardConfig({ province, myData, overall, inputData, setProvince, area }) {
-    const maximumH = window.innerHeight * 0.5
+
+
+
 
     let dashboardItemsPortrait = [
         <div >
@@ -50,13 +52,13 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
                 </Grid>
             </Grid>
         </div>,
-        <div style={{ width: "100%" }}>
+        <div>
             <Grid container spacing={0} justify="center" wrap="wrap">
                 <Grid item xs={11} >
                     <OverallTrend />
                 </Grid>
                 <Grid item xs={11} >
-                    <StateComparisonChart />
+                    <EChartGlobalLog />
                 </Grid>
             </Grid>
         </div>
@@ -66,17 +68,26 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
     console.log(inputData)
 
 
+    if (window.innerHeight > window.innerWidth) {
+        return (
 
-    return (
 
 
-        <Carousel interval="5000">
-            {
-                dashboardItemsPortrait.map(item => (
-                    <div>{item}</div>
-                )
-                )
-            }
-        </Carousel >
-    )
+            <Carousel interval="15000">
+                {
+                    dashboardItemsPortrait.map(item => (
+                        <div>{item}</div>
+                    )
+                    )
+                }
+            </Carousel >
+        )
+    }
+    else {
+        return (
+            <div classname="card">
+                <h2>Our dashboard mode is currently only availble for portrait-oriented screens. We will be releasing a landscape version soon. Thank you for your patience!</h2>
+            </div>
+        )
+    }
 }

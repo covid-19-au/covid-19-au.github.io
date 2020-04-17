@@ -287,7 +287,7 @@ function App() {
 
   if (myData) {
     if (path == "/dashboard") {
-      return (<div style={{ height: "100vh" }}>
+      return (<div style={{ maxHeight: window.innerHeight }}>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
           onCancel={() => setShowSocialMediaIcons(false)}
@@ -297,9 +297,6 @@ function App() {
             <Header province={province} />
           </Grid>
           {routeResult}
-          <Grid item xs={11}>
-            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
-          </Grid>
 
         </Grid>
       </div>
