@@ -58,7 +58,7 @@ class MbMap extends React.Component {
         map.on('load', function () {
             (async () => {
                 new ACTGeoBoundaries(map);
-                new QLDGeoBoundaries(map);
+                new QLDHHSGeoBoundaries(map);
                 new WABoundaries(map);
                 new NSWBoundaries(map);
                 new VicBoundaries(map);
@@ -91,6 +91,7 @@ class MbMap extends React.Component {
             });
         });
 
+        // Add markers: confirmed cases/hospitals
         confirmedData.map((item) => {
             if (!(['VIC', 'NSW', 'QLD', 'WA', 'ACT'].includes(item['state']))) {
                 return new ConfirmedMarker(map, item);
@@ -102,6 +103,7 @@ class MbMap extends React.Component {
     }
 
     handleClickOff() {
+        // Turn markers off
         var all = document.getElementsByClassName("marker");
         for (var i = 0; i < all.length; i++) {
             var element = all[i];
@@ -113,6 +115,7 @@ class MbMap extends React.Component {
     }
 
     handleClickOn() {
+        // Turn markers on
         var all = document.getElementsByClassName("marker");
         for (var i = 0; i < all.length; i++) {
             var element = all[i];
@@ -143,7 +146,12 @@ class MbMap extends React.Component {
                 display: 'flex',
                 flexDirection: 'column',
             }}>
-                <h2 style={{ display: "flex" }} aria-label="Hospital and Case Map">Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+                <h2 style={{ display: "flex" }}
+                    aria-label="Hospital and Case Map">Hospital & Case Map<div style={{
+                        alignSelf: "flex-end",
+                        marginLeft: "auto",
+                        fontSize: "60%"
+                    }}>
                     <Acknowledgement>
                     </Acknowledgement></div></h2>
                 <div ref={el => this.mapContainer = el} >
@@ -190,13 +198,13 @@ class JSONGeoBoundariesBase {
         this.linePolyId = linePolyId;
 
         var that = this;
-        this.loadJSON(data).then(
-            data => that.onLoadData(data)
+        this._loadJSON(data).then(
+            data => that._onLoadData(data)
         );
     }
 
     // var maxValue = 56;
-    async loadJSON(Data) {
+    async _loadJSON(Data) {
         let geojsonData = await fetch(`${Data}`)
             .then(response => response.json())
             .then(responseData => {
@@ -205,10 +213,25 @@ class JSONGeoBoundariesBase {
         return geojsonData;
     }
 
-    onLoadData(data) {
-        const map = this.map;
+    _onLoadData(data) {
+        data = this._formNewJson(data);
 
-        data = this.formNewJson(data);
+        // TODO: Allow turning on/off fill/line polys!
+        this.addFillPoly(data);
+        this.addLinePoly(data)
+    }
+
+    getPolyCentralArea(key) {
+        // TODO: Use https://github.com/mapbox/polylabel or similar to get the central point of the polygon
+    }
+
+    /*******************************************************************
+     * Fill poly-related
+     *******************************************************************/
+
+    addFillPoly(data) {
+        // Add the colored fill area
+        const map = this.map;
         map.addLayer({
             id: this.fillPolyId,
             type: 'fill',
@@ -222,31 +245,35 @@ class JSONGeoBoundariesBase {
                     'interpolate',
                     ['linear'],
                     ['get', 'cases'],
-                    0,
-                    '#E3F2FD',
-                    1,
-                    '#BBDEFB',
-                    5,
-                    '#90CAF9',
-                    10,
-                    '#64B5F6',
-                    20,
-                    '#42A5F5',
-                    30,
-                    '#2196F3',
-                    40,
-                    '#1E88E5',
-                    50,
-                    '#1976D2',
-                    60,
-                    '#1565C0',
-                    70,
-                    '#0D47A1'
+                    0, '#E3F2FD',
+                    1, '#BBDEFB',
+                    5, '#90CAF9',
+                    10, '#64B5F6',
+                    20, '#42A5F5',
+                    30, '#2196F3',
+                    40, '#1E88E5',
+                    50, '#1976D2',
+                    60, '#1565C0',
+                    70, '#0D47A1'
                 ],
                 'fill-opacity': 0.75
             },
             filter: ['==', '$type', 'Polygon']
         });
+    }
+
+    removeFillPoly() {
+        const map = this.map;
+        map.removeLayer(this.fillPolyId);
+    }
+
+    /*******************************************************************
+     * Line poly-related
+     *******************************************************************/
+
+    addLinePoly(data) {
+        // Add the line outline
+        const map = this.map;
         map.addLayer({
             id: this.linePolyId,
             minzoom: 2,
@@ -263,17 +290,64 @@ class JSONGeoBoundariesBase {
             filter: ['==', '$type', 'Polygon']
         });
 
-        this.addPointer();
+        this._addLinePolyPopupEvent();
     }
 
-    formNewJson(geojsonData) {
+    _addLinePolyPopupEvent() {
+        const map = this.map;
+
+        map.on('click', this.fillPolyId, function (e) {
+            ReactGA.event({
+                category: 'ConfirmMap',
+                action: "StateClick",
+                label: e.features[0].properties.city
+            });
+            var cases = e.features[0].properties.cases;
+            var date = e.features[0].properties.date;
+            console.log(e.features);
+
+            if (e.features[0].source === 'id_poly_act' && cases === 5) {
+                cases='< 5'
+            }
+
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(
+                    e.features[0].properties.city +
+                    '<br/>Cases: ' + cases +
+                    '<br/>By: ' + date
+                )
+                .addTo(map);
+        });
+
+        // Change the cursor to a pointer when the mouse is over the states layer.
+        map.on('mouseenter', 'id_poly', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'id_poly', function () {
+            map.getCanvas().style.cursor = '';
+        });
+    }
+
+    removeLinePoly() {
+        const map = this.map;
+        map.removeLayer(this.linePolyId);
+    }
+
+    /*******************************************************************
+     * Data processing
+     *******************************************************************/
+
+    _formNewJson(geojsonData) {
         var values;
         const state = this.stateName;
         const map = this.map;
 
         for (var key in geojsonData.features) {
             var data = geojsonData.features[key];
-            values = this.get_html(this.getCityNameFromProperty(data), state);
+            values = this._getHTML(this.getCityNameFromProperty(data), state);
             data.properties['city'] = this.getCityNameFromProperty(data);
             data.properties['cases'] = values[0];
             data.properties['date'] = values[1];
@@ -282,7 +356,7 @@ class JSONGeoBoundariesBase {
         return geojsonData;
     }
 
-    get_html(city_name, state) {
+    _getHTML(city_name, state) {
         var numberOfCases = 0;
         var updated_date = '';
         var city;
@@ -304,48 +378,21 @@ class JSONGeoBoundariesBase {
         //   city_name += '(s)';
         // }
         for (var data in mapDataArea) {
+            if (!(mapDataArea.hasOwnProperty(data))) {
+                continue;
+            }
+
             var data_map = mapDataArea[data];
             if (state === data_map['state'] && data_map['schema']!=='HLD') {
                 city = data_map['area'];
-                if (city.toLowerCase() == city_name && numberOfCases === 0) {
+
+                if (city.toLowerCase() === city_name && numberOfCases === 0) {
                     numberOfCases = data_map['confirmedCases'];
                     updated_date = data_map['lastUpdateDate'];
                 }
             }
         }
         return [parseInt(numberOfCases), updated_date];
-    }
-
-    addPointer() {
-        const map = this.map;
-
-        map.on('click', this.fillPolyId, function (e) {
-            ReactGA.event({
-                category: 'ConfirmMap',
-                action: "StateClick",
-                label: e.features[0].properties.city
-            });
-            var cases = e.features[0].properties.cases;
-            var date = e.features[0].properties.date;
-            console.log(e.features)
-            if (e.features[0].source==='id_poly_act'&&cases===5){
-                cases='< 5'
-            }
-            new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(e.features[0].properties.city + '<br/>Cases: ' + cases + '<br/>By: ' + date)
-                .addTo(map);
-        });
-
-        // Change the cursor to a pointer when the mouse is over the states layer.
-        map.on('mouseenter', 'id_poly', function () {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-
-        // Change it back to a pointer when it leaves.
-        map.on('mouseleave', 'id_poly', function () {
-            map.getCanvas().style.cursor = '';
-        });
     }
 }
 
@@ -365,7 +412,7 @@ class ACTGeoBoundaries extends JSONGeoBoundariesBase {
 }
 
 
-class QLDGeoBoundaries extends JSONGeoBoundariesBase {
+class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
         super(
             map,
@@ -514,6 +561,9 @@ class ConfirmedMarker {
             )
             .addTo(map);
     }
+    removeMarker() {
+        // TODO!
+    }
 }
 
 class HospitalMarker {
@@ -524,10 +574,10 @@ class HospitalMarker {
         // create a HTML element for each feature
         var el = this.el = document.createElement('div');
 
-        this.setStyles(el);
+        this._setStyles(el);
         this.addMarker(el);
     }
-    setStyles(el) {
+    _setStyles(el) {
         el.className = 'marker';
         el.style.height = '20px';
         el.style.width = '20px';
@@ -556,6 +606,9 @@ class HospitalMarker {
                     )
             )
             .addTo(this.map);
+    }
+    removeMarker() {
+        // TODO!
     }
 }
 
