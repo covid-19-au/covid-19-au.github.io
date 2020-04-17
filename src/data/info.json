@@ -974,7 +974,8 @@
                         "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
                         "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
                     }
-                ]
+                ],
+                "lastUpdated": "15 April 2020"
             }
         },
         {
@@ -996,7 +997,8 @@
                         "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
                         "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
                     }
-                ]
+                ],
+                "lastUpdated": "15 April 2020"
             }
         },
         {
@@ -1020,7 +1022,8 @@
                         "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
                         "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
                     }
-                ]
+                ],
+                "lastUpdated": "15 April 2020"
             }
         },
         {
@@ -1063,7 +1066,8 @@
                         "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
                         "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
                     }
-                ]
+                ],
+                "lastUpdated": "15 April 2020"
             }
         },
         {
@@ -1087,7 +1091,8 @@
                         "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
                         "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
                     }
-                ]
+                ],
+                "lastUpdated": "15 April 2020"
             }
         },
         {
@@ -1095,13 +1100,18 @@
             "text": {
                 "text_1": [
                     "To be eligible for testing in Tasmania, you must be experiencing symptoms consistent with COVID-19 and have travelled overseas or interstate within the last 14 days or have been in contact with a confirmed case of the virus.",
-                    "If you are an aged care or health care worker, you are also eligible for testing."
+                    "If you are an aged care or health care worker, you are also eligible for testing.",
+                    "If you live in North West Tasmania and have any respiratory symptoms, you can request a test."
                 ],
                 "list_1": [],
                 "text_2": [],
                 "list_2": [],
                 "text_3": [],
                 "citation": [
+                    {
+                        "name": "Increased coronavirus testing for North West Tasmania - Sarah Courtney, Minister for Health",
+                        "link": "http://www.premier.tas.gov.au/releases/increased_coronavirus_testing_for_north_west_tasmania"
+                    },
                     {
                         "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
                         "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
@@ -1110,7 +1120,8 @@
                         "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
                         "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
                     }
-                ]
+                ],
+                "lastUpdated": "17 April 2020"
             }
         },
         {
@@ -1139,7 +1150,8 @@
                         "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
                         "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
                     }
-                ]
+                ],
+                "lastUpdated": "15 April 2020"
             }
         },
         {
@@ -1172,7 +1184,8 @@
                         "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
                         "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
                     }
-                ]
+                ],
+                "lastUpdated": "15 April 2020"
             }
         }
     ]

@@ -553,6 +553,12 @@ function Information({ hospitalData, columns, gspace }) {
                                                 <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
                                             </div>
                                             ))}
+
+                                            {/* last updated */}
+                                            <br />
+                                            <div>
+                                                <small key={uuid()}>Last updated: {info.text.lastUpdated}</small><br />
+                                            </div>
                                         </div>
                                     </ExpansionPanelDetails>
                                 </ExpansionPanel>
