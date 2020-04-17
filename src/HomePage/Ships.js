@@ -45,7 +45,7 @@ export default class Ships extends Component {
           style={{
             "font-weight": "bold",
             "text-decoration": "underline",
-            width: "130px",
+            width: "148px",
           }}
         >
           {isExpanded} {item.name}
@@ -66,7 +66,6 @@ export default class Ships extends Component {
     if (this.state.expandedRows.includes(item.name)) {
       itemRows.push(
         item.data.map((row) => (
-          // <tr key={"row-expanded-" + item.name} className="flightInfo header">
           <tr key={"row-expanded-" + item.name}>
             <td stype={{ border: "2px solid white" }}>{row.lastUpdate}</td>
             <td stype={{ border: "2px solid white" }}>{row.state}</td>
@@ -105,9 +104,6 @@ export default class Ships extends Component {
             <Acknowledgement></Acknowledgement>
           </div>
         </h2>
-        {/* <div className="centerContent">
-          <table className="selfCenter standardWidth">{allItemRows}</table>
-        </div> */}
         <table style={{ "font-size": "80%" }}>{allItemRows}</table>
       </div>
     );
