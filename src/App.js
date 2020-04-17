@@ -287,19 +287,20 @@ function App() {
 
   if (myData) {
     if (path == "/dashboard") {
-      return (<div style={{ maxHeight: window.innerHeight }}>
-        <SocialMediaShareModal
-          visible={showSocialMediaIcons}
-          onCancel={() => setShowSocialMediaIcons(false)}
-        />
-        <Grid container spacing={gspace} justify="center" wrap="wrap">
-          <Grid item xs={12} className="removePadding">
-            <Header province={province} />
-          </Grid>
-          {routeResult}
+      return (
+        <div style={{ maxHeight: window.innerHeight }}>
+          <SocialMediaShareModal
+            visible={showSocialMediaIcons}
+            onCancel={() => setShowSocialMediaIcons(false)}
+          />
+          <Grid container spacing={gspace} justify="center" wrap="wrap">
+            <Grid item xs={12} className="removePadding">
+              <Header province={province} />
+            </Grid>
+            {routeResult}
 
-        </Grid>
-      </div>
+          </Grid>
+        </div>
       )
     }
     else {
