@@ -1,13 +1,18 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=Eg08rJGKjtA",
-                    "description": "Baseball is Back: Some Good News with John Krasinski Ep. 3"
+                    "name": "Why you eat unhealthy food when you’re stressed",
+                    "imgLink": "https://this.deakin.edu.au/wp-content/uploads/2017/07/womans-hands-holding-half-eaten-donut-crop.jpg",
+                    "description": "Associate Professor Susan Torres, of Deakin’s School of Exercise and Nutrition Sciences explains how understanding and managing daily stress can help you maintain better health.",
+                    "source": "https://this.deakin.edu.au/self-improvement/eat-unhealthy-food-youre-stressed"
                 }
             ],
+            "video": [],
+            "title": "",
+            "source": "",
+            "content": "",
             "type": "distraction",
             "date": "17/4/2020"
         }
