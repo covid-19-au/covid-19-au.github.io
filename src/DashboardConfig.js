@@ -3,15 +3,15 @@ import Grid from "@material-ui/core/Grid";
 import keyBy from "lodash.keyby";
 import Area from "./HomePage/Area";
 import Stat from "./HomePage/Stat"
-import EChartGlobalLog from "./HomePage/EChartGlobalLog"
+import EChartGlobalLog from "./HomePage/EChartGlobalLog";
 import uuid from "react-uuid";
 import provinces from "./data/area";
 import stateData from "./data/state";
 import flights from "./data/flight";
 import country from "./data/country";
-import OverallTrend from "./HomePage/OverallTrend"
-import StateComparisonChart from "./HomePage/StateComparisonChart"
-import Carousel from 'react-material-ui-carousel'
+import OverallTrend from "./HomePage/OverallTrend";
+import StateComparisonChart from "./HomePage/StateComparisonChart";
+import Carousel from 'react-material-ui-carousel';
 import all from "./data/overall";
 
 const provincesByName = keyBy(provinces, "name");
@@ -19,32 +19,48 @@ const provincesByName = keyBy(provinces, "name");
 const GoogleMap = React.lazy(() => import("./HomePage/GoogleMap"));
 
 export default function DashBoardConfig({ province, myData, overall, inputData, setProvince, area }) {
-    let dashboardItemsPortrait = [
-        <div className="card">
-            <Stat
-                {...{ ...all, ...overall }}
-                name={province && province.name}
-                data={myData}
-                countryData={country}
-            />
-            <Suspense fallback={<div className="loading">Loading...</div>}>
-                <GoogleMap
-                    province={province}
-                    data={inputData}
-                    onClick={name => {
-                        const p = provincesByName[name];
-                        if (p) {
-                            setProvince(p);
-                        }
-                    }}
-                    newData={myData}
-                />
-                <Area area={area} onChange={setProvince} data={myData} />
-            </Suspense>
-        </div>,
-        <div className="card">
+    const maximumH = window.innerHeight * 0.5
 
+    let dashboardItemsPortrait = [
+        <div >
+            <Grid container spacing={0} justify="center" wrap="wrap">
+                <Grid item xs={11} >
+                    <Stat
+                        {...{ ...all, ...overall }}
+                        name={province && province.name}
+                        data={myData}
+                        countryData={country}
+                    />
+                    <div className="card">
+                        <Suspense fallback={<div className="loading">Loading...</div>}>
+                            <GoogleMap
+                                province={province}
+                                data={inputData}
+                                onClick={name => {
+                                    const p = provincesByName[name];
+                                    if (p) {
+                                        setProvince(p);
+                                    }
+                                }}
+                                newData={myData}
+                            />
+                            <Area area={area} onChange={setProvince} data={myData} />
+                        </Suspense>
+                    </div>
+                </Grid>
+            </Grid>
+        </div>,
+        <div style={{ width: "100%" }}>
+            <Grid container spacing={0} justify="center" wrap="wrap">
+                <Grid item xs={11} >
+                    <OverallTrend />
+                </Grid>
+                <Grid item xs={11} >
+                    <StateComparisonChart />
+                </Grid>
+            </Grid>
         </div>
+
     ]
 
     console.log(inputData)

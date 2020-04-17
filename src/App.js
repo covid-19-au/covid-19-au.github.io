@@ -35,7 +35,7 @@ import ReactPlayer from "react-player";
 import DashboardConfig from "./DashboardConfig"
 
 // routes
-import { useRoutes, A } from 'hookrouter';
+import { useRoutes, A, usePath } from 'hookrouter';
 // import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import ReactGA from "react-ga";
@@ -261,7 +261,6 @@ function App() {
     setShowSocialMediaIcons(state);
   };
 
-  console.log(myData)
   // // Set the routes for each page and pass in props.
   const routes = {
     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
@@ -283,10 +282,12 @@ function App() {
   // // The hook used to render the routes.
   const routeResult = useRoutes(routes);
   // const [urlPath, setUrlPath] = useState(window.location.pathname);
-  if (myData) {
-    return (
+  const path = usePath()
+  console.log(path)
 
-      <div>
+  if (myData) {
+    if (path == "/dashboard") {
+      return (<div style={{ height: "100vh" }}>
         <SocialMediaShareModal
           visible={showSocialMediaIcons}
           onCancel={() => setShowSocialMediaIcons(false)}
@@ -295,36 +296,58 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
-          <Grid item xs={12} className="removePadding">
-            <Navbar setNav={setNav} nav={nav} />
-            {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
-          </Grid>
-          {/*{nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}*/}
-          {/*{nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}*/}
-          {/*{nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}*/}
-          {/*{nav === "About" ? <FAQPage /> : ""}*/}
-          {/* routeResult renders the routes onto this area of the app function.
-          E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
           {routeResult}
-          {/*<Switch>*/}
-          {/*<Route path="/" render={() => (*/}
-          {/*<HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />*/}
-          {/*)} exact/>*/}
-          {/*<Route path="/info" render={() => (*/}
-          {/*<InfoPage columns={columns} />*/}
-          {/*)} exact/>*/}
-          {/*<Route path="/news" render={() => (*/}
-          {/*<NewsPage province={province} gspace={gspace}/>*/}
-          {/*)} exact/>*/}
-          {/*<Route path="/faq" component={FAQPage} exact/>*/}
-          {/*</Switch>*/}
           <Grid item xs={11}>
             <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
           </Grid>
+
         </Grid>
       </div>
+      )
+    }
+    else {
+      return (
 
-    );
+        <div>
+          <SocialMediaShareModal
+            visible={showSocialMediaIcons}
+            onCancel={() => setShowSocialMediaIcons(false)}
+          />
+          <Grid container spacing={gspace} justify="center" wrap="wrap">
+            <Grid item xs={12} className="removePadding">
+              <Header province={province} />
+            </Grid>
+            <Grid item xs={12} className="removePadding">
+              <Navbar setNav={setNav} nav={nav} />
+              {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
+            </Grid>
+            {/*{nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}*/}
+            {/*{nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}*/}
+            {/*{nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}*/}
+            {/*{nav === "About" ? <FAQPage /> : ""}*/}
+            {/* routeResult renders the routes onto this area of the app function.
+          E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
+            {routeResult}
+            {/*<Switch>*/}
+            {/*<Route path="/" render={() => (*/}
+            {/*<HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />*/}
+            {/*)} exact/>*/}
+            {/*<Route path="/info" render={() => (*/}
+            {/*<InfoPage columns={columns} />*/}
+            {/*)} exact/>*/}
+            {/*<Route path="/news" render={() => (*/}
+            {/*<NewsPage province={province} gspace={gspace}/>*/}
+            {/*)} exact/>*/}
+            {/*<Route path="/faq" component={FAQPage} exact/>*/}
+            {/*</Switch>*/}
+            <Grid item xs={11}>
+              <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
+            </Grid>
+          </Grid>
+        </div>
+
+      );
+    }
   }
   return null;
 }

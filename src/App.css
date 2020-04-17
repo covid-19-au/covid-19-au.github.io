@@ -525,14 +525,14 @@ h2 small {
   .tested,
   .area,
   .flightInfo{
-      font-size: 1.8rem
+      font-size: 1.5rem
   }
   .area.header,
   .death.header,
   .confirmed.header,
   .tested.header,
   .cured.header {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
     font-weight: 600
   }
 }
