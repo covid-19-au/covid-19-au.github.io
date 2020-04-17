@@ -1,31 +1,32 @@
-import React from "react";
+import React from 'react';
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
 import "./NewsTimeline.css"
 import ReactGA from "react-ga";
 import List from '@material-ui/core/List';
 
-const jsonNews = require("./data/timelinedata.json");
-const timelineNews = jsonNews["news"];
-const updatedTime = jsonNews["updatedTime"];
+const jsonNews = require('./data/timelinedata.json')
+const timelineNews = jsonNews["news"]
+const updatedTime = jsonNews["updatedTime"]
 
 const listStyles = {
-  maxHeight: 500,
-  position: "relative",
-  overflow: "auto",
-  minHeight: 500,
-  marginRight: 0,
-  padding: 0
-};
+    maxHeight: 500,
+    position: 'relative',
+    overflow: 'auto',
+    minHeight: 500,
+    marginRight: 0,
+    padding: 0
+}
 
 // const newestColour = "#00aac1"
 // const middleColour = "#80ddea"
 // const oldestColour = "#e0f7fa"
 
-const newsLength = timelineNews.length;
 
-const newestNews = timelineNews.slice(0, newsLength / 3);
-const middleNews = timelineNews.slice(newsLength / 3, (newsLength * 2) / 3);
-const oldestNews = timelineNews.slice((newsLength * 2) / 3, newsLength);
+const newsLength = timelineNews.length
+
+const newestNews = timelineNews.slice(0, newsLength / 3)
+const middleNews = timelineNews.slice(newsLength / 3, newsLength * 2 / 3)
+const oldestNews = timelineNews.slice(newsLength * 2 / 3, newsLength)
 
 function NewsTimeline() {
 
@@ -70,4 +71,4 @@ function NewsTimeline() {
         </div >
     )
 }
-export default NewsTimeline;
+export default NewsTimeline

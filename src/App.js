@@ -172,26 +172,26 @@ function App() {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Hospital",
-        accessor: "name"
+        Header: 'Hospital',
+        accessor: 'name'
       },
       {
-        Header: "Address",
-        accessor: "address"
+        Header: 'Address',
+        accessor: 'address'
       },
       {
-        Header: "Phone",
-        accessor: "hospitalPhone"
+        Header: 'Phone',
+        accessor: 'hospitalPhone'
       },
       {
-        Header: "State",
-        accessor: "state",
+        Header: 'State',
+        accessor: 'state',
         Filter: SelectColumnFilter,
-        filter: "includes"
+        filter: 'includes'
       }
     ],
     []
-  );
+  )
 
   const [province, _setProvince] = useState(null);
   const setProvinceByUrl = () => {
@@ -297,17 +297,8 @@ function App() {
 
             </Alert>:<div />}
           <Grid item xs={12} className="removePadding">
-            <Navbar
-              province={province}
-              overall={overall}
-              myData={myData}
-              area={area}
-              data={data}
-              setProvince={setProvince}
-              gspace={gspace}
-              columns={columns}
-              setNav={setNav} nav={nav}
-            />
+            <Navbar setNav={setNav} nav={nav} />
+            {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
           </Grid>
           {/*{nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}*/}
           {/*{nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}*/}
@@ -330,7 +321,6 @@ function App() {
           {/*</Switch>*/}
           <Grid item xs={11}>
             <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
-
           </Grid>
         </Grid>
       </div>
