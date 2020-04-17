@@ -1,5 +1,6 @@
 import React from "react";
 import mapboxgl from 'mapbox-gl';
+import polylabel from 'polylabel';
 import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
 import mapDataArea from "../data/mapdataarea"
@@ -26,7 +27,6 @@ mapboxgl.accessToken = token;
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
 class MbMap extends React.Component {
-
     constructor(props) {
         super(props);
 
@@ -58,7 +58,7 @@ class MbMap extends React.Component {
         map.on('load', function () {
             (async () => {
                 new ACTGeoBoundaries(map);
-                new QLDHHSGeoBoundaries(map);
+                //new QLDHHSGeoBoundaries(map);
                 new WABoundaries(map);
                 new NSWBoundaries(map);
                 new VicBoundaries(map);
@@ -80,6 +80,17 @@ class MbMap extends React.Component {
 
         //Add Full Screen Controls
         map.addControl(new mapboxgl.FullscreenControl());
+
+        try {
+            map.loadImage(
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('cat', image);
+                }
+            );
+        }
+        catch (e) {}
 
         map.on('move', () => {
             const { lng, lat } = map.getCenter();
@@ -130,14 +141,14 @@ class MbMap extends React.Component {
         const activeStyles = {
             color: 'black',
             borderColor: '#8ccfff',
-            padding: "0px",
+            padding: "0px 5px",
             zIndex:10,
             outline: "none"
         };
         const inactiveStyles = {
             color: 'grey',
             borderColor: '#e3f3ff',
-            padding: "0px",
+            padding: "0px 5px",
             outline: "none"
         };
 
@@ -154,6 +165,41 @@ class MbMap extends React.Component {
                     }}>
                     <Acknowledgement>
                     </Acknowledgement></div></h2>
+
+                <div>
+                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.5rem" }}>
+                        Markers:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
+                            <Button style={activeStyles}
+                                    onClick={() => this.handleClickOff()}>Off</Button>
+                            <Button style={inactiveStyles}
+                                    onClick={() => this.handleClickOn()}>Hospitals</Button>
+                            <Button style={inactiveStyles}
+                                    onClick={() => this.handleClickOff()}>Total</Button>
+                            <Button style={inactiveStyles}
+                                    onClick={() => this.handleClickOff()}>Active</Button>
+                            <Button style={inactiveStyles}
+                                    onClick={() => this.handleClickOff()}>Cases over time</Button>
+                        </ButtonGroup>
+                    </span>
+                </div>
+
+                <div>
+                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.5rem" }}>
+                        Underlay:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
+                            <Button style={activeStyles}
+                                    onClick={() => this.handleClickOff()}>Off</Button>
+                            <Button style={inactiveStyles}
+                                    onClick={() => this.handleClickOn()}>Population Density</Button>
+                            <Button style={inactiveStyles}
+                                    onClick={() => this.handleClickOff()}>Socioeconomic rank</Button>
+                            <Button style={inactiveStyles}
+                                    onClick={() => this.handleClickOff()}>Aged 65+</Button>
+                            <Button style={inactiveStyles}
+                                    onClick={() => this.handleClickOff()}>Other Statistics</Button>
+                        </ButtonGroup>
+                    </span>
+                </div>
+
                 <div ref={el => this.mapContainer = el} >
                     {/*{*/}
                     {/*confirmedData.map((item)=>(*/}
@@ -172,15 +218,6 @@ class MbMap extends React.Component {
                         <p>*City-level data is only present for <strong>ACT</strong>, <strong>NSW</strong>,
                             <strong>VIC</strong>, and <strong>WA</strong>, HHS Data for <strong>QLD</strong>.
                             Other states are being worked on.</p>
-                    </span>
-                    <span className="key" style={{ alignSelf: "flex-end", marginTop: "0.5rem" }}>
-                        Markers:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
-                            <Button style={this.state.showMarker ? activeStyles : inactiveStyles}
-                                    disableElevation={true}
-                                    onClick={() => this.handleClickOn()}>On</Button>
-                            <Button style={this.state.showMarker ? inactiveStyles : activeStyles}
-                                    onClick={() => this.handleClickOff()}>Off</Button>
-                        </ButtonGroup>
                     </span>
                 </span>
 
@@ -217,12 +254,34 @@ class JSONGeoBoundariesBase {
         data = this._formNewJson(data);
 
         // TODO: Allow turning on/off fill/line polys!
-        this.addFillPoly(data);
-        this.addLinePoly(data)
+        //this.addFillPoly(data);
+        this.addLinePoly(data);
+        this.addHeatMap(data);
     }
 
-    getPolyCentralArea(key) {
-        // TODO: Use https://github.com/mapbox/polylabel or similar to get the central point of the polygon
+    getPolyCentralArea(data) {
+        // Uses https://github.com/mapbox/polylabel
+        // to get the central point of the polygon
+        let r = {
+            "type": "FeatureCollection",
+            "features": [/*...*/]
+        };
+        r["features"] = data['features'].filter(
+            (feature) => !!feature['geometry']
+        ).map((feature) => {
+            return {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": polylabel(
+                        feature["geometry"]["coordinates"],
+                        0.1
+                    )
+                },
+                "properties": feature["properties"]
+            }
+        });
+        return r
     }
 
     /*******************************************************************
@@ -259,6 +318,19 @@ class JSONGeoBoundariesBase {
                 'fill-opacity': 0.75
             },
             filter: ['==', '$type', 'Polygon']
+        });
+
+        map.addLayer({
+            'id': this.fillPolyId+'points',
+            'type': 'symbol',
+            'source': {
+                type: 'geojson',
+                data: data
+            },
+            'layout': {
+                'icon-image': 'cat',
+                'icon-size': 0.25
+            }
         });
     }
 
@@ -320,7 +392,8 @@ class JSONGeoBoundariesBase {
                 .addTo(map);
         });
 
-        // Change the cursor to a pointer when the mouse is over the states layer.
+        // Change the cursor to a pointer when
+        // the mouse is over the states layer.
         map.on('mouseenter', 'id_poly', function () {
             map.getCanvas().style.cursor = 'pointer';
         });
@@ -334,6 +407,119 @@ class JSONGeoBoundariesBase {
     removeLinePoly() {
         const map = this.map;
         map.removeLayer(this.linePolyId);
+    }
+
+    /*******************************************************************
+     * Heat map-related
+     *******************************************************************/
+
+    addHeatMap(data) {
+        const map = this.map;
+        data = this.getPolyCentralArea(data);
+
+        map.addLayer(
+            {
+                'id': this.fillPolyId+'heat',
+                'type': 'heatmap',
+                'source': {
+                    'type': 'geojson',
+                    'data': data
+                },
+                'maxzoom': 9,
+                'paint': {
+                    'heatmap-weight': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'cases'],
+                        0, 0,
+                        6, 1
+                    ],
+                    'heatmap-intensity': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        0, 1,
+                        9, 3
+                    ],
+                    'heatmap-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['heatmap-density'],
+                        0, 'rgba(0,0,0,0)',
+                        0.2, 'rgba(178,24,43,0.21)',
+                        0.4, 'rgba(178,24,43,0.4)',
+                        0.6, 'rgba(178,24,43,0.61)',
+                        0.8, 'rgba(178,24,43,0.81)',
+                        1.0, 'rgb(178,24,43)'
+                    ],
+                    'heatmap-radius': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        0, ['*', 0.1, ['get', 'cases']],
+                        2, ['*', 0.2, ['get', 'cases']],
+                        4, ['*', 0.4, ['get', 'cases']],
+                        16, ['*', 0.8, ['get', 'cases']]
+                    ]/*,
+                    'heatmap-opacity': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        7, 1,
+                        9, 0
+                    ]*/
+                }
+            },
+            'waterway-label'
+        );
+
+        map.addLayer(
+            {
+                'id': this.fillPolyId+'heatpoint',
+                'type': 'circle',
+                'source': {
+                    'type': 'geojson',
+                    'data': data
+                },
+                'minzoom': 7,
+                'paint': {
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'cases'],
+                        1, 3,
+                        5, 5,
+                        10, 7,
+                        50, 20,
+                        100, 30,
+                        300, 40
+                    ],
+                    'circle-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'cases'],
+                        1, 'rgba(0,0,0,0)',
+                        5, 'rgba(178,24,43,0.21)',
+                        10, 'rgba(178,24,43,0.4)',
+                        50, 'rgba(178,24,43,0.61)',
+                        100, 'rgba(178,24,43,0.81)',
+                        300, 'rgba(178,24,43,1.0)'
+                    ],
+                    'circle-opacity': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        7, 0,
+                        8, 1
+                    ]
+                }
+            },
+            'waterway-label'
+        );
+    }
+
+    removeHeatMap() {
+        // TODO
     }
 
     /*******************************************************************
@@ -470,9 +656,9 @@ class VicBoundaries extends JSONGeoBoundariesBase {
     getCityNameFromProperty(data) {
         let city_name = data.properties.vic_lga__2;
         var city = city_name.toLowerCase().split(" ");
-            var city_type = city.slice(-1)[0];
-            city.pop();
-            city_name = city.join(' ');
+        var city_type = city.slice(-1)[0];
+        city.pop();
+        city_name = city.join(' ');
         return city_name
     }
 }
@@ -492,15 +678,15 @@ class ConfirmedMarker {
         // create a HTML element for each feature
         var el = this.el = document.createElement('div');
 
-        this.setStyles(el);
+        this._setStyles(el);
         this.addMarker(el);
     }
-    setStyles(el) {
+    _setStyles(el) {
         el.className = 'marker';
         el.style.height = '20px';
         el.style.width = '20px';
         el.style.backgroundSize = 'cover';
-        if (this.isOld(this.item['date'])) {
+        if (this._isOld(this.item['date'])) {
             el.style.backgroundImage = `url(${confirmedOldImg})`;
         } else {
             el.style.backgroundImage = `url(${confirmedImg})`;
@@ -508,7 +694,7 @@ class ConfirmedMarker {
         el.style.borderRadius = '50%';
         el.style.cursor = 'pointer';
     }
-    isOld(date) {
+    _isOld(date) {
         // Check if a date was more than two weeks ago
         // Working with raw data, so try-catch just in case
 
