@@ -20,28 +20,31 @@ const GoogleMap = React.lazy(() => import("./HomePage/GoogleMap"));
 
 export default function DashBoardConfig({ province, myData, overall, inputData, setProvince, area }) {
     let dashboardItemsPortrait = [
-        <Stat
-            {...{ ...all, ...overall }}
-            name={province && province.name}
-            data={myData}
-            countryData={country}
-        />,
-        <Suspense fallback={<div className="loading">Loading...</div>}>
-            <GoogleMap
-                province={province}
-                data={inputData}
-                onClick={name => {
-                    const p = provincesByName[name];
-                    if (p) {
-                        setProvince(p);
-                    }
-                }}
-                newData={myData}
+        <div className="card">
+            <Stat
+                {...{ ...all, ...overall }}
+                name={province && province.name}
+                data={myData}
+                countryData={country}
             />
-        </Suspense>
-        , <Suspense fallback={<div className="loading">Loading...</div>}>
-            <Area area={area} onChange={setProvince} data={myData} />
-        </Suspense>
+            <Suspense fallback={<div className="loading">Loading...</div>}>
+                <GoogleMap
+                    province={province}
+                    data={inputData}
+                    onClick={name => {
+                        const p = provincesByName[name];
+                        if (p) {
+                            setProvince(p);
+                        }
+                    }}
+                    newData={myData}
+                />
+                <Area area={area} onChange={setProvince} data={myData} />
+            </Suspense>
+        </div>,
+        <div className="card">
+
+        </div>
     ]
 
     console.log(inputData)
@@ -49,14 +52,15 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
 
 
     return (
+
+
         <Carousel interval="5000">
             {
                 dashboardItemsPortrait.map(item => (
-                    <div className="card">
-                        {item}
-                    </div>)
+                    <div>{item}</div>
+                )
                 )
             }
-        </Carousel>
+        </Carousel >
     )
 }

@@ -397,7 +397,7 @@ export default function Stat({
 
             <Grid container spacing={1} justify="center" wrap="wrap" style={{ padding: "5px" }}>
 
-                <Grid item xs={6} sm={4} lg={2}>
+                <Grid item xs={6} sm={4} md={2}>
 
                     <Tag
                         number={confirmedCount}
@@ -411,7 +411,7 @@ export default function Stat({
 
                     </Tag>
                 </Grid>
-                <Grid item xs={6} sm={4} lg={2} style={{ width: "50px" }}>
+                <Grid item xs={6} sm={4} md={2} style={{ width: "50px" }}>
                     {/*<Tag number={suspectedCount || '-'}>*/}
                     {/*疑似*/}
                     {/*</Tag>*/}
@@ -427,7 +427,7 @@ export default function Stat({
 
                     </Tag>
                 </Grid>
-                <Grid item xs={6} sm={4} lg={2}>
+                <Grid item xs={6} sm={4} md={2}>
                     <Tag
                         // number={curedCount}
                         number={"3600+"}
@@ -441,7 +441,7 @@ export default function Stat({
 
                     </Tag>
                 </Grid>
-                <Grid item xs={6} sm={4} lg={2}>
+                <Grid item xs={6} sm={4} md={2}>
                     <Tag
                         number={testedCount}
                         fColor={"#007cf2"}
@@ -455,7 +455,7 @@ export default function Stat({
                     </Tag>
 
                 </Grid>
-                <Grid item xs={6} sm={4} lg={2}>
+                <Grid item xs={6} sm={4} md={2}>
                     <Tag
                         number={hospitalCount}
                         fColor={"#9d71ea"}
@@ -468,7 +468,7 @@ export default function Stat({
 
                     </Tag>
                 </Grid>
-                <Grid item xs={6} sm={4} lg={2}>
+                <Grid item xs={6} sm={4} md={2}>
                     <Tag
                         number={icuCount}
                         fColor={"#00aac1"}
