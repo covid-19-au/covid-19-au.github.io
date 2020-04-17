@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/coronavirus-mobile-tracking-app-may-be-mandatory-if-not-enough-people-sign-up-scott-morrison-says",
+            "title": "Coronavirus mobile tracking app may be mandatory if not enough people sign up, Scott Morrison says",
+            "source": "SBSNews",
+            "date": "17 April 2020",
+            "time": "17:53",
+            "summary": "Mobile phone tracking software could be compulsory if not enough Australians voluntarily download the application to help in coronavirus case tracing. Prime Minister Scott Morrison said at least 40 percent of the population needs to use the app to make it effective. Better contact tracing is one of three main benchmarks the government wants to meet before strict restrictions can be lifted. Notably, Mr Morrison says the app won't be used by police as evidence to prosecute people for breaching social distancing requirements."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/internet-costs-cut-for-low-income-australian-families-small-businesses-during-coronavirus-pandemic",
+            "title": "Internet costs cut for low-income Australian families, small businesses during coronavirus pandemic",
+            "source": "SBSNews",
+            "date": "17 April 2020",
+            "time": "12:53",
+            "summary": "Internet providers will have help ensuring financially-stricken families and businesses stay connected from a $150 million National Broadband Network relief fund. The internet wholesaler wants to ensure families with school children who do not have NBN access, and small and medium-sized businesses, can remain online during and after the coronavirus pandemic. NBN will waive its $37 monthly charge to internet providers between April and September to allow the industry to devise more affordable access for families."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-16/coronavirus-what-australia-has-to-do-before-restrictions-lifted/12154692",
             "title": "Australia's coronavirus restrictions will remain until these three things are established",
             "source": "ABCNews",
@@ -119,30 +135,6 @@
             "date": "11 April 2020",
             "time": "03:23",
             "summary": "Antibody tests that would verify whether a person recently had the novel coronavirus could be available within a week, according to the America's top infectious disease expert. Having antibodies to the coronavirus could mean someone is protected from getting re-infected, making such tests important for medical workers and others on the frontlines fighting the pandemic."
-        },
-        {
-            "link": "https://www.smh.com.au/national/stop-looking-for-loopholes-what-are-the-new-covid-19-social-rules-20200407-p54hyd.html ",
-            "title": "'Stop looking for loopholes': What are the new COVID-19 social rules?",
-            "source": "TheSydneyMorningHerald",
-            "date": "10 April 2020",
-            "time": "",
-            "summary": "Government urges people to stop looking for loopholes over the Easter weekend, so as not to undo all of the hard work that has been done to stop the spread of COVID-19. This article covers questions such as whether you can have people over, whether you can go away at Easter and whether you can babysit, state-by-state."
-        },
-        {
-            "link": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
-            "title": "Aussie households to be given access to COVID-19 financial stress for bills",
-            "source": "9News",
-            "date": "10 April 2020",
-            "time": "17:52",
-            "summary": "Australian households struggling with financial stress brought on by the coronavirus pandemic will soon have access to hardship provisions for their energy and water bills. Prime Minister Scott Morrison said the new measures would be in line with those across the energy and telecommunications sectors to scale-up hardship support provided by those industries."
-        },
-        {
-            "link": "https://www.9news.com.au/national/covid19-vaccine-researched-at-university-of-queensland-critical-test-on-live-coronavirus-ahead-of-human-trials/a49fe4b6-0ff7-4cbe-ae06-8cb4772e0404",
-            "title": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
-            "source": "9News",
-            "date": "10 April 2020",
-            "time": "19:43",
-            "summary": "The effectiveness of a University of Queensland (UQ) vaccine against the coronavirus is about to be tested in a biosecurity facility in the Netherlands. The vaccine will be used on live coronavirus for the first time to determine how effectively it induces protection against infection. UQ's vaccine program co-leader Dr Keith Chappell says the trial will establish a critical package of data ahead of human clinical trials later this year.Clinical studies will be conducted by Viroclinics Xplore, which offers myriad pre-clinical tests including toxicology of drugs, antibodies, and antivirals targeting viral infectious diseases."
         }
     ]
 }
