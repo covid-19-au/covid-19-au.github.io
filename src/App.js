@@ -290,6 +290,11 @@ function App() {
           <Grid item xs={12} className="removePadding">
             <Header province={province} />
           </Grid>
+            <Alert style={{width:'100%'}} severity="info">
+            {/*<AlertTitle><strong>Important!!</strong></AlertTitle>*/}
+                <p style={{fontSize:"0.85rem"}} className="card-text">By working with researchers from Monash University and Rochester Institute of Technology, we are investigating users’ information seeking behaviour about COVID-19 to improve our site. Could you please kindly fill in this &nbsp;<a target="_blank"  rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSdPMLY_4M6HVBCGbFqDVbfcoKcuM5fUeDpPR77Xc_nhBp9vZA/viewform?usp=sf_link" ><u><strong>10-min survey</strong></u></a>. <br/>We will release the overall results later at <a target="_blank"  rel="noopener noreferrer" href="https://covid19onlinesurvey.org" ><u>https://covid19onlinesurvey.org</u></a></p>
+
+            </Alert>
           <Grid item xs={12} className="removePadding">
             <Navbar setNav={setNav} nav={nav} />
             {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
