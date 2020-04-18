@@ -9,6 +9,7 @@ const CONFIRMED = 1;
 const DEATH = 2;
 const CURED = 3;
 const TESTED = 4;
+const NONEWCASES = 7;
 
 export default function Area({ area, onChange, data }) {
   let totalRecovered = 0;
@@ -34,7 +35,6 @@ export default function Area({ area, onChange, data }) {
       testedCases[
       Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
-
     return data.map((x) => (
       <div
         role={"button"}
@@ -70,11 +70,12 @@ export default function Area({ area, onChange, data }) {
         </div>
         <div className="confirmed">
           <strong>{numberWithCommas(x[CONFIRMED])}</strong>&nbsp;
-          <div className="dailyIncrease">
-            {x[CONFIRMED] - lastTotal[x[0]][0] > 0
-              ? `(+${x[1] - lastTotal[x[0]][0]})`
-              : null}
-          </div>
+          {x[NONEWCASES] === 'true' ? <div className="dailyIncrease">(+0)</div> :
+            <div className="dailyIncrease">
+              {x[CONFIRMED] - lastTotal[x[0]][0] > 0
+                ? `(+${x[1] - lastTotal[x[0]][0]})`
+                : null}
+            </div>}
         </div>
         <div className="death">
           {(x[0] === "NSW" || x[0] === "QLD") ? <strong> {numberWithCommas(x[DEATH])}<sup>&#x5e;</sup> </strong>
