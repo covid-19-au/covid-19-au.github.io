@@ -6,7 +6,6 @@ import todayData from "../data/stateCaseData.json";
 import previousData from "../data/state.json";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import './Stat.css'
 
 import Grid from "@material-ui/core/Grid";
 /**

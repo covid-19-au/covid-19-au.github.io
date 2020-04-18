@@ -15,10 +15,3 @@
   font-weight: 600;
 
 }
-
-
-@media only screen and (min-width: 768px) and (orientation: portrait){
-  .number {
-    font-size: 2rem
-  }
-}

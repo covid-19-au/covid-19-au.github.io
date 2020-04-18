@@ -10,7 +10,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import RadioGroup from '@material-ui/core/RadioGroup';
 
 import { Chart } from "react-google-charts";
-import './GoogleMap.css'
 
 function GoogleMap({ province, newData }) {
     // Colour gradients for the map: https://material.io/design/color/#tools-for-picking-colors

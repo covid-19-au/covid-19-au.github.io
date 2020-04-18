@@ -1,0 +1,64 @@
+@media only screen and (orientation: portrait){
+  .confirmed,
+  .death,
+  .cured,
+  .activeCase,
+  .tested,
+  .area,
+  .flightInfo{
+      font-size: 1.5rem
+  }
+  .area.header,
+  .death.header,
+  .confirmed.header,
+  .tested.header,
+  .activeCase.header,
+  .cured.header {
+    font-size: 1.6rem;
+    font-weight: 600
+  }
+  .stateMap {
+    font-size: 1.5rem;
+    }
+.hoverButton {
+    font-size: 1.3rem
+  }
+.dailyUpdateHeader{
+    font-size: 1.8rem
+  }
+.number {
+    font-size: 2rem
+  }
+}
+@media only screen and (orientation: landscape){
+  .confirmed,
+  .death,
+  .cured,
+  .activeCase,
+  .tested,
+  .area,
+  .flightInfo{
+      font-size: 1.3rem
+  }
+  .area.header,
+  .death.header,
+  .confirmed.header,
+  .tested.header,
+  .activeCase.header,
+  .cured.header {
+    font-size: 1.4rem;
+    font-weight: 600
+  }
+  .stateMap {
+    font-size: 1.5rem;
+    }
+.hoverButton {
+    font-size: 1.3rem
+  }
+.dailyUpdateHeader{
+    font-size: 1.8rem
+  }
+.number {
+    font-size: 2rem
+  }
+}
