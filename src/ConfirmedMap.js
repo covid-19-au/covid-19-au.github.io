@@ -1,6 +1,7 @@
 import React from "react";
 import mapboxgl from 'mapbox-gl';
 import polylabel from 'polylabel';
+import CanvasJS from "../assets/canvasjs.min.js";
 import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
 import mapDataArea from "../data/mapdataarea"
@@ -36,12 +37,15 @@ class MbMap extends React.Component {
             zoom: 2,
             showMarker: true,
         };
-    }
 
-    componentDidMount() {
         this._markers = 'Total';
         this._underlay = null;
 
+        this.markersButtonGroup = React.createRef();
+        this.underlayButtonGroup = React.createRef();
+    }
+
+    componentDidMount() {
         const { lng, lat, zoom } = this.state;
 
         var bounds = [
@@ -138,6 +142,35 @@ class MbMap extends React.Component {
                 that.lgaVic = new VicLGABoundaries(map);
                 //that.lgaQLD = new QLDLGABoundaries(map);    <-- TODO!
                 that.hhsQLD = new QLDHHSGeoBoundaries(map);
+
+                function enableControls() {
+                    var initialized = true;
+                    [
+                        that.sa3ACT,
+                        that.lgaWA,
+                        that.lgaNSW,
+                        that.lgaVic,
+                        that.hhsQLD
+
+                    ].forEach(function(inst) {
+                        if (!inst.geoJSONData) {
+                            initialized = false;
+                        }
+                    });
+
+                    if (initialized) {
+                        // Only enable the controls once all the data has loaded!
+                        that.setUnderlay(that._underlay);
+                        that.setMarkers(that._markers);
+
+                        that.markersButtonGroup.current.style.pointerEvents = 'auto';
+                        that.underlayButtonGroup.current.style.pointerEvents = 'auto';
+                    }
+                    else {
+                        setTimeout(enableControls, 50);
+                    }
+                }
+                setTimeout(enableControls, 50);
             })();
         });
     }
@@ -152,16 +185,16 @@ class MbMap extends React.Component {
     setMarkers(markers) {
         function enableInsts(dataSource, insts) {
             for (var i=0; i<insts.length; i++) {
+                insts[i].addHeatMap(dataSource);
                 insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(dataSource, 0.0);
-                insts[i].addHeatMap(dataSource);
             }
         }
         function disableInsts(insts) {
             for (var i=0; i<insts.length; i++) {
+                insts[i].removeHeatMap();
                 insts[i].removeLinePoly();
                 insts[i].removeFillPoly();
-                insts[i].removeHeatMap();
             }
         }
 
@@ -326,7 +359,10 @@ class MbMap extends React.Component {
 
                 <div>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.5rem" }}>
-                        Markers:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
+                        Markers:&nbsp;<ButtonGroup ref={this.markersButtonGroup}
+                                                   size="small"
+                                                   aria-label="small outlined button group"
+                                                   style={{ pointerEvents: 'none' }}>
                             <Button style={this._markers == null ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers(null)}>Off</Button>
                             <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
@@ -347,7 +383,10 @@ class MbMap extends React.Component {
 
                 <div>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.5rem" }}>
-                        Underlay:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
+                        Underlay:&nbsp;<ButtonGroup ref={this.underlayButtonGroup}
+                                                    size="small"
+                                                    aria-label="small outlined button group"
+                                                    style={{ pointerEvents: 'none' }}>
                             <Button style={this._underlay == null ? activeStyles : inactiveStyles}
                                     onClick={() => this.setUnderlay(null)}>Off</Button>
                             <Button style={this._underlay === 'Population' ? activeStyles : inactiveStyles}
@@ -455,7 +494,28 @@ class TimeSeriesDataSource extends DataSourceBase {
     }
 
     getCaseInfoTimeSeriesForCity(stateName, cityName) {
-        // TODO!
+        var r = [];
+
+        for (var i=0; i<this.data.length; i++) {
+            var iData = this.data[i];
+            var dateUpdated = iData[0],
+                iStateName = iData[1],
+                iCityName = iData[2],
+                iValue = iData[this.subHeaderIndex+3];
+
+            if (
+                iStateName.toLowerCase() === stateName.toLowerCase() &&
+                iCityName.toLowerCase() === cityName.toLowerCase() &&
+                iValue != null
+            ) {
+                // May as well use CanvasJS format
+                r.push({
+                    x: parseDate(dateUpdated).getTime(),
+                    y: parseInt(iValue)
+                });
+            }
+        }
+        return r;
     }
 
     makePopup() {
@@ -518,21 +578,43 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
             'updatedDate': latest['updatedDate']
         };
     }
+
+    getCaseInfoTimeSeriesForCity(stateName, cityName) {
+        var r = [];
+        var values = super.getCaseInfoTimeSeriesForCity(
+            stateName, cityName
+        );
+
+        for (var i=0; i<values.length; i++) {
+            var iData = values[i];
+            if (dateDiff(new Date(iData.x), getToday()) > this.daysAgo) {
+                continue;
+            }
+            r.push(iData);
+        }
+        return r;
+    }
 }
 
-
-function dateDiffFromToday(dateString) {
-    // dateString must be dd/mm/yyyy format
-    function parseDate(str) {
-        var mdy = str.split('/');
-        // year, month index, day
-        return new Date(mdy[2], mdy[1]-1, mdy[0]);
-    }
-    function dateDiff(first, second) {
-        return Math.round((second-first)/(1000*60*60*24));
-    }
+function getToday() {
     var today = new Date();
     today.setHours(0, 0, 0, 0);
+    return today;
+}
+
+function parseDate(str) {
+    // dateString must be dd/mm/yyyy format
+    var mdy = str.split('/');
+    // year, month index, day
+    return new Date(mdy[2], mdy[1]-1, mdy[0]);
+}
+
+function dateDiff(first, second) {
+    return Math.round((second-first)/(1000*60*60*24));
+}
+
+function dateDiffFromToday(dateString) {
+    var today = getToday();
     var dateUpdatedInst = parseDate(dateString).getTime();
     return dateDiff(dateUpdatedInst, today);
 }
@@ -695,31 +777,45 @@ class JSONGeoBoundariesBase {
             opacity = 0.75;
         }
 
-        map.addLayer({
-            id: this.fillPolyId,
-            type: 'fill',
-            minzoom: 2,
-            source: this.fillPolyId+dataSource.getSourceName()+'source',
-            paint: {
-                'fill-color': [
-                    'interpolate',
-                    ['linear'],
-                    ['get', 'cases'],
-                    0, '#E3F2FD',
-                    1, '#BBDEFB',
-                    5, '#90CAF9',
-                    10, '#64B5F6',
-                    20, '#42A5F5',
-                    30, '#2196F3',
-                    40, '#1E88E5',
-                    50, '#1976D2',
-                    60, '#1565C0',
-                    70, '#0D47A1'
-                ],
-                'fill-opacity': opacity
+        // Display before the heatmap
+        // (if one is displayed)
+        var layers = map.getStyle().layers;
+        var firstHeatmapId = null;
+        for (var i=0; i<layers.length; i++) {
+            if (layers[i].type === 'heatmap') {
+                firstHeatmapId = layers[i].id;
+                break;
+            }
+        }
+
+        map.addLayer(
+            {
+                id: this.fillPolyId,
+                type: 'fill',
+                minzoom: 2,
+                source: this.fillPolyId+dataSource.getSourceName()+'source',
+                paint: {
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'cases'],
+                        0, '#E3F2FD',
+                        1, '#BBDEFB',
+                        5, '#90CAF9',
+                        10, '#64B5F6',
+                        20, '#42A5F5',
+                        30, '#2196F3',
+                        40, '#1E88E5',
+                        50, '#1976D2',
+                        60, '#1565C0',
+                        70, '#0D47A1'
+                    ],
+                    'fill-opacity': opacity
+                },
+                filter: ['==', '$type', 'Polygon']
             },
-            filter: ['==', '$type', 'Polygon']
-        });
+            firstHeatmapId
+        );
 
         this._addLinePolyPopupEvent(this.fillPolyId);
     }
@@ -769,20 +865,60 @@ class JSONGeoBoundariesBase {
                 label: e.features[0].properties.city
             });
             var cases = e.features[0].properties.cases;
+            var timeSeries = e.features[0].properties.timeSeries;
             var date = e.features[0].properties.date;
+            timeSeries = JSON.parse(timeSeries);
 
-            if (e.features[0].source === 'id_poly_act' && cases === 5) {
-                cases='< 5'
+            var nTimeSeries = [];
+            timeSeries.forEach(function(i) {
+                nTimeSeries.push({
+                    x: new Date(i.x),
+                    y: i.y
+                })
+            });
+
+            if (timeSeries) {
+                new mapboxgl.Popup()
+                    .setLngLat(e.lngLat)
+                    .setHTML(
+                        e.features[0].properties.city +
+                        '<br/>Cases: ' + cases +
+                        '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + date +
+                        '<div id="chartContainer" ' +
+                             'style="width: 200px; height: 100px;"></div>'
+                    )
+                    .addTo(map);
+
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    animationDuration: 200,
+                    theme: "light2",
+                    axisX: {
+                        valueFormatString: "D/M",
+                        gridThickness: 1
+                    },
+                    data: [{
+                        type:"line",
+                        dataPoints: nTimeSeries
+                    }]
+                });
+                chart.render();
+
+                document.getElementById('chartContainer').id = '';
             }
-
-            new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(
-                    e.features[0].properties.city +
-                    '<br/>Cases: ' + cases +
-                    '<br/>By: ' + date
-                )
-                .addTo(map);
+            else {
+                if (e.features[0].source === 'id_poly_act' && cases === 5) {
+                    cases = '< 5'
+                }
+                new mapboxgl.Popup()
+                    .setLngLat(e.lngLat)
+                    .setHTML(
+                        e.features[0].properties.city +
+                        '<br/>Cases: ' + cases +
+                        '<br/>By: ' + date
+                    )
+                    .addTo(map);
+            }
         }
         map.on('click', useID, click);
 
@@ -862,10 +998,10 @@ class JSONGeoBoundariesBase {
                         'interpolate',
                         ['linear'],
                         ['zoom'],
-                        0, ['*', 0.1, ['get', 'cases']],
-                        2, ['*', 0.2, ['get', 'cases']],
-                        4, ['*', 0.4, ['get', 'cases']],
-                        16, ['*', 0.8, ['get', 'cases']]
+                        0, ['*', 0.2, ['get', 'cases']],
+                        2, ['*', 0.3, ['get', 'cases']],
+                        4, ['*', 0.5, ['get', 'cases']],
+                        16, ['*', 0.9, ['get', 'cases']]
                     ]/*,
                     // Transition from heatmap to circle layer by zoom level
                     'heatmap-opacity': [
@@ -876,8 +1012,7 @@ class JSONGeoBoundariesBase {
                         9, 0
                     ]*/
                 }
-            },
-            'waterway-label'
+            }
         );
 
         map.addLayer(
@@ -893,8 +1028,8 @@ class JSONGeoBoundariesBase {
                         ['linear'],
                         ['get', 'cases'],
                         1, 3,
-                        5, 5,
-                        10, 7,
+                        5, 6,
+                        10, 8,
                         50, 20,
                         100, 30,
                         300, 40
@@ -904,7 +1039,8 @@ class JSONGeoBoundariesBase {
                         'interpolate',
                         ['linear'],
                         ['get', 'cases'],
-                        1, 'rgba(0,0,0,0)',
+                        0, 'rgba(0,0,0,0.0)',
+                        1, 'rgba(178,24,43,0.5)',
                         5, 'rgba(178,24,43,0.5)',
                         10, 'rgba(178,24,43,0.6)',
                         50, 'rgba(178,24,43,0.7)',
@@ -920,8 +1056,7 @@ class JSONGeoBoundariesBase {
                         8, 1
                     ]
                 }
-            },
-            'waterway-label'
+            }
         );
     }
 
@@ -1006,10 +1141,16 @@ class JSONGeoBoundariesBase {
             if (!caseInfo) {
                 continue; // WARNING!!! ===============================================================================
             }
-
-            data.properties['city'] =
-                this.getCityNameFromProperty(data);
             data.properties['cases'] = caseInfo['numCases'];
+
+            if (dataSource.getCaseInfoTimeSeriesForCity) {
+                // Doesn't seem to like non-string values
+                data.properties['timeSeries'] = JSON.stringify(dataSource.getCaseInfoTimeSeriesForCity(
+                    state, this.getCityNameFromProperty(data)
+                ));
+            }
+
+            data.properties['city'] = this.getCityNameFromProperty(data);
             data.properties['date'] = caseInfo['updatedDate'];
         }
     }
@@ -1088,12 +1229,22 @@ class VicLGABoundaries extends JSONGeoBoundariesBase {
     }
     getCityNameFromProperty(data) {
         let city_name = data.properties.vic_lga__2;
-        var city = city_name.toLowerCase().split(" ");
+        var city = city_name.split(" ");
         var city_type = city.slice(-1)[0];
         city.pop();
         city_name = city.join(' ');
-        return city_name
+        return toTitleCase(city_name);
     }
+}
+
+function toTitleCase(str) {
+    // https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+    return str.replace(
+        /\w\S*/g,
+        function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
 }
 
 class ConfirmedMarker {
