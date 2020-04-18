@@ -20,6 +20,9 @@ const provincesByName = keyBy(provinces, "name");
 
 const GoogleMap = React.lazy(() => import("./HomePage/GoogleMap"));
 
+// if (window.location.pathname === "/dashboard") {
+//     require('./DashboardConfig.css');
+// }
 
 export default function DashBoardConfig({ province, myData, overall, inputData, setProvince, area }) {
 
