@@ -57,108 +57,118 @@ function renderStatus(state) {
 
   return (
     <div>
-      <div className="row">
-        <Tag
-          number={numberWithCommas(latestData[0])}
-          fColor={"#ff603c"}
-          increased={latestData[0] - lastData[0]}
-          typeOfCases={"Confirmed"}
-        >
-          <button
-            className="hoverButton"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            data-html="true"
-            title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>"
+      <Grid container spacing={1} justify="center" wrap="wrap" style={{ padding: "5px" }}>
+
+        <Grid item xs={6} sm={4} lg={2}>
+          <Tag
+            number={numberWithCommas(latestData[0])}
+            fColor={"#ff603c"}
+            increased={latestData[0] - lastData[0]}
+            typeOfCases={"Confirmed"}
           >
-            Confirmed
+            <button
+              className="hoverButton"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              data-html="true"
+              title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>"
+            >
+              Confirmed
           </button>
-        </Tag>
-        <Tag
-          number={numberWithCommas(latestData[1])}
-          fColor={"#c11700"}
-          increased={latestData[1] - lastData[1]}
-          typeOfCases={"Death"}
-        >
-          <button
-            className="hoverButton"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            data-html="true"
-            title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>"
+
+          </Tag>
+        </Grid>
+        <Grid item xs={6} sm={4} lg={2}>
+          <Tag
+            number={numberWithCommas(latestData[1])}
+            fColor={"#c11700"}
+            increased={latestData[1] - lastData[1]}
+            typeOfCases={"Death"}
           >
-            Deaths
+            <button
+              className="hoverButton"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              data-html="true"
+              title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>"
+            >
+              Deaths
           </button>
-        </Tag>
-      </div>
-      <div className="row">
-        <Tag
-          number={numberWithCommas(latestData[2])}
-          fColor={"#00c177"}
-          increased={latestData[2] - lastData[2]}
-          typeOfCases={"Recovered"}
-        >
-          <button
-            className="hoverButton"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            data-html="true"
-            title="<em>Number of people that have recovered from COVID-19.</em>"
+          </Tag>
+        </Grid>
+        <Grid item xs={6} sm={4} lg={2}>
+          <Tag
+            number={numberWithCommas(latestData[2])}
+            fColor={"#00c177"}
+            increased={latestData[2] - lastData[2]}
+            typeOfCases={"Recovered"}
           >
-            Recovered
+            <button
+              className="hoverButton"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              data-html="true"
+              title="<em>Number of people that have recovered from COVID-19.</em>"
+            >
+              Recovered
           </button>
-        </Tag>
-        <Tag
-          number={numberWithCommas(latestData[3])}
-          fColor={"#007cf2"}
-          increased={latestData[3] - lastData[3]}
-          typeOfCases={"Tested"}
-        >
-          <button
-            className="hoverButton"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            data-html="true"
-            title="<em>Number of people that have been tested for COVID-19.</em>"
+          </Tag>
+        </Grid>
+        <Grid item xs={6} sm={4} lg={2}>
+          <Tag
+            number={numberWithCommas(latestData[3])}
+            fColor={"#007cf2"}
+            increased={latestData[3] - lastData[3]}
+            typeOfCases={"Tested"}
           >
-            Tested
+            <button
+              className="hoverButton"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              data-html="true"
+              title="<em>Number of people that have been tested for COVID-19.</em>"
+            >
+              Tested
           </button>
-        </Tag>
-      </div>
-      <div className="row">
-        <Tag
-          number={numberWithCommas(latestData[4])}
-          fColor={"#9d71ea"}
-          increased={latestData[4] - lastData[4]}
-          typeOfCases={"In Hospital"}
-        >
-          <button
-            className="hoverButton"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            data-html="true"
-            title="<em>Number of people in hospital with COVID-19.</em>"
+          </Tag>
+        </Grid>
+        <Grid item xs={6} sm={4} lg={2}>
+          <Tag
+            number={numberWithCommas(latestData[4])}
+            fColor={"#9d71ea"}
+            increased={latestData[4] - lastData[4]}
+            typeOfCases={"In Hospital"}
           >
-            in Hospital
+            <button
+              className="hoverButton"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              data-html="true"
+              title="<em>Number of people in hospital with COVID-19.</em>"
+            >
+              in Hospital
           </button>
-        </Tag>
-        <Tag
-          number={numberWithCommas(latestData[5])}
-          fColor={"#00aac1"}
-          increased={latestData[5] - lastData[5]}
-          typeOfCases={"ICU"}
-        >
-          <button
-            className="hoverButton"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            data-html="true"
-            title="<em>Number of people with COVID-19 in intensive care.</em>"
+          </Tag>
+        </Grid>
+        <Grid item xs={6} sm={4} lg={2}>
+          <Tag
+            number={numberWithCommas(latestData[5])}
+            fColor={"#00aac1"}
+            increased={latestData[5] - lastData[5]}
+            typeOfCases={"ICU"}
           >
-            in ICU
+            <button
+              className="hoverButton"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              data-html="true"
+              title="<em>Number of people with COVID-19 in intensive care.</em>"
+            >
+              in ICU
           </button>
-        </Tag>
-      </div>
+          </Tag>
+        </Grid>
+      </Grid>
     </div>
   );
 }
@@ -192,25 +202,25 @@ function StateChart({ state }) {
           <AgeChart state={state} />
         </Fragment>
       ) : (
-        <Grid item xs={11} sm={11} md={5}>
-          <h2 style={{ textAlign: "center" }}>
-            We are working on acquiring detailed age group and gender data for{" "}
-            {stateNameMapping[state]}!
+          <Grid item xs={11} sm={11} md={5}>
+            <h2 style={{ textAlign: "center" }}>
+              We are working on acquiring detailed age group and gender data for{" "}
+              {stateNameMapping[state]}!
           </h2>
-          <br />
-          <h5 style={{ textAlign: "center" }}>
-            If you have reliable source for such data, please let us know
+            <br />
+            <h5 style={{ textAlign: "center" }}>
+              If you have reliable source for such data, please let us know
             through{" "}
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
-              style={{ color: "blue", textDecoration: "underline" }}
-            >
-              this
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
+                style={{ color: "blue", textDecoration: "underline" }}
+              >
+                this
             </a>{" "}
             form.
           </h5>
-        </Grid>
-      )}
+          </Grid>
+        )}
     </Grid>
   );
 }
