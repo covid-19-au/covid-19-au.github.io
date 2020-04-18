@@ -19,8 +19,8 @@ import Header from './Header';
 const provincesByName = keyBy(provinces, "name");
 
 const GoogleMap = React.lazy(() => import("./HomePage/GoogleMap"));
-if(window.location.pathname === "/dashboard"){
-   require('./DashboardConfig.css');
+if (window.location.pathname === "/dashboard") {
+    require('./DashboardConfig.css');
 }
 
 export default function DashBoardConfig({ province, myData, overall, inputData, setProvince, area }) {
@@ -70,33 +70,37 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
     let dashboardItemsLandscape = [
         <Grid container spacing={2} justify="center" wrap="wrap">
 
-            <Grid item xs={5} className="removePadding">
-                <Header province={province} />
+            <Grid item xs={4} className="removePadding">
+
                 <Stat
                     {...{ ...all, ...overall }}
                     name={province && province.name}
                     data={myData}
                     countryData={country}
                 />
-                <OverallTrend />
+                <Suspense fallback={<div className="loading">Loading...</div>}>
+                    <GoogleMap
+                        province={province}
+                        data={inputData}
+                        onClick={name => {
+                            const p = provincesByName[name];
+                            if (p) {
+                                setProvince(p);
+                            }
+                        }}
+                        newData={myData}
+                    />
+                </Suspense>
+
             </Grid>
-            <Grid item xs={4} >
-                <div className="card">
-                    <Suspense fallback={<div className="loading">Loading...</div>}>
-                        <GoogleMap
-                            province={province}
-                            data={inputData}
-                            onClick={name => {
-                                const p = provincesByName[name];
-                                if (p) {
-                                    setProvince(p);
-                                }
-                            }}
-                            newData={myData}
-                        />
+            <Grid item xs={6} >
+                <Header province={province} />
+                <Suspense fallback={<div className="loading">Loading...</div>}>
+                    <div className="card">
+                        <h2>Detailed State Data</h2>
                         <Area area={area} onChange={setProvince} data={myData} />
-                    </Suspense>
-                </div>
+                    </div>
+                </Suspense>
             </Grid>
 
         </Grid>,
@@ -107,7 +111,8 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
                     <Header province={province} />
                 </Grid>
                 <Grid item xs={6} >
-                    <StateComparisonChart />
+                    <OverallTrend />
+                    {/*<StateComparisonChart />*/}
                 </Grid>
                 <Grid item xs={6} >
                     <EChartGlobalLog />

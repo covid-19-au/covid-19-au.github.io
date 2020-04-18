@@ -36,9 +36,11 @@
   .cured,
   .activeCase,
   .tested,
-  .area,
   .flightInfo{
-      font-size: 1.3rem
+      font-size: 1.9rem
+  }
+  .area{
+    font-size: 1.8rem
   }
   .area.header,
   .death.header,
@@ -46,7 +48,7 @@
   .tested.header,
   .activeCase.header,
   .cured.header {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 600
   }
   .stateMap {
@@ -56,7 +58,7 @@
     font-size: 1.3rem
   }
 .dailyUpdateHeader{
-    font-size: 1.8rem
+    font-size: 1.6rem
   }
 .number {
     font-size: 2rem
