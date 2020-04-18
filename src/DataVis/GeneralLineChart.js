@@ -127,7 +127,7 @@ function setGeneralLineOption(state, logScale) {
     tooltip: lineBarTooltip,
     legend: {
       data: generalLineLegend,
-      top: "5%",
+      top: "0%",
       selected: {
         Confirmed: false,
         Death: false,
@@ -183,7 +183,7 @@ function GeneralLineChart({ state }) {
   return (
     <Grid item xs={11} sm={11} md={4}>
       <div className="card">
-        <h2>General Information - Line</h2>
+        <h2>Historical Data</h2>
         <ReactEcharts option={lineOption} />
         <span className="key" style={{ marginTop: "0.5rem" }}>
           Logarithmic Scale:&nbsp;

@@ -72,7 +72,7 @@ function setGeneralBarOption(state) {
 
     legend: {
       data: generalBarLegend,
-      top: "5%",
+      top: "0%",
       selected: {
         Confirmed: false,
         Death: false,
@@ -102,7 +102,7 @@ function GeneralBarChart({ state }) {
   return (
     <Grid item xs={11} sm={11} md={4}>
       <div className="card">
-        <h2>General Information - Bar</h2>
+        <h2>Current Statistics</h2>
         <ReactEcharts option={barOption} />
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>
           Time in AEST, Last Update: {ageGenderUpdateTime}
