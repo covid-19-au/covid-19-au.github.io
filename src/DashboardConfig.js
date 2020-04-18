@@ -13,12 +13,15 @@ import OverallTrend from "./HomePage/OverallTrend";
 import StateComparisonChart from "./HomePage/StateComparisonChart";
 import Carousel from 'react-material-ui-carousel';
 import all from "./data/overall";
-import './DashboardConfig.css'
+// import './DashboardConfig.css'
 import Header from './Header';
 
 const provincesByName = keyBy(provinces, "name");
 
 const GoogleMap = React.lazy(() => import("./HomePage/GoogleMap"));
+if(window.location.pathname === "/dashboard"){
+   require('./DashboardConfig.css');
+}
 
 export default function DashBoardConfig({ province, myData, overall, inputData, setProvince, area }) {
 
