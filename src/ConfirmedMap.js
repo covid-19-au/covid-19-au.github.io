@@ -9,6 +9,7 @@ import nswLgaData from "../data/nsw_lga.geojson"
 import qldHhsData from "../data/qld_hhs.geojson"
 import actSaData from "../data/sa3_act.geojson"
 import waLgaData from "../data/wa_lga.geojson"
+import regionsTimeSeries from "../data/regionsTimeSeriesAutogen.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from '../img/icon/confirmed-recent.png'
@@ -22,7 +23,6 @@ import Acknowledgement from "../Acknowledgment"
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
 mapboxgl.accessToken = token;
-
 
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
@@ -39,6 +39,9 @@ class MbMap extends React.Component {
     }
 
     componentDidMount() {
+        this._markers = 'Total';
+        this._underlay = null;
+
         const { lng, lat, zoom } = this.state;
 
         var bounds = [
@@ -97,7 +100,35 @@ class MbMap extends React.Component {
         var that = this;
         map.on('load', function () {
             (async () => {
-                that.totalData = new CurrentValuesDataSource('totalData', mapDataArea);
+                // Technically the timeseries data also includes recovered/
+                var totalData = new CurrentValuesDataSource(
+                    'totalData', mapDataArea
+                );
+                that.totalData = new TimeSeriesDataSource(
+                    'totalData',
+                    'total',
+                    regionsTimeSeries,
+                    totalData
+                );
+                that.activeData = new TimeSeriesDataSource(
+                    'activeData',
+                    'active',
+                    regionsTimeSeries
+                );
+                that.sevenDaysAgo = new ActiveTimeSeriesDataSource(
+                    'sevenDaysAgo',
+                    'total',
+                    regionsTimeSeries,
+                    7
+                );
+                that.fourteenDaysAgo = new ActiveTimeSeriesDataSource(
+                    'fourteenDaysAgo',
+                    'total',
+                    regionsTimeSeries,
+                    14
+                );
+
+                // TODO: Add a statewide boundaries instance for stats where no LGA/HHS ones exist! ====================
 
                 // ACT uses SA3 schema, Queensland uses HHS.
                 // The others use LGA (Local Government Area)
@@ -106,7 +137,7 @@ class MbMap extends React.Component {
                 that.lgaNSW = new NSWLGABoundaries(map);
                 that.lgaVic = new VicLGABoundaries(map);
                 //that.lgaQLD = new QLDLGABoundaries(map);    <-- TODO!
-                //that.qldHHS = new QLDHHSGeoBoundaries(map);  <-- TODO!
+                that.hhsQLD = new QLDHHSGeoBoundaries(map);
             })();
         });
     }
@@ -119,31 +150,60 @@ class MbMap extends React.Component {
     }
 
     setMarkers(markers) {
+        function enableInsts(dataSource, insts) {
+            for (var i=0; i<insts.length; i++) {
+                insts[i].addLinePoly(dataSource);
+                insts[i].addFillPoly(dataSource, 0.0);
+                insts[i].addHeatMap(dataSource);
+            }
+        }
+        function disableInsts(insts) {
+            for (var i=0; i<insts.length; i++) {
+                insts[i].removeLinePoly();
+                insts[i].removeFillPoly();
+                insts[i].removeHeatMap();
+            }
+        }
+
         // Reset since last time
         let m = this._markers;
 
         if (m === null) {
         }
         else if (m === 'Total') {
-            this.sa3ACT.removeHeatMap();
-            this.lgaNSW.removeHeatMap();
-            this.lgaVic.removeHeatMap();
-            this.lgaWA.removeHeatMap();
-            //this.hhsQLD.removeHeatMap();
-
+            disableInsts([
+                this.sa3ACT,
+                this.lgaNSW,
+                this.lgaVic,
+                this.lgaWA,
+                this.hhsQLD
+            ]);
             this.confirmedMarkers.forEach(
                 (marker) => marker.hide()
             );
         }
-        else if (m === 'Active') {
-            this.sa3ACT.removeHeatMap();
-            this.lgaNSW.removeHeatMap();
-            this.lgaVic.removeHeatMap();
-            this.lgaWA.removeHeatMap();
-            //this.hhsQLD.removeHeatMap();
+        else if (m === '7 Days') {
+            disableInsts([
+                this.sa3ACT,
+                this.lgaNSW,
+                this.lgaVic,
+                this.lgaWA,
+                this.hhsQLD
+            ]);
         }
-        else if (m === 'Tests') {
-            this.lgaInsts['nsw'].removeHeatMap();
+        else if (m === '14 Days') {
+            disableInsts([
+                this.sa3ACT,
+                this.lgaNSW,
+                this.lgaVic,
+                this.lgaWA,
+                this.hhsQLD
+            ]);
+        }
+        else if (m === 'Active') {
+            disableInsts([
+                this.hhsQLD
+            ]);
         }
         else if (m === 'Hospitals') {
             this.hospitalMarkers.forEach(
@@ -160,36 +220,43 @@ class MbMap extends React.Component {
         if (markers === null) {
         }
         else if (markers === 'Total') {
-            this.sa3ACT.addLinePoly(this.totalData);
-            this.lgaNSW.addLinePoly(this.totalData);
-            this.lgaVic.addLinePoly(this.totalData);
-            this.lgaWA.addLinePoly(this.totalData);
-            //this.hhsQLD.addLinePoly(this.totalData);
-
-            this.sa3ACT.addHeatMap(this.totalData);
-            this.lgaNSW.addHeatMap(this.totalData);
-            this.lgaVic.addHeatMap(this.totalData);
-            this.lgaWA.addHeatMap(this.totalData);
-            //this.hhsQLD.addHeatMap(this.totalData);
-
+            enableInsts(this.totalData, [
+                this.sa3ACT,
+                this.lgaNSW,
+                this.lgaVic,
+                this.lgaWA,
+                this.hhsQLD
+            ]);
             this.confirmedMarkers.forEach(
                 (marker) => marker.show()
             );
         }
-        else if (markers === 'Active') {
-            this.sa3ACT.addLinePoly(this.activeData);
-            this.lgaNSW.addLinePoly(this.activeData);
-            this.lgaVic.addLinePoly(this.activeData);
-            this.lgaWA.addLinePoly(this.activeData);
-            //this.hhsQLD.addLinePoly(this.activeData);
-
-            this.sa3ACT.addHeatMap(this.activeData);
-            this.lgaNSW.addHeatMap(this.activeData);
-            this.lgaVic.addHeatMap(this.activeData);
-            this.lgaWA.addHeatMap(this.activeData);
-            //this.hhsQLD.addHeatMap(this.activeData);
+        else if (markers === '7 Days') {
+            enableInsts(this.sevenDaysAgo, [
+                this.sa3ACT,
+                this.lgaNSW,
+                this.lgaVic,
+                this.lgaWA,
+                this.hhsQLD
+            ]);
 
             // TODO: Show recent confirmed markers!!! ==================================================================
+        }
+        else if (markers === '14 Days') {
+            enableInsts(this.fourteenDaysAgo, [
+                this.sa3ACT,
+                this.lgaNSW,
+                this.lgaVic,
+                this.lgaWA,
+                this.hhsQLD
+            ]);
+
+            // TODO: Show recent confirmed markers!!! ==================================================================
+        }
+        else if (markers === 'Active') {
+            enableInsts(this.activeData, [
+                this.hhsQLD
+            ]);
         }
         else if (markers === 'Tests') {
             this.lgaNSW.addHeatMap(this.testsData);
@@ -264,10 +331,14 @@ class MbMap extends React.Component {
                                     onClick={() => this.setMarkers(null)}>Off</Button>
                             <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers('Total')}>Total</Button>
+                            <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('7 Days')}>7 Days</Button>
+                            <Button style={this._markers === '14 Days' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('14 Days')}>14 Days</Button>
                             <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers('Active')}>Active</Button>
-                            <Button style={this._markers === 'Tests' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Tests')}>Tests</Button>
+                            {/*<Button style={this._markers === 'Tests' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Tests')}>Tests</Button>*/}
                             <Button style={this._markers === 'Hospitals' ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers('Hospitals')}>COVID-19 Hospitals</Button>
                         </ButtonGroup>
@@ -336,7 +407,137 @@ class TimeSeriesDataSource extends DataSourceBase {
 
      [[[...FIXME...]]]
     */
+
+    constructor(sourceName, subHeader, mapAreaData, currentValues) {
+        super(sourceName);
+        this.subHeaderIndex = mapAreaData['sub_headers'].indexOf(subHeader);
+        this.subHeader = subHeader;
+        this.currentValues = currentValues; // Can be null
+        this.data = mapAreaData['data'];
+        //console.log(this.data)
+    }
+
+    getCaseInfoForCity(stateName, cityName) {
+        // Return only the latest value,
+        // delegating to currentValues if possible
+        // (currentValues as a CurrentValuesDataSource
+        //  instance might contain human-entered values,
+        //  which are less likely to contain errors)
+
+        if (this.currentValues) {
+            return this.currentValues.getCaseInfoForCity(
+                stateName, cityName
+            );
+        }
+
+        for (var i=0; i<this.data.length; i++) {
+            var iData = this.data[i];
+            var dateUpdated = iData[0],
+                iStateName = iData[1],
+                iCityName = iData[2],
+                iValue = iData[this.subHeaderIndex+3];
+
+            if (
+                iStateName.toLowerCase() === stateName.toLowerCase() &&
+                iCityName.toLowerCase() === cityName.toLowerCase() &&
+                iValue != null
+            ) {
+                return {
+                    'numCases': parseInt(iValue),
+                    'updatedDate': dateUpdated
+                }
+            }
+        }
+        return {
+            'numCases': 0,
+            'updatedDate': dateUpdated
+        };
+    }
+
+    getCaseInfoTimeSeriesForCity(stateName, cityName) {
+        // TODO!
+    }
+
+    makePopup() {
+        // TODO!
+    }
+
+    showPopup() {
+        // TODO: Show a popup using the current basic scalar value format
+    }
 }
+
+class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
+    // NOTE: This is only for states which don't supply
+    // specfic info about which cases are active!!!
+    constructor(sourceName, subHeader, mapAreaData, daysAgo) {
+        super(sourceName, subHeader, mapAreaData, null);
+        this.daysAgo = daysAgo;
+    }
+
+    getCaseInfoForCity(stateName, cityName) {
+        // Return the latest value - the value 14 days ago,
+        // to get a general idea of how many active cases there
+        // still are. This isn't going to be very accurate,
+        // but better than nothing.
+        var oldest = null;
+        var latest = super.getCaseInfoForCity(
+            stateName, cityName
+        );
+        if (!latest) {
+            return null;
+        }
+
+        for (var i=0; i<this.data.length; i++) {
+            var iData = this.data[i];
+            var dateUpdated = iData[0],
+                iStateName = iData[1],
+                iCityName = iData[2],
+                iValue = iData[this.subHeaderIndex+3];
+
+            //console.log(dateDiffFromToday(dateUpdated));
+            if (
+                iStateName.toLowerCase() === stateName.toLowerCase() &&
+                iCityName.toLowerCase() === cityName.toLowerCase() &&
+                iValue != null
+            ) {
+                console.log(stateName+' '+cityName+' '+latest['numCases']-parseInt(iValue))
+                oldest = {
+                    'numCases': latest['numCases']-parseInt(iValue),
+                    'updatedDate': latest['updatedDate']
+                };
+                if (dateDiffFromToday(dateUpdated) > this.daysAgo) {
+                    return oldest;
+                }
+            }
+        }
+        // Can't do much if data doesn't go back
+        // that far other than show oldest we can
+        return oldest || {
+            'numCases': 0,
+            'updatedDate': latest['updatedDate']
+        };
+    }
+}
+
+
+function dateDiffFromToday(dateString) {
+    // dateString must be dd/mm/yyyy format
+    function parseDate(str) {
+        var mdy = str.split('/');
+        // year, month index, day
+        return new Date(mdy[2], mdy[1]-1, mdy[0]);
+    }
+    function dateDiff(first, second) {
+        return Math.round((second-first)/(1000*60*60*24));
+    }
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var dateUpdatedInst = parseDate(dateString).getTime();
+    return dateDiff(dateUpdatedInst, today);
+}
+
+
 
 class CurrentValuesDataSource extends DataSourceBase {
     /*
@@ -366,7 +567,6 @@ class CurrentValuesDataSource extends DataSourceBase {
                         cityName.toLowerCase() &&
                     numberOfCases === 0
                 ) {
-                    console.log(areaInfo);
                     numberOfCases = areaInfo['confirmedCases'];
                     updatedDate = areaInfo['lastUpdateDate'];
                 }
@@ -376,6 +576,77 @@ class CurrentValuesDataSource extends DataSourceBase {
             'numCases': parseInt(numberOfCases),
             'updatedDate': updatedDate
         };
+    }
+
+    makePopup() {
+        // TODO!
+    }
+
+    showPopup() {
+        // TODO: Show a popup using the current basic scalar value format
+    }
+}
+
+class BigTableOValuesIndex {
+    constructor(mapAreaData) {
+
+    }
+
+    getDataInfo() {
+        // TODO! ============================================================================
+    }
+}
+
+class BigTableOValuesDataSource extends DataSourceBase {
+    /*
+    A datasource which contains a subheader list, and
+    corresponding data.
+    (Note class instances of this only correspond to a single
+     header/subheader!)
+
+    Data in format:
+
+     [STATE NAME??,
+      LGA name,
+      value for header 1/subheader 1,
+      value for header 2/subheader 2,
+      ...]
+
+    This is useful for Australian Bureau of Statistics stats
+    etc, where there are a lot of values in
+    categories/subcategories, but we're only interested in
+    the most recent ones. Much more space-efficient to do
+    this than store in hash tables!
+
+    Essentially this is a JSON equivalent of CSV, the CSV
+    file being based on ones downloaded from ABS.
+    */
+    constructor(sourceName, header, subHeader, mapAreaData) {
+        super(sourceName);
+        this.header = header;
+        this.subHeaderIndex = mapAreaData['sub_headers'][subHeader];
+        this.updatedDate = mapAreaData['updated_dates'][this.subHeaderIndex];
+        this.data = mapAreaData['data'];
+    }
+
+    getCaseInfoForCity(stateName, cityName) {
+        for (var i=0; i<this.data.length; i++) {
+            var iData = this.data[i],
+                iStateName = iData[0],
+                iCityName = iData[1],
+                value = iData[this.subHeaderIndex+2];
+
+            if (
+                iStateName.toLowerCase() === stateName.toLowerCase() &&
+                iCityName.toLowerCase() === cityName.toLowerCase()
+            ) {
+                return {
+                    'numCases': parseInt(value),
+                    'updatedDate': this.updatedDate
+                };
+            }
+        }
+        throw "value not found!";
     }
 }
 
@@ -415,10 +686,14 @@ class JSONGeoBoundariesBase {
      * Fill poly-related
      *******************************************************************/
 
-    addFillPoly(dataSource) {
+    addFillPoly(dataSource, opacity) {
         // Add the colored fill area
         const map = this.map;
         this._associateGeoJSONWithSource(dataSource);
+
+        if (opacity == null) {
+            opacity = 0.75;
+        }
 
         map.addLayer({
             id: this.fillPolyId,
@@ -441,10 +716,12 @@ class JSONGeoBoundariesBase {
                     60, '#1565C0',
                     70, '#0D47A1'
                 ],
-                'fill-opacity': 0.75
+                'fill-opacity': opacity
             },
             filter: ['==', '$type', 'Polygon']
         });
+
+        this._addLinePolyPopupEvent(this.fillPolyId);
     }
 
     removeFillPoly() {
@@ -474,13 +751,18 @@ class JSONGeoBoundariesBase {
             filter: ['==', '$type', 'Polygon']
         });
 
-        this._addLinePolyPopupEvent();
+        this._addLinePolyPopupEvent(this.linePolyId);
     }
 
-    _addLinePolyPopupEvent() {
+    _addLinePolyPopupEvent(useID) {
+        if (this.resetPopupEvent) {
+            this.resetPopupEvent();
+            delete this.resetPopupEvent;
+        }
+
         const map = this.map;
 
-        map.on('click', this.fillPolyId, function (e) {
+        var click = function (e) {
             ReactGA.event({
                 category: 'ConfirmMap',
                 action: "StateClick",
@@ -488,7 +770,6 @@ class JSONGeoBoundariesBase {
             });
             var cases = e.features[0].properties.cases;
             var date = e.features[0].properties.date;
-            console.log(e.features);
 
             if (e.features[0].source === 'id_poly_act' && cases === 5) {
                 cases='< 5'
@@ -502,18 +783,27 @@ class JSONGeoBoundariesBase {
                     '<br/>By: ' + date
                 )
                 .addTo(map);
-        });
+        }
+        map.on('click', useID, click);
 
         // Change the cursor to a pointer when
         // the mouse is over the states layer.
-        map.on('mouseenter', 'id_poly', function () {
+        var mouseEnter = function () {
             map.getCanvas().style.cursor = 'pointer';
-        });
+        };
+        map.on('mouseenter', useID, mouseEnter);
 
         // Change it back to a pointer when it leaves.
-        map.on('mouseleave', 'id_poly', function () {
+        var mouseLeave = function () {
             map.getCanvas().style.cursor = '';
-        });
+        };
+        map.on('mouseleave', useID, mouseLeave);
+
+        this.resetPopupEvent = function() {
+            map.off('click', useID, click);
+            map.off('mouseenter', useID, mouseEnter);
+            map.off('mouseleave', useID, mouseLeave);
+        }
     }
 
     removeLinePoly() {
@@ -615,10 +905,10 @@ class JSONGeoBoundariesBase {
                         ['linear'],
                         ['get', 'cases'],
                         1, 'rgba(0,0,0,0)',
-                        5, 'rgba(178,24,43,0.21)',
-                        10, 'rgba(178,24,43,0.4)',
-                        50, 'rgba(178,24,43,0.61)',
-                        100, 'rgba(178,24,43,0.81)',
+                        5, 'rgba(178,24,43,0.5)',
+                        10, 'rgba(178,24,43,0.6)',
+                        50, 'rgba(178,24,43,0.7)',
+                        100, 'rgba(178,24,43,0.8)',
                         300, 'rgba(178,24,43,1.0)'
                     ],
                     // Transition from heatmap to circle layer by zoom level
@@ -671,20 +961,34 @@ class JSONGeoBoundariesBase {
             "type": "FeatureCollection",
             "features": [/*...*/]
         };
-        r["features"] = geoJSONData['features'].filter(
+        geoJSONData['features'].filter(
             (feature) => !!feature['geometry']
         ).map((feature) => {
-            console.log(feature);
-            return {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": polylabel(
-                        feature["geometry"]["coordinates"],
-                        0.1
-                    )
-                },
-                "properties": feature["properties"]
+            function append(coordinates) {
+                r["features"].push({
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": polylabel(
+                            coordinates,
+                            0.1
+                        )
+                    },
+                    "properties": feature["properties"]
+                });
+            }
+
+            if (feature['geometry']['type'] === 'MultiPolygon') {
+                feature["geometry"]["coordinates"].forEach(
+                    (coordinates) => append(coordinates)
+                );
+            }
+            else if (feature['geometry']['type'] === 'Polygon') {
+                append(feature["geometry"]["coordinates"]);
+            }
+            else {
+                throw "Unknown geometry type: " +
+                      feature['geometry']['type'];
             }
         });
         return r
@@ -699,6 +1003,10 @@ class JSONGeoBoundariesBase {
             caseInfo = dataSource.getCaseInfoForCity(
                 state, this.getCityNameFromProperty(data)
             );
+            if (!caseInfo) {
+                continue; // WARNING!!! ===============================================================================
+            }
+
             data.properties['city'] =
                 this.getCityNameFromProperty(data);
             data.properties['cases'] = caseInfo['numCases'];
