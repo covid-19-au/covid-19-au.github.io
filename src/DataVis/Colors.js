@@ -5,7 +5,7 @@ const ColorMapping = {
   Tested: "#007cf2",
   "in Hospital": "#9d71ea",
   "in ICU": "#00aac1",
-  Active: "#ff45ff",
+  Active: "#f75c8d",
 };
 
 const GenderColorMapping = {
