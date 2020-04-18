@@ -59,7 +59,7 @@ function renderStatus(state) {
     <div>
       <Grid container spacing={1} justify="center" wrap="wrap" style={{ padding: "5px" }}>
 
-        <Grid item xs={6} sm={4} lg={2}>
+        <Grid item xs={6} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[0])}
             fColor={"#ff603c"}
@@ -78,7 +78,7 @@ function renderStatus(state) {
 
           </Tag>
         </Grid>
-        <Grid item xs={6} sm={4} lg={2}>
+        <Grid item xs={6} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[1])}
             fColor={"#c11700"}
@@ -96,7 +96,7 @@ function renderStatus(state) {
           </button>
           </Tag>
         </Grid>
-        <Grid item xs={6} sm={4} lg={2}>
+        <Grid item xs={6} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[2])}
             fColor={"#00c177"}
@@ -114,7 +114,7 @@ function renderStatus(state) {
           </button>
           </Tag>
         </Grid>
-        <Grid item xs={6} sm={4} lg={2}>
+        <Grid item xs={6} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[3])}
             fColor={"#007cf2"}
@@ -132,7 +132,25 @@ function renderStatus(state) {
           </button>
           </Tag>
         </Grid>
-        <Grid item xs={6} sm={4} lg={2}>
+        <Grid item xs={4} sm={4} lg={3}>
+          <Tag
+            number={numberWithCommas(latestData[0] - latestData[1] - latestData[2])}
+            fColor={"#f75c8d"}
+            increased={latestData[0] - latestData[1] - latestData[2] - lastData[0] + lastData[1] + lastData[2]}
+            typeOfCases={"Active"}
+          >
+            <button
+              className="hoverButton"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              data-html="true"
+              title="<em>Existing confirmed cases that have not yet recovered.</em>"
+            >
+              Active Cases
+          </button>
+          </Tag>
+        </Grid>
+        <Grid item xs={4} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[4])}
             fColor={"#9d71ea"}
@@ -150,7 +168,7 @@ function renderStatus(state) {
           </button>
           </Tag>
         </Grid>
-        <Grid item xs={6} sm={4} lg={2}>
+        <Grid item xs={4} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[5])}
             fColor={"#00aac1"}

@@ -495,7 +495,7 @@ export default function Stat({
                         typeOfCases={"Active Cases"}
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                            title="<em>Number of people in hospital with COVID-19.</em>">
+                            title="<em>Existing confirmed cases that have not yet recovered.</em>">
                             Active Cases</button>
 
                     </Tag>
