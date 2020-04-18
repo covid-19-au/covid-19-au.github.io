@@ -7,15 +7,7 @@ import stateData from "../data/state";
 import ReactEcharts from "echarts-for-react";
 
 import { Series, LineSeries } from "./Series";
-
-const colorMapping = {
-  Confirmed: "#ff603c",
-  Death: "#c11700",
-  Recovered: "#00c177",
-  Tested: "#007cf2",
-  "in Hospital": "#9d71ea",
-  "in ICU": "#00aac1",
-};
+import { colorMapping } from "./Colors";
 
 const lineBarTooltip = {
   trigger: "axis",
@@ -59,6 +51,7 @@ function getStateGeneralData(dateList, state) {
     confirmed: [],
     death: [],
     recovered: [],
+    active: [],
     tested: [],
     inHospital: [],
     icu: [],
@@ -70,12 +63,14 @@ function getStateGeneralData(dateList, state) {
       // when only confirmed data available
       generalData["death"].push(tempData[1]);
       generalData["recovered"].push(tempData[2]);
+      generalData["active"].push(tempData[0] - tempData[1] - tempData[2]);
       generalData["tested"].push(tempData[3]);
       generalData["inHospital"].push(tempData[4]);
       generalData["icu"].push(tempData[5]);
     } else {
       generalData["death"].push(0);
       generalData["recovered"].push(0);
+      generalData["active"].push(0);
       generalData["tested"].push(0);
       generalData["inHospital"].push(0);
       generalData["icu"].push(0);
@@ -93,6 +88,7 @@ function setGeneralLineOption(state, logScale) {
     "Confirmed",
     "Death",
     "Recovered",
+    "Active",
     "Tested",
     "in Hospital",
     "in ICU",
@@ -133,6 +129,9 @@ function setGeneralLineOption(state, logScale) {
       data: generalLineLegend,
       top: "5%",
       selected: {
+        Confirmed: false,
+        Death: false,
+        Recovered: false,
         Tested: logScale,
       },
     },

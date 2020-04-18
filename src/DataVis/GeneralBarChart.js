@@ -5,15 +5,7 @@ import stateData from "../data/state";
 import ReactEcharts from "echarts-for-react";
 
 import { Series, BarSeries } from "./Series";
-
-const colorMapping = {
-  Confirmed: "#ff603c",
-  Death: "#c11700",
-  Recovered: "#00c177",
-  Tested: "#007cf2",
-  "in Hospital": "#9d71ea",
-  "in ICU": "#00aac1",
-};
+import { colorMapping } from "./Colors";
 
 const lineBarTooltip = {
   trigger: "axis",
@@ -25,7 +17,7 @@ const lineBarTooltip = {
 };
 
 /**
- * get latest data for user selected state
+ * get second latest data for user selected state
  * @param {String} state user selected state
  * @return {Array} latest data of user choosen state
  */
@@ -40,7 +32,7 @@ function getLastData(state) {
  * @param {String} state user selected state
  */
 function setGeneralBarOption(state) {
-  let latestData = getLastData(state);
+  let lastData = getLastData(state);
   let generalBarLegend = [
     "Confirmed",
     "Death",
@@ -53,11 +45,20 @@ function setGeneralBarOption(state) {
   let generalBarSeries = new Series();
   for (let i = 0; i < generalBarLegend.length; i++) {
     let tempData = [];
-    tempData.push(latestData[i]);
+    tempData.push(lastData[i]);
     let tempBarSeies = new BarSeries(generalBarLegend[i], tempData);
     tempBarSeies.setItemStyle(colorMapping[generalBarLegend[i]]);
     generalBarSeries.addSubSeries(tempBarSeies);
   }
+  // add active case into graph and put it after recovered case
+  let activeData = lastData[0] - lastData[1] - lastData[2];
+  generalBarLegend.splice(3, 0, "Active");
+  let tempBarSeies = new BarSeries(
+    generalBarLegend[3],
+    new Array(activeData.toString())
+  );
+  tempBarSeies.setItemStyle(colorMapping["Active"]);
+  generalBarSeries.addSubSeries(tempBarSeies, 3);
 
   let tempOption = {
     grid: {
@@ -73,6 +74,9 @@ function setGeneralBarOption(state) {
       data: generalBarLegend,
       top: "5%",
       selected: {
+        Confirmed: false,
+        Death: false,
+        Recovered: false,
         Tested: false,
       },
     },

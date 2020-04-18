@@ -8,9 +8,14 @@ class SeriesObj {
 
   /**
    * @param {SubSeriesObj} subSeries series object which hold data for different dataset
+   * @param {int} index index number that the subseries will be added to
    */
-  addSubSeries(subSeries) {
-    this.list.push(subSeries);
+  addSubSeries(subSeries, index) {
+    if (index !== undefined) {
+      this.list.splice(index, 0, subSeries);
+    } else {
+      this.list.push(subSeries);
+    }
   }
 
   /**

@@ -4,13 +4,7 @@ import ageGenderData from "../data/ageGender";
 import ReactEcharts from "echarts-for-react";
 
 import { Series, PieSeries } from "./Series";
-
-const genderColorMapping = {
-  Male: "#8ccfff",
-  Female: "#24adff",
-  All: "#ffa48c",
-  NotStated: "#8cdaaf",
-};
+import { genderColorMapping } from "./Colors";
 
 const pieTooltip = {
   trigger: "item",
