@@ -215,9 +215,9 @@ function App() {
   // const [urlPath, setUrlPath] = useState(window.location.pathname);
   const path = usePath()
 
-  if (path == "/dashboard") {
-    require('./DashboardConfig.css');
-  }
+  // if (path == "/dashboard") {
+  //   require('./DashboardConfig.css');
+  // }
 
   if (myData) {
     if (path == "/dashboard") {
