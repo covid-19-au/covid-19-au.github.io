@@ -113,19 +113,21 @@ class MbMap extends React.Component {
         })
     }
 
-    handleClickOff() {
-        // Turn markers off
-        var all = document.getElementsByClassName("marker");
-        for (var i = 0; i < all.length; i++) {
-            var element = all[i];
-            element.style.visibility = 'hidden';
-        }
+    setUnderlay(underlay) {
+        this._underlay = underlay;
         this.setState({
-            showMarker: false
-        })
+            _underlay: underlay
+        });
     }
 
-    handleClickOn() {
+    setMarkers(markers) {
+        this._markers = markers;
+        this.setState({
+            _markers: markers
+        });
+    }
+
+    showMarkers() {
         // Turn markers on
         var all = document.getElementsByClassName("marker");
         for (var i = 0; i < all.length; i++) {
@@ -134,6 +136,18 @@ class MbMap extends React.Component {
         }
         this.setState({
             showMarker: true
+        })
+    }
+
+    hideMarkers() {
+        // Turn markers off
+        var all = document.getElementsByClassName("marker");
+        for (var i = 0; i < all.length; i++) {
+            var element = all[i];
+            element.style.visibility = 'hidden';
+        }
+        this.setState({
+            showMarker: false
         })
     }
 
@@ -169,16 +183,16 @@ class MbMap extends React.Component {
                 <div>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.5rem" }}>
                         Markers:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
-                            <Button style={activeStyles}
-                                    onClick={() => this.handleClickOff()}>Off</Button>
-                            <Button style={inactiveStyles}
-                                    onClick={() => this.handleClickOn()}>Hospitals</Button>
-                            <Button style={inactiveStyles}
-                                    onClick={() => this.handleClickOff()}>Total</Button>
-                            <Button style={inactiveStyles}
-                                    onClick={() => this.handleClickOff()}>Active</Button>
-                            <Button style={inactiveStyles}
-                                    onClick={() => this.handleClickOff()}>Cases over time</Button>
+                            <Button style={this._markers == null ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers(null)}>Off</Button>
+                            <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Total')}>Total</Button>
+                            <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Active')}>Active</Button>
+                            <Button style={this._markers === 'Cases over time' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Cases over time')}>Cases over time</Button>
+                            <Button style={this._markers === 'Hospitals' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Hospitals')}>COVID-19 Hospitals</Button>
                         </ButtonGroup>
                     </span>
                 </div>
@@ -186,16 +200,16 @@ class MbMap extends React.Component {
                 <div>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.5rem" }}>
                         Underlay:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
-                            <Button style={activeStyles}
-                                    onClick={() => this.handleClickOff()}>Off</Button>
-                            <Button style={inactiveStyles}
-                                    onClick={() => this.handleClickOn()}>Population Density</Button>
-                            <Button style={inactiveStyles}
-                                    onClick={() => this.handleClickOff()}>Socioeconomic rank</Button>
-                            <Button style={inactiveStyles}
-                                    onClick={() => this.handleClickOff()}>Aged 65+</Button>
-                            <Button style={inactiveStyles}
-                                    onClick={() => this.handleClickOff()}>Other Statistics</Button>
+                            <Button style={this._underlay == null ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay(null)}>Off</Button>
+                            <Button style={this._underlay === 'Population' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay('Population')}>Population</Button>
+                            <Button style={this._underlay === 'Socioeconomic rank' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay('Socioeconomic rank')}>Socioeconomic rank</Button>
+                            <Button style={this._underlay === 'Aged 65+' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay('Aged 65+')}>Aged 65+</Button>
+                            <Button style={this._underlay === 'Other Stats' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay('Other Stats')}>Other Stats</Button>
                         </ButtonGroup>
                     </span>
                 </div>
@@ -251,7 +265,7 @@ class JSONGeoBoundariesBase {
     }
 
     _onLoadData(data) {
-        data = this._formNewJson(data);
+        data = this._assignCaseInfoToGeoJSON(data);
 
         // TODO: Allow turning on/off fill/line polys!
         //this.addFillPoly(data);
@@ -427,6 +441,7 @@ class JSONGeoBoundariesBase {
                 },
                 'maxzoom': 9,
                 'paint': {
+                    // Increase the heatmap weight based on frequency and property magnitude
                     'heatmap-weight': [
                         'interpolate',
                         ['linear'],
@@ -434,6 +449,8 @@ class JSONGeoBoundariesBase {
                         0, 0,
                         6, 1
                     ],
+                    // Increase the heatmap color weight weight by zoom level
+                    // heatmap-intensity is a multiplier on top of heatmap-weight
                     'heatmap-intensity': [
                         'interpolate',
                         ['linear'],
@@ -441,6 +458,9 @@ class JSONGeoBoundariesBase {
                         0, 1,
                         9, 3
                     ],
+                    // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+                    // Begin color ramp at 0-stop with a 0-transparancy color
+                    // to create a blur-like effect.
                     'heatmap-color': [
                         'interpolate',
                         ['linear'],
@@ -452,6 +472,7 @@ class JSONGeoBoundariesBase {
                         0.8, 'rgba(178,24,43,0.81)',
                         1.0, 'rgb(178,24,43)'
                     ],
+                    // Adjust the heatmap radius by zoom level and value
                     'heatmap-radius': [
                         'interpolate',
                         ['linear'],
@@ -461,6 +482,7 @@ class JSONGeoBoundariesBase {
                         4, ['*', 0.4, ['get', 'cases']],
                         16, ['*', 0.8, ['get', 'cases']]
                     ]/*,
+                    // Transition from heatmap to circle layer by zoom level
                     'heatmap-opacity': [
                         'interpolate',
                         ['linear'],
@@ -483,6 +505,7 @@ class JSONGeoBoundariesBase {
                 },
                 'minzoom': 7,
                 'paint': {
+                    // Size circle radius by value
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
@@ -494,6 +517,7 @@ class JSONGeoBoundariesBase {
                         100, 30,
                         300, 40
                     ],
+                    // Color circle by value
                     'circle-color': [
                         'interpolate',
                         ['linear'],
@@ -505,6 +529,7 @@ class JSONGeoBoundariesBase {
                         100, 'rgba(178,24,43,0.81)',
                         300, 'rgba(178,24,43,1.0)'
                     ],
+                    // Transition from heatmap to circle layer by zoom level
                     'circle-opacity': [
                         'interpolate',
                         ['linear'],
@@ -526,59 +551,45 @@ class JSONGeoBoundariesBase {
      * Data processing
      *******************************************************************/
 
-    _formNewJson(geojsonData) {
-        var values;
+    _assignCaseInfoToGeoJSON(geojsonData) {
+        var caseInfo;
         const state = this.stateName;
-        const map = this.map;
 
-        for (var key in geojsonData.features) {
-            var data = geojsonData.features[key];
-            values = this._getHTML(this.getCityNameFromProperty(data), state);
+        for (var i=0; i<geojsonData.features.length; i++) {
+            var data = geojsonData.features[i];
+            caseInfo = this._getCaseInfoForCity(
+                this.getCityNameFromProperty(data), state
+            );
             data.properties['city'] = this.getCityNameFromProperty(data);
-            data.properties['cases'] = values[0];
-            data.properties['date'] = values[1];
-            geojsonData.features[key] = data;
+            data.properties['cases'] = caseInfo['numCases'];
+            data.properties['date'] = caseInfo['updatedDate'];
         }
         return geojsonData;
     }
 
-    _getHTML(city_name, state) {
-        var numberOfCases = 0;
-        var updated_date = '';
-        var city;
+    _getCaseInfoForCity(cityName, state) {
+        var numberOfCases = 0,
+            updatedDate = '16/4/20';
 
-        if (state === 'VIC') {
-            updated_date = '16/4/20';
-        }
-        else {
-            city_name = city_name.toLowerCase();
-            updated_date = '16/4/20';
-        }
-
-        // if (city_type === 'city'){
-        //   city_name += '(c)';
-        // }else if(city_type==='rural city'){
-        //     city_name += '(rc)';
-        // }
-        // else{
-        //   city_name += '(s)';
-        // }
-        for (var data in mapDataArea) {
-            if (!(mapDataArea.hasOwnProperty(data))) {
-                continue;
-            }
-
-            var data_map = mapDataArea[data];
-            if (state === data_map['state'] && data_map['schema']!=='HLD') {
-                city = data_map['area'];
-
-                if (city.toLowerCase() === city_name && numberOfCases === 0) {
-                    numberOfCases = data_map['confirmedCases'];
-                    updated_date = data_map['lastUpdateDate'];
+        for (var i=0; i<mapDataArea.length; i++) {
+            var areaInfo = mapDataArea[i];
+            if (
+                state === areaInfo['state'] &&
+                areaInfo['schema'] !== 'HLD'  // What is HLD? ========================================================
+            ) {
+                if (
+                    areaInfo['area'].toLowerCase() === cityName.toLowerCase() &&
+                    numberOfCases === 0
+                ) {
+                    numberOfCases = areaInfo['confirmedCases'];
+                    updatedDate = areaInfo['lastUpdateDate'];
                 }
             }
         }
-        return [parseInt(numberOfCases), updated_date];
+        return {
+            'numCases': parseInt(numberOfCases),
+            'updatedDate': updatedDate
+        };
     }
 }
 
