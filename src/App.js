@@ -67,6 +67,64 @@ const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
 
 
+<<<<<<< HEAD
+=======
+function Header({ province }) {
+
+  const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
+
+  const setModalVisibility = state => {
+    setShowSocialMediaIcons(state);
+  };
+
+  return (
+    <header>
+
+
+      <div className="bg"></div>
+      <h1
+        style={{
+          fontSize: "170%",
+          color: "white",
+          textAlign: "center",
+          fontWeight: "bold"
+        }}
+      >
+        COVID-19 in Australia
+      </h1>
+      <h1
+        style={{
+          fontSize: "160%",
+          color: "white",
+          textAlign: "center",
+          fontWeight: "bold"
+        }}
+      >
+        Real-Time Report
+
+      </h1>
+
+      <div className="slogan"><i>Stay Calm, Stay Informed</i></div>
+
+      <div style={{
+        fontSize: "120%",
+        color: "white",
+        textAlign: "center",
+        marginTop: "1rem"
+      }}>
+        <SocialMediaShareModal
+          visible={showSocialMediaIcons}
+          onCancel={() => setShowSocialMediaIcons(false)}
+        />
+        <a onClick={() => {
+          ReactGA.event({ category: 'Header', action: "share" });
+          setModalVisibility(true)
+        }}><i className="fas fa-share-alt"></i></a>
+        <a style={{ marginLeft: '0.5rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "twitter" }) }} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
+        <a style={{ marginLeft: '0.5rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "instagram" }) }} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
+        <a style={{ marginLeft: '0.5rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
+      </div>
+>>>>>>> origin/dev
 
 
 
@@ -197,7 +255,6 @@ function App() {
   const [nav, setNav] = useState("Home");
   // This is used to set the state of the page for navbar CSS styling.
   const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
-
   const setModalVisibility = state => {
     setShowSocialMediaIcons(state);
   };
@@ -227,6 +284,7 @@ function App() {
   console.log(path)
 
   if (myData) {
+<<<<<<< HEAD
     if (path == "/dashboard") {
       if (window.innerHeight > window.innerWidth) {
         return (
@@ -280,6 +338,34 @@ function App() {
             {/*{nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}*/}
             {/*{nav === "About" ? <FAQPage /> : ""}*/}
             {/* routeResult renders the routes onto this area of the app function.
+=======
+    return (
+
+      <div>
+        <SocialMediaShareModal
+          visible={showSocialMediaIcons}
+          onCancel={() => setShowSocialMediaIcons(false)}
+        />
+        <Grid container spacing={gspace} justify="center" wrap="wrap">
+          <Grid item xs={12} className="removePadding">
+            <Header province={province} />
+          </Grid>
+            {window.location.href==="http://localhost:3008/"||window.location.href==="http://covid-19-au.com/"||window.location.href==="https://covid-19-au.com/"?
+            <Alert style={{width:'100%'}} severity="info">
+            {/*<AlertTitle><strong>Important!!</strong></AlertTitle>*/}
+                <p style={{fontSize:"0.85rem"}} className="card-text">To improve our site, we are working with researchers from Monash University and Rochester Institute of Technology, to investigate how our users seek information about COVID-19. We would be very grateful, if you could fill in this&nbsp;<a target="_blank"  rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSdPMLY_4M6HVBCGbFqDVbfcoKcuM5fUeDpPR77Xc_nhBp9vZA/viewform?usp=sf_link" onClick={() => ReactGA.event({ category: 'infoBar', action: "survey"})}><u><strong>10-min survey</strong></u></a>. <br/>The survey results will eventually be released at <a target="_blank"  rel="noopener noreferrer" href="https://covid19onlinesurvey.org" onClick={() => ReactGA.event({ category: 'infoBar', action: "visitSite"})}><u>https://covid19onlinesurvey.org</u></a></p>
+
+            </Alert>:<div />}
+          <Grid item xs={12} className="removePadding">
+            <Navbar setNav={setNav} nav={nav} />
+            {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
+          </Grid>
+          {/*{nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}*/}
+          {/*{nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}*/}
+          {/*{nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}*/}
+          {/*{nav === "About" ? <FAQPage /> : ""}*/}
+          {/* routeResult renders the routes onto this area of the app function.
+>>>>>>> origin/dev
           E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
             {routeResult}
             {/*<Switch>*/}

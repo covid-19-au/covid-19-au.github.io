@@ -65,7 +65,7 @@ function UpdatesToday() {
     const [update, setUpdate] = useState("Cases");
 
 
-    const updateStates = ["Cases", "Deaths", "Recoveries", "Tested"]
+    const updateStates = ["Cases", "Deaths", "Recoveries", "Tested", "No New Cases"]
 
     let currentView
 
@@ -85,6 +85,10 @@ function UpdatesToday() {
         currentView = 3
     }
 
+    if (update === "No New Cases") {
+        currentView = 4
+    }
+
     let today = new Date()
     let yesterday = new Date(today)
 
@@ -96,7 +100,7 @@ function UpdatesToday() {
 
     let stateUpdateStatus = {}
     for (let state in yesterdayData) {
-        stateUpdateStatus[state] = [false, false, false, false]
+        stateUpdateStatus[state] = [false, false, false, false, false]
     }
 
     let todayDataObject = {}
@@ -112,9 +116,10 @@ function UpdatesToday() {
         todayDataObject[currentState].push(values[i][2])
         todayDataObject[currentState].push(values[i][3])
         todayDataObject[currentState].push(values[i][4])
-
+        todayDataObject[currentState].push(values[i][7])
         i = i + 1
     }
+    console.log(todayDataObject)
 
 
 
@@ -130,6 +135,9 @@ function UpdatesToday() {
         }
         if (parseInt(todayDataObject[state][3]) !== parseInt(yesterdayData[state][3])) {
             stateUpdateStatus[state][3] = true
+        }
+        if (todayDataObject[state][4] === 'true') {
+            stateUpdateStatus[state][4] = true
         }
     }
 
@@ -187,6 +195,19 @@ function UpdatesToday() {
             fontSize: "80%",
             marginTop: "0.5rem",
             textTransform: "none"
+        },
+        {
+            //No New Cases
+            color: 'black',
+            borderColor: '#00c177',
+            padding: "1px",
+            zIndex: 10,
+            outline: "none",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            fontSize: "80%",
+            marginTop: "0.5rem",
+            textTransform: "none"
         }]
 
 
@@ -216,6 +237,14 @@ function UpdatesToday() {
         fontSize: "80%"
     }, {
         color: '#007cf2',
+        padding: "0px",
+        border: "none",
+        zIndex: 10,
+        backgroundColor: "#f2f4f4",
+        fontWeight: "bold",
+        fontSize: "80%"
+    }, {
+        color: '#00c177',
         padding: "0px",
         border: "none",
         zIndex: 10,
@@ -371,7 +400,7 @@ export default function Stat({
             ];
         confCountIncrease = confirmedCount - lastTotal[0];
         deadCountIncrease = deadCount - lastTotal[2];
-        // curedCountIncrease = curedCount - lastTotal[1];
+        curedCountIncrease = curedCount - lastTotal[1];
         testedCountIncrease = testedCount - lastTotal[4]
         hospitalCountIncrease = hospitalCount - lastTotal[5]
         icuCountIncrease = icuCount - lastTotal[6]
@@ -428,8 +457,7 @@ export default function Stat({
                 </Grid>
                 <Grid item xs={6} sm={2} md={2}>
                     <Tag
-                        // number={curedCount}
-                        number={"3700+"}
+                        number={curedCount}
                         fColor={"#00c177"}
                         increased={curedCountIncrease}
                         typeOfCases={"Recovered"}
@@ -454,7 +482,21 @@ export default function Stat({
                     </Tag>
 
                 </Grid>
-                <Grid item xs={6} sm={2} md={2}>
+
+                <Grid item xs={4} sm={4} lg={3}>
+                    <Tag
+                        number={confirmedCount - deadCount - curedCount}
+                        fColor={"#f75c8d"}
+                        increased={confCountIncrease - deadCountIncrease - curedCountIncrease}
+                        typeOfCases={"Active Cases"}
+                    >
+                        <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                            title="<em>Existing confirmed cases that have not yet recovered.</em>">
+                            Active</button>
+
+                    </Tag>
+                </Grid>
+                <Grid item xs={4} sm={4} lg={3}>
                     <Tag
                         number={hospitalCount}
                         fColor={"#9d71ea"}
@@ -479,6 +521,7 @@ export default function Stat({
                             in ICU</button>
 
                     </Tag></Grid>
+
                 <Grid item xs={12} >
                     <UpdatesToday></UpdatesToday>
                 </Grid>

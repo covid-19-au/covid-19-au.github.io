@@ -1,6 +1,46 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-11/trial-to-test-if-tuberculosis-vaccine-boosts-covid-19-immunity/12142230",
+            "title": "Clinical trial to test if tuberculosis vaccine can be used to boost immunity against COVID-19 ",
+            "source": "ABCNews",
+            "date": "11 April 2020",
+            "time": "23:42",
+            "summary": "Clinical trial for 500 frontline health workers in South Australia will test if the BCG vaccine normally used to combat tuberculosis, can boost immunity against COVID-19."
+        },
+        {
+            "link": "https://www.9news.com.au/world/coronavirus-antibody-test-could-soon-be-available/34216e0a-ceac-492b-953c-32d74cb0f8e2",
+            "title": "Antibody tests for the novel coronavirus could be available within 'a week or so'",
+            "source": "9News",
+            "date": "11 April 2020",
+            "time": "03:23",
+            "summary": "Antibody tests that would verify whether a person recently had the novel coronavirus could be available within a week, according to the America's top infectious disease expert. Having antibodies to the coronavirus could mean someone is protected from getting re-infected, making such tests important for medical workers and others on the frontlines fighting the pandemic."
+        },
+        {
+            "link": "https://www.smh.com.au/national/stop-looking-for-loopholes-what-are-the-new-covid-19-social-rules-20200407-p54hyd.html ",
+            "title": "'Stop looking for loopholes': What are the new COVID-19 social rules?",
+            "source": "TheSydneyMorningHerald",
+            "date": "10 April 2020",
+            "time": "",
+            "summary": "Government urges people to stop looking for loopholes over the Easter weekend, so as not to undo all of the hard work that has been done to stop the spread of COVID-19. This article covers questions such as whether you can have people over, whether you can go away at Easter and whether you can babysit, state-by-state."
+        },
+        {
+            "link": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
+            "title": "Aussie households to be given access to COVID-19 financial stress for bills",
+            "source": "9News",
+            "date": "10 April 2020",
+            "time": "17:52",
+            "summary": "Australian households struggling with financial stress brought on by the coronavirus pandemic will soon have access to hardship provisions for their energy and water bills. Prime Minister Scott Morrison said the new measures would be in line with those across the energy and telecommunications sectors to scale-up hardship support provided by those industries."
+        },
+        {
+            "link": "https://www.9news.com.au/national/covid19-vaccine-researched-at-university-of-queensland-critical-test-on-live-coronavirus-ahead-of-human-trials/a49fe4b6-0ff7-4cbe-ae06-8cb4772e0404",
+            "title": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
+            "source": "9News",
+            "date": "10 April 2020",
+            "time": "19:43",
+            "summary": "The effectiveness of a University of Queensland (UQ) vaccine against the coronavirus is about to be tested in a biosecurity facility in the Netherlands. The vaccine will be used on live coronavirus for the first time to determine how effectively it induces protection against infection. UQ's vaccine program co-leader Dr Keith Chappell says the trial will establish a critical package of data ahead of human clinical trials later this year.Clinical studies will be conducted by Viroclinics Xplore, which offers myriad pre-clinical tests including toxicology of drugs, antibodies, and antivirals targeting viral infectious diseases."
+        },
+        {
             "link": "https://thewest.com.au/news/coronavirus/coronavirus-crisis-prime-minister-scott-morrison-urges-australians-to-stay-at-home-in-easter-message-ng-b881515344z",
             "title": "Coronavirus crisis: Prime Minister Scott Morrison urges Australians to stay at home in Easter message",
             "source": "TheWestAustralian",

@@ -1,15 +1,23 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=Eg08rJGKjtA",
-                    "description": "Baseball is Back: Some Good News with John Krasinski Ep. 3"
+                    "imgLink": "https://static.rmf.pl/rmf_classic/static/00740/94e9c-1915052d15.jpg",
+                    "source": "https://sparkchronicles.com/the-global-concert-devoted-to-the-health-workers-in-the-fight-against-the-pandemic-covid-19/"
                 }
             ],
-            "type": "distraction",
-            "date": "17/4/2020"
+            "video": [],
+            "title": "One World: Together At Home",
+            "content": "<p>Yesterday, Lady Gaga and a number of other artists teamed up to deliver a global broadcast to support frontline healthcare workers and the World Health Organization. If you missed it, you can still catch a replay today!</p><ul><li>Channel 10: 10am-12pm</li><li>MTV Music Australia/New Zealand, MTV Australia, MTV New Zealand, MTV Dance Australia : 6pm-8pm</li><li>Sunrise, Weekend Sunrise, The Morning Show, The Daily Edition, 7Plus: 10am-12pm</li></ul><p>There is also more to explore at their website below, including a pledge you can take as a Global Citizen to stay home and reduce the spread of the virus!</p>",
+            "type": "motivation",
+            "date": "19/4/2020",
+            "citation": [
+                {
+                    "link": "https://www.globalcitizen.org/en/connect/togetherathome/",
+                    "name": "One World: Together At Home - Global Citizen"
+                }
+            ]
         }
     ]
 }
