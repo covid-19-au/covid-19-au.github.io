@@ -39,7 +39,6 @@ class MbMap extends React.Component {
     }
 
     componentDidMount() {
-        this.Hospitalvisible = false;
         const { lng, lat, zoom } = this.state;
 
         var bounds = [
@@ -53,16 +52,6 @@ class MbMap extends React.Component {
             center: [lng, lat],
             zoom: zoom,
             maxBounds: bounds // Sets bounds as max
-        });
-
-        map.on('load', function () {
-            (async () => {
-                new ACTGeoBoundaries(map);
-                //new QLDHHSGeoBoundaries(map);
-                new WABoundaries(map);
-                new NSWBoundaries(map);
-                new VicBoundaries(map);
-            })();
         });
 
         // Add geolocate control to the map.
@@ -81,17 +70,6 @@ class MbMap extends React.Component {
         //Add Full Screen Controls
         map.addControl(new mapboxgl.FullscreenControl());
 
-        try {
-            map.loadImage(
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png',
-                function (error, image) {
-                    if (error) throw error;
-                    map.addImage('cat', image);
-                }
-            );
-        }
-        catch (e) {}
-
         map.on('move', () => {
             const { lng, lat } = map.getCenter();
 
@@ -103,14 +81,34 @@ class MbMap extends React.Component {
         });
 
         // Add markers: confirmed cases/hospitals
-        confirmedData.map((item) => {
+        // only for tas/nt at this point
+        var confirmedMarkers = this.confirmedMarkers = [];
+        confirmedData.forEach((item) => {
             if (!(['VIC', 'NSW', 'QLD', 'WA', 'ACT'].includes(item['state']))) {
-                return new ConfirmedMarker(map, item);
+                confirmedMarkers.push(
+                    new ConfirmedMarker(map, item)
+                );
             }
         });
-        hospitalData.map((item) => {
+        this.hospitalMarkers = hospitalData.map((item) => {
             return new HospitalMarker(map, item);
-        })
+        });
+
+        var that = this;
+        map.on('load', function () {
+            (async () => {
+                that.totalData = new CurrentValuesDataSource('totalData', mapDataArea);
+
+                // ACT uses SA3 schema, Queensland uses HHS.
+                // The others use LGA (Local Government Area)
+                that.sa3ACT = new ACTSA3Boundaries(map);
+                that.lgaWA = new WALGABoundaries(map);
+                that.lgaNSW = new NSWLGABoundaries(map);
+                that.lgaVic = new VicLGABoundaries(map);
+                //that.lgaQLD = new QLDLGABoundaries(map);    <-- TODO!
+                //that.qldHHS = new QLDHHSGeoBoundaries(map);  <-- TODO!
+            })();
+        });
     }
 
     setUnderlay(underlay) {
@@ -121,10 +119,89 @@ class MbMap extends React.Component {
     }
 
     setMarkers(markers) {
+        // Reset since last time
+        let m = this._markers;
+
+        if (m === null) {
+        }
+        else if (m === 'Total') {
+            this.sa3ACT.removeHeatMap();
+            this.lgaNSW.removeHeatMap();
+            this.lgaVic.removeHeatMap();
+            this.lgaWA.removeHeatMap();
+            //this.hhsQLD.removeHeatMap();
+
+            this.confirmedMarkers.forEach(
+                (marker) => marker.hide()
+            );
+        }
+        else if (m === 'Active') {
+            this.sa3ACT.removeHeatMap();
+            this.lgaNSW.removeHeatMap();
+            this.lgaVic.removeHeatMap();
+            this.lgaWA.removeHeatMap();
+            //this.hhsQLD.removeHeatMap();
+        }
+        else if (m === 'Tests') {
+            this.lgaInsts['nsw'].removeHeatMap();
+        }
+        else if (m === 'Hospitals') {
+            this.hospitalMarkers.forEach(
+                (marker) => marker.hide()
+            );
+        }
+
         this._markers = markers;
         this.setState({
             _markers: markers
         });
+
+        // Change to the new markers mode
+        if (markers === null) {
+        }
+        else if (markers === 'Total') {
+            this.sa3ACT.addLinePoly(this.totalData);
+            this.lgaNSW.addLinePoly(this.totalData);
+            this.lgaVic.addLinePoly(this.totalData);
+            this.lgaWA.addLinePoly(this.totalData);
+            //this.hhsQLD.addLinePoly(this.totalData);
+
+            this.sa3ACT.addHeatMap(this.totalData);
+            this.lgaNSW.addHeatMap(this.totalData);
+            this.lgaVic.addHeatMap(this.totalData);
+            this.lgaWA.addHeatMap(this.totalData);
+            //this.hhsQLD.addHeatMap(this.totalData);
+
+            this.confirmedMarkers.forEach(
+                (marker) => marker.show()
+            );
+        }
+        else if (markers === 'Active') {
+            this.sa3ACT.addLinePoly(this.activeData);
+            this.lgaNSW.addLinePoly(this.activeData);
+            this.lgaVic.addLinePoly(this.activeData);
+            this.lgaWA.addLinePoly(this.activeData);
+            //this.hhsQLD.addLinePoly(this.activeData);
+
+            this.sa3ACT.addHeatMap(this.activeData);
+            this.lgaNSW.addHeatMap(this.activeData);
+            this.lgaVic.addHeatMap(this.activeData);
+            this.lgaWA.addHeatMap(this.activeData);
+            //this.hhsQLD.addHeatMap(this.activeData);
+
+            // TODO: Show recent confirmed markers!!! ==================================================================
+        }
+        else if (markers === 'Tests') {
+            this.lgaNSW.addHeatMap(this.testsData);
+        }
+        else if (markers === 'Hospitals') {
+            this.hospitalMarkers.forEach(
+                (marker) => marker.show()
+            );
+        }
+        else {
+            throw "Unknown marker";
+        }
     }
 
     showMarkers() {
@@ -189,8 +266,8 @@ class MbMap extends React.Component {
                                     onClick={() => this.setMarkers('Total')}>Total</Button>
                             <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers('Active')}>Active</Button>
-                            <Button style={this._markers === 'Cases over time' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Cases over time')}>Cases over time</Button>
+                            <Button style={this._markers === 'Tests' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Tests')}>Tests</Button>
                             <Button style={this._markers === 'Hospitals' ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers('Hospitals')}>COVID-19 Hospitals</Button>
                         </ButtonGroup>
@@ -241,12 +318,75 @@ class MbMap extends React.Component {
 }
 
 
+class DataSourceBase {
+    constructor(sourceName) {
+        this._sourceName = sourceName;
+    }
+
+    getSourceName() {
+        return this._sourceName;
+    }
+}
+
+class TimeSeriesDataSource extends DataSourceBase {
+    /*
+    A datasource which contains values over time
+
+    In format:
+
+     [[[...FIXME...]]]
+    */
+}
+
+class CurrentValuesDataSource extends DataSourceBase {
+    /*
+    A datasource which only contains current values
+
+    In format:
+
+     [[[...FIXME...]]]
+    */
+    constructor(sourceName, mapAreaData) {
+        super(sourceName);
+        this.mapAreaData = mapAreaData;
+    }
+
+    getCaseInfoForCity(stateName, cityName) {
+        var numberOfCases = 0,
+            updatedDate = '16/4/20';
+
+        for (var i=0; i<this.mapAreaData.length; i++) {
+            var areaInfo = this.mapAreaData[i];
+            if (
+                stateName === areaInfo['state'] &&
+                areaInfo['schema'] !== 'HLD'  // What is HLD? ========================================================
+            ) {
+                if (
+                    areaInfo['area'].toLowerCase() ===
+                        cityName.toLowerCase() &&
+                    numberOfCases === 0
+                ) {
+                    console.log(areaInfo);
+                    numberOfCases = areaInfo['confirmedCases'];
+                    updatedDate = areaInfo['lastUpdateDate'];
+                }
+            }
+        }
+        return {
+            'numCases': parseInt(numberOfCases),
+            'updatedDate': updatedDate
+        };
+    }
+}
+
+
 class JSONGeoBoundariesBase {
     constructor(map, stateName, fillPolyId, linePolyId, data) {
         this.map = map;
         this.stateName = stateName;
         this.fillPolyId = fillPolyId;
         this.linePolyId = linePolyId;
+        this.addedSources = {};  // Using as a set
 
         var that = this;
         this._loadJSON(data).then(
@@ -265,54 +405,26 @@ class JSONGeoBoundariesBase {
     }
 
     _onLoadData(data) {
-        data = this._assignCaseInfoToGeoJSON(data);
-
-        // TODO: Allow turning on/off fill/line polys!
-        //this.addFillPoly(data);
-        this.addLinePoly(data);
-        this.addHeatMap(data);
-    }
-
-    getPolyCentralArea(data) {
-        // Uses https://github.com/mapbox/polylabel
-        // to get the central point of the polygon
-        let r = {
-            "type": "FeatureCollection",
-            "features": [/*...*/]
-        };
-        r["features"] = data['features'].filter(
-            (feature) => !!feature['geometry']
-        ).map((feature) => {
-            return {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": polylabel(
-                        feature["geometry"]["coordinates"],
-                        0.1
-                    )
-                },
-                "properties": feature["properties"]
-            }
-        });
-        return r
+        this.geoJSONData = data;
+        this.pointGeoJSONData = this._getModifiedGeoJSONWithPolyCentralAreaPoints(
+            this.geoJSONData
+        );
     }
 
     /*******************************************************************
      * Fill poly-related
      *******************************************************************/
 
-    addFillPoly(data) {
+    addFillPoly(dataSource) {
         // Add the colored fill area
         const map = this.map;
+        this._associateGeoJSONWithSource(dataSource);
+
         map.addLayer({
             id: this.fillPolyId,
             type: 'fill',
             minzoom: 2,
-            source: {
-                type: 'geojson',
-                data: data
-            },
+            source: this.fillPolyId+dataSource.getSourceName()+'source',
             paint: {
                 'fill-color': [
                     'interpolate',
@@ -333,19 +445,6 @@ class JSONGeoBoundariesBase {
             },
             filter: ['==', '$type', 'Polygon']
         });
-
-        map.addLayer({
-            'id': this.fillPolyId+'points',
-            'type': 'symbol',
-            'source': {
-                type: 'geojson',
-                data: data
-            },
-            'layout': {
-                'icon-image': 'cat',
-                'icon-size': 0.25
-            }
-        });
     }
 
     removeFillPoly() {
@@ -357,17 +456,16 @@ class JSONGeoBoundariesBase {
      * Line poly-related
      *******************************************************************/
 
-    addLinePoly(data) {
+    addLinePoly(dataSource) {
         // Add the line outline
         const map = this.map;
+        this._associateGeoJSONWithSource(dataSource);
+
         map.addLayer({
             id: this.linePolyId,
             minzoom: 2,
             type: 'line',
-            source: {
-                type: 'geojson',
-                data: data
-            },
+            source: this.fillPolyId+dataSource.getSourceName()+'source',
             paint: {
                 // 'line-color': '#088',
                 'line-opacity': 1,
@@ -427,18 +525,15 @@ class JSONGeoBoundariesBase {
      * Heat map-related
      *******************************************************************/
 
-    addHeatMap(data) {
+    addHeatMap(dataSource) {
         const map = this.map;
-        data = this.getPolyCentralArea(data);
+        this._associateGeoJSONWithSource(dataSource);
 
         map.addLayer(
             {
                 'id': this.fillPolyId+'heat',
                 'type': 'heatmap',
-                'source': {
-                    'type': 'geojson',
-                    'data': data
-                },
+                'source': this.fillPolyId+dataSource.getSourceName()+'pointsource',
                 'maxzoom': 9,
                 'paint': {
                     // Increase the heatmap weight based on frequency and property magnitude
@@ -499,10 +594,7 @@ class JSONGeoBoundariesBase {
             {
                 'id': this.fillPolyId+'heatpoint',
                 'type': 'circle',
-                'source': {
-                    'type': 'geojson',
-                    'data': data
-                },
+                'source': this.fillPolyId+dataSource.getSourceName()+'pointsource',
                 'minzoom': 7,
                 'paint': {
                     // Size circle radius by value
@@ -544,56 +636,78 @@ class JSONGeoBoundariesBase {
     }
 
     removeHeatMap() {
-        // TODO
+        const map = this.map;
+        map.removeLayer(this.fillPolyId+'heat');
+        map.removeLayer(this.fillPolyId+'heatpoint');
     }
 
     /*******************************************************************
      * Data processing
      *******************************************************************/
 
-    _assignCaseInfoToGeoJSON(geojsonData) {
+    _associateGeoJSONWithSource(dataSource) {
+        let sn = dataSource.getSourceName();
+        if (sn in this.addedSources) {
+            return;
+        }
+        this.addedSources[sn] = null;
+
+        this._assignCaseInfoToGeoJSON(this.geoJSONData, dataSource); // RESOURCE VIOLATION WARNING!!! ===========================================
+        this.map.addSource(this.fillPolyId+sn+'source', {
+            type: 'geojson',
+            data: this.geoJSONData
+        });
+        this._assignCaseInfoToGeoJSON(this.pointGeoJSONData, dataSource);
+        this.map.addSource(this.fillPolyId+sn+'pointsource', {
+            type: 'geojson',
+            data: this.pointGeoJSONData
+        });
+    }
+
+    _getModifiedGeoJSONWithPolyCentralAreaPoints(geoJSONData) {
+        // Uses https://github.com/mapbox/polylabel
+        // to get the central point of the polygon
+        let r = {
+            "type": "FeatureCollection",
+            "features": [/*...*/]
+        };
+        r["features"] = geoJSONData['features'].filter(
+            (feature) => !!feature['geometry']
+        ).map((feature) => {
+            console.log(feature);
+            return {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": polylabel(
+                        feature["geometry"]["coordinates"],
+                        0.1
+                    )
+                },
+                "properties": feature["properties"]
+            }
+        });
+        return r
+    }
+
+    _assignCaseInfoToGeoJSON(geoJSONData, dataSource) {
         var caseInfo;
         const state = this.stateName;
 
-        for (var i=0; i<geojsonData.features.length; i++) {
-            var data = geojsonData.features[i];
-            caseInfo = this._getCaseInfoForCity(
-                this.getCityNameFromProperty(data), state
+        for (var i=0; i<geoJSONData.features.length; i++) {
+            var data = geoJSONData.features[i];
+            caseInfo = dataSource.getCaseInfoForCity(
+                state, this.getCityNameFromProperty(data)
             );
-            data.properties['city'] = this.getCityNameFromProperty(data);
+            data.properties['city'] =
+                this.getCityNameFromProperty(data);
             data.properties['cases'] = caseInfo['numCases'];
             data.properties['date'] = caseInfo['updatedDate'];
         }
-        return geojsonData;
-    }
-
-    _getCaseInfoForCity(cityName, state) {
-        var numberOfCases = 0,
-            updatedDate = '16/4/20';
-
-        for (var i=0; i<mapDataArea.length; i++) {
-            var areaInfo = mapDataArea[i];
-            if (
-                state === areaInfo['state'] &&
-                areaInfo['schema'] !== 'HLD'  // What is HLD? ========================================================
-            ) {
-                if (
-                    areaInfo['area'].toLowerCase() === cityName.toLowerCase() &&
-                    numberOfCases === 0
-                ) {
-                    numberOfCases = areaInfo['confirmedCases'];
-                    updatedDate = areaInfo['lastUpdateDate'];
-                }
-            }
-        }
-        return {
-            'numCases': parseInt(numberOfCases),
-            'updatedDate': updatedDate
-        };
     }
 }
 
-class ACTGeoBoundaries extends JSONGeoBoundariesBase {
+class ACTSA3Boundaries extends JSONGeoBoundariesBase {
     constructor(map) {
         super(
             map,
@@ -624,7 +738,7 @@ class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
     }
 }
 
-class WABoundaries extends JSONGeoBoundariesBase {
+class WALGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
         super(
             map,
@@ -639,7 +753,7 @@ class WABoundaries extends JSONGeoBoundariesBase {
     }
 }
 
-class NSWBoundaries extends JSONGeoBoundariesBase {
+class NSWLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
         super(
             map,
@@ -654,7 +768,7 @@ class NSWBoundaries extends JSONGeoBoundariesBase {
     }
 }
 
-class VicBoundaries extends JSONGeoBoundariesBase {
+class VicLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
         super(
             map,
@@ -690,9 +804,26 @@ class ConfirmedMarker {
         var el = this.el = document.createElement('div');
 
         this._setStyles(el);
-        this.addMarker(el);
+        this._addMarker(el);
+        this.hide();
     }
-    _setStyles(el) {
+
+    show() {
+        if (this._marker)
+            return;
+        this.el.style.display = 'block';
+        this._addMarker(this.el);
+    }
+    hide() {
+        this.el.style.display = 'none';
+        if (!this._marker)
+            return;
+        this._marker.remove();
+        delete this._marker;
+    }
+
+    _setStyles() {
+        const el = this.el;
         el.className = 'marker';
         el.style.height = '20px';
         el.style.width = '20px';
@@ -736,7 +867,7 @@ class ConfirmedMarker {
             return true;
         }
     }
-    addMarker(el) {
+    _addMarker() {
         const map = this.map;
         let coor = [
             this.item['coor'][1],
@@ -744,8 +875,8 @@ class ConfirmedMarker {
         ];
 
         // make a marker for each feature and add to the map
-        new mapboxgl
-            .Marker(el)
+        this._marker = new mapboxgl
+            .Marker(this.el)
             .setLngLat(coor)
             .setPopup(
                 new mapboxgl
@@ -758,9 +889,6 @@ class ConfirmedMarker {
             )
             .addTo(map);
     }
-    removeMarker() {
-        // TODO!
-    }
 }
 
 class HospitalMarker {
@@ -772,9 +900,26 @@ class HospitalMarker {
         var el = this.el = document.createElement('div');
 
         this._setStyles(el);
-        this.addMarker(el);
+        this._addMarker(el);
+        this.hide();
     }
-    _setStyles(el) {
+
+    show() {
+        if (this._marker)
+            return;
+        this.el.style.display = 'block';
+        this._addMarker(this.el);
+    }
+    hide() {
+        this.el.style.display = 'none';
+        if (!this._marker)
+            return;
+        this._marker.remove();
+        delete this._marker;
+    }
+
+    _setStyles() {
+        const el = this.el;
         el.className = 'marker';
         el.style.height = '20px';
         el.style.width = '20px';
@@ -783,7 +928,7 @@ class HospitalMarker {
         el.style.borderRadius = '50%';
         el.style.cursor = 'pointer';
     }
-    addMarker(el) {
+    _addMarker(el) {
         let coor = [
             this.item['coor'][1],
             this.item['coor'][0]
@@ -803,9 +948,6 @@ class HospitalMarker {
                     )
             )
             .addTo(this.map);
-    }
-    removeMarker() {
-        // TODO!
     }
 }
 
