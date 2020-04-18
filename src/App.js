@@ -214,7 +214,10 @@ function App() {
   const routeResult = useRoutes(routes);
   // const [urlPath, setUrlPath] = useState(window.location.pathname);
   const path = usePath()
-  console.log(path)
+
+  if (path == "/dashboard") {
+    require('./DashboardConfig.css');
+  }
 
   if (myData) {
     if (path == "/dashboard") {
