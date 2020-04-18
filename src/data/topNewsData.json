@@ -1,6 +1,38 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/coronavirus-mobile-tracking-app-may-be-mandatory-if-not-enough-people-sign-up-scott-morrison-says",
+            "title": "Coronavirus mobile tracking app may be mandatory if not enough people sign up, Scott Morrison says",
+            "source": "SBSNews",
+            "date": "17 April 2020",
+            "time": "17:53",
+            "summary": "Mobile phone tracking software could be compulsory if not enough Australians voluntarily download the application to help in coronavirus case tracing. Prime Minister Scott Morrison said at least 40 percent of the population needs to use the app to make it effective. Better contact tracing is one of three main benchmarks the government wants to meet before strict restrictions can be lifted. Notably, Mr Morrison says the app won't be used by police as evidence to prosecute people for breaching social distancing requirements."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/internet-costs-cut-for-low-income-australian-families-small-businesses-during-coronavirus-pandemic",
+            "title": "Internet costs cut for low-income Australian families, small businesses during coronavirus pandemic",
+            "source": "SBSNews",
+            "date": "17 April 2020",
+            "time": "12:53",
+            "summary": "Internet providers will have help ensuring financially-stricken families and businesses stay connected from a $150 million National Broadband Network relief fund. The internet wholesaler wants to ensure families with school children who do not have NBN access, and small and medium-sized businesses, can remain online during and after the coronavirus pandemic. NBN will waive its $37 monthly charge to internet providers between April and September to allow the industry to devise more affordable access for families."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-16/coronavirus-what-australia-has-to-do-before-restrictions-lifted/12154692",
+            "title": "Australia's coronavirus restrictions will remain until these three things are established",
+            "source": "ABCNews",
+            "date": "16 April 2020",
+            "time": "19:40",
+            "summary": "Prime Minister Scott Morrison has announced that Australians will have to live with coronavirus restrictions for at least another four weeks. He outlined three things the Government wants to see before parts of the country can start to look normal again. These three things are: a broader testing regime, better contact tracing, and being confident in containing outbreaks."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/game-changer-coronavirus-testing-to-be-fast-tracked-in-remote-indigenous-communities",
+            "title": "'Game changer': Coronavirus testing to be fast-tracked in remote Indigenous communities",
+            "source": "SBSNews",
+            "date": "16 April 2020",
+            "time": "19:40",
+            "summary": "83 coronavirus testing sites are set to be set up across remote Indigenous communities to detect the virus more rapidly. Some remote areas have been waiting up to 10 days for results but the new $3.3 million project, part of the wider $2.4 billion COVID-19 National Health Plan, aims to cut waiting times to 45 minutes."
+        },
+        {
             "link": "https://www.9news.com.au/national/coronavirus-cure-covid-19-vaccine-testing-in-australia-novavax-nucleus-network/73bb2d7b-f7bf-4f83-8a30-74cd1d6c3bff ",
             "title": "COVID-19 vaccine testing to begin in Australia in coming weeks",
             "source": "9News",
@@ -103,54 +135,6 @@
             "date": "11 April 2020",
             "time": "03:23",
             "summary": "Antibody tests that would verify whether a person recently had the novel coronavirus could be available within a week, according to the America's top infectious disease expert. Having antibodies to the coronavirus could mean someone is protected from getting re-infected, making such tests important for medical workers and others on the frontlines fighting the pandemic."
-        },
-        {
-            "link": "https://www.smh.com.au/national/stop-looking-for-loopholes-what-are-the-new-covid-19-social-rules-20200407-p54hyd.html ",
-            "title": "'Stop looking for loopholes': What are the new COVID-19 social rules?",
-            "source": "TheSydneyMorningHerald",
-            "date": "10 April 2020",
-            "time": "",
-            "summary": "Government urges people to stop looking for loopholes over the Easter weekend, so as not to undo all of the hard work that has been done to stop the spread of COVID-19. This article covers questions such as whether you can have people over, whether you can go away at Easter and whether you can babysit, state-by-state."
-        },
-        {
-            "link": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
-            "title": "Aussie households to be given access to COVID-19 financial stress for bills",
-            "source": "9News",
-            "date": "10 April 2020",
-            "time": "17:52",
-            "summary": "Australian households struggling with financial stress brought on by the coronavirus pandemic will soon have access to hardship provisions for their energy and water bills. Prime Minister Scott Morrison said the new measures would be in line with those across the energy and telecommunications sectors to scale-up hardship support provided by those industries."
-        },
-        {
-            "link": "https://www.9news.com.au/national/covid19-vaccine-researched-at-university-of-queensland-critical-test-on-live-coronavirus-ahead-of-human-trials/a49fe4b6-0ff7-4cbe-ae06-8cb4772e0404",
-            "title": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
-            "source": "9News",
-            "date": "10 April 2020",
-            "time": "19:43",
-            "summary": "The effectiveness of a University of Queensland (UQ) vaccine against the coronavirus is about to be tested in a biosecurity facility in the Netherlands. The vaccine will be used on live coronavirus for the first time to determine how effectively it induces protection against infection. UQ's vaccine program co-leader Dr Keith Chappell says the trial will establish a critical package of data ahead of human clinical trials later this year.Clinical studies will be conducted by Viroclinics Xplore, which offers myriad pre-clinical tests including toxicology of drugs, antibodies, and antivirals targeting viral infectious diseases."
-        },
-        {
-            "link": "https://thewest.com.au/news/coronavirus/coronavirus-crisis-prime-minister-scott-morrison-urges-australians-to-stay-at-home-in-easter-message-ng-b881515344z",
-            "title": "Coronavirus crisis: Prime Minister Scott Morrison urges Australians to stay at home in Easter message",
-            "source": "TheWestAustralian",
-            "date": "09 April 2020",
-            "time": "17:00",
-            "summary": "Scott Morrison has used his annual Easter message to urge Australians to stay home, saying the country “cannot undo the tremendous progress” it has made towards flattening the curve of coronavirus cases. He states that immediate - but not extended - family may spend their Easter together, and that Australians will not be able to attend Easter services."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-09/backpacker-accommodation-shortage-risks-veg-harvest-coronavirus/12132718",
-            "title": "Essential fruit and veg pickers 'homeless' due to coronavirus, meaning crops may be left to rot",
-            "source": "ABCNews",
-            "date": "09 April 2020",
-            "time": "06:42",
-            "summary": "The fruit and vegetable industry has warned that crops may be left to rot in fields because of a major shortage of accommodation for backpackers who pick the produce. These young travellers say they are camping illegally and sleeping in their cars because many hostels and caravan parks are closed."
-        },
-        {
-            "link": "https://www.theguardian.com/world/2020/apr/09/australias-small-medical-practices-on-brink-of-collapse-amid-coronavirus",
-            "title": "Australia's small medical practices on brink of collapse amid coronavirus ",
-            "source": "TheGuardian",
-            "date": "09 April 2020",
-            "time": "03:30",
-            "summary": "Smaller doctor-owned general practices are on the brink of financial collapse due to revenue losses from Covid-19, prompting fears more patients will be unnecessarily pushed into an already overstretched hospital system. Peak medical bodies and the health minster, Greg Hunt, on Thursday urged Australians to continue seeing their GPs, saying Covid-19 should not mean people “ignore the doctor” or their ordinary health needs."
         }
     ]
 }
