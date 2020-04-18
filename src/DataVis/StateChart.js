@@ -146,7 +146,7 @@ function renderStatus(state) {
               data-html="true"
               title="<em>Existing confirmed cases that have not yet recovered.</em>"
             >
-              Active Cases
+              Active
           </button>
           </Tag>
         </Grid>

@@ -496,7 +496,7 @@ export default function Stat({
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                             title="<em>Existing confirmed cases that have not yet recovered.</em>">
-                            Active Cases</button>
+                            Active</button>
 
                     </Tag>
                 </Grid>
