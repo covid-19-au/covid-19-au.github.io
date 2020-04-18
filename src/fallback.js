@@ -71,10 +71,12 @@ function Fallback(props) {
 
             <div>
                 This site is developed by a{" "}
-                <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
-                    volunteer team
-                </a>{" "}
-                , for non-commercial use only.
+                <a style={{color:'blue'}} href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md" target="_blank" rel="noopener noreferrer">
+                    <u>volunteer team</u>
+                </a>
+                , for non-commercial use only. Support our <a style={{color:'blue'}} href="https://covid19onlinesurvey.org" target="_blank" rel="noopener noreferrer">
+                <u>research</u>
+            </a>.
             </div>
 
             <div>

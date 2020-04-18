@@ -303,7 +303,7 @@ class EChartglobalLog extends Component {
                 'Germany': true,
                 'South Korea': true,
                 'NZ': true,
-                'India':true
+                'India': true
             }
         })
     }
@@ -329,7 +329,7 @@ class EChartglobalLog extends Component {
                 'Germany': false,
                 'South Korea': false,
                 'NZ': false,
-                'India':false
+                'India': false
             }
         })
     }
@@ -339,7 +339,7 @@ class EChartglobalLog extends Component {
         let echarts_instance = this.chartReference.getEchartsInstance();
         echarts_instance.on('legendselectchanged', function (props) {
             ReactGA.initialize("UA-160673543-1");
-            ReactGA.event({ category: 'globalChart', action: props.name,label: props.selected[props.name]?'true':'false'})
+            ReactGA.event({ category: 'globalChart', action: props.name, label: props.selected[props.name] ? 'true' : 'false' })
 
         });
     }
@@ -363,7 +363,7 @@ class EChartglobalLog extends Component {
                         outline: "none"
                     }} onClick={this.onDeselectAllClick}>Select None</Button>
                 </ButtonGroup>
-                <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
+                <ReactEcharts style={{ minHeight: "500px" }}
                     ref={(e) => { this.chartReference = e; }}
                     lazyUpdate={true}
                     option={{

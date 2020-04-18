@@ -9,6 +9,7 @@ const CONFIRMED = 1;
 const DEATH = 2;
 const CURED = 3;
 const TESTED = 4;
+const NONEWCASES = 7;
 
 export default function Area({ area, onChange, data }) {
   let totalRecovered = 0;
@@ -34,7 +35,6 @@ export default function Area({ area, onChange, data }) {
       testedCases[
       Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
-
     return data.map((x) => (
       <div
         role={"button"}
@@ -70,14 +70,16 @@ export default function Area({ area, onChange, data }) {
         </div>
         <div className="confirmed">
           <strong>{numberWithCommas(x[CONFIRMED])}</strong>&nbsp;
-          <div className="dailyIncrease">
-            {x[CONFIRMED] - lastTotal[x[0]][0] > 0
-              ? `(+${x[1] - lastTotal[x[0]][0]})`
-              : null}
-          </div>
+          {x[NONEWCASES] === 'true' ? <div className="dailyIncrease">(+0)</div> :
+            <div className="dailyIncrease">
+              {x[CONFIRMED] - lastTotal[x[0]][0] > 0
+                ? `(+${x[1] - lastTotal[x[0]][0]})`
+                : null}
+            </div>}
         </div>
         <div className="death">
-          <strong>{numberWithCommas(x[DEATH])}</strong>&nbsp;
+          {(x[0] === "NSW" || x[0] === "QLD") ? <strong> {numberWithCommas(x[DEATH])}<sup>&#x5e;</sup> </strong>
+            : <strong> {numberWithCommas(x[DEATH])} </strong>}&nbsp;
           <div className="dailyIncrease">
             {x[DEATH] - lastTotal[x[0]][1] > 0
               ? ` (+${x[2] - lastTotal[x[0]][1]})`
@@ -85,23 +87,25 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="cured">
-          <strong>{(x[0] === "NSW") ? <div style={{ fontWeight: 'normal', color: 'grey' }}>N/A</div> : numberWithCommas(x[CURED])}</strong>&nbsp;
+          {(x[0] === "NSW") ? <strong> {numberWithCommas(x[CURED])}<sup>&#x2a;</sup> </strong>
+            : <strong> {numberWithCommas(x[CURED])} </strong>}&nbsp;
           <div className="dailyIncrease">
             {x[CURED] - lastTotal[x[0]][2] > 0
               ? `(+${x[3] - lastTotal[x[0]][2]})`
               : null}
           </div>
         </div>
-          <div className="activeCase">
-              <strong>{(x[0]==="NSW")?<div style={{fontWeight:'normal', color:'grey'}}>N/A</div>:numberWithCommas(x[CONFIRMED]-x[DEATH]-x[CURED])}</strong>&nbsp;
+        <div className="activeCase">
+          {(x[0] === "NSW") ? <strong> {numberWithCommas(x[CONFIRMED] - x[DEATH] - x[CURED])}<sup>&#x2a;</sup> </strong>
+            : <strong> {numberWithCommas(x[CONFIRMED] - x[DEATH] - x[CURED])} </strong>}&nbsp;
               <div className="dailyIncrease">
-                  {(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) > 0 && (x[0]!=="NSW")
-                      ? `(+${(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])})`
-                      : ((x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) < 0 && (x[0]!=="NSW")?`(-${(lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])-(x[CONFIRMED]-x[DEATH]-x[CURED])})`:null)}
-              </div>
+            {(x[CONFIRMED] - x[DEATH] - x[CURED]) - (lastTotal[x[0]][0] - lastTotal[x[0]][2] - lastTotal[x[0]][1]) > 0
+              ? `(+${(x[CONFIRMED] - x[DEATH] - x[CURED]) - (lastTotal[x[0]][0] - lastTotal[x[0]][2] - lastTotal[x[0]][1])})`
+              : null}
           </div>
+        </div>
         <div className="tested">{numberWithCommas(x[TESTED])}</div>
-      </div>
+      </div >
     ));
   };
 
@@ -119,8 +123,8 @@ export default function Area({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">*3,800+</div>
-        <div className="activeCase">*2,600+</div>
+        <div className="cured">{numberWithCommas(sumRow(CURED, data))}</div>
+        <div className="activeCase">{numberWithCommas(sumRow(CONFIRMED, data) - sumRow(DEATH, data) - sumRow(CURED, data))}</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
     );
@@ -141,11 +145,11 @@ export default function Area({ area, onChange, data }) {
       <Total data={data} />
 
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data and the active data is based on gov report.
+        <sup>&#x2a;</sup> Recovery data for NSW is an estimate by the Department of Health.
       </span>
       <br />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * NSW Health's statistics show an additional death as they count a Queensland resident that passed away in NSW.
+        <sup>&#x5e;</sup> Two Queensland residents that passed away in NSW are included in the Queensland figure.
       </span>
       <br />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
