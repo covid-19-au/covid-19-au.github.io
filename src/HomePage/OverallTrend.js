@@ -123,7 +123,7 @@ export default function OverallTrend() {
     return (
         <div className="card">
             <h2>Cases, Deaths and Recoveries</h2>
-            <ReactEcharts style={{ height: "400px" }}
+            <ReactEcharts style={{ minHeight: "400px" }}
                 option={
                     {
                         grid: {

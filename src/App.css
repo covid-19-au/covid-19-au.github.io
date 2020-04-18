@@ -539,23 +539,5 @@ h2 small {
     margin-top: -5px;
     margin-bottom: -10px;
 }
-@media only screen and (min-width: 768px) and (orientation: portrait){
-  .confirmed,
-  .death,
-  .cured,
-  .activeCase,
-  .tested,
-  .area{
-      font-size: 1.8rem
-  }
-  .area.header,
-  .death.header,
-  .confirmed.header,
-  .tested.header,
-  .activeCase.header,
-  .cured.header {
-    font-size: 1.9rem;
-    font-weight: 600
-  }
-}
+
 
