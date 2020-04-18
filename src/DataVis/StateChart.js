@@ -173,15 +173,10 @@ function StateChart({ state }) {
 
   return (
     <Grid container spacing={1} justify="center" wrap="wrap">
-      <Grid item xs={11}>
-        <h1 style={{ textAlign: "center", paddingTop: "1%" }}>
-          {stateNameMapping[state]}
-        </h1>
-      </Grid>
       <Grid item xs={11} sm={11} md={4}>
         <div className="card">
           <div className="table">
-            <h2>Status - {stateNameMapping[state]}</h2>
+            <h2>{stateNameMapping[state]}</h2>
             {renderStatus(state.toUpperCase())}
             <span className="due" style={{ fontSize: "80%", padding: 0 }}>
               Time in AEST, Last Update: {statusUpdateTime}

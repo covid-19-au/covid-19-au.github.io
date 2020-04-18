@@ -6,7 +6,9 @@ import todayData from "../data/stateCaseData.json";
 import previousData from "../data/state.json";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+import './Stat.css'
 
+import Grid from "@material-ui/core/Grid";
 /**
  * Method for adding suffix to date
  * @param {int} i date
@@ -132,6 +134,7 @@ function UpdatesToday() {
         }
     }
 
+    const fontSize = window.innerWidth > 767 ? "5rem" : "1rem"
 
     const switchStyles = [
         {
@@ -194,34 +197,39 @@ function UpdatesToday() {
         border: "none",
         zIndex: 10,
         backgroundColor: "#f2f4f4",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontSize: "80%"
     }, {
         color: '#c11700',
         padding: "0px",
         border: "none",
         zIndex: 10,
         backgroundColor: "#f2f4f4",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontSize: "80%"
     }, {
         color: '#00c177',
         padding: "0px",
         border: "none",
         zIndex: 10,
         backgroundColor: "#f2f4f4",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontSize: "80%"
     }, {
         color: '#007cf2',
         padding: "0px",
         border: "none",
         zIndex: 10,
         backgroundColor: "#f2f4f4",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontSize: "80%"
     }]
     const inactiveStyles = {
         color: '#ccd1d1',
         padding: "0px",
         border: "none",
-        backgroundColor: "#f2f4f4"
+        backgroundColor: "#f2f4f4",
+        fontSize: "80%"
     };
 
 
@@ -243,7 +251,7 @@ function UpdatesToday() {
         <div style={{
             marginTop: '1rem',
             marginBottom: '1rem'
-        }}>
+        }} className="dailyUpdateHeader">
             Daily Update Status <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                 title="<em>Highlighted states have updated selected data today. Click state for details.</em>"><svg className="bi bi-question-circle" width="0.7em" height="0.7em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
@@ -272,7 +280,7 @@ function UpdatesToday() {
                         href={("./state/" + state).toLowerCase()}
                         style={stateUpdateStatus[state][currentView] ? dataStyles[currentView] : inactiveStyles}
                         key={state}
-                    >{state}</Button>
+                    >{state} </Button>
 
                 ))}
             </ButtonGroup>
@@ -387,90 +395,96 @@ export default function Stat({
 
             </h2>
 
+            <Grid container spacing={1} justify="center" wrap="wrap" style={{ padding: "5px" }}>
 
+                <Grid item xs={6} sm={4} lg={2}>
 
-            <div className="row">
+                    <Tag
+                        number={confirmedCount}
+                        fColor={"#ff603c"}
+                        increased={confCountIncrease}
+                        typeOfCases={"Confirmed"}
+                    >
+                        <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                            title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>">
+                            Confirmed</button>
 
-                <Tag
-                    number={confirmedCount}
-                    fColor={"#ff603c"}
-                    increased={confCountIncrease}
-                    typeOfCases={"Confirmed"}
-                >
-                    <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                        title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>">
-                        Confirmed</button>
+                    </Tag>
+                </Grid>
+                <Grid item xs={6} sm={4} lg={2} style={{ width: "50px" }}>
+                    {/*<Tag number={suspectedCount || '-'}>*/}
+                    {/*疑似*/}
+                    {/*</Tag>*/}
+                    <Tag
+                        number={deadCount}
+                        fColor={"#c11700"}
+                        increased={deadCountIncrease}
+                        typeOfCases={"Deaths"}
+                    >
+                        <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                            title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
+                            Deaths</button>
 
-                </Tag>
-                {/*<Tag number={suspectedCount || '-'}>*/}
-                {/*疑似*/}
-                {/*</Tag>*/}
-                <Tag
-                    number={deadCount}
-                    fColor={"#c11700"}
-                    increased={deadCountIncrease}
-                    typeOfCases={"Deaths"}
-                >
-                    <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                        title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
-                        Deaths</button>
+                    </Tag>
+                </Grid>
+                <Grid item xs={6} sm={4} lg={2}>
+                    <Tag
+                        // number={curedCount}
+                        number={"3800+"}
+                        fColor={"#00c177"}
+                        increased={curedCountIncrease}
+                        typeOfCases={"Recovered"}
+                    >
+                        <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                            title="<em>Number of people that have recovered from COVID-19.</em>">
+                            Recovered</button>
 
-                </Tag>
-            </div>
-            <div className="row">
-                <Tag
-                    // number={curedCount}
-                    number={"3200+"}
-                    fColor={"#00c177"}
-                    increased={curedCountIncrease}
-                    typeOfCases={"Recovered"}
-                >
-                    <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                        title="<em>Number of people that have recovered from COVID-19.</em>">
-                        Recovered</button>
+                    </Tag>
+                </Grid>
+                <Grid item xs={6} sm={4} lg={2}>
+                    <Tag
+                        number={testedCount}
+                        fColor={"#007cf2"}
+                        increased={testedCountIncrease}
+                        typeOfCases={"Tested"}
+                    >
+                        <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                            title="<em>Number of people that have been tested for COVID-19.</em>">
+                            Tested</button>
 
-                </Tag>
-                <Tag
-                    number={testedCount}
-                    fColor={"#007cf2"}
-                    increased={testedCountIncrease}
-                    typeOfCases={"Tested"}
-                >
-                    <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                        title="<em>Number of people that have been tested for COVID-19.</em>">
-                        Tested</button>
+                    </Tag>
 
-                </Tag>
+                </Grid>
+                <Grid item xs={6} sm={4} lg={2}>
+                    <Tag
+                        number={hospitalCount}
+                        fColor={"#9d71ea"}
+                        increased={hospitalCountIncrease}
+                        typeOfCases={"In Hospital"}
+                    >
+                        <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                            title="<em>Number of people in hospital with COVID-19.</em>">
+                            in Hospital</button>
 
+                    </Tag>
+                </Grid>
+                <Grid item xs={6} sm={4} lg={2}>
+                    <Tag
+                        number={icuCount}
+                        fColor={"#00aac1"}
+                        increased={icuCountIncrease}
+                        typeOfCases={"In ICU"}
+                    >
+                        <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+                            title="<em>Number of people with COVID-19 in intensive care.</em>">
+                            in ICU</button>
 
-            </div>
-            <div className="row">
-                <Tag
-                    number={hospitalCount}
-                    fColor={"#9d71ea"}
-                    increased={hospitalCountIncrease}
-                    typeOfCases={"In Hospital"}
-                >
-                    <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                        title="<em>Number of people in hospital with COVID-19.</em>">
-                        in Hospital</button>
+                    </Tag></Grid>
+                <Grid item xs={12} >
+                    <UpdatesToday></UpdatesToday>
+                </Grid>
 
-                </Tag>
-                <Tag
-                    number={icuCount}
-                    fColor={"#00aac1"}
-                    increased={icuCountIncrease}
-                    typeOfCases={"In ICU"}
-                >
-                    <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
-                        title="<em>Number of people with COVID-19 in intensive care.</em>">
-                        in ICU</button>
-
-                </Tag></div>
-
-            <UpdatesToday></UpdatesToday>
-
-
+            </Grid>
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}
                 aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}
                 aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>

@@ -201,14 +201,6 @@
   },
   {
     "state": "South Australia",
-    "address": "72 King William Rd, North Adelaide SA 5006",
-    "hospitalPhone": "(08) 8161 7000",
-    "name": "Womens and Childrens Hospital",
-    "coor": ["-34.911262", "138.600062"],
-    "hospitalType": "Metropolitan Clinics"
-  },
-  {
-    "state": "South Australia",
     "address": "21 Hutchinson Rd, Gawler East SA 5118",
     "hospitalPhone": "(08) 8521 2000",
     "name": "Gawler Health Service",
@@ -229,22 +221,6 @@
     "hospitalPhone": "(08) 8580 2400",
     "name": "Riverland General Hospital",
     "coor": ["-34.275769", "140.601438"],
-    "hospitalType": "Regional Clinics"
-  },
-  {
-    "state": "South Australia",
-    "address": "56 Bay Rd, Victor Harbor SA 5211",
-    "hospitalPhone": "(08) 8552 0500",
-    "name": "South Coast District Hospital",
-    "coor": ["-35.561136", "138.606985"],
-    "hospitalType": "Regional Clinics"
-  },
-  {
-    "state": "South Australia",
-    "address": "15 Mill St, Tanunda SA 5352",
-    "hospitalPhone": "(08) 8563 2398",
-    "name": "Tanunda War Memorial Hospital",
-    "coor": ["-34.527800", "138.960899"],
     "hospitalType": "Regional Clinics"
   },
   {
@@ -385,10 +361,18 @@
   },
   {
     "state": "Victoria",
-    "address": "Bellerine St, Geelong VIC 3220, Australia",
+    "address": "59 Sydney Parade, Geelong VIC 3220",
     "hospitalPhone": "(03) 4215 4445",
-    "name": "Barwon Health - Geelong",
-    "coor": ["-38.152096", "144.365334"],
+    "name": "Barwon Health",
+    "coor": ["-38.152493", "144.368877"],
+    "hospitalType": "Regional health services"
+  },
+  {
+    "state": "Victoria",
+    "address": "Bellerine St, Geelong VIC 3220",
+    "hospitalPhone": "(03) 4215 4445",
+    "name": "Barwon Health - University Hospital Geelong",
+    "coor": ["-38.152016", "144.365320"],
     "hospitalType": "Regional health services"
   },
   {
@@ -413,6 +397,14 @@
     "hospitalPhone": "(03) 5454 6000",
     "name": "Bendigo hospital",
     "coor": ["-36.747277", "144.286437"],
+    "hospitalType": "Regional health services"
+  },
+  {
+    "state": "Victoria",
+    "address": "7-25 Caroline Chisholm Dr, Kyneton VIC 3444",
+    "hospitalPhone": "(03) 5422 9900",
+    "name": "Kyneton District Health Service",
+    "coor": ["-37.254738", "144.470129"],
     "hospitalType": "Regional health services"
   },
   {
@@ -449,10 +441,26 @@
   },
   {
     "state": "Victoria",
+    "address": "141-151 Bentinck St, Portland VIC 3305",
+    "hospitalPhone": "(03) 5521 0333",
+    "name": "Portland District Health",
+    "coor": ["-38.341136", "141.605201"],
+    "hospitalType": "Regional health services"
+  },
+  {
+    "state": "Victoria",
     "address": "20 Fitzgerald St, Shepparton VIC 3630",
     "hospitalPhone": "(03) 5832 1200",
     "name": "Shepparton Private Hospital",
     "coor": ["-36.359072", "145.410888"],
+    "hospitalType": "Regional health services"
+  },
+  {
+    "state": "Victoria",
+    "address": "27/29 Sloane St, Stawell VIC 3380",
+    "hospitalPhone": "(03) 5358 8500",
+    "name": "Stawell Regional Health",
+    "coor": ["-37.059393", "142.781380"],
     "hospitalType": "Regional health services"
   },
   {
@@ -477,6 +485,14 @@
     "hospitalPhone": "(03) 5563 1666",
     "name": "South West Healthcare - Warrnambool",
     "coor": ["-38.379885", "142.473466"],
+    "hospitalType": "Regional health services"
+  },
+  {
+    "state": "Victoria",
+    "address": "20 Foster St, Hamilton VIC 3300",
+    "hospitalPhone": "(03) 5551 8222",
+    "name": "Hamilton Base Hospital",
+    "coor": ["-37.736647", "142.030928"],
     "hospitalType": "Regional health services"
   },
   {
@@ -761,6 +777,14 @@
   },
   {
     "state": "New South Wales",
+    "address": "2 Day Street, Windsor, NSW 2756",
+    "hospitalPhone": "",
+    "name": "Hawkesbury Hospital Mobile Clinic Van",
+    "coor": ["-33.610234", "150.819630"],
+    "hospitalType": "COVID19 Clinics"
+  },
+  {
+    "state": "New South Wales",
     "address": "351 Murray St, Hay NSW 2711",
     "hospitalPhone": "(02) 6990 8700",
     "name": "Hay Hospital",
@@ -1036,7 +1060,7 @@
     "address": "69 Brookong Avenue, Wagga Wagga 2650",
     "hospitalPhone": "(02) 6921 4053",
     "name": "Wagga Wagga Clinic",
-    "coor": ["-35.117773", "147.36852"],
+    "coor": ["-35.117773", "147.368521"],
     "hospitalType": "COVID19 Clinics"
   },
   {
@@ -1062,5 +1086,45 @@
     "name": "Wyong Hospital",
     "coor": ["-33.260849", "151.479546"],
     "hospitalType": "COVID19 Clinics"
+  },
+  {
+    "state": "Tasmania",
+    "address": "274-280 Charles St, Launceston TAS 7250",
+    "hospitalPhone": "1800 671 738",
+    "name": "LGH Emergency Department",
+    "coor": ["-41.446632", "147.141576"],
+    "hospitalType": "COVID19 Respiratory Clinics"
+  },
+  {
+    "state": "Tasmania",
+    "address": "23 Brickport Road, Burnie 7320",
+    "hospitalPhone": "1800 671 738",
+    "name": "North West Regional Hospital",
+    "coor": ["-41.047398", "145.880525"],
+    "hospitalType": "COVID19 Respiratory Clinics"
+  },
+  {
+    "state": "Tasmania",
+    "address": "Torquay Rd, Latrobe TAS 7307",
+    "hospitalPhone": "1800 671 738",
+    "name": "Mersey Community Hospital",
+    "coor": ["-41.229078", "146.422193"],
+    "hospitalType": "COVID19 Respiratory Clinics"
+  },
+  {
+    "state": "Tasmania",
+    "address": "1/1 Strahan St, South Burnie TAS 7320",
+    "hospitalPhone": "1800 671 738",
+    "name": "Parkside Community Mental Health Centre",
+    "coor": ["-41.058616", "145.907893"],
+    "hospitalType": "COVID19 Drive-through Pod"
+  },
+  {
+    "state": "Tasmania",
+    "address": "274-280 Charles St, Launceston TAS 7250",
+    "hospitalPhone": "1800 671 738",
+    "name": "LGH Emergency Department",
+    "coor": ["-41.446632", "147.141576"],
+    "hospitalType": "COVID19 Mobile Respiratory Clinic"
   }
 ]
