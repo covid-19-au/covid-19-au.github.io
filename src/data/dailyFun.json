@@ -3,18 +3,21 @@
         {
             "image": [
                 {
-                    "name": "Why you eat unhealthy food when you’re stressed",
-                    "imgLink": "https://this.deakin.edu.au/wp-content/uploads/2017/07/womans-hands-holding-half-eaten-donut-crop.jpg",
-                    "description": "Associate Professor Susan Torres, of Deakin’s School of Exercise and Nutrition Sciences explains how understanding and managing daily stress can help you maintain better health.",
-                    "source": "https://this.deakin.edu.au/self-improvement/eat-unhealthy-food-youre-stressed"
+                    "imgLink": "https://static.rmf.pl/rmf_classic/static/00740/94e9c-1915052d15.jpg",
+                    "source": "https://sparkchronicles.com/the-global-concert-devoted-to-the-health-workers-in-the-fight-against-the-pandemic-covid-19/"
                 }
             ],
             "video": [],
-            "title": "",
-            "source": "",
-            "content": "",
-            "type": "distraction",
-            "date": "17/4/2020"
+            "title": "One World: Together At Home",
+            "content": "<p>Yesterday, Lady Gaga and a number of other artists teamed up to deliver a global broadcast to support frontline healthcare workers and the World Health Organization. If you missed it, you can still catch a replay today!</p><ul><li>Channel 10: 10am-12pm</li><li>MTV Music Australia/New Zealand, MTV Australia, MTV New Zealand, MTV Dance Australia : 6pm-8pm</li><li>Sunrise, Weekend Sunrise, The Morning Show, The Daily Edition, 7Plus: 10am-12pm</li></ul><p>There is also more to explore at their website below, including a pledge you can take as a Global Citizen to stay home and reduce the spread of the virus!</p>",
+            "type": "motivation",
+            "date": "19/4/2020",
+            "citation": [
+                {
+                    "link": "https://www.globalcitizen.org/en/connect/togetherathome/",
+                    "name": "One World: Together At Home - Global Citizen"
+                }
+            ]
         }
     ]
 }

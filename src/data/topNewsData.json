@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-18/covid-led-drop-in-energy-use-risks-system-overload/12150030",
+            "title": "Falling power use due to coronavirus risks system overload and blackouts, experts warn",
+            "source": "ABCNews",
+            "date": "18 April 2020",
+            "time": "08:31",
+            "summary": "Falling demand for electricity caused by the economic fallout from the COVID-19 pandemic could leave Western Australia's main electricity system at risk of a solar power overload within months, experts have warned. This may overwhelm the grid, meaning intervention and higher prices."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/people-with-disability-to-be-protected-under-new-plan-during-australia-s-coronavirus-crisis",
+            "title": "People with disability to be protected under new plan during Australia's coronavirus crisis",
+            "source": "SBSNews",
+            "date": "18 April 2020",
+            "time": "17:19",
+            "summary": "More than four million Australians with disability in Australia have been assured of their safety during the coronavirus pandemic through their reduced exposure to the virus, while maintaining essential services. The national cabinet - made up of the prime minister, premiers and chief ministers - when it last met on Thursday agreed on a management and operational plan for people with disability during the crisis."
+        },
+        {
             "link": "https://www.sbs.com.au/news/coronavirus-mobile-tracking-app-may-be-mandatory-if-not-enough-people-sign-up-scott-morrison-says",
             "title": "Coronavirus mobile tracking app may be mandatory if not enough people sign up, Scott Morrison says",
             "source": "SBSNews",
@@ -119,22 +135,6 @@
             "date": "12 April 2020",
             "time": "08:44",
             "summary": "A ‘mercy flight’ carrying 80 coronavirus-infected Australians has touched down in Melbourne. Emergency services were on standby at Tullamarine airport to meet the plane, which was carrying 112 passengers in total. Those passengers are among 1200 Australian nationals being flown home from overseas by the Commonwealth this weekend, with flights from India and Peru landing on Friday and Saturday."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-11/trial-to-test-if-tuberculosis-vaccine-boosts-covid-19-immunity/12142230",
-            "title": "Clinical trial to test if tuberculosis vaccine can be used to boost immunity against COVID-19 ",
-            "source": "ABCNews",
-            "date": "11 April 2020",
-            "time": "23:42",
-            "summary": "Clinical trial for 500 frontline health workers in South Australia will test if the BCG vaccine normally used to combat tuberculosis, can boost immunity against COVID-19."
-        },
-        {
-            "link": "https://www.9news.com.au/world/coronavirus-antibody-test-could-soon-be-available/34216e0a-ceac-492b-953c-32d74cb0f8e2",
-            "title": "Antibody tests for the novel coronavirus could be available within 'a week or so'",
-            "source": "9News",
-            "date": "11 April 2020",
-            "time": "03:23",
-            "summary": "Antibody tests that would verify whether a person recently had the novel coronavirus could be available within a week, according to the America's top infectious disease expert. Having antibodies to the coronavirus could mean someone is protected from getting re-infected, making such tests important for medical workers and others on the frontlines fighting the pandemic."
         }
     ]
 }

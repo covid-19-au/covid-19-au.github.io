@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-11/trial-to-test-if-tuberculosis-vaccine-boosts-covid-19-immunity/12142230",
+            "title": "Clinical trial to test if tuberculosis vaccine can be used to boost immunity against COVID-19 ",
+            "source": "ABCNews",
+            "date": "11 April 2020",
+            "time": "23:42",
+            "summary": "Clinical trial for 500 frontline health workers in South Australia will test if the BCG vaccine normally used to combat tuberculosis, can boost immunity against COVID-19."
+        },
+        {
+            "link": "https://www.9news.com.au/world/coronavirus-antibody-test-could-soon-be-available/34216e0a-ceac-492b-953c-32d74cb0f8e2",
+            "title": "Antibody tests for the novel coronavirus could be available within 'a week or so'",
+            "source": "9News",
+            "date": "11 April 2020",
+            "time": "03:23",
+            "summary": "Antibody tests that would verify whether a person recently had the novel coronavirus could be available within a week, according to the America's top infectious disease expert. Having antibodies to the coronavirus could mean someone is protected from getting re-infected, making such tests important for medical workers and others on the frontlines fighting the pandemic."
+        },
+        {
             "link": "https://www.smh.com.au/national/stop-looking-for-loopholes-what-are-the-new-covid-19-social-rules-20200407-p54hyd.html ",
             "title": "'Stop looking for loopholes': What are the new COVID-19 social rules?",
             "source": "TheSydneyMorningHerald",
