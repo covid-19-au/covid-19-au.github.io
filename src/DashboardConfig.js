@@ -69,8 +69,10 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
 
     let dashboardItemsLandscape = [
         <Grid container spacing={2} justify="center" wrap="wrap">
-
-            <Grid item xs={4} className="removePadding">
+            <Grid item xs={12} className="removePadding">
+                <Header province={province} />
+            </Grid>
+            <Grid item xs={11} className="removePadding">
 
                 <Stat
                     {...{ ...all, ...overall }}
@@ -78,23 +80,33 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
                     data={myData}
                     countryData={country}
                 />
-                <Suspense fallback={<div className="loading">Loading...</div>}>
-                    <GoogleMap
-                        province={province}
-                        data={inputData}
-                        onClick={name => {
-                            const p = provincesByName[name];
-                            if (p) {
-                                setProvince(p);
-                            }
-                        }}
-                        newData={myData}
-                    />
-                </Suspense>
+
+
 
             </Grid>
-            <Grid item xs={6} >
+        </Grid>,
+        <Grid container spacing={1} justify="center" wrap="wrap">
+            <Grid item xs={12} className="removePadding">
                 <Header province={province} />
+            </Grid>
+            <Grid item xs={6} >
+                <div className="card">
+                    <Suspense fallback={<div className="loading">Loading...</div>}>
+                        <GoogleMap
+                            province={province}
+                            data={inputData}
+                            onClick={name => {
+                                const p = provincesByName[name];
+                                if (p) {
+                                    setProvince(p);
+                                }
+                            }}
+                            newData={myData}
+                        />
+                    </Suspense>
+                </div>
+            </Grid>
+            <Grid item xs={6} >
                 <Suspense fallback={<div className="loading">Loading...</div>}>
                     <div className="card">
                         <h2>Detailed State Data</h2>
@@ -102,7 +114,6 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
                     </div>
                 </Suspense>
             </Grid>
-
         </Grid>,
         <div style={{ flexGrow: 1 }}>
             <Grid container spacing={1} justify="center" wrap="wrap">

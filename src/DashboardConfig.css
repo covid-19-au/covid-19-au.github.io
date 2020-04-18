@@ -29,6 +29,9 @@
 .number {
     font-size: 2rem
   }
+  .increase{
+    font-size: 1.5rem;
+  }
 }
 @media only screen and (orientation: landscape){
   .confirmed,
@@ -40,7 +43,7 @@
       font-size: 1.9rem
   }
   .area{
-    font-size: 1.8rem
+    font-size: 1.7rem
   }
   .area.header,
   .death.header,
@@ -55,12 +58,18 @@
     font-size: 1.5rem;
     }
 .hoverButton {
-    font-size: 1.3rem
+    font-size: 2rem
   }
 .dailyUpdateHeader{
-    font-size: 1.6rem
+    font-size: 2rem
   }
 .number {
-    font-size: 2rem
+    font-size: 2.7rem
+  }
+  .increase{
+    font-size: 2rem;
+  }
+  h2{
+    font-size: 3rem;
   }
 }
