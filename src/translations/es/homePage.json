@@ -37,6 +37,7 @@
     "note": "Hora en AEST, última actualización:",
     "confirmCase": "Casos confirmados",
     "activeCase": "Casos activos",
+    "acitve":"activos",
     "newCase": "Nuevos casos",
     "newCaseWeek": "Nuevos casos esta semana",
     "testConducted": "Tests realizados",

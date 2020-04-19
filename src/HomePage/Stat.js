@@ -497,7 +497,7 @@ export default function Stat({
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                             title="<em>Existing confirmed cases that have not yet recovered.</em>">
-                            {i18next.t("homePage:status.activeCase")}</button>
+                            {i18next.t("homePage:status.active")}</button>
 
                     </Tag>
                 </Grid>

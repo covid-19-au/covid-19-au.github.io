@@ -37,6 +37,7 @@
     "note": "Thời gian theo múi giờ AEST, được cập nhật lần cuối lúc: ",
     "confirmCase": "Ca nhiễm",
     "activeCase": "Đang chữa trị",
+    "active": "Đang chữa trị",
     "newCase": "Ca mới",
     "newCaseWeek": "Ca mới trong tuần",
     "testConducted": "Đã xét nghiệm",

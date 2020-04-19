@@ -36,6 +36,7 @@
     "note": "AEST时间，最近更新时间：",
     "confirmCase": "确诊病例",
     "activeCase": "现存确诊",
+    "active":"现存确诊",
     "newCase": "新确诊病例",
     "newCaseWeek": "本周新病例",
     "testConducted": "已检测",
