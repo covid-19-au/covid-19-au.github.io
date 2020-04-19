@@ -37,7 +37,7 @@
         "casePM":"Cases/M",
         "newCaseWeek":"New Cases This Week",
         "Deaths":"Deaths",
-        "Active":"Active",
+        "active":"Active",
         "Recoveries":"Recovered",
         "testPM":"Tests/M",
         "positiveP":"Positive(%)",

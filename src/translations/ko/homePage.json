@@ -39,6 +39,7 @@
     "note": "마지막 업데이트 AEST 시간, 날짜: ",
     "confirmCase":"Confirmed Cases",
     "activeCase":"Active Cases",
+    "active":"Active",
     "newCase":"New Cases",
     "Cases":"Cases",
     "casePM":"Cases/M",
