@@ -1,4 +1,4 @@
-@media only screen and (orientation: portrait){
+@media only screen and (orientation: portrait) and (min-width: 768px){
   .confirmed,
   .death,
   .cured,
@@ -33,7 +33,8 @@
     font-size: 1.5rem;
   }
 }
-@media only screen and (orientation: landscape){
+
+/*@media only screen and (orientation: landscape) and (min-width: 1080px){
   .confirmed,
   .death,
   .cured,
@@ -72,4 +73,4 @@
   h2{
     font-size: 3rem;
   }
-}
+}*/
