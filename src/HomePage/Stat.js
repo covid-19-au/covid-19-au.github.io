@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Tag from "./Tag";
 import stateCaseData from "../data/stateCaseData";
+
 import Acknowledgement from "../Acknowledgment";
 import todayData from "../data/stateCaseData.json";
 import previousData from "../data/state.json";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 
+// import i18n bundle
+import i18next from '../i18n';
 import Grid from "@material-ui/core/Grid";
+
 /**
  * Method for adding suffix to date
  * @param {int} i date
@@ -84,6 +88,7 @@ function UpdatesToday() {
     if (update === "Tested") {
         currentView = 3
     }
+
 
     if (update === "No New Cases") {
         currentView = 4
@@ -280,7 +285,7 @@ function UpdatesToday() {
             marginTop: '1rem',
             marginBottom: '1rem'
         }} className="dailyUpdateHeader">
-            Daily Update Status <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
+            {i18next.t("homePage:status.updateTitle")} <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                 title="<em>Highlighted states have updated selected data today. Click state for details.</em>"><svg className="bi bi-question-circle" width="0.7em" height="0.7em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
@@ -297,7 +302,7 @@ function UpdatesToday() {
                         onClick={() => setUpdate(updateType)}
                         size="small"
                         key={updateType}
-                    >{updateType}</Button>
+                    >{i18next.t("homePage:status."+updateType)}</Button>
                 ))}
             </ButtonGroup>
 
@@ -308,8 +313,8 @@ function UpdatesToday() {
                         href={("./state/" + state).toLowerCase()}
                         style={stateUpdateStatus[state][currentView] ? dataStyles[currentView] : inactiveStyles}
                         key={state}
-                    >{state} </Button>
 
+                    >{i18next.t("homePage:state."+state)} </Button>
                 ))}
             </ButtonGroup>
 
@@ -416,7 +421,7 @@ export default function Stat({
     return (
         <div className="card">
 
-            <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Status {name ? `· ${name}` : false}
+            <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">{i18next.t("homePage:status.title")}{name ? `· ${name}` : false}
                 <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div>
@@ -435,7 +440,7 @@ export default function Stat({
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                             title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>">
-                            Confirmed</button>
+                            {i18next.t("homePage:status.confirm")}</button>
 
                     </Tag>
                 </Grid>
@@ -451,7 +456,7 @@ export default function Stat({
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                             title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>">
-                            Deaths</button>
+                            {i18next.t("homePage:status.Deaths")}</button>
 
                     </Tag>
                 </Grid>
@@ -464,7 +469,7 @@ export default function Stat({
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                             title="<em>Number of people that have recovered from COVID-19.</em>">
-                            Recovered</button>
+                            {i18next.t("homePage:status.Recoveries")}</button>
 
                     </Tag>
                 </Grid>
@@ -477,7 +482,7 @@ export default function Stat({
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                             title="<em>Number of people that have been tested for COVID-19.</em>">
-                            Tested</button>
+                            {i18next.t("homePage:status.Tested")}</button>
 
                     </Tag>
 
@@ -492,7 +497,7 @@ export default function Stat({
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                             title="<em>Existing confirmed cases that have not yet recovered.</em>">
-                            Active</button>
+                            {i18next.t("homePage:status.activeCase")}</button>
 
                     </Tag>
                 </Grid>
@@ -505,7 +510,7 @@ export default function Stat({
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                             title="<em>Number of people in hospital with COVID-19.</em>">
-                            in Hospital</button>
+                            {i18next.t("homePage:status.hospital")}</button>
 
                     </Tag>
                 </Grid>
@@ -518,7 +523,7 @@ export default function Stat({
                     >
                         <button className="hoverButton" data-toggle="tooltip" data-placement="bottom" data-html="true"
                             title="<em>Number of people with COVID-19 in intensive care.</em>">
-                            in ICU</button>
+                            {i18next.t("homePage:status.icu")}</button>
 
                     </Tag></Grid>
 
@@ -528,9 +533,11 @@ export default function Stat({
 
             </Grid>
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}
-                aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}
-                aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
-                Time in AEST, last updated at: {stateCaseData.updatedTime}
+            aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)} 
+            aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
+                {i18next.t("homePage:status.note")}{stateCaseData.updatedTime}
+
+
             </span>
 
 

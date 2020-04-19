@@ -39,7 +39,8 @@ import { useRoutes, A, usePath } from 'hookrouter';
 // import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import ReactGA from "react-ga";
-
+// import i18n bundle
+import i18next from './i18n';
 
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
@@ -65,6 +66,12 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
+
+
+
+
+
+
 
 // This is a custom filter UI for selecting
 // a unique option from a list
@@ -220,6 +227,7 @@ function App() {
   // }
 
   if (myData) {
+
     if (path == "/dashboard") {
       if (window.innerHeight > window.innerWidth) {
         return (
