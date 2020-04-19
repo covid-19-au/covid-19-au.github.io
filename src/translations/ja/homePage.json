@@ -1,25 +1,25 @@
 {
   "misc": {
     "loadingText": "読み込んでいます...",
-    "title": "オーストラリアの新型コロナウイルス（COVID-19）”,
+    "title": "オーストラリアの新型コロナウイルス（COVID-19）",
     "descrip": "リアルタイムのレポート",
-    "slogan": “慌てずに、最新情報を入手しましょう”,
+    "slogan": "慌てずに、最新情報を入手しましょう",
     "onButton": "オン",
     "offButton": "オフ",
     "logScale": "対数目盛："
   },
   "dataAck": {
-    "title": "データに関しての謝辞”,
-    "body1": “このサイトに記載されているデータは公開されており、様々な政府系情報源から入手されています。以下に記載されている全ての組織に感謝しております。”,
-    "source1": "©ニューサウスウェールズ州保健省。最新情報ついては、次のサイトをご覧ください”,
-    "source2": "©クイーンズランド州（クイーンズランドヘルス：”,
-    "source3": "南オーストラリア政府、SAヘルス：”,
-    "source4": "オーストラリア首都特別地域政府、ACTヘルス：”,
-    "source5": "タスマニア州政府：”,
-    "source6": "ビクトリア州政府、保健福祉省：”,
-    "source7": "ノーザンテリトリー政府：”,
+    "title": "データに関しての謝辞",
+    "body1": "このサイトに記載されているデータは公開されており、様々な政府系情報源から入手されています。以下に記載されている全ての組織に感謝しております。",
+    "source1": "©ニューサウスウェールズ州保健省。最新情報ついては、次のサイトをご覧ください",
+    "source2": "©クイーンズランド州（クイーンズランドヘルス：",
+    "source3": "南オーストラリア政府、SAヘルス：",
+    "source4": "オーストラリア首都特別地域政府、ACTヘルス：",
+    "source5": "タスマニア州政府：",
+    "source6": "ビクトリア州政府、保健福祉省：",
+    "source7": "ノーザンテリトリー政府：",
     "source8": "西オーストラリア州政府、保健省",
-    "body2": "私たちは、以上のの組織とはいかなる提携関係を承認しておりません。私たちは、ボランティアチームであり、収集したデータは非営利、教育、報告、研究のみの目的に使用いたします。データが正確であり、偽って、誤って表示されたりしないように注意を払っております。”,
+    "body2": "私たちは、以上のの組織とはいかなる提携関係を承認しておりません。私たちは、ボランティアチームであり、収集したデータは非営利、教育、報告、研究のみの目的に使用いたします。データが正確であり、偽って、誤って表示されたりしないように注意を払っております。",
     "body3": "このWebサイトのユーザーは、それぞれの地方政府および連邦政府と当局に要請された措置と規制を遵守することを強くお勧めします。",
     "body4": "ご不明な点がございましたら、こちらへお問い合わせください",
     "body5": "フィードバックフォーム。",
@@ -28,51 +28,51 @@
     "exitButton": "閉じる"
   },
   "status": {
-    "title": “感染動向”,
+    "title": "感染動向",
     "confirm": "確認済み",
-    "hospital": “入院中”,
+    "hospital": "入院中",
     "icu": "ICU",
-    "updateTitle": "毎日の最新感染動向”,
-    "note": "最終更新日（AEST）：”,
-    "confirmCase": "確認済みの患者数”,
-    "activeCase": “陽性患者数”,
-    "newCase": “新たな患者数”,
-    "newCaseWeek": "今週の新たな患者数”,
-    "testConducted": “検査実施件数”,
+    "updateTitle": "毎日の最新感染動向",
+    "note": "最終更新日（AEST）：",
+    "confirmCase": "確認済みの患者数",
+    "activeCase": "陽性患者数",
+    "newCase": "新たな患者数",
+    "newCaseWeek": "今週の新たな患者数",
+    "testConducted": "検査実施件数",
     "total": "合計",
-    "Cases": “患者数”,
-    "casePM": "百万人ごと患者数”,
-    "Deaths": “死亡人数”,
-    "Recoveries": “退院人数”,
-    "testPM": “百万人ごと検査数”,
-    "positiveP": “陽性率（％）”,
-    "state": “状況”,
-    "Tested": “検査済み"
+    "Cases": "患者数",
+    "casePM": "百万人ごと患者数",
+    "Deaths": "死亡人数",
+    "Recoveries": "退院人数",
+    "testPM": "百万人ごと検査数",
+    "positiveP": "陽性率（％）",
+    "state": "状況",
+    "Tested": "検査済み"
   },
   "caseByState": {
-    "title": "州別の患者数”,
+    "title": "州別の患者数",
     "buttonPrompt": "マップタイプを選択：",
     "append1": "*現在、NSWで退院した患者数に関する一貫したデータソースはありません。退院した患者数の合計は、政府報告書に基づいています。",
     "append2": "* クリックしてください",
-    "append3": "詳細は州名を”　// please flip these two lines (append2 & 3) for the Japanese version as word order is different in Japanese
+    "append3": "詳細は州名を"
   },
   "hospitalCaseMap": {
     "title": "病院と症例マップ",
     "hospitalLegend": "病院またはCOVID-19検査センター",
-    "casesLegend": "7日以上経過した症例”,
-    "confirmedLegend": "最近確認された症例（未完成、尚収集中）”,
-    "note1": "*都市レベルのデータは、ACT、NSW、VICおよびWA、QLDのHHSデータのみ存在します。他の州に関しては未完成です。”,
+    "casesLegend": "7日以上経過した症例",
+    "confirmedLegend": "最近確認された症例（未完成、尚収集中）",
+    "note1": "*都市レベルのデータは、ACT、NSW、VICおよびWA、QLDのHHSデータのみ存在します。他の州に関しては未完成です。",
     "marker": "マーカー："
   },
   "overallTrend": {
-    "title": “症例数、死亡人数と退院人数”
+    "title": "症例数、死亡人数と退院人数"
   },
   "stateComparisons": {
-    "title": “州の間を比較"
+    "title": "州の間を比較"
   },
   "chartCommon": {
-    "clickLegend": "*凡例をクリックするとグラフを追加/削除できます”,
-    "clickPoint": “※データポイントをクリックすると詳細データがご覧いただけます",
+    "clickLegend": "*凡例をクリックするとグラフを追加/削除できます",
+    "clickPoint": "※データポイントをクリックすると詳細データがご覧いただけます",
     "dottedLine": "*点線は新しいデータの取得が不可能だったことを示します"
   },
   "globalChart": {
@@ -81,33 +81,33 @@
     "selectNo": "何も選択しない",
     "updateNotice": "最終更新日：",
     "append0": "* Y軸の各データポイントは、過去7日間に新たに確認された症例の総数です。",
-    "append1": “*次の動画をご覧ください”,
-    "append2": “動画”,
-    "append3": " このグラフに関して詳しいくは”,　// again, word order is an issue here and you have to flip the order to 3 - 2 -1: specifically: このグラプに関して詳しくは、次の動画をご覧ください
+    "append1": "*次の動画をご覧ください",
+    "append2": "動画",
+    "append3": " このグラフに関して詳しいくは",
     "append4": "*情報元："
   },
   "flights": {
     "title": "フライト",
-    "searchButton": “検索”,
+    "searchButton": "検索",
     "searchPlaceholder": "フライト番号、ルート、到着日を入力してください",
     "tableHeader1": "フライト番号",
     "tableHeader2": "航空会社",
     "tableHeader3": "ルート",
     "tableHeader4": "到着",
-    "tableHeader5": “座席番号”
+    "tableHeader5": "座席番号"
   },
   "state": {
     "NSW": "NSW",
     "VIC": "VIC",
-    "QLD": “QLD”,
+    "QLD": "QLD",
     "WA": "WA",
     "SA": "SA",
     "TAS": "TAS",
-    "ACT": “ACT”,
+    "ACT": "ACT",
     "NT": "NT"
   },
   "country": {
-    "AU": “オーストラリア”,
+    "AU": "オーストラリア",
     "Canada": "カナダ",
     "China": "中国",
     "Denmark": "デンマーク",
@@ -117,13 +117,13 @@
     "Italy": "イタリア",
     "Japan": "日本",
     "South Korea": "韓国",
-    "NZ": “ニュージーランド”,
+    "NZ": "ニュージーランド",
     "Norway": "ノルウェー",
     "Singapore": "シンガポール",
     "Spain": "スペイン",
     "Sweden": "スウェーデン",
     "Switzerland": "スイス",
     "UK": "イギリス",
-    "US": “アメリカ”
+    "US": "アメリカ"
   }
 }
