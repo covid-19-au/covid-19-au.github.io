@@ -3,19 +3,23 @@
         {
             "image": [
                 {
-                    "imgLink": "https://static.rmf.pl/rmf_classic/static/00740/94e9c-1915052d15.jpg",
-                    "source": "https://sparkchronicles.com/the-global-concert-devoted-to-the-health-workers-in-the-fight-against-the-pandemic-covid-19/"
+                    "imgLink": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Study_%2816840395246%29.jpg/800px-Study_%2816840395246%29.jpg",
+                    "source": "https://commons.wikimedia.org/wiki/File:Study_(16840395246).jpg"
                 }
             ],
             "video": [],
-            "title": "One World: Together At Home",
-            "content": "<p>Yesterday, Lady Gaga and a number of other artists teamed up to deliver a global broadcast to support frontline healthcare workers and the World Health Organization. If you missed it, you can still catch a replay today!</p><ul><li>Channel 10: 10am-12pm</li><li>MTV Music Australia/New Zealand, MTV Australia, MTV New Zealand, MTV Dance Australia : 6pm-8pm</li><li>Sunrise, Weekend Sunrise, The Morning Show, The Daily Edition, 7Plus: 10am-12pm</li></ul><p>There is also more to explore at their website below, including a pledge you can take as a Global Citizen to stay home and reduce the spread of the virus!</p>",
+            "title": "Yale University's Science of Well-Being' Course is now free on Coursera!",
+            "content": "<p>The course is taught by Yale psychology professor Laurie Santos. She will guide you through how people think about their own well-being and teach you to implement that knowledge in your own life.</p><p>The course contains 10 weeks of material with about 2-3 hours of readings and videos per week. Since it is online, you could even speed through it over a weekend or two!</p><p>Check it out at the link below!</p>",
             "type": "motivation",
             "date": "19/4/2020",
             "citation": [
                 {
-                    "link": "https://www.globalcitizen.org/en/connect/togetherathome/",
-                    "name": "One World: Together At Home - Global Citizen"
+                    "link": "https://www.coursera.org/learn/the-science-of-well-being",
+                    "name": "The Science of Well-Being - Coursera"
+                },
+                {
+                    "link": "https://www.mentalfloss.com/article/611600/yale-science-of-well-being-online-course-free",
+                    "name": "Yale Is Offering Its 'Science of Well-Being' Course for Free Online - Mental Floss"
                 }
             ]
         }
