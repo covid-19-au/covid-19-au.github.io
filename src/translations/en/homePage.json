@@ -37,6 +37,7 @@
         "casePM":"Cases/M",
         "newCaseWeek":"New Cases This Week",
         "Deaths":"Deaths",
+        "Active":"Active",
         "Recoveries":"Recovered",
         "testPM":"Tests/M",
         "positiveP":"Positive(%)",
@@ -47,7 +48,8 @@
         "testConducted":"Tests Conducted",
         "total":"Total",
         "updateTitle":"Daily Update Status ",
-        "note":"Time in AEST, last updated at: "
+        "note":"Time in AEST, last updated at: ",
+        "No New Cases":"No New Cases"
     },
     "caseByState":{
         "title":"Case by State",
@@ -127,7 +129,8 @@
         "Sweden":"Sweden",
         "Switzerland":"Switzerland",
         "UK":"UK",
-        "US":"US"
+        "US":"US",
+        "India":"India"
     }
 
 }

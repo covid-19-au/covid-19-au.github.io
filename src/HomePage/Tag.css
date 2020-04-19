@@ -6,13 +6,12 @@
   text-align: center;
   color: #888;
   flex: 1;
-  margin: 5px;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  width: 100%;
   
 }
 
 .number {
-  /*color: #f60;*/
+  font-size: 1.2rem;
+  font-weight: 600;
 
 }

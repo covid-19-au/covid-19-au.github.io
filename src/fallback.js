@@ -71,10 +71,12 @@ function Fallback(props) {
 
             <div>
                 This site is developed by a{" "}
-                <a href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md">
-                    volunteer team
-                </a>{" "}
-                , for non-commercial use only.
+                <a style={{color:'blue'}} href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md" target="_blank" rel="noopener noreferrer">
+                    <u>volunteer team</u>
+                </a>
+                , for non-commercial use only. Support our <a style={{color:'blue'}} href="https://covid19onlinesurvey.org" target="_blank" rel="noopener noreferrer">
+                <u>research</u>
+            </a>.
             </div>
 
             <div>
@@ -84,7 +86,7 @@ function Fallback(props) {
             <div>
                 We also acknowledge the efforts of doctors, nurses, and other healthcare professionals, in fight against this pandemic.
             </div>
-
+            <div>The translation is just a beta version. Please be aware that there may be mistranslations.</div>
             <div>
                 <svg className="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />

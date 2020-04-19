@@ -32,6 +32,7 @@
     "confirm": "Ca nhiễm",
     "hospital": "Nằm viện",
     "icu": "ICU",
+    "No New Cases":"No New Cases",
     "updateTitle": "Nguồn ca trong ngày",
     "note": "Thời gian theo múi giờ AEST, được cập nhật lần cuối lúc: ",
     "confirmCase": "Ca nhiễm",
@@ -124,6 +125,7 @@
     "Sweden": "Thụy Điển",
     "Switzerland": "Thụy Sĩ",
     "UK": "Anh",
-    "US": "Mỹ"
+    "US": "Mỹ",
+    "India":"Ấn Độ"
   }
 }

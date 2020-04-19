@@ -19,8 +19,8 @@ This site accumulates the information from different resources including:
 
 - Then contact Han to grab an API access token for dev environment
 
-> - `cd` to the root, and create an `env` file by `touch .env`
-> - copy the token to this file
+> - `cd` to the root, and create an `env` file
+>   -  `echo 'REACT_APP_MAP_API=your_api_key' > .env.development.local`
 
 - run `npm start`, then everything should be up.
 
@@ -77,7 +77,15 @@ This site is developed and maintained by a volunteer team:
 * Yaoye Lu
 * Tuan Khoi Nguyen
 * Oscar Morrisono
+* Karl
 
+### Multi-language supporters
+* Marcel
+* Tuan Khoi Nguyen
+* Peichuan Liu
+* Yupei Guo
+* Jiwon Ryu
+* Pat L
 
 
 ## Call for features

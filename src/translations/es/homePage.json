@@ -29,6 +29,7 @@
   },
   "status": {
     "title": "Estado",
+    "No New Cases":"No New Cases",
     "confirm": "Confirmado",
     "hospital": "en el hospital",
     "icu": "en la UCI",
@@ -124,6 +125,7 @@
     "Sweden": "Suecia",
     "Switzerland": "Suiza",
     "UK": "Reino Unido",
-    "US": "NOSOTROS"
+    "US": "NOSOTROS",
+    "India":"India"
   }
 }

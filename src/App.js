@@ -32,8 +32,10 @@ import "./App.css";
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 
+import DashboardConfig from "./DashboardConfig"
+
 // routes
-import { useRoutes, A } from 'hookrouter';
+import { useRoutes, A, usePath } from 'hookrouter';
 // import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import ReactGA from "react-ga";
@@ -47,13 +49,13 @@ import NewsTimeline from "./NewsTimeline";
 import { useTable, useFilters, useGlobalFilter, usePagination } from 'react-table'
 
 import stateCaseData from "./data/stateCaseData";
-import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Alert, AlertTitle } from '@material-ui/lab';
-
+import Header from './Header';
+import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
 
 
 dayjs.extend(relativeTime);
@@ -64,94 +66,6 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
-
-
-function Header({ province }) {
-
-  const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
-
-  const setModalVisibility = state => {
-    setShowSocialMediaIcons(state);
-  };
-
-  const changeLanguage = code => e => {
-    localStorage.setItem('language', code);
-    window.location.reload();
-  };
-
-  return (
-    <header>
-
-
-      <div className="bg"></div>
-      <h1
-        style={{
-          fontSize: "170%",
-          color: "white",
-          textAlign: "center",
-          fontWeight: "bold"
-        }}
-      >
-        {i18next.t("homePage:misc.title")}
-      </h1>
-      <h1
-        style={{
-          fontSize: "160%",
-          color: "white",
-          textAlign: "center",
-          fontWeight: "bold"
-        }}
-      >
-        {i18next.t("homePage:misc.descrip")}
-
-      </h1>
-
-      <div className="slogan"><i>{i18next.t("homePage:misc.slogan")}</i></div>
-
-      <div style={{
-        fontSize: "120%",
-        color: "white",
-        textAlign: "center",
-        marginTop: "1rem"
-      }}>
-        <SocialMediaShareModal
-          visible={showSocialMediaIcons}
-          onCancel={() => setShowSocialMediaIcons(false)}
-        />
-        <a onClick={() => {
-          ReactGA.event({ category: 'Header', action: "share" });
-          setModalVisibility(true)
-        }}><i className="fas fa-share-alt"></i></a>
-        <a style={{ marginLeft: '0.5rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "twitter" }) }} href="https://twitter.com/covid19augithub"><i className="fab fa-twitter"></i></a>
-        <a style={{ marginLeft: '0.5rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "instagram" }) }} href="https://www.instagram.com/covid19_au/"><i className="fab fa-instagram"></i></a>
-        <a style={{ marginLeft: '0.5rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }} href="https://www.facebook.com/covid19au.github/"><i className="fab fa-facebook"></i></a>
-        <div className="dropdown">
-          <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "transparent", border: "none", outline: "none" }}>
-            {i18next.t("nav:lang")}
-          </button>
-          <div className="dropdown-menu" >
-            <a className="dropdown-item" onClick={changeLanguage('en')}>English</a>
-            <div className="dropdown-divider"></div>
-            <a className="dropdown-item" onClick={changeLanguage('es')}>Español</a>
-            <div className="dropdown-divider"></div>
-            <a className="dropdown-item" onClick={changeLanguage('vi')}>Tiếng Việt</a>
-            <div className="dropdown-divider"></div>
-            <a className="dropdown-item" onClick={changeLanguage('zh')}>简体中文</a>
-            <div className="dropdown-divider"></div>
-            <a className="dropdown-item" onClick={changeLanguage('tw')}>繁體中文</a>
-            <div className="dropdown-divider"></div>
-            <a className="dropdown-item" onClick={changeLanguage('ko')}>한국어</a>
-            <div className="dropdown-divider"></div>
-            <a className="dropdown-item" onClick={changeLanguage('ja')}>日本語</a>
-          </div>
-        </div>
-      </div>
-
-      {/*<i>By Students from Monash</i>*/}
-    </header>
-  );
-}
 
 
 
@@ -281,10 +195,10 @@ function App() {
   const [nav, setNav] = useState("Home");
   // This is used to set the state of the page for navbar CSS styling.
   const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
-
   const setModalVisibility = state => {
     setShowSocialMediaIcons(state);
   };
+
   // // Set the routes for each page and pass in props.
   const routes = {
     "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
@@ -300,53 +214,130 @@ function App() {
     "/state/wa": () => <StateChart state="WA" />,
     "/state/nt": () => <StateChart state="NT" />,
     "/state/tas": () => <StateChart state="TAS" />,
+    "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={overall} inputData={data} setProvince={setProvince} area={area} />
   };
   //
   // // The hook used to render the routes.
   const routeResult = useRoutes(routes);
   // const [urlPath, setUrlPath] = useState(window.location.pathname);
+  const path = usePath()
+
+  // if (path == "/dashboard") {
+  //   require('./DashboardConfig.css');
+  // }
+
   if (myData) {
-    return (
 
-      <div>
-        <SocialMediaShareModal
-          visible={showSocialMediaIcons}
-          onCancel={() => setShowSocialMediaIcons(false)}
-        />
-        <Grid container spacing={gspace} justify="center" wrap="wrap">
-          <Grid item xs={12} className="removePadding">
-            <Header province={province} />
-          </Grid>
-          <Grid item xs={12} className="removePadding">
-            <Navbar setNav={setNav} nav={nav} />
-            {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
-          </Grid>
-          {/*{nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}*/}
-          {/*{nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}*/}
-          {/*{nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}*/}
-          {/*{nav === "About" ? <FAQPage /> : ""}*/}
-          {/* routeResult renders the routes onto this area of the app function.
+    if (path == "/dashboard") {
+      if (window.innerHeight > window.innerWidth) {
+        return (
+          <div style={{ maxHeight: window.innerHeight }}>
+            <SocialMediaShareModal
+              visible={showSocialMediaIcons}
+              onCancel={() => setShowSocialMediaIcons(false)}
+            />
+            <Grid container spacing={gspace} justify="center" wrap="wrap">
+              <Grid item xs={12} className="removePadding">
+                <Header province={province} />
+              </Grid>
+              {routeResult}
+            </Grid>
+          </div >
+        )
+      }
+      else {
+        return (
+          <div style={{ maxHeight: window.innerHeight }}>
+            <SocialMediaShareModal
+              visible={showSocialMediaIcons}
+              onCancel={() => setShowSocialMediaIcons(false)}
+            />
+            <Grid container spacing={gspace} justify="center" wrap="wrap">
+              {routeResult}
+            </Grid>
+          </div >
+
+        )
+      }
+    }
+    else {
+      return (
+
+        <div>
+          <SocialMediaShareModal
+            visible={showSocialMediaIcons}
+            onCancel={() => setShowSocialMediaIcons(false)}
+          />
+          <Grid container spacing={gspace} justify="center" wrap="wrap">
+            <Grid item xs={12} className="removePadding">
+              <Header province={province} />
+            </Grid>
+              {window.location.href==="http://localhost:3008/"||window.location.href==="http://covid-19-au.com/"||window.location.href==="https://covid-19-au.com/"?
+                  <Alert style={{width:'100%'}} severity="info">
+                      {/*<AlertTitle><strong>Important!!</strong></AlertTitle>*/}
+                      {window.innerWidth>'576'?
+                          <p style={{fontSize: "0.85rem"}} className="card-text">To improve our site, we are working
+                              with researchers from Monash University and Rochester Institute of Technology, to
+                              investigate how our users seek information about COVID-19. We would be very grateful, if
+                              you could fill in this&nbsp;<a target="_blank" rel="noopener noreferrer"
+                                                             href="https://docs.google.com/forms/d/e/1FAIpQLSdPMLY_4M6HVBCGbFqDVbfcoKcuM5fUeDpPR77Xc_nhBp9vZA/viewform?usp=sf_link"
+                                                             onClick={() => ReactGA.event({
+                                                                 category: 'infoBar',
+                                                                 action: "survey"
+                                                             })}><u><strong>10-min survey</strong></u></a>. <br/>The
+                              survey results will eventually be released at <a target="_blank" rel="noopener noreferrer"
+                                                                               href="https://covid19onlinesurvey.org"
+                                                                               onClick={() => ReactGA.event({
+                                                                                   category: 'infoBar',
+                                                                                   action: "visitSite"
+                                                                               })}><u>https://covid19onlinesurvey.org</u></a>
+                          </p>:<p style={{fontSize: "0.85rem"}} className="card-text">How do you seek COVID-19 information?
+                              Please fill in this&nbsp;<a target="_blank" rel="noopener noreferrer"
+                                                             href="https://docs.google.com/forms/d/e/1FAIpQLSdPMLY_4M6HVBCGbFqDVbfcoKcuM5fUeDpPR77Xc_nhBp9vZA/viewform?usp=sf_link"
+                                                             onClick={() => ReactGA.event({
+                                                                 category: 'infoBar',
+                                                                 action: "survey"
+                                                             })}><u><strong>10-min survey</strong></u></a>&nbsp;to help us improve this site. More details can be seen at <a target="_blank" rel="noopener noreferrer"
+                                                                               href="https://covid19onlinesurvey.org"
+                                                                               onClick={() => ReactGA.event({
+                                                                                   category: 'infoBar',
+                                                                                   action: "visitSite"
+                                                                               })}><u>covid19onlinesurvey.org</u>.</a>
+                          </p>
+
+                      }
+                  </Alert>:<div />}
+            <Grid item xs={12} className="removePadding">
+              <Navbar setNav={setNav} nav={nav} />
+              {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
+            </Grid>
+            {/*{nav === "Home" ? <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} /> : ""}*/}
+            {/*{nav === "Info" ? <InfoPage nav={nav} columns={columns} gspace={gspace} /> : ""}*/}
+            {/*{nav === "News" ? <NewsPage province={province} gspace={gspace} nav={nav} /> : ""}*/}
+            {/*{nav === "About" ? <FAQPage /> : ""}*/}
+            {/* routeResult renders the routes onto this area of the app function.
           E.g. if routeResult is moved to the navBar, the pages will render inside the navbar. */}
-          {routeResult}
-          {/*<Switch>*/}
-          {/*<Route path="/" render={() => (*/}
-          {/*<HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />*/}
-          {/*)} exact/>*/}
-          {/*<Route path="/info" render={() => (*/}
-          {/*<InfoPage columns={columns} />*/}
-          {/*)} exact/>*/}
-          {/*<Route path="/news" render={() => (*/}
-          {/*<NewsPage province={province} gspace={gspace}/>*/}
-          {/*)} exact/>*/}
-          {/*<Route path="/faq" component={FAQPage} exact/>*/}
-          {/*</Switch>*/}
-          <Grid item xs={11}>
-            <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
+            {routeResult}
+            {/*<Switch>*/}
+            {/*<Route path="/" render={() => (*/}
+            {/*<HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />*/}
+            {/*)} exact/>*/}
+            {/*<Route path="/info" render={() => (*/}
+            {/*<InfoPage columns={columns} />*/}
+            {/*)} exact/>*/}
+            {/*<Route path="/news" render={() => (*/}
+            {/*<NewsPage province={province} gspace={gspace}/>*/}
+            {/*)} exact/>*/}
+            {/*<Route path="/faq" component={FAQPage} exact/>*/}
+            {/*</Switch>*/}
+            <Grid item xs={11}>
+              <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
+            </Grid>
           </Grid>
-        </Grid>
-      </div>
+        </div >
 
-    );
+      );
+    }
   }
   return null;
 }

@@ -3,18 +3,21 @@
         {
             "image": [
                 {
-                    "name": "Genetic Network Analysis of COVID-19",
-                    "imgLink": "https://www.pnas.org/content/pnas/early/2020/04/07/2004999117/F1.large.jpg",
-                    "description": "COVID-19: genetic network analysis provides ‘snapshot’ of pandemic origins and could be used to help identify undocumented infection sources..",
-                    "source": "https://www.cam.ac.uk/research/news/covid-19-genetic-network-analysis-provides-snapshot-of-pandemic-origins?from=timeline&isappinstalled=0"
+                    "imgLink": "https://static.rmf.pl/rmf_classic/static/00740/94e9c-1915052d15.jpg",
+                    "source": "https://sparkchronicles.com/the-global-concert-devoted-to-the-health-workers-in-the-fight-against-the-pandemic-covid-19/"
                 }
             ],
             "video": [],
-            "title": "",
-            "source": "",
-            "content": "",
-            "type": "distraction",
-            "date": "13/4/2020"
+            "title": "One World: Together At Home",
+            "content": "<p>Yesterday, Lady Gaga and a number of other artists teamed up to deliver a global broadcast to support frontline healthcare workers and the World Health Organization. If you missed it, you can still catch a replay today!</p><ul><li>Channel 10: 10am-12pm</li><li>MTV Music Australia/New Zealand, MTV Australia, MTV New Zealand, MTV Dance Australia : 6pm-8pm</li><li>Sunrise, Weekend Sunrise, The Morning Show, The Daily Edition, 7Plus: 10am-12pm</li></ul><p>There is also more to explore at their website below, including a pledge you can take as a Global Citizen to stay home and reduce the spread of the virus!</p>",
+            "type": "motivation",
+            "date": "19/4/2020",
+            "citation": [
+                {
+                    "link": "https://www.globalcitizen.org/en/connect/togetherathome/",
+                    "name": "One World: Together At Home - Global Citizen"
+                }
+            ]
         }
     ]
 }

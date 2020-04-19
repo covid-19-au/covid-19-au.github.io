@@ -43,6 +43,7 @@
     "Cases": "确诊",
     "casePM": "确诊/ 百万人",
     "Deaths": "死亡",
+    "No New Cases":"无新增",
     "Recoveries": "治愈",
     "testPM": "检测/ 百万人",
     "positiveP": "测试确诊率（％）",
@@ -124,6 +125,7 @@
     "Sweden": "瑞典",
     "Switzerland": "瑞士",
     "UK": "英国",
-    "US": "美国"
+    "US": "美国",
+    "India": "印度"
   }
 }

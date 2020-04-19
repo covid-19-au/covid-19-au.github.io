@@ -28,6 +28,9 @@ class EChartglobalLog extends Component {
             Germany: {
                 backgroundColor: '#f9d649'
             },
+            India: {
+                backgroundColor: '#f19d49'
+            },
             Iran: {
                 backgroundColor: '#79d9b4'
             },
@@ -105,7 +108,8 @@ class EChartglobalLog extends Component {
                 'Iran': false,
                 'Spain': false,
                 'Germany': false,
-                'South Korea': false
+                'South Korea': false,
+                'India': false
             }
         }
     }
@@ -156,7 +160,7 @@ class EChartglobalLog extends Component {
 
     // Filter the countries to the ones we want
     filterCountries = (country) => {
-        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan", "New Zealand"];
+        const viableCountries = ["\"Korea", "Australia", "Italy", "Iran", "Spain", "US", "Switzerland", "France", "Germany", "United Kingdom", "Hong Kong", "Canada", "China", "Norway", "Denmark", "Sweden", "Singapore", "Japan", "New Zealand", "India"];
         if (viableCountries.includes(country)) {
             return true;
         }
@@ -288,6 +292,7 @@ class EChartglobalLog extends Component {
         this.setState({selected:selectAll});
     }
     onSelectAllClick = () => {
+
         this.changeAllState(true);
     }
 
@@ -300,7 +305,7 @@ class EChartglobalLog extends Component {
         let echarts_instance = this.chartReference.getEchartsInstance();
         echarts_instance.on('legendselectchanged', function (props) {
             ReactGA.initialize("UA-160673543-1");
-            ReactGA.event({ category: 'globalChart', action: props.name,label: props.selected[props.name]?'true':'false'})
+            ReactGA.event({ category: 'globalChart', action: props.name, label: props.selected[props.name] ? 'true' : 'false' })
 
         });
     }
@@ -324,7 +329,7 @@ class EChartglobalLog extends Component {
                         outline: "none"
                     }} onClick={this.onDeselectAllClick}>{i18next.t("homePage:globalChart.selectNo")}</Button>
                 </ButtonGroup>
-                <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
+                <ReactEcharts style={{ minHeight: "500px" }}
                     ref={(e) => { this.chartReference = e; }}
                     lazyUpdate={true}
                     option={{

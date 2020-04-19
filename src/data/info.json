@@ -272,7 +272,7 @@
                     "If you meet any of these criteria, your doctor can request you are tested for COVID-19. It is important to remember that many people with symptoms similar to COVID-19 will not have the virus. Only suspected cases are tested to ensure our labs are able to cope with the demand. There is no need to test people who feel well and do not meet the criteria above.",
                     "There is a global shortage of testing kits, so that is why testing is targeted rather than widespread.",
                     "It may take a few days for you to get your test results. In this time, if you have serious symptoms, you will be kept in the hospital and isolated from other patients to keep them safe. If your doctor says you are well enough to go home, you should self-isolate at home and take measures to protect yourself and others. ",
-                    "The Government has also decided to allow states and territories to expand their testting criteria as required. Please ensure you check your state's health department's resources."
+                    "The Government has also decided to allow states and territories to expand their testing criteria as required. Please ensure you check your state's health department's resources."
                 ],
                 "citation": [
                     {
@@ -286,6 +286,13 @@
                     {
                         "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
                         "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ],
+                "reference": [
+                    {
+                        "linkText": "here.",
+                        "text": "You can find the testing criteria for each state ",
+                        "link": "stateTesting"
                     }
                 ]
             }
@@ -942,6 +949,243 @@
                 "text_2": [],
                 "numberList_2": [],
                 "citation": []
+            }
+        }
+    ],
+    "stateTesting": [
+        {
+            "name": "New South Wales",
+            "text": {
+                "text_1": [
+                    "To be tested for COVID-19 in NSW, you must be experiencing acute cold or flu-like symptoms and must have returned from overseas, have been in contact withsomeone from overseas or been in contact with a positive case of COVID-19.",
+                    "If you live in an identified hotspot, you may be tested if you are experiencing symptoms such as a fever, running nose, or cough.",
+                    "Testing is recommended for all returning overseas travellers who develop symptoms within 14 days of return, contacts of cases who develop symptoms, people admitted to hospital with severe respiratory infection irrespective of travel history, other special circumstances such as where there is an outbreak of respiratory infections without an identified cause such as flu."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Victoria",
+            "text": {
+                "text_1": [
+                    "Any Victorian with a fever, shortness of breath, cough or sore throat can now be tested for coronavirus."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Queensland",
+            "text": {
+                "text_1": [
+                    "Queensland have announced an expansion of their testing capabilities, allowing anyone with a fever or flu like symptoms to be tested for COVID-19 if there were living in Brisbane, the Gold Coast or Cairns. The three locations were chosen on the basis of increases rates of community transmission.",
+                    "The state's more general testing criteria includes people with a fever or respiratory illness or people living in high-risk locations such as aged care facilities.",
+                    "Aged care or healthcare workers, and those who identify as Aboriginal in a regional or remote community are also eligible for testing."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Western Australia",
+            "text": {
+                "text_1": [
+                    "General public and high-risk staff will be tested if they meet the following criteria:"
+                ],
+                "list_1": [
+                    "presenting with a fever (≥38°C) or a history of a fever in the last few days OR",
+                    "an acute respiratory infection e.g. shortness of breath, cough, sore throat"
+                ],
+                "text_2": [
+                    "Anyone in a high-risk setting where two or more people have either of the above symptoms can get tested.",
+                    "High-risk settings include:"
+                ],
+                "list_2": [
+                    "Aged and residential care",
+                    "Rural and remote Aboriginal communities",
+                    "Detention centres",
+                    "Correctional facilities",
+                    "Boarding schools",
+                    "Military barracks or equivalent",
+                    "Geographically localised areas with increased risk of community transmission",
+                    "Cruise ship passengers or returned travellers (international and domestic)."
+                ],
+                "text_3": [
+                    "This also includes healthcare workers, including aged care and disability workers,and Western Australian Police Officers."
+                ],
+                "citation": [
+                    {
+                        "name": "Coronavirus (COVID-19) Frequently asked questions - Government of Western Australia, Department of Health",
+                        "link": "https://ww2.health.wa.gov.au/~/media/Files/Corporate/general%20documents/Infectious%20diseases/PDF/Coronavirus/coronavirus-faqs.pdf"
+                    },
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "South Australia",
+            "text": {
+                "text_1": [
+                    "To be eligible for testing in South Australia, you must be experiencing symptoms consistent with COVID-19 and have travelled overseas or interstate within the last 14 days or have been in contact with a confirmed case of the virus.",
+                    "If you are an aged care or health care worker, you are also eligible for testing.",
+                    "People with symptoms who have been at Adelaide Airport, Angaston, Nuriootpa, Tanuda, Lyndoch or Williamstown in the past 14 days are also being asked to get tested."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Tasmania",
+            "text": {
+                "text_1": [
+                    "To be eligible for testing in Tasmania, you must be experiencing symptoms consistent with COVID-19 and have travelled overseas or interstate within the last 14 days or have been in contact with a confirmed case of the virus.",
+                    "If you are an aged care or health care worker, you are also eligible for testing.",
+                    "If you live in North West Tasmania and have any respiratory symptoms, you can request a test."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Increased coronavirus testing for North West Tasmania - Sarah Courtney, Minister for Health",
+                        "link": "http://www.premier.tas.gov.au/releases/increased_coronavirus_testing_for_north_west_tasmania"
+                    },
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "17 April 2020"
+            }
+        },
+        {
+            "name": "Northern Territory",
+            "text": {
+                "text_1": [
+                    "To be tested in the Northern Territory, you must be showing symptoms compatible with COVID-19 and fit one of the following criteria:"
+                ],
+                "list_1": [
+                    "You have returned from interstate or overseas in the past 14 days and",
+                    "You have been in close contact with a confirmed case of coronavirus in the last 14 days",
+                    "You have a deVere community-acquired pneumonia and there is no obvious cause",
+                    "You are a health care worker who works directly with COVID-19 patients"
+                ],
+                "text_2": [
+                    "Police, emergency workers, correctional officers, educators, childcare workers, aged care and disability workers and retail pharmacists are also eligible for testing if symptoms develop."
+                ],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Australian Capital Territory",
+            "text": {
+                "text_1": [
+                    "The ACT has random testing at Weston Creek and a drive-through testing clinic at Epic (Exhibition Park in Canberra), where anyone with coronavirus symptoms can get tested.",
+                    "You should also be tested for COVID-19 if:"
+                ],
+                "list_1": [
+                    "You recently travelled overseas or on a cruise ship, and have developed symptoms of COVID-19 within 14 days of returning back to Australia",
+                    "You have been in contact with someone who has confirmed COVID-19 and you develop symptoms of COVID-19 within 14 days of last contact",
+                    "You are a healthcare or aged care worker with recent onset of respiratory symptoms or fever irrespective of travel history.",
+                    "You live in a high-risk setting (such as an aged care or other residential care facility, boarding school, military operational setting, correctional facility or detention centre) and have symptoms of COVID-19.",
+                    "You have a link to a setting where COVID-19 outbreaks have occurred, or have travelled to a geographically localised area within Australia where there is elevated risk of community transmission, and have symptoms of COVID-19."
+                ],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Getting tested - ACT Government",
+                        "link": "https://www.covid19.act.gov.au/protecting-yourself-and-others/getting-tested"
+                    },
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
             }
         }
     ]

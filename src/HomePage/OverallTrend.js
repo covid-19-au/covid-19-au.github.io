@@ -128,7 +128,7 @@ export default function OverallTrend() {
     return (
         <div className="card">
             <h2>{i18next.t("homePage:overallTrend.title")}</h2>
-            <ReactEcharts style={{ height: "400px" }}
+            <ReactEcharts style={{ minHeight: "400px" }}
                 option={
                     {
                         grid: {
@@ -246,7 +246,7 @@ export default function OverallTrend() {
                                 symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
-                                    color: "#ba9bef"
+                                    color: "#f75c8d"
                                 },
                                 data: activeData
                             },

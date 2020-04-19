@@ -36,6 +36,7 @@
     "note": "最終更新日（AEST）：",
     "confirmCase": "確認済みの患者数",
     "activeCase": "陽性患者数",
+    "No New Cases":"今日はない",
     "newCase": "新たな患者数",
     "newCaseWeek": "今週の新たな患者数",
     "testConducted": "検査実施件数",
@@ -124,6 +125,7 @@
     "Sweden": "スウェーデン",
     "Switzerland": "スイス",
     "UK": "イギリス",
-    "US": "アメリカ"
+    "US": "アメリカ",
+    "India": "インド"
   }
 }

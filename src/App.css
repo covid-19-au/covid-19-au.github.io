@@ -59,6 +59,7 @@ header i {
 .confirmed,
 .death,
 .cured,
+.activeCase,
 .flightArea,
 .tested{
   border: 1px solid #fff;
@@ -73,6 +74,7 @@ header i {
   padding: 0.4rem 0;
   position: relative;
   color: #212f3d;
+  font-size:90%;
 }
 .flightArea {
   font-size: 90%;
@@ -108,6 +110,7 @@ header i {
 .confirmed,
 .death,
 .cured,
+.activeCase,
 .tested
 {
   padding: 0.3rem 0;
@@ -117,7 +120,7 @@ header i {
 
 .confirmed {
   color: #ff603c;
-    flex:1.3;
+    flex:1.2;
 }
 
 .confirmed.header {
@@ -127,13 +130,30 @@ header i {
 }
 
 .confirmedtitle {
-  color: #5d1212 !important ;
-  font-size: 90% !important;
+  color: #0d0c0d ;
+  font-size: 90% ;
   font-weight: 500;
+}
+
+.activeCase {
+    color: #f75c8d;
+    flex:0.9;
+}
+.activeCase.header {
+    background-color: #bae1ff;
+    filter: saturate(65%);
+    font-size: 80%;
+}
+
+.activetitle {
+    color: #002a00;
+    font-size: 90% ;
+    font-weight: 500;
 }
 
 .cured {
   color: #00c177;
+    flex:1.2;
 }
 
 .cured.header {
@@ -143,8 +163,8 @@ header i {
 }
 
 .recoveredtitle {
-  color: #002a00 !important ;
-  font-size: 90% !important;
+  color: #0d0c0d ;
+  font-size: 90% ;
   font-weight: 500;
 }
 
@@ -159,13 +179,14 @@ header i {
 }
 
 .testedtitle {
-  color: #332533 !important ;
-  font-size: 90% !important;
+  color: #0d0c0d  ;
+  font-size: 90% ;
   font-weight: 500;
 }
 
 .death {
   color: #c11700;
+    flex:0.8;
 }
 
 .death.header {
@@ -175,13 +196,14 @@ header i {
 }
 
 .deathtitle {
-  color: #332533 !important ;
-  font-size: 90% !important;
+  color: #0d0c0d ;
+  font-size: 90% ;
   font-weight: 500;
 }
 
 .statetitle {
-  font-size: 100% !important;
+  color: #0d0c0d;
+  font-size: 100%;
   font-weight: 500;
 }
 

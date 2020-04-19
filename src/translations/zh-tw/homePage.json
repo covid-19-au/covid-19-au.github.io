@@ -30,6 +30,7 @@
   "status": {
     "title": "當前狀態",
     "confirm": "已確認",
+    "No New Cases":"無新增",
     "hospital": "在醫院",
     "icu": "在ICU中",
     "updateTitle": "每日更新狀態",
@@ -124,6 +125,7 @@
     "Sweden": "瑞典",
     "Switzerland": "瑞士",
     "UK": "英國",
-    "US": "美國"
+    "US": "美國",
+    "India": "印度"
   }
 }
