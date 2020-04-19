@@ -18,6 +18,9 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
 import Acknowledgement from "../Acknowledgment"
+// import i18n bundle
+import i18next from '../i18n';
+
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
 mapboxgl.accessToken = token;
@@ -607,7 +610,7 @@ class MbMap extends React.Component {
                 display: 'flex',
                 flexDirection: 'column',
             }}>
-                <h2 style={{ display: "flex" }} aria-label="Hospital and Case Map">Hospital & Case Map<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+                <h2 style={{ display: "flex" }} aria-label="Hospital and Case Map">{i18next.t("homePage:hospitalCaseMap.title")}<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                     <Acknowledgement>
                     </Acknowledgement></div></h2>
                 <div ref={el => this.mapContainer = el} >
@@ -621,14 +624,14 @@ class MbMap extends React.Component {
                 </div>
 
                 <span className="due">
-                    <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
-                    <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
-                    <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
-                    <span className="Key"><p>*City-level data is only present for <strong>ACT</strong>, <strong>NSW</strong>, <strong>VIC</strong>, and <strong>WA</strong>, HHS Data for <strong>QLD</strong>. Other states are being worked on.</p></span>
+                    <span className="key"><img src={hospitalImg} /><p>{i18next.t("homePage:hospitalCaseMap.hospitalLegend")}</p></span>
+                    <span className="key"><img src={confirmedOldImg} /><p>{i18next.t("homePage:hospitalCaseMap.casesLegend")}</p></span>
+                    <span className="key"><img src={confirmedImg} /><p>{i18next.t("homePage:hospitalCaseMap.confirmedLegend")}</p></span>
+                    <span className="Key"><p>{i18next.t("homePage:hospitalCaseMap.note1")}</p></span>
                     <span className="key" style={{ alignSelf: "flex-end", marginTop: "0.5rem" }}>
-                        Markers:&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
-                            <Button style={this.state.showMarker ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => this.handleClickOn()}>On</Button>
-                            <Button style={this.state.showMarker ? inactiveStyles : activeStyles} onClick={() => this.handleClickOff()}>Off</Button>
+                    {i18next.t("homePage:hospitalCaseMap.marker")}&nbsp;<ButtonGroup size="small" aria-label="small outlined button group">
+                            <Button style={this.state.showMarker ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => this.handleClickOn()}>{i18next.t("homePage:misc.onButton")}</Button>
+                            <Button style={this.state.showMarker ? inactiveStyles : activeStyles} onClick={() => this.handleClickOff()}>{i18next.t("homePage:misc.offButton")}</Button>
                         </ButtonGroup>
                     </span>
                 </span>

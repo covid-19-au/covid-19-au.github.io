@@ -540,4 +540,6 @@ h2 small {
     margin-bottom: -10px;
 }
 
-
+.dropdown-item{
+    padding-left: 1rem;
+}

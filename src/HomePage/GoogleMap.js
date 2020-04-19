@@ -10,6 +10,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import RadioGroup from '@material-ui/core/RadioGroup';
 
 import { Chart } from "react-google-charts";
+// import i18n bundle
+import i18next from '../i18n';
 
 function GoogleMap({ province, newData }) {
     // Colour gradients for the map: https://material.io/design/color/#tools-for-picking-colors
@@ -202,31 +204,31 @@ function GoogleMap({ province, newData }) {
     };
 
     return (
-        loading ? <div className="loading">Loading...</div> :
+        loading ? <div className="loading">{i18next.t("homePage:misc.loadingText")}</div> :
             <div className="stateMap">
-                <h2 style={{ display: "flex" }} aria-label="Cases of COVID 19 by state">Cases by State {province ? `· ${province.name}` : false}
+                <h2 style={{ display: "flex" }} aria-label="Cases of COVID 19 by state">{i18next.t("homePage:caseByState.title")}{province ? `· ${province.name}` : false}
                     <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
                         <Acknowledgement>
                         </Acknowledgement></div>
 
                 </h2>
 
-                Select Map Type: &nbsp;
+                {i18next.t("homePage:caseByState.buttonPrompt")}&nbsp;
                 <ButtonGroup aria-label="small outlined button group">
                     <Tooltip title="Confirmed cases so far" arrow>
-                        <Button style={mapType === "confirmed-cases" ? activeStylesRed : inactiveStylesRed} value="confirmed-cases" onClick={() => setMapType("confirmed-cases")}>Cases</Button>
+                        <Button style={mapType === "confirmed-cases" ? activeStylesRed : inactiveStylesRed} value="confirmed-cases" onClick={() => setMapType("confirmed-cases")}>{i18next.t("homePage:status.Cases")}</Button>
                     </Tooltip>
                     <Tooltip title="Confirmed cases per million people" arrow>
-                        <Button style={mapType === "relative-cases" ? activeStylesRed : inactiveStylesRed} value="relative-cases" onClick={() => setMapType("relative-cases")}>Cases/M</Button>
+                        <Button style={mapType === "relative-cases" ? activeStylesRed : inactiveStylesRed} value="relative-cases" onClick={() => setMapType("relative-cases")}>{i18next.t("homePage:status.casePM")}</Button>
                     </Tooltip>
                     <Tooltip title="Tests carried out so far" arrow>
-                        <Button style={mapType === "tested" ? activeStyles : inactiveStyles} value="tested" onClick={() => setMapType("tested")}>Tested</Button>
+                        <Button style={mapType === "tested" ? activeStyles : inactiveStyles} value="tested" onClick={() => setMapType("tested")}>{i18next.t("homePage:status.Tested")}</Button>
                     </Tooltip>
                     <Tooltip title="Tests carried out per million people" arrow>
-                        <Button style={mapType === "relative-tests" ? activeStyles : inactiveStyles} value="relative-tests" onClick={() => setMapType("relative-tests")}>Tests/M</Button>
+                        <Button style={mapType === "relative-tests" ? activeStyles : inactiveStyles} value="relative-tests" onClick={() => setMapType("relative-tests")}>{i18next.t("homePage:status.testPM")}</Button>
                     </Tooltip>
                     <Tooltip title="Percentage of positive test cases" arrow>
-                        <Button style={mapType === "test-strike" ? activeStyles : inactiveStyles} value="test-strike" onClick={() => setMapType("test-strike")}>Positive(%)</Button>
+                        <Button style={mapType === "test-strike" ? activeStyles : inactiveStyles} value="test-strike" onClick={() => setMapType("test-strike")}>{i18next.t("homePage:status.positiveP")}</Button>
                     </Tooltip>
                 </ButtonGroup>
 

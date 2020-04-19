@@ -15,6 +15,8 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import dailyFun from "./data/dailyFun"
 import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
+// import i18n bundle
+import i18next from './i18n';
 import ReactGA from "react-ga";
 import ReactHtmlParser from 'react-html-parser';
 import { A } from 'hookrouter';
@@ -163,9 +165,10 @@ function Information({ hospitalData, columns, gspace }) {
 
             <InfoDrawer></InfoDrawer>
 
+
             <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
                 <div className="card" id="dailyDistractions">
-                    <h2 className="responsiveH2">Daily Distraction</h2>
+                    <h2 className="responsiveH2">{i18next.t("infoPage:dailyDistraction.title")}</h2>
                     {dailyFun.dailyFunStuff.map(stuff => (
                         stuff.type === "motivation" ? (
                             <div key={uuid()}>
@@ -221,7 +224,6 @@ function Information({ hospitalData, columns, gspace }) {
                                                         <a href={i1.source} style={{ color: "#3366BB" }}>{i1.description}</a>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         ))}
                                         {/* Video */}
@@ -234,34 +236,33 @@ function Information({ hospitalData, columns, gspace }) {
                                             </div>
                                         ))}
 
-
                                     </div>
                                 </div>
                             </div>)
                     ))
                     }
 
-                    <p style={{ textAlign: "center" }}>We will be regularly sharing motivating or interesting things in this section as we believe it is good to spread some positivity in times like these!</p>
+                    <p style={{ textAlign: "center" }}>{i18next.t("infoPage:dailyDistraction.body1")}</p>
                     <p style={{ textAlign: "center" }}>Click <A href="/dailyHistory"><span style={{ color: "#3366BB" }} onClick={() => {
                         ReactGA.event({ category: 'DailyStory', action: "more" });
                         window.scrollTo(0, 0);
-                    }}>{"here"}</span></A> for previous posts!</p>
+                    }}>{i18next.t("infoPage:dailyDistraction.link")}</span></A> {i18next.t("infoPage:dailyDistraction.body2")}</p>
                     {/*<p style={{ textAlign: "center" }}>If you have something that you would like us to share, you can click <a style={{ color: "#3366BB" }} target="_blank"*/}
                     {/*rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScPl8U9tILO2wD1xbtkz1pDTW0wBcAlcIb3cnJvnvUahAZEuw/viewform?usp=sf_link">{"me!"}</a> </p>*/}
                 </div>
                 <div className="card" >
-                    <h2 className="responsiveH2" id="media">Informative Media</h2>
+                    <h2 className="responsiveH2" id="media">{i18next.t("infoPage:informativeMedia:title")}</h2>
                     <div className="row centerMedia">
                         <div>
                             <ReactPlayer width="100%" height="100%" alt="Coronavirus explained and how to protect yourself from COVID-19" className="formatMedia" url="http://www.youtube.com/watch?v=BtN-goy9VOY" controls={true} config={{ youtube: { playerVars: { showinfo: 1 } } }} />
-                            <small className="mediaText">The Coronavirus explained and what you should do.</small>
+                            <small className="mediaText">{i18next.t("infoPage:informativeMedia:media1Descrip")}</small>
                         </div>
                     </div>
 
                     <div className="row centerMedia">
                         <div>
                             <ReactPlayer width="100%" height="100%" alt="How to wash hands - Coronavirus / COVID-19" className="formatMedia" url="https://vp.nyt.com/video/2020/03/12/85578_1_HowToWashYourHands_wg_1080p.mp4" playing={true} loop={true} />
-                            <small className="mediaText">How to properly wash your hands.</small> <br />
+                            <small className="mediaText">{i18next.t("infoPage:informativeMedia:media2Descrip")}</small> <br />
                             <small style={{ color: "#3366BB" }}><a target="_blank"
                                 rel="noopener noreferrer"
                                 href={"https://i.dailymail.co.uk/1s/2020/03/03/02/25459132-8067781-image-a-36_1583202968115.jpg"}>{"Here's a step-by-step guide you can save"}</a></small>
@@ -279,13 +280,11 @@ function Information({ hospitalData, columns, gspace }) {
             <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
                 <div className="card" id="general">
 
-
-                    <h2 className="responsiveH2">General Information</h2>
+                    <h2 className="responsiveH2">{i18next.t("infoPage:generalInformation:title")}</h2>
                     {information.generalCovidInfo.map(info => (
                         <div key={uuid()}>
                             <div>
                                 <ExpansionPanel style={{ boxShadow: "none" }} >
-
                                     {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
                         This is so that we can reduce code smell while still retaining the ability to format text.
                         Guide to adding more info points:
@@ -343,7 +342,7 @@ function Information({ hospitalData, columns, gspace }) {
                     ))
                     }</div>
                 <div className="card" id="regulations">
-                    <h2 className="responsiveH2">Current Regulations</h2>
+                    <h2 className="responsiveH2">{i18next.t("infoPage:currentRegulation:title")}</h2>
                     {information.regulations.map(info => (
                         <div key={uuid()}>
                             <div>
@@ -411,7 +410,7 @@ function Information({ hospitalData, columns, gspace }) {
                     ))
                     }</div>
                 <div className="card" id="haveCovid">
-                    <h2 className="responsiveH2">Think you have COVID-19?</h2>
+                    <h2 className="responsiveH2">{i18next.t("infoPage:selfDiagnosis:title")}</h2>
                     {information.haveCovid.map(info => (
                         <div key={uuid()}>
                             <div>
@@ -567,7 +566,7 @@ function Information({ hospitalData, columns, gspace }) {
                     ))
                     }</div>
                 <div className="card" id="protect">
-                    <h2 className="responsiveH2">Protecting Yourself and Others</h2>
+                    <h2 className="responsiveH2">{i18next.t("infoPage:prevention:title")}</h2>
 
                     {information.protect.map(info => (
                         <div key={uuid()}>
@@ -662,7 +661,7 @@ function Information({ hospitalData, columns, gspace }) {
             <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
 
                 <div className="card" id="helplines">
-                    <h2 className="responsiveH2">Helplines</h2>
+                    <h2 className="responsiveH2">{i18next.t("infoPage:coronavirusHelpline:title")}</h2>
 
 
                     {information.helplines.map(info => (
@@ -740,7 +739,7 @@ function Information({ hospitalData, columns, gspace }) {
 
                 </div>
                 <div className="card" id="other">
-                    <h2 className="responsiveH2">Other interesting links to learn about the current situation</h2>
+                    <h2 className="responsiveH2">{i18next.t("infoPage:interestingLinks:title")}</h2>
                     <div className="row alignStyles responsiveText">
                         <div>
                             <ul>
