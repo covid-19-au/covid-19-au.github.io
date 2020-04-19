@@ -484,7 +484,8 @@ class MbMap extends React.Component {
                         </span>
                     </div>
                     <div ref={this.accuracyWarning}>
-                        <p style={{color: 'red'}}>*Case points on map are approximate and identify regions only, not specific addresses.</p>
+                        <p style={{color: 'red'}}>*Cases on map are approximate and
+                            identify regions only, not specific addresses.</p>
                     </div>
                 </span>
             </div>
@@ -1034,7 +1035,7 @@ class JSONGeoBoundariesBase {
                 'id': this.fillPolyId+'heat',
                 'type': 'heatmap',
                 'source': this.fillPolyId+dataSource.getSourceName()+'pointsource',
-                'maxzoom': 9,
+                'maxzoom': 8,
                 'paint': {
                     // Increase the heatmap weight based on frequency and property magnitude
                     'heatmap-weight': [
@@ -1072,19 +1073,19 @@ class JSONGeoBoundariesBase {
                         'interpolate',
                         ['linear'],
                         ['zoom'],
-                        0, ['*', 0.2, ['get', 'cases']],
-                        2, ['*', 0.3, ['get', 'cases']],
-                        4, ['*', 0.5, ['get', 'cases']],
-                        16, ['*', 0.9, ['get', 'cases']]
-                    ]/*,
+                        0, ['^', ['get', 'cases'], 0.6],
+                        2, ['^', ['get', 'cases'], 0.6],
+                        4, ['^', ['get', 'cases'], 0.6],
+                        16, ['^', ['get', 'cases'], 0.6]
+                    ],
                     // Transition from heatmap to circle layer by zoom level
                     'heatmap-opacity': [
                         'interpolate',
                         ['linear'],
                         ['zoom'],
-                        7, 1,
-                        9, 0
-                    ]*/
+                        6, 1,
+                        8, 0
+                    ]
                 }
             }
         );
@@ -1094,7 +1095,7 @@ class JSONGeoBoundariesBase {
                 'id': this.fillPolyId+'heatpoint',
                 'type': 'circle',
                 'source': this.fillPolyId+dataSource.getSourceName()+'pointsource',
-                'minzoom': 7,
+                'minzoom': 6,
                 'paint': {
                     // Size circle radius by value
                     'circle-radius': [
@@ -1114,9 +1115,9 @@ class JSONGeoBoundariesBase {
                         ['linear'],
                         ['get', 'cases'],
                         0, 'rgba(0,0,0,0.0)',
-                        1, 'rgba(178,24,43,0.5)',
-                        5, 'rgba(178,24,43,0.5)',
-                        10, 'rgba(178,24,43,0.6)',
+                        1, 'rgba(178,24,43,0.6)',
+                        5, 'rgba(178,24,43,0.6)',
+                        10, 'rgba(178,24,43,0.7)',
                         50, 'rgba(178,24,43,0.7)',
                         100, 'rgba(178,24,43,0.8)',
                         300, 'rgba(178,24,43,1.0)'
@@ -1126,7 +1127,7 @@ class JSONGeoBoundariesBase {
                         'interpolate',
                         ['linear'],
                         ['zoom'],
-                        7, 0,
+                        6, 0,
                         8, 1
                     ]
                 }
@@ -1175,30 +1176,16 @@ class JSONGeoBoundariesBase {
         geoJSONData['features'].filter(
             (feature) => !!feature['geometry']
         ).map((feature) => {
-            function append(coordinates) {
-                var center = that._findCenter(coordinates),
-                    pointCoord;
 
-                if (that._canPutInCenter(center, coordinates)) {
-                    pointCoord = polylabel(
-                        coordinates, 10.0
-                    );
-                    pointCoord = [
-                        (pointCoord[0]+center[0])/2.0,
-                        (pointCoord[1]+center[1])/2.0
-                    ];
-                }
-                else {
-                    pointCoord = polylabel(
-                        coordinates, 0.5
-                    )
-                }
+            // First, collect as individual polygons,
+            // as we can't work with MultiPolygons
 
+            function collectCoordinates(coordinates) {
                 r["features"].push({
                     "type": "Feature",
                     "geometry": {
-                        "type": "Point",
-                        "coordinates": pointCoord
+                        "type": "Polygon",
+                        "coordinates": coordinates
                     },
                     "properties": feature["properties"]
                 });
@@ -1206,17 +1193,88 @@ class JSONGeoBoundariesBase {
 
             if (feature['geometry']['type'] === 'MultiPolygon') {
                 feature["geometry"]["coordinates"].forEach(
-                    (coordinates) => append(coordinates)
+                    (coordinates) => collectCoordinates(coordinates)
                 );
             }
             else if (feature['geometry']['type'] === 'Polygon') {
-                append(feature["geometry"]["coordinates"]);
+                collectCoordinates(feature["geometry"]["coordinates"]);
             }
             else {
                 throw "Unknown geometry type: " +
                       feature['geometry']['type'];
             }
         });
+
+        // Ignore small islands etc, only adding a
+        // heatmap to the polygons with the largest area
+
+        function filterToOnlyLargestAreas(features) {
+            var areaMap = {};
+
+            for (let i=0; i<features.length; i++) {
+                var feature = features[i],
+                    properties = feature['properties'];
+
+                // WA data HACK!
+                delete properties['lg_ply_pid'];
+                delete properties['id'];
+
+                var area = that._getArea(
+                    feature['geometry']['coordinates']
+                );
+
+                function getUniqueKey(d) {
+                    var r = [];
+                    for (var k in d) {
+                        r.push([k, d[k]])
+                    }
+                    r.sort();
+                    return JSON.stringify(r);
+                }
+
+                var uniqueKey = getUniqueKey(properties); // WARNING!!! =============================================
+
+                if (!(uniqueKey in areaMap) || areaMap[uniqueKey][0] < area) {
+                    areaMap[uniqueKey] = [area, feature];
+                }
+            }
+
+            var r = [];
+            for (var k in areaMap) {
+                // Convert from polygon to a single point
+                areaMap[k][1]['geometry']['type'] = 'Point';
+                areaMap[k][1]['geometry']['coordinates'] = getPointCoord(
+                    areaMap[k][1]['geometry']['coordinates']
+                );
+                r.push(areaMap[k][1])
+            }
+            return r;
+        }
+
+        function getPointCoord(coordinates) {
+            var center = that._findCenter(coordinates),
+                pointCoord;
+
+            if (that._canPutInCenter(center, coordinates)) {
+                pointCoord = polylabel(
+                    coordinates, 10.0
+                );
+                pointCoord = [
+                    (pointCoord[0]+center[0])/2.0,
+                    (pointCoord[1]+center[1])/2.0
+                ];
+            }
+            else {
+                pointCoord = polylabel(
+                    coordinates, 0.5
+                )
+            }
+            return pointCoord;
+        }
+
+        r["features"] = filterToOnlyLargestAreas(
+            r["features"]
+        );
         return r
     }
 
