@@ -38,7 +38,7 @@ export default function HomePage({
 }) {
     return (
         <Grid container spacing={gspace} justify="center" wrap="wrap">
-            <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
+            <Grid item xs={11} sm={11} md={10} lg={5} >
 
 
                 <Stat
@@ -65,16 +65,17 @@ export default function HomePage({
                 </div>
             </Grid>
 
-            <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
+            <Grid item xs={11} sm={11} md={10} lg={5} >
                 <MbMap />
                 <OverallTrend />
-            </Grid>
-            <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
+
                 <StateComparisonChart />
+            </Grid>
+            <Grid item xs={11} sm={11} md={10} lg={5} >
                 <EChartGlobalLog />
             </Grid>
 
-            <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
+            <Grid item xs={11} sm={11} md={10} lg={5} >
                 <Flights flights={flights} />
             </Grid>
 
