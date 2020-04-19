@@ -43,6 +43,39 @@ class MbMap extends React.Component {
 
         this.markersButtonGroup = React.createRef();
         this.underlayButtonGroup = React.createRef();
+
+        this.hospitalMessage = React.createRef();
+        this.totalCasesMessage = React.createRef();
+        this.cityLevelMessage = React.createRef();
+        this.activeCasesMessage = React.createRef();
+        this.accuracyWarning = React.createRef();
+
+        this.messagesForModes = {
+            null: [],
+            'Total': [
+                this.totalCasesMessage,
+                this.cityLevelMessage,
+                this.accuracyWarning
+            ],
+            '7 Days': [
+                this.totalCasesMessage,
+                this.cityLevelMessage,
+                this.accuracyWarning
+            ],
+            '14 Days': [
+                this.totalCasesMessage,
+                this.cityLevelMessage,
+                this.accuracyWarning
+            ],
+            'Active': [
+                this.activeCasesMessage,
+                this.accuracyWarning
+            ],
+            'Hospitals': [
+                this.hospitalMessage,
+                this.accuracyWarning
+            ]
+        }
     }
 
     componentDidMount() {
@@ -183,6 +216,8 @@ class MbMap extends React.Component {
     }
 
     setMarkers(markers) {
+        let that = this;
+
         function enableInsts(dataSource, insts) {
             for (var i=0; i<insts.length; i++) {
                 insts[i].addHeatMap(dataSource);
@@ -190,13 +225,29 @@ class MbMap extends React.Component {
                 insts[i].addFillPoly(dataSource, 0.0);
             }
         }
+        function updateMessages() {
+            let messages = that.messagesForModes[that._markers];
+            for (var j=0; j<messages.length; j++) {
+                messages[j].current.style.display = 'block';
+            }
+        }
         function disableInsts(insts) {
             for (var i=0; i<insts.length; i++) {
                 insts[i].removeHeatMap();
                 insts[i].removeLinePoly();
                 insts[i].removeFillPoly();
+                insts[i].resetPopups();
             }
         }
+        function clearMessages() {
+            for (let key in that.messagesForModes) {
+                let messages = that.messagesForModes[key];
+                for (var j=0; j<messages.length; j++) {
+                    messages[j].current.style.display = 'none';
+                }
+            }
+        }
+        clearMessages();
 
         // Reset since last time
         let m = this._markers;
@@ -248,6 +299,7 @@ class MbMap extends React.Component {
         this.setState({
             _markers: markers
         });
+        updateMessages();
 
         // Change to the new markers mode
         if (markers === null) {
@@ -412,16 +464,29 @@ class MbMap extends React.Component {
                 </div>
 
                 <span className="due">
-                    <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
-                    <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
-                    <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
-                    <span className="Key">
-                        <p>*City-level data is only present for <strong>ACT</strong>, <strong>NSW</strong>,
-                            <strong>VIC</strong>, and <strong>WA</strong>, HHS Data for <strong>QLD</strong>.
-                            Other states are being worked on.</p>
-                    </span>
+                    <div ref={this.hospitalMessage}>
+                        <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
+                    </div>
+                    <div ref={this.totalCasesMessage}>
+                        <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
+                        <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
+                    </div>
+                    <div ref={this.cityLevelMessage}>
+                        <span className="Key">
+                            <p>*City-level data is only present for <strong>ACT</strong>, <strong>NSW</strong>,
+                                <strong>VIC</strong>, and <strong>WA</strong>, HHS Data for <strong>QLD</strong>.
+                                Other states are being worked on.</p>
+                        </span>
+                    </div>
+                    <div ref={this.activeCasesMessage}>
+                        <span className="Key">
+                            <p>*Active cases data has currently only been added for Queensland.</p>
+                        </span>
+                    </div>
+                    <div ref={this.accuracyWarning}>
+                        <p style={{color: 'red'}}>*Case points on map are approximate and identify regions only, not specific addresses.</p>
+                    </div>
                 </span>
-
             </div>
         );
     }
@@ -817,7 +882,7 @@ class JSONGeoBoundariesBase {
             firstHeatmapId
         );
 
-        this._addLinePolyPopupEvent(this.fillPolyId);
+        this._addMapPopupEvent(this.fillPolyId);
     }
 
     removeFillPoly() {
@@ -847,16 +912,20 @@ class JSONGeoBoundariesBase {
             filter: ['==', '$type', 'Polygon']
         });
 
-        this._addLinePolyPopupEvent(this.linePolyId);
+        this._addMapPopupEvent(this.linePolyId);
     }
 
-    _addLinePolyPopupEvent(useID) {
+    resetPopups() {
         if (this.resetPopupEvent) {
             this.resetPopupEvent();
             delete this.resetPopupEvent;
         }
+    }
 
+    _addMapPopupEvent(useID) {
+        this.resetPopups();
         const map = this.map;
+        var popup;
 
         var click = function (e) {
             ReactGA.event({
@@ -878,14 +947,14 @@ class JSONGeoBoundariesBase {
             });
 
             if (timeSeries) {
-                new mapboxgl.Popup()
+                popup = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
                     .setHTML(
                         e.features[0].properties.city +
                         '<br/>Cases: ' + cases +
                         '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + date +
                         '<div id="chartContainer" ' +
-                             'style="width: 200px; height: 100px;"></div>'
+                             'style="width: 200px; min-height: 60px; height: 13vh;"></div>'
                     )
                     .addTo(map);
 
@@ -910,7 +979,7 @@ class JSONGeoBoundariesBase {
                 if (e.features[0].source === 'id_poly_act' && cases === 5) {
                     cases = '< 5'
                 }
-                new mapboxgl.Popup()
+                popup = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
                     .setHTML(
                         e.features[0].properties.city +
@@ -939,6 +1008,11 @@ class JSONGeoBoundariesBase {
             map.off('click', useID, click);
             map.off('mouseenter', useID, mouseEnter);
             map.off('mouseleave', useID, mouseLeave);
+
+            if (popup) {
+                popup.remove();
+                popup = null;
+            }
         }
     }
 
@@ -1096,18 +1170,35 @@ class JSONGeoBoundariesBase {
             "type": "FeatureCollection",
             "features": [/*...*/]
         };
+        var that = this;
+
         geoJSONData['features'].filter(
             (feature) => !!feature['geometry']
         ).map((feature) => {
             function append(coordinates) {
+                var center = that._findCenter(coordinates),
+                    pointCoord;
+
+                if (that._canPutInCenter(center, coordinates)) {
+                    pointCoord = polylabel(
+                        coordinates, 10.0
+                    );
+                    pointCoord = [
+                        (pointCoord[0]+center[0])/2.0,
+                        (pointCoord[1]+center[1])/2.0
+                    ];
+                }
+                else {
+                    pointCoord = polylabel(
+                        coordinates, 0.5
+                    )
+                }
+
                 r["features"].push({
                     "type": "Feature",
                     "geometry": {
                         "type": "Point",
-                        "coordinates": polylabel(
-                            coordinates,
-                            0.1
-                        )
+                        "coordinates": pointCoord
                     },
                     "properties": feature["properties"]
                 });
@@ -1127,6 +1218,74 @@ class JSONGeoBoundariesBase {
             }
         });
         return r
+    }
+
+    _getArea(coordinates) {
+        // Get approximate area of polygons
+        var minX = 999999999999,
+            minY = 999999999999,
+            maxX = -999999999999,
+            maxY = -999999999999;
+
+        for (let i=0; i<coordinates.length; i++) {
+            for (let j=0; j<coordinates[i].length; j++) {
+                let x = coordinates[i][j][0],
+                    y = coordinates[i][j][1];
+
+                if (x > maxX) maxX = x;
+                if (x < minX) minX = x;
+                if (y > maxY) maxY = y;
+                if (y < minY) minY = y;
+            }
+        }
+        return (
+            (maxX - minX) *
+            (maxY - minY)
+        );
+    }
+
+    _findCenter(coordinates) {
+        var minX = 999999999999,
+            minY = 999999999999,
+            maxX = -999999999999,
+            maxY = -999999999999;
+
+        for (let i=0; i<coordinates.length; i++) {
+            for (let j=0; j<coordinates[i].length; j++) {
+                let x = coordinates[i][j][0],
+                    y = coordinates[i][j][1];
+
+                if (x > maxX) maxX = x;
+                if (x < minX) minX = x;
+                if (y > maxY) maxY = y;
+                if (y < minY) minY = y;
+            }
+        }
+
+        var centerX = minX + (maxX-minX) / 2.0,
+            centerY = minY + (maxY-minY) / 2.0;
+        console.log(centerX+' '+centerY)
+        return [centerX, centerY];
+    }
+
+    _canPutInCenter(point, vs) {
+        // ray-casting algorithm based on
+        // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
+        // (MIT license)
+
+        var x = point[0], y = point[1];
+
+        var inside = false;
+        for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+            var xi = vs[i][0], yi = vs[i][1];
+            var xj = vs[j][0], yj = vs[j][1];
+
+            var intersect = ((yi > y) !== (yj > y))
+                && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+            if (intersect) inside = !inside;
+        }
+
+        return inside;
     }
 
     _assignCaseInfoToGeoJSON(geoJSONData, dataSource) {
