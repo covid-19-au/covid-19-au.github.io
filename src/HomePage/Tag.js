@@ -14,14 +14,13 @@ function Tag({ children, number, fColor, increased, typeOfCases }) {
   return (
     <div className="tag" role={"button"} aria-label={getAccessiblityDescription(number, increased, typeOfCases)}>
       {
-        increased > 0 ? <div style={{ fontSize: '80%', display: 'inline-flex' }}><div style={{ color: `${fColor}` }}>+{increased}</div>&nbsp;today</div> : <div style={{ fontSize: '80%', display: 'inline-flex' }}><div>&nbsp;</div>&nbsp;</div>
+        increased > 0 ? <div style={{ fontSize: '80%', display: 'inline-flex' }}><div className="increase" style={{ color: `${fColor}` }}>+{increased}</div>&nbsp;<div className="increase" >today</div></div> : <div style={{ fontSize: '80%', display: 'inline-flex' }}><div>&nbsp;</div>&nbsp;</div>
       }
       {
-        increased < 0 ? <div style={{ fontSize: '80%', display: 'inline-flex' }}><div style={{ color: `${fColor}` }}>{increased}</div>&nbsp;today</div> : <div style={{ fontSize: '80%', display: 'inline-flex' }}><div>&nbsp;</div>&nbsp;</div>
+        increased < 0 ? <div style={{ fontSize: '80%', display: 'inline-flex' }}><div className="increase" style={{ color: `${fColor}` }}>{increased}</div>&nbsp;<div className="increase" >today</div></div> : <div style={{ fontSize: '80%', display: 'inline-flex' }}><div>&nbsp;</div>&nbsp;</div>
       }
       <div style={{
-        color: `${fColor}`, fontSize: '1.2rem',
-        fontWeight: '600'
+        color: `${fColor}`
       }} className="number">
         {number}
       </div>
