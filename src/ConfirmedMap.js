@@ -28,6 +28,57 @@ mapboxgl.accessToken = token;
 
 const oldCaseDays = 14; // Threshold for an 'old case', in days
 
+
+// Various utility functions
+
+function sortedKeys(o) {
+    // Return the keys in `o`, sorting
+    // (case-sensitive)
+    var r = [];
+    for (var k in o) {
+        if (!o.hasOwnProperty(k)) {
+            continue;
+        }
+        r.push(k);
+    }
+    r.sort();
+    return r
+}
+
+function getToday() {
+    // Get today's date, setting the time to
+    // midnight to allow for calculations
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today;
+}
+
+function parseDate(str) {
+    // Convert `str` to a `Date` object
+    // dateString must be dd/mm/yyyy format
+    var mdy = str.split('/');
+    // year, month index, day
+    return new Date(mdy[2], mdy[1]-1, mdy[0]);
+}
+
+function dateDiff(first, second) {
+    // Get the difference in days between
+    // the first and second `Date` instances
+    return Math.round((second-first)/(1000*60*60*24));
+}
+
+function dateDiffFromToday(dateString) {
+    // Get number of days ago from today and
+    // `dateString` in dd/mm/yyyy format
+    // NOTE: returns a *positive* number if
+    // `dateString` is in the past
+    var today = getToday();
+    var dateUpdatedInst = parseDate(dateString).getTime();
+    return dateDiff(dateUpdatedInst, today);
+}
+
+
+
 class MbMap extends React.Component {
     constructor(props) {
         super(props);
@@ -52,6 +103,7 @@ class MbMap extends React.Component {
         this.accuracyWarning = React.createRef();
         this.otherStatsSelect = React.createRef();
         this.otherStatsSelectCont = React.createRef();
+        this.underlayBGCont = React.createRef();
 
         this.messagesForModes = {
             null: [],
@@ -78,10 +130,6 @@ class MbMap extends React.Component {
                 this.hospitalMessage
             ]
         };
-
-        var absSubHeaders = this.absSubHeaders =
-            JSON.parse(JSON.stringify(absStats['sub_headers']));
-        absSubHeaders.sort();
     }
 
     componentDidMount() {
@@ -148,60 +196,57 @@ class MbMap extends React.Component {
                     'totalData', mapDataArea
                 );
                 that.totalData = new TimeSeriesDataSource(
-                    'totalData',
-                    'total',
-                    regionsTimeSeries,
-                    totalData
+                    'totalData', 'total',
+                    regionsTimeSeries, totalData
                 );
                 that.activeData = new TimeSeriesDataSource(
-                    'activeData',
-                    'active',
+                    'activeData', 'active',
                     regionsTimeSeries
                 );
                 that.sevenDaysAgo = new ActiveTimeSeriesDataSource(
-                    'sevenDaysAgo',
-                    'total',
-                    regionsTimeSeries,
-                    7
+                    'sevenDaysAgo', 'total',
+                    regionsTimeSeries, 7
                 );
                 that.fourteenDaysAgo = new ActiveTimeSeriesDataSource(
-                    'fourteenDaysAgo',
-                    'total',
-                    regionsTimeSeries,
-                    14
+                    'fourteenDaysAgo', 'total',
+                    regionsTimeSeries, 14
                 );
 
+                // Create ABS stat instances
                 var absStatsInsts = that.absStatsInsts = {};
-
-                that.absSubHeaders.forEach((key) => {
-                    absStatsInsts[key] = new BigTableOValuesDataSource(
-                        key,
-                        'HEADER',  // TODO!! ======================================================================
-                        key,
-                        absStats
-                    )
-                });
-
-                // TODO: Add a statewide boundaries instance for stats where no LGA/HHS ones exist! ====================
+                for (var heading in absStats) {
+                    var absStatHeading = absStats[heading];
+                    for (var i=0; i<absStatHeading['sub_headers'].length; i++) {
+                        var subHeader = absStatHeading['sub_headers'][i];
+                        absStatsInsts[subHeader] = new BigTableOValuesDataSource(
+                            subHeader, heading, subHeader, absStatHeading
+                        );
+                    }
+                }
 
                 // ACT uses SA3 schema, Queensland uses HHS.
                 // The others use LGA (Local Government Area)
                 that.sa3ACT = new ACTSA3Boundaries(map);
-                that.lgaWA = new WALGABoundaries(map);
+                that.hhsQLD = new QLDHHSGeoBoundaries(map);
+
+                //that.lgaACT = new ACTLGABoundaries(map);    <-- TODO!
                 that.lgaNSW = new NSWLGABoundaries(map);
                 that.lgaVic = new VicLGABoundaries(map);
                 //that.lgaQLD = new QLDLGABoundaries(map);    <-- TODO!
-                that.hhsQLD = new QLDHHSGeoBoundaries(map);
+                that.lgaWA = new WALGABoundaries(map);
+                //that.lgaSA = new SALGABoundaries(map);      <-- TODO!
 
                 function enableControls() {
                     var initialized = true;
                     [
                         that.sa3ACT,
-                        that.lgaWA,
-                        that.lgaNSW,
+                        that.hhsQLD,
+                        //that.lgaACT,
                         that.lgaVic,
-                        that.hhsQLD
-
+                        //that.lgaQLD,
+                        that.lgaWA,
+                        that.lgaNSW
+                        //that.lgaSA,
                     ].forEach(function(inst) {
                         if (!inst.geoJSONData) {
                             initialized = false;
@@ -270,7 +315,9 @@ class MbMap extends React.Component {
                 insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(
                     that.absStatsInsts[that._selectedUnderlay],
-                    that._underlay ? 0.5 : 0
+                    that._underlay ? 0.5 : 0,
+                    true,
+                    true
                 );
             }
         }
@@ -305,11 +352,7 @@ class MbMap extends React.Component {
         }
         else if (m === 'Total') {
             disableInsts([
-                this.sa3ACT,
-                this.lgaNSW,
-                this.lgaVic,
-                this.lgaWA,
-                this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
             ]);
             this.confirmedMarkers.forEach(
                 (marker) => marker.hide()
@@ -317,20 +360,12 @@ class MbMap extends React.Component {
         }
         else if (m === '7 Days') {
             disableInsts([
-                this.sa3ACT,
-                this.lgaNSW,
-                this.lgaVic,
-                this.lgaWA,
-                this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
             ]);
         }
         else if (m === '14 Days') {
             disableInsts([
-                this.sa3ACT,
-                this.lgaNSW,
-                this.lgaVic,
-                this.lgaWA,
-                this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
             ]);
         }
         else if (m === 'Active') {
@@ -339,6 +374,7 @@ class MbMap extends React.Component {
             ]);
         }
         else if (m === 'Hospitals') {
+            this.underlayBGCont.current.style.display = 'block';
             this.hospitalMarkers.forEach(
                 (marker) => marker.hide()
             );
@@ -355,11 +391,7 @@ class MbMap extends React.Component {
         }
         else if (markers === 'Total') {
             enableInsts(this.totalData, [
-                this.sa3ACT,
-                this.lgaNSW,
-                this.lgaVic,
-                this.lgaWA,
-                this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
             ]);
             this.confirmedMarkers.forEach(
                 (marker) => marker.show()
@@ -367,22 +399,14 @@ class MbMap extends React.Component {
         }
         else if (markers === '7 Days') {
             enableInsts(this.sevenDaysAgo, [
-                this.sa3ACT,
-                this.lgaNSW,
-                this.lgaVic,
-                this.lgaWA,
-                this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
             ]);
 
             // TODO: Show recent confirmed markers!!! ==================================================================
         }
         else if (markers === '14 Days') {
             enableInsts(this.fourteenDaysAgo, [
-                this.sa3ACT,
-                this.lgaNSW,
-                this.lgaVic,
-                this.lgaWA,
-                this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
             ]);
 
             // TODO: Show recent confirmed markers!!! ==================================================================
@@ -396,6 +420,7 @@ class MbMap extends React.Component {
             this.lgaNSW.addHeatMap(this.testsData);
         }
         else if (markers === 'Hospitals') {
+            this.underlayBGCont.current.style.display = 'none';
             this.hospitalMarkers.forEach(
                 (marker) => marker.show()
             );
@@ -403,30 +428,6 @@ class MbMap extends React.Component {
         else {
             throw "Unknown marker";
         }
-    }
-
-    showMarkers() {
-        // Turn markers on
-        var all = document.getElementsByClassName("marker");
-        for (var i = 0; i < all.length; i++) {
-            var element = all[i];
-            element.style.visibility = 'visible';
-        }
-        this.setState({
-            showMarker: true
-        })
-    }
-
-    hideMarkers() {
-        // Turn markers off
-        var all = document.getElementsByClassName("marker");
-        for (var i = 0; i < all.length; i++) {
-            var element = all[i];
-            element.style.visibility = 'hidden';
-        }
-        this.setState({
-            showMarker: false
-        })
     }
 
     render() {
@@ -443,6 +444,12 @@ class MbMap extends React.Component {
             padding: "0px 5px",
             outline: "none"
         };
+
+        function outputSelects(heading) {
+            return absStats[heading]['sub_headers'].map((key) => (
+                <option key={key} value={key}>{key}</option>
+            ))
+        }
 
         return (
             <div className="card" style={{
@@ -464,8 +471,8 @@ class MbMap extends React.Component {
                                                    size="small"
                                                    aria-label="small outlined button group"
                                                    style={{ pointerEvents: 'none' }}>
-                            <Button style={this._markers == null ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers(null)}>Off</Button>
+                            {/*<Button style={this._markers == null ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers(null)}>Off</Button>*/}
                             <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers('Total')}>Total</Button>
                             <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
@@ -482,7 +489,7 @@ class MbMap extends React.Component {
                     </span>
                 </div>
 
-                <div>
+                <div ref={this.underlayBGCont}>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
                         Underlay:&nbsp;<ButtonGroup ref={this.underlayButtonGroup}
                                                     size="small"
@@ -503,12 +510,15 @@ class MbMap extends React.Component {
                 </div>
 
                 <div ref={this.otherStatsSelectCont}
-                     className="key" style={{ marginBottom: "0.8rem" }}>
+                     className="key" style={{  }}
+                     style={{ display: 'none', marginBottom: "0.8rem" }}>
                     Other&nbsp;Stat:&nbsp;<select ref={this.otherStatsSelect}
                             style={{'maxWidth': '100%'}}>
-                        {this.absSubHeaders.map((key) => {
-                            return <option key={key} value={key}>{key}</option>;
-                        })}
+                        {sortedKeys(absStats).map((heading) => (
+                            <optgroup label={heading}>
+                                {outputSelects(heading)}
+                            </optgroup>
+                        ))}
                     </select>
                 </div>
 
@@ -523,7 +533,8 @@ class MbMap extends React.Component {
                 </div>
 
                 <span className="due">
-                    <div ref={this.hospitalMessage}>
+                    <div ref={this.hospitalMessage}
+                         style={{ display: 'none' }}>
                         <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
                     </div>
                     <div ref={this.totalCasesMessage}>
@@ -537,7 +548,8 @@ class MbMap extends React.Component {
                                 Other states are being worked on.</p>
                         </span>
                     </div>
-                    <div ref={this.activeCasesMessage}>
+                    <div ref={this.activeCasesMessage}
+                         style={{ display: 'none' }}>
                         <span className="Key">
                             <p>*Active cases data has currently only been added for Queensland.</p>
                         </span>
@@ -722,30 +734,6 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
     }
 }
 
-function getToday() {
-    var today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return today;
-}
-
-function parseDate(str) {
-    // dateString must be dd/mm/yyyy format
-    var mdy = str.split('/');
-    // year, month index, day
-    return new Date(mdy[2], mdy[1]-1, mdy[0]);
-}
-
-function dateDiff(first, second) {
-    return Math.round((second-first)/(1000*60*60*24));
-}
-
-function dateDiffFromToday(dateString) {
-    var today = getToday();
-    var dateUpdatedInst = parseDate(dateString).getTime();
-    return dateDiff(dateUpdatedInst, today);
-}
-
-
 
 class CurrentValuesDataSource extends DataSourceBase {
     /*
@@ -784,24 +772,6 @@ class CurrentValuesDataSource extends DataSourceBase {
             'numCases': parseInt(numberOfCases),
             'updatedDate': updatedDate
         };
-    }
-
-    makePopup() {
-        // TODO!
-    }
-
-    showPopup() {
-        // TODO: Show a popup using the current basic scalar value format
-    }
-}
-
-class BigTableOValuesIndex {
-    constructor(mapAreaData) {
-
-    }
-
-    getDataInfo() {
-        // TODO! ============================================================================
     }
 }
 
@@ -897,7 +867,6 @@ class JSONGeoBoundariesBase {
         );
     }
 
-    // var maxValue = 56;
     async _loadJSON(Data) {
         let geojsonData = await fetch(`${Data}`)
             .then(response => response.json())
@@ -918,7 +887,11 @@ class JSONGeoBoundariesBase {
      * Fill poly-related
      *******************************************************************/
 
-    addFillPoly(dataSource, opacity) {
+    addFillPoly(dataSource,
+                opacity,
+                addLegend,
+                addPopupOnClick) {
+
         // Add the colored fill area
         const map = this.map;
         this._associateGeoJSONWithStatSource(dataSource);
@@ -971,7 +944,7 @@ class JSONGeoBoundariesBase {
             '#18ff00'
         ];
 
-        map.addLayer(
+        var fillLayer = map.addLayer(
             {
                 id: this.fillPolyId,
                 type: 'fill',
@@ -999,43 +972,19 @@ class JSONGeoBoundariesBase {
             firstHeatmapId
         );
 
-        if (this.legend) {
-            this.legend.parentNode.removeChild(this.legend);
-            this.legend = null;
+        // Add legend/popup event as specified
+        if (addLegend) {
+            this._addLegend(dataSource, labels, colors);
         }
 
-        if (opacity > 0.1) {
-            var legend = this.legend = document.createElement('div');
-            legend.style.position = 'absolute';
-            legend.style.bottom = '30px';
-            legend.style.left = '5px';
-            legend.style.width = '10%';
-            legend.style.background = 'white';
-            this.map.getCanvasContainer().appendChild(legend);
-
-            for (i = 0; i < labels.length; i++) {
-                var label = labels[i],
-                    color = colors[i];
-
-                var item = document.createElement('div');
-                var key = document.createElement('span');
-                key.className = 'legend-key';
-                key.style.backgroundColor = color;
-                key.style.display = 'inline-block';
-                key.style.borderRadius = '20%';
-                key.style.width = '10px';
-                key.style.height = '10px';
-                key.style.marginRight = '5px';
-
-                var value = document.createElement('span');
-                value.innerHTML = label.toFixed(2);
-                item.appendChild(key);
-                item.appendChild(value);
-                legend.appendChild(item);
-            }
+        if (addPopupOnClick) {
+            this._addMapPopupEvent(this.fillPolyId);
         }
 
-        this._addMapPopupEvent(this.fillPolyId);
+        return {
+            fillPolyId: this.fillPolyId,
+            fillLayer: fillLayer
+        };
     }
 
     removeFillPoly() {
@@ -1047,6 +996,70 @@ class JSONGeoBoundariesBase {
             this.legend = null;
         }
     }
+
+    /*******************************************************************
+     * Map legends
+     *******************************************************************/
+
+    _addLegend(dataSource, labels, colors) {
+        this.removeLegend()
+
+        var legend = this.legend = document.createElement('div');
+        legend.style.position = 'absolute';
+        legend.style.top = '10px';
+        legend.style.left = '10px';
+        legend.style.width = '10%';
+        legend.style.background = 'white';
+        legend.style.padding = '3px'
+        legend.style.boxShadow = '0px 1px 5px 0px rgba(0,0,0,0.05)';
+        this.map.getCanvasContainer().appendChild(legend);
+
+        var allBetween0_10 = true;
+        for (let i=0; i<labels.length; i++) {
+            if (!(labels[i] > -10.0 && labels[i] < 10.0)) {
+                allBetween0_10 = false;
+            }
+        }
+
+        for (let i=0; i<labels.length; i++) {
+            var label = labels[i],
+                color = colors[i];
+
+            var item = document.createElement('div');
+            var key = document.createElement('span');
+            key.className = 'legend-key';
+            key.style.backgroundColor = color;
+            key.style.display = 'inline-block';
+            key.style.borderRadius = '20%';
+            key.style.width = '10px';
+            key.style.height = '10px';
+            key.style.marginRight = '5px';
+
+            var isPercent =
+                dataSource.getSourceName().indexOf('(%)') !== -1;
+
+            var value = document.createElement('span');
+            value.innerHTML = (
+                allBetween0_10 ? label.toFixed(1) : parseInt(label)
+            ) + (
+                isPercent ? '%' : ''
+            );
+            item.appendChild(key);
+            item.appendChild(value);
+            legend.appendChild(item);
+        }
+    }
+
+    removeLegend() {
+        if (this.legend) {
+            this.legend.parentNode.removeChild(this.legend);
+            this.legend = null;
+        }
+    }
+
+    /*******************************************************************
+     * Map popups
+     *******************************************************************/
 
     _addMapPopupEvent(useID) {
         this.resetPopups();
@@ -1142,8 +1155,15 @@ class JSONGeoBoundariesBase {
         }
     }
 
+    resetPopups() {
+        if (this.resetPopupEvent) {
+            this.resetPopupEvent();
+            delete this.resetPopupEvent;
+        }
+    }
+
     /*******************************************************************
-     * Line poly-related
+     * Line polys
      *******************************************************************/
 
     addLinePoly(dataSource) {
@@ -1151,7 +1171,7 @@ class JSONGeoBoundariesBase {
         const map = this.map;
         this._associateGeoJSONWithCaseSource(dataSource);
 
-        map.addLayer({
+        var linePolyLayer = map.addLayer({
             id: this.linePolyId,
             minzoom: 2,
             type: 'line',
@@ -1163,13 +1183,10 @@ class JSONGeoBoundariesBase {
             },
             filter: ['==', '$type', 'Polygon']
         });
-    }
 
-    resetPopups() {
-        if (this.resetPopupEvent) {
-            this.resetPopupEvent();
-            delete this.resetPopupEvent;
-        }
+        return {
+            linePolyLayer: linePolyLayer
+        };
     }
 
     removeLinePoly() {
@@ -1178,14 +1195,14 @@ class JSONGeoBoundariesBase {
     }
 
     /*******************************************************************
-     * Heat map-related
+     * Heat maps
      *******************************************************************/
 
     addHeatMap(dataSource) {
         const map = this.map;
         this._associateGeoJSONWithCaseSource(dataSource);
 
-        map.addLayer(
+        var heatMapLayer = map.addLayer(
             {
                 'id': this.fillPolyId+'heat',
                 'type': 'heatmap',
@@ -1245,7 +1262,7 @@ class JSONGeoBoundariesBase {
             }
         );
 
-        map.addLayer(
+        var heatCirclesLayer = map.addLayer(
             {
                 'id': this.fillPolyId+'heatpoint',
                 'type': 'circle',
@@ -1288,6 +1305,11 @@ class JSONGeoBoundariesBase {
                 }
             }
         );
+
+        return {
+            heatMapLayer: heatMapLayer,
+            heatCirclesLayer: heatCirclesLayer
+        };
     }
 
     removeHeatMap() {
