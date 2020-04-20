@@ -87,6 +87,7 @@ function InfoDrawer() {
         { id: "media", title: "Informative Media" },
         { id: "general", title: "General Information" },
         { id: "regulations", title: "Current Regulations" },
+        { id: "tracingApp", title: "Contact Tracing App" },
         { id: "haveCovid", title: "Think you have COVID-19?" },
         { id: "stateTesting", title: "State Testing Information" },
         { id: "protect", title: "Protecting Yourself and Others" },
@@ -115,17 +116,18 @@ function InfoDrawer() {
             <List style={{ marginTop: "0px" }}>
                 {sections.map((section, index) => (
                     <div>
-                        <ListItem>
-                            <Link
-                                activeClass="active"
-                                to={section["id"]}
-                                spy={true}
-                                smooth={true}
-                                offset={-60}
-                                duration={700}
-                                onClick={toggleDrawer(false)}
-                                style={{ width: "100%" }}
-                            ><Typography align="left" variant="h6">{index + 1}. {section["title"]}</Typography></Link>
+                        <ListItem fullWidth="true">
+                            <Button fullWidth="true" size="small" style={{ textTransform: "none", padding: "0px", marginTop: 0 }}>
+                                <Link
+                                    activeClass="active"
+                                    to={section["id"]}
+                                    spy={true}
+                                    smooth={true}
+                                    offset={-60}
+                                    duration={700}
+                                    onClick={toggleDrawer(false)}
+                                    style={{ width: "100%" }}
+                                ><Typography align="left" variant="h6">{index + 1}. {section["title"]}</Typography></Link></Button>
 
                         </ListItem>
                         <Divider />
@@ -409,7 +411,86 @@ function Information({ hospitalData, columns, gspace }) {
                             </div>
                         </div>
                     ))
+                    }
+                </div>
+                <div className="card" id="tracingApp">
+                    <h2 className="responsiveH2">Contact Tracing App</h2>
+                    {information.tracingApp.map(info => (
+                        <div key={uuid()}>
+                            <div>
+                                <ExpansionPanel style={{ boxShadow: "none" }} >
+
+                                    {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
+                        This is so that we can reduce code smell while still retaining the ability to format text.
+                        Guide to adding more info points:
+                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
+                        */}
+                                    < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                        <h3 className="responsiveH3">{info.name}</h3>
+                                    </ExpansionPanelSummary>
+                                    <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                        <div>
+                                            {/* First block of text */}
+                                            {info.text.text_1.map(t1 => (
+                                                <p key={uuid()}>{t1}</p>
+                                            ))}
+                                            {/* First Unordered List */}
+                                            {info.text.list_1 ? (
+                                                <ul>
+                                                    {info.text.list_1.map(l1 => (
+                                                        <li key={uuid()}>{l1}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : (
+                                                    ""
+                                                )}
+
+                                            {/* Second Block of text */}
+                                            {info.text.text_2.map(t2 => (
+                                                <p key={uuid()}>{t2}</p>
+                                            ))}
+
+                                            {/* First Ordered List */}
+                                            {info.text.list_2 ? (
+                                                <ul>
+                                                    {info.text.list_2.map(l2 => (
+                                                        <li key={uuid()}>{l2}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : (
+                                                    ""
+                                                )}
+
+                                            {/* Second Block of text */}
+                                            {info.text.text_3.map(t3 => (
+                                                <p key={uuid()}>{t3}</p>
+                                            ))}
+
+                                            {/* Citation tag */}
+                                            {info.text.citation.map(cit => (<div>
+                                                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
+                                            </div>
+                                            ))}
+
+                                            {/* last updated */}
+                                            <br />
+                                            <div>
+                                                <small key={uuid()}>Last updated: {info.text.lastUpdated}</small><br />
+                                            </div>
+                                        </div>
+                                    </ExpansionPanelDetails>
+                                </ExpansionPanel>
+                            </div>
+                        </div>
+                    ))
                     }</div>
+
+            </Grid>
+            <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
+
                 <div className="card" id="haveCovid">
                     <h2 className="responsiveH2">Think you have COVID-19?</h2>
                     {information.haveCovid.map(info => (
@@ -489,8 +570,6 @@ function Information({ hospitalData, columns, gspace }) {
                         </div>
                     ))
                     }</div>
-            </Grid>
-            <Grid item xs={11} sm={11} md={10} lg={6} xl={3}>
 
                 <div className="card" id="stateTesting">
                     <h2 className="responsiveH2">State Testing Information</h2>
@@ -565,7 +644,8 @@ function Information({ hospitalData, columns, gspace }) {
                             </div>
                         </div>
                     ))
-                    }</div>
+                    }
+                </div>
                 <div className="card" id="protect">
                     <h2 className="responsiveH2">Protecting Yourself and Others</h2>
 

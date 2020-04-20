@@ -1188,5 +1188,148 @@
                 "lastUpdated": "15 April 2020"
             }
         }
+    ],
+    "tracingApp": [
+        {
+            "name": "What is the app?",
+            "text": {
+                "text_1": [
+                    "The Australian government is planning to launch an app in a matter of weeks that will trace every person who has been in contact with a mobile phone owner who has tested positive for coronavirus in the previous few weeks, in a bid to automate coronavirus contact tracing, and allow the easing of restrictions. It will be similar to or based on the Singapore TraceTogether app."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "20 April 2020"
+            }
+        },
+        {
+            "name": "How will it work?",
+            "text": {
+                "text_1": [
+                    "That app works by using Bluetooth to record when people are within 1.5m of another user for 15 minutes. The two apps exchange anonymised IDs, which are stored encrypted on phones and deleted after 21 days.",
+                    "If someone is infected with coronavirus, authorities can upload the list of anonymised IDs for the past 14 days for contact tracing.",
+                    "The data will remain securely encrypted on your phone unless you test positive for COVID-19, in which case it would be accessed by state health authorities."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "20 April 2020"
+            }
+        },
+        {
+            "name": "What personal data will be collected?",
+            "text": {
+                "text_1": [
+                    "People who downloaded the app will be asked to add their name, age range, postcode and phone number. The app also collects information about phone models and signal strength, and anonymised app analytics data."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "20 April 2020"
+            }
+        },
+        {
+            "name": "Can the app trace my location?",
+            "text": {
+                "text_1": [
+                    "Deputy chief medical officer Paul Kelly said the app would not track location. The Singapore version of the app does not track location, either."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "20 April 2020"
+            }
+        },
+        {
+            "name": "Will it be mandatory?",
+            "text": {
+                "text_1": [
+                    "Scott Morrison has said consent would be key to the app, indicating it would not be mandatory, and people would share information through the app only if they consented to it. The government’s target for uptake of the app is 40% of the population to make it effective."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "20 April 2020"
+            }
+        },
+        {
+            "name": "Should I be concerned about my privacy?",
+            "text": {
+                "text_1": [
+                    "There isn’t as yet enough detail about how it would work in Australia to know what the implications are. However, Scott Morrison said he is pushing for greater privacy protections than the Singapore model of the app.",
+                    "To reduce concerns about privacy, digital experts have said that the Federal Government should formally make data collected from its COVID-19 tracing app exempt from use by law enforcement, “decentralise” the way it notifies users about potential contacts with the virus, and release the source code of the app so that researchers can verify how the app works and address any vulnerabilities that may be in the app.  "
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "20 April 2020"
+            }
+        }
     ]
 }
