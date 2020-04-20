@@ -104,33 +104,148 @@ class MbMap extends React.Component {
         this.otherStatsSelect = React.createRef();
         this.otherStatsSelectCont = React.createRef();
         this.underlayBGCont = React.createRef();
-
-        this.messagesForModes = {
-            null: [],
-            'Total': [
-                this.totalCasesMessage,
-                this.cityLevelMessage,
-                this.accuracyWarning
-            ],
-            '7 Days': [
-                this.totalCasesMessage,
-                this.cityLevelMessage,
-                this.accuracyWarning
-            ],
-            '14 Days': [
-                this.totalCasesMessage,
-                this.cityLevelMessage,
-                this.accuracyWarning
-            ],
-            'Active': [
-                this.activeCasesMessage,
-                this.accuracyWarning
-            ],
-            'Hospitals': [
-                this.hospitalMessage
-            ]
-        };
     }
+
+    /*******************************************************************
+     * HTML Template
+     *******************************************************************/
+
+    render() {
+        const activeStyles = {
+            color: 'black',
+            borderColor: '#8ccfff',
+            padding: "0px 5px",
+            zIndex:10,
+            outline: "none"
+        };
+        const inactiveStyles = {
+            color: 'grey',
+            borderColor: '#e3f3ff',
+            padding: "0px 5px",
+            outline: "none"
+        };
+
+        function outputSelects(heading) {
+            return absStats[heading]['sub_headers'].map((key) => (
+                <option key={key} value={key}>{key}</option>
+            ))
+        }
+
+        return (
+            <div className="card" style={{
+                display: 'flex',
+                flexDirection: 'column',
+            }}>
+                <h2 style={{ display: "flex" }}
+                    aria-label="Hospital and Case Map">Hospital & Case Map<div style={{
+                        alignSelf: "flex-end",
+                        marginLeft: "auto",
+                        fontSize: "60%"
+                    }}>
+                    <Acknowledgement>
+                    </Acknowledgement></div></h2>
+
+                <div>
+                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
+                        Markers:&nbsp;<ButtonGroup ref={this.markersButtonGroup}
+                                                   size="small"
+                                                   aria-label="small outlined button group"
+                                                   style={{ pointerEvents: 'none' }}>
+                            {/*<Button style={this._markers == null ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers(null)}>Off</Button>*/}
+                            <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Total')}>Total</Button>
+                            <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('7 Days')}>7 Days</Button>
+                            <Button style={this._markers === '14 Days' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('14 Days')}>14 Days</Button>
+                            <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Active')}>Active</Button>
+                            {/*<Button style={this._markers === 'Tests' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Tests')}>Tests</Button>*/}
+                            <Button style={this._markers === 'Hospitals' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Hospitals')}>COVID-19 Hospitals</Button>
+                        </ButtonGroup>
+                    </span>
+                </div>
+
+                <div ref={this.underlayBGCont}>
+                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
+                        Underlay:&nbsp;<ButtonGroup ref={this.underlayButtonGroup}
+                                                    size="small"
+                                                    aria-label="small outlined button group"
+                                                    style={{ pointerEvents: 'none' }}>
+                            <Button style={this._underlay == null ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay(null)}>Off</Button>
+                            <Button style={this._underlay === 'Population Density' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay('Population Density')}>Population Density</Button>
+                            <Button style={this._underlay === 'Socioeconomic Index' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay('Socioeconomic Index')}>Socioeconomic Index</Button>
+                            <Button style={this._underlay === 'Aged 65+' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay('Aged 65+')}>Aged 65+</Button>
+                            <Button style={this._underlay === 'Other Stats' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setUnderlay('Other Stats')}>Other Stats</Button>
+                        </ButtonGroup>
+                    </span>
+                </div>
+
+                <div ref={this.otherStatsSelectCont}
+                     className="key" style={{  }}
+                     style={{ display: 'none', marginBottom: "0.8rem" }}>
+                    Other&nbsp;Stat:&nbsp;<select ref={this.otherStatsSelect}
+                            style={{'maxWidth': '100%'}}>
+                        {sortedKeys(absStats).map((heading) => (
+                            <optgroup label={heading}>
+                                {outputSelects(heading)}
+                            </optgroup>
+                        ))}
+                    </select>
+                </div>
+
+                <div ref={el => this.mapContainer = el} >
+                    {/*{*/}
+                    {/*confirmedData.map((item)=>(*/}
+                    {/*<div style={activityStyle}>*/}
+
+                    {/*</div>*/}
+                    {/*))*/}
+                    {/*}*/}
+                </div>
+
+                <span className="due">
+                    <div ref={this.hospitalMessage}
+                         style={{ display: 'none' }}>
+                        <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
+                    </div>
+                    <div ref={this.totalCasesMessage}>
+                        <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
+                        <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
+                    </div>
+                    <div ref={this.cityLevelMessage}>
+                        <span className="Key">
+                            <p>*City-level data is only present for <strong>ACT</strong>, <strong>NSW</strong>,
+                                <strong>VIC</strong>, and <strong>WA</strong>, HHS Data for <strong>QLD</strong>.
+                                Other states are being worked on.</p>
+                        </span>
+                    </div>
+                    <div ref={this.activeCasesMessage}
+                         style={{ display: 'none' }}>
+                        <span className="Key">
+                            <p>*Active cases data has currently only been added for Queensland.</p>
+                        </span>
+                    </div>
+                    <div ref={this.accuracyWarning}>
+                        <p style={{color: 'red'}}>*Cases on map are approximate and
+                            identify regions only, not specific addresses.</p>
+                    </div>
+                </span>
+            </div>
+        );
+    }
+
+    /*******************************************************************
+     * Intialization after load
+     *******************************************************************/
 
     componentDidMount() {
         const { lng, lat, zoom } = this.state;
@@ -274,7 +389,13 @@ class MbMap extends React.Component {
         });
     }
 
+    /*******************************************************************
+     * Mode update
+     *******************************************************************/
+
     setUnderlay(underlay, noSetState) {
+        this._resetMode();
+
         if (!noSetState) {
             this._underlay = underlay;
             this.setState({
@@ -302,12 +423,56 @@ class MbMap extends React.Component {
         }
 
         this.otherStatsSelectCont.current.style.display =
-            underlay === 'Other Stats' ? 'block' : 'none';
-        this.setMarkers(this._markers);
+            (
+                underlay === 'Other Stats' &&
+                this._markers !== 'Hospitals'
+            ) ? 'block' : 'none'
+        ;
+
+        this._updateMode()
     }
 
     setMarkers(markers) {
-        let that = this;
+        this._resetMode();
+        this._markers = markers;
+        this.setState({
+            _markers: markers
+        });
+        this._updateMode()
+    }
+
+    _getMessagesForModes() {
+        return {
+            null: [],
+            'Total': [
+                this.totalCasesMessage,
+                this.cityLevelMessage,
+                this.accuracyWarning
+            ],
+            '7 Days': [
+                this.totalCasesMessage,
+                this.cityLevelMessage,
+                this.accuracyWarning
+            ],
+            '14 Days': [
+                this.totalCasesMessage,
+                this.cityLevelMessage,
+                this.accuracyWarning
+            ],
+            'Active': [
+                this.activeCasesMessage,
+                this.accuracyWarning
+            ],
+            'Hospitals': [
+                this.hospitalMessage
+            ]
+        };
+    }
+
+    _updateMode() {
+        let that = this,
+            messagesForModes = this._getMessagesForModes(),
+            markers = this._markers;
 
         function enableInsts(dataSource, insts) {
             for (var i=0; i<insts.length; i++) {
@@ -322,68 +487,11 @@ class MbMap extends React.Component {
             }
         }
         function updateMessages() {
-            let messages = that.messagesForModes[that._markers];
+            let messages = messagesForModes[that._markers];
             for (var j=0; j<messages.length; j++) {
                 messages[j].current.style.display = 'block';
             }
         }
-        function disableInsts(insts) {
-            for (var i=0; i<insts.length; i++) {
-                insts[i].removeHeatMap();
-                insts[i].removeLinePoly();
-                insts[i].removeFillPoly();
-                insts[i].resetPopups();
-            }
-        }
-        function clearMessages() {
-            for (let key in that.messagesForModes) {
-                let messages = that.messagesForModes[key];
-                for (var j=0; j<messages.length; j++) {
-                    messages[j].current.style.display = 'none';
-                }
-            }
-        }
-        clearMessages();
-
-        // Reset since last time
-        let m = this._markers;
-
-        if (m === null) {
-        }
-        else if (m === 'Total') {
-            disableInsts([
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
-            ]);
-            this.confirmedMarkers.forEach(
-                (marker) => marker.hide()
-            );
-        }
-        else if (m === '7 Days') {
-            disableInsts([
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
-            ]);
-        }
-        else if (m === '14 Days') {
-            disableInsts([
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
-            ]);
-        }
-        else if (m === 'Active') {
-            disableInsts([
-                this.hhsQLD
-            ]);
-        }
-        else if (m === 'Hospitals') {
-            this.underlayBGCont.current.style.display = 'block';
-            this.hospitalMarkers.forEach(
-                (marker) => marker.hide()
-            );
-        }
-
-        this._markers = markers;
-        this.setState({
-            _markers: markers
-        });
         updateMessages();
 
         // Change to the new markers mode
@@ -428,139 +536,69 @@ class MbMap extends React.Component {
         else {
             throw "Unknown marker";
         }
+
+        this.otherStatsSelectCont.current.style.display =
+            (
+                this._underlay === 'Other Stats' &&
+                this._markers !== 'Hospitals'
+            ) ? 'block' : 'none'
+        ;
     }
 
-    render() {
-        const activeStyles = {
-            color: 'black',
-            borderColor: '#8ccfff',
-            padding: "0px 5px",
-            zIndex:10,
-            outline: "none"
-        };
-        const inactiveStyles = {
-            color: 'grey',
-            borderColor: '#e3f3ff',
-            padding: "0px 5px",
-            outline: "none"
-        };
+    _resetMode() {
+        let that = this,
+            messagesForModes = this._getMessagesForModes(),
+            m = this._markers;
 
-        function outputSelects(heading) {
-            return absStats[heading]['sub_headers'].map((key) => (
-                <option key={key} value={key}>{key}</option>
-            ))
+        function disableInsts(insts) {
+            for (var i=0; i<insts.length; i++) {
+                insts[i].removeHeatMap();
+                insts[i].removeLinePoly();
+                insts[i].removeFillPoly();
+                insts[i].resetPopups();
+            }
         }
+        function clearMessages() {
+            for (let key in messagesForModes) {
+                let messages = messagesForModes[key];
+                for (var j=0; j<messages.length; j++) {
+                    messages[j].current.style.display = 'none';
+                }
+            }
+        }
+        clearMessages();
 
-        return (
-            <div className="card" style={{
-                display: 'flex',
-                flexDirection: 'column',
-            }}>
-                <h2 style={{ display: "flex" }}
-                    aria-label="Hospital and Case Map">Hospital & Case Map<div style={{
-                        alignSelf: "flex-end",
-                        marginLeft: "auto",
-                        fontSize: "60%"
-                    }}>
-                    <Acknowledgement>
-                    </Acknowledgement></div></h2>
-
-                <div>
-                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
-                        Markers:&nbsp;<ButtonGroup ref={this.markersButtonGroup}
-                                                   size="small"
-                                                   aria-label="small outlined button group"
-                                                   style={{ pointerEvents: 'none' }}>
-                            {/*<Button style={this._markers == null ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers(null)}>Off</Button>*/}
-                            <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Total')}>Total</Button>
-                            <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('7 Days')}>7 Days</Button>
-                            <Button style={this._markers === '14 Days' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('14 Days')}>14 Days</Button>
-                            <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Active')}>Active</Button>
-                            {/*<Button style={this._markers === 'Tests' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Tests')}>Tests</Button>*/}
-                            <Button style={this._markers === 'Hospitals' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Hospitals')}>COVID-19 Hospitals</Button>
-                        </ButtonGroup>
-                    </span>
-                </div>
-
-                <div ref={this.underlayBGCont}>
-                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
-                        Underlay:&nbsp;<ButtonGroup ref={this.underlayButtonGroup}
-                                                    size="small"
-                                                    aria-label="small outlined button group"
-                                                    style={{ pointerEvents: 'none' }}>
-                            <Button style={this._underlay == null ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay(null)}>Off</Button>
-                            <Button style={this._underlay === 'Population Density' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay('Population Density')}>Population Density</Button>
-                            <Button style={this._underlay === 'Socioeconomic Index' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay('Socioeconomic Index')}>Socioeconomic Index</Button>
-                            <Button style={this._underlay === 'Aged 65+' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay('Aged 65+')}>Aged 65+</Button>
-                            <Button style={this._underlay === 'Other Stats' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay('Other Stats')}>Other Stats</Button>
-                        </ButtonGroup>
-                    </span>
-                </div>
-
-                <div ref={this.otherStatsSelectCont}
-                     className="key" style={{  }}
-                     style={{ display: 'none', marginBottom: "0.8rem" }}>
-                    Other&nbsp;Stat:&nbsp;<select ref={this.otherStatsSelect}
-                            style={{'maxWidth': '100%'}}>
-                        {sortedKeys(absStats).map((heading) => (
-                            <optgroup label={heading}>
-                                {outputSelects(heading)}
-                            </optgroup>
-                        ))}
-                    </select>
-                </div>
-
-                <div ref={el => this.mapContainer = el} >
-                    {/*{*/}
-                    {/*confirmedData.map((item)=>(*/}
-                    {/*<div style={activityStyle}>*/}
-
-                    {/*</div>*/}
-                    {/*))*/}
-                    {/*}*/}
-                </div>
-
-                <span className="due">
-                    <div ref={this.hospitalMessage}
-                         style={{ display: 'none' }}>
-                        <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
-                    </div>
-                    <div ref={this.totalCasesMessage}>
-                        <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
-                        <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
-                    </div>
-                    <div ref={this.cityLevelMessage}>
-                        <span className="Key">
-                            <p>*City-level data is only present for <strong>ACT</strong>, <strong>NSW</strong>,
-                                <strong>VIC</strong>, and <strong>WA</strong>, HHS Data for <strong>QLD</strong>.
-                                Other states are being worked on.</p>
-                        </span>
-                    </div>
-                    <div ref={this.activeCasesMessage}
-                         style={{ display: 'none' }}>
-                        <span className="Key">
-                            <p>*Active cases data has currently only been added for Queensland.</p>
-                        </span>
-                    </div>
-                    <div ref={this.accuracyWarning}>
-                        <p style={{color: 'red'}}>*Cases on map are approximate and
-                            identify regions only, not specific addresses.</p>
-                    </div>
-                </span>
-            </div>
-        );
+        if (m === null) {
+        }
+        else if (m === 'Total') {
+            disableInsts([
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
+            ]);
+            this.confirmedMarkers.forEach(
+                (marker) => marker.hide()
+            );
+        }
+        else if (m === '7 Days') {
+            disableInsts([
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
+            ]);
+        }
+        else if (m === '14 Days') {
+            disableInsts([
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
+            ]);
+        }
+        else if (m === 'Active') {
+            disableInsts([
+                this.hhsQLD
+            ]);
+        }
+        else if (m === 'Hospitals') {
+            this.underlayBGCont.current.style.display = 'block';
+            this.hospitalMarkers.forEach(
+                (marker) => marker.hide()
+            );
+        }
     }
 }
 
