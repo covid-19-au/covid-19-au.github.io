@@ -10,6 +10,10 @@ import nswLgaData from "../data/nsw_lga.geojson"
 import qldHhsData from "../data/qld_hhs.geojson"
 import actSaData from "../data/sa3_act.geojson"
 import waLgaData from "../data/wa_lga.geojson"
+import saLgaData from "../data/sa_LGA.geojson"
+import qldLgaData from "../data/qld_LGA.geojson"
+import tasLgaData from "../data/tas_LGA.geojson"
+import ntLgaData from "../data/nt_LGA.geojson"
 import regionsTimeSeries from "../data/regionsTimeSeriesAutogen.json"
 import absStats from "../data/absStats"
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -368,22 +372,27 @@ class MbMap extends React.Component {
 
                 //that.lgaACT = new ACTLGABoundaries(map);    <-- TODO!
                 that.lgaNSW = new NSWLGABoundaries(map);
+                that.lgaNT = new NTLGABoundaries(map);
                 that.lgaVic = new VicLGABoundaries(map);
-                //that.lgaQLD = new QLDLGABoundaries(map);    <-- TODO!
+                that.lgaQLD = new QLDLGABoundaries(map);
                 that.lgaWA = new WALGABoundaries(map);
-                //that.lgaSA = new SALGABoundaries(map);      <-- TODO!
+                that.lgaSA = new SALGABoundaries(map);
+                that.lgaTas = new TasLGABoundaries(map);
 
                 function enableControls() {
                     var initialized = true;
                     [
                         that.sa3ACT,
                         that.hhsQLD,
+
                         //that.lgaACT,
+                        that.lgaNSW,
+                        that.lgaNT,
                         that.lgaVic,
-                        //that.lgaQLD,
+                        that.lgaQLD,
                         that.lgaWA,
-                        that.lgaNSW
-                        //that.lgaSA,
+                        that.lgaSA,
+                        that.lgaTas
                     ].forEach(function(inst) {
                         if (!inst.geoJSONData) {
                             initialized = false;
@@ -514,18 +523,18 @@ class MbMap extends React.Component {
             // (e.g. Queensland HHS/ACT SA3)
             otherInst.addHeatMap(dataSource);
 
-            lgaInst.addLinePoly(dataSource, 'purple');
-            otherInst.addLinePoly(dataSource, 'brown');
+            lgaInst.addLinePoly(dataSource, 'rgba(255, 0, 255, 0.3)');
+            otherInst.addLinePoly(dataSource, 'rgba(0, 0, 0, 1.0)');
 
-            var fillPoly = otherInst.addFillPoly(
-                that.absStatsInsts[that._selectedUnderlay], // HACK - this may need to be rewritten!
+            otherInst.addFillPoly(
+                that.absStatsInsts[that._selectedUnderlay],
                 0,false,true
             );
             lgaInst.addFillPoly(
                 that.absStatsInsts[that._selectedUnderlay],
                 that._underlay ? 0.5 : 0,
-                !!that._underlay,false,
-                fillPoly['fillPolyId']
+                !!that._underlay,false//,
+                //fillPoly['fillPolyId']
             );
         }
         function updateMessages() {
@@ -541,8 +550,9 @@ class MbMap extends React.Component {
         }
         else if (markers === 'Total') {
             enableInsts(this.totalData, [
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.lgaSA
             ]);
+            enableNonLGAInst(this.totalData, this.hhsQLD, this.lgaQLD);
             this.confirmedMarkers.forEach(
                 (marker) => marker.show()
             );
@@ -550,19 +560,19 @@ class MbMap extends React.Component {
         else if (markers === '7 Days') {
             // TODO: Show recent confirmed markers!
             enableInsts(this.sevenDaysAgo, [
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.lgaSA
             ]);
+            enableNonLGAInst(this.sevenDaysAgo, this.hhsQLD, this.lgaQLD);
         }
         else if (markers === '14 Days') {
             // TODO: Show recent confirmed markers!
             enableInsts(this.fourteenDaysAgo, [
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.lgaSA
             ]);
+            enableNonLGAInst(this.fourteenDaysAgo, this.hhsQLD, this.lgaQLD);
         }
         else if (markers === 'Active') {
-            enableInsts(this.activeData, [
-                this.hhsQLD
-            ]);
+            enableNonLGAInst(this.activeData, this.hhsQLD, this.lgaQLD);
         }
         else if (markers === 'Tests') {
             this.lgaNSW.addHeatMap(this.testsData);
@@ -626,21 +636,24 @@ class MbMap extends React.Component {
         }
         else if (m === 'Total') {
             disableInsts([
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.lgaSA
             ]);
+            disableNonLGAInst(this.hhsQLD, this.lgaQLD);
             this.confirmedMarkers.forEach(
                 (marker) => marker.hide()
             );
         }
         else if (m === '7 Days') {
             disableInsts([
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.lgaSA
             ]);
+            disableNonLGAInst(this.hhsQLD, this.lgaQLD);
         }
         else if (m === '14 Days') {
             disableInsts([
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
+                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.lgaSA
             ]);
+            disableNonLGAInst(this.hhsQLD, this.lgaQLD);
         }
         else if (m === 'Active') {
             disableInsts([
@@ -687,7 +700,6 @@ class TimeSeriesDataSource extends DataSourceBase {
         this.subHeader = subHeader;
         //this.currentValues = currentValues; // Can be null  CURRENTLY DISABLED - discuss whether this is really a good idea!!!
         this.data = mapAreaData['data'];
-        //console.log(this.data)
     }
 
     getCaseInfoForCity(stateName, cityName) {
@@ -790,7 +802,6 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
                 iCityName = iData[2],
                 iValue = iData[this.subHeaderIndex+3];
 
-            //console.log(dateDiffFromToday(dateUpdated));
             if (
                 iStateName === stateName &&
                 iCityName === cityName &&
@@ -991,7 +1002,15 @@ class JSONGeoBoundariesBase {
 
         // Add the colored fill area
         const map = this.map;
-        this._associateGeoJSONWithStatSource(dataSource);
+        var dataSourceName;
+
+        if (dataSource) {
+            dataSourceName = dataSource.getSourceName();
+            this._associateGeoJSONWithStatSource(dataSource);
+        }
+        else {
+            dataSourceName = 'NIL';  // HACK!
+        }
 
         if (opacity == null) {
             opacity = 0.75;
@@ -1015,7 +1034,7 @@ class JSONGeoBoundariesBase {
         }
         else {
             min = 0;
-            max = 70;
+            max = 250; // HACK!
         }
 
         var labels = [
@@ -1046,7 +1065,7 @@ class JSONGeoBoundariesBase {
                 id: this.fillPolyId,
                 type: 'fill',
                 minzoom: 2,
-                source: this.fillPolyId+dataSource.getSourceName()+'statsource',
+                source: this.fillPolyId+dataSourceName+'statsource',
                 paint: {
                     'fill-color': [
                         'interpolate',
@@ -1263,7 +1282,7 @@ class JSONGeoBoundariesBase {
      * Line polys
      *******************************************************************/
 
-    addLinePoly(dataSource) {
+    addLinePoly(dataSource, color) {
         // Add the line outline
         const map = this.map;
         this._associateGeoJSONWithCaseSource(dataSource);
@@ -1274,7 +1293,7 @@ class JSONGeoBoundariesBase {
             type: 'line',
             source: this.fillPolyId+dataSource.getSourceName()+'source',
             paint: {
-                // 'line-color': '#088',
+                'line-color': color || '#000',
                 'line-opacity': 1,
                 'line-width': 1,
             },
@@ -1597,7 +1616,6 @@ class JSONGeoBoundariesBase {
 
         var centerX = minX + (maxX-minX) / 2.0,
             centerY = minY + (maxY-minY) / 2.0;
-        console.log(centerX+' '+centerY)
         return [centerX, centerY];
     }
 
@@ -1627,8 +1645,13 @@ class JSONGeoBoundariesBase {
 
         for (var i=0; i<geoJSONData.features.length; i++) {
             var data = geoJSONData.features[i];
+            var cityName = this.getCityNameFromProperty(data);
+            if (!cityName) {
+                continue; // WARNING!!
+            }
+
             caseInfo = dataSource.getCaseInfoForCity(
-                state, this.getCityNameFromProperty(data)
+                state, cityName
             );
             if (!caseInfo) {
                 continue; // WARNING!!! ===============================================================================
@@ -1638,17 +1661,18 @@ class JSONGeoBoundariesBase {
             if (dataSource.getCaseInfoTimeSeriesForCity) {
                 // Doesn't seem to like non-string values
                 data.properties['timeSeries'] = JSON.stringify(dataSource.getCaseInfoTimeSeriesForCity(
-                    state, this.getCityNameFromProperty(data)
+                    state, cityName
                 ));
             }
-
-            data.properties['city'] = this.getCityNameFromProperty(data);
+            data.properties['city'] = cityName;
             data.properties['date'] = caseInfo['updatedDate'];
         }
     }
 
     _associateGeoJSONWithStatSource(dataSource) {
-        this.maxMinStatVal = dataSource.getMaxMinValues();
+        if (dataSource.getMaxMinValues) {
+            this.maxMinStatVal = dataSource.getMaxMinValues();
+        }
         this._assignStatInfoToGeoJSON(this.geoJSONData, dataSource); // RESOURCE VIOLATION WARNING!!! ===========================================
 
         let sn = dataSource.getSourceName();
@@ -1669,14 +1693,18 @@ class JSONGeoBoundariesBase {
 
         for (var i=0; i<geoJSONData.features.length; i++) {
             var data = geoJSONData.features[i];
+            var cityName = this.getCityNameFromProperty(data);
+            if (!cityName) {
+                continue; // WARNING!!
+            }
             statInfo = dataSource.getCaseInfoForCity(
-                state, this.getCityNameFromProperty(data)
+                state, cityName
             );
             if (!statInfo) {
                 continue; // WARNING!!! ===============================================================================
             }
             data.properties['stat'] = statInfo['numCases'];
-            data.properties['statCity'] = this.getCityNameFromProperty(data);
+            data.properties['statCity'] = cityName;
             data.properties['statDate'] = statInfo['updatedDate'];
         }
     }
@@ -1724,7 +1752,7 @@ class WALGABoundaries extends JSONGeoBoundariesBase {
         );
     }
     getCityNameFromProperty(data) {
-        return toTitleCase(data.properties.wa_lga_s_3);
+        return toTitleCase(data.properties.wa_lga_s_3);   // THIS COULD BE WHY THERE AREN'T MATCHES!!
     }
 }
 
@@ -1739,7 +1767,7 @@ class NSWLGABoundaries extends JSONGeoBoundariesBase {
         );
     }
     getCityNameFromProperty(data) {
-        return toTitleCase(data.properties.nsw_lga__3);
+        return toTitleCase(data.properties.nsw_lga__3);   // THIS COULD BE WHY THERE AREN'T MATCHES!!
     }
 }
 
@@ -1760,6 +1788,67 @@ class VicLGABoundaries extends JSONGeoBoundariesBase {
         city.pop();
         city_name = city.join(' ');
         return toTitleCase(city_name);
+    }
+}
+
+class NTLGABoundaries extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(
+            map,
+            'NT',
+            'id_poly_nt',
+            'id_line_ploy_nt',
+            ntLgaData
+        );
+    }
+    getCityNameFromProperty(data) {
+        return toTitleCase(data.properties['nt_lga_s_3']);
+    }
+}
+
+class QLDLGABoundaries extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(
+            map,
+            'QLD_LGA',
+            'id_poly_qld_lga',
+            'id_line_ploy_qld_lga',
+            qldLgaData
+        );
+    }
+    getCityNameFromProperty(data) {
+        return data.properties['qld_lga__3'] ? toTitleCase(data.properties['qld_lga__3']) : null; // also has qld_lga__2 -- what is the difference?? ======================
+    }
+}
+
+class SALGABoundaries extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(
+            map,
+            'SA',
+            'id_poly_sa',
+            'id_line_ploy_sa',
+            saLgaData
+        );
+    }
+    getCityNameFromProperty(data) {
+        return toTitleCase(data.properties['abbname']);
+    }
+}
+
+class TasLGABoundaries extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(
+            map,
+            'TAS',
+            'id_poly_tas',
+            'id_line_ploy_tas',
+            tasLgaData
+        );
+    }
+    getCityNameFromProperty(data) {
+        console.log(data.properties['tas_lga__3'])
+        return toTitleCase(data.properties['tas_lga__3']);
     }
 }
 
