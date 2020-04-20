@@ -34,9 +34,12 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import CloseIcon from '@material-ui/icons/Close';
 
 
+function phoneNumberWithSpace(x) {
+    let y = parseInt(x)
+    return y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
 // Info page to present information about the virus.
-
-
 
 export default function InfoPage({ columns, gspace }) {
 
@@ -85,17 +88,17 @@ function InfoDrawer() {
     };
 
     const sections = [
-        { id: "dailyDistractions", title: "Daily Distraction" },
-        { id: "media", title: "Informative Media" },
-        { id: "general", title: "General Information" },
-        { id: "regulations", title: "Current Regulations" },
+        { id: "dailyDistractions", title: i18next.t("infoPage:dailyDistraction.title") },
+        { id: "media", title: i18next.t("infoPage:informativeMedia.title") },
+        { id: "general", title: i18next.t("infoPage:generalInformation.title") },
+        { id: "regulations", title: i18next.t("infoPage:currentRegulation.title") },
         { id: "tracingApp", title: "Contact Tracing App" },
-        { id: "haveCovid", title: "Think you have COVID-19?" },
+        { id: "haveCovid", title: i18next.t("infoPage:selfDiagnosis.title") },
         { id: "stateTesting", title: "State Testing Information" },
-        { id: "protect", title: "Protecting Yourself and Others" },
-        { id: "helplines", title: "Helplines" },
-        { id: "other", title: "Other interesting links" },
-        { id: "hospitalList", title: "List of Hospitals doing Coronavirus testing" }
+        { id: "protect", title: i18next.t("infoPage:prevention.title") },
+        { id: "helplines", title: i18next.t("infoPage:coronavirusHelpline.title") },
+        { id: "other", title: i18next.t("infoPage:interestingLinks.title") },
+        { id: "hospitalList", title: i18next.t("infoPage:testingCentres.title") }
     ]
 
     const list = () => (
@@ -742,8 +745,42 @@ function Information({ hospitalData, columns, gspace }) {
 
                 <div className="card" id="helplines">
                     <h2 className="responsiveH2">{i18next.t("infoPage:coronavirusHelpline:title")}</h2>
+                    <div key={uuid()}>
+                        <div>
+                            <ExpansionPanel style={{ boxShadow: "none" }} >
+                                < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
+                                    <h3 className="responsiveH3">{i18next.t("infoPage:coronavirusHelpline:subtitle")}</h3>
+                                </ExpansionPanelSummary>
+                                <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
+                                    <div>
+                                        <p key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect1heading")}</p>
+                                        <ul>
+                                            <li key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect1point1")} <a className={"citationLink"} href={information.helplinesTranslated.national}>{phoneNumberWithSpace(information.helplinesTranslated.national)} </a></li>
+                                            <li key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect1point2")} <a className={"citationLink"} href={information.helplinesTranslated.healthDirect}>{phoneNumberWithSpace(information.helplinesTranslated.healthDirect)} </a></li>
+                                        </ul>
+                                        <p key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect2heading")}</p>
+                                        <ul>
+                                            <li key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect2point1")} <a className={"citationLink"} href={information.helplinesTranslated.vic}>{phoneNumberWithSpace(information.helplinesTranslated.vic)} </a></li>
+                                            <li key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect2point2")} <a className={"citationLink"} href={information.helplinesTranslated.qld}>{phoneNumberWithSpace(information.helplinesTranslated.qld)} </a></li>
+                                            <li key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect2point3")} <a className={"citationLink"} href={information.helplinesTranslated.nt}>{phoneNumberWithSpace(information.helplinesTranslated.nt)} </a></li>
+                                            <ul>
+                                                <li key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect2point3part1")} <a className={"citationLink"} href={information.helplinesTranslated.ntPublicHealth}>{phoneNumberWithSpace(information.helplinesTranslated.ntPublicHealth)} </a></li>
+                                            </ul>
+                                            <li key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect2point4")} <a className={"citationLink"} href={information.helplinesTranslated.tas}>{phoneNumberWithSpace(information.helplinesTranslated.tas)} </a></li>
+                                            <ul>
+                                                <li key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect2point4part1d1")} <a className={"citationLink"} href={information.helplinesTranslated.tasInterpreter}>{phoneNumberWithSpace(information.helplinesTranslated.tasInterpreter)} </a> {i18next.t("infoPage:coronavirusHelpline:sect2point4part1d2")}</li>
+                                                <li key={uuid()}>{i18next.t("infoPage:coronavirusHelpline:sect2point4part2")} <a className={"citationLink"} href={information.helplinesTranslated.tasHealth}>{phoneNumberWithSpace(information.helplinesTranslated.tasHealth)} </a></li>
+                                            </ul>
+                                        </ul>
+                                    </div>
+                                </ExpansionPanelDetails>
 
-
+                            </ExpansionPanel>
+                        </div>
+                    </div>
                     {information.helplines.map(info => (
                         <div key={uuid()}>
                             <div>

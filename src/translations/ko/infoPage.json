@@ -25,7 +25,8 @@
     "title": "자신과 다른 사람들을 보호하기"
   },
   "coronavirusHelpline": {
-    "title": "코로나바이러스 헬프라인",
+    "title": "헬프 라인",
+    "subtitle": "코로나바이러스 헬프라인",
     "sect1heading": "호주 전국 헬프라인은 연중무휴 24시간 운영합니다.",
     "sect1point1": "전국 코로나바이러스 건강 정보 라인: ",
     "sect1point2": "코로나바이러스 증상이 의심될 경우 Healthdirect에 전화하십시오: ",
@@ -33,11 +34,11 @@
     "sect2point1": "빅토리아(Victoria): ",
     "sect2point2": "퀸즐랜드(Queensland): ",
     "sect2point3": "노던 테리토리(Northern Territory): ",
-    "sect2point3part1": "-  다윈(Darwin)에서 검사를 해야 할 경우 공중 보건 부서에 전화하십시오: ",
+    "sect2point3part1": "다윈(Darwin)에서 검사를 해야 할 경우 공중 보건 부서에 전화하십시오: ",
     "sect2point4": "태즈메이니아 주(Tasmania): ",
-    "sect2point4part1d1": "-  통역사가 필요한 경우 Tasmanian Interpreting Service(TIS)에 전화하십시오: ",
+    "sect2point4part1d1": "통역사가 필요한 경우 Tasmanian Interpreting Service(TIS)에 전화하십시오: ",
     "sect2point4part1d2": "필요하신 언어를 말씀해주시면 됩니다.",
-    "sect2point4part2": "-  통역사에게 성함을 말씀하시고 태즈메이니아 보건국에 전화한다고 얘기하시면 됩니다. 전화는 "
+    "sect2point4part2": "통역사에게 성함을 말씀하시고 태즈메이니아 보건국에 전화한다고 얘기하시면 됩니다. 전화는 "
   },
   "interestingLinks": {
     "title": "현재 상황에 대해 더 배울 수 있는 흥미로운 웹사이트 모음",

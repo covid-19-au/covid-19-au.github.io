@@ -759,72 +759,83 @@
             }
         }
     ],
+    "helplinesTranslated": {
+        "national": "1800020080",
+        "healthDirect": "1800022222",
+        "vic": "1800675398",
+        "qld": "13432584",
+        "nt": "1800008002",
+        "ntPublicHealth": "89228044",
+        "tas": "1800671738",
+        "tasInterpreter": "131450",
+        "tasHealth": "1800671738"
+    },
+    "coronavirusHelplines": {
+        "name": "Coronavirus Helplines",
+        "text": {
+            "text_1": [
+                "National Coronavirus helplines are operating 24 hours a day, seven days a week."
+            ],
+            "numberList_1": [
+                {
+                    "text": "For information on coronavirus (COVID-19) at the National Helpline:",
+                    "numberLink": "1800020080",
+                    "numberDisplay": "1800 020 080"
+                },
+                {
+                    "text": "If you are feeling unwell, call Healthdirect:",
+                    "numberLink": "1800022222",
+                    "numberDisplay": "1800 022 222"
+                }
+            ],
+            "text_2": [
+                "Some states have dedicated helplines as well: "
+            ],
+            "numberList_2": [
+                {
+                    "text": "Victoria:",
+                    "numberLink": "1800675398",
+                    "numberDisplay": "1800 675 398"
+                },
+                {
+                    "text": "Queensland:",
+                    "numberLink": "13432584",
+                    "numberDisplay": "13 432 584"
+                },
+                {
+                    "text": "Northern Territory:",
+                    "numberLink": "1800008002",
+                    "numberDisplay": "1800 008 002",
+                    "extras": [
+                        {
+                            "text": "If you are in Darwin and need to arrange testing call the Public Health Unit on: ",
+                            "numberLink": "89228044",
+                            "numberDisplay": "8922 8044"
+                        }
+                    ]
+                },
+                {
+                    "text": "Tasmania:",
+                    "numberLink": "1800671738",
+                    "numberDisplay": "1800 671 738",
+                    "extras": [
+                        {
+                            "text": "If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) and tell them your language on",
+                            "numberLink": "131450",
+                            "numberDisplay": "13 14 50"
+                        },
+                        {
+                            "text": "Tell the interpreter your name and that you’re calling the Tasmanian Department of Health:",
+                            "numberLink": "1800671738",
+                            "numberDisplay": "1800 671 738"
+                        }
+                    ]
+                }
+            ],
+            "citation": []
+        }
+    },
     "helplines": [
-        {
-            "name": "Coronavirus Helplines",
-            "text": {
-                "text_1": [
-                    "National Coronavirus helplines are operating 24 hours a day, seven days a week."
-                ],
-                "numberList_1": [
-                    {
-                        "text": "For information on coronavirus (COVID-19) at the National Helpline:",
-                        "numberLink": "1800020080",
-                        "numberDisplay": "1800 020 080"
-                    },
-                    {
-                        "text": "If you are feeling unwell, call Healthdirect:",
-                        "numberLink": "1800022222",
-                        "numberDisplay": "1800 022 222"
-                    }
-                ],
-                "text_2": [
-                    "Some states have dedicated helplines as well: "
-                ],
-                "numberList_2": [
-                    {
-                        "text": "Victoria:",
-                        "numberLink": "1800675398",
-                        "numberDisplay": "1800 675 398"
-                    },
-                    {
-                        "text": "Queensland:",
-                        "numberLink": "13432584",
-                        "numberDisplay": "13 432 584"
-                    },
-                    {
-                        "text": "Northern Territory",
-                        "numberLink": "1800008002",
-                        "numberDisplay": "1800 008 002",
-                        "extras": [
-                            {
-                                "text": "If you are in Darwin and need to arrange testing call the Public Health Unit on: ",
-                                "numberLink": "89228044",
-                                "numberDisplay": "8922 8044"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "Tasmania:",
-                        "numberLink": "1800671738",
-                        "numberDisplay": "1800 671 738",
-                        "extras": [
-                            {
-                                "text": "If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) and tell them your language on",
-                                "numberLink": "131450",
-                                "numberDisplay": "13 14 50"
-                            },
-                            {
-                                "text": "Tell the interpreter your name and that you’re calling the Tasmanian Department of Health:",
-                                "numberLink": "1800671738",
-                                "numberDisplay": "1800 671 738"
-                            }
-                        ]
-                    }
-                ],
-                "citation": []
-            }
-        },
         {
             "name": "Violence / Abuse Helplines",
             "text": {

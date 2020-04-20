@@ -25,19 +25,20 @@
     "title": "Protegiéndose a usted mismo y a los demás"
   },
   "coronavirusHelpline": {
-    "title": "Líneas de ayuda de coronavirus",
+    "title": "Línea de ayuda",
+    "subtitle": "Líneas de ayuda de coronavirus",
     "sect1heading": "Líneas de ayuda nacionales que funcionan las 24 horas del día, los siete días de la semana.",
     "sect1point1": "Para obtener información sobre el coronavirus (COVID-19) en la Línea de ayuda nacional:",
     "sect1point2": "Si no se siente bien, llame a Healthdirect:",
     "sect2heading": "Algunos estados también tienen líneas de ayuda dedicadas:",
     "sect2point1": "Victoria:",
-    "sect2point2": "Queensland",
+    "sect2point2": "Queensland:",
     "sect2point3": "Territorio del Norte:",
-    "sect2point3part1": "- Si se encuentra en Darwin y necesita organizar una prueba, llame a la Unidad de Salud Pública al:",
+    "sect2point3part1": "Si se encuentra en Darwin y necesita organizar una prueba, llame a la Unidad de Salud Pública al:",
     "sect2point4": "Tasmania",
-    "sect2point4part1d1": "- Si necesita un intérprete, llame al Servicio de Interpretación de Tasmania (TIS) al",
+    "sect2point4part1d1": "Si necesita un intérprete, llame al Servicio de Interpretación de Tasmania (TIS) al",
     "sect2point4part1d2": " y diles tu idioma.",
-    "sect2point4part2": "- Diga su nombre al intérprete y que está llamando al Departamento de Salud de Tasmania"
+    "sect2point4part2": "Diga su nombre al intérprete y que está llamando al Departamento de Salud de Tasmania"
   },
   "interestingLinks": {
     "title": "Otros enlaces interesantes para conocer la situación actual.",
