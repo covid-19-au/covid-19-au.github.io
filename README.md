@@ -77,7 +77,15 @@ This site is developed and maintained by a volunteer team:
 * Yaoye Lu
 * Tuan Khoi Nguyen
 * Oscar Morrisono
+* Karl
 
+### Multi-language supporters
+* Marcel
+* Tuan Khoi Nguyen
+* Peichuan Liu
+* Yupei Guo
+* Jiwon Ryu
+* Pat L
 
 
 ## Call for features
