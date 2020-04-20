@@ -1,27 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "imgLink": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Study_%2816840395246%29.jpg/800px-Study_%2816840395246%29.jpg",
-                    "source": "https://commons.wikimedia.org/wiki/File:Study_(16840395246).jpg"
+                    "link": "https://www.youtube.com/watch?v=kx6ie9Cm0Zo",
+                    "description": "Prom 2020: Some Good News with John Krasinski Ep. 4"
                 }
             ],
-            "video": [],
-            "title": "Yale University's Science of Well-Being' Course is now free on Coursera!",
-            "content": "<p>The course is taught by Yale psychology professor Laurie Santos. She will guide you through how people think about their own well-being and teach you to implement that knowledge in your own life.</p><p>The course contains 10 weeks of material with about 2-3 hours of readings and videos per week. Since it is online, you could even speed through it over a weekend or two!</p><p>Check it out at the link below!</p>",
-            "type": "motivation",
-            "date": "19/4/2020",
-            "citation": [
-                {
-                    "link": "https://www.coursera.org/learn/the-science-of-well-being",
-                    "name": "The Science of Well-Being - Coursera"
-                },
-                {
-                    "link": "https://www.mentalfloss.com/article/611600/yale-science-of-well-being-online-course-free",
-                    "name": "Yale Is Offering Its 'Science of Well-Being' Course for Free Online - Mental Floss"
-                }
-            ]
+            "type": "distraction",
+            "date": "21/4/2020"
         }
     ]
 }
