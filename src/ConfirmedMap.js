@@ -99,8 +99,24 @@ function prepareForComparison(s) {
     // then lowercase before comparing to make sure
     // e.g. "KALGOORLIE-BOULDER" matches against
     // "Kalgoorlie - Boulder"
-    s = s.replace(/[- ‒–—]+/g, '-');
-    return s.toLowerCase();
+    s = s.replace(/(\s*[-‒–—])\s+/g, '-');
+    s = s.toLowerCase();
+    // Sync me with get_regions_json_data in the web app!!
+    s = s.replace('the corporation of the city of ', '')
+    s = s.replace('the corporation of the town of ', '')
+    s = s.replace('pastoral unincorporated area', 'pua')
+    s = s.replace('district council', '')
+    s = s.replace('regional council', '')
+    s = s.replace(' shire', '')
+    s = s.replace(' council', '')
+    s = s.replace(' regional', '')
+    s = s.replace(' rural', '')
+    s = s.replace('the dc of ', '')
+    s = s.replace('town of ', '')
+    s = s.replace('city of ', '')
+    if (s.indexOf('the ') === 0)
+        s = s.slice(4);
+    return s;
 }
 
 
@@ -521,19 +537,30 @@ class MbMap extends React.Component {
         function enableNonLGAInst(dataSource, otherInst, lgaInst) {
             // Overlay LGA ABS data underneath non-LGA stats
             // (e.g. Queensland HHS/ACT SA3)
-            otherInst.addHeatMap(dataSource);
 
-            lgaInst.addLinePoly(dataSource, 'rgba(255, 0, 255, 0.3)');
-            otherInst.addLinePoly(dataSource, 'rgba(0, 0, 0, 1.0)');
-
+            otherInst.addHeatMap(
+                dataSource
+            );
+            otherInst.addLinePoly(
+                dataSource,
+                'rgba(0, 0, 0, 1.0)'
+            );
             otherInst.addFillPoly(
+                dataSource,
+                0,
+                false,
+                true
+            );
+
+            lgaInst.addLinePoly(
                 that.absStatsInsts[that._selectedUnderlay],
-                0,false,true
+                'rgba(0, 0, 0, 0.1)'
             );
             lgaInst.addFillPoly(
                 that.absStatsInsts[that._selectedUnderlay],
                 that._underlay ? 0.5 : 0,
-                !!that._underlay,false//,
+                !!that._underlay,
+                false//,
                 //fillPoly['fillPolyId']
             );
         }
@@ -717,6 +744,7 @@ class TimeSeriesDataSource extends DataSourceBase {
 
         stateName = stateName.toLowerCase();
         cityName = prepareForComparison(cityName);
+        console.log("PREPARED:"+stateName+' '+cityName)
 
         for (var i=0; i<this.data.length; i++) {
             var iData = this.data[i];
@@ -1647,6 +1675,7 @@ class JSONGeoBoundariesBase {
             var data = geoJSONData.features[i];
             var cityName = this.getCityNameFromProperty(data);
             if (!cityName) {
+                console.log("NOT CITYNAME:", data)
                 continue; // WARNING!!
             }
 
@@ -1654,6 +1683,7 @@ class JSONGeoBoundariesBase {
                 state, cityName
             );
             if (!caseInfo) {
+                console.log("NOT CASE INFO:", state, cityName);
                 continue; // WARNING!!! ===============================================================================
             }
             data.properties['cases'] = caseInfo['numCases'];
@@ -1695,12 +1725,14 @@ class JSONGeoBoundariesBase {
             var data = geoJSONData.features[i];
             var cityName = this.getCityNameFromProperty(data);
             if (!cityName) {
+                console.log("NOT CITYNAME:", data)
                 continue; // WARNING!!
             }
             statInfo = dataSource.getCaseInfoForCity(
                 state, cityName
             );
             if (!statInfo) {
+                console.log("NOT STAT INFO:", state, cityName);
                 continue; // WARNING!!! ===============================================================================
             }
             data.properties['stat'] = statInfo['numCases'];
@@ -1810,7 +1842,7 @@ class QLDLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
         super(
             map,
-            'QLD_LGA',
+            'QLD',
             'id_poly_qld_lga',
             'id_line_ploy_qld_lga',
             qldLgaData
