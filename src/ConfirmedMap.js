@@ -78,7 +78,6 @@ function dateDiffFromToday(dateString) {
 }
 
 
-
 class MbMap extends React.Component {
     constructor(props) {
         super(props);
@@ -475,16 +474,36 @@ class MbMap extends React.Component {
             markers = this._markers;
 
         function enableInsts(dataSource, insts) {
+            // Overlay LGA ABS data on LGA stats
             for (var i=0; i<insts.length; i++) {
                 insts[i].addHeatMap(dataSource);
                 insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(
                     that.absStatsInsts[that._selectedUnderlay],
                     that._underlay ? 0.5 : 0,
-                    true,
+                    !!that._underlay,
                     true
                 );
             }
+        }
+        function enableNonLGAInst(dataSource, otherInst, lgaInst) {
+            // Overlay LGA ABS data underneath non-LGA stats
+            // (e.g. Queensland HHS/ACT SA3)
+            otherInst.addHeatMap(dataSource);
+
+            lgaInst.addLinePoly(dataSource, 'purple');
+            otherInst.addLinePoly(dataSource, 'brown');
+
+            var fillPoly = otherInst.addFillPoly(
+                that.absStatsInsts[that._selectedUnderlay], // HACK - this may need to be rewritten!
+                0,false,true
+            );
+            lgaInst.addFillPoly(
+                that.absStatsInsts[that._selectedUnderlay],
+                that._underlay ? 0.5 : 0,
+                !!that._underlay,false,
+                fillPoly['fillPolyId']
+            );
         }
         function updateMessages() {
             let messages = messagesForModes[that._markers];
@@ -506,18 +525,16 @@ class MbMap extends React.Component {
             );
         }
         else if (markers === '7 Days') {
+            // TODO: Show recent confirmed markers!
             enableInsts(this.sevenDaysAgo, [
                 this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
             ]);
-
-            // TODO: Show recent confirmed markers!!! ==================================================================
         }
         else if (markers === '14 Days') {
+            // TODO: Show recent confirmed markers!
             enableInsts(this.fourteenDaysAgo, [
                 this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA, this.hhsQLD
             ]);
-
-            // TODO: Show recent confirmed markers!!! ==================================================================
         }
         else if (markers === 'Active') {
             enableInsts(this.activeData, [
@@ -557,6 +574,14 @@ class MbMap extends React.Component {
                 insts[i].removeFillPoly();
                 insts[i].resetPopups();
             }
+        }
+        function disableNonLGAInst(otherInst, lgaInst) {
+            otherInst.removeHeatMap();
+            otherInst.removeLinePoly();
+            otherInst.removeFillPoly();
+            otherInst.resetPopups();
+            lgaInst.removeLinePoly();
+            lgaInst.removeFillPoly();
         }
         function clearMessages() {
             for (let key in messagesForModes) {
@@ -692,14 +717,6 @@ class TimeSeriesDataSource extends DataSourceBase {
             }
         }
         return r;
-    }
-
-    makePopup() {
-        // TODO!
-    }
-
-    showPopup() {
-        // TODO: Show a popup using the current basic scalar value format
     }
 }
 
@@ -928,7 +945,8 @@ class JSONGeoBoundariesBase {
     addFillPoly(dataSource,
                 opacity,
                 addLegend,
-                addPopupOnClick) {
+                addPopupOnClick,
+                addUnderLayerId) {
 
         // Add the colored fill area
         const map = this.map;
@@ -1007,7 +1025,7 @@ class JSONGeoBoundariesBase {
                 },
                 filter: ['==', '$type', 'Polygon']
             },
-            firstHeatmapId
+            addUnderLayerId || firstHeatmapId
         );
 
         // Add legend/popup event as specified
