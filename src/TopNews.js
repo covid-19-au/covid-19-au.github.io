@@ -59,7 +59,7 @@ function TopNews() {
                                     id="panel1a-header"
                                     style={{ textAlign: "left", padding: "0px" }}>
                                     <ListItemAvatar>
-                                        <Avatar style={{ marginTop: "0.rem", marginRight: "1rem", width: "48px", height: "48px" }} src={require("./img/newsLogos/" + news.source + ".jpg")} />
+                                        <Avatar style={{ marginTop: "0rem", marginRight: "1rem", width: "48px", height: "48px" }} src={require("./img/newsLogos/" + news.source + ".jpg")} />
                                     </ListItemAvatar>
                                     <ListItemText
                                         primary={

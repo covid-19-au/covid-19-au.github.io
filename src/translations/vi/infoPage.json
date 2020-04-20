@@ -25,7 +25,8 @@
     "title": "Bảo vệ bản thân và người khác"
   },
   "coronavirusHelpline": {
-    "title": "Đường dây nóng COVID",
+    "title": "Đường dây trợ giúp",
+    "subtitle": "Đường dây nóng COVID",
     "sect1heading": "Đường dây trợ giúp quốc gia hoạt động 24 giờ một ngày, bảy ngày trong tuần.",
     "sect1point1": "Để biết thông tin về coronavirus (COVID-19) tại Đường dây Hỗ trợ Quốc gia:",
     "sect1point2": "Nếu bạn cảm thấy không khỏe, hãy gọi cho:",
@@ -33,19 +34,19 @@
     "sect2point1": "Victoria:",
     "sect2point2": "Queensland:",
     "sect2point3": "Northern Territory:",
-    "sect2point3part1": "- Nếu bạn đang ở Darwin và cần xét nghiệm, hãy gọi cho Bộ Y tế Công cộng theo số:",
+    "sect2point3part1": "Nếu bạn đang ở Darwin và cần xét nghiệm, hãy gọi cho Bộ Y tế Công cộng theo số:",
     "sect2point4": "Tasmania:",
-    "sect2point4part1d1": "- Nếu bạn cần một thông dịch viên, hãy gọi cho Dịch vụ Phiên dịch Tasmania (TIS) tại",
+    "sect2point4part1d1": "Nếu bạn cần một thông dịch viên, hãy gọi cho Dịch vụ Phiên dịch Tasmania (TIS) tại",
     "sect2point4part1d2": " và nói với họ ngôn ngữ bạn yêu cầu.",
-    "sect2point4part2": "- Nói với người phiên dịch tên của bạn và cho biết mình được giới thiệu qua Bộ Y tế Tasmania"
+    "sect2point4part2": "Nói với người phiên dịch tên của bạn và cho biết mình được giới thiệu qua Bộ Y tế Tasmania"
   },
   "interestingLinks": {
     "title": "Các đường link thú vị khác để tìm hiểu về tình hình hiện tại (Tiếng Anh)",
-    "point1":"Coronavirus: The Hammer and the Dance",
-    "point2part1":"The New York Times",
-    "point2part2":" Và ",
-    "point2part3":"The Economist",
-    "point2part4":" đang cung cấp truy cập miễn phí vào các bài về coronavirus. Được của ló!"
+    "point1": "Coronavirus: The Hammer and the Dance",
+    "point2part1": "The New York Times",
+    "point2part2": " Và ",
+    "point2part3": "The Economist",
+    "point2part4": " đang cung cấp truy cập miễn phí vào các bài về coronavirus. Được của ló!"
   },
   "testingCentres": {
     "title": "Danh sách bệnh viện xét nghiệm coronavirus",
