@@ -90,3 +90,31 @@
         height: 150px;
     }
 }
+
+.filterDropDown {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filterBox {
+    max-width: 90%;
+    margin-bottom: 2em;
+    max-width: 900px;
+}
+
+@media screen and (max-width: 959px) {
+    .filterDropDown {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.filterText {
+    width: 220px;
+    height: auto;
+    min-height: 16px !important;
+}
+
+.MuiOutlinedInput-input {
+    padding: 6px 0 7px !important;
+}

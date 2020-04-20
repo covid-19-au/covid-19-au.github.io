@@ -276,7 +276,8 @@ function App() {
     "/state/nt": () => <StateChart state="NT" />,
     "/state/tas": () => <StateChart state="TAS" />,
     "/blog": () => <Blog />,
-    "/blog/:id": ({id}) => <BlogPage id={id} />
+    "/blog/:id": ({id}) => <Blog id={id}/>,
+    "/blog/post/:id": ({id}) => <BlogPage id={id} />
   };
   //
   // // The hook used to render the routes.

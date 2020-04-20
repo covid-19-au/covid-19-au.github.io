@@ -22,7 +22,7 @@ function BlogPage(props) {
         }
     }
 
-    const url = 'https://covid-19-au.com/blog/' + props.id;
+    const url = 'https://covid-19-au.com/blog/post/' + props.id;
 
     return (
         <Grid item xs={11} sm={11} md={10}>

@@ -55,12 +55,12 @@ export default function Navbar({ setNav, nav }) {
         >
           <strong>News</strong>
         </A>
-                <A
-                    className={`navItems ${
-                        window.location.pathname === "/blog" && !isSticky ? "navCurrentPage " : ""
-                        } ${window.location.pathname === "/blog" && isSticky ? "navCurrentPageSticky" : ""} `}
-                    onClick={onClick} href="/blog"
-                >
+        <A
+            className={`navItems ${
+                window.location.pathname.includes("/blog") && !isSticky ? "navCurrentPage " : ""
+                } ${window.location.pathname.includes("/blog") && isSticky ? "navCurrentPageSticky" : ""} `}
+            onClick={onClick} href="/blog"
+        >
           <strong>Blog</strong>
         </A>
 
