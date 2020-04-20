@@ -77,6 +77,28 @@ function dateDiffFromToday(dateString) {
     return dateDiff(dateUpdatedInst, today);
 }
 
+function toTitleCase(str) {
+    // convert to Title Case
+    // https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+    return str.replace(
+        /\w\S*/g,
+        function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
+}
+
+
+function prepareForComparison(s) {
+    // Replace different kinds of successive hyphens
+    // and whitespace with only a single hyphen,
+    // then lowercase before comparing to make sure
+    // e.g. "KALGOORLIE-BOULDER" matches against
+    // "Kalgoorlie - Boulder"
+    s = s.replace(/[- ‒–—]+/g, '-');
+    return s.toLowerCase();
+}
+
 
 class MbMap extends React.Component {
     constructor(props) {
@@ -91,6 +113,7 @@ class MbMap extends React.Component {
 
         this._markers = 'Total';
         this._underlay = null;
+        this._firstTime = true;
 
         this.markersButtonGroup = React.createRef();
         this.underlayButtonGroup = React.createRef();
@@ -563,6 +586,12 @@ class MbMap extends React.Component {
     }
 
     _resetMode() {
+        if (this._firstTime) {
+            // Don't reset before the page has been initially changed!
+            this._firstTime = false;
+            return;
+        }
+
         let that = this,
             messagesForModes = this._getMessagesForModes(),
             m = this._markers;
@@ -645,6 +674,10 @@ class TimeSeriesDataSource extends DataSourceBase {
     In format:
 
      [[[...FIXME...]]]
+
+     NOTE: state names/city names supplied to this
+     class must be lowercased and have ' - ' replaced with '-'.
+     This is way too resource-intensive to run otherwise!
     */
 
     constructor(sourceName, subHeader, mapAreaData, currentValues) {
@@ -652,7 +685,7 @@ class TimeSeriesDataSource extends DataSourceBase {
         this.subHeaderIndex = mapAreaData['sub_headers'].indexOf(subHeader);
 
         this.subHeader = subHeader;
-        this.currentValues = currentValues; // Can be null
+        //this.currentValues = currentValues; // Can be null  CURRENTLY DISABLED - discuss whether this is really a good idea!!!
         this.data = mapAreaData['data'];
         //console.log(this.data)
     }
@@ -670,6 +703,9 @@ class TimeSeriesDataSource extends DataSourceBase {
             );
         }
 
+        stateName = stateName.toLowerCase();
+        cityName = prepareForComparison(cityName);
+
         for (var i=0; i<this.data.length; i++) {
             var iData = this.data[i];
             var dateUpdated = iData[0],
@@ -678,8 +714,8 @@ class TimeSeriesDataSource extends DataSourceBase {
                 iValue = iData[this.subHeaderIndex+3];
 
             if (
-                iStateName.toLowerCase() === stateName.toLowerCase() &&
-                iCityName.toLowerCase() === cityName.toLowerCase() &&
+                iStateName === stateName &&
+                iCityName === cityName &&
                 iValue != null
             ) {
                 return {
@@ -697,6 +733,9 @@ class TimeSeriesDataSource extends DataSourceBase {
     getCaseInfoTimeSeriesForCity(stateName, cityName) {
         var r = [];
 
+        stateName = stateName.toLowerCase();
+        cityName = prepareForComparison(cityName);
+
         for (var i=0; i<this.data.length; i++) {
             var iData = this.data[i];
             var dateUpdated = iData[0],
@@ -705,8 +744,8 @@ class TimeSeriesDataSource extends DataSourceBase {
                 iValue = iData[this.subHeaderIndex+3];
 
             if (
-                iStateName.toLowerCase() === stateName.toLowerCase() &&
-                iCityName.toLowerCase() === cityName.toLowerCase() &&
+                iStateName === stateName &&
+                iCityName === cityName &&
                 iValue != null
             ) {
                 // May as well use CanvasJS format
@@ -741,6 +780,9 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
             return null;
         }
 
+        stateName = stateName.toLowerCase();
+        cityName = prepareForComparison(cityName);
+
         for (var i=0; i<this.data.length; i++) {
             var iData = this.data[i];
             var dateUpdated = iData[0],
@@ -750,11 +792,10 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
 
             //console.log(dateDiffFromToday(dateUpdated));
             if (
-                iStateName.toLowerCase() === stateName.toLowerCase() &&
-                iCityName.toLowerCase() === cityName.toLowerCase() &&
+                iStateName === stateName &&
+                iCityName === cityName &&
                 iValue != null
             ) {
-                console.log(stateName+' '+cityName+' '+latest['numCases']-parseInt(iValue))
                 oldest = {
                     'numCases': latest['numCases']-parseInt(iValue),
                     'updatedDate': latest['updatedDate']
@@ -807,15 +848,14 @@ class CurrentValuesDataSource extends DataSourceBase {
         var numberOfCases = 0,
             updatedDate = '16/4/20';
 
+        stateName = stateName.toLowerCase();
+        cityName = prepareForComparison(cityName);
+
         for (var i=0; i<this.mapAreaData.length; i++) {
             var areaInfo = this.mapAreaData[i];
-            if (
-                stateName === areaInfo['state'] &&
-                areaInfo['schema'] !== 'HLD'  // What is HLD? ========================================================
-            ) {
+            if (stateName === areaInfo['state'].toLowerCase()) {
                 if (
-                    areaInfo['area'].toLowerCase() ===
-                        cityName.toLowerCase() &&
+                    prepareForComparison(areaInfo['area']) === cityName &&
                     numberOfCases === 0
                 ) {
                     numberOfCases = areaInfo['confirmedCases'];
@@ -861,11 +901,12 @@ class BigTableOValuesDataSource extends DataSourceBase {
         this.subHeaderIndex = mapAreaData['sub_headers'].indexOf(subHeader);
         this.updatedDate = mapAreaData['updated_dates'][this.subHeaderIndex];
         this.data = mapAreaData['data'];
-
-        console.log(subHeader+' IDX '+this.subHeaderIndex)
     }
 
     getCaseInfoForCity(stateName, cityName) {
+        stateName = stateName.toLowerCase();
+        cityName = prepareForComparison(cityName);
+
         for (var i=0; i<this.data.length; i++) {
             var iData = this.data[i],
                 iStateName = iData[0],
@@ -873,8 +914,8 @@ class BigTableOValuesDataSource extends DataSourceBase {
                 value = iData[this.subHeaderIndex+2];
 
             if (
-                iStateName.toLowerCase() === stateName.toLowerCase() &&
-                iCityName.toLowerCase() === cityName.toLowerCase()
+                iStateName === stateName &&
+                iCityName === cityName
             ) {
                 return {
                     'numCases': value,
@@ -1065,8 +1106,9 @@ class JSONGeoBoundariesBase {
         legend.style.top = '10px';
         legend.style.left = '10px';
         legend.style.width = '10%';
+        legend.style.minWidth = '75px';
         legend.style.background = 'white';
-        legend.style.padding = '3px'
+        legend.style.padding = '3px';
         legend.style.boxShadow = '0px 1px 5px 0px rgba(0,0,0,0.05)';
         this.map.getCanvasContainer().appendChild(legend);
 
@@ -1089,7 +1131,6 @@ class JSONGeoBoundariesBase {
             key.style.borderRadius = '20%';
             key.style.width = '10px';
             key.style.height = '10px';
-            key.style.marginRight = '5px';
 
             var isPercent =
                 dataSource.getSourceName().indexOf('(%)') !== -1;
@@ -1683,7 +1724,7 @@ class WALGABoundaries extends JSONGeoBoundariesBase {
         );
     }
     getCityNameFromProperty(data) {
-        return data.properties.wa_lga_s_3;
+        return toTitleCase(data.properties.wa_lga_s_3);
     }
 }
 
@@ -1698,7 +1739,7 @@ class NSWLGABoundaries extends JSONGeoBoundariesBase {
         );
     }
     getCityNameFromProperty(data) {
-        return data.properties.nsw_lga__3;
+        return toTitleCase(data.properties.nsw_lga__3);
     }
 }
 
@@ -1720,16 +1761,6 @@ class VicLGABoundaries extends JSONGeoBoundariesBase {
         city_name = city.join(' ');
         return toTitleCase(city_name);
     }
-}
-
-function toTitleCase(str) {
-    // https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
-    return str.replace(
-        /\w\S*/g,
-        function(txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        }
-    );
 }
 
 class ConfirmedMarker {
