@@ -25,7 +25,8 @@
     "title": "自分と他人を守る"
   },
   "coronavirusHelpline": {
-    "title": "コロナウイルスヘルプライン",
+    "title": "ヘルプライン",
+    "subtitle": "コロナウイルスヘルプライン",
     "sect1heading": "全国のヘルプラインは24時間年中無休で営業しています。",
     "sect1point1": "全国ヘルプラインでのコロナウイルス（COVID-19）に関する情報：",
     "sect1point2": "気分が悪い場合は、Healthdirectに電話してください。",
