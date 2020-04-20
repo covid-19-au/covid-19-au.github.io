@@ -34,30 +34,12 @@ export default class Ships extends Component {
       <tr
         onClick={clickCallback}
         key={"row-data-" + item.name}
-        style={{
-          "background-color": "#bae1ff",
-          border: "2px solid white",
-          filter: "saturate(65%)",
-          height: "30px",
-        }}
+        class="shiptitletr"
       >
-        <th
-          style={{
-            "font-weight": "bold",
-            "text-decoration": "underline",
-            width: "147px",
-          }}
-        >
+        <td colspan="2" class="shiptitlename">
           {isExpanded} {item.name}
-        </th>
-        <td
-          colspan="3"
-          style={{
-            "text-align": "right",
-            color: "grey",
-            backgroundColor: "#f8f8f8",
-          }}
-        >
+        </td>
+        <td colspan="2" class="shiptitlestatus">
           {item.status}
         </td>
       </tr>,
@@ -65,12 +47,18 @@ export default class Ships extends Component {
 
     if (this.state.expandedRows.includes(item.name)) {
       itemRows.push(
+        <tr key={"row-expanded-" + item.name} class="shipexpandtr">
+          <td class="shipexpandttitle">Last Update</td>
+          <td class="shipexpandttitle">State</td>
+          <td class="shipexpandttitle">Cases</td>
+          <td class="shipexpandttitle">Death</td>
+        </tr>,
         item.data.map((row) => (
-          <tr key={"row-expanded-" + item.name}>
-            <td stype={{ border: "2px solid white" }}>{row.lastUpdate}</td>
-            <td stype={{ border: "2px solid white" }}>{row.state}</td>
-            <td stype={{ border: "2px solid white" }}>{row.case} cases</td>
-            <td stype={{ border: "2px solid white" }}>{row.death} deaths</td>
+          <tr class="shipexpandtds">
+            <td>{row.lastUpdate}</td>
+            <td>{row.state}</td>
+            <td>{row.case}</td>
+            <td>{row.death}</td>
           </tr>
         ))
       );
@@ -104,7 +92,8 @@ export default class Ships extends Component {
             <Acknowledgement></Acknowledgement>
           </div>
         </h2>
-        <table style={{ "font-size": "80%" }}>{allItemRows}</table>
+        <table class="shiptable">{allItemRows}</table>
+        <p class="key due">* Ships that link to Australia COVID19 cases.</p>
       </div>
     );
   }

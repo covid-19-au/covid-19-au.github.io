@@ -46,13 +46,12 @@ header i {
   font-size: 90%;
 }
 
-.flightInfo
-.province.header > div {
+.flightInfo .province.header > div {
   color: #000000;
 }
 
 .table-footer > div {
-    background: #e2e8ec;
+  background: #e2e8ec;
 }
 
 .area,
@@ -61,7 +60,7 @@ header i {
 .cured,
 .activeCase,
 .flightArea,
-.tested{
+.tested {
   border: 1px solid #fff;
   background-color: #f8f8f8;
   display: flex;
@@ -74,7 +73,7 @@ header i {
   padding: 0.4rem 0;
   position: relative;
   color: #212f3d;
-  font-size:90%;
+  font-size: 90%;
 }
 .flightArea {
   font-size: 90%;
@@ -106,21 +105,19 @@ header i {
   font-size: 90%;
 }
 
-
 .confirmed,
 .death,
 .cured,
 .activeCase,
-.tested
-{
+.tested {
   padding: 0.3rem 0;
   flex: 1;
-    width: 0;
+  width: 0;
 }
 
 .confirmed {
   color: #ff603c;
-    flex:1.2;
+  flex: 1.2;
 }
 
 .confirmed.header {
@@ -130,30 +127,30 @@ header i {
 }
 
 .confirmedtitle {
-  color: #0d0c0d ;
-  font-size: 90% ;
+  color: #0d0c0d;
+  font-size: 90%;
   font-weight: 500;
 }
 
 .activeCase {
-    color: #b18feb;
-    flex:0.9;
+  color: #b18feb;
+  flex: 0.9;
 }
 .activeCase.header {
-    background-color: #bae1ff;
-    filter: saturate(65%);
-    font-size: 80%;
+  background-color: #bae1ff;
+  filter: saturate(65%);
+  font-size: 80%;
 }
 
 .activetitle {
-    color: #002a00;
-    font-size: 90% ;
-    font-weight: 500;
+  color: #002a00;
+  font-size: 90%;
+  font-weight: 500;
 }
 
 .cured {
   color: #00c177;
-    flex:1.2;
+  flex: 1.2;
 }
 
 .cured.header {
@@ -163,8 +160,8 @@ header i {
 }
 
 .recoveredtitle {
-  color: #0d0c0d ;
-  font-size: 90% ;
+  color: #0d0c0d;
+  font-size: 90%;
   font-weight: 500;
 }
 
@@ -179,14 +176,14 @@ header i {
 }
 
 .testedtitle {
-  color: #0d0c0d  ;
-  font-size: 90% ;
+  color: #0d0c0d;
+  font-size: 90%;
   font-weight: 500;
 }
 
 .death {
   color: #c11700;
-    flex:0.8;
+  flex: 0.8;
 }
 
 .death.header {
@@ -196,8 +193,8 @@ header i {
 }
 
 .deathtitle {
-  color: #0d0c0d ;
-  font-size: 90% ;
+  color: #0d0c0d;
+  font-size: 90%;
   font-weight: 500;
 }
 
@@ -274,243 +271,241 @@ h2 small {
 }
 
 .imageContainer {
-    width: 480px;
-    height: 675px;
+  width: 480px;
+  height: 675px;
 }
 
 .formatImage {
-    width: 100%;
+  width: 100%;
 }
 
 .centerMedia {
-    margin: 2rem 1rem;
-    justify-content: center;
-    text-align: center;
+  margin: 2rem 1rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .formatTable {
-    color: black;
+  color: black;
 }
 
 @media (max-width: 700px) {
+  .formatMedia {
+    width: 426px !important;
+    height: 240px !important;
+    justify-content: center;
+  }
 
-    .formatMedia {
-        width: 426px !important;
-        height: 240px !important;
-        justify-content: center;
-    }
+  .formatTable {
+    font-size: small;
+  }
 
-    .formatTable {
-        font-size: small;
-    }
-
-    .imageContainer {
-        width: 360px;
-        height: 506px;
-    }
+  .imageContainer {
+    width: 360px;
+    height: 506px;
+  }
 }
 
 @media (max-width: 440px) {
-    .formatMedia {
-        width: 319px !important;
-        height: 180px !important;
-        justify-content: center;
-    }
+  .formatMedia {
+    width: 319px !important;
+    height: 180px !important;
+    justify-content: center;
+  }
 
-    .responsiveH2 {
-        font-size: large;
-        font-weight: 800;
-    }
+  .responsiveH2 {
+    font-size: large;
+    font-weight: 800;
+  }
 
-    .responsiveH3 {
-        font-size: medium;
-        font-weight: 800;
-    }
+  .responsiveH3 {
+    font-size: medium;
+    font-weight: 800;
+  }
 
-    .responsiveText {
-        font-size: small;
-    }
+  .responsiveText {
+    font-size: small;
+  }
 
-    .pagination {
-        font-size: xx-small;
-    }
+  .pagination {
+    font-size: xx-small;
+  }
 
-    .formatTable {
-        font-size: x-small;
-    }
+  .formatTable {
+    font-size: x-small;
+  }
 
-    .imageContainer {
-        width: 240px;
-        height: 337px;
-    }
+  .imageContainer {
+    width: 240px;
+    height: 337px;
+  }
 
-    .mediaText {
-        font-size: x-small;
-    }
+  .mediaText {
+    font-size: x-small;
+  }
 }
 
 @media (max-width: 330px) {
-    .formatMedia {
-        width: 284px !important;
-        height: 160px !important;
-        justify-content: center;
-    }
+  .formatMedia {
+    width: 284px !important;
+    height: 160px !important;
+    justify-content: center;
+  }
 
-    .formatTable {
-        font-size: xx-small;
-    }
+  .formatTable {
+    font-size: xx-small;
+  }
 
-    .imageContainer {
-        width: 160px;
-        height: 225px;
-    }
+  .imageContainer {
+    width: 160px;
+    height: 225px;
+  }
 
-    .mediaText {
-        font-size: xx-small;
-    }
+  .mediaText {
+    font-size: xx-small;
+  }
 }
 
 .removePadding {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .navBar {
-    height: 36px;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #bae1ff;
-    filter: saturate(65%);
+  height: 36px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #bae1ff;
+  filter: saturate(65%);
 }
 
 .navBarStuck {
-    height: 36px;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #bae1ff;
-    filter: saturate(65%);
-    color: black;
+  height: 36px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #bae1ff;
+  filter: saturate(65%);
+  color: black;
 }
 
 .sticky {
-    position: fixed;
-    top: 0;
+  position: fixed;
+  top: 0;
 }
 
 .sticky-wrapper {
-    position: relative;
-    height: 36px;
+  position: relative;
+  height: 36px;
 }
 
 .sticky .sticky-inner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 .navItems {
-    margin: 0.5rem 0 0 0;
-    padding: 0 8px;
-    border-bottom: transparent solid 2px;
-    font-size: 50;
+  margin: 0.5rem 0 0 0;
+  padding: 0 8px;
+  border-bottom: transparent solid 2px;
+  font-size: 50;
 }
 
 .navItems:hover {
-    cursor: pointer;
-    /*text-decoration: none !important;*/
+  cursor: pointer;
+  /*text-decoration: none !important;*/
 }
 
 .navBar a {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 .navBarStuck a {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 .navCurrentPage {
-    border-bottom: #1277d3 solid 2px;
-    color: #1277d3;
+  border-bottom: #1277d3 solid 2px;
+  color: #1277d3;
 }
 
 .navCurrentPageSticky {
-    border-bottom: black solid 2px;
-    color: black ;
+  border-bottom: black solid 2px;
+  color: black;
 }
 
 .citationLink {
-    color: blue;
-    border-bottom: blue 1px solid;
+  color: blue;
+  border-bottom: blue 1px solid;
 }
 
 .flightSearch {
-    width: 98%;
-    border-width: 2.5px;
-    border-color: rgb(186, 217, 229);
-    margin-bottom: 15px;
+  width: 98%;
+  border-width: 2.5px;
+  border-color: rgb(186, 217, 229);
+  margin-bottom: 15px;
 }
 
 .tableRows {
-    border: 1px solid #87CEEB;
+  border: 1px solid #87ceeb;
 }
 
 .tableRows:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .tableData {
-    border-right: 1px solid #87CEEB;
+  border-right: 1px solid #87ceeb;
 }
 
 .customStateSelect {
-    border-radius: 4px;
-    border: 2px solid #87CEEB;
-    background-color: white;
+  border-radius: 4px;
+  border: 2px solid #87ceeb;
+  background-color: white;
 }
 
 .buttonStyles {
-    background-color: white;
-    color: black;
-    border: 2px solid #87CEEB;
-    transition-duration: 0.4s;
-    border-radius: 4px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin: 1px;
+  background-color: white;
+  color: black;
+  border: 2px solid #87ceeb;
+  transition-duration: 0.4s;
+  border-radius: 4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 1px;
 }
 
 .buttonStyles:hover {
-    background-color: #87CEEB;
-    color: white;
+  background-color: #87ceeb;
+  color: white;
 }
 
 .pagination {
-    justify-content: center;
-    margin-top: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .alignStyles {
-    margin: 0;
-    padding: 1em;
+  margin: 0;
+  padding: 1em;
 }
-
 
 .hoverButton {
-    background:none;
-    border:none;
-    margin:0;
-    padding:0;
-    color: #888;
-    cursor: pointer;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: #888;
+  cursor: pointer;
 }
 .dataSource {
-    padding-left: 0.2rem;
-    margin-top: -0.05rem;
-    cursor: pointer;
+  padding-left: 0.2rem;
+  margin-top: -0.05rem;
+  cursor: pointer;
 }
 .dailyIncrease {
-    font-size: 60%;
+  font-size: 60%;
 }
 
 .selection-grid {
@@ -520,12 +515,12 @@ h2 small {
 }
 
 .slogan {
-    text-align: center;
-    margin-top: -5px;
-    margin-bottom: -10px;
+  text-align: center;
+  margin-top: -5px;
+  margin-bottom: -10px;
 }
 .dailyIncrease {
-    font-size: 60%;
+  font-size: 60%;
 }
 
 .selection-grid {
@@ -535,18 +530,18 @@ h2 small {
 }
 
 .slogan {
-    text-align: center;
-    margin-top: -5px;
-    margin-bottom: -10px;
+  text-align: center;
+  margin-top: -5px;
+  margin-bottom: -10px;
 }
-@media only screen and (min-width: 768px) and (orientation: portrait){
+@media only screen and (min-width: 768px) and (orientation: portrait) {
   .confirmed,
   .death,
   .cured,
   .activeCase,
   .tested,
-  .area{
-      font-size: 1.8rem
+  .area {
+    font-size: 1.8rem;
   }
   .area.header,
   .death.header,
@@ -555,7 +550,45 @@ h2 small {
   .activeCase.header,
   .cured.header {
     font-size: 1.9rem;
-    font-weight: 600
+    font-weight: 600;
   }
 }
 
+.shiptitletr {
+  background-color: #bae1ff;
+  border: 3px solid white;
+  filter: saturate(65%);
+  height: 30px;
+}
+
+.shiptitlename {
+  font-weight: bold;
+  text-decoration: underline;
+  width: 50%;
+}
+
+.shiptitlestatus {
+  text-align: right;
+  color: grey;
+  position: relative;
+}
+
+.shipexpandtr {
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.shipexpandttitle {
+  border: 3px solid #fff;
+  width: 25%;
+  text-align: center;
+}
+
+.shipexpandtds {
+  text-align: center;
+}
+
+.shiptable {
+  font-size: 80%;
+  width: 100%;
+}
