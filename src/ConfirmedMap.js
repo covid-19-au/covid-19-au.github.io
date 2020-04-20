@@ -203,8 +203,8 @@ class MbMap extends React.Component {
                                     onClick={() => this.setMarkers('14 Days')}>14 Days</Button>
                             <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers('Active')}>Active</Button>
-                            {/*<Button style={this._markers === 'Tests' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Tests')}>Tests</Button>*/}
+                            <Button style={this._markers === 'Tests' ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers('Tests')}>Tests</Button>
                             <Button style={this._markers === 'Hospitals' ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers('Hospitals')}>COVID-19 Hospitals</Button>
                         </ButtonGroup>
@@ -304,6 +304,10 @@ class MbMap extends React.Component {
             zoom: zoom,
             maxBounds: bounds // Sets bounds as max
         });
+
+        // Disable map rotation
+        map.dragRotate.disable();
+        map.touchZoomRotate.disableRotation();
 
         // Add geolocate control to the map.
         map.addControl(
@@ -683,9 +687,7 @@ class MbMap extends React.Component {
             disableNonLGAInst(this.hhsQLD, this.lgaQLD);
         }
         else if (m === 'Active') {
-            disableInsts([
-                this.hhsQLD
-            ]);
+            disableNonLGAInst(this.hhsQLD, this.lgaQLD);
         }
         else if (m === 'Hospitals') {
             this.underlayBGCont.current.style.display = 'block';
