@@ -15,6 +15,8 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import TranslateIcon from '@material-ui/icons/Translate';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 export default function Header({ province }) {
 
@@ -28,6 +30,45 @@ export default function Header({ province }) {
         localStorage.setItem('language', code);
         window.location.reload();
     };
+
+    const BootstrapInput = withStyles((theme) => ({
+        root: {
+            'label + &': {
+                marginTop: theme.spacing(3),
+            },
+        },
+        input: {
+            borderRadius: 4,
+            position: 'relative',
+            backgroundColor: "transparent",
+            border: 'none',
+            fontSize: 16,
+            transition: theme.transitions.create(['border-color', 'box-shadow']),
+            // Use the system font instead of the default Roboto font.
+
+        },
+    }))(InputBase);
+
+    const [state, setState] = React.useState({
+        lang: ""
+    });
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        setState({
+            ...state,
+            [name]: event.target.value,
+        });
+        changeLanguage(event.target.value)
+
+    };
+
+    const useStyles = makeStyles((theme) => ({
+        margin: {
+            margin: theme.spacing(1),
+        },
+    }));
+
 
     return (
         <header>
@@ -76,22 +117,27 @@ export default function Header({ province }) {
                 <a style={{ marginLeft: '0.8rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "twitter" }) }} href="https://twitter.com/covid19augithub"><i style={{ fontSize: "2rem" }} className="fab fa-twitter"></i></a>
                 <a style={{ marginLeft: '0.8rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "instagram" }) }} href="https://www.instagram.com/covid19_au/"><i style={{ fontSize: "2rem" }} className="fab fa-instagram"></i></a>
                 <a style={{ marginLeft: '0.8rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }} href="https://www.facebook.com/covid19au.github/"><i style={{ fontSize: "2rem" }} className="fab fa-facebook"></i></a>
-                <br />
-                <LanguageIcon style={{ fontSize: "2rem", marginRight: "0.5rem" }} />
+                {/*} <br />
+                <LanguageIcon style={{ fontSize: "2rem", marginRight: "0.5rem", marginLeft: "1rem" }} />
                 <Select
+                    labelId="demo-customized-select-label"
+                    id="demo-customized-select"
                     native
-                    value={i18next.t("nav:lang")}
+                    value={state.lang}
+                    onChange={(event) => changeLanguage(event.target.value)}
                     style={{ textTransform: "none", color: "white", border: "none", borderRadius: "5px", fontSize: "1.2rem", fontWeight: "500" }}
                     IconComponent={() => (
-                        <ArrowDropDownIcon style={{ color: "white" }} />
+                        <div style={{ margin: "0px" }} />
                     )}
+                    input={<BootstrapInput />}
                 >
 
                     >
-                    <option>Languages</option>
-                </Select>
+                    <option value='en'>English</option>
+                    <option value='es'>Español</option>
+                </Select>*/}
                 <div className="dropdown">
-                    <Button variant="outlined" size="medium" data-toggle="dropdown" style={{ textTransform: "none", color: "white", border: "none", borderRadius: "5px", fontSize: "1.2rem", fontWeight: "500" }} startIcon={<LanguageIcon style={{ fontSize: "1.8rem" }} />} endIcon={<TranslateIcon style={{ fontSize: "1.8rem" }} />}>{i18next.t("nav:lang")}</Button>
+                    <Button variant="outlined" size="medium" data-toggle="dropdown" style={{ textTransform: "none", color: "white", border: "none", borderRadius: "5px", fontSize: "1.2rem", fontWeight: "500" }} startIcon={<LanguageIcon style={{ fontSize: "1.8rem" }} />}>{i18next.t("nav:lang")}</Button>
                     {/* <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "transparent", border: "1px solid white", borderRadius: "5px", outline: "none", padding: "5px", marginTop: "0.1rem", marginBottom: 0 }}>
                         {i18next.t("nav:lang")}
