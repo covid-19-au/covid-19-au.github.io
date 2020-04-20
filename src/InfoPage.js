@@ -243,7 +243,7 @@ function Information({ hospitalData, columns, gspace }) {
                     }
 
                     <p style={{ textAlign: "center" }}>{i18next.t("infoPage:dailyDistraction.body1")}</p>
-                    <p style={{ textAlign: "center" }}>Click <A href="/dailyHistory"><span style={{ color: "#3366BB" }} onClick={() => {
+                    <p style={{ textAlign: "center" }}><A href="/dailyHistory"><span style={{ color: "#3366BB" }} onClick={() => {
                         ReactGA.event({ category: 'DailyStory', action: "more" });
                         window.scrollTo(0, 0);
                     }}>{i18next.t("infoPage:dailyDistraction.link")}</span></A> {i18next.t("infoPage:dailyDistraction.body2")}</p>
