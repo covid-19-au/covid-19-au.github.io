@@ -4,6 +4,7 @@ import uuid from "react-uuid";
 import "./Blog.css";
 import {A} from "hookrouter";
 import BlogPagination from "./BlogPagination";
+import NoBlogs from "./NoBlogs"
 
 // Styling imports
 import Grid from "@material-ui/core/Grid";
@@ -40,7 +41,7 @@ const filterPickList = [
 const Blog = (props) => {
     const [posts, setPosts] = useState(blogData.blogPosts);
     const [filter, setFilter] = useState('All');
-    const postsPerPage = 1;
+    const postsPerPage = 8;
 
     const onChange = e => {
         setFilter(e.target.value);
@@ -61,7 +62,7 @@ const Blog = (props) => {
             return false;
         });
     }
-    
+
     const pageNum = Object.keys(props).length === 0 && props.constructor === Object ? 1 : props.id;
     const indexOfLastPost = pageNum * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -97,7 +98,7 @@ const Blog = (props) => {
                     </Grid>
                 </div>
                 <Grid container direction="row" justify="center" alignItems="center">
-                    {currentPosts.map(blog => (
+                    {currentPosts.length > 0 ? currentPosts.map(blog => (
                         <Card key={uuid()} className="classesRoot cardFormat">
                             <A onClick={onClick} className="noHover" href={`/blog/post/${replaceAll(blog.title, '_')}`}>
                                 <CardActionArea>
@@ -149,7 +150,7 @@ const Blog = (props) => {
                                 </CardActionArea>
                             </A>
                         </Card>
-                    ))}
+                    )) : <NoBlogs /> }
                 </Grid>
                 <BlogPagination totalPosts={posts.length} postsPerPage={postsPerPage} page={props.id}/>
             </div>
