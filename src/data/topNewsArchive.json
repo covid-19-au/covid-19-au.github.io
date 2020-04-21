@@ -1,6 +1,78 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-world-health-organisation-lists-criteria-for-removing-restrictions-c-973946",
+            "title": "Coronavirus Australia: World Health Organisation lists criteria for reducing restrictions",
+            "source": "7News",
+            "date": "14 April 2020",
+            "time": "07:46",
+            "summary": "The World Health Organisation (WHO) has released new criteria countries must adhere to before even considering lifting coronavirus restrictions. Six key factors that must be followed were announced on Tuesday morning. It follows countries easing their restrictions and seeing a second wave of outbreaks. The six WHO guidelines are: Transmission of the virus is controlled; Health systems can detect every case; Outbreak risks are minimised; Preventative measures are in place; Importation risks can be managed; and Communities are educated and empowered to adjust to the “new norm”."
+        },
+        {
+            "link": "https://www.theguardian.com/business/2020/apr/14/australia-will-need-to-raise-gst-to-pay-coronavirus-debt-tax-expert-says",
+            "title": "Australia will need to raise GST to pay coronavirus debt, tax expert says ",
+            "source": "TheGuardian",
+            "date": "14 April 2020",
+            "time": "03:30",
+            "summary": "Tax reform including a GST increase and higher land tax will be needed to avoid the debt burden of the $214bn Covid-19 economic response falling on young people, an academic tax expert has warned."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-schools-australia-states-closures-return-dates-term-two-guide/f44a37a7-a261-4c95-85f7-908cf6ed2bca",
+            "title": "School closures and recommencement dates across Australia",
+            "source": "9News",
+            "date": "14 April 2020",
+            "time": "12:18",
+            "summary": "As the Easter holidays come to a close for some states, students and parents are now turning their minds to how Term 2 will look at their schools. Each state and territory is slightly different across Australia. This article outlines the current plan from each State Government going into Term 2."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20",
+            "title": "The eligibility requirements you must meet to be tested for COVID-19 in each state",
+            "source": "9News",
+            "date": "14 April 2020",
+            "time": "13:33",
+            "summary": "With eligibility requirements for testing of COVID-19 changing all the time and with every state requiring different eligibility in order to be tested, it can be difficult to keep track. Here is a state-by-state break down of latest eligibility guidelines for each state and territory."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-13/coronavirus-queensland-schools-announcement-term-two/12141380",
+            "title": "Queensland schools to open for term two for vulnerable students and children of essential workers amid coronavirus",
+            "source": "ABCNews",
+            "date": "13 April 2020",
+            "time": "14:00",
+            "summary": "Queensland schools will open for term two for vulnerable students and the children of essential workers, Premier Annastacia Palaszczuk says. Other students will be taught from home via remote learning online for at least the first five weeks of the term. These rules would be in place until May 22 and reviewed on May 15."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-13/nsw-coronavirus-to-announce-440-million-dollar-rental-assistance/12143646",
+            "title": "NSW Government to announce $440 million coronavirus rental assistance with moratorium on forced evictions",
+            "source": "ABCNews",
+            "date": "13 April 2020",
+            "time": "18:00",
+            "summary": "The New South Wales State Government has announced $440 million in relief for renters and landlords affected by Government-enforced COVID-19 restrictions. They are allocating $220 million to residential renters and landlords and a further $220 million towards shops, gyms, hairdressers and businesses affected by COVID-19."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-12/victoria-coronavirus-state-of-emergency-extended-to-may-11/12143168",
+            "title": "Victorian state of emergency extended for another month as new coronavirus cases decline",
+            "source": "ABCNews",
+            "date": "12 April 2020",
+            "time": "16:47",
+            "summary": "Victorian Premier Daniel Andrews announced the state of emergency imposed in his state will be extended by four weeks to midnight on May 11"
+        },
+        {
+            "link": "https://www.9news.com.au/world/course-prices-slashed-after-coronavirus-pandemic/a78cc4fb-2f02-4264-a540-d02e1d7eaa1d",
+            "title": "Higher education institutions to offer cut-price courses after coronavirus pandemic",
+            "source": "9News",
+            "date": "12 April 2020",
+            "time": "08:06",
+            "summary": "The federal government has also announced that higher education institutions will be offering cut price courses starting in May to fill skill shortages to assist the economic rebound once the pandemic has run its course. The online courses will run for six months in what are deemed to be \"areas of national priority\", such as in nursing, teaching, counselling, IT and science."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-mercy-flight-with-covid-19-positive-passengers-lands-in-melbourne-c-971434",
+            "title": "Coronavirus ‘mercy’ flight with COVID-19 positive passengers lands in Melbourne",
+            "source": "7News",
+            "date": "12 April 2020",
+            "time": "08:44",
+            "summary": "A ‘mercy flight’ carrying 80 coronavirus-infected Australians has touched down in Melbourne. Emergency services were on standby at Tullamarine airport to meet the plane, which was carrying 112 passengers in total. Those passengers are among 1200 Australian nationals being flown home from overseas by the Commonwealth this weekend, with flights from India and Peru landing on Friday and Saturday."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-11/trial-to-test-if-tuberculosis-vaccine-boosts-covid-19-immunity/12142230",
             "title": "Clinical trial to test if tuberculosis vaccine can be used to boost immunity against COVID-19 ",
             "source": "ABCNews",

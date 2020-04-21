@@ -1,0 +1,57 @@
+{
+  "dailyDistraction": {
+    "title": "Daily Distraction(데일리 디스트랙션)",
+    "body1": "이 섹션에서는 지금처럼 힘든 시간일수록 긍정성을 퍼트려야 된다고 생각하기 때문에 재미있고 흥미로운 것들을 정기적으로 공유할 것입니다!",
+    "body2": "이전 게시물을 보시려면",
+    "link": "여기를 클릭하십시오!"
+  },
+  "informativeMedia": {
+    "title": "유익한 매체",
+    "media1Descrip": "코로나바이러스 설명과 우리가 할 수 있는 것",
+    "media2Descrip": "올바르게 손 씻는 법.",
+    "washingHandLink": "다음은 저장 할 수 있는 단계별 손 씻기 가이드입니다.",
+    "media3Descrip": "코로나바이러스 예방을 위한 마스크 사용법."
+  },
+  "generalInformation": {
+    "title": "일반현황"
+  },
+  "currentRegulation": {
+    "title": "현재 규정"
+  },
+  "selfDiagnosis": {
+    "title": "코로나바이러스 감염이 의심되시나요?"
+  },
+  "prevention": {
+    "title": "자신과 다른 사람들을 보호하기"
+  },
+  "coronavirusHelpline": {
+    "title": "헬프 라인",
+    "subtitle": "코로나바이러스 헬프라인",
+    "sect1heading": "호주 전국 헬프라인은 연중무휴 24시간 운영합니다.",
+    "sect1point1": "전국 코로나바이러스 건강 정보 라인: ",
+    "sect1point2": "코로나바이러스 증상이 의심될 경우 Healthdirect에 전화하십시오: ",
+    "sect2heading": "일부 주는 전용 헬프라인을 운영하고 있습니다: ",
+    "sect2point1": "빅토리아(Victoria): ",
+    "sect2point2": "퀸즐랜드(Queensland): ",
+    "sect2point3": "노던 테리토리(Northern Territory): ",
+    "sect2point3part1": "다윈(Darwin)에서 검사를 해야 할 경우 공중 보건 부서에 전화하십시오: ",
+    "sect2point4": "태즈메이니아 주(Tasmania): ",
+    "sect2point4part1d1": "통역사가 필요한 경우 Tasmanian Interpreting Service(TIS)에 전화하십시오: ",
+    "sect2point4part1d2": "필요하신 언어를 말씀해주시면 됩니다.",
+    "sect2point4part2": "통역사에게 성함을 말씀하시고 태즈메이니아 보건국에 전화한다고 얘기하시면 됩니다. 전화는 "
+  },
+  "interestingLinks": {
+    "title": "현재 상황에 대해 더 배울 수 있는 흥미로운 웹사이트 모음",
+    "point1": "Coronavirus: The Hammer and the Dance",
+    "point2part1": "The New York Times",
+    "point2part2": ",",
+    "point2part3": "The Economist는",
+    "point2part4": " 코로나바이러스에 관한 보도를 무료로 제공하고 있습니다."
+  },
+  "testingCentres": {
+    "title": "코로나바이러스 검사 수행 의료기관 명단",
+    "sect1heading": "유의사황: ",
+    "sect1body": "태즈메이니아 주의 모든 의료기관은 예약제로만 검사를 수행하고 있습니다. 검사가 필요하시다고 생각되시면 Public Health 핫라인에 먼저 문의하셔야 됩니다. Public Health 핫라인: ",
+    "tableNote": "State 아래의 드롭다운 버튼을 클릭하여 테이블을 분류하십시오."
+  }
+}

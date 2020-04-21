@@ -2,7 +2,8 @@ import uuid from "react-uuid";
 import React, { useState, useEffect } from "react";
 import stateData from "../data/state";
 import testedCases from "../data/testedCases";
-
+// import i18n bundle
+import i18next from '../i18n';
 import { A } from "hookrouter";
 
 const CONFIRMED = 1;
@@ -52,7 +53,8 @@ export default function Area({ area, onChange, data }) {
         <div className={"area"}>
           <A href={`/state/${x[0].toLowerCase()}`} onClick={() => { window.scrollTo(0, 0); }}>
             <strong>
-              <u>{x[0]}</u>{" "}
+
+              <u>{i18next.t("homePage:state."+x[0])}</u>{" "}
 
               <svg
                 className="bi bi-caret-right-fill"
@@ -78,7 +80,7 @@ export default function Area({ area, onChange, data }) {
             </div>}
         </div>
         <div className="death">
-          {(x[0] === "NSW" || x[0] === "QLD") ? <strong> {numberWithCommas(x[DEATH])}<sup>&#x5e;</sup> </strong>
+          {(x[0] === "NSW" || x[0] === "QLD") ? <strong> {numberWithCommas(x[DEATH])}&#x5e; </strong>
             : <strong> {numberWithCommas(x[DEATH])} </strong>}&nbsp;
           <div className="dailyIncrease">
             {x[DEATH] - lastTotal[x[0]][1] > 0
@@ -87,10 +89,10 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="cured">
-          {(x[0] === "NSW") ? <strong> {numberWithCommas(x[CURED])}<sup>&#x2a;</sup> </strong>
+          {(x[0] === "NSW") ? <strong> {numberWithCommas(x[CURED])}&#x2a; </strong>
             : <strong> {numberWithCommas(x[CURED])} </strong>}&nbsp;
           <div className="dailyIncrease">
-            {x[CURED] - lastTotal[x[0]][2] > 0
+            {x[CURED] - lastTotal[x[0]][2] > 0&&x[0]!=="NSW"
               ? `(+${x[3] - lastTotal[x[0]][2]})`
               : null}
           </div>
@@ -99,11 +101,11 @@ export default function Area({ area, onChange, data }) {
           {(x[0] === "NSW") ? <strong> {numberWithCommas(x[CONFIRMED] - x[DEATH] - x[CURED])}<sup>&#x2a;</sup> </strong>
             : <strong> {numberWithCommas(x[CONFIRMED] - x[DEATH] - x[CURED])} </strong>}&nbsp;
               <div className="dailyIncrease">
-            {(x[CONFIRMED] - x[DEATH] - x[CURED]) - (lastTotal[x[0]][0] - lastTotal[x[0]][2] - lastTotal[x[0]][1]) > 0
-              ? `(+${(x[CONFIRMED] - x[DEATH] - x[CURED]) - (lastTotal[x[0]][0] - lastTotal[x[0]][2] - lastTotal[x[0]][1])})`
-              : null}
+                  {(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) > 0
+                      ? `(+${(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])})`
+                      : ((x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) < 0 ?`(-${(lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])-(x[CONFIRMED]-x[DEATH]-x[CURED])})`:null)}
+              </div>
           </div>
-        </div>
         <div className="tested">{numberWithCommas(x[TESTED])}</div>
       </div >
     ));
@@ -118,7 +120,7 @@ export default function Area({ area, onChange, data }) {
 
     return (
       <div className="province table-footer">
-        <div className="area">Total</div>
+        <div className="area">{i18next.t("homePage:status.total")}</div>
         <div className="confirmed">
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
@@ -133,12 +135,13 @@ export default function Area({ area, onChange, data }) {
   return (
     <div role={"table"}>
       <div className="province header">
-        <div className="area header statetitle">State</div>
-        <div className="confirmed header confirmedtitle">Confirmed</div>
-        <div className="death header deathtitle">Deaths</div>
-        <div className="cured header recoveredtitle">Recovered</div>
-        <div className="activeCase header activetitle">Active</div>
-        <div className="tested header testedtitle">Tested</div>
+
+        <div className="area header statetitle">{i18next.t("homePage:status.state")}</div>
+        <div className="confirmed header confirmedtitle">{i18next.t("homePage:status.confirm")}</div>
+        <div className="death header deathtitle">{i18next.t("homePage:status.Deaths")}</div>
+        <div className="cured header recoveredtitle">{i18next.t("homePage:status.Recoveries")}</div>
+        <div className="activeCase header activetitle">{i18next.t("homePage:status.active")}</div>
+        <div className="tested header testedtitle">{i18next.t("homePage:status.Tested")}</div>
 
       </div>
       {renderArea()}
@@ -153,7 +156,7 @@ export default function Area({ area, onChange, data }) {
       </span>
       <br />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * Click on the <strong>State</strong> name for details.
+        {i18next.t("homePage:caseByState.append2")}<strong>{i18next.t("homePage:status.state")}</strong> {i18next.t("homePage:caseByState.append3")}.
       </span>
     </div>
   );

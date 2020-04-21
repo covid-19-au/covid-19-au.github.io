@@ -5,6 +5,11 @@ import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 
+import stateData from "../data/state.json"
+// import i18n bundle
+import i18next from '../i18n';
+
+
 export default function OverallTrend() {
 
     const [logScale, setLogScale] = useState(false);
@@ -122,7 +127,7 @@ export default function OverallTrend() {
 
     return (
         <div className="card">
-            <h2>Cases, Deaths and Recoveries</h2>
+            <h2>{i18next.t("homePage:overallTrend.title")}</h2>
             <ReactEcharts style={{ minHeight: "400px" }}
                 option={
                     {
@@ -155,14 +160,14 @@ export default function OverallTrend() {
                             }
                         },
                         yAxis: [{
-                            name: "Totals",
+                            name: i18next.t("homePage:status.total"),
                             axisLabel: {
                                 show: true
                             },
                             type: yAxisType,
                             max: maxY
                         }, {
-                            name: "New Cases",
+                            name: i18next.t("homePage:status.newCase"),
                             axisLabel: {
                                 show: true
                             },
@@ -201,7 +206,7 @@ export default function OverallTrend() {
                         series: [
 
                             {
-                                name: 'Confirmed Cases',
+                                name: i18next.t("homePage:status.confirmCase"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -212,7 +217,7 @@ export default function OverallTrend() {
                                 },
                                 data: confirmedData
                             }, {
-                                name: 'Deaths',
+                                name: i18next.t("homePage:status.Deaths"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -223,7 +228,7 @@ export default function OverallTrend() {
                                 },
                                 data: deathData
                             }, {
-                                name: 'Recoveries',
+                                name: i18next.t("homePage:status.Recoveries"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -234,7 +239,7 @@ export default function OverallTrend() {
                                 },
                                 data: recoveryData
                             }, {
-                                name: 'Active Cases',
+                                name: i18next.t("homePage:status.activeCase"),
                                 type: 'line',
                                 smooth: true,
                                 symbol: 'circle',
@@ -246,7 +251,7 @@ export default function OverallTrend() {
                                 data: activeData
                             },
                             {
-                                name: 'New Cases',
+                                name: i18next.t("homePage:status.newCase"),
                                 type: 'bar',
                                 yAxisIndex: '1',
                                 sampling: 'average',
@@ -260,14 +265,14 @@ export default function OverallTrend() {
 
             />
             <span className="due">
-                <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
-                <span className="key"><p>*Click on points for detailed data</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickLegend")}</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                    Logarithmic Scale:&nbsp;
+                {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                        <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>On</Button>
-                        <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>Off</Button>
+                        <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>{i18next.t("homePage:misc.onButton")}</Button>
+                        <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>{i18next.t("homePage:misc.offButton")}</Button>
                     </ButtonGroup>
                     <a
                         style={{

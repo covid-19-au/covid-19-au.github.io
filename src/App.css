@@ -70,11 +70,11 @@ header i {
 }
 
 .area {
-  flex: 0.8;
+  flex: 0.75;
   padding: 0.4rem 0;
   position: relative;
   color: #212f3d;
-  font-size:90%;
+  font-size:0.73rem;
 }
 .flightArea {
   font-size: 90%;
@@ -137,7 +137,7 @@ header i {
 
 .activeCase {
     color: #f75c8d;
-    flex:0.9;
+    flex:1.2;
 }
 .activeCase.header {
     background-color: #bae1ff;
@@ -153,7 +153,7 @@ header i {
 
 .cured {
   color: #00c177;
-    flex:1.2;
+    flex:1.1;
 }
 
 .cured.header {
@@ -170,6 +170,7 @@ header i {
 
 .tested {
   color: #007cf2;
+
 }
 
 .tested.header {
@@ -523,6 +524,7 @@ h2 small {
     text-align: center;
     margin-top: -5px;
     margin-bottom: -10px;
+    font-size: 1.1rem;
 }
 .dailyIncrease {
     font-size: 60%;
@@ -540,4 +542,6 @@ h2 small {
     margin-bottom: -10px;
 }
 
-
+.dropdown-item{
+    padding-left: 1rem;
+}

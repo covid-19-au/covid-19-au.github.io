@@ -1,0 +1,27 @@
+{
+    "faq":{
+        "title":"Dashboard FAQ",
+        "sect1":"Who started the dashboard?",
+        "sect1bod1":"Dr Chunyang Chen prototyped the dashboard with his graduate students, Han Wang, Chao Wu, Paldeep Singh, Boxuan Lu in the initial stage. This dashboard is further developed and maintained by a team of",
+        "sect1bod2":"volunteer students",
+        "sect2":"Why and when was this dashboard started?",
+        "sect2bod1":"This dashboard was developed to provide researchers, public health authorities and the general Australian public, with a user-friendly tool to track the COVID-19 pandemic as it unfolds. This dashboard was first shared publicly on 17 March 2020. All the data collected and displayed are made freely available through a ",
+        "sect2bod2":"GitHub repository",
+        "sect3":"Is the dashboard copyrighted?",
+        "sect3bod1":"If you are a government agency, you may use the data for your own purposes, provided you credit to Dr Chunyang Chen. All data, mapping and analysis (website, copyright 2020 Chunyang Chen, all rights reserved) are provided to the public strictly for educational and academic research purposes. Screenshots of the website are permissible so long as the appropriate credit is outlined.",
+        "sect4":"How often is the dashboard information updated?",
+        "sect4bod1":"The map is maintained hourly throughout the day through a combination of manual and automated updating methods. Occasional maintenance can result in slower updates.",
+        "sect5":"What are the sources of data informing the dashboard?",
+        "sect5bod1":"The data sources include the Department of Health in each Australian state ",
+        "sect5bod2":", and key news outlets such as the ",
+        "sect5bod3":". More detailed resources can be seen in our", 
+        "sect6":"Why does data here differ from data on other websites?",
+        "sect6bod1":"The dashboard relies on publicly available data from multiple sources that do not always agree. Frequent updates of the dashboard often result in higher case numbers than other sources that are updated less frequently. Other similar websites can have different numbers based on a different combination of sources.",
+        "sect7":"Does the website provide medical guidance?",
+        "sect7bod1":"Reliance on the website for medical guidance or use of the website in commerce is strictly prohibited. Chunyang Chen hereby disclaims any and all representations and warranties with respect to the website, including accuracy, fitness for use, and merchantability.",
+        "sect8":"Who can I talk to for more information about the dashboard?",
+        "sect8bod1":"General questions about the dashboard can be directed to "
+    
+
+    }
+}
