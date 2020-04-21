@@ -1,8 +1,40 @@
 {
     "weeklyTopNews": [
         {
-            "link": "https://www.9news.com.au/world/coronavirus-antibody-test-could-soon-be-available/34216e0a-ceac-492b-953c-32d74cb0f8e2",
-            "title": "Antibody tests for the novel coronavirus could be available within 'a week or so'",
+            "link": "https://www.sbs.com.au/news/ban-on-elective-surgeries-including-ivf-to-be-gradually-lifted-from-next-week",
+            "title": "Ban on elective surgeries, including IVF, to be gradually lifted from next week",
+            "source": "SBSNews",
+            "date": "21 April 2020",
+            "time": "14:27",
+            "summary": "State and federal leaders agreed on Tuesday to gradually resume elective surgeries due to an increase in personal protective equipment and the slowdown of new coronavirus cases. Most elective surgeries were suspended last month to free up hospital capacity to deal with the coronavirus pandemic. Other procedures to restart after the Anzac Day long weekend include all children surgeries, joint replacements, eye procedures, endoscopy and colonoscopy."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/21/about-800000-australians-lost-their-job-in-the-first-three-weeks-of-coronavirus-restrictions",
+            "title": "Australia likely to experience largest economic downturn since the Great Depression ",
+            "source": "TheGuardian",
+            "date": "21 April 2020",
+            "time": "14:16",
+            "summary": "Australia is likely to experience the greatest economic contraction since the Great Depression, according to the Reserve Bank of Australia, and has already lost 800,000 jobs and suffered a 6.7% reduction in take home pay, according to the Australian Bureau of Statistics. On Tuesday the RBA provided an economic update predicting a 10% decline in national output in the first half of 2020, a “staggeringly large” 20% reduction in hours worked and unemployment to hit 10% by June."
+        },
+        {
+            "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app",
+            "title": "Privacy concerns persist over Australia's coronavirus tracing app",
+            "source": "TheGuardian",
+            "date": "20 April 2020",
+            "time": "15:40",
+            "summary": "Privacy concerns have been raised over Australia’s new coronavirus tracing app. The government services minister, Stuart Robert, has said that the data would remain “securely encrypted on your phone” unless you tested positive for Covid-19, in which case it would be accessed by state health authorities. However, digital experts have said that the federal government should formally make data collected from its Covid-19 tracing app exempt from use by law enforcement and “decentralise” the way it notifies users about potential contacts with the virus if it wants to allay privacy concerns."
+        },
+        {
+            "link": "https://www.canberratimes.com.au/story/6729209/remember-the-spanish-flu-authorities-on-high-alert-for-second-wave-of-coronavirus-cases/?src=rss",
+            "title": "ACT health authorities on high-alert for \"second\" wave of coronavirus cases",
+            "source": "CanberraTimes",
+            "date": "20 April 2020",
+            "time": "18:30",
+            "summary": "ACT health authorities are on high alert for new COVID-19 cases to emerge once physical distancing restrictions are eased across the country. While chief health officer Kerryn Coleman says the territory may soon be in a position where there are no \"active\" cases of coronavirus with its borders, she insists that doesn't mean the ACT has successfully overcome the pandemic. Chief Minister Andrew Barr warned that any \"early move out\" of the restrictions would heighten the risk of exposing the ACT to a \"second, third, fourth or fifth\" wave of the pandemic."
+        },
+        {
+            "link": "https://www.9news.com.au/national/virgin-australia-airline-administration-board-meeting-as-debt-rises-during-coronavirus-pandemic/b856039f-b87d-4edf-a5e5-8dc0eba773ab",
+            "title": "Virgin Australia expected to go into administration ",
             "source": "9News",
             "date": "11 April 2020",
             "time": "03:23",

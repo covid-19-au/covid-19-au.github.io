@@ -1,6 +1,214 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-world-health-organisation-lists-criteria-for-removing-restrictions-c-973946",
+            "title": "Coronavirus Australia: World Health Organisation lists criteria for reducing restrictions",
+            "source": "7News",
+            "date": "14 April 2020",
+            "time": "07:46",
+            "summary": "The World Health Organisation (WHO) has released new criteria countries must adhere to before even considering lifting coronavirus restrictions. Six key factors that must be followed were announced on Tuesday morning. It follows countries easing their restrictions and seeing a second wave of outbreaks. The six WHO guidelines are: Transmission of the virus is controlled; Health systems can detect every case; Outbreak risks are minimised; Preventative measures are in place; Importation risks can be managed; and Communities are educated and empowered to adjust to the “new norm”."
+        },
+        {
+            "link": "https://www.theguardian.com/business/2020/apr/14/australia-will-need-to-raise-gst-to-pay-coronavirus-debt-tax-expert-says",
+            "title": "Australia will need to raise GST to pay coronavirus debt, tax expert says ",
+            "source": "TheGuardian",
+            "date": "14 April 2020",
+            "time": "03:30",
+            "summary": "Tax reform including a GST increase and higher land tax will be needed to avoid the debt burden of the $214bn Covid-19 economic response falling on young people, an academic tax expert has warned."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-schools-australia-states-closures-return-dates-term-two-guide/f44a37a7-a261-4c95-85f7-908cf6ed2bca",
+            "title": "School closures and recommencement dates across Australia",
+            "source": "9News",
+            "date": "14 April 2020",
+            "time": "12:18",
+            "summary": "As the Easter holidays come to a close for some states, students and parents are now turning their minds to how Term 2 will look at their schools. Each state and territory is slightly different across Australia. This article outlines the current plan from each State Government going into Term 2."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20",
+            "title": "The eligibility requirements you must meet to be tested for COVID-19 in each state",
+            "source": "9News",
+            "date": "14 April 2020",
+            "time": "13:33",
+            "summary": "With eligibility requirements for testing of COVID-19 changing all the time and with every state requiring different eligibility in order to be tested, it can be difficult to keep track. Here is a state-by-state break down of latest eligibility guidelines for each state and territory."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-13/coronavirus-queensland-schools-announcement-term-two/12141380",
+            "title": "Queensland schools to open for term two for vulnerable students and children of essential workers amid coronavirus",
+            "source": "ABCNews",
+            "date": "13 April 2020",
+            "time": "14:00",
+            "summary": "Queensland schools will open for term two for vulnerable students and the children of essential workers, Premier Annastacia Palaszczuk says. Other students will be taught from home via remote learning online for at least the first five weeks of the term. These rules would be in place until May 22 and reviewed on May 15."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-13/nsw-coronavirus-to-announce-440-million-dollar-rental-assistance/12143646",
+            "title": "NSW Government to announce $440 million coronavirus rental assistance with moratorium on forced evictions",
+            "source": "ABCNews",
+            "date": "13 April 2020",
+            "time": "18:00",
+            "summary": "The New South Wales State Government has announced $440 million in relief for renters and landlords affected by Government-enforced COVID-19 restrictions. They are allocating $220 million to residential renters and landlords and a further $220 million towards shops, gyms, hairdressers and businesses affected by COVID-19."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-12/victoria-coronavirus-state-of-emergency-extended-to-may-11/12143168",
+            "title": "Victorian state of emergency extended for another month as new coronavirus cases decline",
+            "source": "ABCNews",
+            "date": "12 April 2020",
+            "time": "16:47",
+            "summary": "Victorian Premier Daniel Andrews announced the state of emergency imposed in his state will be extended by four weeks to midnight on May 11"
+        },
+        {
+            "link": "https://www.9news.com.au/world/course-prices-slashed-after-coronavirus-pandemic/a78cc4fb-2f02-4264-a540-d02e1d7eaa1d",
+            "title": "Higher education institutions to offer cut-price courses after coronavirus pandemic",
+            "source": "9News",
+            "date": "12 April 2020",
+            "time": "08:06",
+            "summary": "The federal government has also announced that higher education institutions will be offering cut price courses starting in May to fill skill shortages to assist the economic rebound once the pandemic has run its course. The online courses will run for six months in what are deemed to be \"areas of national priority\", such as in nursing, teaching, counselling, IT and science."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-mercy-flight-with-covid-19-positive-passengers-lands-in-melbourne-c-971434",
+            "title": "Coronavirus ‘mercy’ flight with COVID-19 positive passengers lands in Melbourne",
+            "source": "7News",
+            "date": "12 April 2020",
+            "time": "08:44",
+            "summary": "A ‘mercy flight’ carrying 80 coronavirus-infected Australians has touched down in Melbourne. Emergency services were on standby at Tullamarine airport to meet the plane, which was carrying 112 passengers in total. Those passengers are among 1200 Australian nationals being flown home from overseas by the Commonwealth this weekend, with flights from India and Peru landing on Friday and Saturday."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-11/trial-to-test-if-tuberculosis-vaccine-boosts-covid-19-immunity/12142230",
+            "title": "Clinical trial to test if tuberculosis vaccine can be used to boost immunity against COVID-19 ",
+            "source": "ABCNews",
+            "date": "11 April 2020",
+            "time": "23:42",
+            "summary": "Clinical trial for 500 frontline health workers in South Australia will test if the BCG vaccine normally used to combat tuberculosis, can boost immunity against COVID-19."
+        },
+        {
+            "link": "https://www.9news.com.au/world/coronavirus-antibody-test-could-soon-be-available/34216e0a-ceac-492b-953c-32d74cb0f8e2",
+            "title": "Antibody tests for the novel coronavirus could be available within 'a week or so'",
+            "source": "9News",
+            "date": "11 April 2020",
+            "time": "03:23",
+            "summary": "Antibody tests that would verify whether a person recently had the novel coronavirus could be available within a week, according to the America's top infectious disease expert. Having antibodies to the coronavirus could mean someone is protected from getting re-infected, making such tests important for medical workers and others on the frontlines fighting the pandemic."
+        },
+        {
+            "link": "https://www.smh.com.au/national/stop-looking-for-loopholes-what-are-the-new-covid-19-social-rules-20200407-p54hyd.html ",
+            "title": "'Stop looking for loopholes': What are the new COVID-19 social rules?",
+            "source": "TheSydneyMorningHerald",
+            "date": "10 April 2020",
+            "time": "",
+            "summary": "Government urges people to stop looking for loopholes over the Easter weekend, so as not to undo all of the hard work that has been done to stop the spread of COVID-19. This article covers questions such as whether you can have people over, whether you can go away at Easter and whether you can babysit, state-by-state."
+        },
+        {
+            "link": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
+            "title": "Aussie households to be given access to COVID-19 financial stress for bills",
+            "source": "9News",
+            "date": "10 April 2020",
+            "time": "17:52",
+            "summary": "Australian households struggling with financial stress brought on by the coronavirus pandemic will soon have access to hardship provisions for their energy and water bills. Prime Minister Scott Morrison said the new measures would be in line with those across the energy and telecommunications sectors to scale-up hardship support provided by those industries."
+        },
+        {
+            "link": "https://www.9news.com.au/national/covid19-vaccine-researched-at-university-of-queensland-critical-test-on-live-coronavirus-ahead-of-human-trials/a49fe4b6-0ff7-4cbe-ae06-8cb4772e0404",
+            "title": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
+            "source": "9News",
+            "date": "10 April 2020",
+            "time": "19:43",
+            "summary": "The effectiveness of a University of Queensland (UQ) vaccine against the coronavirus is about to be tested in a biosecurity facility in the Netherlands. The vaccine will be used on live coronavirus for the first time to determine how effectively it induces protection against infection. UQ's vaccine program co-leader Dr Keith Chappell says the trial will establish a critical package of data ahead of human clinical trials later this year.Clinical studies will be conducted by Viroclinics Xplore, which offers myriad pre-clinical tests including toxicology of drugs, antibodies, and antivirals targeting viral infectious diseases."
+        },
+        {
+            "link": "https://thewest.com.au/news/coronavirus/coronavirus-crisis-prime-minister-scott-morrison-urges-australians-to-stay-at-home-in-easter-message-ng-b881515344z",
+            "title": "Coronavirus crisis: Prime Minister Scott Morrison urges Australians to stay at home in Easter message",
+            "source": "TheWestAustralian",
+            "date": "09 April 2020",
+            "time": "17:00",
+            "summary": "Scott Morrison has used his annual Easter message to urge Australians to stay home, saying the country “cannot undo the tremendous progress” it has made towards flattening the curve of coronavirus cases. He states that immediate - but not extended - family may spend their Easter together, and that Australians will not be able to attend Easter services."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-09/backpacker-accommodation-shortage-risks-veg-harvest-coronavirus/12132718",
+            "title": "Essential fruit and veg pickers 'homeless' due to coronavirus, meaning crops may be left to rot",
+            "source": "ABCNews",
+            "date": "09 April 2020",
+            "time": "06:42",
+            "summary": "The fruit and vegetable industry has warned that crops may be left to rot in fields because of a major shortage of accommodation for backpackers who pick the produce. These young travellers say they are camping illegally and sleeping in their cars because many hostels and caravan parks are closed."
+        },
+        {
+            "link": "https://www.theguardian.com/world/2020/apr/09/australias-small-medical-practices-on-brink-of-collapse-amid-coronavirus",
+            "title": "Australia's small medical practices on brink of collapse amid coronavirus ",
+            "source": "TheGuardian",
+            "date": "09 April 2020",
+            "time": "03:30",
+            "summary": "Smaller doctor-owned general practices are on the brink of financial collapse due to revenue losses from Covid-19, prompting fears more patients will be unnecessarily pushed into an already overstretched hospital system. Peak medical bodies and the health minster, Greg Hunt, on Thursday urged Australians to continue seeing their GPs, saying Covid-19 should not mean people “ignore the doctor” or their ordinary health needs."
+        },
+        {
+            "link": "https://7news.com.au/news/health/australians-urged-to-stay-home-over-easter-c-962838",
+            "title": "No time to relax in costly virus fight: PM",
+            "source": "7News",
+            "date": "08 April 2020",
+            "time": "18:11",
+            "summary": "Australia's death toll from the coronavirus has hit 50 as political leaders warn now is not the time to ease the measures that are preventing much higher fatality rates. The daily increase in new cases has dropped to about three per cent, but health experts are concerned COVID-19 could be widely transmitted among unwitting community members. However, Health Minister Greg Hunt warned abandoning social distancing rules over the long weekend would undo everything done to curtail the crisis."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-08/scientists-developing-test-for-coronavirus-severity-in-patients/12124402",
+            "title": "Are you immune to coronavirus after recovering? This test might be able to tell you",
+            "source": "ABCNews",
+            "date": "08 April 2020",
+            "time": "10:30",
+            "summary": "Australian researchers are working on a test they say will be able to predict the severity of symptoms in COVID-19 patients, telling them how hard the virus will hit them after they contract it and what their immunity will be when they recover."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-07/scott-morrison-press-conference-coronavirus-crisis-modelling/12129550",
+            "title": "Scott Morrison's press conference: Coronavirus modelling, rental tenancies and what you shouldn't do this Easter ",
+            "source": "ABCNews",
+            "date": "07 April 2020",
+            "time": "21:00",
+            "summary": "Prime Minister Scott Morrison and Chief Medical Officer Brendan Murphy addressed the nation this afternoon with some more important updates about the COVID-19 crisis. Topics included progress on flattening the curve, Easter weekend, the modelling that was released today, rental issues, asymptomatic carriers, schools, and more."
+        },
+        {
+            "link": "https://7news.com.au/business/finance/atos-coronavirus-measures-what-you-can-claim-on-your-tax-return-if-youre-working-from-home-c-961850",
+            "title": "ATO’s coronavirus measures: What you can claim on your tax return if you’re working from home",
+            "source": "7News",
+            "date": "07 April 2020",
+            "time": "18:08",
+            "summary": "With COVID-19 restrictions forcing more Australians than ever to work from home, come tax time, people are going to be able to claim deductions on anything they use to do their job - such as office furniture, computers, tablets, phone and internet bills. For running expenses like heating, cooling and lighting, the Australian Tax Office is offering a special COVID-19 flat rate tax deduction of 80 cents an hour that you can claim instead of having to calculate the costs manually."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-drop-in-testing-rates-sign-of-australia-flattening-the-curve-deputy-chief-medical-officer/c3283f99-076b-4990-8901-946bf3d598ea",
+            "title": "Drop in daily testing coronavirus rates possible sign of Australia 'flattening the curve'",
+            "source": "9News",
+            "date": "07 April 2020",
+            "time": "07:59",
+            "summary": "A major drop in the number of people being tested daily for COVID-19 is not a result of a lack of testing kits, but of a drop in the number of people presenting with symptoms, Deputy Chief Medical officer Professor Michael Kidd said. Last month, more than 4000 tests were being conducted daily however that number has fallen to closer to 2700 a day. Professor Kidd told Today this was more likely a result of Australia beginning to flatten the curve."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/07/lack-of-ppe-forces-aboriginal-health-groups-to-stop-testing-for-coronavirus",
+            "title": "Lack of PPE forces Aboriginal health groups to stop testing for coronavirus ",
+            "source": "TheGuardian",
+            "date": "07 April 2020",
+            "time": "03:30",
+            "summary": "A number of Aboriginal health groups in Victoria have been forced to cease COVID-19 testing and consider shutting their doors due to a lack of personal protective equipment. Some clinics had just two weeks of personal protective equipment left with no immediate prospect of re-supply, creating a situation they described as “catastrophic”.The NSW Government has now written to the Commonwealth asking for the urgent release of supplies to the state’s Aboriginal medical services and for direct access to the Government’s national medical stockpile."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-06/doctors-designing-medical-equipment-to-face-coronavirus-covid-19/12120588",
+            "title": "Australian doctors design and make life-saving equipment needed for coronavirus pandemic",
+            "source": "ABCNews",
+            "date": "06 April 2020",
+            "time": "10:25",
+            "summary": "Australian doctors who are worried the system will not be able to provide them with the equipment they need to protect themselves and their patients during the COVID-19 pandemic are looking at ways to design and produce their own. A large centralised group involving Victorian university staff, clinicians and manufacturers has been working tirelessly to develop suitable products and to co-ordinate the supply and demand of these essential items."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-free-hotel-stay-for-victorias-healthcare-workers-on-the-frontline-c-957213",
+            "title": "Coronavirus Australia: Free hotel stay for Victoria’s healthcare workers on the frontline",
+            "source": "7News",
+            "date": "05 April 2020",
+            "time": "12:01",
+            "summary": "Victoria’s frontline health workers will have free hotel stays if they need to self-isolate during the coronavirus crises, as the state recorded 20 new cases overnight. Premier Daniel Andrews said on Sunday the government will provide $20 million to buy a range of hotel rooms for up to 8000 frontline workers."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-05/chief-medical-officer-brendan-murphy-confident-coronavirus/12123154",
+            "title": "Chief Medical Officer Brendan Murphy 'increasingly confident' Australia can stay on top of coronavirus",
+            "source": "ABCNews",
+            "date": "05 April 2020",
+            "time": "19:09",
+            "summary": "Chief Medical Officer Brendan Murphy says Australia is succeeding at flattening the curve and that he is increasingly confident Australia will avoid the kind of devastation the coronavirus has caused in countries like Italy and the United States. However, his biggest concern remains community transmission, which accounts for 10 per cent of cases in Australia."
+        },
+        {
             "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-visa-changes-open-the-door-for-foreign-workers-to-extend-their-stay-c-956257",
             "title": "Coronavirus Australia: Visa changes open the door for foreign workers to extend their stay",
             "source": "7News",
