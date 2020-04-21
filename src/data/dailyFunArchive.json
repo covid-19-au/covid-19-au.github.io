@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=VQLi2GYVULc",
+                    "description": "Prom 2020: Some Good News with John Krasinski Ep. 4"
+                }
+            ],
+            "type": "distraction",
+            "date": "21/4/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Study_%2816840395246%29.jpg/800px-Study_%2816840395246%29.jpg",
