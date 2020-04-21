@@ -44,9 +44,7 @@ const Blog = (props) => {
 
     const onChange = e => {
         setFilter(e.target.value);
-        console.log(e);
         setPosts(filterBlogs(blogData.blogPosts, e.target.value));
-        console.log(posts);
     }
 
     const onClick = () => {
@@ -63,6 +61,7 @@ const Blog = (props) => {
             return false;
         });
     }
+    
     const pageNum = Object.keys(props).length === 0 && props.constructor === Object ? 1 : props.id;
     const indexOfLastPost = pageNum * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
