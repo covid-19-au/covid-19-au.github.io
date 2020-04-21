@@ -1,73 +1,35 @@
 {
     "blogPosts": [
         {
-            "tag": "Informative",
-            "title": "Thank you Delivery Workers!",
-            "media": "https://scontent-syd2-1.xx.fbcdn.net/v/t1.0-9/92811014_119715703011350_2279733550833991680_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_oc=AQmWjmxbVQ0_COMhhRplYTGcXL61QRY1AJoWrZtnlVRvMDbi5TLkpHdMXyErizvon_4&_nc_ht=scontent-syd2-1.xx&oh=ac0f93fe1d735e0b215b1cc2391c8d10&oe=5EB7E169",
-            "summary": "Without our superstars keeping up the supply chain, things would be devastatingly worse. That's why we need to give a big thank to them all.",
-            "date": "13/04/2020", 
+            "tag": "General",
+            "title": "The story of COVID-19-AU",
+            "media": "https://i.imgur.com/BXziWtR.png",
+            "summary": "With the Covid-19 crisis surging up rapidly, a small group of students led by Dr. Chen of Monash Faculty of Information took up the responsibility to create a trustworthy and reliable platform for the Australian Community to learn more about the situation, and find out how to keep them and their community safe.",
+            "date": "21/04/2020", 
             "text": {
                 "text_1": [
-                    "🚚 Thank you to all the superstars working in our delivery services for keeping our country running! We’ve seen some lovely acts of generosity which prove how us Australians help each other in times of need!",
-                    "👏 Woolworths and Australia Post have partnered together to provide and deliver the “Woolworths Basics Box” of groceries to those in need. For more information:<br/> <a href='https://www.woolworths.com.au/shop/page/woolworths-basics-box?cmpid=smsm:ds:GOOGLE:WooliesX%20-%20Basics%20Box%20(COVID-19)%20-%20BMM:%2BBasics%20%2BBox&gclid=Cj0KCQjw-Mr0BRDyARIsAKEFbedhtEsXe-Ioy3-Y-1lCLuThDUXRRD-_2-QvpsckMFAZsbCyhMNeFBEaAsYBEALw_wcB&gclsrc=aw.ds'>Go to Woolies Website</a>",
-                    "💊 Australia Post have also launched a Pharmacy Home Delivery Service to help support those vulnerable members of our community get access to the essential medication they require.",
-                    "💙 Thank you to all our delivery services for helping us maintain some sense of normal in the midst of such uncertainty. You may not be the first to receive recognition but your contribution is so important and valuable!!"
+                    "<h3 class='responsiveH3'><strong>Who we are</strong></h3>",
+                    "The COVID-19-AU project was started by Dr. Chungyang Chen and a team of graduate students from Monash University’s Faculty of Information Technology.",
+                    "The aim of this project is to help Australians to stay informed with the rapidly-changing COVID-19 situation. We want to create awareness and educate people about the pandemic by providing real-time data, latest news updates and important information. We update our website as frequently as possible – often once every hour, to provide Australians with the most up-to-date information on COVID-19 in Australia.",
+                    "<h3 class='responsiveH3'><strong>What we do</strong></h3>",
+                    "Our website holds a collection of data sourced from official Government websites and news groups from all Australian states, collated together to give an accurate picture of the COVID-19 situation country-wide. There is nothing more dangerous than misinformation in uncertain times like these. We want to create a platform that makes it easy to understand the current situation in Australia as it is very difficult to see the bigger picture just by reading news articles or looking at current data on Government websites.",
+                    "We present data in many formats to make our website as accessible and useful to everyone. For example, we use interactive geographic data visualisation to help Australians to see infection hotspots on a map and the impact of COVID-19 on Australia as a whole.",
+                    "<h3 class='responsiveH3'><strong>Why we do it</strong></h3>",
+                    "We believe that by helping people to be more informed of the situation in Australia and the impact of this pandemic on the country as a whole, Australians will be encouraged to come together as a community to do their part to protect their country such as following Government guidelines to prevent the spread of the outbreak. We also think that it is important for people to understand what data tells us, so that they can appreciate the importance of Government guidelines.",
+                    "<h3 class='responsiveH3'><strong>How we've grown</strong></h3>",
+                    "We have been promoting our project on multiple social media platforms, and since then, many new students from multiple Universities around Australia and people working in the IT industry have chosen to volunteer their time to help.",
+                    "This project has not been easy to manage. Due to COVID-19 restrictions, we are unable to meet up to work on the project together and most of us have never met each other before. We have to rely on constant online communication in order to facilitate collaboration between different teams. However, we are able to overcome our hardships through sharing a common goal of wanting to do our part to help our country and Australians during this difficult time.",
+                    "This project is entirely run by volunteers and the website is designed for non-commercial use only. For the students working on this project, it is an incredibly opportunity to see how the skills we have learnt during the course of our education can be applied in the real world. More importantly, it is extremely rewarding to know that we have the ability to give back to our society and do our part to help Australia during this crisis.",
+                    "<h3 class='responsiveH3'><strong>How you can help</strong></h3>",
+                    "We want to make out website useful to everyone so we always take into consideration users’ feedbacks and try to implement their feature suggestions. To stay connected with our users, we interact with them through our social media platforms where we update multiple times each day with daily reports and other content to help everyone stay positive during this challenging time. We want to be a supportive community and help each other get through this incredibly challenging time by spreading positivity. We aim to do this by providing hope for Australians and showing that we can combat this outbreak TOGETHER.",
+                    "Thanks to the efforts of our dedicated team, our website now has over 4 million views. We are still trying to expand our reach so that we can help as many people as possible with this platform. If you would like to support us, please share our website with your friends and family. We hope our website can be a platform that Australians can rely on during this stressful time!",
+                    "💬 We want to make our website as helpful to you as possible, so please don’t hesitate to provide us with feedback and suggestions <a class='citationLink' href='https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform'>here</a>",
+                    "Don’t forget to follow us on Social Media to follow our project progress or to connect with us!",
+                    "<strong>Check out our </strong> <a class='citationLink' href='https://www.facebook.com/covid19au.github'>Facebook</a>, <a class='citationLink' href='https://twitter.com/covid19augithub'>Twitter</a>, and <a class='citationLink' href='https://www.instagram.com/covid19_au/'>Instagram</a>."
                 ],
                 "ulist_1": [],
                 "olist_1": [],
                 "text_2": []
-            }
-        },
-        {
-            "tag": "Informative",
-            "title": "The Importance of Mental Health During this Crisis",
-            "media": "https://scontent-syd2-1.xx.fbcdn.net/v/t1.0-9/93053455_123950482584802_8574289048342888448_o.jpg?_nc_cat=110&_nc_sid=ca434c&_nc_oc=AQkwmiL3-tXnzDklFuYkr_iKAsyfIlJX8ZDw6RsQZiDmSaqbIlagmV9wcVIq0ZwY7IE&_nc_ht=scontent-syd2-1.xx&oh=cc15a46b05d4c0fdb2129bd50f76fb78&oe=5EB895BE",
-            "summary": "Now, more than ever, we must be careful of our mental health, and take care of those around us. These trying times require everyone to be supportive and take care of themselves!",
-            "date": "12/04/2020", 
-            "text": {
-                "text_1": [
-                    "There is no doubt that COVID-19 has significantly impacted people’s lives around the world in various ways. As many countries are currently battling against this virus, there is constant media coverage surrounding developments of this pandemic. People are constantly exposed to news and information regarding the spread of COVID-19. It is everywhere; on social media, television and even in our everyday conversations.",
-                    "Given these circumstances, it is very normal to feel overwhelmed. It is also understandable that during extremely stressful times like this, people may often experience negative emotions such as fear and anxiety. Thus, it is especially important to take care of your mental health at a time like this.",
-                    "If you are struggling to cope or experiencing an increase in feelings of fear and anxiety, here are some things you can do to keep your mental wellbeing in check:"
-                ],
-                "ulist_1": [
-                    "Manage your exposure to news and media coverage.",
-                    "Be mindful of sources of information and only view those that are credible and accurate.",
-                    "Remain calm, stay positive and adjust your mindset.",
-                    "Strictly follow the directives issued by the government so you feel good about doing your part.",
-                    "It is important to stay connected with friends and family as well as create a supportive community for each other."
-                ],
-                "olist_1": [],
-                "text_2": [
-                    "We want to remind everyone that support services are only a phone call away. We encourage you to utilise these available services as talking to someone about your feelings can take some weight off your shoulders. If you know someone who can benefit from these services, please share this post with them.",
-                    "COVID-19-AU is not only a website that provides live updates and accurate information obtained from official Government websites but also a supportive community where we hope to spread positivity to help everyone get through this extremely challenging time.",
-                    "Remember, you are not alone. We are all in this together. We are always here for you. Please stay safe and take good care of yourself. 💙",
-                    "#mentalhealthawareness",
-                    "#StaySafeStayHealthy"
-                ]
-            }
-        },
-        {
-            "tag": "Fun",
-            "title": "Stay at home this Easter! 🇦🇺🎉",
-            "media": "https://scontent-syd2-1.xx.fbcdn.net/v/t1.0-9/92791017_124082465904937_8043673163504025600_o.jpg?_nc_cat=109&_nc_sid=ca434c&_nc_oc=AQkbHzjPeRqqfwVeNa_-PiU2Xfx8gwfmaE34V_ZMvtNhdytBzc8VPxQCFMbyIbxTQEw&_nc_ht=scontent-syd2-1.xx&oh=d746212a098de3f20b75297de67bbda9&oe=5EB9084A",
-            "summary": "Make sure you stay at home this easter, or else Zipper, the Easter bunny will make all your ressources be eggs!",
-            "date": "12/04/2020", 
-            "text": {
-                "text_1": [
-                    "In these trying times, Easter seems to be the best reason to leave the house and enjoy a drink and a meal with friends and family, but now, more than ever, it is important that we stay at home and stay safe.",
-                    "Here are some important tips for this Easter:"
-                ],
-                "ulist_1": [],
-                "olist_1": [
-                    "Only leave home if essential 🏠<br />Visiting friends and having gatherings is still considered non-essential, and can get you heavy fines in some states. Only leave the home if you need to buy groceries for Easter lunch or other meals, to stretch your legs or to go to work!",
-                    "No picnics or gatherings 🛣<br />Parks and reserves are always the perfect places to spend Easter with your friends and family, but not this Easter. Stay in the safe space of your own home and avoid contracting Covid-19 or receiving heavy fines.",
-                    "Keep in touch online 📱💻<br />Zoom, Facebook Messenger, Skype and many more other services are brilliant ways to keep in touch with your loved ones this Easter. Have the usual laughs and chats with your friends and family online, within the safety of your own home. Quarantines doesn’t mean you can’t have fun with them!",
-                    "Enjoy time with your immediate family👨‍👩‍👧‍👦<br />Grab your partner, parents or siblings and cherish this time with them. Easter is all about spending time with your loved ones, and now is more important than ever to remain strong together and spread the love!"
-                ],
-                "text_2": [
-                    "We hope everyone has a safe and happy Easter!! ❤️💛💙"
-                ]
             }
         }
     ]

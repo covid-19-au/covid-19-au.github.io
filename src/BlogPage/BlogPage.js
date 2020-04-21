@@ -26,7 +26,7 @@ function BlogPage(props) {
 
     return (
         <Grid item xs={11} sm={11} md={10}>
-            <div className="card">
+            {blogPost.text ? <div className="card">
                 <div style={{justifyContent: 'center', display: 'flex'}}>
                     <Paper className="blogImage" variant="outlined" elevation={3}>
                         <img style={{height: '100%', width: '100%', objectFit: 'cover'}} src={blogPost.media} alt={blogPost.title} />
@@ -74,6 +74,7 @@ function BlogPage(props) {
                     ) : ""}
                     
                 </div>
+                
                 <DiscussionEmbed
                 shortname='covid-19-au'
                 config={
@@ -84,7 +85,13 @@ function BlogPage(props) {
                     }
                 }
                 />
+            </div> : 
+            <div className="card">
+                <h3 className="responsiveH3">Sorry, this blog no longer exists.</h3>
+                <small>Click <a className="citationLink" href="/blog">here</a> to return to blog page</small>
             </div>
+            }
+            
         </Grid>
     )
 }

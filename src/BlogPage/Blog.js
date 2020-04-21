@@ -31,6 +31,7 @@ function replaceAll(str, replace) {
 
 const filterPickList = [
     {label: 'All', value: "All"},
+    {label: "General", value: 'General'},
     {label: 'Informative', value: 'Informative'},
     {label: 'Fun', value: 'Fun'},
     {label: 'Feature', value: 'Feature'},
