@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.9news.com.au/national/coronavirus-cure-covid-19-vaccine-testing-in-australia-novavax-nucleus-network/73bb2d7b-f7bf-4f83-8a30-74cd1d6c3bff ",
+            "title": "COVID-19 vaccine testing to begin in Australia in coming weeks",
+            "source": "9News",
+            "date": "15 April 2020",
+            "time": "14:41",
+            "summary": "Phase one testing for a COVID-19 vaccine is set to begin in Australia, in only the third such trial in the world. Australian clinical trials specialist Nucleus Network will partner with US-based biotechnology company Novavax to begin the testing of the NVX-CoV2373 vaccine in the coming weeks. It will be the first COVID-19 vaccine to be tested outside the US. The phase one trial is expected to begin in mid-May, with preliminary results by July."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/14/australian-government-plans-to-bring-in-mobile-phone-app-to-track-people-with-coronavirus",
+            "title": "Australian government plans to bring in mobile phone app to track people with coronavirus ",
+            "source": "TheGuardian",
+            "date": "15 April 2020",
+            "time": "20:13",
+            "summary": "Australia soon will adopt a sophisticated mobile phone app that tracks coronavirus victims and the people they come in contact with. The federal government wants to introduce the app, now being used in Singapore, within a fortnight and will outline the plan to premiers during the next meeting of the national cabinet on Thursday. It will be part of a broader strategy to point to an exit from the tough Covid-19 restrictions which have shut businesses and confined millions to their homes."
+        },
+        {
             "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-world-health-organisation-lists-criteria-for-removing-restrictions-c-973946",
             "title": "Coronavirus Australia: World Health Organisation lists criteria for reducing restrictions",
             "source": "7News",
@@ -367,22 +383,6 @@
             "date": "25 March 2020",
             "time": "18:16",
             "summary": "At least 35,000 people have been put out of work in just three days by casinos, airlines, retailers and other businesses that have stood down their workers in response to the coronavirus crisis. Westpac’s chief economist, Bill Evans, said the coronavirus crisis would cost 814,000 jobs by June, more than doubling the unemployment rate to 11.1%."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-free-hotel-stay-for-victorias-healthcare-workers-on-the-frontline-c-957213",
-            "title": "Coronavirus Australia: Free hotel stay for Victoria’s healthcare workers on the frontline",
-            "source": "7News",
-            "date": "05 April 2020",
-            "time": "12:01",
-            "summary": "Victoria’s frontline health workers will have free hotel stays if they need to self-isolate during the coronavirus crises, as the state recorded 20 new cases overnight. Premier Daniel Andrews said on Sunday the government will provide $20 million to buy a range of hotel rooms for up to 8000 frontline workers."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-05/chief-medical-officer-brendan-murphy-confident-coronavirus/12123154",
-            "title": "Chief Medical Officer Brendan Murphy 'increasingly confident' Australia can stay on top of coronavirus",
-            "source": "ABCNews",
-            "date": "05 April 2020",
-            "time": "19:09",
-            "summary": "Chief Medical Officer Brendan Murphy says Australia is succeeding at flattening the curve and that he is increasingly confident Australia will avoid the kind of devastation the coronavirus has caused in countries like Italy and the United States. However, his biggest concern remains community transmission, which accounts for 10 per cent of cases in Australia."
         }
     ]
 }
