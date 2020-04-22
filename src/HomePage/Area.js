@@ -89,17 +89,15 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="cured">
-          {(x[0] === "NSW") ? <strong> {numberWithCommas(x[CURED])}&#x2a; </strong>
-            : <strong> {numberWithCommas(x[CURED])} </strong>}&nbsp;
+          {<strong> {numberWithCommas(x[CURED])} </strong>}&nbsp;
           <div className="dailyIncrease">
-            {x[CURED] - lastTotal[x[0]][2] > 0&&x[0]!=="NSW"
+            {x[CURED] - lastTotal[x[0]][2] > 0
               ? `(+${x[3] - lastTotal[x[0]][2]})`
               : null}
           </div>
         </div>
         <div className="activeCase">
-          {(x[0] === "NSW") ? <strong> {numberWithCommas(x[CONFIRMED] - x[DEATH] - x[CURED])}<sup>&#x2a;</sup> </strong>
-            : <strong> {numberWithCommas(x[CONFIRMED] - x[DEATH] - x[CURED])} </strong>}&nbsp;
+          {<strong> {numberWithCommas(x[CONFIRMED] - x[DEATH] - x[CURED])} </strong>}&nbsp;
               <div className="dailyIncrease">
                   {(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) > 0
                       ? `(+${(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])})`
@@ -147,10 +145,6 @@ export default function Area({ area, onChange, data }) {
       {renderArea()}
       <Total data={data} />
 
-      <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        <sup>&#x2a;</sup> Recovery data for NSW is an estimate by the Department of Health.
-      </span>
-      <br />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         <sup>&#x5e;</sup> Two Queensland residents that passed away in NSW are included in the Queensland figure.
       </span>
