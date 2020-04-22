@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://7news.com.au/business/coles-woolies-relax-online-restrictons-c-991377",
+            "title": "Coles, Woolies relax online restrictions",
+            "source": "7News",
+            "date": "22 April 2020",
+            "time": "09:25",
+            "summary": "Supermarket giants Woolworths and Coles have broadened their home delivery service for online customers, giving hope that life may be returning to normal amid ongoing coronavirus concerns. Coles this week reopened its home delivery, \"click and collect\", to all customers, after having previously limited orders for vulnerable and remote Australians because of the COVID-19 crisis. Woolworths will make \"tens of thousands of extra weekly home delivery windows for online customers\", WooliesX Managing Director Amanda Bardwell said in a statement on Wednesday."
+        },
+        {
             "link": "https://www.sbs.com.au/news/ban-on-elective-surgeries-including-ivf-to-be-gradually-lifted-from-next-week",
             "title": "Ban on elective surgeries, including IVF, to be gradually lifted from next week",
             "source": "SBSNews",
@@ -119,22 +127,6 @@
             "date": "16 April 2020",
             "time": "19:40",
             "summary": "83 coronavirus testing sites are set to be set up across remote Indigenous communities to detect the virus more rapidly. Some remote areas have been waiting up to 10 days for results but the new $3.3 million project, part of the wider $2.4 billion COVID-19 National Health Plan, aims to cut waiting times to 45 minutes."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-cure-covid-19-vaccine-testing-in-australia-novavax-nucleus-network/73bb2d7b-f7bf-4f83-8a30-74cd1d6c3bff ",
-            "title": "COVID-19 vaccine testing to begin in Australia in coming weeks",
-            "source": "9News",
-            "date": "15 April 2020",
-            "time": "14:41",
-            "summary": "Phase one testing for a COVID-19 vaccine is set to begin in Australia, in only the third such trial in the world. Australian clinical trials specialist Nucleus Network will partner with US-based biotechnology company Novavax to begin the testing of the NVX-CoV2373 vaccine in the coming weeks. It will be the first COVID-19 vaccine to be tested outside the US. The phase one trial is expected to begin in mid-May, with preliminary results by July."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/apr/14/australian-government-plans-to-bring-in-mobile-phone-app-to-track-people-with-coronavirus",
-            "title": "Australian government plans to bring in mobile phone app to track people with coronavirus ",
-            "source": "TheGuardian",
-            "date": "15 April 2020",
-            "time": "20:13",
-            "summary": "Australia soon will adopt a sophisticated mobile phone app that tracks coronavirus victims and the people they come in contact with. The federal government wants to introduce the app, now being used in Singapore, within a fortnight and will outline the plan to premiers during the next meeting of the national cabinet on Thursday. It will be part of a broader strategy to point to an exit from the tough Covid-19 restrictions which have shut businesses and confined millions to their homes."
         }
     ]
 }
