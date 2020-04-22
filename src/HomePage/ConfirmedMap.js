@@ -38,8 +38,8 @@ const MAPBOX_TOLERANCE = 0.45;
 
 
 const absStats = absStatsData['data'],
-      absStatsStates = absStatsData['states'],
-      absStatsLGANames = absStatsData['lga_names'];
+    absStatsStates = absStatsData['states'],
+    absStatsLGANames = absStatsData['lga_names'];
 
 // Various utility functions
 
@@ -70,13 +70,13 @@ function parseDate(str) {
     // dateString must be dd/mm/yyyy format
     var mdy = str.split('/');
     // year, month index, day
-    return new Date(mdy[2], mdy[1]-1, mdy[0]);
+    return new Date(mdy[2], mdy[1] - 1, mdy[0]);
 }
 
 function dateDiff(first, second) {
     // Get the difference in days between
     // the first and second `Date` instances
-    return Math.round((second-first)/(1000*60*60*24));
+    return Math.round((second - first) / (1000 * 60 * 60 * 24));
 }
 
 function dateDiffFromToday(dateString) {
@@ -94,7 +94,7 @@ function toTitleCase(str) {
     // https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
     return str.replace(
         /\w\S*/g,
-        function(txt) {
+        function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }
     );
@@ -163,13 +163,13 @@ class MbMap extends React.Component {
     _getSelectHTML() {
         function outputSelects(heading) {
             return absStats[heading]['sub_headers'].map((key) => {
-                return '<option value="'+key+'">'+key+'</option>'
+                return '<option value="' + key + '">' + key + '</option>'
             }).join('\n')
         }
         return sortedKeys(absStats).map((heading) => {
             return (
-                '<optgroup label='+heading+'>'+
-                    outputSelects(heading)+
+                '<optgroup label=' + heading + '>' +
+                outputSelects(heading) +
                 '</optgroup>'
             );
         }).join('\n')
@@ -180,14 +180,16 @@ class MbMap extends React.Component {
             color: 'black',
             borderColor: '#8ccfff',
             padding: "0px 5px",
-            zIndex:10,
-            outline: "none"
+            zIndex: 10,
+            outline: "none",
+            textTransform: "none"
         };
         const inactiveStyles = {
             color: 'grey',
             borderColor: '#e3f3ff',
             padding: "0px 5px",
-            outline: "none"
+            outline: "none",
+            textTransform: "none"
         };
 
         return (
@@ -201,58 +203,58 @@ class MbMap extends React.Component {
                         marginLeft: "auto",
                         fontSize: "60%"
                     }}>
-                    <Acknowledgement>
-                    </Acknowledgement></div></h2>
+                        <Acknowledgement>
+                        </Acknowledgement></div></h2>
 
                 <div>
-                    <span className="key" style={{alignSelf: "flex-end", marginBottom: "0.8rem" }}>
-                        Markers:&nbsp;<ButtonGroup ref={this.markersButtonGroup}
-                                                   size="small"
-                                                   aria-label="small outlined button group"
-                                                   style={{ pointerEvents: "none" }}>
+                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
+                        Case Markers:&nbsp;<ButtonGroup ref={this.markersButtonGroup}
+                            size="small"
+                            aria-label="small outlined button group"
+                            style={{ pointerEvents: "none" }}>
                             {/*<Button style={this._markers == null ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers(null)}>Off</Button>*/}
                             <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Total')}>Total</Button>
+                                onClick={() => this.setMarkers('Total')}>Total</Button>
                             <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('7 Days')}>7 Days</Button>
+                                onClick={() => this.setMarkers('7 Days')}>7 Days</Button>
                             <Button style={this._markers === '14 Days' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('14 Days')}>14 Days</Button>
+                                onClick={() => this.setMarkers('14 Days')}>14 Days</Button>
                             <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Active')}>Active</Button>
+                                onClick={() => this.setMarkers('Active')}>Active</Button>
                             {/*<Button style={this._markers === 'Tests' ? activeStyles : inactiveStyles}
                                     onClick={() => this.setMarkers('Tests')}>Tests</Button>*/}
                             <Button style={this._markers === 'Hospitals' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Hospitals')}>COVID-19 Hospitals</Button>
+                                onClick={() => this.setMarkers('Hospitals')}>COVID-19 Hospitals</Button>
                         </ButtonGroup>
                     </span>
                 </div>
 
                 <div ref={this.underlayBGCont}>
-                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem"}}>
+                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
                         Underlay:&nbsp;<ButtonGroup ref={this.underlayButtonGroup}
-                                                    size="small"
-                                                    aria-label="small outlined button group"
-                                                    style={{ pointerEvents: "none" }}>
+                            size="small"
+                            aria-label="small outlined button group"
+                            style={{ pointerEvents: "none" }}>
                             <Button style={this._underlay == null ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay(null)}>Off</Button>
+                                onClick={() => this.setUnderlay(null)}>Off</Button>
                             <Button style={this._underlay === 'Population Density' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay('Population Density')}>Population Density</Button>
+                                onClick={() => this.setUnderlay('Population Density')}>Population Density</Button>
                             <Button style={this._underlay === 'Socioeconomic Index' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay('Socioeconomic Index')}>Socioeconomic Index</Button>
+                                onClick={() => this.setUnderlay('Socioeconomic Index')}>Socioeconomic Index</Button>
                             <Button style={this._underlay === 'Aged 65+' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay('Aged 65+')}>Aged 65+</Button>
+                                onClick={() => this.setUnderlay('Aged 65+')}>Aged 65+</Button>
                             <Button style={this._underlay === 'Other Stats' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setUnderlay('Other Stats')}>Other Stats</Button>
+                                onClick={() => this.setUnderlay('Other Stats')}>Other Stats</Button>
                         </ButtonGroup>
                     </span>
                 </div>
 
                 <div ref={el => this.otherStatsSelectCont = el}
-                     className="key"
-                     style={{ display: "none", marginBottom: "0.8rem" }}>
+                    className="key"
+                    style={{ display: "none", marginBottom: "0.8rem" }}>
                     Other&nbsp;Stat:&nbsp;<select id="other_stats_select"
-                            style={{ "maxWidth": "100%"}}>
+                        style={{ "maxWidth": "100%" }}>
                     </select>
                 </div>
 
@@ -268,7 +270,7 @@ class MbMap extends React.Component {
 
                 <span className="due">
                     <div ref={this.hospitalMessage}
-                         style={{ display: 'none' }}>
+                        style={{ display: 'none' }}>
                         <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
                     </div>
                     <div ref={this.totalCasesMessage}>
@@ -283,13 +285,13 @@ class MbMap extends React.Component {
                         </span>
                     </div>
                     <div ref={this.activeCasesMessage}
-                         style={{ display: 'none' }}>
+                        style={{ display: 'none' }}>
                         <span className="Key">
                             <p>*Active cases data has currently only been added for Queensland.</p>
                         </span>
                     </div>
                     <div ref={this.accuracyWarning}>
-                        <p style={{color: 'red'}}>*Cases on map are approximate and
+                        <p style={{ color: 'red' }}>*Cases on map are approximate and
                             identify regions only, not specific addresses.</p>
                     </div>
                 </span>
@@ -395,7 +397,7 @@ class MbMap extends React.Component {
                 var absStatsInsts = that.absStatsInsts = {};
                 for (var heading in absStats) {
                     var absStatHeading = absStats[heading];
-                    for (var i=0; i<absStatHeading['sub_headers'].length; i++) {
+                    for (var i = 0; i < absStatHeading['sub_headers'].length; i++) {
                         var subHeader = absStatHeading['sub_headers'][i];
                         absStatsInsts[subHeader] = new BigTableOValuesDataSource(
                             subHeader, heading, subHeader, absStatHeading
@@ -431,7 +433,7 @@ class MbMap extends React.Component {
                         that.lgaWA,
                         //that.lgaSA
                         //that.lgaTas
-                    ].forEach(function(inst) {
+                    ].forEach(function (inst) {
                         if (!inst.geoJSONData) {
                             initialized = false;
                         }
@@ -445,7 +447,7 @@ class MbMap extends React.Component {
                         that.markersButtonGroup.current.style.pointerEvents = 'auto';
                         that.underlayButtonGroup.current.style.pointerEvents = 'auto';
 
-                        document.getElementById('other_stats_select').onchange = function() {
+                        document.getElementById('other_stats_select').onchange = function () {
                             that.setUnderlay(that._underlay);
                         }
                     }
@@ -496,7 +498,7 @@ class MbMap extends React.Component {
                 underlay === 'Other Stats' &&
                 this._markers !== 'Hospitals'
             ) ? 'block' : 'none'
-        ;
+            ;
 
         this._updateMode()
     }
@@ -545,7 +547,7 @@ class MbMap extends React.Component {
 
         function enableInsts(dataSource, insts) {
             // Overlay LGA ABS data on LGA stats
-            for (var i=0; i<insts.length; i++) {
+            for (var i = 0; i < insts.length; i++) {
                 insts[i].addHeatMap(dataSource);
                 insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(
@@ -588,7 +590,7 @@ class MbMap extends React.Component {
         }
         function updateMessages() {
             let messages = messagesForModes[that._markers];
-            for (var j=0; j<messages.length; j++) {
+            for (var j = 0; j < messages.length; j++) {
                 messages[j].current.style.display = 'block';
             }
         }
@@ -641,7 +643,7 @@ class MbMap extends React.Component {
                 this._underlay === 'Other Stats' &&
                 this._markers !== 'Hospitals'
             ) ? 'block' : 'none'
-        ;
+            ;
     }
 
     _resetMode() {
@@ -656,7 +658,7 @@ class MbMap extends React.Component {
             m = this._markers;
 
         function disableInsts(insts) {
-            for (var i=0; i<insts.length; i++) {
+            for (var i = 0; i < insts.length; i++) {
                 insts[i].removeHeatMap();
                 insts[i].removeLinePoly();
                 insts[i].removeFillPoly();
@@ -674,7 +676,7 @@ class MbMap extends React.Component {
         function clearMessages() {
             for (let key in messagesForModes) {
                 let messages = messagesForModes[key];
-                for (var j=0; j<messages.length; j++) {
+                for (var j = 0; j < messages.length; j++) {
                     messages[j].current.style.display = 'none';
                 }
             }
@@ -765,7 +767,7 @@ class TimeSeriesDataSource extends DataSourceBase {
         stateName = stateName.toLowerCase();
         cityName = prepareForComparison(cityName);
 
-        for (var i=0; i<this.data.length; i++) {
+        for (var i = 0; i < this.data.length; i++) {
             var iData = this.data[i],
                 iStateName = iData[0],
                 iCityName = iData[1],
@@ -775,9 +777,9 @@ class TimeSeriesDataSource extends DataSourceBase {
                 iStateName === stateName &&
                 iCityName === cityName
             ) {
-                for (var j=0; j<iValues.length; j++) {
+                for (var j = 0; j < iValues.length; j++) {
                     var dateUpdated = iValues[j][0],
-                        iValue = iValues[j][this.subHeaderIndex+1];
+                        iValue = iValues[j][this.subHeaderIndex + 1];
 
                     if (iValue != null && iValue !== '') {
                         return {
@@ -800,7 +802,7 @@ class TimeSeriesDataSource extends DataSourceBase {
         stateName = stateName.toLowerCase();
         cityName = prepareForComparison(cityName);
 
-        for (var i=0; i<this.data.length; i++) {
+        for (var i = 0; i < this.data.length; i++) {
             var iData = this.data[i],
                 iStateName = iData[0],
                 iCityName = iData[1],
@@ -810,9 +812,9 @@ class TimeSeriesDataSource extends DataSourceBase {
                 iStateName === stateName &&
                 iCityName === cityName
             ) {
-                for (var j=0; j<iValues.length; j++) {
+                for (var j = 0; j < iValues.length; j++) {
                     var dateUpdated = iValues[j][0],
-                        iValue = iValues[j][this.subHeaderIndex+1];
+                        iValue = iValues[j][this.subHeaderIndex + 1];
 
                     if (iValue != null && iValue !== '') {
                         // May as well use CanvasJS format
@@ -852,7 +854,7 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
         stateName = stateName.toLowerCase();
         cityName = prepareForComparison(cityName);
 
-        for (var i=0; i<this.data.length; i++) {
+        for (var i = 0; i < this.data.length; i++) {
             var iData = this.data[i];
             var iStateName = iData[0],
                 iCityName = iData[1],
@@ -862,9 +864,9 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
                 iStateName === stateName &&
                 iCityName === cityName
             ) {
-                for (var j=0; j<iValues.length; j++) {
+                for (var j = 0; j < iValues.length; j++) {
                     var dateUpdated = iValues[j][0],
-                        iValue = iValues[j][this.subHeaderIndex+1];
+                        iValue = iValues[j][this.subHeaderIndex + 1];
 
                     oldest = {
                         'numCases': latest['numCases'] - parseInt(iValue),
@@ -892,7 +894,7 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
             stateName, cityName
         );
 
-        for (var i=0; i<values.length; i++) {
+        for (var i = 0; i < values.length; i++) {
             var iData = values[i];
             if (dateDiff(new Date(iData.x), getToday()) > this.daysAgo) {
                 continue;
@@ -924,7 +926,7 @@ class CurrentValuesDataSource extends DataSourceBase {
         stateName = stateName.toLowerCase();
         cityName = prepareForComparison(cityName);
 
-        for (var i=0; i<this.mapAreaData.length; i++) {
+        for (var i = 0; i < this.mapAreaData.length; i++) {
             var areaInfo = this.mapAreaData[i];
             if (stateName === areaInfo['state'].toLowerCase()) {
                 if (
@@ -974,8 +976,8 @@ class BigTableOValuesDataSource extends DataSourceBase {
         this.subHeaderIndex = mapAreaData['sub_headers'].indexOf(subHeader);
         var today = getToday();
         this.updatedDate = (
-            today.getDay()+'/'+
-            today.getMonth()+'/'+
+            today.getDay() + '/' +
+            today.getMonth() + '/' +
             today.getFullYear()
         );
         this.data = mapAreaData['data'];
@@ -985,11 +987,11 @@ class BigTableOValuesDataSource extends DataSourceBase {
         stateName = stateName.toLowerCase();
         cityName = prepareForComparison(cityName);
 
-        for (var i=0; i<this.data.length; i++) {
+        for (var i = 0; i < this.data.length; i++) {
             var iData = this.data[i],
                 iStateName = absStatsStates[iData[0]],
                 iCityName = absStatsLGANames[iData[1]],
-                value = iData[this.subHeaderIndex+2];
+                value = iData[this.subHeaderIndex + 2];
 
             if (
                 iStateName === stateName &&
@@ -1009,7 +1011,7 @@ class BigTableOValuesDataSource extends DataSourceBase {
             max = -99999999999,
             allVals = [];
 
-        for (var i=0; i<this.data.length; i++) {
+        for (var i = 0; i < this.data.length; i++) {
             var iData = this.data[i],
                 value = iData[this.subHeaderIndex + 2];
 
@@ -1025,7 +1027,7 @@ class BigTableOValuesDataSource extends DataSourceBase {
         return {
             'max': max,
             'min': min,
-            'median': allVals[Math.round(allVals.length/2.0)]
+            'median': allVals[Math.round(allVals.length / 2.0)]
         }
     }
 }
@@ -1067,10 +1069,10 @@ class JSONGeoBoundariesBase {
      *******************************************************************/
 
     addFillPoly(dataSource,
-                opacity,
-                addLegend,
-                addPopupOnClick,
-                addUnderLayerId) {
+        opacity,
+        addLegend,
+        addPopupOnClick,
+        addUnderLayerId) {
 
         // Add the colored fill area
         const map = this.map;
@@ -1092,7 +1094,7 @@ class JSONGeoBoundariesBase {
         // (if one is displayed)
         var layers = map.getStyle().layers;
         var firstHeatmapId = null;
-        for (var i=0; i<layers.length; i++) {
+        for (var i = 0; i < layers.length; i++) {
             if (layers[i].type === 'heatmap') {
                 firstHeatmapId = layers[i].id;
                 break;
@@ -1105,7 +1107,7 @@ class JSONGeoBoundariesBase {
             max = this.maxMinStatVal['max']; // HACK!
             // HACK - weight the median so we don't
             // get the same values more than once!
-            median = (this.maxMinStatVal['median']*0.7)+((min+(max-min))*0.3);
+            median = (this.maxMinStatVal['median'] * 0.7) + ((min + (max - min)) * 0.3);
         }
         else {
             min = 0;
@@ -1115,25 +1117,25 @@ class JSONGeoBoundariesBase {
 
         var labels = [
             min,
-            min+(median-min)*0.25,
-            min+(median-min)*0.5,
-            min+(median-min)*0.75,
+            min + (median - min) * 0.25,
+            min + (median - min) * 0.5,
+            min + (median - min) * 0.75,
             median,
-            median+(max-median)*0.25,
-            median+(max-median)*0.5,
-            median+(max-median)*0.75,
+            median + (max - median) * 0.25,
+            median + (max - median) * 0.5,
+            median + (max - median) * 0.75,
             max
         ];
         var colors = [
-            '#0012ff',
-            '#0054ff',
-            '#0090ff',
-            '#00ccff',
-            '#00ffea',
-            '#00ff96',
-            '#00ff5a',
-            '#00ff2a',
-            '#18ff00'
+            '#bae1ff',
+            '#9ed0fb',
+            '#83bff8',
+            '#68adf4',
+            '#4f9bef',
+            '#3689e9',
+            '#1e76e3',
+            '#0463da',
+            '#004fd0'
         ];
 
         var fillLayer = map.addLayer(
@@ -1141,7 +1143,7 @@ class JSONGeoBoundariesBase {
                 id: this.fillPolyId,
                 type: 'fill',
                 minzoom: 2,
-                source: this.fillPolyId+dataSourceName+'statsource',
+                source: this.fillPolyId + dataSourceName + 'statsource',
                 paint: {
                     'fill-color': [
                         'interpolate',
@@ -1202,16 +1204,17 @@ class JSONGeoBoundariesBase {
         legend.style.left = '10px';
         legend.style.width = '10%';
         legend.style.minWidth = '75px';
-        legend.style.background = 'white';
+        legend.style.background = 'rgba(255,255,255, 0.35)';
         legend.style.padding = '3px';
         legend.style.boxShadow = '0px 1px 5px 0px rgba(0,0,0,0.05)';
+        legend.style.borderRadius = "2px";
         this.map.getCanvasContainer().appendChild(legend);
 
         var allBetween0_10 = true,
             sameConsecutive = false,
             lastNum = null;
 
-        for (let i=0; i<labels.length; i++) {
+        for (let i = 0; i < labels.length; i++) {
             if (!(labels[i] > -10.0 && labels[i] < 10.0)) {
                 allBetween0_10 = false;
             }
@@ -1222,7 +1225,7 @@ class JSONGeoBoundariesBase {
             lastNum = parseInt(labels[i]);
         }
 
-        for (let i=0; i<labels.length; i++) {
+        for (let i = 0; i < labels.length; i++) {
             var label = labels[i],
                 color = colors[i];
 
@@ -1242,8 +1245,8 @@ class JSONGeoBoundariesBase {
             value.innerHTML = (
                 ((allBetween0_10 || sameConsecutive) && label <= 15) ? label.toFixed(1) : parseInt(label)
             ) + (
-                isPercent ? '%' : ''
-            );
+                    isPercent ? '%' : ''
+                );
             item.appendChild(key);
             item.appendChild(value);
             legend.appendChild(item);
@@ -1278,7 +1281,7 @@ class JSONGeoBoundariesBase {
             timeSeries = JSON.parse(timeSeries);
 
             var nTimeSeries = [];
-            timeSeries.forEach(function(i) {
+            timeSeries.forEach(function (i) {
                 nTimeSeries.push({
                     x: new Date(i.x),
                     y: i.y
@@ -1293,7 +1296,7 @@ class JSONGeoBoundariesBase {
                         '<br/>Cases: ' + cases +
                         '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + date +
                         '<div id="chartContainer" ' +
-                             'style="width: 200px; min-height: 60px; height: 13vh;"></div>'
+                        'style="width: 200px; min-height: 60px; height: 13vh;"></div>'
                     )
                     .addTo(map);
 
@@ -1306,7 +1309,7 @@ class JSONGeoBoundariesBase {
                         gridThickness: 1
                     },
                     data: [{
-                        type:"line",
+                        type: "line",
                         dataPoints: nTimeSeries
                     }]
                 });
@@ -1343,7 +1346,7 @@ class JSONGeoBoundariesBase {
         };
         map.on('mouseleave', useID, mouseLeave);
 
-        this.resetPopupEvent = function() {
+        this.resetPopupEvent = function () {
             map.off('click', useID, click);
             map.off('mouseenter', useID, mouseEnter);
             map.off('mouseleave', useID, mouseLeave);
@@ -1375,7 +1378,7 @@ class JSONGeoBoundariesBase {
             id: this.linePolyId,
             minzoom: 2,
             type: 'line',
-            source: this.fillPolyId+dataSource.getSourceName()+'source',
+            source: this.fillPolyId + dataSource.getSourceName() + 'source',
             paint: {
                 'line-color': color || '#000',
                 'line-opacity': 1,
@@ -1404,9 +1407,9 @@ class JSONGeoBoundariesBase {
 
         var heatMapLayer = map.addLayer(
             {
-                'id': this.fillPolyId+'heat',
+                'id': this.fillPolyId + 'heat',
                 'type': 'heatmap',
-                'source': this.fillPolyId+dataSource.getSourceName()+'pointsource',
+                'source': this.fillPolyId + dataSource.getSourceName() + 'pointsource',
                 'maxzoom': 8,
                 'paint': {
                     // Increase the heatmap weight based on frequency and property magnitude
@@ -1464,9 +1467,9 @@ class JSONGeoBoundariesBase {
 
         var heatCirclesLayer = map.addLayer(
             {
-                'id': this.fillPolyId+'heatpoint',
+                'id': this.fillPolyId + 'heatpoint',
                 'type': 'circle',
-                'source': this.fillPolyId+dataSource.getSourceName()+'pointsource',
+                'source': this.fillPolyId + dataSource.getSourceName() + 'pointsource',
                 'minzoom': 6,
                 'paint': {
                     // Size circle radius by value
@@ -1514,8 +1517,8 @@ class JSONGeoBoundariesBase {
 
     removeHeatMap() {
         const map = this.map;
-        map.removeLayer(this.fillPolyId+'heat');
-        map.removeLayer(this.fillPolyId+'heatpoint');
+        map.removeLayer(this.fillPolyId + 'heat');
+        map.removeLayer(this.fillPolyId + 'heatpoint');
     }
 
     /*******************************************************************
@@ -1532,12 +1535,12 @@ class JSONGeoBoundariesBase {
         }
         this.addedCaseSources[sn] = null;
 
-        this.map.addSource(this.fillPolyId+sn+'source', {
+        this.map.addSource(this.fillPolyId + sn + 'source', {
             type: 'geojson',
             data: this.geoJSONData,
             tolerance: MAPBOX_TOLERANCE
         });
-        this.map.addSource(this.fillPolyId+sn+'pointsource', {
+        this.map.addSource(this.fillPolyId + sn + 'pointsource', {
             type: 'geojson',
             data: this.pointGeoJSONData,
             tolerance: MAPBOX_TOLERANCE
@@ -1581,7 +1584,7 @@ class JSONGeoBoundariesBase {
             }
             else {
                 throw "Unknown geometry type: " +
-                      feature['geometry']['type'];
+                feature['geometry']['type'];
             }
         });
 
@@ -1591,7 +1594,7 @@ class JSONGeoBoundariesBase {
         function filterToOnlyLargestAreas(features) {
             var areaMap = {};
 
-            for (let i=0; i<features.length; i++) {
+            for (let i = 0; i < features.length; i++) {
                 var feature = features[i],
                     properties = feature['properties'];
 
@@ -1640,8 +1643,8 @@ class JSONGeoBoundariesBase {
                     coordinates, 10.0
                 );
                 pointCoord = [
-                    (pointCoord[0]+center[0])/2.0,
-                    (pointCoord[1]+center[1])/2.0
+                    (pointCoord[0] + center[0]) / 2.0,
+                    (pointCoord[1] + center[1]) / 2.0
                 ];
             }
             else {
@@ -1665,8 +1668,8 @@ class JSONGeoBoundariesBase {
             maxX = -999999999999,
             maxY = -999999999999;
 
-        for (let i=0; i<coordinates.length; i++) {
-            for (let j=0; j<coordinates[i].length; j++) {
+        for (let i = 0; i < coordinates.length; i++) {
+            for (let j = 0; j < coordinates[i].length; j++) {
                 let x = coordinates[i][j][0],
                     y = coordinates[i][j][1];
 
@@ -1688,8 +1691,8 @@ class JSONGeoBoundariesBase {
             maxX = -999999999999,
             maxY = -999999999999;
 
-        for (let i=0; i<coordinates.length; i++) {
-            for (let j=0; j<coordinates[i].length; j++) {
+        for (let i = 0; i < coordinates.length; i++) {
+            for (let j = 0; j < coordinates[i].length; j++) {
                 let x = coordinates[i][j][0],
                     y = coordinates[i][j][1];
 
@@ -1700,8 +1703,8 @@ class JSONGeoBoundariesBase {
             }
         }
 
-        var centerX = minX + (maxX-minX) / 2.0,
-            centerY = minY + (maxY-minY) / 2.0;
+        var centerX = minX + (maxX - minX) / 2.0,
+            centerY = minY + (maxY - minY) / 2.0;
         return [centerX, centerY];
     }
 
@@ -1729,7 +1732,7 @@ class JSONGeoBoundariesBase {
         var caseInfo;
         const state = this.stateName;
 
-        for (var i=0; i<geoJSONData.features.length; i++) {
+        for (var i = 0; i < geoJSONData.features.length; i++) {
             var data = geoJSONData.features[i];
             var cityName = this.getCityNameFromProperty(data);
             if (!cityName) {
@@ -1769,7 +1772,7 @@ class JSONGeoBoundariesBase {
         }
         this.addedStatSources[sn] = null;
 
-        this.map.addSource(this.fillPolyId+sn+'statsource', {
+        this.map.addSource(this.fillPolyId + sn + 'statsource', {
             type: 'geojson',
             data: this.geoJSONData,
             tolerance: MAPBOX_TOLERANCE
@@ -1780,7 +1783,7 @@ class JSONGeoBoundariesBase {
         var statInfo;
         const state = this.stateName;
 
-        for (var i=0; i<geoJSONData.features.length; i++) {
+        for (var i = 0; i < geoJSONData.features.length; i++) {
             var data = geoJSONData.features[i];
             var cityName = this.getCityNameFromProperty(data);
             if (!cityName) {
@@ -2101,7 +2104,7 @@ class HospitalMarker {
             .setLngLat(coor)
             .setPopup(
                 new mapboxgl
-                    .Popup({offset: 25}) // add popups
+                    .Popup({ offset: 25 }) // add popups
                     .setHTML(
                         '<h3 style="margin:0;">' + this.item['name'] + '</h3>' +
                         '<p style="margin:0;">Phone: ' + this.item['hospitalPhone'] + '</p>' +
