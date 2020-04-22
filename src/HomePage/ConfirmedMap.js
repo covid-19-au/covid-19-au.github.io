@@ -653,6 +653,7 @@ class MbMap extends React.Component {
 
         function enableControlsWhenMapReady() {
             if (that.map.loaded()) {
+                that._enableControlsJob = null;
                 that.markersButtonGroup.current.style.pointerEvents = 'all';
                 that.underlayButtonGroup.current.style.pointerEvents = 'all';
                 that.otherStatsSelectCont.style.pointerEvents = 'all';
