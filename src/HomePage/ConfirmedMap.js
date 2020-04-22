@@ -311,7 +311,7 @@ class MbMap extends React.Component {
             [166.2890625, 0.8788717828324276] // Northeast coordinates
         ];
 
-        const map = new mapboxgl.Map({
+        const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
@@ -643,7 +643,32 @@ class MbMap extends React.Component {
                 this._underlay === 'Other Stats' &&
                 this._markers !== 'Hospitals'
             ) ? 'block' : 'none'
-            ;
+        ;
+
+        // Make sure the map is fully loaded
+        // before allowing a new change in tabs
+        this.markersButtonGroup.current.style.pointerEvents = 'none';
+        this.underlayButtonGroup.current.style.pointerEvents = 'none';
+        this.otherStatsSelectCont.style.pointerEvents = 'none';
+
+        function enableControlsWhenMapReady() {
+            if (that.map.loaded()) {
+                that.markersButtonGroup.current.style.pointerEvents = 'all';
+                that.underlayButtonGroup.current.style.pointerEvents = 'all';
+                that.otherStatsSelectCont.style.pointerEvents = 'all';
+            }
+            else {
+                that._enableControlsJob = setTimeout(
+                    enableControlsWhenMapReady, 50
+                );
+            }
+        }
+        if (this._enableControlsJob != null) {
+            clearTimeout(this._enableControlsJob);
+        }
+        this._enableControlsJob = setTimeout(
+            enableControlsWhenMapReady, 50
+        );
     }
 
     _resetMode() {
