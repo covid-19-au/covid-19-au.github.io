@@ -4,7 +4,7 @@
     "schema": "SA3",
     "area": "Belconnen",
     "confirmedCases": "13",
-    "lastUpdateDate": "21/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -12,7 +12,7 @@
     "schema": "SA3",
     "area": "Canberra East",
     "confirmedCases": "0",
-    "lastUpdateDate": "21/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -20,7 +20,7 @@
     "schema": "SA3",
     "area": "Gungahlin",
     "confirmedCases": "17",
-    "lastUpdateDate": "21/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -28,7 +28,7 @@
     "schema": "SA3",
     "area": "Molonglo",
     "confirmedCases": "4",
-    "lastUpdateDate": "21/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -36,7 +36,7 @@
     "schema": "SA3",
     "area": "North Canberra",
     "confirmedCases": "11",
-    "lastUpdateDate": "21/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -44,7 +44,7 @@
     "schema": "SA3",
     "area": "South Canberra",
     "confirmedCases": "17",
-    "lastUpdateDate": "21/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -52,7 +52,15 @@
     "schema": "SA3",
     "area": "Tuggeranong",
     "confirmedCases": "23",
-    "lastUpdateDate": "21/04/2020",
+    "lastUpdateDate": "22/04/2020",
+    "description": ""
+  },
+  {
+    "state": "ACT",
+    "schema": "SA3",
+    "area": "Uriarra",
+    "confirmedCases": "0",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -68,7 +76,7 @@
     "schema": "SA3",
     "area": "Weston Creek",
     "confirmedCases": "7",
-    "lastUpdateDate": "21/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -76,7 +84,7 @@
     "schema": "SA3",
     "area": "Woden Valley",
     "confirmedCases": "12",
-    "lastUpdateDate": "21/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -84,7 +92,7 @@
     "schema": "LGA",
     "area": "Albury",
     "confirmedCases": "8",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -92,7 +100,7 @@
     "schema": "LGA",
     "area": "Armidale Regional",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -100,7 +108,7 @@
     "schema": "LGA",
     "area": "Ballina",
     "confirmedCases": "9",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -108,7 +116,7 @@
     "schema": "LGA",
     "area": "Bathurst Regional",
     "confirmedCases": "9",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -116,7 +124,7 @@
     "schema": "LGA",
     "area": "Bayside",
     "confirmedCases": "65",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -124,7 +132,7 @@
     "schema": "LGA",
     "area": "Bega Valley",
     "confirmedCases": "9",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -132,7 +140,7 @@
     "schema": "LGA",
     "area": "Bellingen",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -140,15 +148,15 @@
     "schema": "LGA",
     "area": "Berrigan",
     "confirmedCases": "5",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Blacktown",
-    "confirmedCases": "106",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "107",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -156,7 +164,7 @@
     "schema": "LGA",
     "area": "Blayney",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -164,7 +172,7 @@
     "schema": "LGA",
     "area": "Blue Mountains",
     "confirmedCases": "22",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -172,7 +180,7 @@
     "schema": "LGA",
     "area": "Broken Hill",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -180,7 +188,7 @@
     "schema": "LGA",
     "area": "Burwood",
     "confirmedCases": "8",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -188,7 +196,7 @@
     "schema": "LGA",
     "area": "Byron",
     "confirmedCases": "16",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -196,7 +204,7 @@
     "schema": "LGA",
     "area": "Cabonne",
     "confirmedCases": "5",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -204,7 +212,7 @@
     "schema": "LGA",
     "area": "Camden",
     "confirmedCases": "38",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -212,7 +220,7 @@
     "schema": "LGA",
     "area": "Campbelltown",
     "confirmedCases": "34",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -220,7 +228,7 @@
     "schema": "LGA",
     "area": "Canada Bay",
     "confirmedCases": "24",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -228,7 +236,7 @@
     "schema": "LGA",
     "area": "Canterbury-Bankstown",
     "confirmedCases": "89",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -236,7 +244,7 @@
     "schema": "LGA",
     "area": "Central Coast",
     "confirmedCases": "116",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -244,7 +252,7 @@
     "schema": "LGA",
     "area": "Cessnock",
     "confirmedCases": "24",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -252,7 +260,7 @@
     "schema": "LGA",
     "area": "Clarence Valley",
     "confirmedCases": "8",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -260,7 +268,7 @@
     "schema": "LGA",
     "area": "Coffs Harbour",
     "confirmedCases": "14",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -268,7 +276,7 @@
     "schema": "LGA",
     "area": "Coonamble",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -276,7 +284,7 @@
     "schema": "LGA",
     "area": "Cootamundra-Gundagai Regional",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -284,7 +292,7 @@
     "schema": "LGA",
     "area": "Cumberland",
     "confirmedCases": "66",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -292,7 +300,7 @@
     "schema": "LGA",
     "area": "Dubbo Regional",
     "confirmedCases": "5",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -300,7 +308,7 @@
     "schema": "LGA",
     "area": "Dungog",
     "confirmedCases": "5",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -308,7 +316,7 @@
     "schema": "LGA",
     "area": "Eurobodalla",
     "confirmedCases": "10",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -316,7 +324,7 @@
     "schema": "LGA",
     "area": "Fairfield",
     "confirmedCases": "29",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -324,15 +332,15 @@
     "schema": "LGA",
     "area": "Federation",
     "confirmedCases": "8",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Georges River",
-    "confirmedCases": "60",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "59",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -340,7 +348,7 @@
     "schema": "LGA",
     "area": "Glen Innes Severn",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -348,7 +356,7 @@
     "schema": "LGA",
     "area": "Goulburn Mulwaree",
     "confirmedCases": "9",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -356,7 +364,7 @@
     "schema": "LGA",
     "area": "Greater Hume Shire",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -364,7 +372,7 @@
     "schema": "LGA",
     "area": "Griffith",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -372,7 +380,7 @@
     "schema": "LGA",
     "area": "Gunnedah",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -380,7 +388,7 @@
     "schema": "LGA",
     "area": "Hawkesbury",
     "confirmedCases": "25",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -388,7 +396,7 @@
     "schema": "LGA",
     "area": "Hay",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -396,15 +404,15 @@
     "schema": "LGA",
     "area": "Hilltops",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Hornsby",
-    "confirmedCases": "51",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "54",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -412,15 +420,15 @@
     "schema": "LGA",
     "area": "Hunters Hill",
     "confirmedCases": "22",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Inner West",
-    "confirmedCases": "70",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "72",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -428,7 +436,7 @@
     "schema": "LGA",
     "area": "Inverell",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -436,7 +444,7 @@
     "schema": "LGA",
     "area": "Kempsey",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -444,7 +452,7 @@
     "schema": "LGA",
     "area": "Kiama",
     "confirmedCases": "7",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -452,7 +460,7 @@
     "schema": "LGA",
     "area": "Ku-ring-gai",
     "confirmedCases": "69",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -468,15 +476,15 @@
     "schema": "LGA",
     "area": "Lake Macquarie",
     "confirmedCases": "57",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Lane Cove",
-    "confirmedCases": "37",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "38",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -484,7 +492,7 @@
     "schema": "LGA",
     "area": "Lismore",
     "confirmedCases": "5",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -492,7 +500,7 @@
     "schema": "LGA",
     "area": "Lithgow",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -500,7 +508,7 @@
     "schema": "LGA",
     "area": "Liverpool",
     "confirmedCases": "49",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -508,7 +516,7 @@
     "schema": "LGA",
     "area": "Liverpool Plains",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -516,7 +524,7 @@
     "schema": "LGA",
     "area": "Maitland",
     "confirmedCases": "33",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -524,7 +532,7 @@
     "schema": "LGA",
     "area": "Mid-Coast",
     "confirmedCases": "37",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -532,7 +540,7 @@
     "schema": "LGA",
     "area": "Mid-Western Regional",
     "confirmedCases": "6",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -540,7 +548,7 @@
     "schema": "LGA",
     "area": "Moree Plains",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -548,7 +556,7 @@
     "schema": "LGA",
     "area": "Mosman",
     "confirmedCases": "42",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -556,7 +564,7 @@
     "schema": "LGA",
     "area": "Murrumbidgee",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -564,7 +572,7 @@
     "schema": "LGA",
     "area": "Muswellbrook",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -572,7 +580,7 @@
     "schema": "LGA",
     "area": "Nambucca",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -580,7 +588,7 @@
     "schema": "LGA",
     "area": "Narrandera",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -588,7 +596,7 @@
     "schema": "LGA",
     "area": "Narromine",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -596,31 +604,31 @@
     "schema": "LGA",
     "area": "Newcastle",
     "confirmedCases": "55",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "North Sydney",
-    "confirmedCases": "47",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "48",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Northern Beaches",
-    "confirmedCases": "152",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "154",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Orange",
-    "confirmedCases": "11",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "10",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -628,7 +636,7 @@
     "schema": "LGA",
     "area": "Parkes",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -636,15 +644,15 @@
     "schema": "LGA",
     "area": "Parramatta",
     "confirmedCases": "45",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Penrith",
-    "confirmedCases": "100",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "101",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -652,7 +660,7 @@
     "schema": "LGA",
     "area": "Port Macquarie-Hastings",
     "confirmedCases": "26",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -660,7 +668,7 @@
     "schema": "LGA",
     "area": "Port Stephens",
     "confirmedCases": "34",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -668,15 +676,15 @@
     "schema": "LGA",
     "area": "Queanbeyan-Palerang Regional",
     "confirmedCases": "10",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Randwick",
-    "confirmedCases": "86",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "85",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -684,7 +692,7 @@
     "schema": "LGA",
     "area": "Richmond Valley",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -692,7 +700,7 @@
     "schema": "LGA",
     "area": "Ryde",
     "confirmedCases": "66",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -700,15 +708,15 @@
     "schema": "LGA",
     "area": "Shellharbour",
     "confirmedCases": "21",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Shoalhaven",
-    "confirmedCases": "31",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "32",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -716,7 +724,7 @@
     "schema": "LGA",
     "area": "Singleton",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -724,7 +732,7 @@
     "schema": "LGA",
     "area": "Snowy Monaro Regional",
     "confirmedCases": "6",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -740,15 +748,15 @@
     "schema": "LGA",
     "area": "Strathfield",
     "confirmedCases": "13",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Sutherland Shire",
-    "confirmedCases": "115",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "113",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -756,7 +764,7 @@
     "schema": "LGA",
     "area": "Sydney",
     "confirmedCases": "157",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -764,7 +772,7 @@
     "schema": "LGA",
     "area": "Tamworth Regional",
     "confirmedCases": "13",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -772,15 +780,15 @@
     "schema": "LGA",
     "area": "Tenterfield",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "The Hills Shire",
-    "confirmedCases": "59",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "60",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -796,7 +804,7 @@
     "schema": "LGA",
     "area": "Tweed",
     "confirmedCases": "15",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -804,7 +812,7 @@
     "schema": "LGA",
     "area": "Upper Hunter Shire",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -812,7 +820,7 @@
     "schema": "LGA",
     "area": "Upper Lachlan Shire",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -820,7 +828,7 @@
     "schema": "LGA",
     "area": "Uralla",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -828,7 +836,7 @@
     "schema": "LGA",
     "area": "Wagga Wagga",
     "confirmedCases": "10",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -836,7 +844,7 @@
     "schema": "LGA",
     "area": "Warren",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -844,7 +852,7 @@
     "schema": "LGA",
     "area": "Warrumbungle Shire",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -852,7 +860,7 @@
     "schema": "LGA",
     "area": "Waverley",
     "confirmedCases": "180",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -860,7 +868,7 @@
     "schema": "LGA",
     "area": "Weddin",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -868,15 +876,15 @@
     "schema": "LGA",
     "area": "Willoughby",
     "confirmedCases": "22",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
     "state": "NSW",
     "schema": "LGA",
     "area": "Wingecarribee",
-    "confirmedCases": "23",
-    "lastUpdateDate": "20/04/2020",
+    "confirmedCases": "25",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -884,7 +892,7 @@
     "schema": "LGA",
     "area": "Wollondilly",
     "confirmedCases": "4",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -892,7 +900,7 @@
     "schema": "LGA",
     "area": "Wollongong",
     "confirmedCases": "52",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -900,7 +908,7 @@
     "schema": "LGA",
     "area": "Woollahra",
     "confirmedCases": "92",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {
@@ -908,7 +916,7 @@
     "schema": "LGA",
     "area": "Yass Valley",
     "confirmedCases": "6",
-    "lastUpdateDate": "20/04/2020",
+    "lastUpdateDate": "22/04/2020",
     "description": ""
   },
   {

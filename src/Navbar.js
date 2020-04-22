@@ -58,6 +58,14 @@ export default function Navbar({ setNav, nav }) {
                 >
           <strong>{i18next.t("nav:news")}</strong>
         </A>
+        <A
+            className={`navItems ${
+                window.location.pathname.includes("/blog") && !isSticky ? "navCurrentPage " : ""
+                } ${window.location.pathname.includes("/blog") && isSticky ? "navCurrentPageSticky" : ""} `}
+            onClick={onClick} href="/blog"
+        >
+          <strong>{i18next.t("nav:blog")}</strong>
+        </A>
 
             </div>
         </div>
