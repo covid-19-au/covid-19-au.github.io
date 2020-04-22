@@ -28,6 +28,7 @@
     "csv": "^0.3.7",
     "date-fns": "^2.11.0",
     "dayjs": "^1.8.19",
+    "disqus-react": "^1.0.8",
     "dom-helpers": "^5.1.4",
     "dotenv": "^8.2.0",
     "dotenv-expand": "5.1.0",

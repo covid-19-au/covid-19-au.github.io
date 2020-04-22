@@ -1,0 +1,36 @@
+{
+    "blogPosts": [
+        {
+            "tag": "General",
+            "title": "The story of COVID-19-AU",
+            "media": "https://i.imgur.com/RAsIOCH.png",
+            "summary": "With the Covid-19 crisis surging up rapidly, a small group of students led by Dr. Chen of Monash Faculty of Information took up the responsibility to create a trustworthy and reliable platform for the Australian Community to learn more about the situation, and find out how to keep them and their community safe.",
+            "date": "21/04/2020", 
+            "text": {
+                "text_1": [
+                    "<h3 class='responsiveH3'><strong>Who we are</strong></h3>",
+                    "The COVID-19-AU project was started by Dr. Chungyang Chen and a team of graduate students from Monash University’s Faculty of Information Technology.",
+                    "The aim of this project is to help Australians to stay informed with the rapidly-changing COVID-19 situation. We want to create awareness and educate people about the pandemic by providing real-time data, latest news updates and important information. We update our website as frequently as possible – often once every hour, to provide Australians with the most up-to-date information on COVID-19 in Australia.",
+                    "<h3 class='responsiveH3'><strong>What we do</strong></h3>",
+                    "Our website holds a collection of data sourced from official Government websites and news groups from all Australian states, collated together to give an accurate picture of the COVID-19 situation country-wide. There is nothing more dangerous than misinformation in uncertain times like these. We want to create a platform that makes it easy to understand the current situation in Australia as it is very difficult to see the bigger picture just by reading news articles or looking at current data on Government websites.",
+                    "We present data in many formats to make our website as accessible and useful to everyone. For example, we use interactive geographic data visualisation to help Australians to see infection hotspots on a map and the impact of COVID-19 on Australia as a whole.",
+                    "<h3 class='responsiveH3'><strong>Why we do it</strong></h3>",
+                    "We believe that by helping people to be more informed of the situation in Australia and the impact of this pandemic on the country as a whole, Australians will be encouraged to come together as a community to do their part to protect their country such as following Government guidelines to prevent the spread of the outbreak. We also think that it is important for people to understand what data tells us, so that they can appreciate the importance of Government guidelines.",
+                    "<h3 class='responsiveH3'><strong>How we've grown</strong></h3>",
+                    "We have been promoting our project on multiple social media platforms, and since then, many new students from multiple Universities around Australia and people working in the IT industry have chosen to volunteer their time to help.",
+                    "This project has not been easy to manage. Due to COVID-19 restrictions, we are unable to meet up to work on the project together and most of us have never met each other before. We have to rely on constant online communication in order to facilitate collaboration between different teams. However, we are able to overcome our hardships through sharing a common goal of wanting to do our part to help our country and Australians during this difficult time.",
+                    "This project is entirely run by volunteers and the website is designed for non-commercial use only. For the students working on this project, it is an incredibly opportunity to see how the skills we have learnt during the course of our education can be applied in the real world. More importantly, it is extremely rewarding to know that we have the ability to give back to our society and do our part to help Australia during this crisis.",
+                    "<h3 class='responsiveH3'><strong>How you can help</strong></h3>",
+                    "We want to make out website useful to everyone so we always take into consideration users’ feedbacks and try to implement their feature suggestions. To stay connected with our users, we interact with them through our social media platforms where we update multiple times each day with daily reports and other content to help everyone stay positive during this challenging time. We want to be a supportive community and help each other get through this incredibly challenging time by spreading positivity. We aim to do this by providing hope for Australians and showing that we can combat this outbreak TOGETHER.",
+                    "Thanks to the efforts of our dedicated team, our website now has over 4 million views. We are still trying to expand our reach so that we can help as many people as possible with this platform. If you would like to support us, please share our website with your friends and family. We hope our website can be a platform that Australians can rely on during this stressful time!",
+                    "💬 We want to make our website as helpful to you as possible, so please don’t hesitate to provide us with feedback and suggestions <a class='citationLink' href='https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform'>here</a>",
+                    "Don’t forget to follow us on Social Media to follow our project progress or to connect with us!",
+                    "<strong>Check out our </strong> <a class='citationLink' href='https://www.facebook.com/covid19au.github'>Facebook</a>, <a class='citationLink' href='https://twitter.com/covid19augithub'>Twitter</a>, and <a class='citationLink' href='https://www.instagram.com/covid19_au/'>Instagram</a>."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        }
+    ]
+}
