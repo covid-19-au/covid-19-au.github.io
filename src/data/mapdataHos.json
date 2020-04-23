@@ -1126,5 +1126,21 @@
     "name": "LGH Emergency Department",
     "coor": ["-41.446632", "147.141576"],
     "hospitalType": "COVID19 Mobile Respiratory Clinic"
+  },
+  {
+    "state": "Northern Territory",
+    "address": "36 Knuckey Street, Darwin, NT,0800",
+    "hospitalPhone": "(08)89425303",
+    "name": "Darwin City Respiratory Clinic",
+    "coor": ["-12.460288", "130.8446136"],
+    "hospitalType": "Coronavirus (COVID-19) GP respiratory clinics"
+  },
+  {
+    "state": "Northern Territory",
+    "address": "3 Gurd StreetFarrar, NT 0830",
+    "hospitalPhone": "(08) 8919 8919",
+    "name": "Palmerston GP Super Clinic Respiratory Clinic",
+    "coor": ["-12.4795656", "130.9899208"],
+    "hospitalType": "Coronavirus (COVID-19) GP respiratory clinics"
   }
 ]
