@@ -442,7 +442,11 @@ h2 small {
 
 .citationLink {
     color: blue;
-    border-bottom: blue 1px solid;
+    text-decoration: underline;
+}
+
+.citationLink:hover {
+  color: blue;
 }
 
 .flightSearch {
