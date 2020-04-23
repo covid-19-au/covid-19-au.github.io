@@ -1,11 +1,30 @@
 {
     "blogPosts": [
         {
+            "tag": "Informative",
+            "title": "Rapid Testing in Australia",
+            "media": "https://i.imgur.com/CpoyL9Y.png",
+            "summary": "Since the beginning of Covid-19, the importance and necessity of easily accessible and accurate testing has been emphasised greatly as many countries have failed to provide adequate testing. One Melbourne-based company is paving the way for a solution to this problem.",
+            "date": "24/04/2020", 
+            "text": {
+                "text_1": [
+                    "As Australia and the world seeks to contain COVID-19, a key barrier to containment has been the testing delay and backlog. With this in mind, the development of rapid test kits or point of care tests could pave the way for widespread, on-the-spot testing. This will not only allow us to get a far more accurate picture of the number of active cases, but also will facilitate the tracing of cases and allow essential workers the peace of mind to know when they can return to work and their families if isolating.",
+                    "One such company is MD Solutions, a Melbourne company who received expedited approval from the Therapeutic Goods Administration (TGA), whose test requires just two drops of blood, and needs no laboratory processing before a result can be obtained in just 15 minutes.",
+                    "Such examples pave the way for temporary testing clinics to be far more easily set up, as well as the opportunity to expand the mobile and drive-through testing facilities which can greatly expand our testing capacity.",
+                    "There are some concerns relating to the chances of false-negative results, as the rapid test kits test for antibodies associated with the virus rather than the virus itself as is done with RNA testing in a laboratory. However, the dominant view remains that the benefits of rapid testing outweigh these slight concerns.",
+                    "As with most things these days, we must hope for the best and hope that rapid test kits allow for significant improvements in early detection for those infected, and thus allow quicker isolation and identification of close contacts. In doing so we will be able to more easily trace the virus and reduce its spread."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
             "tag": "General",
-            "title": "The story of COVID-19-AU",
+            "title": "The Story of COVID-19-AU",
             "media": "https://i.imgur.com/RAsIOCH.png",
             "summary": "With the Covid-19 crisis surging up rapidly, a small group of students led by Dr. Chen of Monash Faculty of Information took up the responsibility to create a trustworthy and reliable platform for the Australian Community to learn more about the situation, and find out how to keep them and their community safe.",
-            "date": "21/04/2020", 
+            "date": "23/04/2020", 
             "text": {
                 "text_1": [
                     "<h3 class='responsiveH3'><strong>Who we are</strong></h3>",
@@ -23,7 +42,7 @@
                     "<h3 class='responsiveH3'><strong>How you can help</strong></h3>",
                     "We want to make out website useful to everyone so we always take into consideration users’ feedbacks and try to implement their feature suggestions. To stay connected with our users, we interact with them through our social media platforms where we update multiple times each day with daily reports and other content to help everyone stay positive during this challenging time. We want to be a supportive community and help each other get through this incredibly challenging time by spreading positivity. We aim to do this by providing hope for Australians and showing that we can combat this outbreak TOGETHER.",
                     "Thanks to the efforts of our dedicated team, our website now has over 4 million views. We are still trying to expand our reach so that we can help as many people as possible with this platform. If you would like to support us, please share our website with your friends and family. We hope our website can be a platform that Australians can rely on during this stressful time!",
-                    "💬 We want to make our website as helpful to you as possible, so please don’t hesitate to provide us with feedback and suggestions <a class='citationLink' href='https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform'>here</a>",
+                    "💬 We want to make our website as helpful to you as possible, so please don’t hesitate to provide us with feedback and suggestions <a class='citationLink' href='https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform'>here</a>.",
                     "Don’t forget to follow us on Social Media to follow our project progress or to connect with us!",
                     "<strong>Check out our </strong> <a class='citationLink' href='https://www.facebook.com/covid19au.github'>Facebook</a>, <a class='citationLink' href='https://twitter.com/covid19augithub'>Twitter</a>, and <a class='citationLink' href='https://www.instagram.com/covid19_au/'>Instagram</a>."
                 ],
