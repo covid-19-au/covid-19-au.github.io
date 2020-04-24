@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-16/coronavirus-what-australia-has-to-do-before-restrictions-lifted/12154692",
+            "title": "Australia's coronavirus restrictions will remain until these three things are established",
+            "source": "ABCNews",
+            "date": "16 April 2020",
+            "time": "19:40",
+            "summary": "Prime Minister Scott Morrison has announced that Australians will have to live with coronavirus restrictions for at least another four weeks. He outlined three things the Government wants to see before parts of the country can start to look normal again. These three things are: a broader testing regime, better contact tracing, and being confident in containing outbreaks."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/game-changer-coronavirus-testing-to-be-fast-tracked-in-remote-indigenous-communities",
+            "title": "'Game changer': Coronavirus testing to be fast-tracked in remote Indigenous communities",
+            "source": "SBSNews",
+            "date": "16 April 2020",
+            "time": "19:40",
+            "summary": "83 coronavirus testing sites are set to be set up across remote Indigenous communities to detect the virus more rapidly. Some remote areas have been waiting up to 10 days for results but the new $3.3 million project, part of the wider $2.4 billion COVID-19 National Health Plan, aims to cut waiting times to 45 minutes."
+        },
+        {
             "link": "https://www.9news.com.au/national/coronavirus-cure-covid-19-vaccine-testing-in-australia-novavax-nucleus-network/73bb2d7b-f7bf-4f83-8a30-74cd1d6c3bff ",
             "title": "COVID-19 vaccine testing to begin in Australia in coming weeks",
             "source": "9News",
