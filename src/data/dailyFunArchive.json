@@ -3,6 +3,25 @@
         {
             "image": [
                 {
+                    "imgLink": "https://pbs.twimg.com/media/EVv4dfFWkAA0XuM?format=jpg&name=large",
+                    "source": "https://twitter.com/captaintommoore/status/1250866513919311878?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed&ref_url=https%3A%2F%2Fwww.abc.net.au%2Fnews%2F2020-04-17%2Fcoronavirus-99yo-british-veteran-tom-moore-nhs-finishes-laps%2F12156680"
+                }
+            ],
+            "video": [],
+            "title": "British veteran raises $30 million for UK's National Health Service",
+            "content": "<p>Ben Moore, a 99-year-old British veteran, has raised 16 million pounds ($30 million dollars) for the NHS by walking 100 laps around his garden. Since breaking his hip in an accident he has used a walking frame with wheels. He was inspired by the treatment he received from the NHS after his accident and when he was treated for cancer.</p><p>As planned, he has completed the laps before his 100th birthday on April 30. His original target was a very modest 1000 pounds. That aim was quickly blown away when his campaign garnered media attention from around the globe.</p><p>Cap Tom Moore's actions should inspire us to think about how we can contribute more to helping others!</p>",
+            "type": "motivation",
+            "date": "24/4/2020",
+            "citation": [
+                {
+                    "link": "https://www.abc.net.au/news/2020-04-17/coronavirus-99yo-british-veteran-tom-moore-nhs-finishes-laps/12156680",
+                    "name": "British veteran Tom Moore, 99, completes 100 laps of garden, raising $30 million for UK's NHS - ABC News"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
                     "imgLink": "https://cdn.newsapi.com.au/image/v1/78374f0ebed224a6b798b5c3d0117b72",
                     "source": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-best-friends-use-pocket-money-to-buy-toilet-paper-for-elderly-neighbours/news-story/55b5d08f146cbadef342d4e231f2719f"
                 }
