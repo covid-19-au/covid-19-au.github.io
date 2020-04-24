@@ -2,6 +2,26 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "Pride in the age of Covid-19",
+            "media": "https://i.imgur.com/2rQgp4L.png",
+            "summary": "Throughout this Covid-19 outbreak, LGBTQIA+ people are facing unique challenges. Find out how to get support, and see what's happening with Pride in 2020.",
+            "date": "25/04/2020", 
+            "text": {
+                "text_1": [
+                    "It’s no surprise that LGBTQIA+ people face unique challenges under current social distancing requirements. Being forced to move back in with unaccepting family, facing unemployment and potentially homelessness are real challenges the community will contend with in the coming months. In addition, over 200 pride events have been cancelled for the obvious safety risk they pose due to Covid-19. In this time of great uncertainty, support is available and accessible to community members.",
+                    "<strong>Want to talk?</strong> - Qlife offers anonymous <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://lgbtihealth.org.au/covid-19-individual-and-community-care-for-lgbti-people/'>peer support</a> to queer people through either webchat or telephone.",
+                    "<strong>Want information?</strong> - The National LGBTI Health Alliance provides a huge amount of <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://lgbtihealth.org.au/covid-19-individual-and-community-care-for-lgbti-people/'>information</a> about different support services and information available to LGBTQIA+ peoples.",
+                    "<strong>Working remotely during Covid-19</strong> - ILGA World has compiled a <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://ilga.org/list-resources-smartworking-wellbeing-lgbti-communities-covid19-coronavirus'>list</a> of secure platforms to assist people with working from home safely. It also has some recommendations for LGBTQIA+ media to help pass the time.",
+                    "<strong>What’s happening with Pride in 2020?</strong> - Pride is <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.interpride.org/'>online</a> in 2020! Worldwide Pride organisations have announced that on the 27th of June, Pride celebrations will be livestreamed. The livestreaming platform is yet to be announced.",
+                    "Please comment if you are aware of any additional resources people might find helpful!"
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "Rapid Testing in Australia",
             "media": "https://i.imgur.com/CpoyL9Y.png",
             "summary": "Since the beginning of Covid-19, the importance and necessity of easily accessible and accurate testing has been emphasised greatly as many countries have failed to provide adequate testing. One Melbourne-based company is paving the way for a solution to this problem.",
@@ -42,9 +62,9 @@
                     "<h3 class='responsiveH3'><strong>How you can help</strong></h3>",
                     "We want to make out website useful to everyone so we always take into consideration users’ feedbacks and try to implement their feature suggestions. To stay connected with our users, we interact with them through our social media platforms where we update multiple times each day with daily reports and other content to help everyone stay positive during this challenging time. We want to be a supportive community and help each other get through this incredibly challenging time by spreading positivity. We aim to do this by providing hope for Australians and showing that we can combat this outbreak TOGETHER.",
                     "Thanks to the efforts of our dedicated team, our website now has over 4 million views. We are still trying to expand our reach so that we can help as many people as possible with this platform. If you would like to support us, please share our website with your friends and family. We hope our website can be a platform that Australians can rely on during this stressful time!",
-                    "💬 We want to make our website as helpful to you as possible, so please don’t hesitate to provide us with feedback and suggestions <a class='citationLink' href='https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform'>here</a>.",
+                    "💬 We want to make our website as helpful to you as possible, so please don’t hesitate to provide us with feedback and suggestions <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform'>here</a>.",
                     "Don’t forget to follow us on Social Media to follow our project progress or to connect with us!",
-                    "<strong>Check out our </strong> <a class='citationLink' href='https://www.facebook.com/covid19au.github'>Facebook</a>, <a class='citationLink' href='https://twitter.com/covid19augithub'>Twitter</a>, and <a class='citationLink' href='https://www.instagram.com/covid19_au/'>Instagram</a>."
+                    "<strong>Check out our </strong> <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.facebook.com/covid19au.github'>Facebook</a>, <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://twitter.com/covid19augithub'>Twitter</a>, and <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.instagram.com/covid19_au/'>Instagram</a>."
                 ],
                 "ulist_1": [],
                 "olist_1": [],
