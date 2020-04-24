@@ -316,6 +316,7 @@ class MbMap extends React.Component {
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
             zoom: zoom,
+            maxZoom: 9,
             maxBounds: bounds // Sets bounds as max
         });
 
