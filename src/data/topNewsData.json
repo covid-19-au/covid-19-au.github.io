@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/australia-ramps-up-coronavirus-testing-to-include-anyone-with-respiratory-symptoms",
+            "title": "Australia ramps up coronavirus testing to include anyone with respiratory symptoms",
+            "source": "SBSNews",
+            "date": "24 April 2020",
+            "time": "16:55",
+            "summary": "Following a national cabinet meeting on Friday, Chief Medical Officer Brendan Murphy announced all states and territories would expand their testing criteria to ensure any community transmission was being picked up. The meeting also discussed reports of aged care facilities refusing visitors and locking residents in their rooms. Prime Minister Scott Morrison said if facilities that had gone beyond baseline coronavirus requirements did not return to that level and allow each resident two visitors a day, his government would make it mandatory."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/scott-morrison-says-social-distancing-rules-do-not-apply-to-school-classrooms",
+            "title": "Scott Morrison says social distancing rules do not apply to school classrooms",
+            "source": "SBSNews",
+            "date": "24 April 2020",
+            "time": "14:54",
+            "summary": "Prime Minister Scott Morrison says the government's medical advice confirms social distancing requirements do not apply to classrooms, clearing the way for students to return to school.  While Australians have been told to keep 1.5 metres apart, or two arms' lengths, Mr Morrison said the Australian Health Protection Principal Committee (AHPPC) had determined students did not need to abide by that advice in the classroom."
+        },
+        {
             "link": "https://www.sbs.com.au/news/scott-morrison-says-jobseeker-payment-will-be-cut-after-pandemic",
             "title": "Scott Morrison says JobSeeker payment will be cut after pandemic",
             "source": "SBSNews",
@@ -119,22 +135,6 @@
             "date": "18 April 2020",
             "time": "17:19",
             "summary": "More than four million Australians with disability in Australia have been assured of their safety during the coronavirus pandemic through their reduced exposure to the virus, while maintaining essential services. The national cabinet - made up of the prime minister, premiers and chief ministers - when it last met on Thursday agreed on a management and operational plan for people with disability during the crisis."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/coronavirus-mobile-tracking-app-may-be-mandatory-if-not-enough-people-sign-up-scott-morrison-says",
-            "title": "Coronavirus mobile tracking app may be mandatory if not enough people sign up, Scott Morrison says",
-            "source": "SBSNews",
-            "date": "17 April 2020",
-            "time": "17:53",
-            "summary": "Mobile phone tracking software could be compulsory if not enough Australians voluntarily download the application to help in coronavirus case tracing. Prime Minister Scott Morrison said at least 40 percent of the population needs to use the app to make it effective. Better contact tracing is one of three main benchmarks the government wants to meet before strict restrictions can be lifted. Notably, Mr Morrison says the app won't be used by police as evidence to prosecute people for breaching social distancing requirements."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/internet-costs-cut-for-low-income-australian-families-small-businesses-during-coronavirus-pandemic",
-            "title": "Internet costs cut for low-income Australian families, small businesses during coronavirus pandemic",
-            "source": "SBSNews",
-            "date": "17 April 2020",
-            "time": "12:53",
-            "summary": "Internet providers will have help ensuring financially-stricken families and businesses stay connected from a $150 million National Broadband Network relief fund. The internet wholesaler wants to ensure families with school children who do not have NBN access, and small and medium-sized businesses, can remain online during and after the coronavirus pandemic. NBN will waive its $37 monthly charge to internet providers between April and September to allow the industry to devise more affordable access for families."
         }
     ]
 }
