@@ -1,0 +1,102 @@
+import React, { Fragment } from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
+import Tooltip from '@material-ui/core/Tooltip';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import WebIcon from '@material-ui/icons/Web';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import EmailIcon from '@material-ui/icons/Email';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  small: {
+    width: theme.spacing(3),
+    height: theme.spacing(3),
+  },
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
+  member: {
+    display: 'flex',
+    '& > *': {
+      margin: '4px',
+    },
+    width: '100%',
+    alignItems: 'center'
+  },
+  link: {
+    color: '#0000EE'
+  },
+  disabled: {
+    pointerEvents: 'none',
+    cursor: 'default'
+  }
+}));
+
+const getInitial = name => {
+  let names = name.split(' ');
+  return names[0][0] + names[names.length - 1][0];
+}
+
+const noContact = (linkedin, email, github, website) => {
+  if (linkedin || email || github || website) {
+    return false;
+  }
+  return true;
+}
+
+const HtmlTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
+
+const Member = (props) => {
+    const classes = useStyles();
+    const { name, linkedin, email, github, website, fileName } = props.member;
+    return (
+        <Grid item xs={6} sm={4} className={`${classes.root} icon`}>
+          {noContact(linkedin, email, github, website)
+          ? (
+            <a className={`${classes.member} ${classes.disabled}`} href="/" target="_blank" rel="noopener noreferrer">
+              <Avatar alt={name} src={fileName ? require(`./avatars/${fileName}`) : ''} className={classes.large}>{getInitial(name)}</Avatar>
+              <Typography variant='h6' display='block' gutterBottom>{name}</Typography>
+            </a>
+          )
+          : (
+            <HtmlTooltip 
+              arrow
+              interactive
+              className={classes.member}
+              enterTouchDelay={0}
+              title={
+                <Fragment>
+                  <div style={{display: 'flex', justifyContent: 'space-around'}}>
+                    {linkedin ? <a target="_blank" rel="noopener noreferrer" href={linkedin}><LinkedInIcon /></a> : ''}
+                    {website ? <a target="_blank" rel="noopener noreferrer" href={website}><WebIcon /></a> : ''}
+                    {github ? <a target="_blank" rel="noopener noreferrer" href={github}><GitHubIcon /></a> : ''}
+                  </div>
+                    {email ? <a target="_blank" rel="noopener noreferrer" href={`mailto:${email}`}><EmailIcon /><small style={{marginLeft: '2px'}}>{email}</small></a> : ''}
+                </Fragment>
+              }>
+              <div>
+                <Avatar alt={name} src={fileName ? require(`./avatars/${fileName}`) : ''} className={classes.large}>{getInitial(name)}</Avatar>
+                <Typography className={noContact(linkedin, email, github, website) ? '' : classes.link} variant='h6' display='block' gutterBottom>{name}</Typography>
+              </div>
+            </HtmlTooltip>
+          )}
+        </Grid>
+    )
+}
+
+export default Member;

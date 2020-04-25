@@ -27,6 +27,7 @@ import Navbar from "./Navbar";
 import HomePage from "./HomePage/HomePage";
 import BlogPage from "./BlogPage/BlogPage";
 import Blog from "./BlogPage/Blog";
+import AboutUsPage from "./aboutUs/AboutUsPage";
 
 import StateChart from "./DataVis/StateChart";
 
@@ -219,7 +220,8 @@ function App() {
     "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={overall} inputData={data} setProvince={setProvince} area={area} />,
     "/blog": () => <Blog />,
     "/blog/:id": ({id}) => <Blog id={id}/>,
-    "/blog/post/:id": ({id}) => <BlogPage id={id} />
+    "/blog/post/:id": ({id}) => <BlogPage id={id} />,
+    "/about-us": () => <AboutUsPage />
   };
   //
   // // The hook used to render the routes.
