@@ -165,7 +165,8 @@ export default function OverallTrend() {
                                 show: true
                             },
                             type: yAxisType,
-                            max: maxY
+                            max: maxY,
+                            min: logScale ? 1 : 0
                         }, {
                             name: i18next.t("homePage:status.newCase"),
                             axisLabel: {
@@ -269,7 +270,7 @@ export default function OverallTrend() {
                 <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                {i18next.t("homePage:misc.logScale")}&nbsp;
+                    {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>{i18next.t("homePage:misc.onButton")}</Button>
                         <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>{i18next.t("homePage:misc.offButton")}</Button>
