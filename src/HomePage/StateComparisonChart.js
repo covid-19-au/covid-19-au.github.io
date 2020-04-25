@@ -261,7 +261,7 @@ export default function StateComparisonChart() {
         let j = 0
         while (j < testedDataFinal[orderedStates[i]].length) {
             let newLine = {
-                name: i18next.t("homePage:state."+orderedStates[i]),
+                name: i18next.t("homePage:state." + orderedStates[i]),
                 type: 'line',
                 symbol: 'circle',
                 symbolSize: 8,
@@ -287,7 +287,7 @@ export default function StateComparisonChart() {
     i = 0
     while (i < orderedStates.length) {
         let dottedLine = {
-            name: i18next.t("homePage:state."+orderedStates[i]),
+            name: i18next.t("homePage:state." + orderedStates[i]),
             type: 'line',
             symbolSize: 8,
             symbol: "circle",
@@ -303,7 +303,7 @@ export default function StateComparisonChart() {
 
         let confirmedLine =
         {
-            name: i18next.t("homePage:state."+orderedStates[i]),
+            name: i18next.t("homePage:state." + orderedStates[i]),
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -413,10 +413,12 @@ export default function StateComparisonChart() {
                     },
                     yAxis: [
                         {
-                            type: "value"
+                            type: yAxisType,
+                            min: logScale ? 100 : 0
                         },
                         {
                             type: yAxisType,
+                            min: logScale ? 1 : 0,
                             gridIndex: 1
                         }
                     ],
