@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/news/2020/apr/25/australians-turn-out-for-driveway-dawn-service-to-mark-anzac-day-in-time-of-coronavirus",
+            "title": "Australians turn out for driveway dawn service to mark Anzac Day in time of coronavirus ",
+            "source": "TheGuardian",
+            "date": "25 April 2020",
+            "time": "08:00",
+            "summary": "Thousands take part in a Covid-19-friendly but lonelier than usual commemoration of Gallipoli. The idea for the driveway dawn service came from two former Townsville defence force personnel, Warrant Officer Terry James and Brigadier Bill Sowry, who were discussing a Covid-19-friendly way to commemorate the day on social media. The plan quickly gained popularity and RSL branches and politicians across the country encouraged people to take part."
+        },
+        {
             "link": "https://www.sbs.com.au/news/australia-ramps-up-coronavirus-testing-to-include-anyone-with-respiratory-symptoms",
             "title": "Australia ramps up coronavirus testing to include anyone with respiratory symptoms",
             "source": "SBSNews",
@@ -119,22 +127,6 @@
             "date": "19 April 2020",
             "time": "18:49",
             "summary": "Australia's Foreign Minister Marise Payne says the federal government continues to work with the Qantas, Virgin Australia and foreign airlines to bring home Australians stranded in various parts of the world because of the coronavirus pandemic. She said about 300,000 people have returned to Australia since March 13, a significant number of those from more than 50 cruise ships. Currently there are about 11,000 Australians scattered around the world - though many of them are long-term residents of the countries in which they're located. "
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-18/covid-led-drop-in-energy-use-risks-system-overload/12150030",
-            "title": "Falling power use due to coronavirus risks system overload and blackouts, experts warn",
-            "source": "ABCNews",
-            "date": "18 April 2020",
-            "time": "08:31",
-            "summary": "Falling demand for electricity caused by the economic fallout from the COVID-19 pandemic could leave Western Australia's main electricity system at risk of a solar power overload within months, experts have warned. This may overwhelm the grid, meaning intervention and higher prices."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/people-with-disability-to-be-protected-under-new-plan-during-australia-s-coronavirus-crisis",
-            "title": "People with disability to be protected under new plan during Australia's coronavirus crisis",
-            "source": "SBSNews",
-            "date": "18 April 2020",
-            "time": "17:19",
-            "summary": "More than four million Australians with disability in Australia have been assured of their safety during the coronavirus pandemic through their reduced exposure to the virus, while maintaining essential services. The national cabinet - made up of the prime minister, premiers and chief ministers - when it last met on Thursday agreed on a management and operational plan for people with disability during the crisis."
         }
     ]
 }

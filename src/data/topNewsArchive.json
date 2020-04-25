@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-18/covid-led-drop-in-energy-use-risks-system-overload/12150030",
+            "title": "Falling power use due to coronavirus risks system overload and blackouts, experts warn",
+            "source": "ABCNews",
+            "date": "18 April 2020",
+            "time": "08:31",
+            "summary": "Falling demand for electricity caused by the economic fallout from the COVID-19 pandemic could leave Western Australia's main electricity system at risk of a solar power overload within months, experts have warned. This may overwhelm the grid, meaning intervention and higher prices."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/people-with-disability-to-be-protected-under-new-plan-during-australia-s-coronavirus-crisis",
+            "title": "People with disability to be protected under new plan during Australia's coronavirus crisis",
+            "source": "SBSNews",
+            "date": "18 April 2020",
+            "time": "17:19",
+            "summary": "More than four million Australians with disability in Australia have been assured of their safety during the coronavirus pandemic through their reduced exposure to the virus, while maintaining essential services. The national cabinet - made up of the prime minister, premiers and chief ministers - when it last met on Thursday agreed on a management and operational plan for people with disability during the crisis."
+        },
+        {
             "link": "https://www.sbs.com.au/news/coronavirus-mobile-tracking-app-may-be-mandatory-if-not-enough-people-sign-up-scott-morrison-says",
             "title": "Coronavirus mobile tracking app may be mandatory if not enough people sign up, Scott Morrison says",
             "source": "SBSNews",
