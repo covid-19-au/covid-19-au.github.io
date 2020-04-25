@@ -1,15 +1,23 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=ow83XkdvhZ4&feature=share",
-                    "description": "Coronavirus Rhapsody - Kodi Lee Cover"
+                    "imgLink": "https://images.thewest.com.au/publication/B881527059Z/1587735684334_GMV2NLP87.1-0.jpg?imwidth=1024&impolicy=wan_v3",
+                    "source": "https://thewest.com.au/news/anzac/coronavirus-crisis-west-australian-veterans-step-onto-driveways-to-honour-mates-in-anzac-day-first-ng-b881527059z"
                 }
             ],
-            "type": "distraction",
-            "date": "25/4/2020"
+            "video": [],
+            "title": "Veterans stepped out onto their driveways on ANZAC day to honour their fellow soldiers",
+            "content": "<p>Many of these veterans have been living in isolation for weeks as they are part of the groups considered most at-risk for from COVID-19. Pictured above is Sergeant Steve Toon, formerly of the British Infantry and Australian Infantry Reserves.</p><p>Read more about veterans like Sergeant Steve and what they have done for their country in the article below!</p>",
+            "type": "motivation",
+            "date": "24/4/2020",
+            "citation": [
+                {
+                    "link": "https://thewest.com.au/news/anzac/coronavirus-crisis-west-australian-veterans-step-onto-driveways-to-honour-mates-in-anzac-day-first-ng-b881527059z",
+                    "name": "Coronavirus crisis: West Australian veterans step onto driveways to honour mates in Anzac day first - The West Australian"
+                }
+            ]
         }
     ]
 }

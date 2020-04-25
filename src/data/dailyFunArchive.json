@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=ow83XkdvhZ4&feature=share",
+                    "description": "Coronavirus Rhapsody - Kodi Lee Cover"
+                }
+            ],
+            "type": "distraction",
+            "date": "25/4/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://pbs.twimg.com/media/EVv4dfFWkAA0XuM?format=jpg&name=large",
