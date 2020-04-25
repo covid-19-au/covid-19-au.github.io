@@ -49,40 +49,53 @@ export default function OverallTrend() {
     for (let key in countryData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
-        if (logScale) {
-            //log graph breaks if we include data before March 1st so we exclude that data here
-            if (date.getMonth() >= 2) {
-                let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-                dateData.push(labelName)
+        let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        dateData.push(labelName)
 
-                confirmedData.push(countryData[key][0])
-                deathData.push(countryData[key][2])
-                recoveryData.push(countryData[key][1])
-                activeData.push(countryData[key][3])
+        confirmedData.push(countryData[key][0])
+        deathData.push(countryData[key][2])
+        recoveryData.push(countryData[key][1])
+        activeData.push(countryData[key][3])
 
-                newConfirmed.push(countryData[key][0] - preConfirmed)
-                newDeath.push(countryData[key][2] - preDeath)
+        newConfirmed.push(countryData[key][0] - preConfirmed)
+        newDeath.push(countryData[key][2] - preDeath)
 
-                preConfirmed = countryData[key][0]
-                preDeath = countryData[key][2]
-            }
-        }
-        //if not log scale, we include all data
-        else {
-            let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-            dateData.push(labelName)
+        preConfirmed = countryData[key][0]
+        preDeath = countryData[key][2]
+        // if (logScale) {
+        //     //log graph breaks if we include data before March 1st so we exclude that data here
+        //     if (date.getMonth() >= 2) {
+        //         let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //         dateData.push(labelName)
 
-            confirmedData.push(countryData[key][0])
-            deathData.push(countryData[key][2])
-            recoveryData.push(countryData[key][1])
-            activeData.push(countryData[key][3])
+        //         confirmedData.push(countryData[key][0])
+        //         deathData.push(countryData[key][2])
+        //         recoveryData.push(countryData[key][1])
+        //         activeData.push(countryData[key][3])
 
-            newConfirmed.push(countryData[key][0] - preConfirmed)
-            newDeath.push(countryData[key][2] - preDeath)
+        //         newConfirmed.push(countryData[key][0] - preConfirmed)
+        //         newDeath.push(countryData[key][2] - preDeath)
 
-            preConfirmed = countryData[key][0]
-            preDeath = countryData[key][2]
-        }
+        //         preConfirmed = countryData[key][0]
+        //         preDeath = countryData[key][2]
+        //     }
+        // }
+        // //if not log scale, we include all data
+        // else {
+        //     let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //     dateData.push(labelName)
+
+        //     confirmedData.push(countryData[key][0])
+        //     deathData.push(countryData[key][2])
+        //     recoveryData.push(countryData[key][1])
+        //     activeData.push(countryData[key][3])
+
+        //     newConfirmed.push(countryData[key][0] - preConfirmed)
+        //     newDeath.push(countryData[key][2] - preDeath)
+
+        //     preConfirmed = countryData[key][0]
+        //     preDeath = countryData[key][2]
+        // }
 
     }
 
