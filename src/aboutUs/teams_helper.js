@@ -43,7 +43,7 @@ const Developers = {
             name: "Box Lu",
             linkedin: "https://www.linkedin.com/in/boxuan-lu/",
             email: "",
-            github: "",
+            github: "https://github.com/BoxHezi",
             website: "",
             fileName: "Box.png"
         },
@@ -297,6 +297,14 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Michelle.png"
+        },
+        {
+            name: "Yuchao Wu",
+            linkedin: "https://www.linkedin.com/in/yuchaowu-richard/",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Yuchao.png"
         }
     ]
 }
