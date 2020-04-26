@@ -1,9 +1,33 @@
 {
     "blogPosts": [
         {
+            "tag": "Fun",
+            "title": "Activities for Children to pass time",
+            "media": "https://i.imgur.com/u6TyZqV.png",
+            "summary": "With families stuck at home and children full of energy but nowhere to release it, here are a few awesome resources for your kids to participate in and have some fun!",
+            "date": "27/04/2020", 
+            "text": {
+                "text_1": [
+                    "Need to entertain your little ones while stuck at home? Fret not! Many parents have been in your place- and to help with that we’ve compiled a list of digital experiences to try out with our favourite iso-buddies this week!",
+                    ""
+                ],
+                "ulist_1": [],
+                "olist_1": [
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://heytherehello.com/'>Hey There Hello</a>:<br />Hey There Hello is a platform for parents, grandparents, teens (and adults too) to book short video-conference calls with entertainers all over. Enjoy a range of one-on-one experiences from yoga to art classes, story-telling and even celebrity impersonations!",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.kodable.com/'>Kodable</a>:<br />Probably our developers’ top pick, Kodable teaches children coding and creativity in a fun, approachable way. The gameplay is self-guided, and the free trial runs for seven days!",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://shop.hasbro.com/en-au/bring-home-the-fun'>Bring Home The Fun</a> by Hasbro:<br />By family-favourite Habro, explore resources, including tips for family playtime, activity challenges to keep kids occupied, and even ideas for using games and toys you might already have at home!"
+                ],
+                "text_2": [
+                    "We hope these have inspired you during these dull times! Be sure to stay calm and informed!",
+                    "Don’t forget to check out the rest of our website for more information, live updates and latest news on COVID-19 in Australia!",
+                    "#StayCalmStayInformed"
+                ]
+            }
+        },
+        {
             "tag": "Informative",
             "title": "Hong Kong’s Response to COVID-19",
-            "media": "https://i.imgur.com/iT8AUEl.png",
+            "media": "https://i.imgur.com/NeWZEq5.png",
             "summary": "With Covid-19 spreading world-wide, Hong Kong faces a situation similar to the SARS epidemic in 2002-2004. Curious about Hong Kong's keys to success despite facing two waves of cases? Click to find out more.",
             "date": "26/04/2020", 
             "text": {

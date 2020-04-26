@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app",
+            "title": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+            "source": "SBSNews",
+            "date": "26 April 2020",
+            "time": "18:27",
+            "summary": "On Sunday, the Federal Government launched a mobile phone app it hopes will improve the tracing of coronavirus cases and the people they come in contact with. The COVIDSafe app aims to identify people who may have come into contact with someone who has coronavirus so the user can give the information to health authorities. The COVIDSafe app is based on Singapore's Tracetogether software, which records the Bluetooth connections a phone makes with others, as part of what's being called a \"Bluetooth handshake\". But the launch came amid concerns about the technology and the data it would collect."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/coronavirus-stay-at-home-restrictions-to-be-eased-in-queensland",
+            "title": "Coronavirus stay-at-home restrictions to be eased in Queensland",
+            "source": "SBSNews",
+            "date": "26 April 2020",
+            "time": "13:21",
+            "summary": "Queensland will relax some stay-at-home restrictions from midnight on Friday with less than 100 active COVID-19 cases across the state. Family picnics and weekend drives are back on the agenda for Queenslanders starting next weekend after just three COVID-19 cases were recorded overnight. Premier Annastacia Palaszcuk says the easing of restrictions would start at midnight on Friday and people would be limited to travel about 50km from their residence and “limited to members of your own household”."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/wa-to-allow-gatherings-of-up-to-10-people-as-covid-19-cases-drop ",
+            "title": "WA to allow gatherings of up to 10 people as COVID-19 cases drop",
+            "source": "SBSNews",
+            "date": "26 April 2020",
+            "time": "15:26",
+            "summary": "Western Australia will relax its coronavirus restrictions to allow up to 10 people to gather for non-work activities, as the state recorded another day of no new COVID-19 cases. Premier Mark McGowan said it was a \"cautious relaxation\" of restrictions, acknowledging it had been difficult for everyone, but especially the elderly, to not see family and friends during the pandemic. From Monday, non-contact recreational activities such as picnics in parks, fishing, boating, hiking and camping will be allowed but people must comply with travel restrictions. Ten people will be allowed at weddings and the 10-person limit remains for funerals."
+        },
+        {
             "link": "https://www.theguardian.com/news/2020/apr/25/australians-turn-out-for-driveway-dawn-service-to-mark-anzac-day-in-time-of-coronavirus",
             "title": "Australians turn out for driveway dawn service to mark Anzac Day in time of coronavirus ",
             "source": "TheGuardian",
@@ -103,30 +127,6 @@
             "date": "20 April 2020",
             "time": "14:45",
             "summary": "A federal funding boost to the Royal Flying Doctor Service (RFDS) and other aeromedical services will see the capacity for rural and remote medical evacuations increase by 50 per cent. The services, which also include CareFlight and LifeFlight, will share in $52.8 million to evacuate COVID-19 patients to larger medical centres and also fly in medical workers and equipment to staff respiratory clinics."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/australia-has-a-sustained-and-genuine-flattening-of-the-coronavirus-curve-greg-hunt-says",
-            "title": "Australia has a 'sustained and genuine' flattening of the coronavirus curve, Greg Hunt says",
-            "source": "SBSNews",
-            "date": "19 April 2020",
-            "time": "11:51",
-            "summary": "Health Minister Greg Hunt says Australia has \"a sustained and genuine flattening of the curve\" with COVID-19 infection rate increases below one per cent a day for the past seven days. Australia's infection rate of COVID-19 is flattening, with the rate of new cases falling below one per cent and just 53 in the past 24 hours."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-19/coronavirus-queensland-regional-tourism-cairns-hotels-reef/12158486",
-            "title": "Coronavirus to cripple Cairns for years, tourism experts say",
-            "source": "ABCNews",
-            "date": "19 April 2020",
-            "time": "09:50",
-            "summary": "Tourism authorities fear it could take years for Far North Queensland's tourism-driven economy to recover from the coronavirus pandemic. Tourism Tropical North Queensland estimates the region will have lost $500 million in visitor spending by the end of April, with the total impact on the region expected to be $2.5 billion in lost visitor expenditure. More than 5,000 workers have been stood down so far, with 11,000 more people expected to be out of work by the end of the year. "
-        },
-        {
-            "link": "https://www.sbs.com.au/news/a-mammoth-effort-to-bring-australians-home-from-overseas-during-coronavirus-crisis-with-more-to-return-this-week",
-            "title": "A 'mammoth effort' to bring Australians home from overseas during coronavirus crisis, with more to return this week",
-            "source": "SBSNews",
-            "date": "19 April 2020",
-            "time": "18:49",
-            "summary": "Australia's Foreign Minister Marise Payne says the federal government continues to work with the Qantas, Virgin Australia and foreign airlines to bring home Australians stranded in various parts of the world because of the coronavirus pandemic. She said about 300,000 people have returned to Australia since March 13, a significant number of those from more than 50 cruise ships. Currently there are about 11,000 Australians scattered around the world - though many of them are long-term residents of the countries in which they're located. "
         }
     ]
 }
