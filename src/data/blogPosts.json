@@ -2,6 +2,49 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "Hong Kong’s Response to COVID-19",
+            "media": "https://i.imgur.com/iT8AUEl.png",
+            "summary": "With Covid-19 spreading world-wide, Hong Kong faces a situation similar to the SARS epidemic in 2002-2004. Curious about Hong Kong's keys to success despite facing two waves of cases? Click to find out more.",
+            "date": "26/04/2020", 
+            "text": {
+                "text_1": [
+                    "<h3 class='responsiveH3'><strong>Lessons Learnt from SARS in 2003</strong></h3>",
+                    "Ever since the devastating SARS outbreak in 2003, the residents Hong Kong have nurtured robust hygiene habits in the hopes of preventing the nightmare from reoccurring. In Hong Kong alone, SARS infected over 1,700 people and killed nearly 300. Since then, people in Hong Kong have never abandoned their sanitation routines.",
+                    "After the experience of SARS, Hong Kong doubled down to prepare for the next crisis and use its hard-won lessons to combat COVID-19. The Special Administrative Region had set up response capabilities and a preparedness plans. Hong Kong has had a Preparedness Plan for Influenza Pandemic in place for many years. It details 3 response levels – Alert, Serious and Emergency which aim to clearly demonstrate the current disease situation to the public and guide the city’s response.",
+                    "When coronavirus broke out early this year, people in Hong Kong did not think twice – they  quickly put on their facemasks, slathered on hand sanitiser and obediently stayed indoors. People were accustomed to wearing masks for every sniffle or cough and getting their  temperature taken when arriving at the Hong Kong airport.",
+                    "<h3 class='responsiveH3'><strong>The First Wave</strong></h3>",
+                    "On January 4, COVID-19 was declared to be SERIOUS under the pandemic plan.",
+                    "On January 25, the outbreak response level was raised to EMERGENCY.",
+                    "The city and its people responded quickly to COVID-19 and practised their sanitation routines learnt from SARS in 2003. By early March, the city seemed to have the outbreak contained, with nearly zero new cases and only a total of 4 deaths.",
+                    "<h3 class='responsiveH3'><strong>The Second Wave</strong></h3>",
+                    "As the outbreak appeared to be contained in Hong Kong, people emerged from their homes to resume life. Hong Kong began to welcome home residents and students who had been stuck overseas. Since then, there has been a resurgence of confirmed cases. However, the jump in cases was not surprising to scientists in Hong Kong because they knew that the pandemic would come in waves.",
+                    "Since March 28, restaurants in Hong Kong had been limited to operate 50% normal capacity with no more than 4 at a table. Restaurant workers are required to take patrons’ temperatures at the door and provide them with hand sanitiser.",
+                    "On April 20, it was the first day in 6 weeks that Hong Kong reported no new cases of COVID-19. It seemed that the city may have successfully contained the second wave of coronavirus cases triggered by overseas residents returning home.",
+                    "<h3 class='responsiveH3'><strong>Against All Odds</strong></h3>",
+                    "The outbreak could have easily gone out of control in Hong Kong.",
+                    "1. COVID-19 emerged around Lunar New Year when many people often travel across the region. The city is closely interconnected with mainland China through a shared border and has direct flights to Wuhan.",
+                    "2. Hong Kong is a densely populated city. The moment you leave your home, you are surrounded by people. It is extremely difficult to avoid getting infected.",
+                    "<h3 class='responsiveH3'><strong>Keys to Success</strong></h3>",
+                    "The city should be praised for its decision to respond aggressively from the outset. By February 1, Hong Kong had proactively implemented travel restrictions on people coming from mainland China.",
+                    "Hong Kong fought the pandemic through aggressive testing, isolating infected people as well as tracing and quarantining people they came in contact with."
+                ],
+                "ulist_1": [
+                    "There were around 14,000 tests done by Hong Kong, which is one of the highest testing rates in the world.",
+                    "Those who were tested positive were hospitalised regardless of whether they had COVID-19 symptoms or not in order prevent them infecting others.",
+                    "Close contacts of confirmed cases and all recent returnees are required to self-quarantine at home for 14 days and wear an electronic wristband that can track their whereabouts. Violators are subjected to fines and jail terms."
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "The people of Hong Kong should be commended for their responsible actions and routine sanitisation. They knew how serious an outbreak could get and were prepared to do what was necessary to prevent the same outcome as SARS in 2003 without any questions.",
+                    "Although it is still too early to declare victory, Hong Kong has done extremely well against all odds.",
+                    "<h3 class='responsiveH3'><strong>Story of Sven Johannsen</strong></h3>",
+                    "A little insight of how people in Hong Kong act in response to COVID-19:",
+                    "Sven Johannsen is originally from Germany but has been a Hong Kong resident for 5 years. Every morning, he puts on his N95 mask for his four-stop subway ride to work. He avoids touching buttons or railings and uses his knee when using the elevator. He also religiously applies hand sanitiser after every contact. Sven believes that Hong Kong is the safest place in the world now because every single person takes it seriously."
+                ]
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "Pride in the age of Covid-19",
             "media": "https://i.imgur.com/2rQgp4L.png",
             "summary": "Throughout this Covid-19 outbreak, LGBTQIA+ people are facing unique challenges. Find out how to get support, and see what's happening with Pride in 2020.",
