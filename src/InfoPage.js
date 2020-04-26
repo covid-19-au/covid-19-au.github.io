@@ -92,7 +92,7 @@ function InfoDrawer() {
         { id: "media", title: i18next.t("infoPage:informativeMedia.title") },
         { id: "general", title: i18next.t("infoPage:generalInformation.title") },
         { id: "regulations", title: i18next.t("infoPage:currentRegulation.title") },
-        { id: "tracingApp", title: "Contact Tracing App" },
+        { id: "tracingApp", title: "COVIDSafe (Contact Tracing App)" },
         { id: "haveCovid", title: i18next.t("infoPage:selfDiagnosis.title") },
         // { id: "stateTesting", title: "State Testing Information" },
         { id: "protect", title: i18next.t("infoPage:prevention.title") },
@@ -416,7 +416,7 @@ function Information({ hospitalData, columns, gspace }) {
                     }
                 </div>
                 <div className="card" id="tracingApp">
-                    <h2 className="responsiveH2">Contact Tracing App</h2>
+                    <h2 className="responsiveH2">COVIDSafe (Contact Tracing App)</h2>
                     {information.tracingApp.map(info => (
                         <div key={uuid()}>
                             <div>
