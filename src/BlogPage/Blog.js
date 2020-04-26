@@ -124,10 +124,10 @@ const Blog = (props) => {
                                         <Grid item xs={12} sm={12} md={6}>
                                             <CardMedia
                                                 component="img"
-                                                alt="Beautiful View"
+                                                alt={blog.title}
                                                 className="blogThumbnail"
                                                 image={blog.media}
-                                                title="Beautiful View"
+                                                title={blog.title}
                                             />
                                         </Grid>
                                         <Grid className="responsiveCardBottom" item xs={12} sm={12} md={6}>
