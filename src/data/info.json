@@ -1195,16 +1195,20 @@
     ],
     "tracingApp": [
         {
-            "name": "What is the app?",
+            "name": "What is the COVIDSafe?",
             "text": {
                 "text_1": [
-                    "The Australian government is planning to launch an app in a matter of weeks that will trace every person who has been in contact with a mobile phone owner who has tested positive for coronavirus in the previous few weeks, in a bid to automate coronavirus contact tracing, and allow the easing of restrictions. It will be similar to or based on the Singapore TraceTogether app."
+                    "On Sunday 26th April, the Australian government is launched an app ‘COVIDSafe’ that aims to identify people who may have come into contact with someone who has coronavirus so the user can give the information to health authorities. The COVIDSafe app is based on Singapore's Tracetogether software, which records the Bluetooth connections a phone makes with others, as part of what's being called a \"Bluetooth handshake\"."
                 ],
                 "list_1": [],
                 "text_2": [],
                 "list_2": [],
                 "text_3": [],
                 "citation": [
+                    {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
                     {
                         "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
                         "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
@@ -1214,7 +1218,7 @@
                         "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
                     }
                 ],
-                "lastUpdated": "20 April 2020"
+                "lastUpdated": "26 April 2020"
             }
         },
         {
@@ -1231,6 +1235,10 @@
                 "text_3": [],
                 "citation": [
                     {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
                         "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
                         "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
                     },
@@ -1239,7 +1247,7 @@
                         "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
                     }
                 ],
-                "lastUpdated": "20 April 2020"
+                "lastUpdated": "26 April 2020"
             }
         },
         {
@@ -1254,6 +1262,10 @@
                 "text_3": [],
                 "citation": [
                     {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
                         "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
                         "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
                     },
@@ -1262,7 +1274,7 @@
                         "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
                     }
                 ],
-                "lastUpdated": "20 April 2020"
+                "lastUpdated": "26 April 2020"
             }
         },
         {
@@ -1277,6 +1289,10 @@
                 "text_3": [],
                 "citation": [
                     {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
                         "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
                         "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
                     },
@@ -1285,7 +1301,7 @@
                         "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
                     }
                 ],
-                "lastUpdated": "20 April 2020"
+                "lastUpdated": "26 April 2020"
             }
         },
         {
@@ -1300,6 +1316,10 @@
                 "text_3": [],
                 "citation": [
                     {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
                         "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
                         "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
                     },
@@ -1308,15 +1328,16 @@
                         "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
                     }
                 ],
-                "lastUpdated": "20 April 2020"
+                "lastUpdated": "26 April 2020"
             }
         },
         {
             "name": "Should I be concerned about my privacy?",
             "text": {
                 "text_1": [
-                    "There isn’t as yet enough detail about how it would work in Australia to know what the implications are. However, Scott Morrison said he is pushing for greater privacy protections than the Singapore model of the app.",
-                    "To reduce concerns about privacy, digital experts have said that the Federal Government should formally make data collected from its COVID-19 tracing app exempt from use by law enforcement, “decentralise” the way it notifies users about potential contacts with the virus, and release the source code of the app so that researchers can verify how the app works and address any vulnerabilities that may be in the app.  "
+                    "The government says the app is safe and personal information will be handled in accordance with the Privacy Act 1988 and the Biosecurity Determination 2020.",
+                    "A report by the ABC this week flagged a contract for COVIDSafe's data storage was given to US-based retail giant Amazon, further raising concerns about whether Australians' data could be passed onto third parties.",
+                    "On Sunday, Mr Hunt moved to quash some of those concerns, saying data would only be stored in Australia and would only be accessible by state and territory health authorities."
                 ],
                 "list_1": [],
                 "text_2": [],
@@ -1324,6 +1345,10 @@
                 "text_3": [],
                 "citation": [
                     {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
                         "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
                         "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
                     },
@@ -1332,7 +1357,7 @@
                         "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
                     }
                 ],
-                "lastUpdated": "20 April 2020"
+                "lastUpdated": "26 April 2020"
             }
         }
     ]
