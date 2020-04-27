@@ -1,23 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "imgLink": "https://vietnamtimes.org.vn/stores/news_dataimages/tranngocvnt/042020/24/23/1916_94486479_10157284084720544_7244166225419304960_o.jpg",
-                    "source": "https://vietnamtimes.org.vn/british-ambassador-thanks-two-vietnamese-children-for-donating-masks-to-uk-19735.html"
+                    "link": "https://www.youtube.com/watch?v=ow83XkdvhZ4&feature=share",
+                    "description": "Coronavirus Rhapsody - Kodi Lee Cover"
                 }
             ],
-            "video": [],
-            "title": "Two Vietnamese children have donated 20 thousands masks to the UK",
-            "content": "<p>Truong Thi Linh Nhan and her brother Truong Cao Khoi have donated 20 thousands masks to the UK! They are both secondary school students, and paid for the masks using their savings.</p><p> In Vietnamese tradition, children are given red packets containing money during Lunar New Year. These red packets are a symbol of luck and hope. Having saved this money for a few years, Linh Nhan and Cao Khoi decided to spend it on masks for medical staff.</p><p>We could all learn from the kindness and generosity of Linh Nhan and Cao Khoi!</p>",
-            "type": "motivation",
-            "date": "27/4/2020",
-            "citation": [
-                {
-                    "link": "https://vietnamtimes.org.vn/british-ambassador-thanks-two-vietnamese-children-for-donating-masks-to-uk-19735.html",
-                    "name": "British Ambassador thanks two Vietnamese children for donating masks to UK - Vietnam Times"
-                }
-            ]
+            "type": "distraction",
+            "date": "28/4/2020"
         }
     ]
 }
