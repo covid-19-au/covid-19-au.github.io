@@ -1,18 +1,5 @@
-.aboutUsRow {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.aboutUsColumn {
-    float: left;
-    width: 50%;
-}
-
-@media screen and (max-width: 1300px) {
-    .aboutUsColumn {
-        width: 100%;
-    }
+.aboutText {
+    margin-bottom: 1.5rem;
 }
 
 .aboutUsHeadings {
@@ -27,4 +14,10 @@
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
                 box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
                 border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+@media screen and (max-width: 350px) {
+    .responsiveNames {
+        font-size: 1rem !important;
+    }
 }

@@ -370,10 +370,10 @@ const Contributor = {
         },
         {
             name: "Ishan Joshi",
-            linkedin: "",
+            linkedin: "https://www.linkedin.com/in/ishanjoshi99/",
             email: "",
             github: "",
-            website: "",
+            website: "https://ishanjoshi.me",
             fileName: "Ishan.png"
         },
         {

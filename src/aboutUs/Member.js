@@ -70,7 +70,7 @@ const Member = (props) => {
           ? (
             <a className={`${classes.member} ${classes.disabled}`} href="/" target="_blank" rel="noopener noreferrer">
               <Avatar alt={name} src={fileName ? require(`./avatars/${fileName}`) : ''} className={classes.large}>{getInitial(name)}</Avatar>
-              <Typography variant='h6' display='block' gutterBottom>{name}</Typography>
+              <Typography className='responsiveNames' variant='h6' display='block' gutterBottom>{name}</Typography>
             </a>
           )
           : (
@@ -91,7 +91,7 @@ const Member = (props) => {
               }>
               <div>
                 <Avatar alt={name} src={fileName ? require(`./avatars/${fileName}`) : ''} className={classes.large}>{getInitial(name)}</Avatar>
-                <Typography className={noContact(linkedin, email, github, website) ? '' : classes.link} variant='h6' display='block' gutterBottom>{name}</Typography>
+                <Typography className={`responsiveNames ${noContact(linkedin, email, github, website) ? '' : classes.link}`} variant='h6' display='block' gutterBottom>{name}</Typography>
               </div>
             </HtmlTooltip>
           )}
