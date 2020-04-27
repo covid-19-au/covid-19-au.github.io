@@ -118,3 +118,7 @@
 .MuiOutlinedInput-input {
     padding: 6px 0 7px !important;
 }
+
+.cite {
+    font-size: 60%;
+}
