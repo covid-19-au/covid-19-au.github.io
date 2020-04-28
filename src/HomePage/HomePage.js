@@ -66,7 +66,7 @@ export default function HomePage({
             </Grid>
 
             <Grid item xs={11} sm={11} md={10} lg={5} >
-                {/* <MbMap /> */}
+                <MbMap />
                 <OverallTrend />
 
                 <StateComparisonChart />
