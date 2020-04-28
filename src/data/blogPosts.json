@@ -1,6 +1,34 @@
 {
     "blogPosts": [
         {
+            "tag": "Lifestyle",
+            "title": "Weekly Fitness with HIIT",
+            "media": "https://i.imgur.com/kRhK1mi.jpg",
+            "summary": "Today’s blog post will be this week’s fitness, focusing on High Interval Intensive Training, or HIIT. No equipment needed again, just yourself and a dedicated mindset! 💪",
+            "date": "29/04/2020", 
+            "text": {
+                "text_1": [
+                    "Following on from last week’s cardio, this week’s fitness focus will be on another form of aerobic exercise, which again, doesn’t require any equipment to perform. High-Intensity Interval Training, or HIIT, are workouts that combine short bursts of intense exercise with short periods of rest or lower-intensity exercise.",
+                    "HIIT promises the best workout in the least amount of time, and is widely considered to be one of the most effective methods of exercise for weight loss and fat burning, as well as having the ability to ‘metabolically charge the body’.",
+                    "<h3 class='responsiveH3'><strong>What exactly is HIIT?</strong></h3>",
+                    "When researchers and scientists talk about HIIT, they typically refer to bursts of super-charged physical activity, where a person’s heart rate reaches at least 80% of its maximum capacity. The most well-established benefit of HIIT is heart health, with a short training time being able to provide the same benefits as much longer, continuous forms of aerobic exercise.",
+                    "Interval training causes metabolic disturbance, and can result in the body burning calories at a higher rate up to 48-72 hours after your workout. HIIT can also reduce insulin resistance, improve cardiac function, and most importantly, improved VO2 max, which is a measure of endurance that calculates the maximum volume of oxygen a body can use.",
+                    "<h3 class='responsiveH3'><strong>Here are a few Interval workout you can try at home yourself!</strong></h3>"
+                ],
+                "ulist_1": [
+                    "<strong>Sprint Interval Training:</strong><br />Any form of normal cardio exercises can be adapted into a HIIT workout. One of the easiest and most convenient ways is a sprint interval workout. Spring at 80% for 10 seconds, and rest for 30-60 seconds, then repeat. Gradually increase intensity during your sprints, and repeat 5-15 times. This is a great exercise for building cardiovascular health, especially when done on an incline.",
+                    "<strong>Burpee circuit:</strong><br />- Standings or bounce squats as many reps in 30 seconds <br />- Jumping jacks - 60 reps<br />- Burpees - 20 reps<br />Complete the circuit 4 times, resting one minute after the burpees.",
+                    "<strong>Jump rope interval workout:</strong><br />- Push ups - 30 reps<br />- Front plank - 1 min 30 seconds<br />- Jump rope - 1 minute<br />Complete the circuit 4 times, resting one minute after the jump rope.",
+                    "<strong>Ab interval workout:</strong><br />- Crunches - 20 reps<br />- Bicycle crunches - 1 minute<br />- Flutter kicks - 20 reps<br />- Leg raises - 30 reps<br />- Superman - Hold for 1 minute<br />Complete the circuit 4 times, resting one minute after Superman."
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "There are plenty of online resources for HIIT, with YouTube being a great source for proper form, as well as having videos for all fitness levels. If you have any pre-existing conditions such as asthma or heart-related, consult a doctor before you start a program.",
+                    "As Australia is starting to loosen restrictions on quarantine, hopefully this will mean that we are able to go outside more and stay fit."
+                ]
+            }
+        },
+        {
             "tag": "Informative",
             "title": "Non-therapeutic COVID-19 interventions",
             "media": "https://i.imgur.com/OrkAAUI.png",
