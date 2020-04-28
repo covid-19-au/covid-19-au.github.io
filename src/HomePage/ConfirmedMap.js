@@ -5,15 +5,30 @@ import CanvasJS from "../assets/canvasjs.min.js";
 import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
 import mapDataArea from "../data/mapdataarea"
-import vicLgaData from "../data/vic_lga.geojson"
-import nswLgaData from "../data/nsw_lga.geojson"
-import qldHhsData from "../data/qld_hhs.geojson"
-import actSaData from "../data/sa3_act.geojson"
-import waLgaData from "../data/wa_lga.geojson"
-//import saLgaData from "../data/sa_LGA.geojson"
-import qldLgaData from "../data/qld_LGA.geojson"
-//import tasLgaData from "../data/tas_LGA.geojson"
-//import ntLgaData from "../data/nt_LGA.geojson"
+
+// by LGA
+import vicLgaData from "../data/geojson/lga_vic.geojson"
+import nswLgaData from "../data/geojson/lga_nsw.geojson"
+//import ntLgaData from "../data/geojson/lga_nt.geojson"
+import qldLgaData from "../data/geojson/lga_qld.geojson"
+//import saLgaData from "../data/geojson/lga_sa.geojson"
+//import tasLgaData from "../data/geojson/lga_tas.geojson"
+import waLgaData from "../data/geojson/lga_wa.geojson"
+
+// by other schema
+import actSaData from "../data/geojson/sa3_act.geojson"
+import qldHhsData from "../data/geojson/hhs_qld.geojson"
+
+// statewide outlines (when regional data not available)
+import actOutlineData from "../data/geojson/boundary_act.geojson"
+import vicOutlineData from "../data/geojson/boundary_vic.geojson"
+import nswOutlineData from "../data/geojson/boundary_nsw.geojson"
+//import qldOutlineData from "../data/geojson/boundary_qld.geojson"
+import waOutlineData from "../data/geojson/boundary_wa.geojson"
+import saOutlineData from "../data/geojson/boundary_sa.geojson"
+import tasOutlineData from "../data/geojson/boundary_tas.geojson"
+import ntOutlineData from "../data/geojson/boundary_nt.geojson"
+
 import regionsTimeSeries from "../data/regionsTimeSeriesAutogen.json"
 import absStatsData from "../data/absStats"
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -230,7 +245,31 @@ class MbMap extends React.Component {
                     </span>
                 </div>
 
-                <div ref={this.underlayBGCont}>
+                <div>
+                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
+                        :&nbsp;<ButtonGroup
+                            size="small"
+                            aria-label="small outlined button group"
+                            style={{ pointerEvents: "none" }}>
+                            {/*<Button style={this._markers == null ? activeStyles : inactiveStyles}
+                                    onClick={() => this.setMarkers(null)}>Off</Button>*/}
+                            <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
+                                onClick={() => this.setMarkers('Total')}>Total Tests</Button>
+                            <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
+                                onClick={() => this.setMarkers('7 Days')}>Tests Per Capita</Button>
+                            <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
+                                onClick={() => this.setMarkers('7 Days')}>Tests Positive Rate</Button>
+                            <Button style={this._markers === '14 Days' ? activeStyles : inactiveStyles}
+                                onClick={() => this.setMarkers('14 Days')}>Recovered</Button>
+                            <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
+                                onClick={() => this.setMarkers('Active')}>Deaths</Button>
+                            <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
+                                onClick={() => this.setMarkers('Active')}>Active</Button>
+                        </ButtonGroup>
+                    </span>
+                </div>
+
+                {/*<div ref={this.underlayBGCont}>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
                         Underlay:&nbsp;<ButtonGroup ref={this.underlayButtonGroup}
                             size="small"
@@ -248,7 +287,7 @@ class MbMap extends React.Component {
                                 onClick={() => this.setUnderlay('Other Stats')}>Other Stats</Button>
                         </ButtonGroup>
                     </span>
-                </div>
+                </div>*/}
 
                 <div ref={el => this.otherStatsSelectCont = el}
                     className="key"
@@ -552,10 +591,16 @@ class MbMap extends React.Component {
                 insts[i].addHeatMap(dataSource);
                 insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(
+                    dataSource,
+                    0,
+                    false,
+                    true
+                );
+                insts[i].addFillPoly(
                     that.absStatsInsts[that._selectedUnderlay],
                     that._underlay ? 0.5 : 0,
                     !!that._underlay,
-                    true
+                    false
                 );
             }
         }
@@ -1061,13 +1106,11 @@ class BigTableOValuesDataSource extends DataSourceBase {
 
 
 class JSONGeoBoundariesBase {
-    constructor(map, stateName, fillPolyId, linePolyId, data) {
+    constructor(map, stateName, uniqueId, data) {
         this.map = map;
         this.stateName = stateName;
-        this.fillPolyId = fillPolyId;
-        this.linePolyId = linePolyId;
-        this.addedCaseSources = {};  // Using as a set
-        this.addedStatSources = {};
+        this.uniqueId = uniqueId;
+        this.addedSources = {};  // Using as a set
 
         var that = this;
         this._loadJSON(data).then(
@@ -1092,6 +1135,34 @@ class JSONGeoBoundariesBase {
     }
 
     /*******************************************************************
+     * Unique IDs for sources and layers
+     *******************************************************************/
+
+    getHeatMapId() {
+        return this.uniqueId+'heatmap';
+    }
+    getHeatPointId() {
+        return this.uniqueId+'heatpoint';
+    }
+    getFillPolyId() {
+        return this.uniqueId+'fillpoly';
+    }
+    getLinePolyId() {
+        return this.uniqueId+'linepoly';
+    }
+
+    getHeatmapSourceId(dataSource) {
+        // Get a unique ID for sources shared by the
+        // auto-generated central points in the
+        // middle of the polys for the heat maps
+        return this.uniqueId+dataSource.getSourceName()+'heatmapsource';
+    }
+    getFillSourceId(dataSource) {
+        // Get a unique ID for sources shared by fill/line polys
+        return this.uniqueId+dataSource.getSourceName()+'fillsource';
+    }
+
+    /*******************************************************************
      * Fill poly-related
      *******************************************************************/
 
@@ -1103,15 +1174,7 @@ class JSONGeoBoundariesBase {
 
         // Add the colored fill area
         const map = this.map;
-        var dataSourceName;
-
-        if (dataSource) {
-            dataSourceName = dataSource.getSourceName();
-            this._associateGeoJSONWithStatSource(dataSource);
-        }
-        else {
-            dataSourceName = 'NIL';  // HACK!
-        }
+        this._associateSource(dataSource);  // FIXME: This will "freeze" the case source in cache, as popup events use this!! ===================================
 
         if (opacity == null) {
             opacity = 0.75;
@@ -1167,10 +1230,10 @@ class JSONGeoBoundariesBase {
 
         var fillLayer = map.addLayer(
             {
-                id: this.fillPolyId,
+                id: this.getFillPolyId(),
                 type: 'fill',
                 minzoom: 2,
-                source: this.fillPolyId + dataSourceName + 'statsource',
+                source: this.getFillSourceId(dataSource),
                 paint: {
                     'fill-color': [
                         'interpolate',
@@ -1199,18 +1262,18 @@ class JSONGeoBoundariesBase {
         }
 
         if (addPopupOnClick) {
-            this._addMapPopupEvent(this.fillPolyId);
+            this._addMapPopupEvent(this.getFillPolyId(), dataSource);
         }
 
         return {
-            fillPolyId: this.fillPolyId,
+            fillPolyId: this.getFillPolyId(),
             fillLayer: fillLayer
         };
     }
 
     removeFillPoly() {
         const map = this.map;
-        map.removeLayer(this.fillPolyId);
+        map.removeLayer(this.getFillPolyId());
 
         if (this.legend) {
             this.legend.parentNode.removeChild(this.legend);
@@ -1223,7 +1286,7 @@ class JSONGeoBoundariesBase {
      *******************************************************************/
 
     _addLegend(dataSource, labels, colors) {
-        this.removeLegend()
+        this.removeLegend();
 
         var legend = this.legend = document.createElement('div');
         legend.style.position = 'absolute';
@@ -1291,10 +1354,11 @@ class JSONGeoBoundariesBase {
      * Map popups
      *******************************************************************/
 
-    _addMapPopupEvent(useID) {
+    _addMapPopupEvent(useID, dataSource) {
         this.resetPopups();
         const map = this.map;
         var popup;
+        var that = this;
 
         var click = function (e) {
             ReactGA.event({
@@ -1302,26 +1366,23 @@ class JSONGeoBoundariesBase {
                 action: "StateClick",
                 label: e.features[0].properties.city
             });
-            var cases = e.features[0].properties.cases;
-            var timeSeries = e.features[0].properties.timeSeries;
-            var date = e.features[0].properties.date;
-            timeSeries = JSON.parse(timeSeries);
 
-            var nTimeSeries = [];
-            timeSeries.forEach(function (i) {
-                nTimeSeries.push({
-                    x: new Date(i.x),
-                    y: i.y
-                })
-            });
+            var cityName = e.features[0].properties.city;
+            var caseInfo = dataSource.getCaseInfoForCity(
+                that.stateName, cityName
+            );
 
-            if (timeSeries) {
+            if (dataSource.getCaseInfoTimeSeriesForCity) {
+                var timeSeries = dataSource.getCaseInfoTimeSeriesForCity(
+                    that.stateName, cityName
+                );
+
                 popup = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
                     .setHTML(
-                        e.features[0].properties.city +
-                        '<br/>Cases: ' + cases +
-                        '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + date +
+                        cityName +
+                        '<br/>Cases: ' + caseInfo['numCases'] +
+                        '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo['updatedDate'] +
                         '<div id="chartContainer" ' +
                         'style="width: 200px; min-height: 60px; height: 13vh;"></div>'
                     )
@@ -1337,7 +1398,7 @@ class JSONGeoBoundariesBase {
                     },
                     data: [{
                         type: "line",
-                        dataPoints: nTimeSeries
+                        dataPoints: timeSeries
                     }]
                 });
                 chart.render();
@@ -1345,19 +1406,16 @@ class JSONGeoBoundariesBase {
                 document.getElementById('chartContainer').id = '';
             }
             else {
-                if (e.features[0].source === 'id_poly_act' && cases === 5) {
-                    cases = '< 5'
-                }
                 popup = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
                     .setHTML(
                         e.features[0].properties.city +
-                        '<br/>Cases: ' + cases +
-                        '<br/>By: ' + date
+                        '<br/>Cases: ' + caseInfo['numCases'] +
+                        '<br/>By: ' + caseInfo['updatedDate']
                     )
                     .addTo(map);
             }
-        }
+        };
         map.on('click', useID, click);
 
         // Change the cursor to a pointer when
@@ -1399,13 +1457,13 @@ class JSONGeoBoundariesBase {
     addLinePoly(dataSource, color) {
         // Add the line outline
         const map = this.map;
-        this._associateGeoJSONWithCaseSource(dataSource);
+        this._associateSource(dataSource);
 
         var linePolyLayer = map.addLayer({
-            id: this.linePolyId,
+            id: this.getLinePolyId(),
             minzoom: 2,
             type: 'line',
-            source: this.fillPolyId + dataSource.getSourceName() + 'source',
+            source: this.getFillSourceId(dataSource),
             paint: {
                 'line-color': color || '#000',
                 'line-opacity': 1,
@@ -1421,7 +1479,7 @@ class JSONGeoBoundariesBase {
 
     removeLinePoly() {
         const map = this.map;
-        map.removeLayer(this.linePolyId);
+        map.removeLayer(this.getLinePolyId());
     }
 
     /*******************************************************************
@@ -1430,13 +1488,13 @@ class JSONGeoBoundariesBase {
 
     addHeatMap(dataSource) {
         const map = this.map;
-        this._associateGeoJSONWithCaseSource(dataSource);
+        this._associateSource(dataSource);
 
         var heatMapLayer = map.addLayer(
             {
-                'id': this.fillPolyId + 'heat',
+                'id': this.getHeatMapId(),
                 'type': 'heatmap',
-                'source': this.fillPolyId + dataSource.getSourceName() + 'pointsource',
+                'source': this.getHeatmapSourceId(dataSource),
                 'maxzoom': 8,
                 'paint': {
                     // Increase the heatmap weight based on frequency and property magnitude
@@ -1494,9 +1552,9 @@ class JSONGeoBoundariesBase {
 
         var heatCirclesLayer = map.addLayer(
             {
-                'id': this.fillPolyId + 'heatpoint',
+                'id': this.getHeatPointId(),
                 'type': 'circle',
-                'source': this.fillPolyId + dataSource.getSourceName() + 'pointsource',
+                'source': this.getHeatmapSourceId(dataSource),
                 'minzoom': 6,
                 'paint': {
                     // Size circle radius by value
@@ -1544,34 +1602,48 @@ class JSONGeoBoundariesBase {
 
     removeHeatMap() {
         const map = this.map;
-        map.removeLayer(this.fillPolyId + 'heat');
-        map.removeLayer(this.fillPolyId + 'heatpoint');
+        map.removeLayer(this.getHeatPointId());
+        map.removeLayer(this.getHeatMapId());
     }
 
     /*******************************************************************
      * Data processing
      *******************************************************************/
 
-    _associateGeoJSONWithCaseSource(dataSource) {
-        this._assignCaseInfoToGeoJSON(this.geoJSONData, dataSource); // RESOURCE VIOLATION WARNING!!! ===========================================
-        this._assignCaseInfoToGeoJSON(this.pointGeoJSONData, dataSource);
-
-        let sn = dataSource.getSourceName();
-        if (sn in this.addedCaseSources) {
-            return;
+    _associateSource(dataSource) {
+        if (dataSource instanceof BigTableOValuesDataSource) {
+            // ABS stats
+            this._associateStatSource(dataSource);
         }
-        this.addedCaseSources[sn] = null;
+        else {
+            this._associateCaseNumsDataSource(dataSource);
+        }
+    }
 
-        this.map.addSource(this.fillPolyId + sn + 'source', {
-            type: 'geojson',
-            data: this.geoJSONData,
-            tolerance: MAPBOX_TOLERANCE
-        });
-        this.map.addSource(this.fillPolyId + sn + 'pointsource', {
-            type: 'geojson',
-            data: this.pointGeoJSONData,
-            tolerance: MAPBOX_TOLERANCE
-        });
+    _associateCaseNumsDataSource(dataSource) {
+        this._assignCaseInfoToGeoJSON(this.pointGeoJSONData, dataSource);
+        let oid = this.getHeatmapSourceId(dataSource);
+        if (!(oid in this.addedSources)) {
+            console.log("ADDING HEATMAP SOURCE:"+oid);
+            this.addedSources[oid] = null;
+            this.map.addSource(oid, {
+                type: 'geojson',
+                data: this.pointGeoJSONData,
+                tolerance: MAPBOX_TOLERANCE
+            });
+        }
+
+        this._assignCaseInfoToGeoJSON(this.geoJSONData, dataSource);
+        let fid = this.getFillSourceId(dataSource);
+        if (!(fid in this.addedSources)) {
+            console.log("ADDING FILL SOURCE:"+fid);
+            this.addedSources[fid] = null;
+            this.map.addSource(fid, {
+                type: 'geojson',
+                data: this.geoJSONData,
+                tolerance: MAPBOX_TOLERANCE
+            });
+        }
     }
 
     _getModifiedGeoJSONWithPolyCentralAreaPoints(geoJSONData) {
@@ -1776,30 +1848,23 @@ class JSONGeoBoundariesBase {
             }
             data.properties['cases'] = caseInfo['numCases'];
 
-            if (dataSource.getCaseInfoTimeSeriesForCity) {
-                // Doesn't seem to like non-string values
-                data.properties['timeSeries'] = JSON.stringify(dataSource.getCaseInfoTimeSeriesForCity(
-                    state, cityName
-                ));
-            }
             data.properties['city'] = cityName;
-            data.properties['date'] = caseInfo['updatedDate'];
         }
     }
 
-    _associateGeoJSONWithStatSource(dataSource) {
+    _associateStatSource(dataSource) {
         if (dataSource.getMaxMinValues) {
             this.maxMinStatVal = dataSource.getMaxMinValues();
         }
         this._assignStatInfoToGeoJSON(this.geoJSONData, dataSource); // RESOURCE VIOLATION WARNING!!! ===========================================
 
-        let sn = dataSource.getSourceName();
-        if (sn in this.addedStatSources) {
+        let uniqueId = this.getFillSourceId(dataSource);
+        if (uniqueId in this.addedSources) {
             return;
         }
-        this.addedStatSources[sn] = null;
+        this.addedSources[uniqueId] = null;
 
-        this.map.addSource(this.fillPolyId + sn + 'statsource', {
+        this.map.addSource(uniqueId, {
             type: 'geojson',
             data: this.geoJSONData,
             tolerance: MAPBOX_TOLERANCE
@@ -1836,8 +1901,7 @@ class ACTSA3Boundaries extends JSONGeoBoundariesBase {
         super(
             map,
             'ACT',
-            'id_poly_act',
-            'id_line_ploy_act',
+            'sa3_act',
             actSaData
         );
     }
@@ -1852,8 +1916,7 @@ class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
         super(
             map,
             'QLD',
-            'id_poly_qld',
-            'id_line_ploy_qld',
+            'hhs_qld',
             qldHhsData
         );
     }
@@ -1867,8 +1930,7 @@ class WALGABoundaries extends JSONGeoBoundariesBase {
         super(
             map,
             'WA',
-            'id_poly_wa',
-            'id_line_ploy_wa',
+            'lga_wa',
             waLgaData
         );
     }
@@ -1882,8 +1944,7 @@ class NSWLGABoundaries extends JSONGeoBoundariesBase {
         super(
             map,
             'NSW',
-            'id_poly_nsw',
-            'id_line_ploy_nsw',
+            'lga_nsw',
             nswLgaData
         );
     }
@@ -1897,8 +1958,7 @@ class VicLGABoundaries extends JSONGeoBoundariesBase {
         super(
             map,
             'VIC',
-            'id_poly_vic',
-            'id_line_ploy_vic',
+            'lga_vic',
             vicLgaData
         );
     }
@@ -1918,8 +1978,7 @@ class NTLGABoundaries extends JSONGeoBoundariesBase {
         super(
             map,
             'NT',
-            'id_poly_nt',
-            'id_line_ploy_nt',
+            'lga_nt',
             ntLgaData
         );
     }
@@ -1934,8 +1993,7 @@ class QLDLGABoundaries extends JSONGeoBoundariesBase {
         super(
             map,
             'QLD',
-            'id_poly_qld_lga',
-            'id_line_ploy_qld_lga',
+            'lga_qld',
             qldLgaData
         );
     }
@@ -1950,8 +2008,7 @@ class SALGABoundaries extends JSONGeoBoundariesBase {
         super(
             map,
             'SA',
-            'id_poly_sa',
-            'id_line_ploy_sa',
+            'lga_sa',
             saLgaData
         );
     }
@@ -1967,8 +2024,7 @@ class TasLGABoundaries extends JSONGeoBoundariesBase {
         super(
             map,
             'TAS',
-            'id_poly_tas',
-            'id_line_ploy_tas',
+            'lga_tas',
             tasLgaData
         );
     }
