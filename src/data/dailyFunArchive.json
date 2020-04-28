@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=_6FXjiL5fQ8&feature=youtu.be",
+                    "description": "One Happy Kitten at the Spa"
+                }
+            ],
+            "type": "distraction",
+            "date": "28/4/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://vietnamtimes.org.vn/stores/news_dataimages/tranngocvnt/042020/24/23/1916_94486479_10157284084720544_7244166225419304960_o.jpg",
