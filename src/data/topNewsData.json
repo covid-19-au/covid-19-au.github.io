@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/28/nsw-new-south-wales-coronavirus-restrictions-partially-lifted-to-allow-limited-visiting",
+            "title": "NSW coronavirus restrictions will be partially lifted to allow limited visiting ",
+            "source": "TheGuardian",
+            "date": "28 April 2020",
+            "time": "12:47",
+            "summary": "People in New South Wales will soon be able to visit each other as the premier, Gladys Berejiklian, joins other state and territory governments in easing lockdown laws. In a press conference on Tuesday morning, Berejiklian said that since NSW infection rates remained low, two adults and their children would be able to travel to other homes to visit. A spokeswoman from the premier’s office said guests were allowed to stay overnight and there were no restrictions on distance."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/hundreds-return-to-sydney-s-famous-bondi-beach-as-coronavirus-restrictions-are-eased",
+            "title": "Hundreds return to Sydney's famous Bondi Beach as coronavirus restrictions are eased",
+            "source": "SBSNews",
+            "date": "28 April 2020",
+            "time": "14:43",
+            "summary": "Hundreds of surfers have returned to the water at Bondi for the first time since the beach was closed five weeks ago due to COVID-19 restrictions. People are now permitted to swim or surf at Bondi and Bronte, and surf only at Tamarama, between 7am and 5pm on weekdays. Access is via designated entry and exit points and the sand remains out of bounds for sunbathers."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/apr/27/australias-aged-care-residents-caught-in-standoff-over-visits-during-coronavirus",
             "title": "Australia's aged care residents caught in standoff over visits during coronavirus ",
             "source": "TheGuardian",
@@ -111,38 +127,6 @@
             "date": "21 April 2020",
             "time": "14:16",
             "summary": "Australia is likely to experience the greatest economic contraction since the Great Depression, according to the Reserve Bank of Australia, and has already lost 800,000 jobs and suffered a 6.7% reduction in take home pay, according to the Australian Bureau of Statistics. On Tuesday the RBA provided an economic update predicting a 10% decline in national output in the first half of 2020, a “staggeringly large” 20% reduction in hours worked and unemployment to hit 10% by June."
-        },
-        {
-            "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app",
-            "title": "Privacy concerns persist over Australia's coronavirus tracing app",
-            "source": "TheGuardian",
-            "date": "20 April 2020",
-            "time": "15:40",
-            "summary": "Privacy concerns have been raised over Australia’s new coronavirus tracing app. The government services minister, Stuart Robert, has said that the data would remain “securely encrypted on your phone” unless you tested positive for Covid-19, in which case it would be accessed by state health authorities. However, digital experts have said that the federal government should formally make data collected from its Covid-19 tracing app exempt from use by law enforcement and “decentralise” the way it notifies users about potential contacts with the virus if it wants to allay privacy concerns."
-        },
-        {
-            "link": "https://www.canberratimes.com.au/story/6729209/remember-the-spanish-flu-authorities-on-high-alert-for-second-wave-of-coronavirus-cases/?src=rss",
-            "title": "ACT health authorities on high-alert for \"second\" wave of coronavirus cases",
-            "source": "CanberraTimes",
-            "date": "20 April 2020",
-            "time": "18:30",
-            "summary": "ACT health authorities are on high alert for new COVID-19 cases to emerge once physical distancing restrictions are eased across the country. While chief health officer Kerryn Coleman says the territory may soon be in a position where there are no \"active\" cases of coronavirus with its borders, she insists that doesn't mean the ACT has successfully overcome the pandemic. Chief Minister Andrew Barr warned that any \"early move out\" of the restrictions would heighten the risk of exposing the ACT to a \"second, third, fourth or fifth\" wave of the pandemic."
-        },
-        {
-            "link": "https://www.9news.com.au/national/virgin-australia-airline-administration-board-meeting-as-debt-rises-during-coronavirus-pandemic/b856039f-b87d-4edf-a5e5-8dc0eba773ab",
-            "title": "Virgin Australia expected to go into administration ",
-            "source": "9News",
-            "date": "20 April 2020",
-            "time": "19:27",
-            "summary": "Virgin Australia has reportedly filed for voluntary administration after the struggling airline asked the government for a $1.4 billion bail-out. The jobs of 16,000 employees are on the line, and board members are currently having crisis talks to decide the fate of the carrier. Virgin is carrying about $5b in debt and its domestic and international business has been hit due to the impact of the coronavirus."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-20/extra-funding-for-aeromedical-services-like-royal-flying-doctor/12164498 ",
-            "title": "Aeromedical services like RFDS get $52.8m boost for coronavirus response",
-            "source": "ABCNews",
-            "date": "20 April 2020",
-            "time": "14:45",
-            "summary": "A federal funding boost to the Royal Flying Doctor Service (RFDS) and other aeromedical services will see the capacity for rural and remote medical evacuations increase by 50 per cent. The services, which also include CareFlight and LifeFlight, will share in $52.8 million to evacuate COVID-19 patients to larger medical centres and also fly in medical workers and equipment to staff respiratory clinics."
         }
     ]
 }
