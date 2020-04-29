@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-29/prime-minister-scott-morrison-coronavirus-restrictions-easing/12196562",
+            "title": "Prime Minister Scott Morrison flags easing of coronavirus restrictions in near future",
+            "source": "ABCNews",
+            "date": "29 April 2020",
+            "time": "13:21",
+            "summary": "Prime Minister Scott Morrisonsaid Australia was \"on the road back\" to an economy safe from COVID-19 and that success could mean easing restrictions soon, noting that one of the most important tools to help fast-track restrictions being lifted was the Government's COVIDSafe tracing app. He also ruled out international travel restarting any time soon, with the potential exception of travel to New Zealand."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/australians-urged-not-to-neglect-mental-health-during-pressure-cooker-coronavirus-pandemic",
+            "title": "Australians urged not to neglect mental health during 'pressure cooker' coronavirus pandemic",
+            "source": "SBSNews",
+            "date": "29 April 2020",
+            "time": "17:21",
+            "summary": "he government's top advisor on suicide prevention is urging Australians not to neglect their mental health during the coronavirus pandemic. Chief executive of the National Mental Health Commission Christine Morgan on Wednesday revealed new statistics showing the overall use of mental health services has been declining in Australia during the COVID-19 outbreak, which she speculated was due to people who would normally be using mental health services are not actually going out and doing those visits. Although the overall use of mental health services had declined, there had been an encouraging rise in the use of telehealth services such as Beyond Blue, Ms Morgan said."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/apr/28/nsw-new-south-wales-coronavirus-restrictions-partially-lifted-to-allow-limited-visiting",
             "title": "NSW coronavirus restrictions will be partially lifted to allow limited visiting ",
             "source": "TheGuardian",
@@ -111,22 +127,6 @@
             "date": "22 April 2020",
             "time": "09:25",
             "summary": "Supermarket giants Woolworths and Coles have broadened their home delivery service for online customers, giving hope that life may be returning to normal amid ongoing coronavirus concerns. Coles this week reopened its home delivery, \"click and collect\", to all customers, after having previously limited orders for vulnerable and remote Australians because of the COVID-19 crisis. Woolworths will make \"tens of thousands of extra weekly home delivery windows for online customers\", WooliesX Managing Director Amanda Bardwell said in a statement on Wednesday."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/ban-on-elective-surgeries-including-ivf-to-be-gradually-lifted-from-next-week",
-            "title": "Ban on elective surgeries, including IVF, to be gradually lifted from next week",
-            "source": "SBSNews",
-            "date": "21 April 2020",
-            "time": "14:27",
-            "summary": "State and federal leaders agreed on Tuesday to gradually resume elective surgeries due to an increase in personal protective equipment and the slowdown of new coronavirus cases. Most elective surgeries were suspended last month to free up hospital capacity to deal with the coronavirus pandemic. Other procedures to restart after the Anzac Day long weekend include all children surgeries, joint replacements, eye procedures, endoscopy and colonoscopy."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/apr/21/about-800000-australians-lost-their-job-in-the-first-three-weeks-of-coronavirus-restrictions",
-            "title": "Australia likely to experience largest economic downturn since the Great Depression ",
-            "source": "TheGuardian",
-            "date": "21 April 2020",
-            "time": "14:16",
-            "summary": "Australia is likely to experience the greatest economic contraction since the Great Depression, according to the Reserve Bank of Australia, and has already lost 800,000 jobs and suffered a 6.7% reduction in take home pay, according to the Australian Bureau of Statistics. On Tuesday the RBA provided an economic update predicting a 10% decline in national output in the first half of 2020, a “staggeringly large” 20% reduction in hours worked and unemployment to hit 10% by June."
         }
     ]
 }

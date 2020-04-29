@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/ban-on-elective-surgeries-including-ivf-to-be-gradually-lifted-from-next-week",
+            "title": "Ban on elective surgeries, including IVF, to be gradually lifted from next week",
+            "source": "SBSNews",
+            "date": "21 April 2020",
+            "time": "14:27",
+            "summary": "State and federal leaders agreed on Tuesday to gradually resume elective surgeries due to an increase in personal protective equipment and the slowdown of new coronavirus cases. Most elective surgeries were suspended last month to free up hospital capacity to deal with the coronavirus pandemic. Other procedures to restart after the Anzac Day long weekend include all children surgeries, joint replacements, eye procedures, endoscopy and colonoscopy."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/21/about-800000-australians-lost-their-job-in-the-first-three-weeks-of-coronavirus-restrictions",
+            "title": "Australia likely to experience largest economic downturn since the Great Depression ",
+            "source": "TheGuardian",
+            "date": "21 April 2020",
+            "time": "14:16",
+            "summary": "Australia is likely to experience the greatest economic contraction since the Great Depression, according to the Reserve Bank of Australia, and has already lost 800,000 jobs and suffered a 6.7% reduction in take home pay, according to the Australian Bureau of Statistics. On Tuesday the RBA provided an economic update predicting a 10% decline in national output in the first half of 2020, a “staggeringly large” 20% reduction in hours worked and unemployment to hit 10% by June."
+        },
+        {
             "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app",
             "title": "Privacy concerns persist over Australia's coronavirus tracing app",
             "source": "TheGuardian",
