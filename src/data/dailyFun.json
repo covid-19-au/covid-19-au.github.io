@@ -1,15 +1,23 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=o1zIgTwENPg",
-                    "description": "SGN Potluck: Some Good News with John Krasinski Ep. 5"
+                    "imgLink": "https://worldofbuzz.com/wp-content/uploads/2020/04/cakeftcaption.jpg",
+                    "source": "Customer orders a cake for food delivery man on his birthday"
                 }
             ],
-            "type": "distraction",
-            "date": "29/4/2020"
+            "video": [],
+            "title": "Customer orders a cake for food delivery man on his birthday",
+            "content": "<p>A food delivery man was moved to tears in Wuhan, when he found out his customer had ordered him a cake. Unbeknownst to the customer, it was the delivery man's birthday! The customer also left a note with the order saying, \"I ordered one extra piece for the food delieryman. Please remember to eat on time.\" The delivery man was moved to tears.</p><p>What a wonderful gesture from the customer! We should all take a moment to appreciate the delivery people that are working hard to support us in these times!</p>",
+            "type": "motivation",
+            "date": "30/4/2020",
+            "citation": [
+                {
+                    "link": "https://worldofbuzz.com/watch-food-delivery-man-moved-to-tears-after-customer-buys-him-cake-on-his-birthday/",
+                    "name": "Watch: Food Delivery Man Moved To Tears After Customer Buys Him Cake On His Birthday - World of Buzz"
+                }
+            ]
         }
     ]
 }
