@@ -1,6 +1,30 @@
 {
     "blogPosts": [
         {
+            "tag": "Informative",
+            "title": "Online education during COVID-19",
+            "media": "https://i.imgur.com/D1jUrKh.png",
+            "summary": "With education moving online having access to a range of resources and information can set you up for success! Check out the blog post for tips and tricks to make your life easier through digital schooling.",
+            "date": "30/04/2020",
+            "text": {
+                "text_1": [
+                    "Online education has become a part of the new normal, and despite the news that schools might return soon in some capacity, it is likely that some degree of online learning will remain in place for a while. With that in mind, we’ve collated some helping resources to help parents and kids succeed at online education.",
+                    "Each state has slightly different recommendations and guidelines, but here a few common things to keep in mind."
+                ],
+                "ulist_1": [],
+                "olist_1": [
+                    "<strong>Set up a learning environment</strong>:<br />Find a space that quiet and comfortable. Most states recommend a space outside the bedroom to ensure adequate supervision can be easily provided. This could be a kitchen table or in the lounge, wherever suits your home and family.",
+                    "<strong>Establish a routine</strong>:<br />Figure out times in which assigned tasks will be completed, ensuring that there are a number of breaks included. A student’s day does not need to follow a normal school timetable if that doesn’t work for them, but some kind of consistent schedule is key.",
+                    "<strong>Find other resources to help</strong>:<br />Many resources have been released since the outset of online learning to suit children of all ages. A few tools are linked below that are worth looking at for additional help with schooling."
+                ],
+                "text_2": [
+                    "Here is a resource to help keep students <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.bbc.co.uk/teach/five-ways-to-keep-your-kids-learning-at-home/z4966v4'>engaged</a> at home.",
+                    "The ABC has lessons online on a range of subjects in both primary and secondary school. You can find them <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://education.abc.net.au/home#!/resources'>here</a> and <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://iview.abc.net.au/category/education/'>here</a>.",
+                    "Here is a huge <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.hea.edu.au/discounts-resources/free-resources/'>list of resources</a> if something more specific is needed."
+                ]
+            }
+        },
+        {
             "tag": "Lifestyle",
             "title": "Weekly Fitness with HIIT",
             "media": "https://i.imgur.com/kRhK1mi.jpg",
