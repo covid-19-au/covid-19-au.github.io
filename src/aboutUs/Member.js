@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(3),
     height: theme.spacing(3),
   },
+  medium: {
+    width: theme.spacing(5),
+    height: theme.spacing(5)
+  },
   large: {
     width: theme.spacing(7),
     height: theme.spacing(7),
@@ -36,6 +40,13 @@ const useStyles = makeStyles((theme) => ({
   disabled: {
     pointerEvents: 'none',
     cursor: 'default'
+  },
+  noMaxWidth: {
+    maxWidth: 'none !important',
+    margin: '0 !important'
+  },
+  emailText: {
+    fontSize: '1rem'
   }
 }));
 
@@ -77,16 +88,18 @@ const Member = (props) => {
             <HtmlTooltip 
               arrow
               interactive
+              placement="bottom-start"
+              classes={{ tooltip: classes.noMaxWidth }}
               className={classes.member}
               enterTouchDelay={0}
               title={
                 <Fragment>
                   <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                    {linkedin ? <a target="_blank" rel="noopener noreferrer" href={linkedin}><LinkedInIcon /></a> : ''}
-                    {website ? <a target="_blank" rel="noopener noreferrer" href={website}><WebIcon /></a> : ''}
-                    {github ? <a target="_blank" rel="noopener noreferrer" href={github}><GitHubIcon /></a> : ''}
+                    {linkedin ? <a target="_blank" rel="noopener noreferrer" href={linkedin}><LinkedInIcon className={classes.medium}/></a> : ''}
+                    {website ? <a target="_blank" rel="noopener noreferrer" href={website}><WebIcon className={classes.medium}/></a> : ''}
+                    {github ? <a target="_blank" rel="noopener noreferrer" href={github}><GitHubIcon className={classes.medium}/></a> : ''}
                   </div>
-                    {email ? <a target="_blank" rel="noopener noreferrer" href={`mailto:${email}`}><EmailIcon /><small style={{marginLeft: '2px'}}>{email}</small></a> : ''}
+                    {email ? <div><a target="_blank" rel="noopener noreferrer" href={`mailto:${email}`}><EmailIcon className={classes.medium}/><span className={ classes.emailText }>{email}</span></a></div> : ''}
                 </Fragment>
               }>
               <div>
