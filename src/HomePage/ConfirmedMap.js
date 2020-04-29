@@ -125,18 +125,18 @@ function prepareForComparison(s) {
     s = s.replace(/(\s*[-‒–—])\s+/g, '-');
     s = s.toLowerCase();
     // Sync me with get_regions_json_data in the web app!!
-    s = s.replace('the corporation of the city of ', '')
-    s = s.replace('the corporation of the town of ', '')
-    s = s.replace('pastoral unincorporated area', 'pua')
-    s = s.replace('district council', '')
-    s = s.replace('regional council', '')
-    s = s.replace(' shire', '')
-    s = s.replace(' council', '')
-    s = s.replace(' regional', '')
-    s = s.replace(' rural', '')
-    s = s.replace('the dc of ', '')
-    s = s.replace('town of ', '')
-    s = s.replace('city of ', '')
+    s = s.replace('the corporation of the city of ', '');
+    s = s.replace('the corporation of the town of ', '');
+    s = s.replace('pastoral unincorporated area', 'pua');
+    s = s.replace('district council', '');
+    s = s.replace('regional council', '');
+    s = s.replace(' shire', '');
+    s = s.replace(' council', '');
+    s = s.replace(' regional', '');
+    s = s.replace(' rural', '');
+    s = s.replace('the dc of ', '');
+    s = s.replace('town of ', '');
+    s = s.replace('city of ', '');
     if (s.indexOf('the ') === 0)
         s = s.slice(4);
     return s;
@@ -245,14 +245,12 @@ class MbMap extends React.Component {
                     </span>
                 </div>
 
-                <div>
+                {/*<div>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
                         :&nbsp;<ButtonGroup
                             size="small"
                             aria-label="small outlined button group"
                             style={{ pointerEvents: "none" }}>
-                            {/*<Button style={this._markers == null ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers(null)}>Off</Button>*/}
                             <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
                                 onClick={() => this.setMarkers('Total')}>Total Tests</Button>
                             <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
@@ -267,9 +265,9 @@ class MbMap extends React.Component {
                                 onClick={() => this.setMarkers('Active')}>Active</Button>
                         </ButtonGroup>
                     </span>
-                </div>
+                </div>*/}
 
-                {/*<div ref={this.underlayBGCont}>
+                <div ref={this.underlayBGCont}>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
                         Underlay:&nbsp;<ButtonGroup ref={this.underlayButtonGroup}
                             size="small"
@@ -287,7 +285,7 @@ class MbMap extends React.Component {
                                 onClick={() => this.setUnderlay('Other Stats')}>Other Stats</Button>
                         </ButtonGroup>
                     </span>
-                </div>*/}
+                </div>
 
                 <div ref={el => this.otherStatsSelectCont = el}
                     className="key"
@@ -515,7 +513,7 @@ class MbMap extends React.Component {
         }
 
         if (underlay == null) {
-            this._selectedUnderlay = 'Population density (persons/km2)';  // HACK!!! ===================================
+            this._selectedUnderlay = null;
         }
         else if (underlay === 'Population Density') {
             this._selectedUnderlay = 'Population density (persons/km2)';
@@ -591,16 +589,11 @@ class MbMap extends React.Component {
                 insts[i].addHeatMap(dataSource);
                 insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(
-                    dataSource,
-                    0,
-                    false,
-                    true
-                );
-                insts[i].addFillPoly(
                     that.absStatsInsts[that._selectedUnderlay],
+                    dataSource,
                     that._underlay ? 0.5 : 0,
                     !!that._underlay,
-                    false
+                    true
                 );
             }
         }
@@ -616,23 +609,27 @@ class MbMap extends React.Component {
                 'rgba(0, 0, 0, 1.0)'
             );
             otherInst.addFillPoly(
+                null,
                 dataSource,
                 0,
                 false,
                 true
             );
 
-            lgaInst.addLinePoly(
-                that.absStatsInsts[that._selectedUnderlay],
-                'rgba(0, 0, 0, 0.1)'
-            );
-            lgaInst.addFillPoly(
-                that.absStatsInsts[that._selectedUnderlay],
-                that._underlay ? 0.5 : 0,
-                !!that._underlay,
-                false//,
-                //fillPoly['fillPolyId']
-            );
+            if (that._selectedUnderlay) {
+                lgaInst.addLinePoly(
+                    that.absStatsInsts[that._selectedUnderlay],
+                    'rgba(0, 0, 0, 0.1)'
+                );
+                lgaInst.addFillPoly(
+                    that.absStatsInsts[that._selectedUnderlay],
+                    null,
+                    that._underlay ? 0.5 : 0,
+                    !!that._underlay,
+                    false//,
+                    //fillPoly['fillPolyId']
+                );
+            }
         }
         function updateMessages() {
             let messages = messagesForModes[that._markers];
@@ -742,8 +739,11 @@ class MbMap extends React.Component {
             otherInst.removeLinePoly();
             otherInst.removeFillPoly();
             otherInst.resetPopups();
-            lgaInst.removeLinePoly();
-            lgaInst.removeFillPoly();
+
+            if (that._selectedUnderlay) {
+                lgaInst.removeLinePoly();
+                lgaInst.removeFillPoly();
+            }
         }
         function clearMessages() {
             for (let key in messagesForModes) {
@@ -891,7 +891,7 @@ class TimeSeriesDataSource extends DataSourceBase {
                     if (iValue != null && iValue !== '') {
                         // May as well use CanvasJS format
                         r.push({
-                            x: parseDate(dateUpdated).getTime(),
+                            x: parseDate(dateUpdated),
                             y: parseInt(iValue)
                         });
                     }
@@ -968,7 +968,7 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
 
         for (var i = 0; i < values.length; i++) {
             var iData = values[i];
-            if (dateDiff(new Date(iData.x), getToday()) > this.daysAgo) {
+            if (dateDiff(iData.x, getToday()) > this.daysAgo) {
                 continue;
             }
             r.push(iData);
@@ -1166,7 +1166,8 @@ class JSONGeoBoundariesBase {
      * Fill poly-related
      *******************************************************************/
 
-    addFillPoly(dataSource,
+    addFillPoly(absDataSource, // the ABS underlay source (if any)
+        caseDataSource, // the case source for popups (if any)
         opacity,
         addLegend,
         addPopupOnClick,
@@ -1174,7 +1175,13 @@ class JSONGeoBoundariesBase {
 
         // Add the colored fill area
         const map = this.map;
-        this._associateSource(dataSource);  // FIXME: This will "freeze" the case source in cache, as popup events use this!! ===================================
+
+        if (absDataSource) {
+            this._associateSource(absDataSource);
+        }
+        if (caseDataSource) {
+            this._associateSource(caseDataSource);
+        }
 
         if (opacity == null) {
             opacity = 0.75;
@@ -1233,7 +1240,7 @@ class JSONGeoBoundariesBase {
                 id: this.getFillPolyId(),
                 type: 'fill',
                 minzoom: 2,
-                source: this.getFillSourceId(dataSource),
+                source: this.getFillSourceId(absDataSource || caseDataSource),
                 paint: {
                     'fill-color': [
                         'interpolate',
@@ -1257,12 +1264,12 @@ class JSONGeoBoundariesBase {
         );
 
         // Add legend/popup event as specified
-        if (addLegend) {
-            this._addLegend(dataSource, labels, colors);
+        if (addLegend && absDataSource) {
+            this._addLegend(absDataSource, labels, colors);
         }
 
         if (addPopupOnClick) {
-            this._addMapPopupEvent(this.getFillPolyId(), dataSource);
+            this._addMapPopupEvent(this.getFillPolyId(), absDataSource, caseDataSource);
         }
 
         return {
@@ -1354,7 +1361,7 @@ class JSONGeoBoundariesBase {
      * Map popups
      *******************************************************************/
 
-    _addMapPopupEvent(useID, dataSource) {
+    _addMapPopupEvent(useID, absDataSource, caseDataSource) {
         this.resetPopups();
         const map = this.map;
         var popup;
@@ -1368,12 +1375,20 @@ class JSONGeoBoundariesBase {
             });
 
             var cityName = e.features[0].properties.city;
-            var caseInfo = dataSource.getCaseInfoForCity(
+            var caseInfo = caseDataSource.getCaseInfoForCity(
                 that.stateName, cityName
             );
 
-            if (dataSource.getCaseInfoTimeSeriesForCity) {
-                var timeSeries = dataSource.getCaseInfoTimeSeriesForCity(
+            var absInfo;
+            if (absDataSource) {
+                // TODO: Store on mouseover, so as to allow combining different schemas?
+                absInfo = absDataSource.getCaseInfoForCity(
+                    that.stateName, cityName
+                );
+            }
+
+            if (caseDataSource.getCaseInfoTimeSeriesForCity) {
+                var timeSeries = caseDataSource.getCaseInfoTimeSeriesForCity(
                     that.stateName, cityName
                 );
 
@@ -1383,6 +1398,7 @@ class JSONGeoBoundariesBase {
                         cityName +
                         '<br/>Cases: ' + caseInfo['numCases'] +
                         '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo['updatedDate'] +
+                        (absInfo ? ('<br>ABS Underlay: '+absInfo['numCases']) : '') +
                         '<div id="chartContainer" ' +
                         'style="width: 200px; min-height: 60px; height: 13vh;"></div>'
                     )
@@ -1896,76 +1912,35 @@ class JSONGeoBoundariesBase {
     }
 }
 
-class ACTSA3Boundaries extends JSONGeoBoundariesBase {
-    constructor(map) {
-        super(
-            map,
-            'ACT',
-            'sa3_act',
-            actSaData
-        );
-    }
-    getCityNameFromProperty(data) {
-        return data.properties['name'];
-    }
-}
-
-
-class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
-    constructor(map) {
-        super(
-            map,
-            'QLD',
-            'hhs_qld',
-            qldHhsData
-        );
-    }
-    getCityNameFromProperty(data) {
-        return data.properties.HHS;
-    }
-}
+/*******************************************************************
+ * LGA schema boundaries
+ *******************************************************************/
 
 class WALGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(
-            map,
-            'WA',
-            'lga_wa',
-            waLgaData
-        );
+        super(map,'WA','lga_wa', waLgaData);
     }
     getCityNameFromProperty(data) {
-        return toTitleCase(data.properties.wa_lga_s_3);   // THIS COULD BE WHY THERE AREN'T MATCHES!!
+        return toTitleCase(data.properties.wa_lga_s_3);
     }
 }
 
 class NSWLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(
-            map,
-            'NSW',
-            'lga_nsw',
-            nswLgaData
-        );
+        super(map,'NSW','lga_nsw', nswLgaData);
     }
     getCityNameFromProperty(data) {
-        return toTitleCase(data.properties.nsw_lga__3);   // THIS COULD BE WHY THERE AREN'T MATCHES!!
+        return toTitleCase(data.properties.nsw_lga__3);
     }
 }
 
 class VicLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(
-            map,
-            'VIC',
-            'lga_vic',
-            vicLgaData
-        );
+        super(map,'VIC','lga_vic', vicLgaData);
     }
     getCityNameFromProperty(data) {
         let city_name = data.properties.vic_lga__2;
         var city = city_name.split(" ");
-        var city_type = city.slice(-1)[0];
         city.pop();
         city_name = city.join(' ');
         return toTitleCase(city_name);
@@ -1975,12 +1950,7 @@ class VicLGABoundaries extends JSONGeoBoundariesBase {
 /*
 class NTLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(
-            map,
-            'NT',
-            'lga_nt',
-            ntLgaData
-        );
+        super(map, 'NT', 'lga_nt', ntLgaData);
     }
     getCityNameFromProperty(data) {
         return toTitleCase(data.properties['nt_lga_s_3']);
@@ -1990,27 +1960,18 @@ class NTLGABoundaries extends JSONGeoBoundariesBase {
 
 class QLDLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(
-            map,
-            'QLD',
-            'lga_qld',
-            qldLgaData
-        );
+        super(map,'QLD', 'lga_qld', qldLgaData);
     }
     getCityNameFromProperty(data) {
-        return data.properties['qld_lga__3'] ? toTitleCase(data.properties['qld_lga__3']) : null; // also has qld_lga__2 -- what is the difference?? ======================
+        return data.properties['qld_lga__3'] ?
+            toTitleCase(data.properties['qld_lga__3']) : null;
     }
 }
 
 /*
 class SALGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(
-            map,
-            'SA',
-            'lga_sa',
-            saLgaData
-        );
+        super(map, 'SA', 'lga_sa', saLgaData);
     }
     getCityNameFromProperty(data) {
         return toTitleCase(data.properties['abbname']);
@@ -2021,12 +1982,7 @@ class SALGABoundaries extends JSONGeoBoundariesBase {
 /*
 class TasLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(
-            map,
-            'TAS',
-            'lga_tas',
-            tasLgaData
-        );
+        super(map, 'TAS', 'lga_tas', tasLgaData);
     }
     getCityNameFromProperty(data) {
         //console.log(data.properties['tas_lga__3'])
@@ -2034,6 +1990,123 @@ class TasLGABoundaries extends JSONGeoBoundariesBase {
     }
 }
  */
+
+/*******************************************************************
+ * Other boundary schemas
+ *******************************************************************/
+
+class ACTSA3Boundaries extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map,'ACT','sa3_act', actSaData);
+    }
+    getCityNameFromProperty(data) {
+        return data.properties['name'];
+    }
+}
+
+class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'QLD', 'hhs_qld', qldHhsData);
+    }
+    getCityNameFromProperty(data) {
+        return data.properties.HHS;
+    }
+}
+
+/*******************************************************************
+ * Simple state boundaries
+ *******************************************************************/
+
+class ACTBoundary extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'ACT', 'boundary_wa', actOutlineData);
+    }
+    getCityNameFromProperty(data) {
+        return 'ACT';
+    }
+}
+
+class NSWBoundary extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'NSW', 'boundary_nsw', nswOutlineData);
+    }
+    getCityNameFromProperty(data) {
+        return 'NSW';
+    }
+}
+
+class NTBoundary extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'NT', 'boundary_nt', ntOutlineData);
+    }
+    getCityNameFromProperty(data) {
+        return 'NT';
+    }
+}
+
+class VicBoundary extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'VIC', 'boundary_vic', vicOutlineData);
+    }
+    getCityNameFromProperty(data) {
+        return 'VIC';
+    }
+}
+
+/*
+class QLDBoundary extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'QLD', 'boundary_qld', qldOutlineData);
+    }
+    getCityNameFromProperty(data) {
+        return 'QLD';
+    }
+}
+ */
+
+class SABoundary extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'SA', 'boundary_sa', saOutlineData);
+    }
+    getCityNameFromProperty(data) {
+        return 'SA';
+    }
+}
+
+class TasBoundary extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'TAS', 'boundary_tas', tasOutlineData);
+    }
+    getCityNameFromProperty(data) {
+        return 'Tas';
+    }
+}
+
+class WABoundary extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'WA', 'boundary_wa', waOutlineData);
+    }
+    getCityNameFromProperty(data) {
+        return 'WA';
+    }
+}
+
+var stateBoundaryClasses = {
+    act: ACTBoundary,
+    nsw: NSWBoundary,
+    nt: NTBoundary,
+    vic: VicBoundary,
+    //qld: QLDBoundary,  TODO!
+    sa: SABoundary,
+    tas: TasBoundary,
+    wa: WABoundary
+};
+
+
+/*******************************************************************
+ * Hospital and specific case markers
+ *******************************************************************/
+
 
 class ConfirmedMarker {
     constructor(map, item) {
