@@ -127,7 +127,6 @@ function UpdatesToday() {
     console.log(todayDataObject)
 
 
-
     for (let state in stateUpdateStatus) {
         if (parseInt(todayDataObject[state][0]) !== parseInt(yesterdayData[state][0])) {
             stateUpdateStatus[state][0] = true
@@ -141,7 +140,8 @@ function UpdatesToday() {
         if (parseInt(todayDataObject[state][3]) !== parseInt(yesterdayData[state][3])) {
             stateUpdateStatus[state][3] = true
         }
-        if (todayDataObject[state][4] === 'true') {
+        //This makes sure there is no increase in cases
+        if (todayDataObject[state][4] === 'true' && stateUpdateStatus[state][0] === false) {
             stateUpdateStatus[state][4] = true
         }
     }
