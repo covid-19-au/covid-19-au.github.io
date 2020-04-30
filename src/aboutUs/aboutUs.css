@@ -1,0 +1,23 @@
+.aboutText {
+    margin-bottom: 1.5rem;
+}
+
+.aboutUsHeadings {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.icon:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+@media screen and (max-width: 350px) {
+    .responsiveNames {
+        font-size: 1rem !important;
+    }
+}
