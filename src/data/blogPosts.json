@@ -2,6 +2,33 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "Coronavirus Myths and Hoaxes",
+            "media": "https://i.imgur.com/yhWdsvT.jpg",
+            "summary": "As COVID-19 has continued to develop and spread, a lot of misinformation and hoaxes have also come on the rise. In today’s blog post, we have provided 10 myths of the virus.",
+            "date": "1/05/2020",
+            "text": {
+                "text_1": [
+                    "Over the last couple of months, there has been a plethora of misleading information and hoaxes that have circulated around social media and the wider internet. It is important that information like this doesn’t become treated as fact, as it can be harmful, with irrelevant and inaccurate information hindering the control of the spread of COVID-19.",
+                    "<strong>Here are 10 of them busted:</strong>"
+                ],
+                "ulist_1": [],
+                "olist_1": [
+                    "<strong>Not all face masks can protect against COVID-19:</strong> Healthcare workers wear professional masks and other equipment to protect themselves from infection. For general purpose usage, disposable masks are unlikely to block tiny viral particles. However, a cloth mask is able to prevent the spread of these droplets. The CDC and other health professional recommend that all people wear cloth masks in public if it is difficult to maintain social distancing. When wearing a mask, it is essential to continue with other precautions too, such as not touching your face.",
+                    "<strong>5G mobile networks DO NOT spread COVID-19:</strong> Viruses like COVID-19 are spread through respiratory droplets when an infected person coughs or sneezes, and then transmitted through others touching a contaminated surface. They cannot travel through radio waves and mobile networks. COVID-19 is prevalent in countries that do not have 5G mobile networks, and this myth has been debunked by leading scientists and researchers around the world.",
+                    "<strong>Injecting disinfectant CANNOT KILL COVID-19:</strong> This is by far one of the deadliest hoaxes, especially prevalent in the US. Injecting any corrosive substance of alcohol based disinfectant can be extremely harmful, and in many cases, fatal.",
+                    "<strong>Drinking alcohol does not protect you from COVID-19:</strong> Not only will drinking alcohol not protect you against COVID-19 and other viruses, but excessive alcohol consumption can lead to other health problems, including increasing your risk of liver damage.",
+                    "<strong>Eating garlic does not protect you from COVID-19:</strong> Although garlics are healthy that have antimicrobial properties, there is no current evidence to support that eating garlic has protected people from the virus.",
+                    "<strong>Antibiotics are ineffective against COVID-19:</strong> COVID-19 is a virus. Antibiotics work against bacteria, and therefore, should not be used as a means of prevention of treatment.",
+                    "<strong>Spraying chlorine and alcohol on the skin does not kill COVID-19 if you already have it:</strong> If the virus is already present inside the body, applying chlorine or any disinfectant on your body will not kill the virus. It can also be harmful, as substances such as chlorine are corrosive, and can be especially harmful if it enters the eyes or mouth.",
+                    "<strong>Parcels from China cannot spread COVID-19:</strong> From previous analysis and research, scientists know that COVID-19 cannot survive long on objects, such as letters and packages. People receiving packages from China are not at risk of contracting COVID-19, but precaution should still be taken due to local handling.",
+                    "<strong>Vaccines against pneumonia cannot protect you from COVID-19:</strong> Vaccines against pneumonia, such as Haemophilus influenza Type B (Hib) and pneumococcal vaccines, do not provide protection against COVID-19.",
+                    "<strong>Thermal scanners cannot diagnose COVID-19:</strong> Thermal scanners have the ability to detect if someone has a fever or not. However, other illnesses such as the seasonal flu can also lead to fevers and higher temperatures."
+                ],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "Online education during COVID-19",
             "media": "https://i.imgur.com/D1jUrKh.png",
             "summary": "With education moving online having access to a range of resources and information can set you up for success! Check out the blog post for tips and tricks to make your life easier through digital schooling.",
