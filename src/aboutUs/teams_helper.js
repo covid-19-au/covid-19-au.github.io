@@ -87,8 +87,8 @@ const Promotion = {
         },
         {
             name: "Louis Nash",
-            linkedin: "",
-            email: "",
+            linkedin: "http://linkedin.com/in/louisnash",
+            email: "louisnash2907@gmail.com",
             github: "",
             website: "",
             fileName: "Nash.png"
@@ -96,7 +96,7 @@ const Promotion = {
         {
             name: "Michelle Yu Ying Wong",
             linkedin: "https://www.linkedin.com/in/michelle-wong-44aa4aa5/",
-            email: "",
+            email: "michelleyuyingwong@gmail.com",
             github: "",
             website: "",
             fileName: "Michelle.png"
@@ -146,16 +146,16 @@ const Promotion = {
             linkedin: "",
             email: "",
             github: "",
-            website: "",
+            website: "https://www.dil-k.com/",
             fileName: "Dil.png"
         },
         {
-            name: "Annie Kyi",
-            linkedin: "",
-            email: "",
+            name: "Annie Kyi Lin Thant",
+            linkedin: "https://www.linkedin.com/in/kyi-lin-thant-baa404120/",
+            email: "klthant97@gmail.com",
             github: "",
             website: "",
-            fileName: ""
+            fileName: "Annie.png"
         },
         {
             name: "Lee Paton",
@@ -175,7 +175,7 @@ const Promotion = {
         },
         {
             name: "Serina Liu",
-            linkedin: "",
+            linkedin: "https://www.linkedin.com/in/serina-liu1269/?originalSubdomain=au",
             email: "",
             github: "",
             website: "",
@@ -184,10 +184,26 @@ const Promotion = {
         {
             name: "Elizabeth Hoysted",
             linkedin: "https://www.linkedin.com/in/elizabeth-hoysted-853a1b149/",
-            email: "",
+            email: "ekhoysted@gmail.com",
             github: "",
             website: "",
             fileName: "Elizabeth.png"
+        },
+        {
+            name: "Tiffany Kong",
+            linkedin: "http://linkedin.com/in/tiffany-kong-5418ba162",
+            email: "ktiffany128@gmail.com",
+            github: "",
+            website: "",
+            fileName: "Tiffany.png"
+        },
+        {
+            name: "Cherrie Wu",
+            linkedin: "http://linkedin.com/in/cherrie-wu-735823a8",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Cherrie.png"
         }
     ]
 }
