@@ -27,8 +27,8 @@ import saOutlineData from "../data/geojson/boundary_sa.geojson"
 import tasOutlineData from "../data/geojson/boundary_tas.geojson"
 import ntOutlineData from "../data/geojson/boundary_nt.geojson"
 
-import { BigTableOValuesDataSource } from "./ConfirmedMapCaseData"
-import { toTitleCase, sortedKeys } from "./ConfirmedMapFns"
+import BigTableOValuesDataSource from "./ConfirmedMapABSData"
+import ConfirmedMapFns from "./ConfirmedMapFns"
 
 
 // Higher values will result in less accurate lines,
@@ -61,32 +61,26 @@ function __getGeoBoundaryClasses() {
         // Other schemas
         "act:sa3": ACTSA3Boundaries,
         "qld:hhs": QLDHHSGeoBoundaries,
-        "nsw:postcode": nswPostCodeData
+        "nsw:postcode": NSWPostCodeBoundaries
     };
 }
 
 
 function getAvailableGeoBoundaries() {
-    return sortedKeys(__getGeoBoundaryClasses());
+    return ConfirmedMapFns.sortedKeys(__getGeoBoundaryClasses());
 }
 
 var __geoBoundaryCache = new Map();
 function getGeoBoundary(map, schema, stateName) {
-    let key = `${schema}:${stateName}`;
+    let key = `${stateName}:${schema}`;
     if (__geoBoundaryCache.has(key)) {
         return __geoBoundaryCache.get(key);
     }
-    var inst = new __getGeoBoundaryClasses()[key](map);
+    console.log(`Creating new stateName:${stateName} schema:${schema}`)
+    var inst = new (__getGeoBoundaryClasses()[key])(map);
     __geoBoundaryCache.set(key, inst);
     return inst;
 }
-
-// We'll only allow access to these
-// classes via the above utility fns
-module.exports = {
-    getGeoBoundary: getGeoBoundary,
-    getAvailableGeoBoundaries: getAvailableGeoBoundaries
-};
 
 
 class JSONGeoBoundariesBase {
@@ -901,7 +895,7 @@ class WALGABoundaries extends JSONGeoBoundariesBase {
         super(map,'WA','lga_wa', waLgaData);
     }
     getCityNameFromProperty(data) {
-        return toTitleCase(data.properties.wa_lga_s_3);
+        return ConfirmedMapFns.toTitleCase(data.properties.wa_lga_s_3);
     }
 }
 
@@ -910,7 +904,7 @@ class NSWLGABoundaries extends JSONGeoBoundariesBase {
         super(map,'NSW','lga_nsw', nswLgaData);
     }
     getCityNameFromProperty(data) {
-        return toTitleCase(data.properties.nsw_lga__3);
+        return ConfirmedMapFns.toTitleCase(data.properties.nsw_lga__3);
     }
 }
 
@@ -923,7 +917,7 @@ class VicLGABoundaries extends JSONGeoBoundariesBase {
         var city = city_name.split(" ");
         city.pop();
         city_name = city.join(' ');
-        return toTitleCase(city_name);
+        return ConfirmedMapFns.toTitleCase(city_name);
     }
 }
 
@@ -933,7 +927,7 @@ class NTLGABoundaries extends JSONGeoBoundariesBase {
         super(map, 'NT', 'lga_nt', ntLgaData);
     }
     getCityNameFromProperty(data) {
-        return toTitleCase(data.properties['nt_lga_s_3']);
+        return ConfirmedMapFns.toTitleCase(data.properties['nt_lga_s_3']);
     }
 }
 */
@@ -944,7 +938,7 @@ class QLDLGABoundaries extends JSONGeoBoundariesBase {
     }
     getCityNameFromProperty(data) {
         return data.properties['qld_lga__3'] ?
-            toTitleCase(data.properties['qld_lga__3']) : null;
+            ConfirmedMapFns.toTitleCase(data.properties['qld_lga__3']) : null;
     }
 }
 
@@ -953,7 +947,7 @@ class SALGABoundaries extends JSONGeoBoundariesBase {
         super(map, 'SA', 'lga_sa', saLgaData);
     }
     getCityNameFromProperty(data) {
-        return toTitleCase(data.properties['abbname']);
+        return ConfirmedMapFns.toTitleCase(data.properties['abbname']);
     }
 }
 
@@ -986,6 +980,19 @@ class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
     }
     getCityNameFromProperty(data) {
         return data.properties.HHS;
+    }
+}
+
+class NSWPostCodeBoundaries extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'NSW', 'postcode_nsw', nswPostCodeData);
+    }
+    getCityNameFromProperty(data) {
+        var v = data.properties.loc_pid;
+        if (v) {
+            return v.replace('NSW', '');
+        }
+        return null;
     }
 }
 
@@ -1067,3 +1074,11 @@ class WABoundary extends JSONGeoBoundariesBase {
     }
 }
 
+
+// We'll only allow access to these
+// classes via the above utility fns
+var exportDefaults = {
+    getGeoBoundary: getGeoBoundary,
+    getAvailableGeoBoundaries: getAvailableGeoBoundaries
+};
+export default exportDefaults;

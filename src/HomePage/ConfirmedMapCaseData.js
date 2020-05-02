@@ -1,6 +1,4 @@
-import {
-    prepareForComparison, parseDate
-} from "./ConfirmedMapFns";
+import ConfirmedMapFns from "./ConfirmedMapFns";
 
 
 class DataSourceBase {
@@ -52,7 +50,7 @@ class TimeSeriesDataSource extends DataSourceBase {
             );
         }
 
-        region = prepareForComparison(region || '');
+        region = ConfirmedMapFns.prepareForComparison(region || '');
         ageRange = ageRange || '';
 
         for (var i = 0; i < this.data.length; i++) {
@@ -87,7 +85,7 @@ class TimeSeriesDataSource extends DataSourceBase {
     getCaseNumberTimeSeries(region, ageRange) {
         var r = [];
 
-        region = prepareForComparison(region || '');
+        region = ConfirmedMapFns.prepareForComparison(region || '');
         ageRange = ageRange || '';
 
         for (var i = 0; i < this.data.length; i++) {
@@ -107,7 +105,7 @@ class TimeSeriesDataSource extends DataSourceBase {
                     if (iValue != null && iValue !== '') {
                         // May as well use CanvasJS format
                         r.push({
-                            x: parseDate(dateUpdated),
+                            x: ConfirmedMapFns.parseDate(dateUpdated),
                             y: parseInt(iValue)
                         });
                     }
@@ -184,6 +182,4 @@ class TimeSeriesDataSource extends DataSourceBase {
     }*/
 }
 
-module.exports = {
-    TimeSeriesDataSource: TimeSeriesDataSource
-};
+export default TimeSeriesDataSource;

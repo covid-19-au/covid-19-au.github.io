@@ -1,4 +1,4 @@
-module.exports = {
+var fns = {
     /*******************************************************************
      * Array helper functions
      *******************************************************************/
@@ -89,8 +89,10 @@ module.exports = {
         // `dateString` in dd/mm/yyyy format
         // NOTE: returns a *positive* number if
         // `dateString` is in the past
-        var today = this.getToday();
-        var dateUpdatedInst = this.parseDate(dateString).getTime();
-        return this.dateDiff(dateUpdatedInst, today);
+        var today = fns.getToday();
+        var dateUpdatedInst = fns.parseDate(dateString).getTime();
+        return fns.dateDiff(dateUpdatedInst, today);
     }
 };
+
+export default fns;

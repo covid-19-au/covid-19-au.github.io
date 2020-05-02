@@ -1,4 +1,4 @@
-import {getToday, prepareForComparison} from "./ConfirmedMapFns";
+import ConfirmedMapFns from "./ConfirmedMapFns";
 import absStatsData from "../data/absStats";
 
 
@@ -47,7 +47,7 @@ class BigTableOValuesDataSource extends DataSourceBase {
         this.header = header;
         this.subHeader = subHeader;
         this.subHeaderIndex = mapAreaData['sub_headers'].indexOf(subHeader);
-        var today = getToday();
+        var today = ConfirmedMapFns.getToday();
         this.updatedDate = (
             today.getDay() + '/' +
             today.getMonth() + '/' +
@@ -58,7 +58,7 @@ class BigTableOValuesDataSource extends DataSourceBase {
 
     getCaseInfoForCity(stateName, cityName) {
         stateName = stateName.toLowerCase();
-        cityName = prepareForComparison(cityName);
+        cityName = ConfirmedMapFns.prepareForComparison(cityName);
 
         for (var i = 0; i < this.data.length; i++) {
             var iData = this.data[i],
@@ -105,6 +105,4 @@ class BigTableOValuesDataSource extends DataSourceBase {
     }
 }
 
-module.exports = {
-    BigTableOValuesDataSource: BigTableOValuesDataSource
-};
+export default BigTableOValuesDataSource;

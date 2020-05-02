@@ -12,11 +12,12 @@ import hospitalImg from '../img/icon/hospital.png'
 import Acknowledgement from "../Acknowledgment"
 import absStatsData from "../data/absStats";
 
-import { sortedKeys } from "./ConfirmedMapFns"
-import { TimeSeriesDataSource } from "./ConfirmedMapCaseData"
-import { BigTableOValuesDataSource } from "./ConfirmedMapABSData"
-import { getAvailableGeoBoundaries, getGeoBoundary } from "./ConfirmedMapGeoBoundaries" // FIXME!
-import { ConfirmedMarker, HospitalMarker } from "./ConfirmedMapMarkers"
+import ConfirmedMapFns from "./ConfirmedMapFns"
+import TimeSeriesDataSource from "./ConfirmedMapCaseData"
+import BigTableOValuesDataSource from "./ConfirmedMapABSData"
+import GeoBoundaries from "./ConfirmedMapGeoBoundaries" // FIXME!
+import ConfirmedMarker from "./ConfirmedMapConfirmedMarker"
+import HospitalMarker from "./ConfirmedMapHospitalMarker"
 
 
 const absStats = absStatsData['data'];
@@ -24,9 +25,6 @@ const absStats = absStatsData['data'];
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
 mapboxgl.accessToken = token;
-
-// Threshold for an 'old case', in days
-const oldCaseDays = 14;
 
 
 class MbMap extends React.Component {
@@ -68,7 +66,7 @@ class MbMap extends React.Component {
                 return '<option value="' + key + '">' + key + '</option>'
             }).join('\n')
         }
-        return sortedKeys(absStats).map((heading) => {
+        return ConfirmedMapFns.sortedKeys(absStats).map((heading) => {
             return (
                 '<optgroup label=' + heading + '>' +
                 outputSelects(heading) +
@@ -159,7 +157,7 @@ class MbMap extends React.Component {
                         <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
                     </div>
                     <div ref={this.totalCasesMessage}>
-                        <span className="key"><img src={confirmedOldImg} /><p>Case over {oldCaseDays} days old</p></span>
+                        <span className="key"><img src={confirmedOldImg} /><p>Case over {ConfirmedMarker.oldCaseDays} days old</p></span>
                         <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
                     </div>
                     <div ref={this.cityLevelMessage}>
@@ -273,8 +271,10 @@ class MbMap extends React.Component {
 
                 // Create map data instances
                 var geoBoundaryInsts = that.geoBoundaryInsts = {};
-                for (var key of getAvailableGeoBoundaries()) {
-                    geoBoundaryInsts[key] = getGeoBoundary(key);
+                for (var key of GeoBoundaries.getAvailableGeoBoundaries()) {
+                    geoBoundaryInsts[key] = GeoBoundaries.getGeoBoundary(
+                        map, key.split(":")[1], key.split(":")[0]
+                    );
                 }
 
                 function enableControls() {
