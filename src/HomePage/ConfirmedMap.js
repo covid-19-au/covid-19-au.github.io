@@ -113,22 +113,22 @@ class MbMap extends React.Component {
                         style={{ "maxWidth": "100%" }}>
                         <optgroup label="Basic Numbers">
                             <option value="total">Total</option>
-                            <option value="active">Active</option>
-                            <option value="recovered">Recovered</option>
-                            <option value="deaths">Deaths</option>
-                            <option value="icu">ICU</option>
-                            {/*<option value="icu_ventilators">ICU Ventilators</option>*/}
-                            <option value="hospitalized">Hospitalized</option>
+                            <option value="status_active">Active</option>
+                            <option value="status_recovered">Recovered</option>
+                            <option value="status_deaths">Deaths</option>
+                            <option value="status_icu">ICU</option>
+                            {/*<option value="status_icu_ventilators">ICU Ventilators</option>*/}
+                            <option value="status_hospitalized">Hospitalized</option>
                         </optgroup>
                         <optgroup label="Test Numbers">
                             <option value="tests_total">Total People Tested</option>
                         </optgroup>
                         <optgroup label="Source of Infection">
-                            <option value="overseas">Contracted Overseas</option>
-                            <option value="community">Unknown Community Transmission</option>
-                            <option value="confirmed">Contracted from Confirmed Case</option>
-                            <option value="interstate">Contracted Interstate</option>
-                            <option value="under_investigation">Under Investigation</option>
+                            <option value="source_overseas">Contracted Overseas</option>
+                            <option value="source_community">Unknown Community Transmission</option>
+                            <option value="source_confirmed">Contracted from Confirmed Case</option>
+                            <option value="source_interstate">Contracted Interstate</option>
+                            <option value="source_under_investigation">Under Investigation</option>
                         </optgroup>
                     </select>
                 </div>
@@ -322,6 +322,7 @@ class MbMap extends React.Component {
             'hhs',
             'ths',
             'lhd',
+            'sa3',
             'statewide'
         ];
 
@@ -395,7 +396,7 @@ class MbMap extends React.Component {
                 insts[i].addHeatMap(dataSource);
                 insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(
-                    that.absStatsInsts[that._selectedUnderlay],
+                    that.absStatsInsts[that._underlay],
                     dataSource,
                     that._underlay ? 0.5 : 0,
                     !!that._underlay,

@@ -6,10 +6,10 @@ import CanvasJS from "../assets/canvasjs.min";
 // by LGA
 import vicLgaData from "../data/geojson/lga_vic.geojson"
 import nswLgaData from "../data/geojson/lga_nsw.geojson"
-//import ntLgaData from "../data/geojson/lga_nt.geojson"
+import ntLgaData from "../data/geojson/lga_nt.geojson"
 import qldLgaData from "../data/geojson/lga_qld.geojson"
 import saLgaData from "../data/geojson/lga_sa.geojson"
-//import tasLgaData from "../data/geojson/lga_tas.geojson"
+import tasLgaData from "../data/geojson/lga_tas.geojson"
 import waLgaData from "../data/geojson/lga_wa.geojson"
 
 // by other schema
@@ -41,11 +41,11 @@ function __getGeoBoundaryClasses() {
         // LGA classes
         //"act:lga": ACTBoundary,
         "nsw:lga": NSWLGABoundaries,
-        //"nt:lga": NTLGABoundaries,
+        "nt:lga": NTLGABoundaries,
         "vic:lga": VicLGABoundaries,
         "qld:lga": QLDLGABoundaries,
         "sa:lga": SALGABoundaries,
-        //"tas:lga": TasLGABoundaries,
+        "tas:lga": TasLGABoundaries,
         "wa:lga": WALGABoundaries,
 
         // Statewide outlines
@@ -922,7 +922,6 @@ class VicLGABoundaries extends JSONGeoBoundariesBase {
     }
 }
 
-/*
 class NTLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
         super(map, 'NT', 'lga_nt', ntLgaData);
@@ -931,7 +930,6 @@ class NTLGABoundaries extends JSONGeoBoundariesBase {
         return ConfirmedMapFns.toTitleCase(data.properties['nt_lga_s_3']);
     }
 }
-*/
 
 class QLDLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
@@ -952,15 +950,15 @@ class SALGABoundaries extends JSONGeoBoundariesBase {
     }
 }
 
-/*class TasLGABoundaries extends JSONGeoBoundariesBase {
+class TasLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
         super(map, 'TAS', 'lga_tas', tasLgaData);
     }
     getCityNameFromProperty(data) {
         //console.log(data.properties['tas_lga__3'])
-        return toTitleCase(data.properties['tas_lga__3']);
+        return ConfirmedMapFns.toTitleCase(data.properties['tas_lga__3']);
     }
-}*/
+}
 
 /*******************************************************************
  * Other boundary schemas

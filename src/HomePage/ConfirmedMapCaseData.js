@@ -60,7 +60,7 @@ class TimeSeriesDataSource extends DataSourceBase {
                 iValues = iData[2];
 
             if (
-                iRegion === region &&
+                (this.schema === 'statewide' || iRegion === region) &&
                 iAgeRange === ageRange
             ) {
                 for (var j = 0; j < iValues.length; j++) {
@@ -95,7 +95,7 @@ class TimeSeriesDataSource extends DataSourceBase {
                 iValues = iData[2];
 
             if (
-                iRegion === region &&
+                (this.schema === 'statewide' || iRegion === region) &&
                 iAgeRange === ageRange
             ) {
                 for (var j = 0; j < iValues.length; j++) {
