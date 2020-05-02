@@ -1,6 +1,174 @@
 {
     "blogPosts": [
         {
+            "tag": "Informative",
+            "title": "COVID-19 Surface Lifespan and Ways to Limit Its Survival Time",
+            "media": "https://i.imgur.com/ODnXvfr.png",
+            "summary": "Here is some information on Coronavirus's lifespan on different surfaces, and some ways to limit the survival of the virus in our environments.",
+            "date": "2/05/2020",
+            "text": {
+                "text_1": [
+                    "There is still much to learn about the novel coronavirus but here is some information on the virus’ surface lifespan and ways to limit the survival of the virus in our environments.",
+                    "Coronavirus can persist on surfaces from a few hours up to several days. Its lifespan varies depending on different conditions such as type of surface as well as the temperature and humidity level of the environment. It is very easy for someone infected to spread virus particles through coughing or touching which leaves the virus on surfaces and other people. This makes it extremely important to clean our hands and disinfect surfaces that we come into contact with.",
+                    "<h3>Know the Difference</h3>",
+                    "<strong>Cleaning</strong> removes germs from surfaces. It does not kill germs but lowers their numbers and the risk of spreading infection.",
+                    "<strong>Disinfecting</strong> uses chemicals to kill germs on surfaces. It effectively further lowers the risk of spreading infection if performed after cleaning.",
+                    "<h3>Practise Routine Cleaning of Frequently Touched Surfaces</h3>",
+                    "<ul> <li><strong>General:</strong> doorknobs, handles, light switches, desks and tables</li> <li><strong>Electronics:</strong> remote controls, keyboards, phone, laptop and tablets</li> <li><strong>Bathroom:</strong> toilets and sinks</li> </ul>",
+                    "<h3>How to clean hard (non-porous) surfaces?</h3>",
+                    "<ul> <li>Wear disposal gloves when cleaning and disinfecting surfaces.</li> <li>Discard gloves after EACH cleaning.</li> <li>Gloves should be dedicated for cleaning and disinfecting surfaces and SHOULD NOT be used for other purposes.</li> <li>Clean hands IMMEDIATELY after removing gloves.</li> <li>If surfaces are dirty, clean with detergent or soap and water first before disinfection.</li> <li>Use bleach solution (see below for more information).</li> </ul>",
+                    "<h3>How to clean soft (porous) surfaces?</h3>",
+                    "<strong>Examples:</strong> carpeted floor, rugs, drapes, clothes",
+                    "<ul> <li>If possible, wash launder items using the warmest appropriate water setting and dry them completely after.</li> </ul>",
+                    "<h3>How to clean electronics?</h3>",
+                    "<ul> <li>Use alcohol-based wipes or sprays containing at least 70% alcohol to disinfect.</li> <li>Dry surfaces thoroughly after.</li> </ul>",
+                    "<h3>Hand Hygiene</h3>",
+                    "<ul> <li>Wash hands with soap and water for 20 seconds – refer to the hand-washing video provided on our Info page. </li> <li>Use hand sanitiser containing at least 60% alcohol if soap and water are not available.</li> </ul>",
+                    "<h3>What You Can Use</h3>",
+                    "<strong>Soap and Water</strong>",
+                    "<ul> <li>This is your first line of defence to remove the virus from surfaces.</li> <li>Soap can lift the virus from surfaces and then water will rinse it off.</li> </ul>",
+                    "<strong>Bleach</strong>",
+                    "<ul> <li>The active ingredient in bleach – sodium hypochlorite is very effective in killing the virus.</li> <li>Make sure to leave the bleach on surfaces for 10 – 15 minutes for it to work.</li> <li>Give the surface a wipe with a clean cloth after.</li> </ul>",
+                    "<strong>Prepare a bleach solution</strong>",
+                    "<ul> <li>5 tablespoons (1/3 cup) of bleach per gallon of water</li> <li>4 teaspoons of bleach per quart of water </li> </ul>",
+                    "<strong>Antiseptic Surface Wipes</strong>",
+                    "<ul> <li>Physically removes germs through the pressure you apply.</li> <li>The germs then be attached to the wipe.</li> <li>Leaves a layer of antiseptic on the surface that can kill germs and coronavirus that infect dogs. However, this does not apply to the spread of human coronavirus.</li> </ul>",
+                    "<strong>Hand Sanitiser</strong>",
+                    "<ul> <li>The main ingredient is ethanol.</li> <li>The concentration in the hand sanitiser is very important.</li> <li>It has to be 60 – 70% or it cannot kill the virus effectively.</li> </ul>",
+                    "<h3>Other Information</h3>",
+                    "Vinegar, tea tree oil and other natural products are NOT recommended. There are no evidence of these ingredients being effective in killing coronavirus.",
+                    "<h3>Reminder</h3>",
+                    "<ul> <li>Make sure you air out the spaces you are spending time in regularly.</li> <li>When you open the window, you disperse and reduce the amount of virus in the air.</li> <li>This means that by opening your windows, you can reduce the risk of infection for others.</li> </ul>",
+                    "We are living in uncertain times but it is reassuring to know that we have some ways to fight COVID-19 in our environments.",
+                    "<h3>How long can COVID-19 live on surfaces?</h3>",
+                    "<table class='surfacesTable formatTable'> <tr> <th class='surfacesHeader'>Surface</th> <th class='surfacesHeader'>Duration</th> <th class='surfacesHeader'>Includes</th> </tr> <tr> <td class='surfacesElement'>air</td> <td class='surfacesElement'>3 hours</td> <td class='surfacesElement'>moisture from coughing/sneezing, fog and dust</td> </tr> <tr> <td class='surfacesElement'>copper</td> <td class='surfacesElement'>4 hours</td> <td class='surfacesElement'>taps, drawer handles, coins, etc.</td> </tr> <tr> <td class='surfacesElement'>cardboard</td> <td class='surfacesElement'>24 hours</td> <td class='surfacesElement'>packaging, mail. (post unlikely to transmit virus)</td> </tr> <tr> <td class='surfacesElement'>non-porous surfaces</td> <td class='surfacesElement'>4+ days</td> <td class='surfacesElement'>handrails, doorknobs, elevator buttons, lightswitches, etc.</td> </tr> <tr> <td class='surfacesElement'>plastic</td> <td class='surfacesElement'>2-3 days</td> <td class='surfacesElement'>bottles, plastic bags, containers, packaging, etc.</td> </tr> <tr> <td class='surfacesElement'>glass</td> <td class='surfacesElement'>9 days</td> <td class='surfacesElement'>mobile phones, windows, bottles, etc.</td> </tr> </table>"
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative Fun",
+            "title": "Coronavirus Myths and Hoaxes",
+            "media": "https://i.imgur.com/yhWdsvT.jpg",
+            "summary": "As COVID-19 has continued to develop and spread, a lot of misinformation and hoaxes have also come on the rise. In today’s blog post, we have provided 10 myths of the virus.",
+            "date": "1/05/2020",
+            "text": {
+                "text_1": [
+                    "Over the last couple of months, there has been a plethora of misleading information and hoaxes that have circulated around social media and the wider internet. It is important that information like this doesn’t become treated as fact, as it can be harmful, with irrelevant and inaccurate information hindering the control of the spread of COVID-19.",
+                    "<strong>Here are 10 of them busted:</strong>"
+                ],
+                "ulist_1": [],
+                "olist_1": [
+                    "<strong>Not all face masks can protect against COVID-19:</strong> Healthcare workers wear professional masks and other equipment to protect themselves from infection. For general purpose usage, disposable masks are unlikely to block tiny viral particles. However, a cloth mask is able to prevent the spread of these droplets. The CDC and other health professional recommend that all people wear cloth masks in public if it is difficult to maintain social distancing. When wearing a mask, it is essential to continue with other precautions too, such as not touching your face.",
+                    "<strong>5G mobile networks DO NOT spread COVID-19:</strong> Viruses like COVID-19 are spread through respiratory droplets when an infected person coughs or sneezes, and then transmitted through others touching a contaminated surface. They cannot travel through radio waves and mobile networks. COVID-19 is prevalent in countries that do not have 5G mobile networks, and this myth has been debunked by leading scientists and researchers around the world.",
+                    "<strong>Injecting disinfectant CANNOT KILL COVID-19:</strong> This is by far one of the deadliest hoaxes, especially prevalent in the US. Injecting any corrosive substance of alcohol based disinfectant can be extremely harmful, and in many cases, fatal.",
+                    "<strong>Drinking alcohol does not protect you from COVID-19:</strong> Not only will drinking alcohol not protect you against COVID-19 and other viruses, but excessive alcohol consumption can lead to other health problems, including increasing your risk of liver damage.",
+                    "<strong>Eating garlic does not protect you from COVID-19:</strong> Although garlics are healthy that have antimicrobial properties, there is no current evidence to support that eating garlic has protected people from the virus.",
+                    "<strong>Antibiotics are ineffective against COVID-19:</strong> COVID-19 is a virus. Antibiotics work against bacteria, and therefore, should not be used as a means of prevention of treatment.",
+                    "<strong>Spraying chlorine and alcohol on the skin does not kill COVID-19 if you already have it:</strong> If the virus is already present inside the body, applying chlorine or any disinfectant on your body will not kill the virus. It can also be harmful, as substances such as chlorine are corrosive, and can be especially harmful if it enters the eyes or mouth.",
+                    "<strong>Parcels from China cannot spread COVID-19:</strong> From previous analysis and research, scientists know that COVID-19 cannot survive long on objects, such as letters and packages. People receiving packages from China are not at risk of contracting COVID-19, but precaution should still be taken due to local handling.",
+                    "<strong>Vaccines against pneumonia cannot protect you from COVID-19:</strong> Vaccines against pneumonia, such as Haemophilus influenza Type B (Hib) and pneumococcal vaccines, do not provide protection against COVID-19.",
+                    "<strong>Thermal scanners cannot diagnose COVID-19:</strong> Thermal scanners have the ability to detect if someone has a fever or not. However, other illnesses such as the seasonal flu can also lead to fevers and higher temperatures."
+                ],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative Lifestyle",
+            "title": "Online education during COVID-19",
+            "media": "https://i.imgur.com/D1jUrKh.png",
+            "summary": "With education moving online having access to a range of resources and information can set you up for success! Check out the blog post for tips and tricks to make your life easier through digital schooling.",
+            "date": "30/04/2020",
+            "text": {
+                "text_1": [
+                    "Online education has become a part of the new normal, and despite the news that schools might return soon in some capacity, it is likely that some degree of online learning will remain in place for a while. With that in mind, we’ve collated some helping resources to help parents and kids succeed at online education.",
+                    "Each state has slightly different recommendations and guidelines, but here a few common things to keep in mind."
+                ],
+                "ulist_1": [],
+                "olist_1": [
+                    "<strong>Set up a learning environment</strong>:<br />Find a space that quiet and comfortable. Most states recommend a space outside the bedroom to ensure adequate supervision can be easily provided. This could be a kitchen table or in the lounge, wherever suits your home and family.",
+                    "<strong>Establish a routine</strong>:<br />Figure out times in which assigned tasks will be completed, ensuring that there are a number of breaks included. A student’s day does not need to follow a normal school timetable if that doesn’t work for them, but some kind of consistent schedule is key.",
+                    "<strong>Find other resources to help</strong>:<br />Many resources have been released since the outset of online learning to suit children of all ages. A few tools are linked below that are worth looking at for additional help with schooling."
+                ],
+                "text_2": [
+                    "Here is a resource to help keep students <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.bbc.co.uk/teach/five-ways-to-keep-your-kids-learning-at-home/z4966v4'>engaged</a> at home.",
+                    "The ABC has lessons online on a range of subjects in both primary and secondary school. You can find them <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://education.abc.net.au/home#!/resources'>here</a> and <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://iview.abc.net.au/category/education/'>here</a>.",
+                    "Here is a huge <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.hea.edu.au/discounts-resources/free-resources/'>list of resources</a> if something more specific is needed."
+                ]
+            }
+        },
+        {
+            "tag": "Lifestyle",
+            "title": "Weekly Fitness with HIIT",
+            "media": "https://i.imgur.com/kRhK1mi.jpg",
+            "summary": "Today’s blog post will be this week’s fitness, focusing on High Interval Intensive Training, or HIIT. No equipment needed again, just yourself and a dedicated mindset! 💪",
+            "date": "29/04/2020", 
+            "text": {
+                "text_1": [
+                    "Following on from last week’s cardio, this week’s fitness focus will be on another form of aerobic exercise, which again, doesn’t require any equipment to perform. High-Intensity Interval Training, or HIIT, are workouts that combine short bursts of intense exercise with short periods of rest or lower-intensity exercise.",
+                    "HIIT promises the best workout in the least amount of time, and is widely considered to be one of the most effective methods of exercise for weight loss and fat burning, as well as having the ability to ‘metabolically charge the body’.",
+                    "<h3 class='responsiveH3'><strong>What exactly is HIIT?</strong></h3>",
+                    "When researchers and scientists talk about HIIT, they typically refer to bursts of super-charged physical activity, where a person’s heart rate reaches at least 80% of its maximum capacity. The most well-established benefit of HIIT is heart health, with a short training time being able to provide the same benefits as much longer, continuous forms of aerobic exercise.",
+                    "Interval training causes metabolic disturbance, and can result in the body burning calories at a higher rate up to 48-72 hours after your workout. HIIT can also reduce insulin resistance, improve cardiac function, and most importantly, improved VO2 max, which is a measure of endurance that calculates the maximum volume of oxygen a body can use.",
+                    "<h3 class='responsiveH3'><strong>Here are a few Interval workout you can try at home yourself!</strong></h3>"
+                ],
+                "ulist_1": [
+                    "<strong>Sprint Interval Training:</strong><br />Any form of normal cardio exercises can be adapted into a HIIT workout. One of the easiest and most convenient ways is a sprint interval workout. Spring at 80% for 10 seconds, and rest for 30-60 seconds, then repeat. Gradually increase intensity during your sprints, and repeat 5-15 times. This is a great exercise for building cardiovascular health, especially when done on an incline.",
+                    "<strong>Burpee circuit:</strong><br />- Standings or bounce squats as many reps in 30 seconds <br />- Jumping jacks - 60 reps<br />- Burpees - 20 reps<br />Complete the circuit 4 times, resting one minute after the burpees.",
+                    "<strong>Jump rope interval workout:</strong><br />- Push ups - 30 reps<br />- Front plank - 1 min 30 seconds<br />- Jump rope - 1 minute<br />Complete the circuit 4 times, resting one minute after the jump rope.",
+                    "<strong>Ab interval workout:</strong><br />- Crunches - 20 reps<br />- Bicycle crunches - 1 minute<br />- Flutter kicks - 20 reps<br />- Leg raises - 30 reps<br />- Superman - Hold for 1 minute<br />Complete the circuit 4 times, resting one minute after Superman."
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "There are plenty of online resources for HIIT, with YouTube being a great source for proper form, as well as having videos for all fitness levels. If you have any pre-existing conditions such as asthma or heart-related, consult a doctor before you start a program.",
+                    "As Australia is starting to loosen restrictions on quarantine, hopefully this will mean that we are able to go outside more and stay fit."
+                ]
+            }
+        },
+        {
+            "tag": "Informative",
+            "title": "Non-therapeutic COVID-19 interventions",
+            "media": "https://i.imgur.com/OrkAAUI.png",
+            "summary": "COVID-19 studies on vaccines and drug treatments have all the attention by news media and funding bodies. In this piece we will explore some other COVID-19 studies which have been left in the dark.",
+            "date": "28/04/2020", 
+            "text": {
+                "text_1": [
+                    "In our race to stop COVID-19, vaccines and potential drug treatments have been the belle of the ball – receiving the most attention and funding from government, private and media bodies. However, the potential results of vaccine and drug developments are still to come to fruition. What is currently helping slow the spread of the virus, is our combined efforts in social distancing, hand-washing, and wearing protective equipment. Collectively these mitigation strategies are known as <strong> non-therapeutic interventions.</strong>",
+                    "We will all have come across one of the interventions in our lifetime. Some of these interventions can seem like common sense with guidance from health authorities regarding these interventions are often very broad and left up to our own interpretation. However, more clear and concise instructions are warranted. How should I wash my hands if I have an irritable skin disease? What is the difference between wearing a surgical mask compared to cloth masks? Out of all these interventions - which one is the best? A lack of clarity in public health announcements is often because evidence-based guidelines on these matters often do not reach a consensus after systemic evaluation and studies into these strategies are often too dispersed and unregulated to result in clear outcomes. Therefore, further research on non-therapeutic interventions warrants funding and attention. This is needed such that before the next pandemic, we can have trustful and transparent evidence, to help decision-makers plan and unify their responses, without substantial divergence and hesitation.",
+                    "In this blog, we will review some previous and emerging literature with regard to non-therapeutic interventions, to give them awareness. Please note, some of these studies are pre-prints and have not been peer-reviewed. All articles come from <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org'>www.medrxiv.org</a> or news sources.",
+                    "<h3 class='responsiveH3'><strong>How these studies are conducted</strong></h3>",
+                    "Usually, these non-therapeutic intervention studies can be broadly characterized into three categories:"
+                ],
+                "ulist_1": [
+                    "experimental studies in which different protective equipment made from different materials are assessed in terms of how they protect against the virus ",
+                    "observation studies, where researchers use past documented data/studies and modelling methods to project and evaluate the efficiency of the intervention method.",
+                    "randomized controlled trials, where researchers separate participants into certain groups, with different experimental conditions to perform different interventions in a systematic and control manner. Results are compared between groups."
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "<h3 class='responsiveH3'><strong>Current studies on COVID-19</strong></h3>",
+                    "The studies of most demand have been modelling studies that try to project how major non-intervention strategies, such as lockdown, school closures, and social distancing affect the spread of the infections, as well as other critical factors like keeping ICU cases low. They also usually involve analysis of whether earlier introduction of these social interventions could help prevent the spread of the virus.",
+                    "Seminal studies coming from our news source include new research by the University of Sydney as well as the government's own projections, done in collaboration with Doherty Institute <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://arxiv.org/pdf/2003.10218.pdf'><small class='cite'>[1]</small></a><a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.doherty.edu.au/news-events/news/covid-19-modelling-papers'><small class='cite'>[2]</small></a>. Riding on from the political controversies about the effectiveness of border closures, a major focus has also been to determine which of the major non-intervention strategies, such as lockdown, school closures, and social results have been the most effective at slowing the spread. While some reports hesitated to determine which single non-therapeutic intervention reduced the rate of disease <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org/content/10.1101/2020.04.16.20062141v2.full.pdf'><small class='cite'>[1]</small></a><small class='cite'>,</small><a target='_blank' rel='noopener noreferrer' class='citationLink' href=' https://www.medrxiv.org/content/10.1101/2020.03.02.20026708v1.full.pdf'><small class='cite'>[2]</small></a>, others take a strong stance and support the fact that travel restriction had less success than population movement and close contact in China <a target='_blank' rel='noopener noreferrer' class='citationLink' href=' https://www.medrxiv.org/content/10.1101/2020.03.03.20029843v3.full.pdf'><small class='cite'>[1]</small></a>.",
+                    "Another set of studies focuses on how the virus spreads in the environment. One example is a major study from the New England Journal of Medicine <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.nejm.org/doi/10.1056/NEJMc2004973'><small class='cite'>[1]</small></a> which characterized the stability of COVID-19 in different surfaces. A review of the current literature on the topic is also available here <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.preprints.org/manuscript/202003.0197/v2'><small class='cite'>[1]</small></a>.",
+                    "Another category studies resource allocation of non-therapeutic equipment and assesses when they may show shortages. One study uses the Global burden of disease, injuries, and risk factor data to determine how accessible handwashing stations are in low-income countries <a target='_blank' rel='noopener noreferrer' class='citationLink' href=' https://www.medrxiv.org/content/10.1101/2020.04.07.20057117v1.full.pdf'><small class='cite'>[1]</small></a>. This study uses prediction models to show how sufficient supplies of facemasks are in China, under the current guidelines, indicating there is only a 1 week supply which can be mitigated by scaling production by 42% <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org/content/10.1101/2020.02.11.20020735v2.full.pdf'><small class='cite'>[1]</small></a>.",
+                    "Of the most pressing concern for other studies, is to evaluate whether or not face masks should be used as a non-therapeutic intervention. This comes from the many discrepancies about the usage of face masks from different authorities. While the use of surgical masks has been promoted in Asian countries, the World health organization, Europe and North America do not promote this practice. Some including the Czech Republic, Slovakia, Bosnia, and Herzegovina, and Australia however, have changed their recommendations. The following article provides an extensive systematic review of the current literature regarding facemasks, with an effective overview of how masks' effectiveness changes depending on the setting (household, facemasks), effectiveness in community settings and mass gatherings, and how it can interfere with ordinary activities <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org/content/10.1101/2020.04.01.20049528v1.full.pdf'><small class='cite'>[1]</small></a>.",
+                    "As one of the main problems deterring health organizations from recommending facemasks is the shortage of supply, different strategies have also been proposed. The first possible way is exploring ways to disinfect used masks, so they can be reused. Some of these studies examine cheap, easily deployable disinfection practices <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org/content/10.1101/2020.04.01.20050443v2.full.pdf'><small class='cite'>[1]</small></a>. Others repurpose sanitization machines for mask disinfection <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org/content/10.1101/2020.03.24.20041087v1.full.pdf'><small class='cite'>[1]</small></a>. With different health officials recommending home-made masks, the effectiveness of different house-hold fabrics used by home-made masks to filter particles has also been questioned <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org/content/10.1101/2020.04.14.20065375v1.full.pdf '><small class='cite'>[1]</small></a>. Another examines how studies show how effective the usage of home-made masks is in preventing environmental contamination, rather than protecting the individual from infection.",
+                    "<h3 class='responsiveH3'><strong>How to move forward and what needs to be done</strong></h3>",
+                    "While there does seem to be some amount of studies being published in regards to non-therapeutic interventions, we can always do better and in many cases, it is still not enough. Here are some of the key limitations we believe might be missing from the picture.",
+                    "Firstly, we need to determine how major non-intervention strategies in middle and low-income countries prevent disease. Some studies are already in place, for example, estimation studies in Colombia <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org/content/10.1101/2020.04.16.20063727v2.full.pdf'><small class='cite'>[1]</small></a>. The validity of these studies, however, is coupled with problems due to poor testing capabilities, and the possible real number of cases can be estimated through other methods such as assessing sewage systems for COVID-19 particles. ",
+                    "Most studies currently are either experimental or observational, and there are no random clinical trials (RCT) to assess the effectiveness of these measures. The most pressing gaps in knowledge that are coming from this epidemic, is our lack of consensus about the validity of masks. However aside from assessing masks and their use in curbing COVID-19 infections, there are also numerous other that deserve attention, such as handwashing and eye protection equipment. What are some alternatives if these resources are not available? What resources can be provided to individuals with allergies to the product used? What are the consequences of wearing these equipment long term? ",
+                    "Aside from addressing new questions, it is important to note that, conducting poor quality RCT after pandemics had been a recurring pattern. A new systematic study<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org/content/10.1101/2020.03.30.20047217v2.full.pdf'><small class='cite'>[1]</small></a> assesses the validity of randomized clinical trials conducted in relation to influenza and influenza-like illness after the 2003 SARS epidemic. Of over 2000 clinical trials, all but 100 were immediately omitted from the assessment. Of these 100 studies, there was no significant effect on the use of almost every non-therapeutic intervention which included masks, handwashing, eye protection for influenza. This does not suggest nothing we do actually but helps us, but highlights that much of studies till now have been too low quality and messy to allow us to drive any positive  conclusions.",
+                    "So how would we correct the mistakes from the past? It has been suggested one possible way would be to have  more transparency in randomized clinical trials in regards to non-therapeutic interventions. This in fact is a very broad problem in which all trials performed under any context, aside from vaccines or drugs have been poorly regulated, and they require registration in most countries, especially in the US and EU. Transparency in what studies have been conducted is the first step towards standardising the way these trials are conducted <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.bmj.com/content/350/bmj.h1323.abstract'><small class='cite'>[1]</small></a>. Perhaps, with the number of new dashboard technologies that could be utilised to monitor and track upcoming trials, similar to those proposed for important clinical trials.",
+                    "Aside from randomised clinical trials, what can we do to improve observational studies? Since these studies analyse patterns in data, after the event has passed, documented case information is important. However, the government and others globally provide clear uniform ways of updating case numbers, without consistencies between every province and country. Typically researchers judge the specific material used for protective coverings from government directions and also pictures of the public and what a majority uses. Explicit, direct instructions on how to implement interventions would also be appreciated, such that there is less guessing work. ",
+                    "Lastly, research on the best way to educate and inform the public on how to comply with non-intervention measures as well as the importance of these measures, is heavily needed. We did not come across any of these studies in the current pre-prints, but this is a critical factor especially in countries where there might be poor literacy, as well as to educate and take care of those in the public who might be unable to understand these guidance due to different restrictions.",
+                    "The article which inspired this blog piece:",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://theconversation.com/what-if-the-vaccine-or-drugs-dont-save-us-plan-b-for-coronavirus-means-research-on-alternatives-is-urgently-needed-136833'>The Conversation - What if the vaccine or drugs don’t save us? Plan B for coronavirus means research on alternatives is urgently needed.</a>"
+                ]
+            }
+        },
+        {
             "tag": "Fun",
             "title": "Activities for Children to pass time",
             "media": "https://i.imgur.com/u6TyZqV.png",
@@ -8,8 +176,7 @@
             "date": "27/04/2020", 
             "text": {
                 "text_1": [
-                    "Need to entertain your little ones while stuck at home? Fret not! Many parents have been in your place- and to help with that we’ve compiled a list of digital experiences to try out with our favourite iso-buddies this week!",
-                    ""
+                    "Need to entertain your little ones while stuck at home? Fret not! Many parents have been in your place- and to help with that we’ve compiled a list of digital experiences to try out with our favourite iso-buddies this week!"
                 ],
                 "ulist_1": [],
                 "olist_1": [

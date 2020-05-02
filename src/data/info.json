@@ -747,6 +747,190 @@
             }
         }
     ],
+    "stateRegulations": [
+        {
+            "name": "Queensland",
+            "text": {
+                "text_1": [],
+                "ulist_1": [
+                    "Queenslanders would be able to shop for non-essential items from Friday 1 May",
+                    "Picnics and weekend drives are now allowed, and national parks will reopen. However, residents must not travel further than 50km from their homes, and the “two-person rule” is still in effect. This means if someone leaves their house, they can be joined by only one other person or the members of their household, and physical distancing requirements must still be observed.",
+                    "A household and those who live alone are allowed to have two guests",
+                    "Borders are closed to everyone except residents and essential workers, including freight carriers and emergency workers. There are some exemptions for those who regularly cross the Queensland-NSW border for work."
+                ],
+                "text_middle": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
+                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "29 April 2020"
+        },
+        {
+            "name": "NSW",
+            "text": {
+                "text_1": [],
+                "ulist_1": [
+                    "From Friday 1 May, two adults and the children in their care areallowed to visit another person’s home. These visits must be for “care” reasons, however, the NSW definition or care will be significantly broadened. For example, visiting friends would be considered beneficial for mental health and would, therefore, constitute “care”",
+                    "There are no limits on how many guests someone is allowed per day as long as there are no more than two adults at a time.Details on how far residents are allowed to travel are still to come",
+                    "Premier Gladys Berejilklian has also encouraged retails stores to open and NSW residents to shop as long as physically distancing can be maintained",
+                    "People who are learning to drive can continue to learn to drive and get their hours logged.",
+                    "Children who live across two households can continue to switchbetween houses"
+                ],
+                "text_middle": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
+                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "29 April 2020"
+        },
+        {
+            "name": "Victoria",
+            "text": {
+                "text_1": [],
+                "ulist_1": [
+                    "Victorians cannot visit family members who do not live with them, but may drop off food and supplies for care and compassionate reasons",
+                    "Children who may need to move between the houses of their parents or carers are also allowed to travel, and court-ordered visitation rights for parents can also be upheld"
+                ],
+                "text_middle": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
+                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "29 April 2020"
+        },
+        {
+            "name": "Tasmania",
+            "text": {
+                "text_1": [
+                    "Individuals are only allowed to leave their homes for essential reasons and gatherings limited to two people. Reason for Tasmanians to go out in public include:"
+                ],
+                "ulist_1": [
+                    "Shopping for supplies",
+                    "Undertaking personal exercise",
+                    "Attending medical or healthcare appointments",
+                    "Seeking veterinary services",
+                    "Providing social support or care to another person",
+                    "Attending school or study, if unable to be done at home",
+                    "Attending work or volunteering, if unable to be done at home",
+                    "Performing essential maintenance or security inspections of other premises owned or occupied by the person",
+                    "Attending another location if the person has a reasonableexcuse (such as clearing out a recently deceased relative’s house) in the opinion of the director of public health"
+                ],
+                "text_middle": [
+                    "Tasmania also restricts gatherings of more than two people inside and outside the home, but they have a broad definition of “social support”. This allows families and couples who live apart to visit one another’s homes. Households are allowed to have two visitors as long as physical distancing requirements can be met.",
+                    "Tasmania also requires that all non-essential travellers enteringthe state quarantine for a period of 14 days."
+                ],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
+                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "29 April 2020"
+        },
+        {
+            "name": "Australian Capital Territory",
+            "text": {
+                "text_1": [
+                    "Australian Capital Territory lockdown laws remain in place."
+                ],
+                "ulist_1": [],
+                "text_middle": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
+                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "29 April 2020"
+        },
+        {
+            "name": "Northern Territory",
+            "text": {
+                "text_1": [],
+                "ulist_1": [
+                    "Some physical distancing rules will be eased in theNorthern Territoryfrom Friday 1 May",
+                    "National parks will be opened for the Mayday long weekend forcamping, swimming and hiking but Territorians are urged to practice safe physical distancing",
+                    "The Northern Territory maintains a 10-person gathering limit but Chief minister Michael Gunner has threatened to bring in stricter laws if people do not follow social distancing rules",
+                    "The Northern Territory now requires any non-essential travellers to self-quarantine for a period of 14 days. Remote communities also have protection in place to stop non-essential visitors from entering"
+                ],
+                "text_middle": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
+                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "29 April 2020"
+        },
+        {
+            "name": "South Australia",
+            "text": {
+                "text_1": [],
+                "ulist_1": [
+                    "Students will be back in the classroom for term 2",
+                    "South Australia opted not to enforce new two-person-gatheringlaws but premier Steven Marshall still urged people to follow these rules. On-the-spot fines of $1,000 still will only be applied to those who are gathering in groups larger than 10",
+                    "Gatherings with less than 10 people indoors must abide by the one person per four square meters rules",
+                    "All people entering South Australia are required to undertake a 14-day quarantine"
+                ],
+                "text_middle": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
+                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "29 April 2020"
+        },
+        {
+            "name": "Western Australia",
+            "text": {
+                "text_1": [],
+                "ulist_1": [
+                    "Gathering limits have been increased from two people to 10",
+                    "Residents are allowed to leave home for recreational activities including picnics, fishing, boating or camping",
+                    "The maximum number of people at a wedding has been raised from five to 10",
+                    "Open houses and display villages will also be allowed to operate, however public playgrounds, skateparks and outdoor gym equipment will remain closed, and restaurants and cafes will still be restricted to takeaway and home delivery"
+                ],
+                "text_middle": [],
+                "olist_1": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
+                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "29 April 2020"
+        }
+    ],
     "helplinesTranslated": {
         "national": "1800020080",
         "healthDirect": "1800022222",

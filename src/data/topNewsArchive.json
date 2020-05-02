@@ -1,6 +1,86 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/scott-morrison-says-jobseeker-payment-will-be-cut-after-pandemic",
+            "title": "Scott Morrison says JobSeeker payment will be cut after pandemic",
+            "source": "SBSNews",
+            "date": "23 April 2020",
+            "time": "16:30",
+            "summary": "Scott Morrison has indicated that the JobSeeker allowance, formerly known as Newstart, will be reduced after the COVID-19 pandemic. So far, 587,686 people have signed up to the JobSeeker unemployment benefit during the pandemic. The payment is usually $40 a day but has been doubled for the next six months. However, Mr Morrison indicated he was not interested in extending this timeframe despite the fact many sacked employees will still be struggling to find work."
+        },
+        {
+            "link": "https://www.watoday.com.au/natiaonal/victoria/anzac-appeal-raises-just-3-percent-of-target-as-street-sales-take-a-tumble-20200423-p54mmt.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Anzac Appeal raises just 3% of target as street sales take a tumble",
+            "source": "WAToday",
+            "date": "23 April 2020",
+            "time": "15:17",
+            "summary": "Two days out from Anzac Day, RSL Victoria’s Anzac Appeal has raised less than 3 percent of this year's original goal. The appeal, an annual fundraiser to support war veterans and their families, normally gathers more than 90 per cent of its funds via street sales of badges in the weeks leading up to Anzac Day. With volunteers unable to sell badges this year due to social distancing restrictions, RSL Victoria has raised about $100,000 in online donations. Before the coronavirus pandemic RSL Victoria was hoping to collect $3.5 million this year – the 75th anniversary of the end of World War II – having raised between $3 million and $3.5 million in previous years."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-23/wa-coronavirus-landlords-rental-relief-package-announced/12176888",
+            "title": "WA $154m coronavirus relief package to help renters, landlords and the construction industry",
+            "source": "ABCNews",
+            "date": "23 April 2020",
+            "time": "18:31",
+            "summary": "The West Australian Government has announced a relief package of $154 million to support tenants, landlords and the construction industry impacted by the coronavirus crisis. The package includes $30 million for grants of up to $2,000 to directly help residential tenants pay their rent if they are suffering hardship."
+        },
+        {
+            "link": "https://7news.com.au/business/coles-woolies-relax-online-restrictons-c-991377",
+            "title": "Coles, Woolies relax online restrictions",
+            "source": "7News",
+            "date": "22 April 2020",
+            "time": "09:25",
+            "summary": "Supermarket giants Woolworths and Coles have broadened their home delivery service for online customers, giving hope that life may be returning to normal amid ongoing coronavirus concerns. Coles this week reopened its home delivery, \"click and collect\", to all customers, after having previously limited orders for vulnerable and remote Australians because of the COVID-19 crisis. Woolworths will make \"tens of thousands of extra weekly home delivery windows for online customers\", WooliesX Managing Director Amanda Bardwell said in a statement on Wednesday."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/ban-on-elective-surgeries-including-ivf-to-be-gradually-lifted-from-next-week",
+            "title": "Ban on elective surgeries, including IVF, to be gradually lifted from next week",
+            "source": "SBSNews",
+            "date": "21 April 2020",
+            "time": "14:27",
+            "summary": "State and federal leaders agreed on Tuesday to gradually resume elective surgeries due to an increase in personal protective equipment and the slowdown of new coronavirus cases. Most elective surgeries were suspended last month to free up hospital capacity to deal with the coronavirus pandemic. Other procedures to restart after the Anzac Day long weekend include all children surgeries, joint replacements, eye procedures, endoscopy and colonoscopy."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/21/about-800000-australians-lost-their-job-in-the-first-three-weeks-of-coronavirus-restrictions",
+            "title": "Australia likely to experience largest economic downturn since the Great Depression ",
+            "source": "TheGuardian",
+            "date": "21 April 2020",
+            "time": "14:16",
+            "summary": "Australia is likely to experience the greatest economic contraction since the Great Depression, according to the Reserve Bank of Australia, and has already lost 800,000 jobs and suffered a 6.7% reduction in take home pay, according to the Australian Bureau of Statistics. On Tuesday the RBA provided an economic update predicting a 10% decline in national output in the first half of 2020, a “staggeringly large” 20% reduction in hours worked and unemployment to hit 10% by June."
+        },
+        {
+            "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app",
+            "title": "Privacy concerns persist over Australia's coronavirus tracing app",
+            "source": "TheGuardian",
+            "date": "20 April 2020",
+            "time": "15:40",
+            "summary": "Privacy concerns have been raised over Australia’s new coronavirus tracing app. The government services minister, Stuart Robert, has said that the data would remain “securely encrypted on your phone” unless you tested positive for Covid-19, in which case it would be accessed by state health authorities. However, digital experts have said that the federal government should formally make data collected from its Covid-19 tracing app exempt from use by law enforcement and “decentralise” the way it notifies users about potential contacts with the virus if it wants to allay privacy concerns."
+        },
+        {
+            "link": "https://www.canberratimes.com.au/story/6729209/remember-the-spanish-flu-authorities-on-high-alert-for-second-wave-of-coronavirus-cases/?src=rss",
+            "title": "ACT health authorities on high-alert for \"second\" wave of coronavirus cases",
+            "source": "CanberraTimes",
+            "date": "20 April 2020",
+            "time": "18:30",
+            "summary": "ACT health authorities are on high alert for new COVID-19 cases to emerge once physical distancing restrictions are eased across the country. While chief health officer Kerryn Coleman says the territory may soon be in a position where there are no \"active\" cases of coronavirus with its borders, she insists that doesn't mean the ACT has successfully overcome the pandemic. Chief Minister Andrew Barr warned that any \"early move out\" of the restrictions would heighten the risk of exposing the ACT to a \"second, third, fourth or fifth\" wave of the pandemic."
+        },
+        {
+            "link": "https://www.9news.com.au/national/virgin-australia-airline-administration-board-meeting-as-debt-rises-during-coronavirus-pandemic/b856039f-b87d-4edf-a5e5-8dc0eba773ab",
+            "title": "Virgin Australia expected to go into administration ",
+            "source": "9News",
+            "date": "20 April 2020",
+            "time": "19:27",
+            "summary": "Virgin Australia has reportedly filed for voluntary administration after the struggling airline asked the government for a $1.4 billion bail-out. The jobs of 16,000 employees are on the line, and board members are currently having crisis talks to decide the fate of the carrier. Virgin is carrying about $5b in debt and its domestic and international business has been hit due to the impact of the coronavirus."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-20/extra-funding-for-aeromedical-services-like-royal-flying-doctor/12164498 ",
+            "title": "Aeromedical services like RFDS get $52.8m boost for coronavirus response",
+            "source": "ABCNews",
+            "date": "20 April 2020",
+            "time": "14:45",
+            "summary": "A federal funding boost to the Royal Flying Doctor Service (RFDS) and other aeromedical services will see the capacity for rural and remote medical evacuations increase by 50 per cent. The services, which also include CareFlight and LifeFlight, will share in $52.8 million to evacuate COVID-19 patients to larger medical centres and also fly in medical workers and equipment to staff respiratory clinics."
+        },
+        {
             "link": "https://www.sbs.com.au/news/australia-has-a-sustained-and-genuine-flattening-of-the-coronavirus-curve-greg-hunt-says",
             "title": "Australia has a 'sustained and genuine' flattening of the coronavirus curve, Greg Hunt says",
             "source": "SBSNews",
