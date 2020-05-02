@@ -93,4 +93,4 @@ module.exports = {
         var dateUpdatedInst = this.parseDate(dateString).getTime();
         return this.dateDiff(dateUpdatedInst, today);
     }
-}
+};

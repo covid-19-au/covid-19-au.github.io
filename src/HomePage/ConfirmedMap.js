@@ -10,11 +10,16 @@ import confirmedImg from '../img/icon/confirmed-recent.png'
 import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
 import Acknowledgement from "../Acknowledgment"
+import absStatsData from "../data/absStats";
 
 import { sortedKeys } from "./ConfirmedMapFns"
-import { TimeSeriesDataSource, BigTableOValuesDataSource } from "./ConfirmedMapDataSources"
-import { getAvailableGeoBoundaries, getGeoBoundary, absStats } from "./ConfirmedMapGeoBoundaries" // FIXME!
+import { TimeSeriesDataSource } from "./ConfirmedMapCaseData"
+import { BigTableOValuesDataSource } from "./ConfirmedMapABSData"
+import { getAvailableGeoBoundaries, getGeoBoundary } from "./ConfirmedMapGeoBoundaries" // FIXME!
 import { ConfirmedMarker, HospitalMarker } from "./ConfirmedMapMarkers"
+
+
+const absStats = absStatsData['data'];
 
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;

@@ -109,7 +109,6 @@ class ConfirmedMarker {
             .addTo(map);
     }
 }
-exports.ConfirmedMarker = ConfirmedMarker;
 
 /*******************************************************************
  * Hospital markers
@@ -174,5 +173,8 @@ class HospitalMarker {
             .addTo(this.map);
     }
 }
-exports.HospitalMarker = HospitalMarker;
 
+module.exports = {
+    ConfirmedMarker: ConfirmedMarker,
+    HospitalMarker: HospitalMarker
+}

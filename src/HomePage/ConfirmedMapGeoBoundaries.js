@@ -27,7 +27,7 @@ import saOutlineData from "../data/geojson/boundary_sa.geojson"
 import tasOutlineData from "../data/geojson/boundary_tas.geojson"
 import ntOutlineData from "../data/geojson/boundary_nt.geojson"
 
-import { BigTableOValuesDataSource } from "./ConfirmedMapDataSources"
+import { BigTableOValuesDataSource } from "./ConfirmedMapCaseData"
 import { toTitleCase, sortedKeys } from "./ConfirmedMapFns"
 
 
@@ -37,7 +37,7 @@ const MAPBOX_TOLERANCE = 0.45;
 
 
 function __getGeoBoundaryClasses() {
-    let stateBoundaryClasses = {
+    return {
         // LGA classes
         //"act:lga": ACTBoundary,
         "nsw:lga": NSWLGABoundaries,
@@ -63,7 +63,6 @@ function __getGeoBoundaryClasses() {
         "qld:hhs": QLDHHSGeoBoundaries,
         "nsw:postcode": nswPostCodeData
     };
-    return stateBoundaryClasses;
 }
 
 
@@ -84,8 +83,10 @@ function getGeoBoundary(map, schema, stateName) {
 
 // We'll only allow access to these
 // classes via the above utility fns
-exports.getGeoBoundary = getGeoBoundary;
-exports.getAvailableGeoBoundaries = getAvailableGeoBoundaries;
+module.exports = {
+    getGeoBoundary: getGeoBoundary,
+    getAvailableGeoBoundaries: getAvailableGeoBoundaries
+};
 
 
 class JSONGeoBoundariesBase {
