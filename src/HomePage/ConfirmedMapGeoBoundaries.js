@@ -84,8 +84,9 @@ function getGeoBoundary(map, schema, stateName) {
 
 
 class JSONGeoBoundariesBase {
-    constructor(map, stateName, uniqueId, data) {
+    constructor(map, schema, stateName, uniqueId, data) {
         this.map = map;
+        this.schema = schema;
         this.stateName = stateName;
         this.uniqueId = uniqueId;
         this.addedSources = {};  // Using as a set
@@ -893,7 +894,7 @@ class JSONGeoBoundariesBase {
 
 class WALGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map,'WA','lga_wa', waLgaData);
+        super(map,'lga', 'WA','lga_wa', waLgaData);
     }
     getCityNameFromProperty(data) {
         return ConfirmedMapFns.toTitleCase(data.properties.wa_lga_s_3);
@@ -902,7 +903,7 @@ class WALGABoundaries extends JSONGeoBoundariesBase {
 
 class NSWLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map,'NSW','lga_nsw', nswLgaData);
+        super(map,'lga', 'NSW','lga_nsw', nswLgaData);
     }
     getCityNameFromProperty(data) {
         return ConfirmedMapFns.toTitleCase(data.properties.nsw_lga__3);
@@ -911,7 +912,7 @@ class NSWLGABoundaries extends JSONGeoBoundariesBase {
 
 class VicLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map,'VIC','lga_vic', vicLgaData);
+        super(map,'lga', 'VIC','lga_vic', vicLgaData);
     }
     getCityNameFromProperty(data) {
         let city_name = data.properties.vic_lga__2;
@@ -924,7 +925,7 @@ class VicLGABoundaries extends JSONGeoBoundariesBase {
 
 class NTLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'NT', 'lga_nt', ntLgaData);
+        super(map, 'lga', 'NT', 'lga_nt', ntLgaData);
     }
     getCityNameFromProperty(data) {
         return ConfirmedMapFns.toTitleCase(data.properties['nt_lga_s_3']);
@@ -933,7 +934,7 @@ class NTLGABoundaries extends JSONGeoBoundariesBase {
 
 class QLDLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map,'QLD', 'lga_qld', qldLgaData);
+        super(map,'lga', 'QLD', 'lga_qld', qldLgaData);
     }
     getCityNameFromProperty(data) {
         return data.properties['qld_lga__3'] ?
@@ -943,7 +944,7 @@ class QLDLGABoundaries extends JSONGeoBoundariesBase {
 
 class SALGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'SA', 'lga_sa', saLgaData);
+        super(map, 'lga', 'SA', 'lga_sa', saLgaData);
     }
     getCityNameFromProperty(data) {
         return ConfirmedMapFns.toTitleCase(data.properties['abbname']);
@@ -952,7 +953,7 @@ class SALGABoundaries extends JSONGeoBoundariesBase {
 
 class TasLGABoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'TAS', 'lga_tas', tasLgaData);
+        super(map, 'lga', 'TAS', 'lga_tas', tasLgaData);
     }
     getCityNameFromProperty(data) {
         //console.log(data.properties['tas_lga__3'])
@@ -966,7 +967,7 @@ class TasLGABoundaries extends JSONGeoBoundariesBase {
 
 class ACTSA3Boundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map,'ACT','sa3_act', actSaData);
+        super(map,'sa3', 'ACT','sa3_act', actSaData);
     }
     getCityNameFromProperty(data) {
         return data.properties['name'];
@@ -975,7 +976,7 @@ class ACTSA3Boundaries extends JSONGeoBoundariesBase {
 
 class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'QLD', 'hhs_qld', qldHhsData);
+        super(map, 'hhs', 'QLD', 'hhs_qld', qldHhsData);
     }
     getCityNameFromProperty(data) {
         return data.properties.HHS;
@@ -984,7 +985,7 @@ class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
 
 class NSWPostCodeBoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'NSW', 'postcode_nsw', nswPostCodeData);
+        super(map, 'postcode', 'NSW', 'postcode_nsw', nswPostCodeData);
     }
     getCityNameFromProperty(data) {
         var v = data.properties.loc_pid;
@@ -1001,7 +1002,7 @@ class NSWPostCodeBoundaries extends JSONGeoBoundariesBase {
 
 class ACTBoundary extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'ACT', 'boundary_wa', actOutlineData);
+        super(map, 'statewide', 'ACT', 'boundary_act', actOutlineData);
     }
     getCityNameFromProperty(data) {
         return 'ACT';
@@ -1010,7 +1011,7 @@ class ACTBoundary extends JSONGeoBoundariesBase {
 
 class NSWBoundary extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'NSW', 'boundary_nsw', nswOutlineData);
+        super(map, 'statewide', 'NSW', 'boundary_nsw', nswOutlineData);
     }
     getCityNameFromProperty(data) {
         return 'NSW';
@@ -1019,7 +1020,7 @@ class NSWBoundary extends JSONGeoBoundariesBase {
 
 class NTBoundary extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'NT', 'boundary_nt', ntOutlineData);
+        super(map, 'statewide', 'NT', 'boundary_nt', ntOutlineData);
     }
     getCityNameFromProperty(data) {
         return 'NT';
@@ -1028,7 +1029,7 @@ class NTBoundary extends JSONGeoBoundariesBase {
 
 class VicBoundary extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'VIC', 'boundary_vic', vicOutlineData);
+        super(map, 'statewide', 'VIC', 'boundary_vic', vicOutlineData);
     }
     getCityNameFromProperty(data) {
         return 'VIC';
@@ -1038,7 +1039,7 @@ class VicBoundary extends JSONGeoBoundariesBase {
 /*
 class QLDBoundary extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'QLD', 'boundary_qld', qldOutlineData);
+        super(map, 'statewide', 'QLD', 'boundary_qld', qldOutlineData);
     }
     getCityNameFromProperty(data) {
         return 'QLD';
@@ -1048,7 +1049,7 @@ class QLDBoundary extends JSONGeoBoundariesBase {
 
 class SABoundary extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'SA', 'boundary_sa', saOutlineData);
+        super(map, 'statewide', 'SA', 'boundary_sa', saOutlineData);
     }
     getCityNameFromProperty(data) {
         return 'SA';
@@ -1057,16 +1058,16 @@ class SABoundary extends JSONGeoBoundariesBase {
 
 class TasBoundary extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'TAS', 'boundary_tas', tasOutlineData);
+        super(map, 'statewide', 'TAS', 'boundary_tas', tasOutlineData);
     }
     getCityNameFromProperty(data) {
-        return 'Tas';
+        return 'TAS';
     }
 }
 
 class WABoundary extends JSONGeoBoundariesBase {
     constructor(map) {
-        super(map, 'WA', 'boundary_wa', waOutlineData);
+        super(map, 'statewide', 'WA', 'boundary_wa', waOutlineData);
     }
     getCityNameFromProperty(data) {
         return 'WA';

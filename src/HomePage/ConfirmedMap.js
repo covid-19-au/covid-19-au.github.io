@@ -38,7 +38,7 @@ class MbMap extends React.Component {
             showMarker: true,
         };
 
-        this._markers = 'Total';
+        this._markers = 'total';
         this._underlay = null;
         this._firstTime = true;
 
@@ -250,7 +250,7 @@ class MbMap extends React.Component {
                     var subheaders = regionsTimeSeries[key]['sub_headers']; // CHECK ME!
                     for (let subKey of subheaders) {
                         caseDataInsts[`${key}|${subKey}`] = new TimeSeriesDataSource(
-                            key, subKey, regionsTimeSeries[key],
+                            `${key}|${subKey}`, subKey, regionsTimeSeries[key],
                             key.split(":")[1],
                             key.split(":")[0]
                         );
@@ -317,7 +317,7 @@ class MbMap extends React.Component {
     getCaseDataInst(stateName) {
         var schemas = [
             // In order of preference
-            'postcode',
+            //'postcode',
             'lga',
             'hhs',
             'ths',
@@ -341,7 +341,7 @@ class MbMap extends React.Component {
         return this.geoBoundaryInsts[`${stateName}:${schema}`];
     }
 
-    setUnderlay(noSetState) {
+    setUnderlay() {
         this._resetMode();
         this._underlay = document.getElementById(
             'other_stats_select'
@@ -393,6 +393,8 @@ class MbMap extends React.Component {
         function enableInsts(dataSource, insts) {
             // Overlay LGA ABS data on LGA stats
             for (var i = 0; i < insts.length; i++) {
+                //console.log(`Enable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
+
                 insts[i].addHeatMap(dataSource);
                 insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(
@@ -407,6 +409,7 @@ class MbMap extends React.Component {
         function enableNonLGAInst(dataSource, otherInst, lgaInst) {
             // Overlay LGA ABS data underneath non-LGA stats
             // (e.g. Queensland HHS/ACT SA3)
+            //console.log(`Enable non-lga inst: dataSource->${dataSource.schema}:${dataSource.stateName} otherInst->${otherInst.schema}:${otherInst.stateName} ${otherInst} ${lgaInst}`);
 
             otherInst.addHeatMap(
                 dataSource
@@ -500,11 +503,12 @@ class MbMap extends React.Component {
         }
 
         let that = this,
-            messagesForModes = this._getMessagesForModes(),
-            m = this._markers;
+            messagesForModes = this._getMessagesForModes();
 
         function disableInsts(insts) {
             for (var i = 0; i < insts.length; i++) {
+                //console.log(`Disable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
+
                 insts[i].removeHeatMap();
                 insts[i].removeLinePoly();
                 insts[i].removeFillPoly();
@@ -512,12 +516,14 @@ class MbMap extends React.Component {
             }
         }
         function disableNonLGAInst(otherInst, lgaInst) {
+            //console.log(`Disable non-lga inst: ${otherInst.schema}:${otherInst.stateName} ${lgaInst}`);
+
             otherInst.removeHeatMap();
             otherInst.removeLinePoly();
             otherInst.removeFillPoly();
             otherInst.resetPopups();
 
-            if (that._selectedUnderlay && lgaInst) {
+            if (that._underlay && lgaInst) {
                 lgaInst.removeLinePoly();
                 lgaInst.removeFillPoly();
             }

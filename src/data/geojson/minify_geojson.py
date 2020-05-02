@@ -22,10 +22,29 @@ def get_minified(path):
             'dt_create',
             'dt_retire',
             'lga_pid',
-            'tas_lga_sh',
+            'lga_sh',
+            'lga__1',
+            'stat_2',
+            '_state_',
+            '_stat_1',
+            '_stat_2',
+            '_stat_3',
+            '_stat_4',
+            '_stat_5',
+            '_state_s',
+            '_state_1',
+            '_state_2',
+            '_state_3',
+            '_state_4',
+            '_state_5',
         ):
             if key in feature['properties']:
                 del feature['properties'][key]
+
+            for i_key in list(feature['properties']):
+                if i_key.endswith(key):
+                    del feature['properties'][i_key]
+
         new_features.append(feature)
 
     geojson['features'] = new_features
