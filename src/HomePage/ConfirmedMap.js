@@ -108,7 +108,7 @@ class MbMap extends React.Component {
 
                 <div ref={this.markersBGGroup}
                     className="key"
-                    style={{ display: "none", marginBottom: "0.8rem" }}>
+                    style={{ marginBottom: "0.8rem" }}>
                     Markers:&nbsp;<select id="markers_select"
                         style={{ "maxWidth": "100%" }}>
                         <optgroup label="Basic Numbers">
@@ -135,7 +135,7 @@ class MbMap extends React.Component {
 
                 <div ref={this.underlayBGCont}
                     className="key"
-                    style={{ display: "none", marginBottom: "0.8rem" }}>
+                    style={{ marginBottom: "0.8rem" }}>
                     Underlay:&nbsp;<select id="other_stats_select"
                         style={{ "maxWidth": "100%" }}>
                     </select>
@@ -280,11 +280,10 @@ class MbMap extends React.Component {
                 function enableControls() {
                     // Only enable controls once all the data loaded!
                     var initialized = true;
-                    for (let key in caseDataInsts) {
-                        for (let subKey in caseDataInsts[key]) {
-                            if (!caseDataInsts[key][subKey].initialized) {
-                                initialized = false;
-                            }
+                    for (let key in geoBoundaryInsts) {
+                        if (!geoBoundaryInsts[key].initialized) {
+                            initialized = false;
+                            console.log(key)
                         }
                     }
 
@@ -297,6 +296,9 @@ class MbMap extends React.Component {
 
                         document.getElementById('other_stats_select').onchange = function () {
                             that.setUnderlay();
+                        }
+                        document.getElementById('markers_select').onchange = function () {
+                            that.setMarkers();
                         }
                     }
                     else {
@@ -420,7 +422,7 @@ class MbMap extends React.Component {
                 true
             );
 
-            if (that._underlay) {
+            if (that._underlay && lgaInst) {
                 lgaInst.addLinePoly(
                     that.absStatsInsts[that._underlay],
                     'rgba(0, 0, 0, 0.1)'
@@ -445,11 +447,18 @@ class MbMap extends React.Component {
 
         this.statesAndTerritories.forEach((stateName) => {
             var absStatDataInst = this.absStatsInsts[this._underlay],
-                caseDataInst = this.getCaseDataInst(stateName),
-                absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, 'lga'),
+                caseDataInst = this.getCaseDataInst(stateName);
+
+            if (!caseDataInst) {
+                return;
+            }
+            var absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, 'lga'),
                 caseGeoBoundariesInst = this.getGeoBoundariesInst(stateName, caseDataInst.schema);
 
-            if (absGeoBoundariesInst === caseGeoBoundariesInst) {
+            if (!caseGeoBoundariesInst) {
+                return;
+            }
+            else if (absGeoBoundariesInst === caseGeoBoundariesInst) {
                 enableInsts(caseDataInst, [caseGeoBoundariesInst]); // HACK!
             }
             else {
@@ -507,7 +516,7 @@ class MbMap extends React.Component {
             otherInst.removeFillPoly();
             otherInst.resetPopups();
 
-            if (that._selectedUnderlay) {
+            if (that._selectedUnderlay && lgaInst) {
                 lgaInst.removeLinePoly();
                 lgaInst.removeFillPoly();
             }
@@ -524,11 +533,18 @@ class MbMap extends React.Component {
 
         this.statesAndTerritories.forEach((stateName) => {
             var absStatDataInst = this.absStatsInsts[this._underlay],
-                caseDataInst = this.getCaseDataInst(stateName),
-                absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, 'lga'),
+                caseDataInst = this.getCaseDataInst(stateName);
+
+            if (!caseDataInst) {
+                return;
+            }
+            var absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, 'lga'),
                 caseGeoBoundariesInst = this.getGeoBoundariesInst(stateName, caseDataInst.schema);
 
-            if (absGeoBoundariesInst === caseGeoBoundariesInst) {
+            if (!caseGeoBoundariesInst) {
+                return;
+            }
+            else if (absGeoBoundariesInst === caseGeoBoundariesInst) {
                 disableInsts([caseGeoBoundariesInst]); // HACK!
             }
             else {

@@ -110,6 +110,7 @@ class JSONGeoBoundariesBase {
         this.pointGeoJSONData = this._getModifiedGeoJSONWithPolyCentralAreaPoints(
             this.geoJSONData
         );
+        this.initialized = true;
     }
 
     /*******************************************************************
