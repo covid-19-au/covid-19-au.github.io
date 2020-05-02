@@ -1,25 +1,23 @@
 import React from "react";
 import mapboxgl from 'mapbox-gl';
-import polylabel from 'polylabel';
-import CanvasJS from "../assets/canvasjs.min.js";
 import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
 import mapDataArea from "../data/mapdataarea"
 
 import regionsTimeSeries from "../data/regionsTimeSeriesAutogen.json"
-import absStatsData from "../data/absStats"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from '../img/icon/confirmed-recent.png'
 import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
-import ReactGA from "react-ga";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
 import Acknowledgement from "../Acknowledgment"
 
 import { sortedKeys } from "./ConfirmedMapFns"
+import { absStats } from "./ConfirmedMapGeoBoundaries"
+import { ConfirmedMarker, HospitalMarker } from "./ConfirmedMapMarkers"
 
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
@@ -27,11 +25,6 @@ mapboxgl.accessToken = token;
 
 // Threshold for an 'old case', in days
 const oldCaseDays = 14;
-
-
-const absStats = absStatsData['data'],
-    absStatsStates = absStatsData['states'],
-    absStatsLGANames = absStatsData['lga_names'];
 
 
 class MbMap extends React.Component {

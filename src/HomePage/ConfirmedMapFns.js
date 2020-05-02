@@ -1,6 +1,8 @@
-
-// Various utility functions
 module.exports = {
+    /*******************************************************************
+     * Array helper functions
+     *******************************************************************/
+
     sortedKeys: function(o) {
         // Return the keys in `o`, sorting
         // (case-sensitive)
@@ -15,37 +17,9 @@ module.exports = {
         return r
     },
 
-    getToday: function() {
-        // Get today's date, setting the time to
-        // midnight to allow for calculations
-        var today = new Date();
-        today.setHours(0, 0, 0, 0);
-        return today;
-    },
-
-    parseDate: function(str) {
-        // Convert `str` to a `Date` object
-        // dateString must be dd/mm/yyyy format
-        var mdy = str.split('/');
-        // year, month index, day
-        return new Date(mdy[2], mdy[1] - 1, mdy[0]);
-    },
-
-    dateDiff: function(first, second) {
-        // Get the difference in days between
-        // the first and second `Date` instances
-        return Math.round((second - first) / (1000 * 60 * 60 * 24));
-    },
-
-    dateDiffFromToday: function(dateString) {
-        // Get number of days ago from today and
-        // `dateString` in dd/mm/yyyy format
-        // NOTE: returns a *positive* number if
-        // `dateString` is in the past
-        var today = getToday();
-        var dateUpdatedInst = parseDate(dateString).getTime();
-        return dateDiff(dateUpdatedInst, today);
-    },
+    /*******************************************************************
+     * String functions
+     *******************************************************************/
 
     toTitleCase: function(str) {
         // convert to Title Case
@@ -82,5 +56,41 @@ module.exports = {
         if (s.indexOf('the ') === 0)
             s = s.slice(4);
         return s;
+    },
+
+    /*******************************************************************
+     * Date functions
+     *******************************************************************/
+
+    getToday: function() {
+        // Get today's date, setting the time to
+        // midnight to allow for calculations
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return today;
+    },
+
+    parseDate: function(str) {
+        // Convert `str` to a `Date` object
+        // dateString must be dd/mm/yyyy format
+        var mdy = str.split('/');
+        // year, month index, day
+        return new Date(mdy[2], mdy[1] - 1, mdy[0]);
+    },
+
+    dateDiff: function(first, second) {
+        // Get the difference in days between
+        // the first and second `Date` instances
+        return Math.round((second - first) / (1000 * 60 * 60 * 24));
+    },
+
+    dateDiffFromToday: function(dateString) {
+        // Get number of days ago from today and
+        // `dateString` in dd/mm/yyyy format
+        // NOTE: returns a *positive* number if
+        // `dateString` is in the past
+        var today = this.getToday();
+        var dateUpdatedInst = this.parseDate(dateString).getTime();
+        return this.dateDiff(dateUpdatedInst, today);
     }
 }

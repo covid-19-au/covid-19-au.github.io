@@ -3,11 +3,9 @@ import confirmedImg from "../img/icon/confirmed-recent.png";
 import mapboxgl from "mapbox-gl";
 import hospitalImg from "../img/icon/hospital.png";
 
-
 /*******************************************************************
- * Hospital and specific case markers
+ * Confirmed markers
  *******************************************************************/
-
 
 class ConfirmedMarker {
     constructor(map, item) {
@@ -111,7 +109,11 @@ class ConfirmedMarker {
             .addTo(map);
     }
 }
+exports.ConfirmedMarker = ConfirmedMarker;
 
+/*******************************************************************
+ * Hospital markers
+ *******************************************************************/
 
 class HospitalMarker {
     constructor(map, item) {
@@ -172,4 +174,5 @@ class HospitalMarker {
             .addTo(this.map);
     }
 }
+exports.HospitalMarker = HospitalMarker;
 

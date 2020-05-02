@@ -1,7 +1,7 @@
 import ReactGA from "react-ga";
 import mapboxgl from "mapbox-gl";
-import CanvasJS from "../assets/canvasjs.min";
 import polylabel from "polylabel";
+import CanvasJS from "../assets/canvasjs.min";
 
 // by LGA
 import vicLgaData from "../data/geojson/lga_vic.geojson"
@@ -27,10 +27,65 @@ import saOutlineData from "../data/geojson/boundary_sa.geojson"
 import tasOutlineData from "../data/geojson/boundary_tas.geojson"
 import ntOutlineData from "../data/geojson/boundary_nt.geojson"
 
+import { BigTableOValuesDataSource } from "./ConfirmedMapDataSources"
+import { toTitleCase, sortedKeys } from "./ConfirmedMapFns"
+
 
 // Higher values will result in less accurate lines,
 // but faster performance. Default is 0.375
 const MAPBOX_TOLERANCE = 0.45;
+
+
+function __getGeoBoundaryClasses() {
+    let stateBoundaryClasses = {
+        // LGA classes
+        //"act:lga": ACTBoundary,
+        "nsw:lga": NSWLGABoundaries,
+        //"nt:lga": NTLGABoundaries,
+        "vic:lga": VicLGABoundaries,
+        "qld:lga": QLDLGABoundaries,
+        "sa:lga": SALGABoundaries,
+        //"tas:lga": TasLGABoundaries,
+        "wa:lga": WALGABoundaries,
+
+        // Statewide outlines
+        "act:statewide": ACTBoundary,
+        "nsw:statewide": NSWBoundary,
+        "nt:statewide": NTBoundary,
+        "vic:statewide": VicBoundary,
+        //"qld:statewide": QLDBoundary,  TODO!
+        "sa:statewide": SABoundary,
+        "tas:statewide": TasBoundary,
+        "wa:statewide": WABoundary,
+
+        // Other schemas
+        "act:sa3": ACTSA3Boundaries,
+        "qld:hhs": QLDHHSGeoBoundaries,
+        "nsw:postcode": nswPostCodeData
+    };
+    return stateBoundaryClasses;
+}
+
+
+function getAvailableGeoBoundaries() {
+    return sortedKeys(__getGeoBoundaryClasses());
+}
+
+var __geoBoundaryCache = new Map();
+function getGeoBoundary(map, schema, stateName) {
+    let key = `${schema}:${stateName}`;
+    if (__geoBoundaryCache.has(key)) {
+        return __geoBoundaryCache.get(key);
+    }
+    var inst = new __getGeoBoundaryClasses()[key](map);
+    __geoBoundaryCache.set(key, inst);
+    return inst;
+}
+
+// We'll only allow access to these
+// classes via the above utility fns
+exports.getGeoBoundary = getGeoBoundary;
+exports.getAvailableGeoBoundaries = getAvailableGeoBoundaries;
 
 
 class JSONGeoBoundariesBase {
@@ -1015,13 +1070,3 @@ class WABoundary extends JSONGeoBoundariesBase {
     }
 }
 
-var stateBoundaryClasses = {
-    act: ACTBoundary,
-    nsw: NSWBoundary,
-    nt: NTBoundary,
-    vic: VicBoundary,
-    //qld: QLDBoundary,  TODO!
-    sa: SABoundary,
-    tas: TasBoundary,
-    wa: WABoundary
-};

@@ -1,10 +1,18 @@
 import {
-    prepareForComparison,
-    parseDate,
-    dateDiffFromToday,
-    getToday,
-    dateDiff
-} from "./ConfirmedMapFns"
+    prepareForComparison, parseDate,
+    dateDiffFromToday, getToday, dateDiff
+} from "./ConfirmedMapFns";
+import absStatsData from "../data/absStats";
+
+
+const absStats = absStatsData['data'],
+    absStatsStates = absStatsData['states'],
+    absStatsLGANames = absStatsData['lga_names'];
+
+// TODO: Should these be here?
+exports.absStats = absStats;
+exports.absStatsStates = absStatsStates;
+exports.absStatsLGANames = absStatsLGANames;
 
 
 class DataSourceBase {
@@ -326,5 +334,3 @@ class BigTableOValuesDataSource extends DataSourceBase {
     }
 }
 exports.BigTableOValuesDataSource = BigTableOValuesDataSource;
-
-
