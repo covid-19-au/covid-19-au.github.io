@@ -104,7 +104,7 @@ const Promotion = {
         {
             name: "Jennifer Ziyi Yang",
             linkedin: "",
-            email: "",
+            email: "yangziyi1997@gmail.com",
             github: "",
             website: "",
             fileName: "Jennifer.png"
@@ -120,7 +120,7 @@ const Promotion = {
         {
             name: "Xiao Chen Xi",
             linkedin: "",
-            email: "",
+            email: "xxc12396@gmail.com",
             github: "",
             website: "",
             fileName: "Xiaochen.png"
@@ -135,8 +135,8 @@ const Promotion = {
         },
         {
             name: "Jiwon Ryu",
-            linkedin: "",
-            email: "",
+            linkedin: "https://www.linkedin.com/in/jiwonryu0603/",
+            email: "ryujiwon0603@gmail.com",
             github: "",
             website: "",
             fileName: "Jiwon.png"
@@ -168,7 +168,7 @@ const Promotion = {
         {
             name: "Ben Ye",
             linkedin: "",
-            email: "",
+            email: "benye61@gmail.com",
             github: "",
             website: "",
             fileName: "BenYe.png"
@@ -309,7 +309,7 @@ const Data_Collection = {
         {
             name: "Michelle Yu Ying Wong",
             linkedin: "https://www.linkedin.com/in/michelle-wong-44aa4aa5/",
-            email: "",
+            email: "michelleyuyingwong@gmail.com",
             github: "",
             website: "",
             fileName: "Michelle.png"
@@ -440,8 +440,8 @@ const Language = {
         },
         {
             name: "Jiwon Ryu",
-            linkedin: "",
-            email: "",
+            linkedin: "https://www.linkedin.com/in/jiwonryu0603/",
+            email: "ryujiwon0603@gmail.com",
             github: "",
             website: "",
             fileName: "Jiwon.png"
