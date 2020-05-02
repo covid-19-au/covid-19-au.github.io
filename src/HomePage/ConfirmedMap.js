@@ -12,11 +12,11 @@ import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import Radio from '@material-ui/core/Radio';
 import Acknowledgement from "../Acknowledgment"
 
 import { sortedKeys } from "./ConfirmedMapFns"
-import { absStats } from "./ConfirmedMapGeoBoundaries"
+import { TimeSeriesDataSource, BigTableOValuesDataSource } from "./ConfirmedMapDataSources"
+import { getAvailableGeoBoundaries, getGeoBoundary, absStats } from "./ConfirmedMapGeoBoundaries" // FIXME!
 import { ConfirmedMarker, HospitalMarker } from "./ConfirmedMapMarkers"
 
 //Fetch Token from env
@@ -42,17 +42,18 @@ class MbMap extends React.Component {
         this._underlay = null;
         this._firstTime = true;
 
-        this.markersButtonGroup = React.createRef();
-        this.underlayButtonGroup = React.createRef();
+        this.markersBGGroup = React.createRef();
+        this.underlayBGCont = React.createRef();
 
         this.hospitalMessage = React.createRef();
         this.totalCasesMessage = React.createRef();
         this.cityLevelMessage = React.createRef();
         this.activeCasesMessage = React.createRef();
         this.accuracyWarning = React.createRef();
-        //this.otherStatsSelect = React.createRef();
-        //this.otherStatsSelectCont = React.createRef();
-        this.underlayBGCont = React.createRef();
+
+        this.statesAndTerritories = [
+            'act', 'nsw', 'vic', 'tas', 'wa', 'nt', 'qld', 'sa'
+        ];
     }
 
     /*******************************************************************
@@ -105,76 +106,37 @@ class MbMap extends React.Component {
                         <Acknowledgement>
                         </Acknowledgement></div></h2>
 
-                <div>
-                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
-                        Case Markers:&nbsp;<ButtonGroup ref={this.markersButtonGroup}
-                            size="small"
-                            aria-label="small outlined button group"
-                            style={{ pointerEvents: "none" }}>
-                            {/*<Button style={this._markers == null ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers(null)}>Off</Button>*/}
-                            <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('Total')}>Total</Button>
-                            <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('7 Days')}>7 Days</Button>
-                            <Button style={this._markers === '14 Days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('14 Days')}>14 Days</Button>
-                            <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('Active')}>Active</Button>
-                            {/*<Button style={this._markers === 'Tests' ? activeStyles : inactiveStyles}
-                                    onClick={() => this.setMarkers('Tests')}>Tests</Button>*/}
-                            <Button style={this._markers === 'Hospitals' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('Hospitals')}>COVID-19 Hospitals</Button>
-                        </ButtonGroup>
-                    </span>
-                </div>
-
-                {/*<div>
-                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
-                        :&nbsp;<ButtonGroup
-                            size="small"
-                            aria-label="small outlined button group"
-                            style={{ pointerEvents: "none" }}>
-                            <Button style={this._markers === 'Total' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('Total')}>Total Tests</Button>
-                            <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('7 Days')}>Tests Per Capita</Button>
-                            <Button style={this._markers === '7 Days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('7 Days')}>Tests Positive Rate</Button>
-                            <Button style={this._markers === '14 Days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('14 Days')}>Recovered</Button>
-                            <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('Active')}>Deaths</Button>
-                            <Button style={this._markers === 'Active' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setMarkers('Active')}>Active</Button>
-                        </ButtonGroup>
-                    </span>
-                </div>*/}
-
-                <div ref={this.underlayBGCont}>
-                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "0.8rem" }}>
-                        Underlay:&nbsp;<ButtonGroup ref={this.underlayButtonGroup}
-                            size="small"
-                            aria-label="small outlined button group"
-                            style={{ pointerEvents: "none" }}>
-                            <Button style={this._underlay == null ? activeStyles : inactiveStyles}
-                                onClick={() => this.setUnderlay(null)}>Off</Button>
-                            <Button style={this._underlay === 'Population Density' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setUnderlay('Population Density')}>Population Density</Button>
-                            <Button style={this._underlay === 'Socioeconomic Index' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setUnderlay('Socioeconomic Index')}>Socioeconomic Index</Button>
-                            <Button style={this._underlay === 'Aged 65+' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setUnderlay('Aged 65+')}>Aged 65+</Button>
-                            <Button style={this._underlay === 'Other Stats' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setUnderlay('Other Stats')}>Other Stats</Button>
-                        </ButtonGroup>
-                    </span>
-                </div>
-
-                <div ref={el => this.otherStatsSelectCont = el}
+                <div ref={this.markersBGGroup}
                     className="key"
                     style={{ display: "none", marginBottom: "0.8rem" }}>
-                    Other&nbsp;Stat:&nbsp;<select id="other_stats_select"
+                    Markers:&nbsp;<select id="markers_select"
+                        style={{ "maxWidth": "100%" }}>
+                        <optgroup label="Basic Numbers">
+                            <option value="total">Total</option>
+                            <option value="active">Active</option>
+                            <option value="recovered">Recovered</option>
+                            <option value="deaths">Deaths</option>
+                            <option value="icu">ICU</option>
+                            {/*<option value="icu_ventilators">ICU Ventilators</option>*/}
+                            <option value="hospitalized">Hospitalized</option>
+                        </optgroup>
+                        <optgroup label="Test Numbers">
+                            <option value="tests_total">Total People Tested</option>
+                        </optgroup>
+                        <optgroup label="Source of Infection">
+                            <option value="overseas">Contracted Overseas</option>
+                            <option value="community">Unknown Community Transmission</option>
+                            <option value="confirmed">Contracted from Confirmed Case</option>
+                            <option value="interstate">Contracted Interstate</option>
+                            <option value="under_investigation">Under Investigation</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div ref={this.underlayBGCont}
+                    className="key"
+                    style={{ display: "none", marginBottom: "0.8rem" }}>
+                    Underlay:&nbsp;<select id="other_stats_select"
                         style={{ "maxWidth": "100%" }}>
                     </select>
                 </div>
@@ -259,23 +221,9 @@ class MbMap extends React.Component {
             })
         );
 
-        //Add Zoom Controls
+        //Add zoom+fullscreen controls
         map.addControl(new mapboxgl.NavigationControl());
-
-        //Add Full Screen Controls
         map.addControl(new mapboxgl.FullscreenControl());
-
-        /*
-        map.on('move', () => {
-            const { lng, lat } = map.getCenter();
-
-            this.setState({
-                lng: lng.toFixed(4),
-                lat: lat.toFixed(4),
-                zoom: map.getZoom().toFixed(2)
-            });
-        });
-         */
 
         // Add markers: confirmed cases/hospitals
         // only for tas/nt at this point
@@ -294,26 +242,15 @@ class MbMap extends React.Component {
         var that = this;
         map.on('load', function () {
             (async () => {
-                // Technically the timeseries data also includes recovered/
-                var totalData = new CurrentValuesDataSource(
-                    'totalData', mapDataArea
-                );
-                that.totalData = new TimeSeriesDataSource(
-                    'totalData', 'total',
-                    regionsTimeSeries, totalData
-                );
-                that.activeData = new TimeSeriesDataSource(
-                    'activeData', 'active',
-                    regionsTimeSeries
-                );
-                that.sevenDaysAgo = new ActiveTimeSeriesDataSource(
-                    'sevenDaysAgo', 'total',
-                    regionsTimeSeries, 7
-                );
-                that.fourteenDaysAgo = new ActiveTimeSeriesDataSource(
-                    'fourteenDaysAgo', 'total',
-                    regionsTimeSeries, 14
-                );
+                // Create case data instances
+                var caseDataInsts = that.caseDataInsts = {};
+                for (let key in regionsTimeSeries) {
+                    var d = caseDataInsts[key] = {};
+                    var subheaders = regionsTimeSeries[key]['subheaders']; // CHECK ME!
+                    for (let subKey of subheaders) {
+                        caseDataInsts[`${key}|${subKey}`] = new TimeSeriesDataSource(key, subKey);
+                    }
+                }
 
                 // Create ABS stat instances
                 var absStatsInsts = that.absStatsInsts = {};
@@ -327,50 +264,32 @@ class MbMap extends React.Component {
                     }
                 }
 
-                // ACT uses SA3 schema, Queensland uses HHS.
-                // The others use LGA (Local Government Area)
-                that.sa3ACT = new ACTSA3Boundaries(map);
-                that.hhsQLD = new QLDHHSGeoBoundaries(map);
-
-                //that.lgaACT = new ACTLGABoundaries(map);    <-- TODO!
-                that.lgaNSW = new NSWLGABoundaries(map);
-                //that.lgaNT = new NTLGABoundaries(map);
-                that.lgaVic = new VicLGABoundaries(map);
-                that.lgaQLD = new QLDLGABoundaries(map);
-                that.lgaWA = new WALGABoundaries(map);
-                //that.lgaSA = new SALGABoundaries(map);
-                //that.lgaTas = new TasLGABoundaries(map);
+                // Create map data instances
+                var geoBoundaryInsts = that.geoBoundaryInsts = {};
+                for (var key of getAvailableGeoBoundaries()) {
+                    geoBoundaryInsts[key] = getGeoBoundary(key);
+                }
 
                 function enableControls() {
+                    // Only enable controls once all the data loaded!
                     var initialized = true;
-                    [
-                        that.sa3ACT,
-                        that.hhsQLD,
-
-                        //that.lgaACT,
-                        that.lgaNSW,
-                        //that.lgaNT,
-                        that.lgaVic,
-                        that.lgaQLD,
-                        that.lgaWA,
-                        //that.lgaSA
-                        //that.lgaTas
-                    ].forEach(function (inst) {
-                        if (!inst.geoJSONData) {
-                            initialized = false;
+                    for (let key in caseDataInsts) {
+                        for (let subKey in caseDataInsts[key]) {
+                            if (!caseDataInsts[key][subKey].initialized) {
+                                initialized = false;
+                            }
                         }
-                    });
+                    }
 
                     if (initialized) {
-                        // Only enable the controls once all the data has loaded!
-                        that.setUnderlay(that._underlay);
-                        that.setMarkers(that._markers);
+                        that.setUnderlay();
+                        that.setMarkers();
 
-                        that.markersButtonGroup.current.style.pointerEvents = 'auto';
-                        that.underlayButtonGroup.current.style.pointerEvents = 'auto';
+                        that.markersBGGroup.current.style.pointerEvents = 'auto';
+                        that.underlayBGCont.current.style.pointerEvents = 'auto';
 
                         document.getElementById('other_stats_select').onchange = function () {
-                            that.setUnderlay(that._underlay);
+                            that.setUnderlay();
                         }
                     }
                     else {
@@ -386,51 +305,45 @@ class MbMap extends React.Component {
      * Mode update
      *******************************************************************/
 
-    setUnderlay(underlay, noSetState) {
+    getCaseDataInst(stateName) {
+        var schemas = [
+            // In order of preference
+            'postcode',
+            'lga',
+            'hhs',
+            'ths',
+            'lhd',
+            'statewide'
+        ];
+
+        for (var schema of schemas) {
+            var key = `${stateName}:${schema}|${this._markers}`;
+
+            if (key in this.caseDataInsts) {
+                return this.caseDataInsts[key];
+            }
+        }
+        return null;
+    }
+
+    getGeoBoundariesInst(stateName, schema) {
+        // TODO: allow for loading geojson/pbf on-demand!!
+        return this.geoBoundaryInsts[`${stateName}:${schema}`];
+    }
+
+    setUnderlay(noSetState) {
         this._resetMode();
-
-        if (!noSetState) {
-            this._underlay = underlay;
-            this.setState({
-                _underlay: underlay
-            });
-        }
-
-        if (underlay == null) {
-            this._selectedUnderlay = null;
-        }
-        else if (underlay === 'Population Density') {
-            this._selectedUnderlay = 'Population density (persons/km2)';
-        }
-        else if (underlay === 'Socioeconomic Index') {
-            this._selectedUnderlay = 'Index of Relative Socio-economic Advantage and Disadvantage (%)';
-        }
-        else if (underlay === 'Aged 65+') {
-            this._selectedUnderlay = 'Persons - 65 years and over (%)';
-        }
-        else if (underlay === 'Other Stats') {
-            this._selectedUnderlay = document.getElementById('other_stats_select').value;
-        }
-        else {
-            throw "Unknown mode"
-        }
-
-        this.otherStatsSelectCont.style.display =
-            (
-                underlay === 'Other Stats' &&
-                this._markers !== 'Hospitals'
-            ) ? 'block' : 'none'
-            ;
-
+        this._underlay = document.getElementById(
+            'other_stats_select'
+        ).value;
         this._updateMode()
     }
 
-    setMarkers(markers) {
+    setMarkers() {
         this._resetMode();
-        this._markers = markers;
-        this.setState({
-            _markers: markers
-        });
+        this._markers = document.getElementById(
+            'markers_select'
+        ).value;
         this._updateMode()
     }
 
@@ -500,13 +413,13 @@ class MbMap extends React.Component {
                 true
             );
 
-            if (that._selectedUnderlay) {
+            if (that._underlay) {
                 lgaInst.addLinePoly(
-                    that.absStatsInsts[that._selectedUnderlay],
+                    that.absStatsInsts[that._underlay],
                     'rgba(0, 0, 0, 0.1)'
                 );
                 lgaInst.addFillPoly(
-                    that.absStatsInsts[that._selectedUnderlay],
+                    that.absStatsInsts[that._underlay],
                     null,
                     that._underlay ? 0.5 : 0,
                     !!that._underlay,
@@ -521,69 +434,32 @@ class MbMap extends React.Component {
                 messages[j].current.style.display = 'block';
             }
         }
-        updateMessages();
+        //updateMessages();
 
-        // Change to the new markers mode
-        if (markers === null) {
-        }
-        else if (markers === 'Total') {
-            enableInsts(this.totalData, [
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA//, this.lgaSA
-            ]);
-            enableNonLGAInst(this.totalData, this.hhsQLD, this.lgaQLD);
-            this.confirmedMarkers.forEach(
-                (marker) => marker.show()
-            );
-        }
-        else if (markers === '7 Days') {
-            // TODO: Show recent confirmed markers!
-            enableInsts(this.sevenDaysAgo, [
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA//, this.lgaSA
-            ]);
-            enableNonLGAInst(this.sevenDaysAgo, this.hhsQLD, this.lgaQLD);
-        }
-        else if (markers === '14 Days') {
-            // TODO: Show recent confirmed markers!
-            enableInsts(this.fourteenDaysAgo, [
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA//, this.lgaSA
-            ]);
-            enableNonLGAInst(this.fourteenDaysAgo, this.hhsQLD, this.lgaQLD);
-        }
-        else if (markers === 'Active') {
-            enableNonLGAInst(this.activeData, this.hhsQLD, this.lgaQLD);
-        }
-        else if (markers === 'Tests') {
-            this.lgaNSW.addHeatMap(this.testsData);
-        }
-        else if (markers === 'Hospitals') {
-            this.underlayBGCont.current.style.display = 'none';
-            this.hospitalMarkers.forEach(
-                (marker) => marker.show()
-            );
-        }
-        else {
-            throw "Unknown marker";
-        }
+        this.statesAndTerritories.forEach((stateName) => {
+            var absStatDataInst = this.absStatsInsts[this._underlay],
+                caseDataInst = this.getCaseDataInst(stateName),
+                absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, 'lga'),
+                caseGeoBoundariesInst = this.getGeoBoundariesInst(stateName, caseDataInst.schema);
 
-        this.otherStatsSelectCont.style.display =
-            (
-                this._underlay === 'Other Stats' &&
-                this._markers !== 'Hospitals'
-            ) ? 'block' : 'none'
-        ;
+            if (absGeoBoundariesInst === caseGeoBoundariesInst) {
+                enableInsts(caseDataInst, [caseGeoBoundariesInst]); // HACK!
+            }
+            else {
+                enableNonLGAInst(caseDataInst, caseGeoBoundariesInst, absGeoBoundariesInst);
+            }
+        });
 
         // Make sure the map is fully loaded
         // before allowing a new change in tabs
-        this.markersButtonGroup.current.style.pointerEvents = 'none';
-        this.underlayButtonGroup.current.style.pointerEvents = 'none';
-        this.otherStatsSelectCont.style.pointerEvents = 'none';
+        this.markersBGGroup.current.style.pointerEvents = 'none';
+        this.underlayBGCont.current.style.pointerEvents = 'none';
 
         function enableControlsWhenMapReady() {
             if (that.map.loaded()) {
                 that._enableControlsJob = null;
-                that.markersButtonGroup.current.style.pointerEvents = 'all';
-                that.underlayButtonGroup.current.style.pointerEvents = 'all';
-                that.otherStatsSelectCont.style.pointerEvents = 'all';
+                that.markersBGGroup.current.style.pointerEvents = 'all';
+                that.underlayBGCont.current.style.pointerEvents = 'all';
             }
             else {
                 that._enableControlsJob = setTimeout(
@@ -637,42 +513,23 @@ class MbMap extends React.Component {
                 }
             }
         }
-        clearMessages();
+        //clearMessages();
 
-        if (m === null) {
-        }
-        else if (m === 'Total') {
-            disableInsts([
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA//, this.lgaSA
-            ]);
-            disableNonLGAInst(this.hhsQLD, this.lgaQLD);
-            this.confirmedMarkers.forEach(
-                (marker) => marker.hide()
-            );
-        }
-        else if (m === '7 Days') {
-            disableInsts([
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA//, this.lgaSA
-            ]);
-            disableNonLGAInst(this.hhsQLD, this.lgaQLD);
-        }
-        else if (m === '14 Days') {
-            disableInsts([
-                this.sa3ACT, this.lgaNSW, this.lgaVic, this.lgaWA//, this.lgaSA
-            ]);
-            disableNonLGAInst(this.hhsQLD, this.lgaQLD);
-        }
-        else if (m === 'Active') {
-            disableNonLGAInst(this.hhsQLD, this.lgaQLD);
-        }
-        else if (m === 'Hospitals') {
-            this.underlayBGCont.current.style.display = 'block';
-            this.hospitalMarkers.forEach(
-                (marker) => marker.hide()
-            );
-        }
+        this.statesAndTerritories.forEach((stateName) => {
+            var absStatDataInst = this.absStatsInsts[this._underlay],
+                caseDataInst = this.getCaseDataInst(stateName),
+                absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, 'lga'),
+                caseGeoBoundariesInst = this.getGeoBoundariesInst(stateName, caseDataInst.schema);
+
+            if (absGeoBoundariesInst === caseGeoBoundariesInst) {
+                disableInsts([caseGeoBoundariesInst]); // HACK!
+            }
+            else {
+                disableNonLGAInst(caseGeoBoundariesInst, absGeoBoundariesInst);
+            }
+        });
+
     }
 }
-
 
 export default MbMap
