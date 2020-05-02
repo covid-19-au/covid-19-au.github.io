@@ -2,7 +2,6 @@ import React from "react";
 import mapboxgl from 'mapbox-gl';
 import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
-import mapDataArea from "../data/mapdataarea"
 
 import regionsTimeSeries from "../data/regionsTimeSeriesAutogen.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -10,8 +9,6 @@ import './ConfirmedMap.css'
 import confirmedImg from '../img/icon/confirmed-recent.png'
 import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Button from '@material-ui/core/Button';
 import Acknowledgement from "../Acknowledgment"
 
 import { sortedKeys } from "./ConfirmedMapFns"
@@ -245,10 +242,15 @@ class MbMap extends React.Component {
                 // Create case data instances
                 var caseDataInsts = that.caseDataInsts = {};
                 for (let key in regionsTimeSeries) {
+                    // key => "statename:schema"
                     var d = caseDataInsts[key] = {};
-                    var subheaders = regionsTimeSeries[key]['subheaders']; // CHECK ME!
+                    var subheaders = regionsTimeSeries[key]['sub_headers']; // CHECK ME!
                     for (let subKey of subheaders) {
-                        caseDataInsts[`${key}|${subKey}`] = new TimeSeriesDataSource(key, subKey);
+                        caseDataInsts[`${key}|${subKey}`] = new TimeSeriesDataSource(
+                            key, subKey, regionsTimeSeries[key],
+                            key.split(":")[1],
+                            key.split(":")[0]
+                        );
                     }
                 }
 

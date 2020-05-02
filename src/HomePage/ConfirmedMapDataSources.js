@@ -31,48 +31,51 @@ class TimeSeriesDataSource extends DataSourceBase {
     A datasource which contains values over time
 
     In format:
+    {
+     "sub_headers" [subheader name 1, subheader name 2 ...]
+     "data": [["", "0-9", [["01/05/2020", 0], ...],
+              ["", "0-9", [["01/05/2020", 0], ...], ...]
+    }
+    the first value in each data item is the
+    city name/region, and the second is the agerange.
 
-     [[[...FIXME...]]]
-
-     NOTE: state names/city names supplied to this
-     class must be lowercased and have ' - ' replaced with '-'.
-     This is way too resource-intensive to run otherwise!
+    NOTE: state names/city names supplied to this
+    class must be lowercased and have ' - ' replaced with '-'.
+    This is way too resource-intensive to run otherwise!
     */
 
-    constructor(sourceName, subHeader, mapAreaData, currentValues) {
+    constructor(sourceName, subHeader, mapAreaData, schema, stateName) {
         super(sourceName);
         this.subHeaderIndex = mapAreaData['sub_headers'].indexOf(subHeader);
 
         this.subHeader = subHeader;
-        //this.currentValues = currentValues; // Can be null  CURRENTLY DISABLED - discuss whether this is really a good idea!!!
         this.data = mapAreaData['data'];
+
+        this.schema = schema;
+        this.stateName = stateName;
     }
 
-    getCaseInfoForCity(stateName, cityName) {
-        // Return only the latest value,
-        // delegating to currentValues if possible
-        // (currentValues as a CurrentValuesDataSource
-        //  instance might contain human-entered values,
-        //  which are less likely to contain errors)
+    getCaseNumber(region, ageRange) {
+        // Return only the latest value
 
         if (this.currentValues) {
             return this.currentValues.getCaseInfoForCity(
-                stateName, cityName
+                this.stateName, region
             );
         }
 
-        stateName = stateName.toLowerCase();
-        cityName = prepareForComparison(cityName);
+        region = prepareForComparison(region || '');
+        ageRange = ageRange || '';
 
         for (var i = 0; i < this.data.length; i++) {
             var iData = this.data[i],
-                iStateName = iData[0],
-                iCityName = iData[1],
+                iRegion = iData[0],
+                iAgeRange = iData[1],
                 iValues = iData[2];
 
             if (
-                iStateName === stateName &&
-                iCityName === cityName
+                iRegion === region &&
+                iAgeRange === ageRange
             ) {
                 for (var j = 0; j < iValues.length; j++) {
                     var dateUpdated = iValues[j][0],
@@ -93,21 +96,21 @@ class TimeSeriesDataSource extends DataSourceBase {
         };
     }
 
-    getCaseInfoTimeSeriesForCity(stateName, cityName) {
+    getCaseNumberTimeSeries(region, ageRange) {
         var r = [];
 
-        stateName = stateName.toLowerCase();
-        cityName = prepareForComparison(cityName);
+        region = prepareForComparison(region || '');
+        ageRange = ageRange || '';
 
         for (var i = 0; i < this.data.length; i++) {
             var iData = this.data[i],
-                iStateName = iData[0],
-                iCityName = iData[1],
+                iRegion = iData[0],
+                iAgeRange = iData[1],
                 iValues = iData[2];
 
             if (
-                iStateName === stateName &&
-                iCityName === cityName
+                iRegion === region &&
+                iAgeRange === ageRange
             ) {
                 for (var j = 0; j < iValues.length; j++) {
                     var dateUpdated = iValues[j][0],
@@ -204,47 +207,6 @@ class ActiveTimeSeriesDataSource extends TimeSeriesDataSource {
     }
 }
 exports.ActiveTimeSeriesDataSource = ActiveTimeSeriesDataSource;
-
-
-class CurrentValuesDataSource extends DataSourceBase {
-    /*
-    A datasource which only contains current values
-
-    In format:
-
-     [[[...FIXME...]]]
-    */
-    constructor(sourceName, mapAreaData) {
-        super(sourceName);
-        this.mapAreaData = mapAreaData;
-    }
-
-    getCaseInfoForCity(stateName, cityName) {
-        var numberOfCases = 0,
-            updatedDate = '16/4/20';
-
-        stateName = stateName.toLowerCase();
-        cityName = prepareForComparison(cityName);
-
-        for (var i = 0; i < this.mapAreaData.length; i++) {
-            var areaInfo = this.mapAreaData[i];
-            if (stateName === areaInfo['state'].toLowerCase()) {
-                if (
-                    prepareForComparison(areaInfo['area']) === cityName &&
-                    numberOfCases === 0
-                ) {
-                    numberOfCases = areaInfo['confirmedCases'];
-                    updatedDate = areaInfo['lastUpdateDate'];
-                }
-            }
-        }
-        return {
-            'numCases': parseInt(numberOfCases),
-            'updatedDate': updatedDate
-        };
-    }
-}
-exports.CurrentValuesDataSource = CurrentValuesDataSource;
 
 
 class BigTableOValuesDataSource extends DataSourceBase {

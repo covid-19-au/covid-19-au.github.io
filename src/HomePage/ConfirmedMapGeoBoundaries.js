@@ -358,9 +358,7 @@ class JSONGeoBoundariesBase {
             });
 
             var cityName = e.features[0].properties.city;
-            var caseInfo = caseDataSource.getCaseInfoForCity(
-                that.stateName, cityName
-            );
+            var caseInfo = caseDataSource.getCaseNumber(cityName, null);
 
             var absInfo;
             if (absDataSource) {
@@ -370,9 +368,9 @@ class JSONGeoBoundariesBase {
                 );
             }
 
-            if (caseDataSource.getCaseInfoTimeSeriesForCity) {
-                var timeSeries = caseDataSource.getCaseInfoTimeSeriesForCity(
-                    that.stateName, cityName
+            if (caseDataSource.getCaseNumberTimeSeries) {
+                var timeSeries = caseDataSource.getCaseNumberTimeSeries(
+                    cityName, null
                 );
 
                 popup = new mapboxgl.Popup()
@@ -713,7 +711,7 @@ class JSONGeoBoundariesBase {
                     return JSON.stringify(r);
                 }
 
-                var uniqueKey = getUniqueKey(properties); // WARNING!!! =============================================
+                var uniqueKey = getUniqueKey(properties);
 
                 if (!(uniqueKey in areaMap) || areaMap[uniqueKey][0] < area) {
                     areaMap[uniqueKey] = [area, feature];
@@ -838,12 +836,10 @@ class JSONGeoBoundariesBase {
                 continue; // WARNING!!
             }
 
-            caseInfo = dataSource.getCaseInfoForCity(
-                state, cityName
-            );
+            caseInfo = dataSource.getCaseNumber(cityName, null);
             if (!caseInfo) {
                 //console.log("NOT CASE INFO:", state, cityName);
-                continue; // WARNING!!! ===============================================================================
+                continue;
             }
             data.properties['cases'] = caseInfo['numCases'];
 
@@ -855,7 +851,7 @@ class JSONGeoBoundariesBase {
         if (dataSource.getMaxMinValues) {
             this.maxMinStatVal = dataSource.getMaxMinValues();
         }
-        this._assignStatInfoToGeoJSON(this.geoJSONData, dataSource); // RESOURCE VIOLATION WARNING!!! ===========================================
+        this._assignStatInfoToGeoJSON(this.geoJSONData, dataSource);
 
         let uniqueId = this.getFillSourceId(dataSource);
         if (uniqueId in this.addedSources) {
@@ -886,7 +882,7 @@ class JSONGeoBoundariesBase {
             );
             if (!statInfo) {
                 //console.log("NOT STAT INFO:", state, cityName);
-                continue; // WARNING!!! ===============================================================================
+                continue;
             }
             data.properties['stat'] = statInfo['numCases'];
             data.properties['statCity'] = cityName;
