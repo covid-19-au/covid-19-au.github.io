@@ -2,13 +2,15 @@ import uuid from "react-uuid";
 import React, { useState, useEffect } from "react";
 import stateData from "../data/state";
 import testedCases from "../data/testedCases";
-
+// import i18n bundle
+import i18next from '../i18n';
 import { A } from "hookrouter";
 
 const CONFIRMED = 1;
 const DEATH = 2;
 const CURED = 3;
 const TESTED = 4;
+const NONEWCASES = 7;
 
 export default function Area({ area, onChange, data }) {
   let totalRecovered = 0;
@@ -34,7 +36,6 @@ export default function Area({ area, onChange, data }) {
       testedCases[
       Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
-
     return data.map((x) => (
       <div
         role={"button"}
@@ -52,7 +53,8 @@ export default function Area({ area, onChange, data }) {
         <div className={"area"}>
           <A href={`/state/${x[0].toLowerCase()}`} onClick={() => { window.scrollTo(0, 0); }}>
             <strong>
-              <u>{x[0]}</u>{" "}
+
+              <u>{i18next.t("homePage:state."+x[0])}</u>{" "}
 
               <svg
                 className="bi bi-caret-right-fill"
@@ -70,14 +72,16 @@ export default function Area({ area, onChange, data }) {
         </div>
         <div className="confirmed">
           <strong>{numberWithCommas(x[CONFIRMED])}</strong>&nbsp;
-          <div className="dailyIncrease">
-            {x[CONFIRMED] - lastTotal[x[0]][0] > 0
-              ? `(+${x[1] - lastTotal[x[0]][0]})`
-              : null}
-          </div>
+          {x[NONEWCASES] === 'true' ? <div className="dailyIncrease">(+0)</div> :
+            <div className="dailyIncrease">
+              {x[CONFIRMED] - lastTotal[x[0]][0] > 0
+                ? `(+${x[1] - lastTotal[x[0]][0]})`
+                : null}
+            </div>}
         </div>
         <div className="death">
-          <strong>{numberWithCommas(x[DEATH])}</strong>&nbsp;
+          {(x[0] === "NSW" || x[0] === "QLD") ? <strong> {numberWithCommas(x[DEATH])}&#x5e; </strong>
+            : <strong> {numberWithCommas(x[DEATH])} </strong>}&nbsp;
           <div className="dailyIncrease">
             {x[DEATH] - lastTotal[x[0]][1] > 0
               ? ` (+${x[2] - lastTotal[x[0]][1]})`
@@ -85,23 +89,23 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="cured">
-          <strong>{(x[0] === "NSW") ? <div style={{ fontWeight: 'normal', color: 'grey' }}>N/A</div> : numberWithCommas(x[CURED])}</strong>&nbsp;
+          {<strong> {numberWithCommas(x[CURED])} </strong>}&nbsp;
           <div className="dailyIncrease">
             {x[CURED] - lastTotal[x[0]][2] > 0
               ? `(+${x[3] - lastTotal[x[0]][2]})`
               : null}
           </div>
         </div>
-          <div className="activeCase">
-              <strong>{(x[0]==="NSW")?<div style={{fontWeight:'normal', color:'grey'}}>N/A</div>:numberWithCommas(x[CONFIRMED]-x[DEATH]-x[CURED])}</strong>&nbsp;
+        <div className="activeCase">
+          {<strong> {numberWithCommas(x[CONFIRMED] - x[DEATH] - x[CURED])} </strong>}&nbsp;
               <div className="dailyIncrease">
-                  {(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) > 0 && (x[0]!=="NSW")
+                  {(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) > 0
                       ? `(+${(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])})`
-                      : null}
+                      : ((x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) < 0 ?`(-${(lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])-(x[CONFIRMED]-x[DEATH]-x[CURED])})`:null)}
               </div>
           </div>
         <div className="tested">{numberWithCommas(x[TESTED])}</div>
-      </div>
+      </div >
     ));
   };
 
@@ -114,13 +118,13 @@ export default function Area({ area, onChange, data }) {
 
     return (
       <div className="province table-footer">
-        <div className="area">Total</div>
+        <div className="area">{i18next.t("homePage:status.total")}</div>
         <div className="confirmed">
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">*3,700+</div>
-        <div className="activeCase">*2,600+</div>
+        <div className="cured">{numberWithCommas(sumRow(CURED, data))}</div>
+        <div className="activeCase">{numberWithCommas(sumRow(CONFIRMED, data) - sumRow(DEATH, data) - sumRow(CURED, data))}</div>
         <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
       </div>
     );
@@ -129,27 +133,24 @@ export default function Area({ area, onChange, data }) {
   return (
     <div role={"table"}>
       <div className="province header">
-        <div className="area header statetitle">State</div>
-        <div className="confirmed header confirmedtitle">Confirmed</div>
-        <div className="death header deathtitle">Deaths</div>
-        <div className="cured header recoveredtitle">Recovered</div>
-        <div className="activeCase header activetitle">Active</div>
-        <div className="tested header testedtitle">Tested</div>
+
+        <div className="area header statetitle">{i18next.t("homePage:status.state")}</div>
+        <div className="confirmed header confirmedtitle">{i18next.t("homePage:status.confirm")}</div>
+        <div className="death header deathtitle">{i18next.t("homePage:status.Deaths")}</div>
+        <div className="cured header recoveredtitle">{i18next.t("homePage:status.Recoveries")}</div>
+        <div className="activeCase header activetitle">{i18next.t("homePage:status.active")}</div>
+        <div className="tested header testedtitle">{i18next.t("homePage:status.Tested")}</div>
 
       </div>
       {renderArea()}
       <Total data={data} />
 
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * We currently do not have a consistent source of data for recovered cases in NSW. The total recovered data and the active data is based on gov report.
+        <sup>&#x5e;</sup> Two Queensland residents that passed away in NSW are included in the Queensland figure.
       </span>
       <br />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * NSW Health's statistics show an additional death as they count a Queensland resident that passed away in NSW.
-      </span>
-      <br />
-      <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        * Click on the <strong>State</strong> name for details.
+        {i18next.t("homePage:caseByState.append2")}<strong>{i18next.t("homePage:status.state")}</strong> {i18next.t("homePage:caseByState.append3")}.
       </span>
     </div>
   );

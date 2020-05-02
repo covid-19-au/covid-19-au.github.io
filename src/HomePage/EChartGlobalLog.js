@@ -3,6 +3,8 @@ import globalConfirmed from '../data/time_series_covid19_confirmed_global.csv';
 import ReactEcharts from "echarts-for-react";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+// import i18n bundle
+import i18next from '../i18n';
 import ReactGA from "react-ga";
 
 class EChartglobalLog extends Component {
@@ -244,7 +246,7 @@ class EChartglobalLog extends Component {
         const dataSets = [];
         for (let i = 0; i < arrMapKeys.length; i++) {
             let newDataSet = {};
-            newDataSet["name"] = arrMapKeys[i];
+            newDataSet["name"] = i18next.t("homePage:country."+arrMapKeys[i]);
             newDataSet["z"] = arrMapKeys[i] === "AU" ? 3 : arrMapKeys[i] === "US" ? 1 : 2;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;
@@ -281,57 +283,21 @@ class EChartglobalLog extends Component {
         this.setState({ dataSets: dataSets });
 
     }
-
+    changeAllState(state){
+        let arrMapKeys = Object.keys(this.state.arrMap);
+        let selectAll={}
+        for (let i = 0; i < arrMapKeys.length; i++) {
+            selectAll[i18next.t("homePage:country."+arrMapKeys[i])]=state;
+        };
+        this.setState({selected:selectAll});
+    }
     onSelectAllClick = () => {
-        this.setState({
-            selected: {
-                'AU': true,
-                'China': true,
-                'Italy': true,
-                'Japan': true,
-                'UK': true,
-                'US': true,
-                'Singapore': true,
-                'Canada': true,
-                'Norway': true,
-                'France': true,
-                'Switzerland': true,
-                'Sweden': true,
-                'Denmark': true,
-                'Iran': true,
-                'Spain': true,
-                'Germany': true,
-                'South Korea': true,
-                'NZ': true,
-                'India':true
-            }
-        })
+
+        this.changeAllState(true);
     }
 
     onDeselectAllClick = () => {
-        this.setState({
-            selected: {
-                'AU': false,
-                'China': false,
-                'Italy': false,
-                'Japan': false,
-                'UK': false,
-                'US': false,
-                'Singapore': false,
-                'Canada': false,
-                'Norway': false,
-                'France': false,
-                'Switzerland': false,
-                'Sweden': false,
-                'Denmark': false,
-                'Iran': false,
-                'Spain': false,
-                'Germany': false,
-                'South Korea': false,
-                'NZ': false,
-                'India':false
-            }
-        })
+        this.changeAllState(false);
     }
 
     componentDidMount() {
@@ -339,7 +305,7 @@ class EChartglobalLog extends Component {
         let echarts_instance = this.chartReference.getEchartsInstance();
         echarts_instance.on('legendselectchanged', function (props) {
             ReactGA.initialize("UA-160673543-1");
-            ReactGA.event({ category: 'globalChart', action: props.name,label: props.selected[props.name]?'true':'false'})
+            ReactGA.event({ category: 'globalChart', action: props.name, label: props.selected[props.name] ? 'true' : 'false' })
 
         });
     }
@@ -348,22 +314,22 @@ class EChartglobalLog extends Component {
     render() {
         return (
             <div className="card">
-                <h2>Global Comparison</h2>
+                <h2>{i18next.t("homePage:globalChart.title")}</h2>
                 <ButtonGroup style={{ justifyContent: "center" }} size="small" aria-label="small outlined button group">
                     <Button style={{
                         textTransform: 'none',
                         paddingTop: '0.1rem',
                         paddingBottom: '0.1rem',
                         outline: "none"
-                    }} disableElevation={true} onClick={this.onSelectAllClick}>Select All</Button>
+                    }} disableElevation={true} onClick={this.onSelectAllClick}>{i18next.t("homePage:globalChart.selectAll")}</Button>
                     <Button style={{
                         textTransform: 'none',
                         paddingTop: '0.1rem',
                         paddingBottom: '0.1rem',
                         outline: "none"
-                    }} onClick={this.onDeselectAllClick}>Select None</Button>
+                    }} onClick={this.onDeselectAllClick}>{i18next.t("homePage:globalChart.selectNo")}</Button>
                 </ButtonGroup>
-                <ReactEcharts style={{ height: window.innerHeight < 700 ? "700px" : "500px" }}
+                <ReactEcharts style={{ minHeight: "500px" }}
                     ref={(e) => { this.chartReference = e; }}
                     lazyUpdate={true}
                     option={{
@@ -399,7 +365,7 @@ class EChartglobalLog extends Component {
                         },
                         series: this.state.dataSets,
                         yAxis: {
-                            name: "New Cases In Past 7 Days",
+                            name: i18next.t("homePage:status.newCaseWeek"),
                             nameTextStyle: {
                                 align: 'left'
                             },
@@ -411,7 +377,7 @@ class EChartglobalLog extends Component {
                             scale: true
                         },
                         xAxis: {
-                            name: "Total",
+                            name: i18next.t("homePage:status.total"),
                             nameTextStyle: {
                                 align: 'center'
                             },
@@ -445,13 +411,14 @@ class EChartglobalLog extends Component {
                 />
                 <span className="due">
                     <span className="key" style={{ fontSize: "80%", paddingTop: 0 }}>
-                        Last updated on: {this.state.dates[this.state.dates.length - 1]}
+                    {i18next.t("homePage:globalChart.updateNotice")}{this.state.dates[this.state.dates.length - 1]}
                     </span><br /><br />
-                    <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
-                    <span className="key"><p>*Click on points for detailed data</p></span><br />
-                    <span className="key"><p>*Each data point on the Y-axis is the total number of new confirmed cases in the past 7 days.</p></span><br />
-                    <span className="key"><p>*Watch this <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">video</a> for a detailed explanation on this graph!</p></span><br />
-                    <span className="key"><p>*Data Source: <a target="_blank" rel="noopener noreferrer" href="https://github.com/CSSEGISandData/COVID-19">
+                    <span className="key">{i18next.t("homePage:chartCommon.clickLegend")}<p></p></span><br />
+                    <span className="key">{i18next.t("homePage:chartCommon.clickPoint")}<p></p></span><br />
+                    <span className="key"><p>{i18next.t("homePage:globalChart.append0")}</p></span><br />
+                    <span className="key">{i18next.t("homePage:globalChart.append1")}<p> <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=54XLXg4fYsc&feature=emb_title">{i18next.t("homePage:globalChart.append2")}</a>{i18next.t("homePage:globalChart.append3")}</p></span><br />
+                    <span className="key">{i18next.t("homePage:globalChart.append4")}<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/CSSEGISandData/COVID-19">
+
                         <svg className="bi bi-question-circle" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clipRule="evenodd" />
                             <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
@@ -459,10 +426,10 @@ class EChartglobalLog extends Component {
                     </a></p></span><br />
                     <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                        Logarithmic Scale:&nbsp;
+                    {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                            <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>On</Button>
-                            <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({ logScale: false })}>Off</Button>
+                            <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>{i18next.t("homePage:misc.onButton")}</Button>
+                            <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({ logScale: false })}>{i18next.t("homePage:misc.offButton")}</Button>
                         </ButtonGroup>
                         <a
                             style={{

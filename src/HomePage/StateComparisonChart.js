@@ -6,6 +6,8 @@ import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import stateData from "../data/state.json"
+// import i18n bundle
+import i18next from '../i18n';
 
 function createdCaseDates(stateData, logScale) {
 
@@ -28,24 +30,26 @@ function createdCaseDates(stateData, logScale) {
     for (let key in stateData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
-        if (logScale) {
-            if (date.getMonth() > 1) {
-                if (date.getMonth() == 2) {
-                    if (date.getDate() > 20) {
-                        let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-                        dateData.push(labelName)
-                    }
-                }
-                else {
-                    let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-                    dateData.push(labelName)
-                }
-            }
-        }
-        else {
-            let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-            dateData.push(labelName)
-        }
+        let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        dateData.push(labelName)
+        // if (logScale) {
+        //     if (date.getMonth() > 1) {
+        //         if (date.getMonth() == 2) {
+        //             if (date.getDate() > 20) {
+        //                 let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //                 dateData.push(labelName)
+        //             }
+        //         }
+        //         else {
+        //             let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //             dateData.push(labelName)
+        //         }
+        //     }
+        // }
+        // else {
+        //     let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //     dateData.push(labelName)
+        // }
     }
 
     return (dateData)
@@ -259,7 +263,7 @@ export default function StateComparisonChart() {
         let j = 0
         while (j < testedDataFinal[orderedStates[i]].length) {
             let newLine = {
-                name: orderedStates[i],
+                name: i18next.t("homePage:state." + orderedStates[i]),
                 type: 'line',
                 symbol: 'circle',
                 symbolSize: 8,
@@ -285,7 +289,7 @@ export default function StateComparisonChart() {
     i = 0
     while (i < orderedStates.length) {
         let dottedLine = {
-            name: orderedStates[i],
+            name: i18next.t("homePage:state." + orderedStates[i]),
             type: 'line',
             symbolSize: 8,
             symbol: "circle",
@@ -301,7 +305,7 @@ export default function StateComparisonChart() {
 
         let confirmedLine =
         {
-            name: orderedStates[i],
+            name: i18next.t("homePage:state." + orderedStates[i]),
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -324,21 +328,6 @@ export default function StateComparisonChart() {
     let startCase = parseInt(100 - (14 / caseDates.length * 100))
     let startTested = parseInt(100 - (14 / testedDates.length * 100))
 
-    // set max Y value by rounding max data value to nearest 1000
-
-    let maxYCase
-    let maxYTested
-
-    if (logScale) {
-        maxYCase = Math.ceil((parseInt(Math.max(...caseData))) / 10000) * 10000
-        maxYTested = Math.ceil((parseInt(Math.max(...testedData))) / 10000) * 10000
-    }
-    else {
-        maxYCase = Math.ceil((parseInt(Math.max(...caseData))) / 1000) * 1000
-        maxYTested = Math.ceil((parseInt(Math.max(...testedData))) / 1000) * 1000
-    }
-
-
     const activeStyles = {
         color: 'black',
         borderColor: '#8ccfff',
@@ -356,7 +345,7 @@ export default function StateComparisonChart() {
 
     return (
         <div className="card">
-            <h2>State Comparisons</h2>
+            <h2>{i18next.t("homePage:stateComparisons.title")}</h2>
 
             <ReactEcharts style={{ height: "550px" }} option={
                 {
@@ -375,7 +364,7 @@ export default function StateComparisonChart() {
                     }],
                     title: [
                         {
-                            text: "Tests Conducted",
+                            text: i18next.t("homePage:status.testConducted"),
                             left: '5%',
                             top: '7%',
                             textStyle: {
@@ -384,7 +373,7 @@ export default function StateComparisonChart() {
                             }
                         },
                         {
-                            text: "Confirmed Cases",
+                            text: i18next.t("homePage:status.confirmCase"),
                             top: '55%',
                             left: '5%',
                             textStyle: {
@@ -411,10 +400,12 @@ export default function StateComparisonChart() {
                     },
                     yAxis: [
                         {
-                            type: "value"
+                            type: yAxisType,
+                            min: logScale ? 100 : 0
                         },
                         {
                             type: yAxisType,
+                            min: logScale ? 1 : 0,
                             gridIndex: 1
                         }
                     ],
@@ -475,10 +466,10 @@ export default function StateComparisonChart() {
 
                 }}></ReactEcharts>
             <span className="due">
-                <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
-                <span className="key"><p>*Click on points for detailed data</p></span><br />
-                <span className="key"><p>*Dotted line indicates no new data was obtained</p></span><br />
-                {/*<span className="key" style={{ marginTop: "0.5rem" }}>
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickLegend")}</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.dottedLine")}</p></span><br />
+                <span className="key" style={{ marginTop: "0.5rem" }}>
 
                     Logarithmic Scale (Cases Only):&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
@@ -505,7 +496,7 @@ export default function StateComparisonChart() {
                         <div className="dataSource"></div>
                     </a>
 
-                    </span>*/}
+                </span>
             </span>
         </div>
     )

@@ -1,6 +1,260 @@
 {
     "dailyFunStuff": [
         {
+            "image": [
+                {
+                    "imgLink": "https://static.ffx.io/images/$zoom_0.165%2C$multiply_0.963%2C$ratio_1.5%2C$width_756%2C$x_8%2C$y_0/t_crop_custom/q_86%2Cf_auto/b580c42d7e9e8744fc6cdd3ed6a9defb39cfafaa",
+                    "source": "https://www.smh.com.au/world/oceania/we-have-achieved-our-goal-new-zealand-eliminates-covid-19-in-the-community-20200427-p54nn5.html"
+                }
+            ],
+            "video": [],
+            "title": "New Zealand has eliminated COVID-19 in the community",
+            "content": "<p>Prime Minister Jacinta Ardern announced 3 days ago that there is no longer any undetected community transmission of COVID-19 in New Zealand. The country is now preparing to move out of a nation-wide lockdown.</p><p>Congratulations to our neighbours for handling the situation so effectively!</p>",
+            "type": "motivation",
+            "date": "1/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.smh.com.au/world/oceania/we-have-achieved-our-goal-new-zealand-eliminates-covid-19-in-the-community-20200427-p54nn5.html",
+                    "name": "'We have achieved our goal': New Zealand 'eliminates' COVID-19 in the community - The Sydney Morning Herald"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://worldofbuzz.com/wp-content/uploads/2020/04/cakeftcaption.jpg",
+                    "source": "Customer orders a cake for food delivery man on his birthday"
+                }
+            ],
+            "video": [],
+            "title": "Customer orders a cake for food delivery man on his birthday",
+            "content": "<p>A food delivery man was moved to tears in Wuhan, when he found out his customer had ordered him a cake. Unbeknownst to the customer, it was the delivery man's birthday! The customer also left a note with the order saying, \"I ordered one extra piece for the food delieryman. Please remember to eat on time.\" The delivery man was moved to tears.</p><p>What a wonderful gesture from the customer! We should all take a moment to appreciate the delivery people that are working hard to support us in these times!</p>",
+            "type": "motivation",
+            "date": "30/4/2020",
+            "citation": [
+                {
+                    "link": "https://worldofbuzz.com/watch-food-delivery-man-moved-to-tears-after-customer-buys-him-cake-on-his-birthday/",
+                    "name": "Watch: Food Delivery Man Moved To Tears After Customer Buys Him Cake On His Birthday - World of Buzz"
+                }
+            ]
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=o1zIgTwENPg",
+                    "description": "SGN Potluck: Some Good News with John Krasinski Ep. 5"
+                }
+            ],
+            "type": "distraction",
+            "date": "29/4/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=_6FXjiL5fQ8&feature=youtu.be",
+                    "description": "One Happy Kitten at the Spa"
+                }
+            ],
+            "type": "distraction",
+            "date": "28/4/2020"
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://vietnamtimes.org.vn/stores/news_dataimages/tranngocvnt/042020/24/23/1916_94486479_10157284084720544_7244166225419304960_o.jpg",
+                    "source": "https://vietnamtimes.org.vn/british-ambassador-thanks-two-vietnamese-children-for-donating-masks-to-uk-19735.html"
+                }
+            ],
+            "video": [],
+            "title": "Two Vietnamese children have donated 20 thousands masks to the UK",
+            "content": "<p>Truong Thi Linh Nhan and her brother Truong Cao Khoi have donated 20 thousands masks to the UK! They are both secondary school students, and paid for the masks using their savings.</p><p> In Vietnamese tradition, children are given red packets containing money during Lunar New Year. These red packets are a symbol of luck and hope. Having saved this money for a few years, Linh Nhan and Cao Khoi decided to spend it on masks for medical staff.</p><p>We could all learn from the kindness and generosity of Linh Nhan and Cao Khoi!</p>",
+            "type": "motivation",
+            "date": "27/4/2020",
+            "citation": [
+                {
+                    "link": "https://vietnamtimes.org.vn/british-ambassador-thanks-two-vietnamese-children-for-donating-masks-to-uk-19735.html",
+                    "name": "British Ambassador thanks two Vietnamese children for donating masks to UK - Vietnam Times"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://images.thewest.com.au/publication/B881527059Z/1587735684334_GMV2NLP87.1-0.jpg?imwidth=1024&impolicy=wan_v3",
+                    "source": "https://thewest.com.au/news/anzac/coronavirus-crisis-west-australian-veterans-step-onto-driveways-to-honour-mates-in-anzac-day-first-ng-b881527059z"
+                }
+            ],
+            "video": [],
+            "title": "Veterans stepped out onto their driveways on ANZAC day to honour their fellow soldiers",
+            "content": "<p>Many of these veterans have been living in isolation for weeks as they are part of the groups considered most at-risk for from COVID-19. Pictured above is Sergeant Steve Toon, formerly of the British Infantry and Australian Infantry Reserves.</p><p>Read more about veterans like Sergeant Steve and what they have done for their country in the article below!</p>",
+            "type": "motivation",
+            "date": "26/4/2020",
+            "citation": [
+                {
+                    "link": "https://thewest.com.au/news/anzac/coronavirus-crisis-west-australian-veterans-step-onto-driveways-to-honour-mates-in-anzac-day-first-ng-b881527059z",
+                    "name": "Coronavirus crisis: West Australian veterans step onto driveways to honour mates in Anzac day first - The West Australian"
+                },
+                {
+                    "link": "https://www.theguardian.com/news/2020/apr/25/australians-turn-out-for-driveway-dawn-service-to-mark-anzac-day-in-time-of-coronavirus",
+                    "name": "Australians turn out for driveway dawn service to mark Anzac Day in time of coronavirus - The Guardian"
+                }
+            ]
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=ow83XkdvhZ4&feature=share",
+                    "description": "Coronavirus Rhapsody - Kodi Lee Cover"
+                }
+            ],
+            "type": "distraction",
+            "date": "25/4/2020"
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://pbs.twimg.com/media/EVv4dfFWkAA0XuM?format=jpg&name=large",
+                    "source": "https://twitter.com/captaintommoore/status/1250866513919311878?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed&ref_url=https%3A%2F%2Fwww.abc.net.au%2Fnews%2F2020-04-17%2Fcoronavirus-99yo-british-veteran-tom-moore-nhs-finishes-laps%2F12156680"
+                }
+            ],
+            "video": [],
+            "title": "British veteran raises $30 million for UK's National Health Service",
+            "content": "<p>Ben Moore, a 99-year-old British veteran, has raised 16 million pounds ($30 million dollars) for the NHS by walking 100 laps around his garden. Since breaking his hip in an accident he has used a walking frame with wheels. He was inspired by the treatment he received from the NHS after his accident and when he was treated for cancer.</p><p>As planned, he has completed the laps before his 100th birthday on April 30. His original target was a very modest 1000 pounds. That aim was quickly blown away when his campaign garnered media attention from around the globe.</p><p>Cap Tom Moore's actions should inspire us to think about how we can contribute more to helping others!</p>",
+            "type": "motivation",
+            "date": "24/4/2020",
+            "citation": [
+                {
+                    "link": "https://www.abc.net.au/news/2020-04-17/coronavirus-99yo-british-veteran-tom-moore-nhs-finishes-laps/12156680",
+                    "name": "British veteran Tom Moore, 99, completes 100 laps of garden, raising $30 million for UK's NHS - ABC News"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://cdn.newsapi.com.au/image/v1/78374f0ebed224a6b798b5c3d0117b72",
+                    "source": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-best-friends-use-pocket-money-to-buy-toilet-paper-for-elderly-neighbours/news-story/55b5d08f146cbadef342d4e231f2719f"
+                }
+            ],
+            "video": [],
+            "title": "Two best friends using pocket money to buy toilet paper for elderly neighbours",
+            "content": "<p>Amidst the stock piling, two best friends, Lucy and Addyson, aged 4 and 6, have restored faith in humanity by using their tooth fairy money to purchase toilet paper and tissues to donate to their neighbours.</p><p>The idea to do this first came up when Addyson discovered that the supermarket had empty shelves in the toilet paper aisle. She selflessly suggested to her mother to buy toilet paper to help out people in their neighbourhood who may not have had the opportunity to buy it.</p><p>The best friends have gone around their neighbourhood handing out the toilet paper and tissues to those in pensioner cottages and those who are too unwell to go out. Their thoughtfulness and generosity has touched the hearts of many, especially the elderly who are very grateful for their actions.</p><p>The actions of Lucy and Addyson highlight that it is important to carry out acts of kindness and help those in need, rather than stock piling, which makes it more difficult for those who are vulnerable. Thank you Lucy and Addyson for doing your best to support the people in your neighbourhood!</p>",
+            "type": "motivation",
+            "date": "23/4/2020",
+            "citation": [
+                {
+                    "link": "https://www.news.com.au/lifestyle/health/health-problems/coronavirus-australia-best-friends-use-pocket-money-to-buy-toilet-paper-for-elderly-neighbours/news-story/55b5d08f146cbadef342d4e231f2719f",
+                    "name": "Coronavirus Australia: Best friends use pocket money to buy toilet paper for elderly neighbours - news.com.au"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://media.guim.co.uk/587cdf934df15410d2dfbd8d720c9d6345f07590/0_188_5671_3403/1000.jpg",
+                    "source": "https://9now.nine.com.au/lego-masters"
+                }
+            ],
+            "video": [],
+            "title": "Lego Masters",
+            "content": "<p>For those of you looking for some good wholesome TV, look no further! Lego Masters is a show where teams compete to create some of the coolest Lego builds you have ever seen!</p><p>The show airs on Sundays, Mondays and Tuesdays, and can be watched for free at  9now (link below).</p>",
+            "type": "motivation",
+            "date": "22/4/2020",
+            "citation": [
+                {
+                    "link": "https://9now.nine.com.au/lego-masters",
+                    "name": "Lego Masters - 9now"
+                },
+                {
+                    "link": "http://www.inkl.com/news/lego-masters-is-the-feel-good-tv-we-need-in-these-frazzled-homeschooling-times?share=NWmXrquqLxW",
+                    "name": "Lego Masters is the feelgood TV we need in these frazzled, home-schooling times - The Guardian"
+                }
+            ]
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=VQLi2GYVULc",
+                    "description": "Prom 2020: Some Good News with John Krasinski Ep. 4"
+                }
+            ],
+            "type": "distraction",
+            "date": "21/4/2020"
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Study_%2816840395246%29.jpg/800px-Study_%2816840395246%29.jpg",
+                    "source": "https://commons.wikimedia.org/wiki/File:Study_(16840395246).jpg"
+                }
+            ],
+            "video": [],
+            "title": "Yale University's Science of Well-Being' Course is now free on Coursera!",
+            "content": "<p>The course is taught by Yale psychology professor Laurie Santos. She will guide you through how people think about their own well-being and teach you to implement that knowledge in your own life.</p><p>The course contains 10 weeks of material with about 2-3 hours of readings and videos per week. Since it is online, you could even speed through it over a weekend or two!</p><p>Check it out at the link below!</p>",
+            "type": "motivation",
+            "date": "20/4/2020",
+            "citation": [
+                {
+                    "link": "https://www.coursera.org/learn/the-science-of-well-being",
+                    "name": "The Science of Well-Being - Coursera"
+                },
+                {
+                    "link": "https://www.mentalfloss.com/article/611600/yale-science-of-well-being-online-course-free",
+                    "name": "Yale Is Offering Its 'Science of Well-Being' Course for Free Online - Mental Floss"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://static.rmf.pl/rmf_classic/static/00740/94e9c-1915052d15.jpg",
+                    "source": "https://sparkchronicles.com/the-global-concert-devoted-to-the-health-workers-in-the-fight-against-the-pandemic-covid-19/"
+                }
+            ],
+            "video": [],
+            "title": "One World: Together At Home",
+            "content": "<p>Yesterday, Lady Gaga and a number of other artists teamed up to deliver a global broadcast to support frontline healthcare workers and the World Health Organization. If you missed it, you can still catch a replay today!</p><ul><li>Channel 10: 10am-12pm</li><li>MTV Music Australia/New Zealand, MTV Australia, MTV New Zealand, MTV Dance Australia : 6pm-8pm</li><li>Sunrise, Weekend Sunrise, The Morning Show, The Daily Edition, 7Plus: 10am-12pm</li></ul><p>There is also more to explore at their website below, including a pledge you can take as a Global Citizen to stay home and reduce the spread of the virus!</p>",
+            "type": "motivation",
+            "date": "19/4/2020",
+            "citation": [
+                {
+                    "link": "https://www.globalcitizen.org/en/connect/togetherathome/",
+                    "name": "One World: Together At Home - Global Citizen"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "name": "Why you eat unhealthy food when you’re stressed",
+                    "imgLink": "https://this.deakin.edu.au/wp-content/uploads/2017/07/womans-hands-holding-half-eaten-donut-crop.jpg",
+                    "description": "Associate Professor Susan Torres, of Deakin’s School of Exercise and Nutrition Sciences explains how understanding and managing daily stress can help you maintain better health.",
+                    "source": "https://this.deakin.edu.au/self-improvement/eat-unhealthy-food-youre-stressed"
+                }
+            ],
+            "video": [],
+            "title": "",
+            "source": "",
+            "content": "",
+            "type": "distraction",
+            "date": "18/4/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=Eg08rJGKjtA",
+                    "description": "Baseball is Back: Some Good News with John Krasinski Ep. 3"
+                }
+            ],
+            "type": "distraction",
+            "date": "17/4/2020"
+        },
+        {
             "image": [],
             "video": [
                 {

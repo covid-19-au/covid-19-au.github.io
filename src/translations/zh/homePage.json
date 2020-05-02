@@ -1,0 +1,132 @@
+{
+  "misc": {
+    "loadingText": "载入中...",
+    "title": "澳大利亚的新冠病毒",
+    "descrip": "实时报告",
+    "slogan": "保持冷静，保持知情",
+    "onButton": "开",
+    "offButton": "关",
+    "logScale": "对数刻度："
+  },
+  "dataAck": {
+    "title": "数据来源",
+    "body1": "我们网站上的数据是公开可用的，并且可以从各种官方政府渠道获得。完整列表请见下方。",
+    "source1": "©新南威尔士州新南威尔士州卫生部。有关最新信息，请访问",
+    "source2": "©昆士兰州（Queensland Health），网址：",
+    "source3": "南澳大利亚州政府卫生局",
+    "source4": "澳大利亚首都特区政府，ACT Health，地址：",
+    "source5": "塔斯马尼亚州政府。在",
+    "source6": "维多利亚州政府卫生与公共服务部",
+    "source7": "北领地政府",
+    "source8": "西澳大利亚州政府卫生部",
+    "body2": "我们不隶属于这些组织，或以任何方式受控于他们。我们是一个志愿者团队，我们严格将收集的数据用于非商业，教育，报告和研究目的。务必确保数据准确无误，不会重新组织或歪曲数据。",
+    "body3": "我们强烈建议本网站的用户遵守其各自的地方和联邦政府及当局提供的建议和法规。",
+    "body4": "如果您有任何疑问，请点击",
+    "body5": "反馈表。",
+    "body6": "Covid-19-au，",
+    "body7": "保持镇定，保持知情。",
+    "exitButton": "关"
+  },
+  "status": {
+    "title": "当前状态",
+    "confirm": "已确认",
+    "hospital": "在医院",
+    "icu": "在ICU中",
+    "updateTitle": "每日更新状态",
+    "note": "AEST时间，最近更新时间：",
+    "confirmCase": "确诊病例",
+    "activeCase": "现存确诊",
+    "active":"现存确诊",
+    "newCase": "新确诊病例",
+    "newCaseWeek": "本周新病例",
+    "testConducted": "已检测",
+    "total": "总计",
+    "Cases": "确诊",
+    "casePM": "确诊/ 百万人",
+    "Deaths": "死亡",
+    "No New Cases":"无新增",
+    "Recoveries": "治愈",
+    "testPM": "检测/ 百万人",
+    "positiveP": "测试确诊率（％）",
+    "state": "州名",
+    "Tested": "已检测"
+  },
+  "caseByState": {
+    "title": "各州数据",
+    "buttonPrompt": "选择地图类型：",
+    "append1": "*我们目前没有新南威尔士州治愈的数据来源。治愈的总数据来源于政府报告。",
+    "append2": "*点击",
+    "append3": "名字获取详细信息"
+  },
+  "hospitalCaseMap": {
+    "title": "医院和病例图",
+    "hospitalLegend": "医院或COVID-19检测中心",
+    "casesLegend": "超过7天的病例",
+    "confirmedLegend": "最近确认的病例（不是全部，正在收集）",
+    "note1": "*仅针对首都领地，新洲，维州，昆州和西澳提供城市级别的数据。其他州数据正在收集中。",
+    "marker": "数据点："
+  },
+  "overallTrend": {
+    "title": "全国数据分析"
+  },
+  "stateComparisons": {
+    "title": "状态比较"
+  },
+  "chartCommon": {
+    "clickLegend": "*单击图例以添加/删除图形",
+    "clickPoint": "*单击点获取详细数据",
+    "dottedLine": "*虚线表示未获得新数据"
+  },
+  "globalChart": {
+    "title": "全球比较",
+    "selectAll": "全选",
+    "selectNo": "取消选择",
+    "updateNotice": "上次更新时间：",
+    "append0": "* Y轴上的每个数据点都是过去7天内新确诊病例的总数。",
+    "append1": "*看这个",
+    "append2": "视频",
+    "append3": " 有关此图的详细说明！",
+    "append4": "*数据源："
+  },
+  "flights": {
+    "title": "航班",
+    "searchButton": "搜索",
+    "searchPlaceholder": "输入航班号，航线，到达日期",
+    "tableHeader1": "航班号",
+    "tableHeader2": "航空公司",
+    "tableHeader3": "路线",
+    "tableHeader4": "到达",
+    "tableHeader5": "关闭联系人行"
+  },
+  "state": {
+    "NSW": "新州",
+    "VIC": "维州",
+    "QLD": "昆州",
+    "WA": "西澳",
+    "SA": "南澳",
+    "TAS": "塔州",
+    "ACT": "首都领地",
+    "NT": "北领地"
+  },
+  "country": {
+    "AU": "澳大利亚",
+    "Canada": "加拿大",
+    "China": "中国",
+    "Denmark": "丹麦",
+    "France": "法国",
+    "Germany": "德国",
+    "Iran": "伊朗",
+    "Italy": "意大利",
+    "Japan": "日本",
+    "South Korea": "韩国",
+    "NZ": "新西兰",
+    "Norway": "挪威",
+    "Singapore": "新加坡",
+    "Spain": "西班牙",
+    "Sweden": "瑞典",
+    "Switzerland": "瑞士",
+    "UK": "英国",
+    "US": "美国",
+    "India": "印度"
+  }
+}
