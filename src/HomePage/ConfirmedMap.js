@@ -16,6 +16,7 @@ import absStatsData from "../data/absStats";
 
 import ConfirmedMapFns from "./ConfirmedMapFns"
 import TimeSeriesDataSource from "./ConfirmedMapCaseData"
+import TimeSeriesDataSourceForPeriod from "./ConfirmedMapCaseDataPeriod"
 import BigTableOValuesDataSource from "./ConfirmedMapABSData"
 import GeoBoundaries from "./ConfirmedMapGeoBoundaries" // FIXME!
 import ConfirmedMarker from "./ConfirmedMapConfirmedMarker"
@@ -159,16 +160,15 @@ class MbMap extends React.Component {
                             <span className="key" style={{ alignSelf: "flex-end", marginBottom: "8px" }}>
                                 <ButtonGroup ref={this.markersButtonGroup}
                                     size="small"
-                                    aria-label="small outlined button group"
-                                    style={{ pointerEvents: "none" }}>
-                                    <Button style={this._timeperiod === 'All Time' ? activeStyles : inactiveStyles}
-                                        onClick={() => this.setMarkers('alltime')}>All</Button>
-                                    <Button style={this._timeperiod === '7 Days' ? activeStyles : inactiveStyles}
-                                        onClick={() => this.setMarkers('7days')}>7 Days</Button>
-                                    <Button style={this._timeperiod === '14 Days' ? activeStyles : inactiveStyles}
-                                        onClick={() => this.setMarkers('14days')}>14 Days</Button>
-                                    <Button style={this._timeperiod === '21 Days' ? activeStyles : inactiveStyles}
-                                        onClick={() => this.setMarkers('21days')}>21 Days</Button>
+                                    aria-label="small outlined button group">
+                                    <Button style={this._timeperiod === 'alltime' ? activeStyles : inactiveStyles}
+                                        onClick={() => this.setTimePeriod('alltime')}>All</Button>
+                                    <Button style={this._timeperiod === '7days' ? activeStyles : inactiveStyles}
+                                        onClick={() => this.setTimePeriod('7days')}>7 Days</Button>
+                                    <Button style={this._timeperiod === '14days' ? activeStyles : inactiveStyles}
+                                        onClick={() => this.setTimePeriod('14days')}>14 Days</Button>
+                                    <Button style={this._timeperiod === '21days' ? activeStyles : inactiveStyles}
+                                        onClick={() => this.setTimePeriod('21days')}>21 Days</Button>
                                 </ButtonGroup>
                             </span>
                         </div>
@@ -286,12 +286,40 @@ class MbMap extends React.Component {
                     var d = caseDataInsts[key] = {};
                     var subheaders = regionsTimeSeries[key]['sub_headers']; // CHECK ME!
                     for (let subKey of subheaders) {
-                        caseDataInsts[`${key}|${subKey}`] = new TimeSeriesDataSource(
-                            `${key}|${subKey}`, subKey,
+                        caseDataInsts[`${key}|${subKey}|alltime`] = new TimeSeriesDataSource(
+                            `${key}|${subKey}|alltime`,
+                            subKey,
                             regionsTimeSeries[key],
                             regionsDateIDs,
                             key.split(":")[1],
                             key.split(":")[0]
+                        );
+                        caseDataInsts[`${key}|${subKey}|7days`] = new TimeSeriesDataSourceForPeriod(
+                            `${key}|${subKey}|7days`,
+                            subKey,
+                            regionsTimeSeries[key],
+                            regionsDateIDs,
+                            key.split(":")[1],
+                            key.split(":")[0],
+                            7
+                        );
+                        caseDataInsts[`${key}|${subKey}|14days`] = new TimeSeriesDataSourceForPeriod(
+                            `${key}|${subKey}|14days`,
+                            subKey,
+                            regionsTimeSeries[key],
+                            regionsDateIDs,
+                            key.split(":")[1],
+                            key.split(":")[0],
+                            14
+                        );
+                        caseDataInsts[`${key}|${subKey}|21days`] = new TimeSeriesDataSourceForPeriod(
+                            `${key}|${subKey}|21days`,
+                            subKey,
+                            regionsTimeSeries[key],
+                            regionsDateIDs,
+                            key.split(":")[1],
+                            key.split(":")[0],
+                            21
                         );
                     }
                 }
@@ -366,7 +394,7 @@ class MbMap extends React.Component {
         ];
 
         for (var schema of schemas) {
-            var key = `${stateName}:${schema}|${this._markers}`;
+            var key = `${stateName}:${schema}|${this._markers}|${this._timeperiod}`;
 
             if (key in this.caseDataInsts) {
                 return this.caseDataInsts[key];
@@ -393,6 +421,15 @@ class MbMap extends React.Component {
         this._markers = document.getElementById(
             'markers_select'
         ).value;
+        this._updateMode()
+    }
+
+    setTimePeriod(timeperiod) {
+        this._resetMode();
+        this._timeperiod = timeperiod;
+        this.setState({
+            _timeperiod: timeperiod
+        });
         this._updateMode()
     }
 
