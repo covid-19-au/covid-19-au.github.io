@@ -13,7 +13,7 @@ def get_minified(path):
     for feature in geojson['features']:
         if not feature['geometry']:
             continue
-        elif 'unincorporated' in str(feature).lower():
+        elif 'unincorporated' in str(feature).lower() and not 'pastoral' in str(feature).lower():
             continue
 
         for key in (
