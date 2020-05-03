@@ -1,9 +1,11 @@
 import React from "react";
 import mapboxgl from 'mapbox-gl';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
 import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
 
-import regionsTimeSeries from "../data/regionsTimeSeriesAutogen.json"
+import regionsData from "../data/regionsTimeSeriesAutogen.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from '../img/icon/confirmed-recent.png'
@@ -21,6 +23,8 @@ import HospitalMarker from "./ConfirmedMapHospitalMarker"
 
 
 const absStats = absStatsData['data'];
+const regionsTimeSeries = regionsData['time_series_data'],
+      regionsDateIDs = regionsData['date_ids'];
 
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
@@ -38,12 +42,14 @@ class MbMap extends React.Component {
             showMarker: true,
         };
 
+        this._timeperiod = 'alltime';
         this._markers = 'total';
         this._underlay = null;
         this._firstTime = true;
 
         this.markersBGGroup = React.createRef();
         this.underlayBGCont = React.createRef();
+        this.markersButtonGroup = React.createRef();
 
         this.hospitalMessage = React.createRef();
         this.totalCasesMessage = React.createRef();
@@ -66,10 +72,10 @@ class MbMap extends React.Component {
                 return '<option value="' + key + '">' + key + '</option>'
             }).join('\n')
         }
-        return ConfirmedMapFns.sortedKeys(absStats).map((heading) => {
+        return '<option value="">(None)</option>'+ConfirmedMapFns.sortedKeys(absStats).map((heading) => {
             return (
                 '<optgroup label=' + heading + '>' +
-                outputSelects(heading) +
+                    outputSelects(heading) +
                 '</optgroup>'
             );
         }).join('\n')
@@ -106,49 +112,80 @@ class MbMap extends React.Component {
                         <Acknowledgement>
                         </Acknowledgement></div></h2>
 
-                <div ref={this.markersBGGroup}
-                    className="key"
-                    style={{ marginBottom: "0.8rem" }}>
-                    Markers:&nbsp;<select id="markers_select"
-                        style={{ "maxWidth": "100%" }}>
-                        <optgroup label="Basic Numbers">
-                            <option value="total">Total</option>
-                            <option value="status_active">Active</option>
-                            <option value="status_recovered">Recovered</option>
-                            <option value="status_deaths">Deaths</option>
-                            <option value="status_icu">ICU</option>
-                            {/*<option value="status_icu_ventilators">ICU Ventilators</option>*/}
-                            <option value="status_hospitalized">Hospitalized</option>
-                        </optgroup>
-                        <optgroup label="Test Numbers">
-                            <option value="tests_total">Total People Tested</option>
-                        </optgroup>
-                        <optgroup label="Source of Infection">
-                            <option value="source_overseas">Contracted Overseas</option>
-                            <option value="source_community">Unknown Community Transmission</option>
-                            <option value="source_confirmed">Contracted from Confirmed Case</option>
-                            <option value="source_interstate">Contracted Interstate</option>
-                            <option value="source_under_investigation">Under Investigation</option>
-                        </optgroup>
-                    </select>
-                </div>
 
-                <div ref={this.underlayBGCont}
-                    className="key"
-                    style={{ marginBottom: "0.8rem" }}>
-                    Underlay:&nbsp;<select id="other_stats_select"
-                        style={{ "maxWidth": "100%" }}>
-                    </select>
-                </div>
 
-                <div ref={el => this.mapContainer = el} >
-                    {/*{*/}
-                    {/*confirmedData.map((item)=>(*/}
-                    {/*<div style={activityStyle}>*/}
+                <div style={{position: 'relative'}}>
+                    <div id="map_cont_controls" style={{
+                        position: 'absolute',
+                        top: '8px',
+                        left: '8px',
+                        zIndex: 500,
+                        padding: '8px 8px 0 8px',
+                        width: '30%',
+                        background: 'white',
+                        opacity: 0.9,
+                        boxShadow: '-1px 0px 16px -4px rgba(189,189,189,1)'
+                    }}>
 
-                    {/*</div>*/}
-                    {/*))*/}
-                    {/*}*/}
+                        <div ref={this.markersBGGroup}
+                            className="key"
+                            style={{ marginBottom: "8px" }}>
+                            <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Markers</div>
+                            <select id="markers_select"
+                                style={{ "width": "100%" }}>
+                                <optgroup label="Basic Numbers">
+                                    <option value="total">Total Cases</option>
+                                    <option value="status_active">Active Cases</option>
+                                    <option value="status_recovered">Recovered Cases</option>
+                                    <option value="status_deaths">Deaths</option>
+                                    <option value="status_icu">ICU</option>
+                                    {/*<option value="status_icu_ventilators">ICU Ventilators</option>*/}
+                                    <option value="status_hospitalized">Hospitalized</option>
+                                </optgroup>
+                                <optgroup label="Test Numbers">
+                                    <option value="tests_total">Total People Tested</option>
+                                </optgroup>
+                                <optgroup label="Source of Infection">
+                                    <option value="source_overseas">Contracted Overseas</option>
+                                    <option value="source_community">Unknown Community Transmission</option>
+                                    <option value="source_confirmed">Contracted from Confirmed Case</option>
+                                    <option value="source_interstate">Contracted Interstate</option>
+                                    <option value="source_under_investigation">Under Investigation</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div>
+                            <span className="key" style={{ alignSelf: "flex-end", marginBottom: "8px" }}>
+                                <ButtonGroup ref={this.markersButtonGroup}
+                                    size="small"
+                                    aria-label="small outlined button group"
+                                    style={{ pointerEvents: "none" }}>
+                                    <Button style={this._timeperiod === 'All Time' ? activeStyles : inactiveStyles}
+                                        onClick={() => this.setMarkers('alltime')}>All</Button>
+                                    <Button style={this._timeperiod === '7 Days' ? activeStyles : inactiveStyles}
+                                        onClick={() => this.setMarkers('7days')}>7 Days</Button>
+                                    <Button style={this._timeperiod === '14 Days' ? activeStyles : inactiveStyles}
+                                        onClick={() => this.setMarkers('14days')}>14 Days</Button>
+                                    <Button style={this._timeperiod === '21 Days' ? activeStyles : inactiveStyles}
+                                        onClick={() => this.setMarkers('21days')}>21 Days</Button>
+                                </ButtonGroup>
+                            </span>
+                        </div>
+
+                        <div ref={this.underlayBGCont}
+                            className="key"
+                            style={{ marginBottom: "8px" }}>
+                            <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Underlay</div>
+                            <select id="other_stats_select"
+                                style={{ "width": "100%" }}>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div ref={el => this.mapContainer = el} >
+
+                    </div>
                 </div>
 
                 <span className="due">
@@ -250,7 +287,9 @@ class MbMap extends React.Component {
                     var subheaders = regionsTimeSeries[key]['sub_headers']; // CHECK ME!
                     for (let subKey of subheaders) {
                         caseDataInsts[`${key}|${subKey}`] = new TimeSeriesDataSource(
-                            `${key}|${subKey}`, subKey, regionsTimeSeries[key],
+                            `${key}|${subKey}`, subKey,
+                            regionsTimeSeries[key],
+                            regionsDateIDs,
                             key.split(":")[1],
                             key.split(":")[0]
                         );

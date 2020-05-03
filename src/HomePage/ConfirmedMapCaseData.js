@@ -30,12 +30,15 @@ class TimeSeriesDataSource extends DataSourceBase {
     This is way too resource-intensive to run otherwise!
     */
 
-    constructor(sourceName, subHeader, mapAreaData, schema, stateName) {
+    constructor(sourceName, subHeader, mapAreaData, regionsDateIDs, schema, stateName) {
         super(sourceName);
         this.subHeaderIndex = mapAreaData['sub_headers'].indexOf(subHeader);
 
         this.subHeader = subHeader;
         this.data = mapAreaData['data'];
+        // This is map from {id: date string in format DD/MM/YYYY, ...}
+        // as otherwise the data will be a lot larger!
+        this.regionsDateIDs = regionsDateIDs;
 
         this.schema = schema;
         this.stateName = stateName;
@@ -64,7 +67,7 @@ class TimeSeriesDataSource extends DataSourceBase {
                 iAgeRange === ageRange
             ) {
                 for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = iValues[j][0],
+                    var dateUpdated = this.regionsDateIDs[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
 
                     if (iValue != null && iValue !== '') {
@@ -99,7 +102,7 @@ class TimeSeriesDataSource extends DataSourceBase {
                 iAgeRange === ageRange
             ) {
                 for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = iValues[j][0],
+                    var dateUpdated = this.regionsDateIDs[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
 
                     if (iValue != null && iValue !== '') {

@@ -15,7 +15,7 @@ import waLgaData from "../data/geojson/lga_wa.geojson"
 // by other schema
 import actSaData from "../data/geojson/sa3_act.geojson"
 import qldHhsData from "../data/geojson/hhs_qld.geojson"
-import nswPostCodeData from "../data/geojson/postcode_nsw.geojson"
+//import nswPostCodeData from "../data/geojson/postcode_nsw.geojson"
 
 // statewide outlines (when regional data not available)
 import actOutlineData from "../data/geojson/boundary_act.geojson"
@@ -60,8 +60,8 @@ function __getGeoBoundaryClasses() {
 
         // Other schemas
         "act:sa3": ACTSA3Boundaries,
-        "qld:hhs": QLDHHSGeoBoundaries,
-        "nsw:postcode": NSWPostCodeBoundaries
+        "qld:hhs": QLDHHSGeoBoundaries//,
+        //"nsw:postcode": NSWPostCodeBoundaries
     };
 }
 
@@ -277,7 +277,7 @@ class JSONGeoBoundariesBase {
 
         var legend = this.legend = document.createElement('div');
         legend.style.position = 'absolute';
-        legend.style.top = '10px';
+        legend.style.bottom = '40px';
         legend.style.left = '10px';
         legend.style.width = '10%';
         legend.style.minWidth = '75px';
@@ -315,15 +315,8 @@ class JSONGeoBoundariesBase {
             key.style.width = '10px';
             key.style.height = '10px';
 
-            var isPercent =
-                dataSource.getSourceName().indexOf('(%)') !== -1;
-
             var value = document.createElement('span');
-            value.innerHTML = (
-                ((allBetween0_10 || sameConsecutive) && label <= 15) ? label.toFixed(1) : parseInt(label)
-            ) + (
-                    isPercent ? '%' : ''
-                );
+            value.innerHTML = this._getABSValue(dataSource, label, allBetween0_10, sameConsecutive);
             item.appendChild(key);
             item.appendChild(value);
             legend.appendChild(item);
@@ -337,6 +330,15 @@ class JSONGeoBoundariesBase {
         }
     }
 
+    _getABSValue(dataSource, label, allBetween0_10, sameConsecutive) {
+        var isPercent = dataSource.getSourceName().indexOf('(%)') !== -1;
+        return (
+            ((allBetween0_10 || sameConsecutive) && label <= 15) ? label.toFixed(1) : parseInt(label)
+        ) + (
+            isPercent ? '%' : ''
+        );
+    }
+
     /*******************************************************************
      * Map popups
      *******************************************************************/
@@ -345,17 +347,29 @@ class JSONGeoBoundariesBase {
         this.resetPopups();
         const map = this.map;
         var popup;
+        var currentFeature = null;
         var that = this;
 
-        var click = function (e) {
-            ReactGA.event({
-                category: 'ConfirmMap',
-                action: "StateClick",
-                label: e.features[0].properties.city
-            });
+        var mouseMove = function (e) {
+            if (!e.features.length) {
+                if (popup) {
+                    popup.remove();
+                }
+                currentFeature = null;
+                return;
+            }
+            else if (e.features[0] == currentFeature) {
+                return;
+            }
+            currentFeature = e.features[0];
+
+            if (popup) {
+                popup.remove();
+            }
 
             var cityName = e.features[0].properties.city;
             var caseInfo = caseDataSource.getCaseNumber(cityName, null);
+            map.getCanvas().style.cursor = 'pointer';
 
             var absInfo;
             if (absDataSource) {
@@ -370,21 +384,24 @@ class JSONGeoBoundariesBase {
                     cityName, null
                 );
 
-                popup = new mapboxgl.Popup()
+                popup = new mapboxgl.Popup({
+                    closeButton: false,
+                    closeOnClick: false
+                })
                     .setLngLat(e.lngLat)
                     .setHTML(
                         cityName +
                         '<br/>Cases: ' + caseInfo['numCases'] +
                         '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo['updatedDate'] +
-                        (absInfo ? ('<br>ABS Underlay: '+absInfo['numCases']) : '') +
+                        (absInfo ? ('<br>ABS Underlay: '+that._getABSValue(absDataSource, absInfo['numCases'], true)) : '') +
                         '<div id="chartContainer" ' +
                         'style="width: 200px; min-height: 60px; height: 13vh;"></div>'
                     )
                     .addTo(map);
 
                 var chart = new CanvasJS.Chart("chartContainer", {
-                    animationEnabled: true,
-                    animationDuration: 200,
+                    animationEnabled: false,
+                    //animationDuration: 200,
                     theme: "light2",
                     axisX: {
                         valueFormatString: "D/M",
@@ -400,7 +417,10 @@ class JSONGeoBoundariesBase {
                 document.getElementById('chartContainer').id = '';
             }
             else {
-                popup = new mapboxgl.Popup()
+                popup = new mapboxgl.Popup({
+                    closeButton: false,
+                    closeOnClick: false
+                })
                     .setLngLat(e.lngLat)
                     .setHTML(
                         e.features[0].properties.city +
@@ -410,30 +430,28 @@ class JSONGeoBoundariesBase {
                     .addTo(map);
             }
         };
-        map.on('click', useID, click);
-
-        // Change the cursor to a pointer when
-        // the mouse is over the states layer.
-        var mouseEnter = function () {
-            map.getCanvas().style.cursor = 'pointer';
-        };
-        map.on('mouseenter', useID, mouseEnter);
+        map.on('mousemove', useID, mouseMove);
 
         // Change it back to a pointer when it leaves.
-        var mouseLeave = function () {
+        var mouseLeave = () => {
             map.getCanvas().style.cursor = '';
+            if (popup) {
+                popup.remove();
+                popup = null;
+            }
+            currentFeature = null;
         };
         map.on('mouseleave', useID, mouseLeave);
 
         this.resetPopupEvent = function () {
-            map.off('click', useID, click);
-            map.off('mouseenter', useID, mouseEnter);
+            map.off('mousemove', useID, mouseMove);
             map.off('mouseleave', useID, mouseLeave);
 
             if (popup) {
                 popup.remove();
                 popup = null;
             }
+            currentFeature = null;
         }
     }
 
@@ -839,7 +857,6 @@ class JSONGeoBoundariesBase {
                 continue;
             }
             data.properties['cases'] = caseInfo['numCases'];
-
             data.properties['city'] = cityName;
         }
     }
@@ -884,6 +901,7 @@ class JSONGeoBoundariesBase {
             data.properties['stat'] = statInfo['numCases'];
             data.properties['statCity'] = cityName;
             data.properties['statDate'] = statInfo['updatedDate'];
+            data.properties['city'] = cityName;
         }
     }
 }
@@ -983,7 +1001,7 @@ class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
     }
 }
 
-class NSWPostCodeBoundaries extends JSONGeoBoundariesBase {
+/*class NSWPostCodeBoundaries extends JSONGeoBoundariesBase {
     constructor(map) {
         super(map, 'postcode', 'NSW', 'postcode_nsw', nswPostCodeData);
     }
@@ -994,7 +1012,7 @@ class NSWPostCodeBoundaries extends JSONGeoBoundariesBase {
         }
         return null;
     }
-}
+}*/
 
 /*******************************************************************
  * Simple state boundaries

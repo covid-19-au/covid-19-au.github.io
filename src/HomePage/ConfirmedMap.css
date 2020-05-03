@@ -41,5 +41,14 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    height: 40vh;
+    height: 50vh;
+}
+
+.mapboxgl-popup {
+    opacity: 0.95;
+    z-index: 501;
+}
+
+.mapboxgl-popup-content {
+    box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
 }
