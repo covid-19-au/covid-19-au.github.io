@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-02/coronavirus-app-currently-not-fully-operational/12208924",
+            "title": "Coronavirus app tracing capability not operational, despite 4 million downloads",
+            "source": "ABCNews",
+            "date": "2 May 2020",
+            "time": "18:55",
+            "summary": "More than 4 million people have downloaded the COVIDSafe app, but the information it collects is not yet available to state and territory health officials. He said the app was already logging users' close contacts, and that information could be accessed at a later date. The app will not be fully functional until states and territories finalise rules on privacy, and final IT testing is conducted."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-02/coronavirus-cluster-melbourne-abbatoir-paramedic-tests-postive/12208560",
+            "title": "Coronavirus cases revealed in Victorian paramedic and cluster of Melbourne abattoir workers",
+            "source": "ABCNews",
+            "date": "2 May 2020",
+            "time": "18:54",
+            "summary": "The number of coronavirus cases in Victoria continues to inch up as a paramedic tests positive to the virus and health authorities investigate a cluster at a meat processing plant. The unnamed Melbourne meat processing plant has been temporarily closed after eight employees tested positive to coronavirus, including three in the past 24 hours. A spokesperson said there was nothing to indicate that the paramedic that tested positive had acquired the virus from patient contact, however, as a precaution, five paramedics who came into contact with them are also in isolation."
+        },
+        {
+            "link": "https://www.brisbanetimes.com.au/national/queensland/public-health-alert-issued-over-new-queensland-coronavirus-case-20200502-p54p88.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
+            "title": "Public health alert issued over new Queensland coronavirus case",
+            "source": "BrisbaneTimes",
+            "date": "2 May 2020",
+            "time": "15:02",
+            "summary": "A plane passenger returning to Brisbane from Melbourne has tested positive to COVID-19 overnight, triggering a public health alert. State health authorities are urgently tracing people the infected traveller was in contact with on Qantas flight QF614 from Melbourne to Brisbane on April 22. Those who travelled in rows 19, 20, 21, 22 and 23 are urged to contact Queensland Health."
+        },
+        {
             "link": "https://www.sbs.com.au/news/australia-s-aged-care-centres-to-get-205-million-to-stay-open-during-coronavirus-crisis",
             "title": "Australia's aged care centres to get $205 million to stay open during coronavirus crisis",
             "source": "SBSNews",
@@ -127,22 +151,6 @@
             "date": "25 April 2020",
             "time": "08:00",
             "summary": "Thousands take part in a Covid-19-friendly but lonelier than usual commemoration of Gallipoli. The idea for the driveway dawn service came from two former Townsville defence force personnel, Warrant Officer Terry James and Brigadier Bill Sowry, who were discussing a Covid-19-friendly way to commemorate the day on social media. The plan quickly gained popularity and RSL branches and politicians across the country encouraged people to take part."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/australia-ramps-up-coronavirus-testing-to-include-anyone-with-respiratory-symptoms",
-            "title": "Australia ramps up coronavirus testing to include anyone with respiratory symptoms",
-            "source": "SBSNews",
-            "date": "24 April 2020",
-            "time": "16:55",
-            "summary": "Following a national cabinet meeting on Friday, Chief Medical Officer Brendan Murphy announced all states and territories would expand their testing criteria to ensure any community transmission was being picked up. The meeting also discussed reports of aged care facilities refusing visitors and locking residents in their rooms. Prime Minister Scott Morrison said if facilities that had gone beyond baseline coronavirus requirements did not return to that level and allow each resident two visitors a day, his government would make it mandatory."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/scott-morrison-says-social-distancing-rules-do-not-apply-to-school-classrooms",
-            "title": "Scott Morrison says social distancing rules do not apply to school classrooms",
-            "source": "SBSNews",
-            "date": "24 April 2020",
-            "time": "14:54",
-            "summary": "Prime Minister Scott Morrison says the government's medical advice confirms social distancing requirements do not apply to classrooms, clearing the way for students to return to school.  While Australians have been told to keep 1.5 metres apart, or two arms' lengths, Mr Morrison said the Australian Health Protection Principal Committee (AHPPC) had determined students did not need to abide by that advice in the classroom."
         }
     ]
 }

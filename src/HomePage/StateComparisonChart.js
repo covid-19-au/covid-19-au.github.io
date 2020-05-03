@@ -471,7 +471,7 @@ export default function StateComparisonChart() {
                 <span className="key"><p>{i18next.t("homePage:chartCommon.dottedLine")}</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                    Logarithmic Scale (Cases Only):&nbsp;
+                    Logarithmic Scale:&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>On</Button>
                         <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>Off</Button>
