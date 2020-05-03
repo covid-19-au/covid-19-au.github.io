@@ -130,11 +130,12 @@ class MbMap extends React.Component {
                         zIndex: 500,
                         padding: '8px 8px 0 8px',
                         width: '30%',
-                        minWidth: '100px',
+                        minWidth: '220px',
                         background: 'white',
                         opacity: 0.9,
                         boxShadow: '-1px 0px 16px -4px rgba(189,189,189,1)',
-                        pointerEvents: 'none'
+                        pointerEvents: 'none',
+                        whiteSpace: 'nowrap'
                     }}>
 
                         <div ref={this.markersBGGroup}
