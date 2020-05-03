@@ -371,6 +371,11 @@ class JSONGeoBoundariesBase {
             var caseInfo = caseDataSource.getCaseNumber(cityName, null);
             map.getCanvas().style.cursor = 'pointer';
 
+            if (!caseInfo || caseInfo['numCases'] == null || caseInfo['updatedDate'] == null) {
+                // no data?
+                return;
+            }
+
             var absInfo;
             if (absDataSource) {
                 // TODO: Store on mouseover, so as to allow combining different schemas?

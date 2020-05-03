@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
 
-import regionsData from "../data/regionsTimeSeriesAutogen.json"
+import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import confirmedImg from '../img/icon/confirmed-recent.png'
@@ -73,13 +73,22 @@ class MbMap extends React.Component {
                 return '<option value="' + key + '">' + key + '</option>'
             }).join('\n')
         }
-        return '<option value="">(None)</option>'+ConfirmedMapFns.sortedKeys(absStats).map((heading) => {
-            return (
-                '<optgroup label=' + heading + '>' +
-                    outputSelects(heading) +
-                '</optgroup>'
-            );
-        }).join('\n')
+        return (
+            '<optgroup label="Quick Selections">' +
+                '<option value="">(None)</option>' +
+                '<option value="Population density (persons/km2)">Population density (persons/km2)</option>' +
+                '<option value="Index of Relative Socio-economic Advantage and Disadvantage (%)">Socioeconomic Advantage and Disadvantage (%)</option>' +
+                '<option value="Persons - 65 years and over (%)">65 years and over (%)</option>' +
+            '</optgroup>'+
+
+            ConfirmedMapFns.sortedKeys(absStats).map((heading) => {
+                return (
+                    '<optgroup label=' + heading + '>' +
+                        outputSelects(heading) +
+                    '</optgroup>'
+                );
+            }).join('\n')
+        );
     }
 
     render() {
@@ -113,8 +122,6 @@ class MbMap extends React.Component {
                         <Acknowledgement>
                         </Acknowledgement></div></h2>
 
-
-
                 <div style={{position: 'relative'}}>
                     <div id="map_cont_controls" style={{
                         position: 'absolute',
@@ -123,9 +130,11 @@ class MbMap extends React.Component {
                         zIndex: 500,
                         padding: '8px 8px 0 8px',
                         width: '30%',
+                        minWidth: '100px',
                         background: 'white',
                         opacity: 0.9,
-                        boxShadow: '-1px 0px 16px -4px rgba(189,189,189,1)'
+                        boxShadow: '-1px 0px 16px -4px rgba(189,189,189,1)',
+                        pointerEvents: 'none'
                     }}>
 
                         <div ref={this.markersBGGroup}
@@ -143,9 +152,9 @@ class MbMap extends React.Component {
                                     {/*<option value="status_icu_ventilators">ICU Ventilators</option>*/}
                                     <option value="status_hospitalized">Hospitalized</option>
                                 </optgroup>
-                                <optgroup label="Test Numbers">
+                                {/*<optgroup label="Test Numbers">
                                     <option value="tests_total">Total People Tested</option>
-                                </optgroup>
+                                </optgroup>*/}
                                 <optgroup label="Source of Infection">
                                     <option value="source_overseas">Contracted Overseas</option>
                                     <option value="source_community">Unknown Community Transmission</option>
@@ -177,9 +186,9 @@ class MbMap extends React.Component {
                             className="key"
                             style={{ marginBottom: "8px" }}>
                             <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Underlay</div>
-                            <select id="other_stats_select"
-                                style={{ "width": "100%" }}>
-                            </select>
+                                <select id="other_stats_select"
+                                    style={{ "width": "100%" }}>
+                                </select>
                         </div>
                     </div>
 
@@ -357,9 +366,6 @@ class MbMap extends React.Component {
                     if (initialized) {
                         that.setUnderlay();
                         that.setMarkers();
-
-                        that.markersBGGroup.current.style.pointerEvents = 'auto';
-                        that.underlayBGCont.current.style.pointerEvents = 'auto';
 
                         document.getElementById('other_stats_select').onchange = function () {
                             that.setUnderlay();
@@ -548,27 +554,32 @@ class MbMap extends React.Component {
 
         // Make sure the map is fully loaded
         // before allowing a new change in tabs
-        this.markersBGGroup.current.style.pointerEvents = 'none';
-        this.underlayBGCont.current.style.pointerEvents = 'none';
-
-        function enableControlsWhenMapReady() {
+        this._disableControls();
+        var enableControlsWhenMapReady = () => {
             if (that.map.loaded()) {
                 that._enableControlsJob = null;
-                that.markersBGGroup.current.style.pointerEvents = 'all';
-                that.underlayBGCont.current.style.pointerEvents = 'all';
+                this._enableControls();
             }
             else {
                 that._enableControlsJob = setTimeout(
                     enableControlsWhenMapReady, 50
                 );
             }
-        }
+        };
         if (this._enableControlsJob != null) {
             clearTimeout(this._enableControlsJob);
         }
         this._enableControlsJob = setTimeout(
             enableControlsWhenMapReady, 50
         );
+    }
+
+    _disableControls() {
+        document.getElementById('map_cont_controls').style.pointerEvents = 'none';
+    }
+
+    _enableControls() {
+        document.getElementById('map_cont_controls').style.pointerEvents = 'all';
     }
 
     _resetMode() {
