@@ -223,8 +223,6 @@ export default function OverallTrend() {
                                 name: i18next.t("homePage:status.confirmCase"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#ff603c"
@@ -234,8 +232,6 @@ export default function OverallTrend() {
                                 name: i18next.t("homePage:status.Deaths"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#c11700"
@@ -245,8 +241,6 @@ export default function OverallTrend() {
                                 name: i18next.t("homePage:status.Recoveries"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#00c177"
@@ -256,8 +250,6 @@ export default function OverallTrend() {
                                 name: i18next.t("homePage:status.activeCase"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#f75c8d"

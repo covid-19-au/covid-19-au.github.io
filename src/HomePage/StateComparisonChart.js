@@ -265,9 +265,8 @@ export default function StateComparisonChart() {
             let newLine = {
                 name: i18next.t("homePage:state." + orderedStates[i]),
                 type: 'line',
-                symbol: 'circle',
-                symbolSize: 8,
                 sampling: 'average',
+                showSymbol: false,
                 itemStyle: {
                     color: stateColours[orderedStates[i]]
                 },
@@ -291,9 +290,6 @@ export default function StateComparisonChart() {
         let dottedLine = {
             name: i18next.t("homePage:state." + orderedStates[i]),
             type: 'line',
-            symbolSize: 8,
-            symbol: "circle",
-            sampling: 'average',
             itemStyle: {
                 color: stateColours[orderedStates[i]]
             },
@@ -308,8 +304,6 @@ export default function StateComparisonChart() {
             name: i18next.t("homePage:state." + orderedStates[i]),
             type: 'line',
             smooth: true,
-            symbol: 'circle',
-            symbolSize: 8,
             sampling: 'average',
             itemStyle: {
                 color: stateColours[orderedStates[i]]
