@@ -57,7 +57,7 @@ const Blog = (props) => {
         return allBlogs.filter(blog => {
             if (tag === "All") {
                 return blog;
-            } else if (blog.tag === tag) {
+            } else if (blog.tag.includes(tag)) {
                 return blog;
             }
             return false;
