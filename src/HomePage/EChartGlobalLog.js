@@ -246,7 +246,7 @@ class EChartglobalLog extends Component {
         const dataSets = [];
         for (let i = 0; i < arrMapKeys.length; i++) {
             let newDataSet = {};
-            newDataSet["name"] = i18next.t("homePage:country."+arrMapKeys[i]);
+            newDataSet["name"] = i18next.t("homePage:country." + arrMapKeys[i]);
             newDataSet["z"] = arrMapKeys[i] === "AU" ? 3 : arrMapKeys[i] === "US" ? 1 : 2;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;
@@ -254,7 +254,7 @@ class EChartglobalLog extends Component {
             newDataSet["lineStyle"] = {
                 width: 0.5
             }*/
-            newDataSet["symbol"] = "circle";
+            //newDataSet["symbol"] = "circle";
             newDataSet["sampling"] = "average";
             newDataSet["itemStyle"] = {
                 color: this.props.countryColours[arrMapKeys[i]].backgroundColor
@@ -283,13 +283,13 @@ class EChartglobalLog extends Component {
         this.setState({ dataSets: dataSets });
 
     }
-    changeAllState(state){
+    changeAllState(state) {
         let arrMapKeys = Object.keys(this.state.arrMap);
-        let selectAll={}
+        let selectAll = {}
         for (let i = 0; i < arrMapKeys.length; i++) {
-            selectAll[i18next.t("homePage:country."+arrMapKeys[i])]=state;
+            selectAll[i18next.t("homePage:country." + arrMapKeys[i])] = state;
         };
-        this.setState({selected:selectAll});
+        this.setState({ selected: selectAll });
     }
     onSelectAllClick = () => {
 
@@ -411,7 +411,7 @@ class EChartglobalLog extends Component {
                 />
                 <span className="due">
                     <span className="key" style={{ fontSize: "80%", paddingTop: 0 }}>
-                    {i18next.t("homePage:globalChart.updateNotice")}{this.state.dates[this.state.dates.length - 1]}
+                        {i18next.t("homePage:globalChart.updateNotice")}{this.state.dates[this.state.dates.length - 1]}
                     </span><br /><br />
                     <span className="key">{i18next.t("homePage:chartCommon.clickLegend")}<p></p></span><br />
                     <span className="key">{i18next.t("homePage:chartCommon.clickPoint")}<p></p></span><br />
@@ -426,7 +426,7 @@ class EChartglobalLog extends Component {
                     </a></p></span><br />
                     <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                    {i18next.t("homePage:misc.logScale")}&nbsp;
+                        {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
                             <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>{i18next.t("homePage:misc.onButton")}</Button>
                             <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({ logScale: false })}>{i18next.t("homePage:misc.offButton")}</Button>
