@@ -41,16 +41,18 @@ class MbMap extends React.Component {
             lat: -26.344589,
             zoom: 2,
             showMarker: true,
+            _timeperiod: 'alltime',
+            _markers: 'total',
+            _underlay: null,
+            _firstTime: true
         };
-
-        this._timeperiod = 'alltime';
-        this._markers = 'total';
-        this._underlay = null;
-        this._firstTime = true;
 
         this.markersBGGroup = React.createRef();
         this.underlayBGCont = React.createRef();
         this.markersButtonGroup = React.createRef();
+        this.mapContControls = React.createRef();
+        this.markersSelect = React.createRef();
+        this.otherStatsSelect = React.createRef();
 
         this.hospitalMessage = React.createRef();
         this.totalCasesMessage = React.createRef();
@@ -108,6 +110,19 @@ class MbMap extends React.Component {
             textTransform: "none"
         };
 
+        var updateState = () => {
+            if (!this.otherStatsSelect) {
+                // Control probably destroyed in meantime!
+                return;
+            }
+            else if (!this.mapLoaded) {
+                return setTimeout(updateState, 20);
+            }
+            this._resetMode();
+            this._updateMode();
+        }
+        setTimeout(updateState, 0);
+
         return (
             <div className="card" style={{
                 display: 'flex',
@@ -123,7 +138,7 @@ class MbMap extends React.Component {
                         </Acknowledgement></div></h2>
 
                 <div style={{position: 'relative'}}>
-                    <div id="map_cont_controls" style={{
+                    <div ref={this.mapContControls} style={{
                         position: 'absolute',
                         top: '8px',
                         left: '8px',
@@ -142,7 +157,7 @@ class MbMap extends React.Component {
                             className="key"
                             style={{ marginBottom: "8px" }}>
                             <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Markers</div>
-                            <select id="markers_select"
+                            <select ref={this.markersSelect}
                                 style={{ "width": "100%" }}>
                                 <optgroup label="Basic Numbers">
                                     <option value="total">Total Cases</option>
@@ -171,13 +186,13 @@ class MbMap extends React.Component {
                                 <ButtonGroup ref={this.markersButtonGroup}
                                     size="small"
                                     aria-label="small outlined button group">
-                                    <Button style={this._timeperiod === 'alltime' ? activeStyles : inactiveStyles}
+                                    <Button style={this.state._timeperiod === 'alltime' ? activeStyles : inactiveStyles}
                                         onClick={() => this.setTimePeriod('alltime')}>All</Button>
-                                    <Button style={this._timeperiod === '7days' ? activeStyles : inactiveStyles}
+                                    <Button style={this.state._timeperiod === '7days' ? activeStyles : inactiveStyles}
                                         onClick={() => this.setTimePeriod('7days')}>7 Days</Button>
-                                    <Button style={this._timeperiod === '14days' ? activeStyles : inactiveStyles}
+                                    <Button style={this.state._timeperiod === '14days' ? activeStyles : inactiveStyles}
                                         onClick={() => this.setTimePeriod('14days')}>14 Days</Button>
-                                    <Button style={this._timeperiod === '21days' ? activeStyles : inactiveStyles}
+                                    <Button style={this.state._timeperiod === '21days' ? activeStyles : inactiveStyles}
                                         onClick={() => this.setTimePeriod('21days')}>21 Days</Button>
                                 </ButtonGroup>
                             </span>
@@ -187,7 +202,7 @@ class MbMap extends React.Component {
                             className="key"
                             style={{ marginBottom: "8px" }}>
                             <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Underlay</div>
-                                <select id="other_stats_select"
+                                <select ref={this.otherStatsSelect}
                                     style={{ "width": "100%" }}>
                                 </select>
                         </div>
@@ -234,7 +249,9 @@ class MbMap extends React.Component {
      *******************************************************************/
 
     componentDidMount() {
-        const { lng, lat, zoom } = this.state;
+        const lng = this.state['lng'],
+              lat = this.state['lat'],
+              zoom = this.state['zoom'];
 
         var bounds = [
             [101.6015625, -49.83798245308484], // Southwest coordinates
@@ -251,7 +268,7 @@ class MbMap extends React.Component {
         });
 
         // Set the HTML *once only*!
-        document.getElementById('other_stats_select').innerHTML =
+        this.otherStatsSelect.current.innerHTML =
             this._getSelectHTML();
 
         // Disable map rotation
@@ -286,102 +303,92 @@ class MbMap extends React.Component {
             return new HospitalMarker(map, item);
         });
 
-        var that = this;
-        map.on('load', function () {
-            (async () => {
-                // Create case data instances
-                var caseDataInsts = that.caseDataInsts = {};
-                for (let key in regionsTimeSeries) {
-                    // key => "statename:schema"
-                    var d = caseDataInsts[key] = {};
-                    var subheaders = regionsTimeSeries[key]['sub_headers']; // CHECK ME!
-                    for (let subKey of subheaders) {
-                        caseDataInsts[`${key}|${subKey}|alltime`] = new TimeSeriesDataSource(
-                            `${key}|${subKey}|alltime`,
-                            subKey,
-                            regionsTimeSeries[key],
-                            regionsDateIDs,
-                            key.split(":")[1],
-                            key.split(":")[0]
-                        );
-                        caseDataInsts[`${key}|${subKey}|7days`] = new TimeSeriesDataSourceForPeriod(
-                            `${key}|${subKey}|7days`,
-                            subKey,
-                            regionsTimeSeries[key],
-                            regionsDateIDs,
-                            key.split(":")[1],
-                            key.split(":")[0],
-                            7
-                        );
-                        caseDataInsts[`${key}|${subKey}|14days`] = new TimeSeriesDataSourceForPeriod(
-                            `${key}|${subKey}|14days`,
-                            subKey,
-                            regionsTimeSeries[key],
-                            regionsDateIDs,
-                            key.split(":")[1],
-                            key.split(":")[0],
-                            14
-                        );
-                        caseDataInsts[`${key}|${subKey}|21days`] = new TimeSeriesDataSourceForPeriod(
-                            `${key}|${subKey}|21days`,
-                            subKey,
-                            regionsTimeSeries[key],
-                            regionsDateIDs,
-                            key.split(":")[1],
-                            key.split(":")[0],
-                            21
-                        );
-                    }
-                }
+        this.mapLoaded = false;
 
-                // Create ABS stat instances
-                var absStatsInsts = that.absStatsInsts = {};
-                for (var heading in absStats) {
-                    var absStatHeading = absStats[heading];
-                    for (var i = 0; i < absStatHeading['sub_headers'].length; i++) {
-                        var subHeader = absStatHeading['sub_headers'][i];
-                        absStatsInsts[subHeader] = new BigTableOValuesDataSource(
-                            subHeader, heading, subHeader, absStatHeading
-                        );
-                    }
-                }
+        // Create case data instances
+        var caseDataInsts = this.caseDataInsts = {};
+        for (let key in regionsTimeSeries) {
+            // key => "statename:schema"
+            var d = caseDataInsts[key] = {};
+            var subheaders = regionsTimeSeries[key]['sub_headers']; // CHECK ME!
+            for (let subKey of subheaders) {
+                caseDataInsts[`${key}|${subKey}|alltime`] = new TimeSeriesDataSource(
+                    `${key}|${subKey}|alltime`,
+                    subKey,
+                    regionsTimeSeries[key],
+                    regionsDateIDs,
+                    key.split(":")[1],
+                    key.split(":")[0]
+                );
+                caseDataInsts[`${key}|${subKey}|7days`] = new TimeSeriesDataSourceForPeriod(
+                    `${key}|${subKey}|7days`,
+                    subKey,
+                    regionsTimeSeries[key],
+                    regionsDateIDs,
+                    key.split(":")[1],
+                    key.split(":")[0],
+                    7
+                );
+                caseDataInsts[`${key}|${subKey}|14days`] = new TimeSeriesDataSourceForPeriod(
+                    `${key}|${subKey}|14days`,
+                    subKey,
+                    regionsTimeSeries[key],
+                    regionsDateIDs,
+                    key.split(":")[1],
+                    key.split(":")[0],
+                    14
+                );
+                caseDataInsts[`${key}|${subKey}|21days`] = new TimeSeriesDataSourceForPeriod(
+                    `${key}|${subKey}|21days`,
+                    subKey,
+                    regionsTimeSeries[key],
+                    regionsDateIDs,
+                    key.split(":")[1],
+                    key.split(":")[0],
+                    21
+                );
+            }
+        }
 
-                // Create map data instances
-                var geoBoundaryInsts = that.geoBoundaryInsts = {};
-                for (var key of GeoBoundaries.getAvailableGeoBoundaries()) {
-                    geoBoundaryInsts[key] = GeoBoundaries.getGeoBoundary(
-                        map, key.split(":")[1], key.split(":")[0]
-                    );
-                }
+        // Create ABS stat instances
+        var absStatsInsts = this.absStatsInsts = {};
+        for (var heading in absStats) {
+            var absStatHeading = absStats[heading];
+            for (var i = 0; i < absStatHeading['sub_headers'].length; i++) {
+                var subHeader = absStatHeading['sub_headers'][i];
+                absStatsInsts[subHeader] = new BigTableOValuesDataSource(
+                    subHeader, heading, subHeader, absStatHeading
+                );
+            }
+        }
 
-                function enableControls() {
-                    // Only enable controls once all the data loaded!
-                    var initialized = true;
-                    for (let key in geoBoundaryInsts) {
-                        if (!geoBoundaryInsts[key].initialized) {
-                            initialized = false;
-                            console.log(key)
-                        }
-                    }
+        map.on('load', () => {
+            if (!this.otherStatsSelect) {
+                // Control probably destroyed before loaded!
+                return;
+            }
 
-                    if (initialized) {
-                        that.setUnderlay();
-                        that.setMarkers();
+            // Create map data instances
+            var geoBoundaryInsts = this.geoBoundaryInsts = {};
+            for (var key of GeoBoundaries.getAvailableGeoBoundaries()) {
+                geoBoundaryInsts[key] = GeoBoundaries.getGeoBoundary(
+                    map, key.split(":")[1], key.split(":")[0]
+                );
+            }
 
-                        document.getElementById('other_stats_select').onchange = function () {
-                            that.setUnderlay();
-                        }
-                        document.getElementById('markers_select').onchange = function () {
-                            that.setMarkers();
-                        }
-                    }
-                    else {
-                        setTimeout(enableControls, 50);
-                    }
-                }
-                setTimeout(enableControls, 50);
-            })();
+            this.otherStatsSelect.current.onchange = () => {
+                this.setUnderlay();
+            };
+            this.markersSelect.current.onchange = () => {
+                this.setMarkers();
+            };
+            this.mapLoaded = true;
         });
+    }
+
+    componentWillUnmount() {
+        this.map.remove();
+        GeoBoundaries.clearGeoBoundaryCache();
     }
 
     /*******************************************************************
@@ -401,7 +408,7 @@ class MbMap extends React.Component {
         ];
 
         for (var schema of schemas) {
-            var key = `${stateName}:${schema}|${this._markers}|${this._timeperiod}`;
+            var key = `${stateName}:${schema}|${this.state._markers}|${this.state._timeperiod}`;
 
             if (key in this.caseDataInsts) {
                 return this.caseDataInsts[key];
@@ -416,28 +423,21 @@ class MbMap extends React.Component {
     }
 
     setUnderlay() {
-        this._resetMode();
-        this._underlay = document.getElementById(
-            'other_stats_select'
-        ).value;
-        this._updateMode()
+        this.setState({
+            _underlay: this.otherStatsSelect.current.value
+        });
     }
 
     setMarkers() {
-        this._resetMode();
-        this._markers = document.getElementById(
-            'markers_select'
-        ).value;
-        this._updateMode()
+        this.setState({
+            _markers: this.markersSelect.current.value
+        });
     }
 
     setTimePeriod(timeperiod) {
-        this._resetMode();
-        this._timeperiod = timeperiod;
         this.setState({
             _timeperiod: timeperiod
         });
-        this._updateMode()
     }
 
     _getMessagesForModes() {
@@ -470,8 +470,7 @@ class MbMap extends React.Component {
 
     _updateMode() {
         let that = this,
-            messagesForModes = this._getMessagesForModes(),
-            markers = this._markers;
+            messagesForModes = this._getMessagesForModes();
 
         function enableInsts(dataSource, insts) {
             // Overlay LGA ABS data on LGA stats
@@ -533,7 +532,7 @@ class MbMap extends React.Component {
         //updateMessages();
 
         this.statesAndTerritories.forEach((stateName) => {
-            var absStatDataInst = this.absStatsInsts[this._underlay],
+            var absStatDataInst = this.absStatsInsts[this.state._underlay],
                 caseDataInst = this.getCaseDataInst(stateName);
 
             if (!caseDataInst) {
@@ -576,17 +575,19 @@ class MbMap extends React.Component {
     }
 
     _disableControls() {
-        document.getElementById('map_cont_controls').style.pointerEvents = 'none';
+        this.mapContControls.current.style.pointerEvents = 'none';
     }
 
     _enableControls() {
-        document.getElementById('map_cont_controls').style.pointerEvents = 'all';
+        this.mapContControls.current.style.pointerEvents = 'all';
     }
 
     _resetMode() {
-        if (this._firstTime) {
+        if (this.state._firstTime) {
             // Don't reset before the page has been initially changed!
-            this._firstTime = false;
+            this.setState({
+                _firstTime: false
+            });
             return;
         }
 
@@ -627,7 +628,7 @@ class MbMap extends React.Component {
         //clearMessages();
 
         this.statesAndTerritories.forEach((stateName) => {
-            var absStatDataInst = this.absStatsInsts[this._underlay],
+            var absStatDataInst = this.absStatsInsts[this.state._underlay],
                 caseDataInst = this.getCaseDataInst(stateName);
 
             if (!caseDataInst) {

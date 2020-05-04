@@ -4,28 +4,28 @@ import polylabel from "polylabel";
 import CanvasJS from "../assets/canvasjs.min";
 
 // by LGA
-import vicLgaData from "../data/geojson/lga_vic.geojson"
-import nswLgaData from "../data/geojson/lga_nsw.geojson"
-import ntLgaData from "../data/geojson/lga_nt.geojson"
-import qldLgaData from "../data/geojson/lga_qld.geojson"
-import saLgaData from "../data/geojson/lga_sa.geojson"
-import tasLgaData from "../data/geojson/lga_tas.geojson"
-import waLgaData from "../data/geojson/lga_wa.geojson"
+import vicLgaData from "../data/lga_vic.geojson"
+import nswLgaData from "../data/lga_nsw.geojson"
+import ntLgaData from "../data/lga_nt.geojson"
+import qldLgaData from "../data/lga_qld.geojson"
+import saLgaData from "../data/lga_sa.geojson"
+import tasLgaData from "../data/lga_tas.geojson"
+import waLgaData from "../data/lga_wa.geojson"
 
 // by other schema
-import actSaData from "../data/geojson/sa3_act.geojson"
-import qldHhsData from "../data/geojson/hhs_qld.geojson"
-//import nswPostCodeData from "../data/geojson/postcode_nsw.geojson"
+import actSaData from "../data/sa3_act.geojson"
+import qldHhsData from "../data/hhs_qld.geojson"
+//import nswPostCodeData from "../data/postcode_nsw.geojson"
 
 // statewide outlines (when regional data not available)
-import actOutlineData from "../data/geojson/boundary_act.geojson"
-import vicOutlineData from "../data/geojson/boundary_vic.geojson"
-import nswOutlineData from "../data/geojson/boundary_nsw.geojson"
-//import qldOutlineData from "../data/geojson/boundary_qld.geojson"
-import waOutlineData from "../data/geojson/boundary_wa.geojson"
-import saOutlineData from "../data/geojson/boundary_sa.geojson"
-import tasOutlineData from "../data/geojson/boundary_tas.geojson"
-import ntOutlineData from "../data/geojson/boundary_nt.geojson"
+import actOutlineData from "../data/boundary_act.geojson"
+import vicOutlineData from "../data/boundary_vic.geojson"
+import nswOutlineData from "../data/boundary_nsw.geojson"
+//import qldOutlineData from "../data/boundary_qld.geojson"
+import waOutlineData from "../data/boundary_wa.geojson"
+import saOutlineData from "../data/boundary_sa.geojson"
+import tasOutlineData from "../data/boundary_tas.geojson"
+import ntOutlineData from "../data/boundary_nt.geojson"
 
 import BigTableOValuesDataSource from "./ConfirmedMapABSData"
 import ConfirmedMapFns from "./ConfirmedMapFns"
@@ -82,6 +82,11 @@ function getGeoBoundary(map, schema, stateName) {
     return inst;
 }
 
+function clearGeoBoundaryCache() {
+    // Make sure to call this when destroying the map!
+    __geoBoundaryCache = new Map();
+}
+
 
 class JSONGeoBoundariesBase {
     constructor(map, schema, stateName, uniqueId, data) {
@@ -90,20 +95,7 @@ class JSONGeoBoundariesBase {
         this.stateName = stateName;
         this.uniqueId = uniqueId;
         this.addedSources = {};  // Using as a set
-
-        var that = this;
-        this._loadJSON(data).then(
-            data => that._onLoadData(data)
-        );
-    }
-
-    async _loadJSON(Data) {
-        let geojsonData = await fetch(`${Data}`)
-            .then(response => response.json())
-            .then(responseData => {
-                return responseData;
-            });
-        return geojsonData;
+        this._onLoadData(data);
     }
 
     _onLoadData(data) {
@@ -111,7 +103,6 @@ class JSONGeoBoundariesBase {
         this.pointGeoJSONData = this._getModifiedGeoJSONWithPolyCentralAreaPoints(
             this.geoJSONData
         );
-        this.initialized = true;
     }
 
     /*******************************************************************
@@ -1102,6 +1093,7 @@ class WABoundary extends JSONGeoBoundariesBase {
 // classes via the above utility fns
 var exportDefaults = {
     getGeoBoundary: getGeoBoundary,
-    getAvailableGeoBoundaries: getAvailableGeoBoundaries
+    getAvailableGeoBoundaries: getAvailableGeoBoundaries,
+    clearGeoBoundaryCache: clearGeoBoundaryCache
 };
 export default exportDefaults;
