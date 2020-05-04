@@ -1,23 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "imgLink": "https://i.imgur.com/yI0lVFN.png",
-                    "source": "https://www.smh.com.au/national/give-a-bit-the-people-championing-a-little-touch-of-kindness-20200331-p54fpo.html"
+                    "link": "https://www.youtube.com/watch?v=olHw-8py9K0",
+                    "description": "5 Minute Chocolate Cake!"
                 }
             ],
-            "video": [],
-            "title": "A little touch of kindness",
-            "content": "<p>The Sydney Morning Herald have collected a number of stories of people performing acts of kindness for others. Pictured above is John Course, a well-known DJ that livestreamed a 3 hour set from his spare room.</p><p>Check out more stories in the link below!</p>",
-            "type": "motivation",
-            "date": "2/5/2020",
-            "citation": [
-                {
-                    "link": "https://www.smh.com.au/national/give-a-bit-the-people-championing-a-little-touch-of-kindness-20200331-p54fpo.html",
-                    "name": "'Give a bit': the people championing a little touch of kindness - The Sydney Morning Herald"
-                }
-            ]
+            "type": "distraction",
+            "date": "04/5/2020"
         }
     ]
 }

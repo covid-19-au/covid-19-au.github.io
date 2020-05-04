@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.theguardian.com/news/2020/apr/25/australians-turn-out-for-driveway-dawn-service-to-mark-anzac-day-in-time-of-coronavirus",
+            "title": "Australians turn out for driveway dawn service to mark Anzac Day in time of coronavirus ",
+            "source": "TheGuardian",
+            "date": "25 April 2020",
+            "time": "08:00",
+            "summary": "Thousands take part in a Covid-19-friendly but lonelier than usual commemoration of Gallipoli. The idea for the driveway dawn service came from two former Townsville defence force personnel, Warrant Officer Terry James and Brigadier Bill Sowry, who were discussing a Covid-19-friendly way to commemorate the day on social media. The plan quickly gained popularity and RSL branches and politicians across the country encouraged people to take part."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/australia-ramps-up-coronavirus-testing-to-include-anyone-with-respiratory-symptoms",
+            "title": "Australia ramps up coronavirus testing to include anyone with respiratory symptoms",
+            "source": "SBSNews",
+            "date": "24 April 2020",
+            "time": "16:55",
+            "summary": "Following a national cabinet meeting on Friday, Chief Medical Officer Brendan Murphy announced all states and territories would expand their testing criteria to ensure any community transmission was being picked up. The meeting also discussed reports of aged care facilities refusing visitors and locking residents in their rooms. Prime Minister Scott Morrison said if facilities that had gone beyond baseline coronavirus requirements did not return to that level and allow each resident two visitors a day, his government would make it mandatory."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/scott-morrison-says-social-distancing-rules-do-not-apply-to-school-classrooms",
+            "title": "Scott Morrison says social distancing rules do not apply to school classrooms",
+            "source": "SBSNews",
+            "date": "24 April 2020",
+            "time": "14:54",
+            "summary": "Prime Minister Scott Morrison says the government's medical advice confirms social distancing requirements do not apply to classrooms, clearing the way for students to return to school.  While Australians have been told to keep 1.5 metres apart, or two arms' lengths, Mr Morrison said the Australian Health Protection Principal Committee (AHPPC) had determined students did not need to abide by that advice in the classroom."
+        },
+        {
             "link": "https://www.sbs.com.au/news/scott-morrison-says-jobseeker-payment-will-be-cut-after-pandemic",
             "title": "Scott Morrison says JobSeeker payment will be cut after pandemic",
             "source": "SBSNews",

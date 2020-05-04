@@ -2,6 +2,58 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "COVIDSafe App",
+            "media": "https://i.imgur.com/s7eqhLo.png",
+            "summary": "The Australian government has recently released the COVIDSafe app. The blog post today will cover what it is and how you can get the app today.",
+            "date": "4/05/2020", 
+            "text": {
+                "text_1": [
+                    "The Australian government has recently released the COVIDSafe app, which is used to track people who have been in close contact with a person who has COVID-19. This app is an important step in helping reduce the number of cases of COVID-19 and will help lift the current restrictions imposed.",
+                    "<strong>How does the app work?</strong>",
+                    "When you download the app, you are prompted to enter your personal information and will be assigned a unique encrypted reference code.",
+                    "The app will recognise other devices with the COVIDSafe app installed and when their Bluetooth is turned on. If you encounter another person with the app, it will record the date, time, distance, duration of the contact and the other person’s user code.",
+                    "If someone does test positive for COVID-19, then the app can help aid the tracking of people who have been in close contact with them. This would then allow health officials to provide advice to those who have been exposed.",
+                    "<strong>How do I download the app?</strong>",
+                    "The app is currently available on the <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://apps.apple.com/au/app/covidsafe/id1509242894'>App Store</a> and <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://play.google.com/store/apps/details?id=au.gov.health.covidsafe'>Google Play Store</a>. You can simply download the app and start your registration!",
+                    "<strong>Privacy concerns</strong>",
+                    "There have been concerns regarding the privacy of your data within the app. The Australian government has assured that the data is protected and only state and territory health authorities can access the information for tracing potential contacts with an infected user.",
+                    "After the pandemic, users of the app will be prompted to delete the app and the information that has been stored will be destroyed.",
+                    "At the moment, when deleting the COVIDSafe app on your phone, your information will not be removed from the storage system. However, it will be destroyed at the end of the pandemic and for now users can request for their data to be deleted <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://covidsafe-form.service.gov.au/'>here</a>.",
+                    "Downloading the app is quick and easy! So get it today to make sure that you and your loved ones are protected 💜.",
+                    "<br /><strong>Sources:</a>",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.pm.gov.au/media/covidsafe-new-app-slow-spread-coronavirus'>https://www.pm.gov.au/media/covidsafe-new-app-slow-spread-coronavirus</a>",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.health.gov.au/resources/apps-and-tools/covidsafe-app'>https://www.health.gov.au/resources/apps-and-tools/covidsafe-app</a>"
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
+            "title": "Hand sanitiser and COVID-19 – what you need to know",
+            "media": "https://i.imgur.com/GsnJ0kB.png",
+            "summary": "With Hand Sanitisers running out in stores, people have taken to making their own DIY Hand Sanitisers. Learn more about the risks and why it might be best to hold off on making your own for now.",
+            "date": "3/05/2020", 
+            "text": {
+                "text_1": [
+                    "Empty shelves of hand sanitiser have become a common sight in recent times as people rush to protect themselves from COVID-19. Amidst the panic, some people have turned to DIY solutions to ensure they have hand sanitiser on hand. The question is, are these solutions effective, or even safe?",
+                    "Most experts agree that an alcohol-based hand sanitiser needs to be at least 60% alcohol to be effective, however research is still being conducted on the minimum concentration needed to destroy SARS-CoV-2 (the virus responsible for COVID-19). It is important to note that viruses like SARS-CoV-2 can be deactivated by 60% ethanol sanitisers (once the virus is deactivated it cannot infect you). SARS-CoV-2 is known have a fat and protein layers that <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://blog.csiro.au/covid19-virus-spread/'>protect the viral core</a>.",
+                    "Hand sanitiser works by ‘unravelling’ the protective shell that encases the core, thus making the virus ineffective. A <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://wwwnc.cdc.gov/eid/article/26/7/20-0915_article'>recent study</a> found that the COVID-19 virus can be successfully deactivated by a sanitiser containing 80% ethanol, which is one of the most common active ingredients in hand sanitiser. Additionally, another <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.medrxiv.org/content/10.1101/2020.03.15.20036673v2'>recent publication</a> indicated that a concentration of 70% ethanol was adequate to deactivate the virus.",
+                    "With these ethanol concentrations in mind, it is worth analysing some of the top google search results for ‘DIY hand sanitiser’ to see if any of these solutions could be useful given the information currently available about SARS-CoV-2.",
+                    "Top Google autocomplete results indicate that people are interested in recipes that include essential oils. DoTerra is a company known for selling essential oils; <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.doterra.com/US/en/blog/recipes-hand-cleansing-gel'>their recipe</a> contains aloe vera gel, water, vitamin E oil and their own DoTerra On Guard product (a blend of essential oils). Adding rubbing alcohol to this recipe is ‘optional.’ It is important to note that essential oils are <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.tmc.edu/news/2020/03/coronavirus-scams-consumers-warned-about-fake-treatments-and-cures/'>not useful</a> in destroying SARS-CoV-2, and so this recipe would not be effective without the alcohol. Even with the alcohol, the concentration would be unlikely to have any effect, as rubbing alcohol varies widely in concentration so it’s impossible to know the concentration – and therefore the efficacy – of the final product.",
+                    "<img alt='Autocompleted search results for DIY Hand Sanitiser' src='https://i.imgur.com/7vtuW6S.png'/>",
+                    "Other recipes using household items such as vinegar or vodka are also ineffective. Vinegar is <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://globalnews.ca/news/6703882/coronavirus-covid-19-cleaning-vinegar/'>not concentrated enough</a> to have a significant effect on the virus. Vodka and many other spirits typically only contain 40% ethanol, so this concentration is not nearly high enough to be effective against SARS-CoV-2.",
+                    "The World Health Organisation has published <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.who.int/gpsc/5may/Guide_to_Local_Production.pdf'>hand sanitiser recipes</a> for use primarily in developing countries where access to commercial hand sanitiser is extremely limited. However, their <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.who.int/gpsc/clean_hands_protection/en/'>primary recommendation</a> is still to wash your hands with soap and water wherever possible, and to only use hand sanitiser when soap and water isn’t immediately available - ensuring the sanitiser is alcohol-based.",
+                    "With all this information in mind, maybe hold off on trying out the newest DIY recipe you found. It’s safest to wash your hand thoroughly for 20 seconds, stay home and save the sanitiser for emergencies only."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "COVID-19 Surface Lifespan and Ways to Limit Its Survival Time",
             "media": "https://i.imgur.com/ODnXvfr.png",
             "summary": "Here is some information on Coronavirus's lifespan on different surfaces, and some ways to limit the survival of the virus in our environments.",

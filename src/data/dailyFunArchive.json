@@ -3,6 +3,44 @@
         {
             "image": [
                 {
+                    "imgLink": "https://i.imgur.com/k4RtFDt.png",
+                    "source": "https://www.together.vic.gov.au/"
+                }
+            ],
+            "video": [],
+            "title": "Victoria Together",
+            "content": "<p>The Victorian government has created a site for people to discover the best music, entertainment, nature and art the state has to offer.</p><p>Check it using the link below!</p>",
+            "type": "motivation",
+            "date": "3/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.together.vic.gov.au/",
+                    "name": "Victoria Together - Victorian Government"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://i.imgur.com/yI0lVFN.png",
+                    "source": "https://www.smh.com.au/national/give-a-bit-the-people-championing-a-little-touch-of-kindness-20200331-p54fpo.html"
+                }
+            ],
+            "video": [],
+            "title": "A little touch of kindness",
+            "content": "<p>The Sydney Morning Herald have collected a number of stories of people performing acts of kindness for others. Pictured above is John Course, a well-known DJ that livestreamed a 3 hour set from his spare room.</p><p>Check out more stories in the link below!</p>",
+            "type": "motivation",
+            "date": "2/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.smh.com.au/national/give-a-bit-the-people-championing-a-little-touch-of-kindness-20200331-p54fpo.html",
+                    "name": "'Give a bit': the people championing a little touch of kindness - The Sydney Morning Herald"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
                     "imgLink": "https://static.ffx.io/images/$zoom_0.165%2C$multiply_0.963%2C$ratio_1.5%2C$width_756%2C$x_8%2C$y_0/t_crop_custom/q_86%2Cf_auto/b580c42d7e9e8744fc6cdd3ed6a9defb39cfafaa",
                     "source": "https://www.smh.com.au/world/oceania/we-have-achieved-our-goal-new-zealand-eliminates-covid-19-in-the-community-20200427-p54nn5.html"
                 }
