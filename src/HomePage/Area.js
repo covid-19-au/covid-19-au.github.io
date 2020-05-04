@@ -76,7 +76,7 @@ export default function Area({ area, onChange, data }) {
             <div className="dailyIncrease">
               {x[CONFIRMED] - lastTotal[x[0]][0] > 0
                 ? `(+${x[1] - lastTotal[x[0]][0]})`
-                : `(-${lastTotal[x[0]][0] - x[1]})`}
+                : x[CONFIRMED] - lastTotal[x[0]][0] < 0?`(-${lastTotal[x[0]][0] - x[1]})`:null}
             </div>}
         </div>
         <div className="death">
