@@ -38,16 +38,24 @@ export default function Ships() {
             marginRight: "1px",
           }}
         >
-          <Avatar
-            style={{
-              marginTop: "0rem",
-              marginRight: "1rem",
-              width: "32px",
-              height: "32px",
-            }}
-            src={ship.img}
-          />
-          <h3 className="responsiveH2">{ship.name}</h3>
+          <Grid container direction="row" alignItems="center">
+            <Grid item>
+              <Avatar
+                style={{
+                  marginTop: "0rem",
+                  marginRight: "1rem",
+                  width: "32px",
+                  height: "32px",
+                }}
+                src={ship.img}
+              />
+            </Grid>
+            <Grid item>
+              <h3 className="responsiveH2" valign="middle">
+                {ship.name}
+              </h3>
+            </Grid>
+          </Grid>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <TableContainer component={Paper}>
