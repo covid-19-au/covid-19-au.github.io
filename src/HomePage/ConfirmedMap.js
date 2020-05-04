@@ -130,23 +130,9 @@ class MbMap extends React.Component {
                         </Acknowledgement></div></h2>
 
                 <div style={{position: 'relative'}}>
-                    <div ref={this.mapContControls} style={{
-                        position: 'absolute',
-                        top: '8px',
-                        left: '8px',
-                        zIndex: 500,
-                        padding: '8px 8px 0 8px',
-                        width: '30%',
-                        minWidth: '220px',
-                        background: 'white',
-                        opacity: 0.9,
-                        boxShadow: '-1px 0px 16px -4px rgba(189,189,189,1)',
-                        pointerEvents: 'none',
-                        whiteSpace: 'nowrap'
-                    }}>
+                    <div class="map-cont-controls" ref={this.mapContControls}>
 
                         <div ref={this.markersBGGroup}
-                            className="key"
                             style={{ marginBottom: "8px" }}>
                             <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Markers</div>
                             <select ref={this.markersSelect}
@@ -390,6 +376,9 @@ class MbMap extends React.Component {
      *******************************************************************/
 
     getCaseDataInst(stateName, state) {
+        // stateName -> Australian state name
+        // state -> React JS state, to allow for providing
+        // the previous state when changing pages
         state = state || this.state;
 
         var schemas = [

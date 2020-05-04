@@ -52,3 +52,22 @@
 .mapboxgl-popup-content {
     box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
 }
+
+div.map-cont-controls {
+    padding: 8px 8px 0 8px;
+    background: white;
+    box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
+    pointer-events: none;
+    white-space: nowrap;
+}
+@media only screen and (min-width: 600px) {
+    div.map-cont-controls {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        z-index: 500;
+        width: 30%;
+        min-width: 220px;
+        opacity: 0.9;
+    }
+}
