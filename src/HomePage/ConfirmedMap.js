@@ -43,9 +43,9 @@ class MbMap extends React.Component {
             showMarker: true,
             _timeperiod: 'alltime',
             _markers: 'total',
-            _underlay: null,
-            _firstTime: true
+            _underlay: null
         };
+        this._firstTime = true;
 
         this.markersBGGroup = React.createRef();
         this.underlayBGCont = React.createRef();
@@ -93,6 +93,11 @@ class MbMap extends React.Component {
         );
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this._resetMode(prevState);
+        this._updateMode();
+    }
+
     render() {
         const activeStyles = {
             color: 'black',
@@ -109,19 +114,6 @@ class MbMap extends React.Component {
             outline: "none",
             textTransform: "none"
         };
-
-        var updateState = () => {
-            if (!this.otherStatsSelect) {
-                // Control probably destroyed in meantime!
-                return;
-            }
-            else if (!this.mapLoaded) {
-                return setTimeout(updateState, 20);
-            }
-            this._resetMode();
-            this._updateMode();
-        }
-        setTimeout(updateState, 0);
 
         return (
             <div className="card" style={{
@@ -252,6 +244,7 @@ class MbMap extends React.Component {
         const lng = this.state['lng'],
               lat = this.state['lat'],
               zoom = this.state['zoom'];
+        this._firstTime = true;
 
         var bounds = [
             [101.6015625, -49.83798245308484], // Southwest coordinates
@@ -302,8 +295,6 @@ class MbMap extends React.Component {
         this.hospitalMarkers = hospitalData.map((item) => {
             return new HospitalMarker(map, item);
         });
-
-        this.mapLoaded = false;
 
         // Create case data instances
         var caseDataInsts = this.caseDataInsts = {};
@@ -362,6 +353,7 @@ class MbMap extends React.Component {
             }
         }
 
+        this.mapLoaded = false;
         map.on('load', () => {
             if (!this.otherStatsSelect) {
                 // Control probably destroyed before loaded!
@@ -382,7 +374,9 @@ class MbMap extends React.Component {
             this.markersSelect.current.onchange = () => {
                 this.setMarkers();
             };
+
             this.mapLoaded = true;
+            this._updateMode();
         });
     }
 
@@ -395,7 +389,9 @@ class MbMap extends React.Component {
      * Mode update
      *******************************************************************/
 
-    getCaseDataInst(stateName) {
+    getCaseDataInst(stateName, state) {
+        state = state || this.state;
+
         var schemas = [
             // In order of preference
             //'postcode',
@@ -408,7 +404,7 @@ class MbMap extends React.Component {
         ];
 
         for (var schema of schemas) {
-            var key = `${stateName}:${schema}|${this.state._markers}|${this.state._timeperiod}`;
+            var key = `${stateName}:${schema}|${state._markers}|${state._timeperiod}`;
 
             if (key in this.caseDataInsts) {
                 return this.caseDataInsts[key];
@@ -469,10 +465,9 @@ class MbMap extends React.Component {
     }
 
     _updateMode() {
-        let that = this,
-            messagesForModes = this._getMessagesForModes();
+        let messagesForModes = this._getMessagesForModes();
 
-        function enableInsts(dataSource, insts) {
+        var enableInsts = (dataSource, insts) => {
             // Overlay LGA ABS data on LGA stats
             for (var i = 0; i < insts.length; i++) {
                 //console.log(`Enable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
@@ -480,15 +475,15 @@ class MbMap extends React.Component {
                 insts[i].addHeatMap(dataSource);
                 insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(
-                    that.absStatsInsts[that._underlay],
+                    this.absStatsInsts[this.state._underlay],
                     dataSource,
-                    that._underlay ? 0.5 : 0,
-                    !!that._underlay,
+                    this.state._underlay ? 0.5 : 0,
+                    !!this.state._underlay,
                     true
                 );
             }
-        }
-        function enableNonLGAInst(dataSource, otherInst, lgaInst) {
+        };
+        var enableNonLGAInst = (dataSource, otherInst, lgaInst) => {
             // Overlay LGA ABS data underneath non-LGA stats
             // (e.g. Queensland HHS/ACT SA3)
             //console.log(`Enable non-lga inst: dataSource->${dataSource.schema}:${dataSource.stateName} otherInst->${otherInst.schema}:${otherInst.stateName} ${otherInst} ${lgaInst}`);
@@ -508,27 +503,27 @@ class MbMap extends React.Component {
                 true
             );
 
-            if (that._underlay && lgaInst) {
+            if (this.state._underlay && lgaInst) {
                 lgaInst.addLinePoly(
-                    that.absStatsInsts[that._underlay],
+                    this.absStatsInsts[this.state._underlay],
                     'rgba(0, 0, 0, 0.1)'
                 );
                 lgaInst.addFillPoly(
-                    that.absStatsInsts[that._underlay],
+                    this.absStatsInsts[this.state._underlay],
                     null,
-                    that._underlay ? 0.5 : 0,
-                    !!that._underlay,
+                    this.state._underlay ? 0.5 : 0,
+                    !!this.state._underlay,
                     false//,
                     //fillPoly['fillPolyId']
                 );
             }
-        }
-        function updateMessages() {
-            let messages = messagesForModes[that._markers];
+        };
+        var updateMessages = () => {
+            let messages = messagesForModes[this.state._markers];
             for (var j = 0; j < messages.length; j++) {
                 messages[j].current.style.display = 'block';
             }
-        }
+        };
         //updateMessages();
 
         this.statesAndTerritories.forEach((stateName) => {
@@ -556,12 +551,12 @@ class MbMap extends React.Component {
         // before allowing a new change in tabs
         this._disableControls();
         var enableControlsWhenMapReady = () => {
-            if (that.map.loaded()) {
-                that._enableControlsJob = null;
+            if (this.map.loaded()) {
+                this._enableControlsJob = null;
                 this._enableControls();
             }
             else {
-                that._enableControlsJob = setTimeout(
+                this._enableControlsJob = setTimeout(
                     enableControlsWhenMapReady, 50
                 );
             }
@@ -582,17 +577,8 @@ class MbMap extends React.Component {
         this.mapContControls.current.style.pointerEvents = 'all';
     }
 
-    _resetMode() {
-        if (this.state._firstTime) {
-            // Don't reset before the page has been initially changed!
-            this.setState({
-                _firstTime: false
-            });
-            return;
-        }
-
-        let that = this,
-            messagesForModes = this._getMessagesForModes();
+    _resetMode(prevState) {
+        let messagesForModes = this._getMessagesForModes();
 
         function disableInsts(insts) {
             for (var i = 0; i < insts.length; i++) {
@@ -612,7 +598,7 @@ class MbMap extends React.Component {
             otherInst.removeFillPoly();
             otherInst.resetPopups();
 
-            if (that._underlay && lgaInst) {
+            if (prevState._underlay && lgaInst) {
                 lgaInst.removeLinePoly();
                 lgaInst.removeFillPoly();
             }
@@ -628,8 +614,8 @@ class MbMap extends React.Component {
         //clearMessages();
 
         this.statesAndTerritories.forEach((stateName) => {
-            var absStatDataInst = this.absStatsInsts[this.state._underlay],
-                caseDataInst = this.getCaseDataInst(stateName);
+            var absStatDataInst = this.absStatsInsts[prevState._underlay],
+                caseDataInst = this.getCaseDataInst(stateName, prevState);
 
             if (!caseDataInst) {
                 return;
