@@ -1,100 +1,116 @@
 import React from "react";
-import { Component } from "react";
 import Acknowledgement from "../Acknowledgment";
 import ships from "../data/ship.json";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import Avatar from "@material-ui/core/Avatar";
 
-export default class Ships extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: ships,
-      expandedRows: [],
-    };
-  }
+const useStyles = makeStyles({
+  table: {},
+});
 
-  handleRowClick(rowId) {
-    const currentExpandedRows = this.state.expandedRows;
-    const isRowCurrentlyExpanded = currentExpandedRows.includes(rowId);
+export default function Ships() {
+  const classes = useStyles();
+  let allShipRows = [];
 
-    const newExpandedRows = isRowCurrentlyExpanded
-      ? currentExpandedRows.filter((id) => id !== rowId)
-      : currentExpandedRows.concat(rowId);
-
-    this.setState({ expandedRows: newExpandedRows });
-  }
-
-  renderItem(item) {
-    const clickCallback = () => {
-      this.handleRowClick(item.name);
-    };
-
-    const isExpanded = this.state.expandedRows.includes(item.name) ? "-" : "+";
-
-    const itemRows = [
-      <tr
-        onClick={clickCallback}
-        key={"row-data-" + item.name}
-        class="shiptitletr"
-      >
-        <td colspan="2" class="shiptitlename">
-          {isExpanded} {item.name}
-        </td>
-        <td colspan="2" class="shiptitlestatus">
-          {item.status}
-        </td>
-      </tr>,
-    ];
-
-    if (this.state.expandedRows.includes(item.name)) {
-      itemRows.push(
-        <tr key={"row-expanded-" + item.name} class="shipexpandtr">
-          <td class="shipexpandttitle">Last Update</td>
-          <td class="shipexpandttitle">State</td>
-          <td class="shipexpandttitle">Cases</td>
-          <td class="shipexpandttitle">Death</td>
-        </tr>,
-        item.data.map((row) => (
-          <tr class="shipexpandtds">
-            <td>{row.lastUpdate}</td>
-            <td>{row.state}</td>
-            <td>{row.case}</td>
-            <td>{row.death}</td>
-          </tr>
-        ))
-      );
-    }
-
-    return itemRows;
-  }
-
-  render() {
-    let allItemRows = [];
-
-    this.state.data.forEach((item) => {
-      const perItemRows = this.renderItem(item);
-      allItemRows = allItemRows.concat(perItemRows);
-    });
-
-    return (
-      <div className="card">
-        <h2
-          style={{ display: "flex" }}
-          aria-label="Ships with reported COVID 19 cases"
+  ships.forEach((ship) => {
+    const shipRow = [
+      <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+          style={{
+            textAlign: "left",
+            marginLeft: "1em",
+            padding: "0px",
+            marginRight: "1px",
+          }}
         >
-          Cruise Ships
-          <div
+          <Avatar
             style={{
-              alignSelf: "flex-end",
-              marginLeft: "auto",
-              fontSize: "60%",
+              marginTop: "0rem",
+              marginRight: "1rem",
+              width: "32px",
+              height: "32px",
             }}
-          >
-            <Acknowledgement></Acknowledgement>
-          </div>
-        </h2>
-        <table class="shiptable">{allItemRows}</table>
-        <p class="key due">* Ships that link to Australia COVID19 cases.</p>
-      </div>
-    );
-  }
+            src={ship.img}
+          />
+          <h3 className="responsiveH2">{ship.name}</h3>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="caption table">
+              <caption>{ship.status}</caption>
+              <TableHead>
+                <TableRow>
+                  <TableCell align="left">Update</TableCell>
+                  <TableCell align="left">State</TableCell>
+                  <TableCell align="left">Case</TableCell>
+                  <TableCell align="left">Death</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {ship.data.map((row) => (
+                  <TableRow key={row.name}>
+                    <TableCell component="th" scope="row">
+                      <a href={row.url}>{row.update}</a>
+                    </TableCell>
+                    <TableCell component="th" scope="row">
+                      {row.state}
+                    </TableCell>
+                    <TableCell component="th" scope="row">
+                      {row.case}
+                    </TableCell>
+                    <TableCell component="th" scope="row">
+                      {row.death}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>,
+    ];
+    allShipRows = allShipRows.concat(shipRow);
+  });
+
+  return (
+    <div className="card">
+      <h2
+        style={{ display: "flex" }}
+        aria-label="Ships with reported COVID 19 cases"
+      >
+        Cruise Ships
+        <div
+          style={{
+            alignSelf: "flex-end",
+            marginLeft: "auto",
+            fontSize: "60%",
+          }}
+        >
+          <Acknowledgement></Acknowledgement>
+        </div>
+      </h2>
+      <p class="key due">
+        Ships that are linked to Australian COVID-19 cases. Sorted by case
+        estimated total.
+      </p>
+      <Grid item xs={12}>
+        <div>{allShipRows}</div>
+      </Grid>
+    </div>
+  );
 }

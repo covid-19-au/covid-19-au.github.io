@@ -70,19 +70,6 @@ export default function HomePage({
 
       <Grid item xs={11} sm={11} md={10} lg={5}>
         <Flights flights={flights} />
-      </Grid>
-
-      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
-        <MbMap />
-        <OverallTrend />
-      </Grid>
-      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
-        <StateComparisonChart />
-        <EChartGlobalLog />
-      </Grid>
-
-      <Grid item xs={11} sm={11} md={10} lg={6} xl={4}>
-        <Flights flights={flights} />
         <Ships />
       </Grid>
     </Grid>

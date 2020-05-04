@@ -1,69 +1,52 @@
 [
   {
-    "name": "ARTANIA",
-    "data": [
-      { "state": "WA", "case": "75", "death": "2", "lastUpdate": "15/04/2020" }
-    ],
-    "status": "Docked in Fremantle, WA"
-  },
-  {
-    "name": "CELEBRITY APEX",
-    "data": [
-      { "state": "WA", "case": "1", "death": "0", "lastUpdate": "10/04/2020" }
-    ],
-    "status": "N/A"
-  },
-  {
-    "name": "CELEBRITY SOLSTICE",
+    "name": "RUBY PRINCESS",
     "data": [
       {
         "state": "NSW",
-        "case": "17",
-        "death": "0",
-        "lastUpdate": "10/04/2020"
+        "case": "467",
+        "death": "7",
+        "update": "15/04/2020",
+        "url": "https://www.health.nsw.gov.au/news/Pages/2020041500.aspx"
       },
-      { "state": "TAS", "case": "1", "death": "0", "lastUpdate": "23/03/2020" },
-      { "state": "WA", "case": "1", "death": "1", "lastUpdate": "01/04/2020" }
+      {
+        "state": "SA",
+        "case": "89",
+        "death": "2",
+        "update": "11/04/2020",
+        "url": "https://emergencydepartments.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/about+us/news+and+media/all+media+releases/covid-19+update+11+april+2020"
+      },
+      {
+        "state": "TAS",
+        "case": "9",
+        "death": "1",
+        "update": "07/04/2020",
+        "url": "https://www.dhhs.tas.gov.au/news/2020/thirdcoronavirusdeathconfirmed"
+      },
+      {
+        "state": "WA",
+        "case": "18",
+        "death": "1",
+        "update": "06/04/2020",
+        "url": "https://ww2.health.wa.gov.au/Media-releases/2020/COVID19-update-6-April-2020"
+      },
+      {
+        "state": "QLD",
+        "case": "32",
+        "death": "3",
+        "update": "28/03/2020",
+        "url": "https://www.theguardian.com/world/2020/mar/28/interstate-coronavirus-cases-from-ruby-princess-jump-as-32-queenslanders-test-positive"
+      },
+      {
+        "state": "NT",
+        "case": "2",
+        "death": "0",
+        "update": "22/03/2020",
+        "url": "https://coronavirus.nt.gov.au/updates/items/2020-03-22-two-additional-confirmed-cases-of-covid-19-in-the-territory"
+      }
     ],
-    "status": "Left NSW on 04/04/2020"
-  },
-  {
-    "name": "COSTA LUMINOSA",
-    "data": [
-      { "state": "WA", "case": "2", "death": "0", "lastUpdate": "08/04/2020" }
-    ],
-    "status": "At Sea"
-  },
-  {
-    "name": "COSTA VICTORIA",
-    "data": [
-      { "state": "WA", "case": "18", "death": "0", "lastUpdate": "15/04/2020" }
-    ],
-    "status": "Charter Flight from Victoria"
-  },
-  {
-    "name": "DIAMOND PRINCESS",
-    "data": [
-      { "state": "QLD", "case": "3", "death": "1", "lastUpdate": "05/04/2020" },
-      { "state": "SA", "case": "1", "death": "0", "lastUpdate": "24/02/2020" },
-      { "state": "VIC", "case": "1", "death": "0", "lastUpdate": "01/03/2020" },
-      { "state": "WA", "case": "1", "death": "1", "lastUpdate": "01/03/2020" }
-    ],
-    "status": "Charter Flight from NT, docked in Howard Springs"
-  },
-  {
-    "name": "GREG MORTIMER",
-    "data": [
-      { "state": "VIC", "case": "80", "death": "0", "lastUpdate": "12/04/2020" }
-    ],
-    "status": "Charter Flight from Uruguay"
-  },
-  {
-    "name": "MSC FANTASIA",
-    "data": [
-      { "state": "NT", "case": "1", "death": "0", "lastUpdate": "31/03/2020" }
-    ],
-    "status": "Returned from cruise"
+    "status": "Docked in Circular Quay, NSW",
+    "img": "https://images.7news.com.au/publication/C-754551/deb629d7948bb0543b373df14055c9a1fa2f771d.jpg?imwidth=1024&impolicy=sevennewsv2"
   },
   {
     "name": "OVATION OF THE SEAS",
@@ -72,36 +55,54 @@
         "state": "NSW",
         "case": "98",
         "death": "1",
-        "lastUpdate": "10/04/2020"
+        "update": "10/04/2020",
+        "url": "https://www.health.nsw.gov.au/news/Pages/2020041000.aspx"
       },
-      { "state": "TAS", "case": "7", "death": "0", "lastUpdate": "29/03/2020" },
-      { "state": "WA", "case": "4", "death": "0", "lastUpdate": "24/03/2020" }
+      {
+        "state": "TAS",
+        "case": "7",
+        "death": "0",
+        "update": "29/03/2020",
+        "url": "https://www.dhhs.tas.gov.au/news/2020/coronavirusupdate22march2020"
+      },
+      {
+        "state": "WA",
+        "case": "4",
+        "death": "0",
+        "update": "24/03/2020",
+        "url": "https://ww2.health.wa.gov.au/Media-releases/2020/Children-among-35-new-cases-of--COVID19"
+      }
     ],
-    "status": "Left NSW on 04/04/2020"
+    "status": "Left NSW on 04/04/2020",
+    "img": "https://images.7news.com.au/publication/C-970019/c101edd34e7e3e6990fe87d6db98966f62d1ee61-16x9-x1y0w1022h575.jpg?imwidth=1024&impolicy=sevennewsv2"
   },
   {
-    "name": "RUBY PRINCESS",
+    "name": "GREG MORTIMER",
     "data": [
       {
-        "state": "NSW",
-        "case": "467",
-        "death": "7",
-        "lastUpdate": "15/04/2020"
-      },
-      { "state": "SA", "case": "89", "death": "2", "lastUpdate": "11/04/2020" },
-      { "state": "QLD", "case": "32", "death": "3", "lastUpdate": "0" },
-      { "state": "WA", "case": "18", "death": "1", "lastUpdate": "06/04/2020" },
-      { "state": "TAS", "case": "9", "death": "1", "lastUpdate": "07/04/2020" },
-      { "state": "NT", "case": "2", "death": "0", "lastUpdate": "22/03/2020" }
+        "state": "VIC",
+        "case": "80",
+        "death": "0",
+        "update": "12/04/2020",
+        "url": "https://www.theage.com.au/national/victoria/eighty-cruise-ship-covid-19-cases-touch-down-in-melbourne-20200411-p54j2f.html"
+      }
     ],
-    "status": "Docked in Circular Quay, NSW"
+    "status": "Charter Flight from Uruguay",
+    "img": "https://www.nzherald.co.nz/resizer/HxxxVRMKHupKNq4yEgphS55-Eyc=/620x468/smart/filters:quality(70)/arc-anglerfish-syd-prod-nzme.s3.amazonaws.com/public/6JULRRHPVZG47CEBOIUOEKAP4U.jpg"
   },
   {
-    "name": "SUN PRINCESS",
+    "name": "ARTANIA",
     "data": [
-      { "state": "WA", "case": "2", "death": "0", "lastUpdate": "06/04/2020" }
+      {
+        "state": "WA",
+        "case": "75",
+        "death": "2",
+        "update": "15/04/2020",
+        "url": "https://ww2.health.wa.gov.au/Media-releases/2020/COVID19-update-15-April-2020"
+      }
     ],
-    "status": "Disembarked on Kangaroo Island on March 16"
+    "status": "Docked in Fremantle, WA",
+    "img": "https://www.cruisemapper.com/images/ships/554-large-5e388103a391daabe3de1d76a6739ccd.jpg"
   },
   {
     "name": "VOYAGERS OF THE SEA",
@@ -110,32 +111,193 @@
         "state": "NSW",
         "case": "45",
         "death": "0",
-        "lastUpdate": "08/04/2020"
+        "update": "08/04/2020",
+        "url": "https://www.health.nsw.gov.au/news/Pages/2020040800.aspx"
       },
-      { "state": "WA", "case": "7", "death": "0", "lastUpdate": "30/03/2020" },
-      { "state": "TAS", "case": "3", "death": "0", "lastUpdate": "29/03/2020" }
+      {
+        "state": "WA",
+        "case": "7",
+        "death": "0",
+        "update": "30/03/2020",
+        "url": "https://ww2.health.wa.gov.au/Media-releases/2020/COVID19-update-30-March-2020"
+      },
+      {
+        "state": "TAS",
+        "case": "3",
+        "death": "0",
+        "update": "29/03/2020",
+        "url": "https://www.dhhs.tas.gov.au/news/2020/coronavirusupdate29march2020"
+      }
     ],
-    "status": "Left NSW on 04/04/2020"
+    "status": "Left NSW on 04/04/2020",
+    "img": "https://www.abc.net.au/cm/rimage/12099454-3x2-xlarge.jpg?v=2"
   },
   {
-    "name": "PRIVATE YACHT",
+    "name": "CELEBRITY SOLSTICE",
     "data": [
-      { "state": "TAS", "case": "1", "death": "0", "lastUpdate": "15/03/2020" }
+      {
+        "state": "NSW",
+        "case": "17",
+        "death": "0",
+        "update": "10/04/2020",
+        "url": "https://www.health.nsw.gov.au/news/Pages/2020041000.aspx"
+      },
+      {
+        "state": "WA",
+        "case": "1",
+        "death": "1",
+        "update": "01/04/2020",
+        "url": "https://www.abc.net.au/news/2020-03-31/coronavirus-death-ray-daniels-family/12106860"
+      },
+      {
+        "state": "TAS",
+        "case": "1",
+        "death": "0",
+        "update": "23/03/2020",
+        "url": "https://www.dhhs.tas.gov.au/news/2020/coronavirusupdate23march2020"
+      }
     ],
-    "status": "unknown"
+    "status": "Left NSW on 04/04/2020",
+    "img": "https://images.sunlive.co.nz/images/sunlive/200124-Celebrity-Solstices-Rosalie.jpg"
+  },
+  {
+    "name": "COSTA VICTORIA",
+    "data": [
+      {
+        "state": "WA",
+        "case": "18",
+        "death": "0",
+        "update": "15/04/2020",
+        "url": "https://ww2.health.wa.gov.au/Media-releases/2020/COVID19-update-15-April-2020"
+      }
+    ],
+    "status": "Charter Flight from Victoria",
+    "img": "https://images.cruisecritic.com/image/2260/image1000x50021.jpg"
+  },
+  {
+    "name": "DIAMOND PRINCESS",
+    "data": [
+      {
+        "state": "QLD",
+        "case": "3",
+        "death": "1",
+        "update": "05/04/2020",
+        "url": "https://www.health.qld.gov.au/news-events/doh-media-releases/releases/queensland-novel-coronavirus-covid-19-update23"
+      },
+      {
+        "state": "VIC",
+        "case": "1",
+        "death": "0",
+        "update": "01/03/2020",
+        "url": "https://www2.health.vic.gov.au/about/media-centre/MediaReleases/ninth-covid-19-case-victoria"
+      },
+      {
+        "state": "WA",
+        "case": "1",
+        "death": "1",
+        "update": "01/03/2020",
+        "url": "https://ww2.health.wa.gov.au/Media-releases/2020/WA-confirms-first-novel-Coronavirus-death"
+      },
+      {
+        "state": "SA",
+        "case": "1",
+        "death": "0",
+        "update": "24/02/2020",
+        "url": "https://emergencydepartments.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/about+us/news+and+media/all+media+releases/covid-19+coronavirus+update+24+february+2020"
+      }
+    ],
+    "status": "Charter Flight from NT, docked in Howard Springs",
+    "img": "https://i.insider.com/5e4c39234b661b1d3662a157"
+  },
+  {
+    "name": "COSTA LUMINOSA",
+    "data": [
+      {
+        "state": "WA",
+        "case": "2",
+        "death": "0",
+        "update": "08/04/2020",
+        "url": "https://ww2.health.wa.gov.au/Media-releases/2020/COVID19-update-8-April-2020"
+      }
+    ],
+    "status": "At Sea",
+    "img": "https://cdn.cnn.com/cnnnext/dam/assets/200408182518-costa-luminosa-cruise-ship-exlarge-169.jpg"
+  },
+  {
+    "name": "SUN PRINCESS",
+    "data": [
+      {
+        "state": "WA",
+        "case": "2",
+        "death": "0",
+        "update": "06/04/2020",
+        "url": "https://ww2.health.wa.gov.au/Media-releases/2020/COVID19-update-6-April-2020"
+      }
+    ],
+    "status": "Disembarked on Kangaroo Island on March 16",
+    "img": "https://images.cruisecritic.com/image/18710770/sun-princess600x30021.jpg"
+  },
+  {
+    "name": "CELEBRITY APEX",
+    "data": [
+      {
+        "state": "WA",
+        "case": "1",
+        "death": "0",
+        "update": "10/04/2020",
+        "url": "https://7news.com.au/news/wa/coronavirus-in-wa-new-cases-and-a-warning-to-perth-beachgoers-over-easter-weekend-c-969715"
+      }
+    ],
+    "status": "N/A",
+    "img": "https://images.cruisecritic.com/image/18354/image1000x50021.jpg"
+  },
+  {
+    "name": "MSC FANTASIA",
+    "data": [
+      {
+        "state": "NT",
+        "case": "1",
+        "death": "0",
+        "update": "31/03/2020",
+        "url": "https://coronavirus.nt.gov.au/updates/items/2020-03-28-covid-19-diagnoses-darwin-women"
+      }
+    ],
+    "status": "Returned from cruise",
+    "img": "https://www.gannett-cdn.com/-mm-/b08a6d07060205012d35ecd54aea58bcb9ec9698/c=0-238-4308-2672/local/-/media/2015/01/07/USATODAY/USATODAY/635562342213216562-MSC0910141-Ship-MSC-Fantasia.jpg?width=1320&height=746&fit=crop&format=pjpg&auto=webp"
   },
   {
     "name": "UNKNOWN",
     "data": [
-      { "state": "WA", "case": "38", "death": "1", "lastUpdate": "08/04/2020" },
+      {
+        "state": "WA",
+        "case": "38",
+        "death": "1",
+        "update": "08/04/2020",
+        "url": "https://ww2.health.wa.gov.au/Media-releases/2020/COVID19-update-8-April-2020"
+      },
       {
         "state": "ACT",
         "case": "29",
         "death": "1",
-        "lastUpdate": "08/04/2020"
+        "update": "08/04/2020",
+        "url": "https://www.covid19.act.gov.au/news-articles/covid-19-update-8-april-2020"
       },
-      { "state": "TAS", "case": "16", "death": "0", "lastUpdate": "27/03/2020" }
+      {
+        "state": "TAS",
+        "case": "16",
+        "death": "0",
+        "update": "27/03/2020",
+        "url": "https://www.dhhs.tas.gov.au/news/2020/coronavirusupdate27march2020"
+      },
+      {
+        "state": "TAS",
+        "case": "1",
+        "death": "0",
+        "update": "15/03/2020",
+        "url": "https://www.dhhs.tas.gov.au/news/2020/seventhcoronaviruscaseconfirmed-15march2020"
+      }
     ],
-    "status": "N/A"
+    "status": "N/A",
+    "img": "https://www.publicdomainpictures.net/pictures/40000/velka/question-mark.jpg"
   }
 ]
