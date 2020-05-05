@@ -1,4 +1,38 @@
 import ConfirmedMapFns from "./ConfirmedMapFns";
+import StateLatestNums from "../data/stateCaseData.json"
+
+
+function getFromStateCaseData(stateName, subHeader) {
+    var dateUpdated = StateLatestNums.updatedTime.split(' ')[1].replace(/[-]/g, '/');
+
+    for (var [
+        iStateName, iConfirmed, iDeaths, iRecovered,
+        iTested, iInHospital, iInICU, iUnknown
+    ] of StateLatestNums.values) {
+        if (stateName.toUpperCase() !== iStateName.toUpperCase()) {
+            continue;
+        }
+        else if (subHeader === 'total') {
+            return [iConfirmed, dateUpdated];
+        }
+        else if (subHeader === 'status_deaths') {
+            return [iDeaths, dateUpdated];
+        }
+        else if (subHeader === 'status_recovered') {
+            return [iRecovered, dateUpdated];
+        }
+        else if (subHeader === 'tested') { //  CHECK ME!!!
+            return [iTested, dateUpdated];
+        }
+        else if (subHeader === 'status_icu') {
+            return [iInICU, dateUpdated];
+        }
+        else if (subHeader === 'status_hospitalized') {
+            return [iInHospital, dateUpdated];
+        }
+    }
+    return null;
+}
 
 
 class DataSourceBase {
@@ -45,12 +79,20 @@ class TimeSeriesDataSource extends DataSourceBase {
     }
 
     getCaseNumber(region, ageRange) {
+        return this.__getCaseNumber(region, ageRange);
+    }
+
+    __getCaseNumber(region, ageRange) {
         // Return only the latest value
 
-        if (this.currentValues) {
-            return this.currentValues.getCaseInfoForCity(
-                this.stateName, region
-            );
+        if (this.schema === 'statewide') {
+            var n = getFromStateCaseData(this.stateName, this.subHeader);
+            if (n != null) {
+                return {
+                    'numCases': parseInt(n[0]),
+                    'updatedDate': n[1]
+                }
+            }
         }
 
         region = ConfirmedMapFns.prepareForComparison(region || '');
@@ -87,6 +129,14 @@ class TimeSeriesDataSource extends DataSourceBase {
 
     getCaseNumberTimeSeries(region, ageRange) {
         var r = [];
+        var latest = this.__getCaseNumber(region, ageRange);
+        if (latest && latest.numCases) {
+            // Make sure we use the manually entered values first!
+            r.push({
+                x: ConfirmedMapFns.parseDate(latest.updatedDate),
+                y: parseInt(latest.numCases)
+            });
+        }
 
         region = ConfirmedMapFns.prepareForComparison(region || '');
         ageRange = ageRange || '';
@@ -115,6 +165,7 @@ class TimeSeriesDataSource extends DataSourceBase {
                 }
             }
         }
+        r.sort((x, y) => x.x > y.x)
         return r;
     }
 }

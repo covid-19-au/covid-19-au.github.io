@@ -46,6 +46,7 @@ var fns = {
         s = s.replace('pastoral unincorporated area', 'pua');
         s = s.replace('district council', '');
         s = s.replace('regional council', '');
+        s = s.replace('unincorporated sa', 'pua');
         s = s.replace(' shire', '');
         s = s.replace(' council', '');
         s = s.replace(' regional', '');

@@ -388,7 +388,7 @@ class JSONGeoBoundariesBase {
                 })
                     .setLngLat(e.lngLat)
                     .setHTML(
-                        cityName +
+                        `${cityName} (${caseDataSource.schema === 'statewide' ? 'statewide' : caseDataSource.schema.toUpperCase()})` +
                         '<br/>Cases: ' + caseInfo['numCases'] +
                         '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo['updatedDate'] +
                         (absInfo ? ('<br>ABS Underlay: '+that._getABSValue(absDataSource, absInfo['numCases'], true)) : '') +
