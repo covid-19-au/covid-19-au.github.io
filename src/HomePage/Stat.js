@@ -66,7 +66,7 @@ function getAriaLabelForUpdatedTime(updatedTime) {
 
 function UpdatesToday() {
 
-    const [update, setUpdate] = useState("Cases");
+    const [update, setUpdate] = useState("No New Cases");
 
 
     const updateStates = ["Cases", "Deaths", "Recoveries", "Tested", "No New Cases"]
@@ -127,7 +127,6 @@ function UpdatesToday() {
     console.log(todayDataObject)
 
 
-
     for (let state in stateUpdateStatus) {
         if (parseInt(todayDataObject[state][0]) !== parseInt(yesterdayData[state][0])) {
             stateUpdateStatus[state][0] = true
@@ -141,7 +140,8 @@ function UpdatesToday() {
         if (parseInt(todayDataObject[state][3]) !== parseInt(yesterdayData[state][3])) {
             stateUpdateStatus[state][3] = true
         }
-        if (todayDataObject[state][4] === 'true') {
+        //This makes sure there is no increase in cases
+        if (todayDataObject[state][4] === 'true' && stateUpdateStatus[state][0] === false) {
             stateUpdateStatus[state][4] = true
         }
     }
@@ -302,7 +302,7 @@ function UpdatesToday() {
                         onClick={() => setUpdate(updateType)}
                         size="small"
                         key={updateType}
-                    >{i18next.t("homePage:status."+updateType)}</Button>
+                    >{i18next.t("homePage:status." + updateType)}</Button>
                 ))}
             </ButtonGroup>
 
@@ -314,7 +314,7 @@ function UpdatesToday() {
                         style={stateUpdateStatus[state][currentView] ? dataStyles[currentView] : inactiveStyles}
                         key={state}
 
-                    >{i18next.t("homePage:state."+state)} </Button>
+                    >{i18next.t("homePage:state." + state)} </Button>
                 ))}
             </ButtonGroup>
 
@@ -533,8 +533,8 @@ export default function Stat({
 
             </Grid>
             <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}
-            aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)} 
-            aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
+                aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}
+                aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
                 {i18next.t("homePage:status.note")}{stateCaseData.updatedTime}
 
 

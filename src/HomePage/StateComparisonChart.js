@@ -30,24 +30,26 @@ function createdCaseDates(stateData, logScale) {
     for (let key in stateData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
-        if (logScale) {
-            if (date.getMonth() > 1) {
-                if (date.getMonth() == 2) {
-                    if (date.getDate() > 20) {
-                        let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-                        dateData.push(labelName)
-                    }
-                }
-                else {
-                    let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-                    dateData.push(labelName)
-                }
-            }
-        }
-        else {
-            let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-            dateData.push(labelName)
-        }
+        let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        dateData.push(labelName)
+        // if (logScale) {
+        //     if (date.getMonth() > 1) {
+        //         if (date.getMonth() == 2) {
+        //             if (date.getDate() > 20) {
+        //                 let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //                 dateData.push(labelName)
+        //             }
+        //         }
+        //         else {
+        //             let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //             dateData.push(labelName)
+        //         }
+        //     }
+        // }
+        // else {
+        //     let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //     dateData.push(labelName)
+        // }
     }
 
     return (dateData)
@@ -261,11 +263,10 @@ export default function StateComparisonChart() {
         let j = 0
         while (j < testedDataFinal[orderedStates[i]].length) {
             let newLine = {
-                name: i18next.t("homePage:state."+orderedStates[i]),
+                name: i18next.t("homePage:state." + orderedStates[i]),
                 type: 'line',
-                symbol: 'circle',
-                symbolSize: 8,
                 sampling: 'average',
+                showSymbol: false,
                 itemStyle: {
                     color: stateColours[orderedStates[i]]
                 },
@@ -287,11 +288,8 @@ export default function StateComparisonChart() {
     i = 0
     while (i < orderedStates.length) {
         let dottedLine = {
-            name: i18next.t("homePage:state."+orderedStates[i]),
+            name: i18next.t("homePage:state." + orderedStates[i]),
             type: 'line',
-            symbolSize: 8,
-            symbol: "circle",
-            sampling: 'average',
             itemStyle: {
                 color: stateColours[orderedStates[i]]
             },
@@ -303,11 +301,9 @@ export default function StateComparisonChart() {
 
         let confirmedLine =
         {
-            name: i18next.t("homePage:state."+orderedStates[i]),
+            name: i18next.t("homePage:state." + orderedStates[i]),
             type: 'line',
             smooth: true,
-            symbol: 'circle',
-            symbolSize: 8,
             sampling: 'average',
             itemStyle: {
                 color: stateColours[orderedStates[i]]
@@ -325,21 +321,6 @@ export default function StateComparisonChart() {
     //graph initial start point (2 weeks)
     let startCase = parseInt(100 - (14 / caseDates.length * 100))
     let startTested = parseInt(100 - (14 / testedDates.length * 100))
-
-    // set max Y value by rounding max data value to nearest 1000
-
-    let maxYCase
-    let maxYTested
-
-    if (logScale) {
-        maxYCase = Math.ceil((parseInt(Math.max(...caseData))) / 10000) * 10000
-        maxYTested = Math.ceil((parseInt(Math.max(...testedData))) / 10000) * 10000
-    }
-    else {
-        maxYCase = Math.ceil((parseInt(Math.max(...caseData))) / 1000) * 1000
-        maxYTested = Math.ceil((parseInt(Math.max(...testedData))) / 1000) * 1000
-    }
-
 
     const activeStyles = {
         color: 'black',
@@ -413,10 +394,12 @@ export default function StateComparisonChart() {
                     },
                     yAxis: [
                         {
-                            type: "value"
+                            type: yAxisType,
+                            min: logScale ? 100 : 0
                         },
                         {
                             type: yAxisType,
+                            min: logScale ? 1 : 0,
                             gridIndex: 1
                         }
                     ],
@@ -480,9 +463,9 @@ export default function StateComparisonChart() {
                 <span className="key"><p>{i18next.t("homePage:chartCommon.clickLegend")}</p></span><br />
                 <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
                 <span className="key"><p>{i18next.t("homePage:chartCommon.dottedLine")}</p></span><br />
-                {/*<span className="key" style={{ marginTop: "0.5rem" }}>
+                <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                    Logarithmic Scale (Cases Only):&nbsp;
+                    Logarithmic Scale:&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>On</Button>
                         <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>Off</Button>
@@ -507,7 +490,7 @@ export default function StateComparisonChart() {
                         <div className="dataSource"></div>
                     </a>
 
-                    </span>*/}
+                </span>
             </span>
         </div>
     )

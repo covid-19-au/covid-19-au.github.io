@@ -49,40 +49,53 @@ export default function OverallTrend() {
     for (let key in countryData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
-        if (logScale) {
-            //log graph breaks if we include data before March 1st so we exclude that data here
-            if (date.getMonth() >= 2) {
-                let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-                dateData.push(labelName)
+        let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        dateData.push(labelName)
 
-                confirmedData.push(countryData[key][0])
-                deathData.push(countryData[key][2])
-                recoveryData.push(countryData[key][1])
-                activeData.push(countryData[key][3])
+        confirmedData.push(countryData[key][0])
+        deathData.push(countryData[key][2])
+        recoveryData.push(countryData[key][1])
+        activeData.push(countryData[key][3])
 
-                newConfirmed.push(countryData[key][0] - preConfirmed)
-                newDeath.push(countryData[key][2] - preDeath)
+        newConfirmed.push(countryData[key][0] - preConfirmed)
+        newDeath.push(countryData[key][2] - preDeath)
 
-                preConfirmed = countryData[key][0]
-                preDeath = countryData[key][2]
-            }
-        }
-        //if not log scale, we include all data
-        else {
-            let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-            dateData.push(labelName)
+        preConfirmed = countryData[key][0]
+        preDeath = countryData[key][2]
+        // if (logScale) {
+        //     //log graph breaks if we include data before March 1st so we exclude that data here
+        //     if (date.getMonth() >= 2) {
+        //         let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //         dateData.push(labelName)
 
-            confirmedData.push(countryData[key][0])
-            deathData.push(countryData[key][2])
-            recoveryData.push(countryData[key][1])
-            activeData.push(countryData[key][3])
+        //         confirmedData.push(countryData[key][0])
+        //         deathData.push(countryData[key][2])
+        //         recoveryData.push(countryData[key][1])
+        //         activeData.push(countryData[key][3])
 
-            newConfirmed.push(countryData[key][0] - preConfirmed)
-            newDeath.push(countryData[key][2] - preDeath)
+        //         newConfirmed.push(countryData[key][0] - preConfirmed)
+        //         newDeath.push(countryData[key][2] - preDeath)
 
-            preConfirmed = countryData[key][0]
-            preDeath = countryData[key][2]
-        }
+        //         preConfirmed = countryData[key][0]
+        //         preDeath = countryData[key][2]
+        //     }
+        // }
+        // //if not log scale, we include all data
+        // else {
+        //     let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //     dateData.push(labelName)
+
+        //     confirmedData.push(countryData[key][0])
+        //     deathData.push(countryData[key][2])
+        //     recoveryData.push(countryData[key][1])
+        //     activeData.push(countryData[key][3])
+
+        //     newConfirmed.push(countryData[key][0] - preConfirmed)
+        //     newDeath.push(countryData[key][2] - preDeath)
+
+        //     preConfirmed = countryData[key][0]
+        //     preDeath = countryData[key][2]
+        // }
 
     }
 
@@ -165,7 +178,8 @@ export default function OverallTrend() {
                                 show: true
                             },
                             type: yAxisType,
-                            max: maxY
+                            max: maxY,
+                            min: logScale ? 1 : 0
                         }, {
                             name: i18next.t("homePage:status.newCase"),
                             axisLabel: {
@@ -209,8 +223,6 @@ export default function OverallTrend() {
                                 name: i18next.t("homePage:status.confirmCase"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#ff603c"
@@ -220,8 +232,6 @@ export default function OverallTrend() {
                                 name: i18next.t("homePage:status.Deaths"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#c11700"
@@ -231,8 +241,6 @@ export default function OverallTrend() {
                                 name: i18next.t("homePage:status.Recoveries"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#00c177"
@@ -242,8 +250,6 @@ export default function OverallTrend() {
                                 name: i18next.t("homePage:status.activeCase"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#f75c8d"
@@ -269,7 +275,7 @@ export default function OverallTrend() {
                 <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                {i18next.t("homePage:misc.logScale")}&nbsp;
+                    {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>{i18next.t("homePage:misc.onButton")}</Button>
                         <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>{i18next.t("homePage:misc.offButton")}</Button>

@@ -114,6 +114,11 @@ export default function ScrollDialog() {
                                 <p> {i18next.t("homePage:dataAck.source8")}<a href="https://ww2.health.wa.gov.au/Home" target="_blank"
                                                                                                 rel="noopener noreferrer" style={{ color: "#5499C7" }}>https://ww2.health.wa.gov.au/Home</a></p>
                             </ListItem>
+                            <ListItem>
+                                <p> Map underlay data from the Australian Bureau of Statistics
+                                    under the Creative Commons Attribution 4.0 International license at <a href="https://www.abs.gov.au/" target="_blank"
+                                                                                                rel="noopener noreferrer" style={{ color: "#5499C7" }}>https://www.abs.gov.au/</a></p>
+                            </ListItem>
                         </List>
                         <p style={{ marginTop: "2px" }}>{i18next.t("homePage:dataAck.body2")}</p>
                         <p>{i18next.t("homePage:dataAck.body3")}</p>

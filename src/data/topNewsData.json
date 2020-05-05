@@ -1,132 +1,164 @@
 {
     "weeklyTopNews": [
         {
-            "link": "https://7news.com.au/business/coles-woolies-relax-online-restrictons-c-991377",
-            "title": "Coles, Woolies relax online restrictions",
-            "source": "7News",
-            "date": "22 April 2020",
-            "time": "09:25",
-            "summary": "Supermarket giants Woolworths and Coles have broadened their home delivery service for online customers, giving hope that life may be returning to normal amid ongoing coronavirus concerns. Coles this week reopened its home delivery, \"click and collect\", to all customers, after having previously limited orders for vulnerable and remote Australians because of the COVID-19 crisis. Woolworths will make \"tens of thousands of extra weekly home delivery windows for online customers\", WooliesX Managing Director Amanda Bardwell said in a statement on Wednesday."
+            "link": "https://www.abc.net.au/news/2020-05-04/new-zealand-pm-to-join-australian-covid-19-cabinet-talks/12211878",
+            "title": "Jacinda Ardern says travel with Australia amid coronavirus pandemic could have 'huge advantages'",
+            "source": "ABCNews",
+            "date": "4 May 2020",
+            "time": "16:55",
+            "summary": "New Zealand's Prime Minister will tomorrow join the Australian Government's National Cabinet meeting to discuss the proposal. Australia and New Zealand have earned international praise for their success containing the COVID-19 outbreak, and both governments are now seriously contemplating lifting restrictions on flights between the countries. Ms Arden has declared that a trans-Tasman travel bubble would offer \"huge advantages\" as both countries intensify negotiations over possibly opening borders later this year. She would not be drawn on the possible timing, adding that there was no chance of flights resuming in the next few weeks."
         },
         {
-            "link": "https://www.sbs.com.au/news/ban-on-elective-surgeries-including-ivf-to-be-gradually-lifted-from-next-week",
-            "title": "Ban on elective surgeries, including IVF, to be gradually lifted from next week",
+            "link": "https://www.brisbanetimes.com.au/national/queensland/queensland-children-to-return-to-classroom-in-two-stages-starting-next-week-20200504-p54pjp.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
+            "title": "Queensland children to return to classroom in two stages - starting next week",
+            "source": "BrisbaneTimes",
+            "date": "4 May 2020",
+            "time": "11:56",
+            "summary": "Community kindy, prep as well as Years 1, 11 and 12 will return to classrooms in Queensland next Monday, May 11, as part of the state government plan to reopen schools in two stages over three weeks. Premier Annastacia Palaszczuk outlined the proposed agenda on Monday, with a reassessment to be done on May 15, before Years 2-10 were due to return to school on Monday, May 25. Chief health officer Dr Jeannette Young said the theory behind the two-stage school reopening was to get the pick-up and drop-off procedures, which were of most concern for potential COVID-19 transmission, perfected with the younger children while there were fewer students around and before the remaining students return."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/scott-morrison-urged-to-extend-coronavirus-assistance-to-one-million-vulnerable-temporary-visa-holders",
+            "title": "Scott Morrison urged to extend coronavirus assistance to one million 'vulnerable' temporary visa holders",
             "source": "SBSNews",
-            "date": "21 April 2020",
-            "time": "14:27",
-            "summary": "State and federal leaders agreed on Tuesday to gradually resume elective surgeries due to an increase in personal protective equipment and the slowdown of new coronavirus cases. Most elective surgeries were suspended last month to free up hospital capacity to deal with the coronavirus pandemic. Other procedures to restart after the Anzac Day long weekend include all children surgeries, joint replacements, eye procedures, endoscopy and colonoscopy."
+            "date": "4 May 2020",
+            "time": "13:00",
+            "summary": "Human rights and advocacy groups say Australia's more than one million temporary visa holders will be at risk of homelessness if the government does not extend its coronavirus relief measures to the most vulnerable. Almost 200 Australian community groups have signed an open letter to Prime Minister Scott Morrison, urging him to include more than one million refugees, asylum seekers and vulnerable communities in the government's coronavirus response. "
         },
         {
-            "link": "https://www.theguardian.com/australia-news/2020/apr/21/about-800000-australians-lost-their-job-in-the-first-three-weeks-of-coronavirus-restrictions",
-            "title": "Australia likely to experience largest economic downturn since the Great Depression ",
+            "link": "https://www.abc.net.au/news/2020-05-03/sa-playgrounds-reopen-after-coronavirus-free-streak/12209046",
+            "title": "South Australian playgrounds to reopen after 11-day coronavirus-free streak",
+            "source": "ABCNews",
+            "date": "3 May 2020",
+            "time": "17:04",
+            "summary": "South Australia's Chief Public Health Officer, Nicola Spurrier, has recommended reopening parks, playgrounds and equipment from today after the state recorded 11 days without a new coronavirus case. Most — but not all — councils taped off playgrounds and fitness outdoor equipment during the pandemic. Dr Spurrier said reopening public play spaces was an indication of the community's efforts to slow the spread of coronavirus."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/may/03/flight-centre-waives-cancellation-fees-after-consumer-watchdog-threatens-legal-action",
+            "title": "Flight Centre waives cancellation fees after consumer watchdog threatens legal action ",
             "source": "TheGuardian",
-            "date": "21 April 2020",
-            "time": "14:16",
-            "summary": "Australia is likely to experience the greatest economic contraction since the Great Depression, according to the Reserve Bank of Australia, and has already lost 800,000 jobs and suffered a 6.7% reduction in take home pay, according to the Australian Bureau of Statistics. On Tuesday the RBA provided an economic update predicting a 10% decline in national output in the first half of 2020, a “staggeringly large” 20% reduction in hours worked and unemployment to hit 10% by June."
+            "date": "3 May 2020",
+            "time": "14:57",
+            "summary": "The consumer watchdog was preparing to launch court action against Flight Centre for charging $300 fees to process Covid-19 refunds before the company agreed to end the practice. Flight Centre angered many of its customers by charging the $300 fee to each person for each element of their trip that was cancelled due to the pandemic and associated travel restrictions. Flight Centre on Saturday announced it will no longer charge the fee if the travel provider cancels its service. "
         },
         {
-            "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app",
-            "title": "Privacy concerns persist over Australia's coronavirus tracing app",
+            "link": "https://www.abc.net.au/news/2020-05-02/coronavirus-app-currently-not-fully-operational/12208924",
+            "title": "Coronavirus app tracing capability not operational, despite 4 million downloads",
+            "source": "ABCNews",
+            "date": "2 May 2020",
+            "time": "18:55",
+            "summary": "More than 4 million people have downloaded the COVIDSafe app, but the information it collects is not yet available to state and territory health officials. He said the app was already logging users' close contacts, and that information could be accessed at a later date. The app will not be fully functional until states and territories finalise rules on privacy, and final IT testing is conducted."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-02/coronavirus-cluster-melbourne-abbatoir-paramedic-tests-postive/12208560",
+            "title": "Coronavirus cases revealed in Victorian paramedic and cluster of Melbourne abattoir workers",
+            "source": "ABCNews",
+            "date": "2 May 2020",
+            "time": "18:54",
+            "summary": "The number of coronavirus cases in Victoria continues to inch up as a paramedic tests positive to the virus and health authorities investigate a cluster at a meat processing plant. The unnamed Melbourne meat processing plant has been temporarily closed after eight employees tested positive to coronavirus, including three in the past 24 hours. A spokesperson said there was nothing to indicate that the paramedic that tested positive had acquired the virus from patient contact, however, as a precaution, five paramedics who came into contact with them are also in isolation."
+        },
+        {
+            "link": "https://www.brisbanetimes.com.au/national/queensland/public-health-alert-issued-over-new-queensland-coronavirus-case-20200502-p54p88.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
+            "title": "Public health alert issued over new Queensland coronavirus case",
+            "source": "BrisbaneTimes",
+            "date": "2 May 2020",
+            "time": "15:02",
+            "summary": "A plane passenger returning to Brisbane from Melbourne has tested positive to COVID-19 overnight, triggering a public health alert. State health authorities are urgently tracing people the infected traveller was in contact with on Qantas flight QF614 from Melbourne to Brisbane on April 22. Those who travelled in rows 19, 20, 21, 22 and 23 are urged to contact Queensland Health."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/australia-s-aged-care-centres-to-get-205-million-to-stay-open-during-coronavirus-crisis",
+            "title": "Australia's aged care centres to get $205 million to stay open during coronavirus crisis",
+            "source": "SBSNews",
+            "date": "1 May 2020",
+            "time": "16:39",
+            "summary": "Aged care providers will get another $205 million from the federal government to help them keep centres open to visitors during the coronavirus crisis. Providers will receive $900 per occupied bed under the new funding package, with regional centres offered $1,350 per resident. The national cabinet has also released a draft visitor access code, which is open for comment until May 11, to ensure families and carers can visit residents in nursing homes."
+        },
+        {
+            "link": "https://www.theguardian.com/world/2020/may/01/morrison-says-early-mark-of-eased-restrictions-depends-on-uptake-of-covidsafe-tracing-app",
+            "title": "Morrison says 'early mark' of eased restrictions depends on uptake of Covidsafe tracing app ",
             "source": "TheGuardian",
-            "date": "20 April 2020",
-            "time": "15:40",
-            "summary": "Privacy concerns have been raised over Australia’s new coronavirus tracing app. The government services minister, Stuart Robert, has said that the data would remain “securely encrypted on your phone” unless you tested positive for Covid-19, in which case it would be accessed by state health authorities. However, digital experts have said that the federal government should formally make data collected from its Covid-19 tracing app exempt from use by law enforcement and “decentralise” the way it notifies users about potential contacts with the virus if it wants to allay privacy concerns."
+            "date": "1 May 2020",
+            "time": "18:35",
+            "summary": "Scott Morrison has offered Australians an “early mark” to ease Covid-19 restrictions next week while warning a return to normality will depend on uptake of the Covidsafe contact tracing app. Morrison also revealed that net overseas migration is down 30% and is expected to fall by 80% in 2020-21, both compared with 2018-19, in a sign the economic contraction from Covid-19 will last much longer than restrictions to social life. Treasury officials and the Reserve Bank both estimate that unemployment is set to top 10%."
         },
         {
-            "link": "https://www.canberratimes.com.au/story/6729209/remember-the-spanish-flu-authorities-on-high-alert-for-second-wave-of-coronavirus-cases/?src=rss",
-            "title": "ACT health authorities on high-alert for \"second\" wave of coronavirus cases",
-            "source": "CanberraTimes",
-            "date": "20 April 2020",
-            "time": "18:30",
-            "summary": "ACT health authorities are on high alert for new COVID-19 cases to emerge once physical distancing restrictions are eased across the country. While chief health officer Kerryn Coleman says the territory may soon be in a position where there are no \"active\" cases of coronavirus with its borders, she insists that doesn't mean the ACT has successfully overcome the pandemic. Chief Minister Andrew Barr warned that any \"early move out\" of the restrictions would heighten the risk of exposing the ACT to a \"second, third, fourth or fifth\" wave of the pandemic."
+            "link": "https://www.sbs.com.au/news/marise-payne-julie-bishop-urge-calm-in-tense-relations-with-china-over-coronavirus-origins",
+            "title": "Marise Payne, Julie Bishop urge calm in tense relations with China over coronavirus origins",
+            "source": "SBSNews",
+            "date": "1 May 2020",
+            "time": "12:38",
+            "summary": "There are rising tensions between Australia and China, which began when Australia started pressing for an investigation into the origin of COVID-19. Foreign Minister Marise Payne says that global co-operation not economic coercion is the appropriate way to resolve the dispute over an international investigation into COVID-19. Ms Payne said she rejected the approach of ambassador Cheng Jingye, who floated a Chinese consumer boycott of Australian products in retaliation to tension over the probe, targeting the crucial agriculture, education and tourism markets."
         },
         {
-            "link": "https://www.9news.com.au/national/virgin-australia-airline-administration-board-meeting-as-debt-rises-during-coronavirus-pandemic/b856039f-b87d-4edf-a5e5-8dc0eba773ab",
-            "title": "Virgin Australia expected to go into administration ",
-            "source": "9News",
-            "date": "20 April 2020",
-            "time": "19:27",
-            "summary": "Virgin Australia has reportedly filed for voluntary administration after the struggling airline asked the government for a $1.4 billion bail-out. The jobs of 16,000 employees are on the line, and board members are currently having crisis talks to decide the fate of the carrier. Virgin is carrying about $5b in debt and its domestic and international business has been hit due to the impact of the coronavirus."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-20/extra-funding-for-aeromedical-services-like-royal-flying-doctor/12164498 ",
-            "title": "Aeromedical services like RFDS get $52.8m boost for coronavirus response",
+            "link": "https://www.abc.net.au/news/2020-04-30/coronavirus-eliminated-in-act-no-known-covid-19-cases/12201088",
+            "title": "Coronavirus recovery: ACT becomes first state or territory to be free of known cases of COVID-19",
             "source": "ABCNews",
-            "date": "20 April 2020",
-            "time": "14:45",
-            "summary": "A federal funding boost to the Royal Flying Doctor Service (RFDS) and other aeromedical services will see the capacity for rural and remote medical evacuations increase by 50 per cent. The services, which also include CareFlight and LifeFlight, will share in $52.8 million to evacuate COVID-19 patients to larger medical centres and also fly in medical workers and equipment to staff respiratory clinics."
+            "date": "30 April 2020",
+            "time": "18:35",
+            "summary": "The ACT has become the first Australian jurisdiction to be free of all known cases of COVID-19. After a total of 106 diagnoses and three deaths in the ACT, Jan Stoop, the last Canberran to test positive to coronavirus, has recovered. ACT Chief Health Officer Dr Kerryn Coleman welcomed the local elimination of the virus, and reiterated that the pandemic is ongoing, emphasising it is important not to undo the work that has been done."
         },
         {
-            "link": "https://www.sbs.com.au/news/australia-has-a-sustained-and-genuine-flattening-of-the-coronavirus-curve-greg-hunt-says",
-            "title": "Australia has a 'sustained and genuine' flattening of the coronavirus curve, Greg Hunt says",
+            "link": "https://www.sbs.com.au/news/australia-s-coronavirus-restrictions-are-easing-here-s-what-you-can-do-in-your-state-this-weekend",
+            "title": "Australia's coronavirus restrictions are easing. Here's what you can do in your state this weekend",
             "source": "SBSNews",
-            "date": "19 April 2020",
-            "time": "11:51",
-            "summary": "Health Minister Greg Hunt says Australia has \"a sustained and genuine flattening of the curve\" with COVID-19 infection rate increases below one per cent a day for the past seven days. Australia's infection rate of COVID-19 is flattening, with the rate of new cases falling below one per cent and just 53 in the past 24 hours."
+            "date": "30 April 2020",
+            "time": "17:25",
+            "summary": "Millions of Australians are set to enjoy more freedoms over the coming days as COVID-19 restrictions are eased, but the rules are different in every state and territory. This article outlines the restrictions that have been dropped state-by-state."
         },
         {
-            "link": "https://www.abc.net.au/news/2020-04-19/coronavirus-queensland-regional-tourism-cairns-hotels-reef/12158486",
-            "title": "Coronavirus to cripple Cairns for years, tourism experts say",
+            "link": "https://www.theguardian.com/australia-news/2020/apr/30/australians-on-jobseeker-payment-up-450000-in-less-than-a-month",
+            "title": "More than 1.3 million Australians on jobseeker as Senate inquiry calls for permanent increase to rate ",
+            "source": "TheGuardian",
+            "date": "30 April 2020",
+            "time": "16:23",
+            "summary": "More than 1.3 million people are now receiving unemployed benefits across the country, with that number expected to reach about 1.7 million in September. The government faces growing pressure to consider a permanent increase to the jobseeker payment, which has received a temporary $550 per fortnight boost for about six months."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-04-29/prime-minister-scott-morrison-coronavirus-restrictions-easing/12196562",
+            "title": "Prime Minister Scott Morrison flags easing of coronavirus restrictions in near future",
             "source": "ABCNews",
-            "date": "19 April 2020",
-            "time": "09:50",
-            "summary": "Tourism authorities fear it could take years for Far North Queensland's tourism-driven economy to recover from the coronavirus pandemic. Tourism Tropical North Queensland estimates the region will have lost $500 million in visitor spending by the end of April, with the total impact on the region expected to be $2.5 billion in lost visitor expenditure. More than 5,000 workers have been stood down so far, with 11,000 more people expected to be out of work by the end of the year. "
+            "date": "29 April 2020",
+            "time": "13:21",
+            "summary": "Prime Minister Scott Morrisonsaid Australia was \"on the road back\" to an economy safe from COVID-19 and that success could mean easing restrictions soon, noting that one of the most important tools to help fast-track restrictions being lifted was the Government's COVIDSafe tracing app. He also ruled out international travel restarting any time soon, with the potential exception of travel to New Zealand."
         },
         {
-            "link": "https://www.sbs.com.au/news/a-mammoth-effort-to-bring-australians-home-from-overseas-during-coronavirus-crisis-with-more-to-return-this-week",
-            "title": "A 'mammoth effort' to bring Australians home from overseas during coronavirus crisis, with more to return this week",
+            "link": "https://www.sbs.com.au/news/australians-urged-not-to-neglect-mental-health-during-pressure-cooker-coronavirus-pandemic",
+            "title": "Australians urged not to neglect mental health during 'pressure cooker' coronavirus pandemic",
             "source": "SBSNews",
-            "date": "19 April 2020",
-            "time": "18:49",
-            "summary": "Australia's Foreign Minister Marise Payne says the federal government continues to work with the Qantas, Virgin Australia and foreign airlines to bring home Australians stranded in various parts of the world because of the coronavirus pandemic. She said about 300,000 people have returned to Australia since March 13, a significant number of those from more than 50 cruise ships. Currently there are about 11,000 Australians scattered around the world - though many of them are long-term residents of the countries in which they're located. "
+            "date": "29 April 2020",
+            "time": "17:21",
+            "summary": "he government's top advisor on suicide prevention is urging Australians not to neglect their mental health during the coronavirus pandemic. Chief executive of the National Mental Health Commission Christine Morgan on Wednesday revealed new statistics showing the overall use of mental health services has been declining in Australia during the COVID-19 outbreak, which she speculated was due to people who would normally be using mental health services are not actually going out and doing those visits. Although the overall use of mental health services had declined, there had been an encouraging rise in the use of telehealth services such as Beyond Blue, Ms Morgan said."
         },
         {
-            "link": "https://www.abc.net.au/news/2020-04-18/covid-led-drop-in-energy-use-risks-system-overload/12150030",
-            "title": "Falling power use due to coronavirus risks system overload and blackouts, experts warn",
-            "source": "ABCNews",
-            "date": "18 April 2020",
-            "time": "08:31",
-            "summary": "Falling demand for electricity caused by the economic fallout from the COVID-19 pandemic could leave Western Australia's main electricity system at risk of a solar power overload within months, experts have warned. This may overwhelm the grid, meaning intervention and higher prices."
+            "link": "https://www.theguardian.com/australia-news/2020/apr/28/nsw-new-south-wales-coronavirus-restrictions-partially-lifted-to-allow-limited-visiting",
+            "title": "NSW coronavirus restrictions will be partially lifted to allow limited visiting ",
+            "source": "TheGuardian",
+            "date": "28 April 2020",
+            "time": "12:47",
+            "summary": "People in New South Wales will soon be able to visit each other as the premier, Gladys Berejiklian, joins other state and territory governments in easing lockdown laws. In a press conference on Tuesday morning, Berejiklian said that since NSW infection rates remained low, two adults and their children would be able to travel to other homes to visit. A spokeswoman from the premier’s office said guests were allowed to stay overnight and there were no restrictions on distance."
         },
         {
-            "link": "https://www.sbs.com.au/news/people-with-disability-to-be-protected-under-new-plan-during-australia-s-coronavirus-crisis",
-            "title": "People with disability to be protected under new plan during Australia's coronavirus crisis",
+            "link": "https://www.sbs.com.au/news/hundreds-return-to-sydney-s-famous-bondi-beach-as-coronavirus-restrictions-are-eased",
+            "title": "Hundreds return to Sydney's famous Bondi Beach as coronavirus restrictions are eased",
             "source": "SBSNews",
-            "date": "18 April 2020",
-            "time": "17:19",
-            "summary": "More than four million Australians with disability in Australia have been assured of their safety during the coronavirus pandemic through their reduced exposure to the virus, while maintaining essential services. The national cabinet - made up of the prime minister, premiers and chief ministers - when it last met on Thursday agreed on a management and operational plan for people with disability during the crisis."
+            "date": "28 April 2020",
+            "time": "14:43",
+            "summary": "Hundreds of surfers have returned to the water at Bondi for the first time since the beach was closed five weeks ago due to COVID-19 restrictions. People are now permitted to swim or surf at Bondi and Bronte, and surf only at Tamarama, between 7am and 5pm on weekdays. Access is via designated entry and exit points and the sand remains out of bounds for sunbathers."
         },
         {
-            "link": "https://www.sbs.com.au/news/coronavirus-mobile-tracking-app-may-be-mandatory-if-not-enough-people-sign-up-scott-morrison-says",
-            "title": "Coronavirus mobile tracking app may be mandatory if not enough people sign up, Scott Morrison says",
+            "link": "https://www.theguardian.com/australia-news/2020/apr/27/australias-aged-care-residents-caught-in-standoff-over-visits-during-coronavirus",
+            "title": "Australia's aged care residents caught in standoff over visits during coronavirus ",
+            "source": "TheGuardian",
+            "date": "27 April 2020",
+            "time": "16:08",
+            "summary": "Aged care residents and their families are caught in the crossfire of an escalating stand-off between the federal government and the sector over visiting rights during the Covid-19 pandemic. Ahead of a meeting with providers on Friday, the government suggested it was prepared to force homes to allow each resident two visitors a day, in line with official health guidelines, if operators did not ease their own rules. On Monday, a coalition of 1,000 aged care homes and their representatives roundly rejected the government’s request and disputed claims elevated by the prime minister that some homes were simply locking residents in their rooms."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/more-than-one-million-australians-download-covidsafe-contact-tracing-app",
+            "title": "More than two million Australians download COVIDSafe contact tracing app",
             "source": "SBSNews",
-            "date": "17 April 2020",
-            "time": "17:53",
-            "summary": "Mobile phone tracking software could be compulsory if not enough Australians voluntarily download the application to help in coronavirus case tracing. Prime Minister Scott Morrison said at least 40 percent of the population needs to use the app to make it effective. Better contact tracing is one of three main benchmarks the government wants to meet before strict restrictions can be lifted. Notably, Mr Morrison says the app won't be used by police as evidence to prosecute people for breaching social distancing requirements."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/internet-costs-cut-for-low-income-australian-families-small-businesses-during-coronavirus-pandemic",
-            "title": "Internet costs cut for low-income Australian families, small businesses during coronavirus pandemic",
-            "source": "SBSNews",
-            "date": "17 April 2020",
-            "time": "12:53",
-            "summary": "Internet providers will have help ensuring financially-stricken families and businesses stay connected from a $150 million National Broadband Network relief fund. The internet wholesaler wants to ensure families with school children who do not have NBN access, and small and medium-sized businesses, can remain online during and after the coronavirus pandemic. NBN will waive its $37 monthly charge to internet providers between April and September to allow the industry to devise more affordable access for families."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-16/coronavirus-what-australia-has-to-do-before-restrictions-lifted/12154692",
-            "title": "Australia's coronavirus restrictions will remain until these three things are established",
-            "source": "ABCNews",
-            "date": "16 April 2020",
-            "time": "19:40",
-            "summary": "Prime Minister Scott Morrison has announced that Australians will have to live with coronavirus restrictions for at least another four weeks. He outlined three things the Government wants to see before parts of the country can start to look normal again. These three things are: a broader testing regime, better contact tracing, and being confident in containing outbreaks."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/game-changer-coronavirus-testing-to-be-fast-tracked-in-remote-indigenous-communities",
-            "title": "'Game changer': Coronavirus testing to be fast-tracked in remote Indigenous communities",
-            "source": "SBSNews",
-            "date": "16 April 2020",
-            "time": "19:40",
-            "summary": "83 coronavirus testing sites are set to be set up across remote Indigenous communities to detect the virus more rapidly. Some remote areas have been waiting up to 10 days for results but the new $3.3 million project, part of the wider $2.4 billion COVID-19 National Health Plan, aims to cut waiting times to 45 minutes."
+            "date": "27 April 2020",
+            "time": "20:45",
+            "summary": "As of Monday 4pm, 1.89 million Australians had downloaded the COVID-19 tracer app, which aims to help health officials identify people who may have come into contact with someone with the disease. Chief medical officer Brendan Murphy called the result a positive start to bolstering the public health response against the coronavirus. The government has said 40 per cent - or some 10 million people - would be needed for contact-tracing to be most successful."
         }
     ]
 }

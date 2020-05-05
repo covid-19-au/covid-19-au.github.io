@@ -118,3 +118,37 @@
 .MuiOutlinedInput-input {
     padding: 6px 0 7px !important;
 }
+
+.cite {
+    font-size: 60%;
+}
+
+.surfacesTable {
+    max-width: 100%;
+}
+
+.surfacesHeader, .surfacesElement {
+    padding: 1rem;
+}
+
+@media screen and (max-width: 959px) {
+    .surfacesHeader, .surfacesElement {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .surfacesHeader, .surfacesElement {
+        padding: 3px;
+    }
+}
+
+.surfacesTable, .surfacesHeader, .surfacesElement {
+    border-spacing: 5px;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.surfacesHeader {
+    background-color: #bae1ff;
+}
