@@ -1,6 +1,46 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-04/new-zealand-pm-to-join-australian-covid-19-cabinet-talks/12211878",
+            "title": "Jacinda Ardern says travel with Australia amid coronavirus pandemic could have 'huge advantages'",
+            "source": "ABCNews",
+            "date": "4 May 2020",
+            "time": "16:55",
+            "summary": "New Zealand's Prime Minister will tomorrow join the Australian Government's National Cabinet meeting to discuss the proposal. Australia and New Zealand have earned international praise for their success containing the COVID-19 outbreak, and both governments are now seriously contemplating lifting restrictions on flights between the countries. Ms Arden has declared that a trans-Tasman travel bubble would offer \"huge advantages\" as both countries intensify negotiations over possibly opening borders later this year. She would not be drawn on the possible timing, adding that there was no chance of flights resuming in the next few weeks."
+        },
+        {
+            "link": "https://www.brisbanetimes.com.au/national/queensland/queensland-children-to-return-to-classroom-in-two-stages-starting-next-week-20200504-p54pjp.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
+            "title": "Queensland children to return to classroom in two stages - starting next week",
+            "source": "BrisbaneTimes",
+            "date": "4 May 2020",
+            "time": "11:56",
+            "summary": "Community kindy, prep as well as Years 1, 11 and 12 will return to classrooms in Queensland next Monday, May 11, as part of the state government plan to reopen schools in two stages over three weeks. Premier Annastacia Palaszczuk outlined the proposed agenda on Monday, with a reassessment to be done on May 15, before Years 2-10 were due to return to school on Monday, May 25. Chief health officer Dr Jeannette Young said the theory behind the two-stage school reopening was to get the pick-up and drop-off procedures, which were of most concern for potential COVID-19 transmission, perfected with the younger children while there were fewer students around and before the remaining students return."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/scott-morrison-urged-to-extend-coronavirus-assistance-to-one-million-vulnerable-temporary-visa-holders",
+            "title": "Scott Morrison urged to extend coronavirus assistance to one million 'vulnerable' temporary visa holders",
+            "source": "SBSNews",
+            "date": "4 May 2020",
+            "time": "13:00",
+            "summary": "Human rights and advocacy groups say Australia's more than one million temporary visa holders will be at risk of homelessness if the government does not extend its coronavirus relief measures to the most vulnerable. Almost 200 Australian community groups have signed an open letter to Prime Minister Scott Morrison, urging him to include more than one million refugees, asylum seekers and vulnerable communities in the government's coronavirus response. "
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-03/sa-playgrounds-reopen-after-coronavirus-free-streak/12209046",
+            "title": "South Australian playgrounds to reopen after 11-day coronavirus-free streak",
+            "source": "ABCNews",
+            "date": "3 May 2020",
+            "time": "17:04",
+            "summary": "South Australia's Chief Public Health Officer, Nicola Spurrier, has recommended reopening parks, playgrounds and equipment from today after the state recorded 11 days without a new coronavirus case. Most — but not all — councils taped off playgrounds and fitness outdoor equipment during the pandemic. Dr Spurrier said reopening public play spaces was an indication of the community's efforts to slow the spread of coronavirus."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/may/03/flight-centre-waives-cancellation-fees-after-consumer-watchdog-threatens-legal-action",
+            "title": "Flight Centre waives cancellation fees after consumer watchdog threatens legal action ",
+            "source": "TheGuardian",
+            "date": "3 May 2020",
+            "time": "14:57",
+            "summary": "The consumer watchdog was preparing to launch court action against Flight Centre for charging $300 fees to process Covid-19 refunds before the company agreed to end the practice. Flight Centre angered many of its customers by charging the $300 fee to each person for each element of their trip that was cancelled due to the pandemic and associated travel restrictions. Flight Centre on Saturday announced it will no longer charge the fee if the travel provider cancels its service. "
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-02/coronavirus-app-currently-not-fully-operational/12208924",
             "title": "Coronavirus app tracing capability not operational, despite 4 million downloads",
             "source": "ABCNews",
@@ -119,38 +159,6 @@
             "date": "27 April 2020",
             "time": "20:45",
             "summary": "As of Monday 4pm, 1.89 million Australians had downloaded the COVID-19 tracer app, which aims to help health officials identify people who may have come into contact with someone with the disease. Chief medical officer Brendan Murphy called the result a positive start to bolstering the public health response against the coronavirus. The government has said 40 per cent - or some 10 million people - would be needed for contact-tracing to be most successful."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app",
-            "title": "What is COVIDSafe, Australia's controversial new contact tracing app?",
-            "source": "SBSNews",
-            "date": "26 April 2020",
-            "time": "18:27",
-            "summary": "On Sunday, the Federal Government launched a mobile phone app it hopes will improve the tracing of coronavirus cases and the people they come in contact with. The COVIDSafe app aims to identify people who may have come into contact with someone who has coronavirus so the user can give the information to health authorities. The COVIDSafe app is based on Singapore's Tracetogether software, which records the Bluetooth connections a phone makes with others, as part of what's being called a \"Bluetooth handshake\". But the launch came amid concerns about the technology and the data it would collect."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/coronavirus-stay-at-home-restrictions-to-be-eased-in-queensland",
-            "title": "Coronavirus stay-at-home restrictions to be eased in Queensland",
-            "source": "SBSNews",
-            "date": "26 April 2020",
-            "time": "13:21",
-            "summary": "Queensland will relax some stay-at-home restrictions from midnight on Friday with less than 100 active COVID-19 cases across the state. Family picnics and weekend drives are back on the agenda for Queenslanders starting next weekend after just three COVID-19 cases were recorded overnight. Premier Annastacia Palaszcuk says the easing of restrictions would start at midnight on Friday and people would be limited to travel about 50km from their residence and “limited to members of your own household”."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/wa-to-allow-gatherings-of-up-to-10-people-as-covid-19-cases-drop ",
-            "title": "WA to allow gatherings of up to 10 people as COVID-19 cases drop",
-            "source": "SBSNews",
-            "date": "26 April 2020",
-            "time": "15:26",
-            "summary": "Western Australia will relax its coronavirus restrictions to allow up to 10 people to gather for non-work activities, as the state recorded another day of no new COVID-19 cases. Premier Mark McGowan said it was a \"cautious relaxation\" of restrictions, acknowledging it had been difficult for everyone, but especially the elderly, to not see family and friends during the pandemic. From Monday, non-contact recreational activities such as picnics in parks, fishing, boating, hiking and camping will be allowed but people must comply with travel restrictions. Ten people will be allowed at weddings and the 10-person limit remains for funerals."
-        },
-        {
-            "link": "https://www.theguardian.com/news/2020/apr/25/australians-turn-out-for-driveway-dawn-service-to-mark-anzac-day-in-time-of-coronavirus",
-            "title": "Australians turn out for driveway dawn service to mark Anzac Day in time of coronavirus ",
-            "source": "TheGuardian",
-            "date": "25 April 2020",
-            "time": "08:00",
-            "summary": "Thousands take part in a Covid-19-friendly but lonelier than usual commemoration of Gallipoli. The idea for the driveway dawn service came from two former Townsville defence force personnel, Warrant Officer Terry James and Brigadier Bill Sowry, who were discussing a Covid-19-friendly way to commemorate the day on social media. The plan quickly gained popularity and RSL branches and politicians across the country encouraged people to take part."
         }
     ]
 }

@@ -1,6 +1,38 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app",
+            "title": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+            "source": "SBSNews",
+            "date": "26 April 2020",
+            "time": "18:27",
+            "summary": "On Sunday, the Federal Government launched a mobile phone app it hopes will improve the tracing of coronavirus cases and the people they come in contact with. The COVIDSafe app aims to identify people who may have come into contact with someone who has coronavirus so the user can give the information to health authorities. The COVIDSafe app is based on Singapore's Tracetogether software, which records the Bluetooth connections a phone makes with others, as part of what's being called a \"Bluetooth handshake\". But the launch came amid concerns about the technology and the data it would collect."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/coronavirus-stay-at-home-restrictions-to-be-eased-in-queensland",
+            "title": "Coronavirus stay-at-home restrictions to be eased in Queensland",
+            "source": "SBSNews",
+            "date": "26 April 2020",
+            "time": "13:21",
+            "summary": "Queensland will relax some stay-at-home restrictions from midnight on Friday with less than 100 active COVID-19 cases across the state. Family picnics and weekend drives are back on the agenda for Queenslanders starting next weekend after just three COVID-19 cases were recorded overnight. Premier Annastacia Palaszcuk says the easing of restrictions would start at midnight on Friday and people would be limited to travel about 50km from their residence and “limited to members of your own household”."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/wa-to-allow-gatherings-of-up-to-10-people-as-covid-19-cases-drop ",
+            "title": "WA to allow gatherings of up to 10 people as COVID-19 cases drop",
+            "source": "SBSNews",
+            "date": "26 April 2020",
+            "time": "15:26",
+            "summary": "Western Australia will relax its coronavirus restrictions to allow up to 10 people to gather for non-work activities, as the state recorded another day of no new COVID-19 cases. Premier Mark McGowan said it was a \"cautious relaxation\" of restrictions, acknowledging it had been difficult for everyone, but especially the elderly, to not see family and friends during the pandemic. From Monday, non-contact recreational activities such as picnics in parks, fishing, boating, hiking and camping will be allowed but people must comply with travel restrictions. Ten people will be allowed at weddings and the 10-person limit remains for funerals."
+        },
+        {
+            "link": "https://www.theguardian.com/news/2020/apr/25/australians-turn-out-for-driveway-dawn-service-to-mark-anzac-day-in-time-of-coronavirus",
+            "title": "Australians turn out for driveway dawn service to mark Anzac Day in time of coronavirus ",
+            "source": "TheGuardian",
+            "date": "25 April 2020",
+            "time": "08:00",
+            "summary": "Thousands take part in a Covid-19-friendly but lonelier than usual commemoration of Gallipoli. The idea for the driveway dawn service came from two former Townsville defence force personnel, Warrant Officer Terry James and Brigadier Bill Sowry, who were discussing a Covid-19-friendly way to commemorate the day on social media. The plan quickly gained popularity and RSL branches and politicians across the country encouraged people to take part."
+        },
+        {
             "link": "https://www.sbs.com.au/news/australia-ramps-up-coronavirus-testing-to-include-anyone-with-respiratory-symptoms",
             "title": "Australia ramps up coronavirus testing to include anyone with respiratory symptoms",
             "source": "SBSNews",

@@ -1,23 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "imgLink": "https://i.imgur.com/k4RtFDt.png",
-                    "source": "https://www.together.vic.gov.au/"
+                    "link": "https://www.youtube.com/watch?v=XMHySlDqpUw",
+                    "description": "Debunking Viral Covid-19 Videos"
                 }
             ],
-            "video": [],
-            "title": "Victoria Together",
-            "content": "<p>The Victorian government has created a site for people to discover the best music, entertainment, nature and art the state has to offer.</p><p>Check it using the link below!</p>",
-            "type": "motivation",
-            "date": "3/5/2020",
-            "citation": [
-                {
-                    "link": "https://www.together.vic.gov.au/",
-                    "name": "Victoria Together - Victorian Government"
-                }
-            ]
+            "type": "distraction",
+            "date": "05/5/2020"
         }
     ]
 }

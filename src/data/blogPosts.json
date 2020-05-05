@@ -2,6 +2,59 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "Flu Vaccinations and their importance during COVID-19",
+            "media": "https://i.imgur.com/5zrVsHS.png",
+            "summary": "In today’s blog post, we present you a few good reasons why everyone should get their flu vaccination and its importance during a time like this!",
+            "date": "5/05/2020", 
+            "text": {
+                "text_1": [
+                    "With winter on the horizon, flu season is rapidly approaching. In 2019 there were over 900 flu-related deaths, and this combined with the threat of COVID-19 could prove a recipe for disaster.",
+                    "Symptomatically, Influenza and coronavirus present very similarly, and cause the most harm to our vulnerable members of the community – the elderly and those who are immunosuppressed. Every year sees an increased pressure on our healthcare system as we deal with outbreaks of influenza, but with the coronavirus already putting a strain on the system, there are fears that a flu outbreak will push healthcare services beyond capacity. Further, there is the risk of individuals contracting both COVID-19 and the flu – a deadly combination.",
+                    "Without a vaccine for COVID-19, we must seek ways to mitigate this potentially devastating combination. Fortunately, each year we have a new flu vaccine. For those in high risk groups such as those aged under 5 or over 65, the flu vaccine is fully funded by the government. For anyone else, the flu vaccine costs roughly $15-20, and can be administered at most pharmacies.",
+                    "Vaccinations are important at the best of times, but with both the flu and coronavirus posing a threat to Australians, it has never been so important to safeguard yourself and others around you by getting a flu vaccination. Demand for vaccines is high, and bookings are essential, but appointments are over in a matter of minutes. Getting vaccinated will help protect yourself and others, as well as help reduce the impact on our already stretched healthcare system.",
+                    "Some pharmacists offering a flu vaccine:"
+                ],
+                "ulist_1": [
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.amcal.com.au/flu'>Amcal Pharmacy</a>",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://rsvp.chemistwarehouse.com.au/event-details?EventID=186'>Chemist Warehouse</a>",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.priceline.com.au/pharmacy-services/vaccines/flu-clinics'>Priceline Pharmacy</a>",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.terrywhitechemmart.com.au/health-services/flu-vaccinations/'>Terry White Chemmart</a>"
+                ],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
+            "title": "COVIDSafe App",
+            "media": "https://i.imgur.com/s7eqhLo.png",
+            "summary": "The Australian government has recently released the COVIDSafe app. The blog post today will cover what it is and how you can get the app today.",
+            "date": "4/05/2020", 
+            "text": {
+                "text_1": [
+                    "The Australian government has recently released the COVIDSafe app, which is used to track people who have been in close contact with a person who has COVID-19. This app is an important step in helping reduce the number of cases of COVID-19 and will help lift the current restrictions imposed.",
+                    "<strong>How does the app work?</strong>",
+                    "When you download the app, you are prompted to enter your personal information and will be assigned a unique encrypted reference code.",
+                    "The app will recognise other devices with the COVIDSafe app installed and when their Bluetooth is turned on. If you encounter another person with the app, it will record the date, time, distance, duration of the contact and the other person’s user code.",
+                    "If someone does test positive for COVID-19, then the app can help aid the tracking of people who have been in close contact with them. This would then allow health officials to provide advice to those who have been exposed.",
+                    "<strong>How do I download the app?</strong>",
+                    "The app is currently available on the <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://apps.apple.com/au/app/covidsafe/id1509242894'>App Store</a> and <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://play.google.com/store/apps/details?id=au.gov.health.covidsafe'>Google Play Store</a>. You can simply download the app and start your registration!",
+                    "<strong>Privacy concerns</strong>",
+                    "There have been concerns regarding the privacy of your data within the app. The Australian government has assured that the data is protected and only state and territory health authorities can access the information for tracing potential contacts with an infected user.",
+                    "After the pandemic, users of the app will be prompted to delete the app and the information that has been stored will be destroyed.",
+                    "At the moment, when deleting the COVIDSafe app on your phone, your information will not be removed from the storage system. However, it will be destroyed at the end of the pandemic and for now users can request for their data to be deleted <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://covidsafe-form.service.gov.au/'>here</a>.",
+                    "Downloading the app is quick and easy! So get it today to make sure that you and your loved ones are protected 💜.",
+                    "<br /><strong>Sources:</a>",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.pm.gov.au/media/covidsafe-new-app-slow-spread-coronavirus'>https://www.pm.gov.au/media/covidsafe-new-app-slow-spread-coronavirus</a>",
+                    "<a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.health.gov.au/resources/apps-and-tools/covidsafe-app'>https://www.health.gov.au/resources/apps-and-tools/covidsafe-app</a>"
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "Hand sanitiser and COVID-19 – what you need to know",
             "media": "https://i.imgur.com/GsnJ0kB.png",
             "summary": "With Hand Sanitisers running out in stores, people have taken to making their own DIY Hand Sanitisers. Learn more about the risks and why it might be best to hold off on making your own for now.",
