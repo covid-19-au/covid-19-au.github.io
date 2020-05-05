@@ -438,9 +438,22 @@ class MbMap extends React.Component {
     }
 
     setMarkers() {
-        this.setState({
-            _markers: this.markersSelect.current.value
-        });
+        var val = this.markersSelect.current.value;
+
+        if (val === 'status_active' || (val && val.toUpperCase() === val)) {
+            // Ships data doesn't have histories currently,
+            // and it doesn't make sense to have
+            // e.g. a 7-day difference for active cases
+            this.setState({
+                _timeperiod: 'alltime',
+                _markers: val
+            })
+        }
+        else {
+            this.setState({
+                _markers: val
+            });
+        }
     }
 
     setTimePeriod(timeperiod) {
@@ -449,37 +462,7 @@ class MbMap extends React.Component {
         });
     }
 
-    _getMessagesForModes() {
-        return {
-            null: [],
-            'Total': [
-                this.totalCasesMessage,
-                this.cityLevelMessage,
-                this.accuracyWarning
-            ],
-            '7 Days': [
-                this.totalCasesMessage,
-                this.cityLevelMessage,
-                this.accuracyWarning
-            ],
-            '14 Days': [
-                this.totalCasesMessage,
-                this.cityLevelMessage,
-                this.accuracyWarning
-            ],
-            'Active': [
-                this.activeCasesMessage,
-                this.accuracyWarning
-            ],
-            'Hospitals': [
-                this.hospitalMessage
-            ]
-        };
-    }
-
     _updateMode() {
-        let messagesForModes = this._getMessagesForModes();
-
         var enableInsts = (dataSource, insts) => {
             // Overlay LGA ABS data on LGA stats
             for (var i = 0; i < insts.length; i++) {
@@ -531,13 +514,6 @@ class MbMap extends React.Component {
                 );
             }
         };
-        var updateMessages = () => {
-            let messages = messagesForModes[this.state._markers];
-            for (var j = 0; j < messages.length; j++) {
-                messages[j].current.style.display = 'block';
-            }
-        };
-        //updateMessages();
 
         if (this.state._markers === 'hospitals') {
             this.hospitalMessage.current.style.display = 'block';
@@ -552,6 +528,10 @@ class MbMap extends React.Component {
             this.confirmedMarkers.forEach((marker) => {
                 marker.show();
             });
+        }
+        else if (this.state._markers === 'status_active' ||
+            (this.state._markers && this.state._markers.toUpperCase() === this.state._markers)) {
+            this.markersButtonGroup.current.parentNode.style.display = 'none';
         }
         this.accuracyWarning.current.style.display = 'block';
 
@@ -607,8 +587,6 @@ class MbMap extends React.Component {
     }
 
     _resetMode(prevState) {
-        let messagesForModes = this._getMessagesForModes();
-
         function disableInsts(insts) {
             for (var i = 0; i < insts.length; i++) {
                 //console.log(`Disable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
@@ -632,15 +610,6 @@ class MbMap extends React.Component {
                 lgaInst.removeFillPoly();
             }
         }
-        function clearMessages() {
-            for (let key in messagesForModes) {
-                let messages = messagesForModes[key];
-                for (var j = 0; j < messages.length; j++) {
-                    messages[j].current.style.display = 'none';
-                }
-            }
-        }
-        //clearMessages();
 
         if (prevState._markers === 'hospitals') {
             this.hospitalMessage.current.style.display = 'none';
@@ -655,6 +624,10 @@ class MbMap extends React.Component {
             this.confirmedMarkers.forEach((marker) => {
                 marker.hide();
             });
+        }
+        else if (prevState._markers === 'status_active' ||
+            (prevState._markers && prevState._markers.toUpperCase() === prevState._markers)) {
+            this.markersButtonGroup.current.parentNode.style.display = 'block';
         }
         this.accuracyWarning.current.style.display = 'none';
 
