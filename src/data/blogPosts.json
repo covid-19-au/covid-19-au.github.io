@@ -1,6 +1,27 @@
 {
     "blogPosts": [
         {
+            "tag": "Lifestyle",
+            "title": "Weekly Fitness: Calisthenics",
+            "media": "https://i.imgur.com/lrfARNT.jpg",
+            "summary": "Weight training is arguably one of the most popular workouts at the gym. While we are stuck at home due to COVID-19, Calisthenics is one of the best substitutes for that! The only tool you’ll need is your own body weight! In today’s blog post, we have included some easy exercises to help everyone stay fit and healthy during quarantine! 💪",
+            "date": "6/05/2020", 
+            "text": {
+                "text_1": [
+                    "<h3><strong>Weekly Fitness: Calisthenics</h3></strong>",
+                    "This week’s fitness focus will be on Calisthenics; arguably the best substitute for hitting weights at the gym. In the simplest terms, calisthenics is resistance training with your body weight, and is an effective means that promotes muscle development and strength. Muscle and strength build from resistance, and your body weight is the perfect quarantine tool to maintain those gains you’ve worked so hard to grow over the years!",
+                    "<h3><strong>Here are some exercises to target muscle groups:</h3></strong>",
+                    "<strong>Chest and Arms</strong> <ul> <li><strong>Push ups:</strong> Regular push ups can be altered by spreading out your hands. The closer together they are, the more your inner muscles in your chest will be worked, and vice versa.</li> <li><strong>Incline push ups:</strong> Perform regular push ups but elevate your feet with a chair, your bed or a bench. This will help to target your upper chest muscles. </li> </ul>",
+                    "<strong>Back</strong> <ul> <li><strong>Chin-ups:</strong> This is the best mass-building exercise for your back. Again, you can change the width of your grip to target different back muscles. </li> <li><strong>Hyperextensions:</strong> A great way to target your lower back, you can perform this on the edge of your bed and with someone holding your feet in place to ensure safety.</li> </ul>",
+                    "<strong>Legs</strong> <ul> <li><strong>Straight leg deadlifts:</strong> You can perform this with additional weights such as rice bags. Always maintain a straight back when performing deadlifts. </li> <li><strong>Lunges:</strong> Focus on going as low and long as possible. You can also add weights such as rice bags and gallon water bottles. </li> <li><strong>Squats:</strong> Focus again on going as deep as possible and stay down for a few seconds before coming back up. Squats and lunges are great exercises for your quads.</li> </ul>",
+                    "There are plenty of other resources online for complete circuits and workouts, namely on YouTube. Channels such as ‘Frank Medrano’ and ‘OFFICIALTHENX’ have complete guides for all levels, from beginner all the way up to professional. Check them out for full demonstrations on all the above exercises plus more!"
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
             "tag": "Informative",
             "title": "Flu Vaccinations and their importance during COVID-19",
             "media": "https://i.imgur.com/5zrVsHS.png",
