@@ -15,6 +15,7 @@ import waLgaData from "../data/lga_wa.geojson"
 // by other schema
 import actSaData from "../data/sa3_act.geojson"
 import qldHhsData from "../data/hhs_qld.geojson"
+import nswLhdData from "../data/lhd_nsw.geojson"
 //import nswPostCodeData from "../data/postcode_nsw.geojson"
 
 // statewide outlines (when regional data not available)
@@ -60,7 +61,8 @@ function __getGeoBoundaryClasses() {
 
         // Other schemas
         "act:sa3": ACTSA3Boundaries,
-        "qld:hhs": QLDHHSGeoBoundaries//,
+        "qld:hhs": QLDHHSGeoBoundaries,
+        "nsw:lhd": NSWLHDGeoBoundaries//,
         //"nsw:postcode": NSWPostCodeBoundaries
     };
 }
@@ -994,6 +996,15 @@ class QLDHHSGeoBoundaries extends JSONGeoBoundariesBase {
     }
     getCityNameFromProperty(data) {
         return data.properties.HHS;
+    }
+}
+
+class NSWLHDGeoBoundaries extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'nsw', 'NSW', 'lhd_nsw', nswLhdData);
+    }
+    getCityNameFromProperty(data) {
+        return data.properties.name;
     }
 }
 
