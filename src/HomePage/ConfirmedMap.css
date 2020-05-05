@@ -54,14 +54,21 @@
 }
 
 div.map-cont-controls {
-    padding: 8px 8px 0 8px;
-    background: white;
-    box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
+
     pointer-events: none;
     white-space: nowrap;
 }
+
+@media only screen and (max-width: 600px) {
+    div.map-cont-controls {
+        padding: 4px 0 4px 0;
+    }
+}
+
 @media only screen and (min-width: 600px) {
     div.map-cont-controls {
+        padding: 4px 6px 0 6px;
+        background: white;
         position: absolute;
         top: 8px;
         left: 8px;
@@ -69,5 +76,7 @@ div.map-cont-controls {
         width: 30%;
         min-width: 220px;
         opacity: 0.9;
+        border-radius: 6px;
+        box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
     }
 }

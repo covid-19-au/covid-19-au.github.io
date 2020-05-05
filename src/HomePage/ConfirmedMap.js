@@ -99,10 +99,13 @@ class MbMap extends React.Component {
     }
 
     render() {
+        const padding = '6px';
         const activeStyles = {
             color: 'black',
             borderColor: '#8ccfff',
-            padding: "0px 5px",
+            paddingLeft: padding,
+            paddingRight: padding,
+            //padding: "0px 5px",
             zIndex: 10,
             outline: "none",
             textTransform: "none"
@@ -110,7 +113,9 @@ class MbMap extends React.Component {
         const inactiveStyles = {
             color: 'grey',
             borderColor: '#e3f3ff',
-            padding: "0px 5px",
+            paddingLeft: padding,
+            paddingRight: padding,
+            //padding: "0px 5px",
             outline: "none",
             textTransform: "none"
         };
@@ -137,8 +142,11 @@ class MbMap extends React.Component {
                             <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Markers</div>
                             <select ref={this.markersSelect}
                                 style={{ "width": "100%" }}>
+                                <optgroup label="COVID-19 Test Facilities">
+                                    <option value="hospitals">Testing Hospitals and Clinics</option>
+                                </optgroup>
                                 <optgroup label="Basic Numbers">
-                                    <option value="total">Total Cases</option>
+                                    <option value="total" selected>Total Cases</option>
                                     <option value="status_active">Active Cases</option>
                                     <option value="status_recovered">Recovered Cases</option>
                                     <option value="status_deaths">Deaths</option>
@@ -160,7 +168,7 @@ class MbMap extends React.Component {
                         </div>
 
                         <div>
-                            <span className="key" style={{ alignSelf: "flex-end", marginBottom: "8px" }}>
+                            <span className="key" style={{ alignSelf: "flex-end", marginBottom: "5px" }}>
                                 <ButtonGroup ref={this.markersButtonGroup}
                                     size="small"
                                     aria-label="small outlined button group">
@@ -515,6 +523,20 @@ class MbMap extends React.Component {
         };
         //updateMessages();
 
+        if (this.state._markers === 'hospitals') {
+            this.hospitalMarkers.forEach((marker) => {
+                marker.show();
+                this.markersButtonGroup.current.parentNode.style.display = 'none';
+                this.underlayBGCont.current.style.display = 'none';
+            });
+            return;
+        }
+        else if (this.state._markers === 'total') {
+            this.confirmedMarkers.forEach((marker) => {
+                marker.show();
+            });
+        }
+
         this.statesAndTerritories.forEach((stateName) => {
             var absStatDataInst = this.absStatsInsts[this.state._underlay],
                 caseDataInst = this.getCaseDataInst(stateName);
@@ -601,6 +623,20 @@ class MbMap extends React.Component {
             }
         }
         //clearMessages();
+
+        if (prevState._markers === 'hospitals') {
+            this.hospitalMarkers.forEach((marker) => {
+                marker.hide();
+                this.markersButtonGroup.current.parentNode.style.display = 'block';
+                this.underlayBGCont.current.style.display = 'block';
+            });
+            return;
+        }
+        else if (prevState._markers === 'total') {
+            this.confirmedMarkers.forEach((marker) => {
+                marker.hide();
+            });
+        }
 
         this.statesAndTerritories.forEach((stateName) => {
             var absStatDataInst = this.absStatsInsts[prevState._underlay],
