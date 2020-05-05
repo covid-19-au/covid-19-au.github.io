@@ -22,7 +22,7 @@ import nswLhdData from "../data/lhd_nsw.geojson"
 import actOutlineData from "../data/boundary_act.geojson"
 import vicOutlineData from "../data/boundary_vic.geojson"
 import nswOutlineData from "../data/boundary_nsw.geojson"
-//import qldOutlineData from "../data/boundary_qld.geojson"
+import qldOutlineData from "../data/boundary_qld.geojson"
 import waOutlineData from "../data/boundary_wa.geojson"
 import saOutlineData from "../data/boundary_sa.geojson"
 import tasOutlineData from "../data/boundary_tas.geojson"
@@ -54,7 +54,7 @@ function __getGeoBoundaryClasses() {
         "nsw:statewide": NSWBoundary,
         "nt:statewide": NTBoundary,
         "vic:statewide": VicBoundary,
-        //"qld:statewide": QLDBoundary,  TODO!
+        "qld:statewide": QLDBoundary,
         "sa:statewide": SABoundary,
         "tas:statewide": TasBoundary,
         "wa:statewide": WABoundary,
@@ -634,7 +634,7 @@ class JSONGeoBoundariesBase {
         this._assignCaseInfoToGeoJSON(this.pointGeoJSONData, dataSource);
         let oid = this.getHeatmapSourceId(dataSource);
         if (!(oid in this.addedSources)) {
-            console.log("ADDING HEATMAP SOURCE:"+oid);
+            //console.log("ADDING HEATMAP SOURCE:"+oid);
             this.addedSources[oid] = null;
             this.map.addSource(oid, {
                 type: 'geojson',
@@ -646,7 +646,7 @@ class JSONGeoBoundariesBase {
         this._assignCaseInfoToGeoJSON(this.geoJSONData, dataSource);
         let fid = this.getFillSourceId(dataSource);
         if (!(fid in this.addedSources)) {
-            console.log("ADDING FILL SOURCE:"+fid);
+            //console.log("ADDING FILL SOURCE:"+fid);
             this.addedSources[fid] = null;
             this.map.addSource(fid, {
                 type: 'geojson',
@@ -1061,7 +1061,6 @@ class VicBoundary extends JSONGeoBoundariesBase {
     }
 }
 
-/*
 class QLDBoundary extends JSONGeoBoundariesBase {
     constructor(map) {
         super(map, 'statewide', 'QLD', 'boundary_qld', qldOutlineData);
@@ -1070,7 +1069,6 @@ class QLDBoundary extends JSONGeoBoundariesBase {
         return 'QLD';
     }
 }
- */
 
 class SABoundary extends JSONGeoBoundariesBase {
     constructor(map) {
