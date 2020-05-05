@@ -21,7 +21,7 @@ function getFromStateCaseData(stateName, subHeader) {
         else if (subHeader === 'status_recovered') {
             return [iRecovered, dateUpdated];
         }
-        else if (subHeader === 'tested') { //  CHECK ME!!!
+        else if (subHeader === 'tests_total') { //  CHECK ME!!!
             return [iTested, dateUpdated];
         }
         else if (subHeader === 'status_icu') {
