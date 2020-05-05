@@ -57,4 +57,5 @@ def get_minified(path):
 for fnam in listdir('.'):
     if not fnam.endswith('.geojson'):
         continue
+    print(fnam)
     get_minified(fnam)

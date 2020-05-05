@@ -17,6 +17,7 @@ import absStatsData from "../data/absStats";
 import ConfirmedMapFns from "./ConfirmedMapFns"
 import TimeSeriesDataSource from "./ConfirmedMapCaseData"
 import TimeSeriesDataSourceForPeriod from "./ConfirmedMapCaseDataPeriod"
+import ConfirmedMapShipsData from "./ConfirmedMapShipsData"
 import BigTableOValuesDataSource from "./ConfirmedMapABSData"
 import GeoBoundaries from "./ConfirmedMapGeoBoundaries" // FIXME!
 import ConfirmedMarker from "./ConfirmedMapConfirmedMarker"
@@ -164,6 +165,21 @@ class MbMap extends React.Component {
                                     <option value="source_interstate">Contracted Interstate</option>
                                     <option value="source_under_investigation">Under Investigation</option>
                                 </optgroup>
+                                <optgroup label="Cruise Ship Numbers">
+                                    <option value="RUBY PRINCESS">Ruby Princess</option>
+                                    <option value="OVATION OF THE SEAS">Ovation of the Seas</option>
+                                    <option value="GREG MORTIMER">Greg Mortimer</option>
+                                    <option value="ARTANIA">Artania</option>
+                                    <option value="VOYAGERS OF THE SEA">Voyagers of the sea</option>
+                                    <option value="CELEBRITY SOLSTICE">Celebrity Solstice</option>
+                                    <option value="COSTA VICTORIA">Costa Victoria</option>
+                                    <option value="DIAMOND PRINCESS">Diamond Princess</option>
+                                    <option value="COSTA LUMINOSA">Contracted Costa Luminosa</option>
+                                    <option value="SUN PRINCESS">Sun Princess</option>
+                                    <option value="CELEBRITY APEX">Celebrity Apex</option>
+                                    <option value="MSC FANTASIA">MSC Fantasia</option>
+                                    <option value="UNKNOWN">Unknown Ship</option>
+                                </optgroup>
                             </select>
                         </div>
 
@@ -297,6 +313,8 @@ class MbMap extends React.Component {
             var d = caseDataInsts[key] = {};
             var subheaders = regionsTimeSeries[key]['sub_headers']; // CHECK ME!
             for (let subKey of subheaders) {
+                console.log(`${key}|${subKey}|alltime`)
+
                 caseDataInsts[`${key}|${subKey}|alltime`] = new TimeSeriesDataSource(
                     `${key}|${subKey}|alltime`,
                     subKey,
@@ -332,6 +350,20 @@ class MbMap extends React.Component {
                     key.split(":")[0],
                     21
                 );
+            }
+        }
+
+        // Add cruise ship data
+        for (let shipName of ConfirmedMapShipsData.getPossibleShips()) {
+            for (let stateName of this.statesAndTerritories) {
+                var key = `${stateName}:statewide|${shipName}|alltime`;
+                caseDataInsts[key] = new ConfirmedMapShipsData.ConfirmedMapShipsData(
+                    key, stateName, shipName
+                );
+                if (!caseDataInsts[key].getCaseNumber()) {
+                    // Only add if there's data for this ship+state combination!
+                    delete caseDataInsts[key];
+                }
             }
         }
 
@@ -402,6 +434,7 @@ class MbMap extends React.Component {
 
         for (var schema of schemas) {
             var key = `${stateName}:${schema}|${state._markers}|${state._timeperiod}`;
+            console.log("TRYING: "+key+" "+(key in this.caseDataInsts));
 
             if (key in this.caseDataInsts) {
                 return this.caseDataInsts[key];
