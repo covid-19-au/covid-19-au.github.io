@@ -220,23 +220,6 @@ class MbMap extends React.Component {
                         style={{ display: 'none' }}>
                         <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
                     </div>
-                    <div ref={this.totalCasesMessage}>
-                        <span className="key"><img src={confirmedOldImg} /><p>Case over {ConfirmedMarker.oldCaseDays} days old</p></span>
-                        <span className="key"><img src={confirmedImg} /><p>Recently confirmed case(not all, collecting)</p></span>
-                    </div>
-                    <div ref={this.cityLevelMessage}>
-                        <span className="Key">
-                            <p>*City-level data is only present for <strong>ACT</strong>, <strong>NSW</strong>,
-                                <strong>VIC</strong>, and <strong>WA</strong>, HHS Data for <strong>QLD</strong>.
-                                Other states are being worked on.</p>
-                        </span>
-                    </div>
-                    <div ref={this.activeCasesMessage}
-                        style={{ display: 'none' }}>
-                        <span className="Key">
-                            <p>*Active cases data has currently only been added for Queensland.</p>
-                        </span>
-                    </div>
                     <div ref={this.accuracyWarning}>
                         <p style={{ color: 'red' }}>*Cases on map are approximate and
                             identify regions only, not specific addresses.</p>
@@ -557,6 +540,7 @@ class MbMap extends React.Component {
         //updateMessages();
 
         if (this.state._markers === 'hospitals') {
+            this.hospitalMessage.current.style.display = 'block';
             this.hospitalMarkers.forEach((marker) => {
                 marker.show();
                 this.markersButtonGroup.current.parentNode.style.display = 'none';
@@ -569,6 +553,7 @@ class MbMap extends React.Component {
                 marker.show();
             });
         }
+        this.accuracyWarning.current.style.display = 'block';
 
         this.statesAndTerritories.forEach((stateName) => {
             var absStatDataInst = this.absStatsInsts[this.state._underlay],
@@ -658,6 +643,7 @@ class MbMap extends React.Component {
         //clearMessages();
 
         if (prevState._markers === 'hospitals') {
+            this.hospitalMessage.current.style.display = 'none';
             this.hospitalMarkers.forEach((marker) => {
                 marker.hide();
                 this.markersButtonGroup.current.parentNode.style.display = 'block';
@@ -670,6 +656,7 @@ class MbMap extends React.Component {
                 marker.hide();
             });
         }
+        this.accuracyWarning.current.style.display = 'none';
 
         this.statesAndTerritories.forEach((stateName) => {
             var absStatDataInst = this.absStatsInsts[prevState._underlay],
