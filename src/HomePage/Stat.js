@@ -104,8 +104,13 @@ function UpdatesToday() {
     let yesterdayData = previousData[yesterdayKey]
 
     let stateUpdateStatus = {}
+    let noNewCasesStreak = {}
+
     for (let state in yesterdayData) {
         stateUpdateStatus[state] = [false, false, false, false, false]
+
+        //First index is check status for loop, second index is streak
+        noNewCasesStreak[state] = [true, 0]
     }
 
     let todayDataObject = {}
@@ -124,7 +129,6 @@ function UpdatesToday() {
         todayDataObject[currentState].push(values[i][7])
         i = i + 1
     }
-    console.log(todayDataObject)
 
 
     for (let state in stateUpdateStatus) {
@@ -141,10 +145,52 @@ function UpdatesToday() {
             stateUpdateStatus[state][3] = true
         }
         //This makes sure there is no increase in cases
-        if (todayDataObject[state][4] === 'true' && stateUpdateStatus[state][0] === false) {
+        if (todayDataObject[state][4] === 'true' && parseInt(todayDataObject[state][0]) <= parseInt(yesterdayData[state][0])) {
             stateUpdateStatus[state][4] = true
         }
     }
+
+
+    for (let state in noNewCasesStreak) {
+
+        //Create keys for data for previous two days
+        let date0 = new Date()
+        let date1 = new Date(date0)
+        date1.setDate(date1.getDate() - 1)
+        let date2 = new Date(date1)
+        date2.setDate(date2.getDate() - 1)
+        let key1 = date1.getFullYear().toString() + "-" + parseInt(date1.getMonth() + 1).toString() + "-" + date1.getDate().toString()
+        let key2 = date2.getFullYear().toString() + "-" + parseInt(date2.getMonth() + 1).toString() + "-" + date2.getDate().toString()
+
+        let streakCount = 0
+
+        //While streak is true
+        while (noNewCasesStreak[state][0]) {
+            //Check if new cases on date 1 = new cases on date 2
+            if (previousData[key1][state][0] <= previousData[key2][state][0]) {
+                streakCount = streakCount + 1
+
+                //Set date 1 and date 2 back by one day
+                date1.setDate(date1.getDate() - 1)
+                date2.setDate(date2.getDate() - 1)
+
+                key1 = date1.getFullYear().toString() + "-" + parseInt(date1.getMonth() + 1).toString() + "-" + date1.getDate().toString()
+                key2 = date2.getFullYear().toString() + "-" + parseInt(date2.getMonth() + 1).toString() + "-" + date2.getDate().toString()
+
+            }
+            else {
+                //Check if no new cases today
+                if (stateUpdateStatus[state][4]) {
+                    streakCount = streakCount + 1
+                }
+                noNewCasesStreak[state][1] = streakCount
+                noNewCasesStreak[state][0] = false
+            }
+
+        }
+    }
+
+
 
     const fontSize = window.innerWidth > 767 ? "5rem" : "1rem"
 
@@ -279,6 +325,24 @@ function UpdatesToday() {
         fontWeight: "normal"
     }
 
+    const inactiveStylesStreak = {
+        color: '#ccd1d1',
+        padding: "0px",
+        border: "none",
+        backgroundColor: "#f2f4f4",
+        fontSize: "80%"
+    };
+
+    const activeStylesStreak = {
+        color: '#00c177',
+        padding: "0px",
+        border: "none",
+        backgroundColor: "#f2f4f4",
+        fontWeight: "bold",
+        fontSize: "80%",
+        textTransform: "none"
+    }
+
 
     return (
         <div style={{
@@ -317,6 +381,28 @@ function UpdatesToday() {
                     >{i18next.t("homePage:state." + state)} </Button>
                 ))}
             </ButtonGroup>
+
+            {currentView === 4 ?
+                <ButtonGroup color="primary" aria-label="outlined primary button group" fullWidth={true} style={{ marginTop: "0.5rem" }} >
+
+                    {Object.keys(stateUpdateStatus).map((state, status) => (
+                        <Button
+                            href={("./state/" + state).toLowerCase()}
+                            style={noNewCasesStreak[state][1] > 0 ? activeStylesStreak : inactiveStylesStreak}
+                            key={state}
+
+                        >{noNewCasesStreak[state][1] == 0 ? "" : noNewCasesStreak[state][1] + "*"}</Button>
+                    ))}
+                </ButtonGroup>
+                : ""
+            }
+            {currentView === 4 ?
+                <span className="due" style={{ fontSize: "80%", paddingTop: 0, marginLeft: 0, padding: 0 }}>
+                    *Days without new cases
+                </span>
+
+                : ""}
+
 
             {/*<p style={{ marginBottom: "5px", marginTop: "10px" }}>New Deaths:</p>
             <ButtonGroup color="primary" aria-label="outlined primary button group" style={{ buttonGroupStyles }} fullWidth="true" >
