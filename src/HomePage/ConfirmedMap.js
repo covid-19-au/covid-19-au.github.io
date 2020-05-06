@@ -2,14 +2,14 @@ import React from "react";
 import mapboxgl from 'mapbox-gl';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import confirmedData from "../data/mapdataCon"
+//import confirmedData from "../data/mapdataCon"
 import hospitalData from "../data/mapdataHos"
 
 import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
-import confirmedImg from '../img/icon/confirmed-recent.png'
-import confirmedOldImg from '../img/icon/confirmed-old.png'
+//import confirmedImg from '../img/icon/confirmed-recent.png'
+//import confirmedOldImg from '../img/icon/confirmed-old.png'
 import hospitalImg from '../img/icon/hospital.png'
 import Acknowledgement from "../Acknowledgment"
 import absStatsData from "../data/absStats";
@@ -20,7 +20,7 @@ import TimeSeriesDataSourceForPeriod from "./ConfirmedMapCaseDataPeriod"
 import ConfirmedMapShipsData from "./ConfirmedMapShipsData"
 import BigTableOValuesDataSource from "./ConfirmedMapABSData"
 import GeoBoundaries from "./ConfirmedMapGeoBoundaries" // FIXME!
-import ConfirmedMarker from "./ConfirmedMapConfirmedMarker"
+//import ConfirmedMarker from "./ConfirmedMapConfirmedMarker"
 import HospitalMarker from "./ConfirmedMapHospitalMarker"
 
 
@@ -277,14 +277,14 @@ class MbMap extends React.Component {
 
         // Add markers: confirmed cases/hospitals
         // only for tas/nt at this point
-        var confirmedMarkers = this.confirmedMarkers = [];
+        /*var confirmedMarkers = this.confirmedMarkers = [];
         confirmedData.forEach((item) => {
             if (!(['VIC', 'NSW', 'QLD', 'WA', 'ACT'].includes(item['state']))) {
                 confirmedMarkers.push(
                     new ConfirmedMarker(map, item)
                 );
             }
-        });
+        });*/
         this.hospitalMarkers = hospitalData.map((item) => {
             return new HospitalMarker(map, item);
         });
@@ -525,9 +525,9 @@ class MbMap extends React.Component {
             return;
         }
         else if (this.state._markers === 'total') {
-            this.confirmedMarkers.forEach((marker) => {
+            /*this.confirmedMarkers.forEach((marker) => {
                 marker.show();
-            });
+            });*/
         }
         else if (this.state._markers === 'status_active' ||
             (this.state._markers && this.state._markers.toUpperCase() === this.state._markers)) {
@@ -621,9 +621,9 @@ class MbMap extends React.Component {
             return;
         }
         else if (prevState._markers === 'total') {
-            this.confirmedMarkers.forEach((marker) => {
+            /*this.confirmedMarkers.forEach((marker) => {
                 marker.hide();
-            });
+            });*/
         }
         else if (prevState._markers === 'status_active' ||
             (prevState._markers && prevState._markers.toUpperCase() === prevState._markers)) {
