@@ -1,6 +1,46 @@
 {
     "blogPosts": [
         {
+            "tag": "Informative",
+            "title": "Planning a road to recovery: How will COVID-19 restrictions ease in Australia?",
+            "media": "https://i.imgur.com/WSOimrt.png",
+            "summary": "As Australia succeeds in slowing the spread of COVID-19 to the community, with cases in the nation nearing single digits each day, the national cabinet will be discussing plans to ease restrictions on Friday this week.  In this piece we will postulate what would be discussed in this meeting, as Australia plans for a road to recover from COVID-19. ",
+            "date": "7/05/2020", 
+            "text": {
+                "text_1": [
+                    "Australia’s social distancing measures have had great success in curbing the number of active cases in Australia, with most cases nearing zero or single digits this week. This has prompted the National Cabinet to shift its plans to consider discussing relaxing restrictions a week earlier than expected, from May 11 to this Friday May 8.",
+                    "<h3><strong>What do we need to do for restrictions to be eased?</strong></h3>",
+                    "The Australian Health Protection Principal Committee (AHPPC) has <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.pm.gov.au/media/press-conference-australian-parliament-house-act-1may20'>proposed</a> <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.pm.gov.au/sites/default/files/files/attachc-precedent-conditions-relaxation-restrictions.pdf'>15 conditions</a> to which must be met before social restrictions would be lifted. The ones which are currently being met by Australia are:"
+                ],
+                "ulist_1": [],
+                "olist_1": [
+                    "Community adherence to public health measures, which has been shown by mobility data.",
+                    "Extensive modelling of the spread of COVID-19.",
+                    "Expansion of testing capacity.",
+                    "A mature and large enough public health workforce.",
+                    "Contact tracing capacity.",
+                    "A well prepared health system.",
+                    "Surge capacity in the healthcare system.",
+                    "ICU-expansion capacity and enough ventilators.",
+                    "Adequate stock of masks.",
+                    "Adequate stock of medication.",
+                    "Workforce training required to prepare healthcare system."
+                ],
+                "text_2": [
+                    "We are yet to meet the following 4 demands to ease restrictions:",
+                    "<ol> <li><strong>Advances in technology for contact tracing, data collection and analysis</strong><br />Since the launch of the COVIDSafe App on 27 April 2020, there has been 4 million downloads.</li> <li><strong>Securing and strengthening the supply of personal protective equipment (PPE)</strong><br />The status of each state and territories stock of gloves and gowns are yet to be confirmed. There are also needs for further modelling and an assessment on the security of supply lines.</li> <li><strong>Increased surveillance and new testing strategy</strong><br />There are needs for an expansion of disease surveillance and testing. Sero-surveillance is a long term goal, and requires further development.</li> <li><strong>Providing resources for increased surveillance</strong><br />The Australian National Disease Surveillance Plan for COVID-19 has been developed and will continue to be updated.</li> </ol>",
+                    "<h3><strong>What else is there to discuss?</strong></h3>",
+                    "When restrictions will be lifted depends on the number of cases. While states and territories have started to lift social restrictions beyond those proposed by the national cabinet. (see <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.abc.net.au/news/2020-05-01/coronavirus-restrictions-easing-around-australia-explained/12198078'>here</a> and our social restrictions section in the information panel) the National Cabinet is yet to propose their recommendations. Australia is in a unique position, in that it has two viable options. The first is to completely eliminate all active cases in the country before lifting any major state or border restrictions. This would be attained when all cases fall to zero for approximately <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://go8.edu.au/wp-content/uploads/2020/05/Go8-Road-to-Recovery.pdf'>2 weeks</a>.",
+                    "Australia is in a lucky position in which this is possible as some states have already eradicated the disease. However, this is difficult to achieve and will mean that lockdown will have to continue beyond mid-May, possibly for another 30 days. The second is to suppress the cases of the disease below the capacity of health systems. However this method is likely to lead to spikes in local cases, for example, the resurgence of disease in Singapore. Perhaps, it might be helpful to consider other experimental choices, for example a recent <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.esade.edu/itemsweb/wi/research/ecpol/EsadeEcPol_Insigth6_Exit_Strategy.pdf'>proposal</a> in which people are allowed to move within disconnected areas such as suburbs and districts, which are progressively joined together as the spread is contained, this is similar to what has been done in Wuhan.",
+                    "It is also important to discuss how Australia is going to address the long term socio-economic impact COVID-19 has on Australia and the world.",
+                    "<ul> <li>The pandemic has evidently led our world economy into a recession as well as devastated retail, leisure and hospitality industries. In Australia, according to the new <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.abc.net.au/news/2020-05-04/coronavirus-shutdown-costing-economy-$4-billion-a-week/12213612'>treasury analysis</a>, the shutdown has cost the economy $4 billion each week.</li> <li>COVID-19 has caused countless migrant workers to <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.un.org/sites/un2.un.org/files/sg_report_socio-economic_impact_of_covid19.pdf>lose their jobs</a>.</li> <li><a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.un.org/sites/un2.un.org/files/sg_report_socio-economic_impact_of_covid19.pdf'>Market tampering and stockpiling</a> have caused an increase in food prices and affects the most vulnerable. </li> <li>In Australia, the closure of schools have disrupted children’s education and put demand on work/life balance especially for women. In other parts of the world, the interruption in school learning can potentially result in more child labourers and a rise in child marriage. Consequently, leading to a <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.un.org/sites/un2.un.org/files/sg_report_socio-economic_impact_of_covid19.pdf'>negative impact</a> on the country’s growth.</li> <li>The pandemic is also affecting those who are <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.sbs.com.au/news/children-in-this-australian-town-don-t-have-the-internet-so-their-school-has-turned-to-radio'>already disadvantaged</a> in the society such as the homeless, those in prison, the indigenous, the elderly and the disabled. For example, people with disability have been excluded from COVID-19 compensation payments and <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.sbs.com.au/news/coronavirus-could-have-a-devastating-impact-on-endangered-languages'>endangered indigenous languages</a> are already being forgotten.</li> </ul>",
+                    "While we have seen positive impact on the environment due to COVID-19, this effect will only be short term unless countries persist to the 2030 agenda for sustainable development and the Paris Agreement on Climate Change. This may be a good time for Australia to adhere to the sustainable development goals mentioned previously.",
+                    "The COVID-19 pandemic has put the world through a devastating test. How Australia responds and adapt to the situation is a matter of life and death which could change its global position and will be forever written in history.",
+                    "Note: This piece was written and updated on the 5th of May, 2020 and may not account for new developments beyond this date."
+                ]
+            }
+        },
+        {
             "tag": "Lifestyle",
             "title": "Weekly Fitness: Calisthenics",
             "media": "https://i.imgur.com/lrfARNT.jpg",
