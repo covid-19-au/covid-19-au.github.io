@@ -1,6 +1,38 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-06/coronavirus-numbers-raise-covid19-growth-factor/12217846",
+            "title": "Coronavirus numbers have put Australia's growth factor back above one — should we be worried?",
+            "source": "ABCNews",
+            "date": "6 May 2020",
+            "time": "05:22",
+            "summary": "For the first time in more than a month, the 'growth factor' for COVID-19 cases in Australia has risen above one - it is currently 1.04. That is, there are more new cases this week than there were last week. Put simply, growth factor is a measure of how quickly the number of new cases is rising or falling — and the critical thing to remember is that we want to keep it below one. Catherine Bennett, the chair of epidemiology at Deakin University, says that the importance of this number at this stage in the outbreak is really as a signal that something's changed over the last seven days and what we expect that to be now is probably clusters of cases. She stated that this means that we've got work to do — we've got to make sure that the reason it's above one is well under control."
+        },
+        {
+            "link": "https://www.theguardian.com/world/2020/may/06/covidsafe-app-is-not-working-properly-on-iphones-authorities-admit",
+            "title": "Covidsafe app is not working properly on iPhones, authorities admit ",
+            "source": "TheGuardian",
+            "date": "6 May 2020",
+            "time": "17:03",
+            "summary": "Australians running the COVIDSafe contact tracing app on iPhones may not be recording all the data required if they don’t have the app running in the foreground or they are using an older model phone, the government has admitted. More than 5.1 million Australians have downloaded and registered to use the app on iPhone and Android devices, and, while the Android version works while running in the background (ie, not open on the screen), the iPhone version works best when the app is open on the screen and the phone is unlocked."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/wa-marks-one-week-without-new-coronavirus-cases",
+            "title": "WA marks one week without new coronavirus cases",
+            "source": "SBSNews",
+            "date": "6 May 2020",
+            "time": "15:24",
+            "summary": "Western Australia has marked one week of no new COVID-19 cases, as the state government expands a study testing asymptomatic people. Only 14 active cases remain in the state, including seven patients in Perth hospitals, while 528 people have recovered. Premier Mark McGowan stated that while the state government was focused on loosening restrictions that would boost the economy and keep people safe, the hard border closure would remain in place for now."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-scott-morrison-covid-19-herd-immunity-death-sentence/c5b1b198-dec6-4547-a909-444f8d92db09",
+            "title": "Prime Minister Scott Morrison labels herd immunity a death sentence ",
+            "source": "9News",
+            "date": "6 May 2020",
+            "time": "11:54",
+            "summary": "Prime Minister Scott Morrison says the herd immunity approach to dealing with the COVID-19 virus is a \"death sentence.\" Mr Morrison once again praised Australia's response to the coronavirus crisis, saying we've done very well compared to other nations. The Prime Minister also questioned the aggressive interrogation of a New South Wales health official at the Ruby Princess inquiry yesterday. Furthermore, the Prime Minister said he will continue to push for a global inquiry into the origins of COVID-19."
+        },
+        {
             "link": "https://www.sbs.com.au/news/government-releases-proposed-laws-to-underpin-privacy-protections-for-covidsafe-app",
             "title": "Government releases proposed laws to underpin privacy protections for COVIDSafe app",
             "source": "SBSNews",
@@ -151,22 +183,6 @@
             "date": "29 April 2020",
             "time": "17:21",
             "summary": "he government's top advisor on suicide prevention is urging Australians not to neglect their mental health during the coronavirus pandemic. Chief executive of the National Mental Health Commission Christine Morgan on Wednesday revealed new statistics showing the overall use of mental health services has been declining in Australia during the COVID-19 outbreak, which she speculated was due to people who would normally be using mental health services are not actually going out and doing those visits. Although the overall use of mental health services had declined, there had been an encouraging rise in the use of telehealth services such as Beyond Blue, Ms Morgan said."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/apr/28/nsw-new-south-wales-coronavirus-restrictions-partially-lifted-to-allow-limited-visiting",
-            "title": "NSW coronavirus restrictions will be partially lifted to allow limited visiting ",
-            "source": "TheGuardian",
-            "date": "28 April 2020",
-            "time": "12:47",
-            "summary": "People in New South Wales will soon be able to visit each other as the premier, Gladys Berejiklian, joins other state and territory governments in easing lockdown laws. In a press conference on Tuesday morning, Berejiklian said that since NSW infection rates remained low, two adults and their children would be able to travel to other homes to visit. A spokeswoman from the premier’s office said guests were allowed to stay overnight and there were no restrictions on distance."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/hundreds-return-to-sydney-s-famous-bondi-beach-as-coronavirus-restrictions-are-eased",
-            "title": "Hundreds return to Sydney's famous Bondi Beach as coronavirus restrictions are eased",
-            "source": "SBSNews",
-            "date": "28 April 2020",
-            "time": "14:43",
-            "summary": "Hundreds of surfers have returned to the water at Bondi for the first time since the beach was closed five weeks ago due to COVID-19 restrictions. People are now permitted to swim or surf at Bondi and Bronte, and surf only at Tamarama, between 7am and 5pm on weekdays. Access is via designated entry and exit points and the sand remains out of bounds for sunbathers."
         }
     ]
 }
