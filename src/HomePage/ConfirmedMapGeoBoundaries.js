@@ -1015,12 +1015,9 @@ class TasTHSBoundaries extends JSONGeoBoundariesBase {
         super(map, 'ths', 'TAS', 'ths_tas', tasThsData);
     }
     getCityNameFromProperty(data) {
-        //console.log(data.properties['tas_lga__3'])
         if (!data.properties['tas_ths']) {
-            alert(data.properties['tas_lga__3'])
-            return;
+            return null;
         }
-
         return ConfirmedMapFns.toTitleCase(data.properties['tas_ths']);
     }
 }
