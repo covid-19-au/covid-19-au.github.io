@@ -179,12 +179,34 @@ function UpdatesToday() {
 
             }
             else {
-                //Check if no new cases today
+                //Check if no new cases reported today
                 if (stateUpdateStatus[state][4]) {
                     streakCount = streakCount + 1
+                    noNewCasesStreak[state][1] = streakCount
+                    noNewCasesStreak[state][0] = false
                 }
-                noNewCasesStreak[state][1] = streakCount
-                noNewCasesStreak[state][0] = false
+                //If no new cases is false
+                else {
+                    //Compare today data with yesterday data
+                    if (parseInt(todayDataObject[state][0]) <= parseInt(yesterdayData[state][0])) {
+                        //Set streak if case number is unchanged
+                        noNewCasesStreak[state][1] = streakCount
+                        noNewCasesStreak[state][0] = false
+                    }
+                    else {
+                        //Set streak to 0 if case number has changed
+                        noNewCasesStreak[state][1] = 0
+                        noNewCasesStreak[state][0] = false
+                    }
+
+                }
+
+
+
+
+
+
+
             }
 
         }
