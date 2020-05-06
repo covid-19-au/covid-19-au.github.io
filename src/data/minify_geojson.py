@@ -45,6 +45,11 @@ def get_minified(path):
                 if i_key.endswith(key):
                     del feature['properties'][i_key]
 
+        if 'ths_tas' in path:
+            for key in list(feature['properties']):
+                if 'lga' in key:
+                    del feature['properties'][key]
+
         new_features.append(feature)
 
     geojson['features'] = new_features
