@@ -16,6 +16,7 @@ import waLgaData from "../data/lga_wa.geojson"
 import actSaData from "../data/sa3_act.geojson"
 import qldHhsData from "../data/hhs_qld.geojson"
 import nswLhdData from "../data/lhd_nsw.geojson"
+import tasThsData from "../data/ths_tas.geojson"
 //import nswPostCodeData from "../data/postcode_nsw.geojson"
 
 // statewide outlines (when regional data not available)
@@ -62,7 +63,8 @@ function __getGeoBoundaryClasses() {
         // Other schemas
         "act:sa3": ACTSA3Boundaries,
         "qld:hhs": QLDHHSGeoBoundaries,
-        "nsw:lhd": NSWLHDGeoBoundaries//,
+        "nsw:lhd": NSWLHDGeoBoundaries,
+        "tas:ths": TasTHSBoundaries
         //"nsw:postcode": NSWPostCodeBoundaries
     };
 }
@@ -1005,6 +1007,21 @@ class NSWLHDGeoBoundaries extends JSONGeoBoundariesBase {
     }
     getCityNameFromProperty(data) {
         return data.properties.name;
+    }
+}
+
+class TasTHSBoundaries extends JSONGeoBoundariesBase {
+    constructor(map) {
+        super(map, 'ths', 'TAS', 'ths_tas', tasThsData);
+    }
+    getCityNameFromProperty(data) {
+        //console.log(data.properties['tas_lga__3'])
+        if (!data.properties['tas_ths']) {
+            alert(data.properties['tas_lga__3'])
+            return;
+        }
+
+        return ConfirmedMapFns.toTitleCase(data.properties['tas_ths']);
     }
 }
 
