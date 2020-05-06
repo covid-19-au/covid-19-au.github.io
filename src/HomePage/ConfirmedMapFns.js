@@ -51,6 +51,7 @@ var fns = {
         s = s.replace(' council', '');
         s = s.replace(' regional', '');
         s = s.replace(' rural', '');
+        s = s.replace(' city', '');
         s = s.replace('the dc of ', '');
         s = s.replace('town of ', '');
         s = s.replace('city of ', '');
