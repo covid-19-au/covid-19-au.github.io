@@ -413,7 +413,7 @@ function UpdatesToday() {
                             style={noNewCasesStreak[state][1] > 0 ? activeStylesStreak : inactiveStylesStreak}
                             key={state}
 
-                        >{noNewCasesStreak[state][1] == 0 ? "" : noNewCasesStreak[state][1] + "*"}</Button>
+                        >{noNewCasesStreak[state][1] == 0 ? "" : noNewCasesStreak[state][1]}</Button>
                     ))}
                 </ButtonGroup>
                 : ""
