@@ -63,10 +63,10 @@ export default function Ships() {
               <caption>{ship.status}</caption>
               <TableHead>
                 <TableRow>
-                  <TableCell align="left">Update</TableCell>
+                  <TableCell align="left">Last Update</TableCell>
                   <TableCell align="left">State</TableCell>
-                  <TableCell align="left">Case</TableCell>
-                  <TableCell align="left">Death</TableCell>
+                  <TableCell align="left">Cases</TableCell>
+                  <TableCell align="left">Deaths</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
