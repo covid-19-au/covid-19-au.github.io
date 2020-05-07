@@ -41,5 +41,42 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    height: 40vh;
+    height: 50vh;
+}
+
+.mapboxgl-popup {
+    opacity: 0.95;
+    z-index: 501;
+}
+
+.mapboxgl-popup-content {
+    box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
+}
+
+div.map-cont-controls {
+
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 600px) {
+    div.map-cont-controls {
+        padding: 4px 0 4px 0;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    div.map-cont-controls {
+        padding: 4px 6px 0 6px;
+        background: white;
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        z-index: 500;
+        width: 30%;
+        min-width: 220px;
+        opacity: 0.9;
+        border-radius: 6px;
+        box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
+    }
 }
