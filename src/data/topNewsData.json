@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-07/coronavirus-queensland-easing-restrictions-mothers-day/12218690",
+            "title": "Coronavirus distancing restrictions to ease across Queensland for Mother's Day",
+            "source": "ABCNews",
+            "date": "7 May 2020",
+            "time": "14:00",
+            "summary": "Queensland will again ease COVID-19 contact restrictions from Mother's Day this Sunday to allow up to five members from one household to visit another home. Multiple families can visit the same household as long as it is at different times. Chief Medical Officer Jeannette Young said the 50-kilometre limit on travel would also be lifted \"if you're visiting another household\". \"But you can't go out into that community. You can only go to that residence, visit there, and leave,\" Dr Young said."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-07/sa-ends-coronavirus-free-streak-with-new-case/12225130",
+            "title": "South Australia ends 14-day coronavirus-free streak with new case contracted in UK",
+            "source": "ABCNews",
+            "date": "7 May 2020",
+            "time": "16:00",
+            "summary": "South Australia has recorded its first new coronavirus case in a fortnight after a man who returned from the United Kingdom in March tested positive. SA Health believes the man in his 70s acquired COVID–19 overseas, but developed \"very mild\" symptoms, including a loss of taste and smell sensations, after his return on March 20. The latest diagnosis brings the total number of positive coronavirus cases in the state to 439."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-06/coronavirus-numbers-raise-covid19-growth-factor/12217846",
             "title": "Coronavirus numbers have put Australia's growth factor back above one — should we be worried?",
             "source": "ABCNews",
@@ -167,22 +183,6 @@
             "date": "30 April 2020",
             "time": "16:23",
             "summary": "More than 1.3 million people are now receiving unemployed benefits across the country, with that number expected to reach about 1.7 million in September. The government faces growing pressure to consider a permanent increase to the jobseeker payment, which has received a temporary $550 per fortnight boost for about six months."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-29/prime-minister-scott-morrison-coronavirus-restrictions-easing/12196562",
-            "title": "Prime Minister Scott Morrison flags easing of coronavirus restrictions in near future",
-            "source": "ABCNews",
-            "date": "29 April 2020",
-            "time": "13:21",
-            "summary": "Prime Minister Scott Morrisonsaid Australia was \"on the road back\" to an economy safe from COVID-19 and that success could mean easing restrictions soon, noting that one of the most important tools to help fast-track restrictions being lifted was the Government's COVIDSafe tracing app. He also ruled out international travel restarting any time soon, with the potential exception of travel to New Zealand."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/australians-urged-not-to-neglect-mental-health-during-pressure-cooker-coronavirus-pandemic",
-            "title": "Australians urged not to neglect mental health during 'pressure cooker' coronavirus pandemic",
-            "source": "SBSNews",
-            "date": "29 April 2020",
-            "time": "17:21",
-            "summary": "he government's top advisor on suicide prevention is urging Australians not to neglect their mental health during the coronavirus pandemic. Chief executive of the National Mental Health Commission Christine Morgan on Wednesday revealed new statistics showing the overall use of mental health services has been declining in Australia during the COVID-19 outbreak, which she speculated was due to people who would normally be using mental health services are not actually going out and doing those visits. Although the overall use of mental health services had declined, there had been an encouraging rise in the use of telehealth services such as Beyond Blue, Ms Morgan said."
         }
     ]
 }
