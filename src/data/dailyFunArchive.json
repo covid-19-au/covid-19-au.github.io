@@ -4,6 +4,28 @@
             "image": [],
             "video": [
                 {
+                    "link": "https://www.youtube.com/watch?v=IweS2CPSnbI&feature=youtu.be",
+                    "description": "Some Good News Graduation with Oprah, Steven Spielberg, Jon Stewart, and Malala"
+                }
+            ],
+            "type": "distraction",
+            "date": "06/5/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=XMHySlDqpUw",
+                    "description": "Debunking Viral Covid-19 Videos"
+                }
+            ],
+            "type": "distraction",
+            "date": "05/5/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
                     "link": "https://www.youtube.com/watch?v=olHw-8py9K0",
                     "description": "5 Minute Chocolate Cake!"
                 }

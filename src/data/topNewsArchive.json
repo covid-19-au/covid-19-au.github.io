@@ -1,6 +1,38 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/28/nsw-new-south-wales-coronavirus-restrictions-partially-lifted-to-allow-limited-visiting",
+            "title": "NSW coronavirus restrictions will be partially lifted to allow limited visiting ",
+            "source": "TheGuardian",
+            "date": "28 April 2020",
+            "time": "12:47",
+            "summary": "People in New South Wales will soon be able to visit each other as the premier, Gladys Berejiklian, joins other state and territory governments in easing lockdown laws. In a press conference on Tuesday morning, Berejiklian said that since NSW infection rates remained low, two adults and their children would be able to travel to other homes to visit. A spokeswoman from the premier’s office said guests were allowed to stay overnight and there were no restrictions on distance."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/hundreds-return-to-sydney-s-famous-bondi-beach-as-coronavirus-restrictions-are-eased",
+            "title": "Hundreds return to Sydney's famous Bondi Beach as coronavirus restrictions are eased",
+            "source": "SBSNews",
+            "date": "28 April 2020",
+            "time": "14:43",
+            "summary": "Hundreds of surfers have returned to the water at Bondi for the first time since the beach was closed five weeks ago due to COVID-19 restrictions. People are now permitted to swim or surf at Bondi and Bronte, and surf only at Tamarama, between 7am and 5pm on weekdays. Access is via designated entry and exit points and the sand remains out of bounds for sunbathers."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/27/australias-aged-care-residents-caught-in-standoff-over-visits-during-coronavirus",
+            "title": "Australia's aged care residents caught in standoff over visits during coronavirus ",
+            "source": "TheGuardian",
+            "date": "27 April 2020",
+            "time": "16:08",
+            "summary": "Aged care residents and their families are caught in the crossfire of an escalating stand-off between the federal government and the sector over visiting rights during the Covid-19 pandemic. Ahead of a meeting with providers on Friday, the government suggested it was prepared to force homes to allow each resident two visitors a day, in line with official health guidelines, if operators did not ease their own rules. On Monday, a coalition of 1,000 aged care homes and their representatives roundly rejected the government’s request and disputed claims elevated by the prime minister that some homes were simply locking residents in their rooms."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/more-than-one-million-australians-download-covidsafe-contact-tracing-app",
+            "title": "More than two million Australians download COVIDSafe contact tracing app",
+            "source": "SBSNews",
+            "date": "27 April 2020",
+            "time": "20:45",
+            "summary": "As of Monday 4pm, 1.89 million Australians had downloaded the COVID-19 tracer app, which aims to help health officials identify people who may have come into contact with someone with the disease. Chief medical officer Brendan Murphy called the result a positive start to bolstering the public health response against the coronavirus. The government has said 40 per cent - or some 10 million people - would be needed for contact-tracing to be most successful."
+        },
+        {
             "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app",
             "title": "What is COVIDSafe, Australia's controversial new contact tracing app?",
             "source": "SBSNews",
