@@ -53,7 +53,7 @@ class ConfirmedMapShipsData extends DataSourceBase {
 
     getCaseNumber(region, ageRange) {
         var data = this.data['data'];
-        console.log("get: "+region+' '+this.stateName);
+        // console.log("get: "+region+' '+this.stateName);
 
         for (var dataItem of data) {
             if (this.stateName.toUpperCase() !== dataItem['state'].toUpperCase()) {

@@ -279,7 +279,7 @@ class MbMap extends React.Component {
             var d = caseDataInsts[key] = {};
             var subheaders = regionsTimeSeries[key]['sub_headers']; // CHECK ME!
             for (let subKey of subheaders) {
-                console.log(`${key}|${subKey}|alltime`)
+                // console.log(`${key}|${subKey}|alltime`)
 
                 caseDataInsts[`${key}|${subKey}|alltime`] = new TimeSeriesDataSource(
                     `${key}|${subKey}|alltime`,
@@ -400,7 +400,7 @@ class MbMap extends React.Component {
 
         for (var schema of schemas) {
             var key = `${stateName}:${schema}|${state._markers}|${state._timeperiod}`;
-            console.log("TRYING: "+key+" "+(key in this.caseDataInsts));
+            // console.log("TRYING: "+key+" "+(key in this.caseDataInsts));
 
             if (key in this.caseDataInsts) {
                 return this.caseDataInsts[key];

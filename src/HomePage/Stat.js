@@ -124,7 +124,6 @@ function UpdatesToday() {
         todayDataObject[currentState].push(values[i][7])
         i = i + 1
     }
-    console.log(todayDataObject)
 
 
     for (let state in stateUpdateStatus) {
