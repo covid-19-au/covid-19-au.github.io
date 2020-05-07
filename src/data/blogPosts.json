@@ -2,6 +2,31 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "COVID-19: How you can help",
+            "media": "https://i.imgur.com/WiiHhYG.png",
+            "summary": "Watching the news cycle at the moment can cause many of us to feel hopeless. Now that many people have become accustomed to social isolation, some are looking for things they can do to help. In today’s post we share a few extra things you can do to assist in the fight against COVID-19 if you aren’t a frontline worker (other than staying home).",
+            "date": "8/05/2020", 
+            "text": {
+                "text_1": [
+                    "For the last several weeks you’ve been staying home, only going out when absolutely necessary and keeping up with the news. By simply staying home, you are already contributing in the fight against COVID-19. But maybe lately you have started to feel helpless and wanting to know if there is something else you can do.",
+                    "Maybe you have started to ask - what am I <em>supposed</em> to do now?",
+                    "If you have the means, detailed below are a few things you can do to help in the battle against coronavirus. Keep in mind the best thing to do is stay home as much as possible; the list below consists of ‘optional extras.’",
+                    "<h3><strong>Help people who can’t leave home</strong></h3>",
+                    "If you know someone who is over 65 or has a pre-existing medical condition, reach out and see if they need anything next time you go shopping. You could make them a meal or leave a small gift or care package at their door. Even giving them a call or leaving them a nice note can brighten their day.",
+                    "<h3><strong>Shop online locally</strong></h3>",
+                    "Find out if local businesses have online stores and purchase products. Alternatively, find out if you can buy a gift voucher to use when restrictions are lifted. If you are struggling to think of a gift idea for Mother’s Day, a gift voucher from one of her favourite local businesses could be a good option.",
+                    "<h3><strong>Donate blood</strong></h3>",
+                    "Even in these strange times, blood and plasma are still needed in hospitals. If you can do so safely, consider donating blood. Check your eligibility <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.donateblood.com.au/eligibility'>here</a>.",
+                    "<h3><strong>Make sure the news you share is from a reputable source</strong></h3>",
+                    "Rumours are flying about COVID-19, including incorrect advice about supposed ‘treatments’ or conspiracies about its origin. Check the news you share is from a trusted source – a good way to do this can be to look at multiple news sites (eg. ABC, SBS, The Guardian) and see if they are all reporting similar facts on a topic. If many good resources agree, it is likely that the news is correct. Check our news page for a variety of diverse news sources."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "Planning a road to recovery: How will COVID-19 restrictions ease in Australia?",
             "media": "https://i.imgur.com/WSOimrt.png",
             "summary": "As Australia succeeds in slowing the spread of COVID-19 to the community, with cases in the nation nearing single digits each day, the national cabinet will be discussing plans to ease restrictions on Friday this week.  In this piece we will postulate what would be discussed in this meeting, as Australia plans for a road to recover from COVID-19. ",
