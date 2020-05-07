@@ -55,6 +55,7 @@
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
     "js-file-download": "^0.4.10",
+    "json-loader": "^0.5.7",
     "lodash": "^4.17.15",
     "lodash.keyby": "^4.6.0",
     "mapbox-gl": "^1.9.1",
@@ -162,7 +163,7 @@
     "transform": {
       "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json|geojson)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
@@ -181,6 +182,7 @@
       "web.tsx",
       "tsx",
       "json",
+      "geojson",
       "web.jsx",
       "jsx",
       "node"
