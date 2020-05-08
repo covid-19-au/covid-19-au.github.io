@@ -1,15 +1,23 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=rWXAiWYywLk",
-                    "description": "5 minute NO OVEN, Pizza!"
+                    "imgLink": "https://static.ffx.io/images/$zoom_0.393%2C$multiply_0.7554%2C$ratio_1.776846%2C$width_1059%2C$x_254%2C$y_0/t_crop_custom/q_86%2Cf_auto/e04b109c006b9c54375120fce44c6cd76a9e0f7d",
+                    "source": "https://www.brisbanetimes.com.au/national/queensland/the-robot-doctor-helping-treat-hospital-patients-during-a-pandemic-20200507-p54qsd.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland"
                 }
             ],
-            "type": "distraction",
-            "date": "08/5/2020"
+            "video": [],
+            "title": "Temi, the robot doctor",
+            "content": "<p>Temi is the newest edition to the medical staff at Brisbane's Greenslopes hospital! Doctors can use Temi to provide patients with one on one treatment while still maintaining social-distancing.</p><p>Read more in the article below!</p>",
+            "type": "motivation",
+            "date": "9/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.brisbanetimes.com.au/national/queensland/the-robot-doctor-helping-treat-hospital-patients-during-a-pandemic-20200507-p54qsd.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
+                    "name": "The robot doctor helping treat hospital patients during a pandemic - Brisbane Times"
+                }
+            ]
         }
     ]
 }
