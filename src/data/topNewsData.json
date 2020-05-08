@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/world/2020/may/08/the-three-step-plan-to-relax-restrictions-and-reopen-australia-after-coronavirus-crisis",
+            "title": "The three-step plan for reopening Australia after Covid-19 and what Stage 1, 2 and 3 looks like ",
+            "source": "TheGuardian",
+            "date": "8 May 2020",
+            "time": "15:22",
+            "summary": "Scott Morrison and the chief medical officer, Brendan Murphy, have laid out a three-step plan to reopen Australia after the coronavirus crisis. Morrison said he hoped step three could be achieved in July, but it would be up to each state and territory when they moved from one step to the next."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/federal-government-delays-banking-royal-commission-reforms-due-to-pandemic",
+            "title": "Federal government delays banking royal commission reforms due to pandemic",
+            "source": "SBSNews",
+            "date": "8 May 2020",
+            "time": "15:04",
+            "summary": "Misbehaving bankers and financiers have been given a six-month reprieve as a result of the coronavirus pandemic. The Morrison government has delayed the implementation of commitments associated with the banking royal commission so lenders can concentrate on addressing the COVID-19 crisis. The new timeline will see legislation scheduled for introduction before 30 June, moved to December 2020, and measures originally set for implementation by December shifted to June 2021."
+        },
+        {
+            "link": "https://www.watoday.com.au/national/employers-could-be-held-liable-for-workers-who-contract-covid-19-20200508-p54r7e.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Employers could be held liable for workers who contract COVID-19",
+            "source": "WAToday",
+            "date": "8 May 2020",
+            "time": "14:44",
+            "summary": "Employers could be held liable for workers who contract coronavirus on the job, lawyers say. As restrictions ease and workers prepare to return to offices, employers are being warned they need to adhere to the health guidelines or they face serious legal trouble. Maurice Blackburn principal lawyer Liberty Sanger said even in a pandemic, employers must provide a safe workplace and if they ignore hygiene and social distancing guidelines, they could be sued by employees who suffer long-term impacts."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-07/coronavirus-queensland-easing-restrictions-mothers-day/12218690",
             "title": "Coronavirus distancing restrictions to ease across Queensland for Mother's Day",
             "source": "ABCNews",
@@ -159,30 +183,6 @@
             "date": "1 May 2020",
             "time": "12:38",
             "summary": "There are rising tensions between Australia and China, which began when Australia started pressing for an investigation into the origin of COVID-19. Foreign Minister Marise Payne says that global co-operation not economic coercion is the appropriate way to resolve the dispute over an international investigation into COVID-19. Ms Payne said she rejected the approach of ambassador Cheng Jingye, who floated a Chinese consumer boycott of Australian products in retaliation to tension over the probe, targeting the crucial agriculture, education and tourism markets."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-30/coronavirus-eliminated-in-act-no-known-covid-19-cases/12201088",
-            "title": "Coronavirus recovery: ACT becomes first state or territory to be free of known cases of COVID-19",
-            "source": "ABCNews",
-            "date": "30 April 2020",
-            "time": "18:35",
-            "summary": "The ACT has become the first Australian jurisdiction to be free of all known cases of COVID-19. After a total of 106 diagnoses and three deaths in the ACT, Jan Stoop, the last Canberran to test positive to coronavirus, has recovered. ACT Chief Health Officer Dr Kerryn Coleman welcomed the local elimination of the virus, and reiterated that the pandemic is ongoing, emphasising it is important not to undo the work that has been done."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/australia-s-coronavirus-restrictions-are-easing-here-s-what-you-can-do-in-your-state-this-weekend",
-            "title": "Australia's coronavirus restrictions are easing. Here's what you can do in your state this weekend",
-            "source": "SBSNews",
-            "date": "30 April 2020",
-            "time": "17:25",
-            "summary": "Millions of Australians are set to enjoy more freedoms over the coming days as COVID-19 restrictions are eased, but the rules are different in every state and territory. This article outlines the restrictions that have been dropped state-by-state."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/apr/30/australians-on-jobseeker-payment-up-450000-in-less-than-a-month",
-            "title": "More than 1.3 million Australians on jobseeker as Senate inquiry calls for permanent increase to rate ",
-            "source": "TheGuardian",
-            "date": "30 April 2020",
-            "time": "16:23",
-            "summary": "More than 1.3 million people are now receiving unemployed benefits across the country, with that number expected to reach about 1.7 million in September. The government faces growing pressure to consider a permanent increase to the jobseeker payment, which has received a temporary $550 per fortnight boost for about six months."
         }
     ]
 }

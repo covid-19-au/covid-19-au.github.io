@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-04-30/coronavirus-eliminated-in-act-no-known-covid-19-cases/12201088",
+            "title": "Coronavirus recovery: ACT becomes first state or territory to be free of known cases of COVID-19",
+            "source": "ABCNews",
+            "date": "30 April 2020",
+            "time": "18:35",
+            "summary": "The ACT has become the first Australian jurisdiction to be free of all known cases of COVID-19. After a total of 106 diagnoses and three deaths in the ACT, Jan Stoop, the last Canberran to test positive to coronavirus, has recovered. ACT Chief Health Officer Dr Kerryn Coleman welcomed the local elimination of the virus, and reiterated that the pandemic is ongoing, emphasising it is important not to undo the work that has been done."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/australia-s-coronavirus-restrictions-are-easing-here-s-what-you-can-do-in-your-state-this-weekend",
+            "title": "Australia's coronavirus restrictions are easing. Here's what you can do in your state this weekend",
+            "source": "SBSNews",
+            "date": "30 April 2020",
+            "time": "17:25",
+            "summary": "Millions of Australians are set to enjoy more freedoms over the coming days as COVID-19 restrictions are eased, but the rules are different in every state and territory. This article outlines the restrictions that have been dropped state-by-state."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/apr/30/australians-on-jobseeker-payment-up-450000-in-less-than-a-month",
+            "title": "More than 1.3 million Australians on jobseeker as Senate inquiry calls for permanent increase to rate ",
+            "source": "TheGuardian",
+            "date": "30 April 2020",
+            "time": "16:23",
+            "summary": "More than 1.3 million people are now receiving unemployed benefits across the country, with that number expected to reach about 1.7 million in September. The government faces growing pressure to consider a permanent increase to the jobseeker payment, which has received a temporary $550 per fortnight boost for about six months."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-29/prime-minister-scott-morrison-coronavirus-restrictions-easing/12196562",
             "title": "Prime Minister Scott Morrison flags easing of coronavirus restrictions in near future",
             "source": "ABCNews",
