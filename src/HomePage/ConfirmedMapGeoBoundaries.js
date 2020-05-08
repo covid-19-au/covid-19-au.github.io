@@ -345,7 +345,7 @@ class JSONGeoBoundariesBase {
         var currentFeature = null;
         var that = this;
 
-        var mouseMove = function (e) {
+        var click = function (e) {
             if (!e.features.length) {
                 if (popup) {
                     popup.remove();
@@ -364,7 +364,6 @@ class JSONGeoBoundariesBase {
 
             var cityName = e.features[0].properties.city;
             var caseInfo = caseDataSource.getCaseNumber(cityName, null);
-            map.getCanvas().style.cursor = 'pointer';
 
             if (!caseInfo || caseInfo['numCases'] == null || caseInfo['updatedDate'] == null) {
                 // no data?
@@ -385,8 +384,8 @@ class JSONGeoBoundariesBase {
                 );
 
                 popup = new mapboxgl.Popup({
-                    closeButton: false,
-                    closeOnClick: false
+                    closeButton: true,
+                    closeOnClick: true
                 })
                     .setLngLat(e.lngLat)
                     .setHTML(
@@ -418,8 +417,8 @@ class JSONGeoBoundariesBase {
             }
             else {
                 popup = new mapboxgl.Popup({
-                    closeButton: false,
-                    closeOnClick: false
+                    closeButton: true,
+                    closeOnClick: true
                 })
                     .setLngLat(e.lngLat)
                     .setHTML(
@@ -430,21 +429,22 @@ class JSONGeoBoundariesBase {
                     .addTo(map);
             }
         };
-        map.on('mousemove', useID, mouseMove);
+        map.on('click', useID, click);
+
+        var mouseEnter = () => {
+            map.getCanvas().style.cursor = 'pointer';
+        };
+        map.on('mouseenter', useID, mouseEnter);
 
         // Change it back to a pointer when it leaves.
         var mouseLeave = () => {
             map.getCanvas().style.cursor = '';
-            if (popup) {
-                popup.remove();
-                popup = null;
-            }
-            currentFeature = null;
         };
         map.on('mouseleave', useID, mouseLeave);
 
         this.resetPopupEvent = function () {
-            map.off('mousemove', useID, mouseMove);
+            map.off('click', useID, click);
+            map.off('mouseenter', useID, mouseEnter);
             map.off('mouseleave', useID, mouseLeave);
 
             if (popup) {
