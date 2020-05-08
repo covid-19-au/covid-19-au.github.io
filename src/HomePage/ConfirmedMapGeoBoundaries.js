@@ -80,7 +80,7 @@ function getGeoBoundary(map, schema, stateName) {
     if (__geoBoundaryCache.has(key)) {
         return __geoBoundaryCache.get(key);
     }
-    console.log(`Creating new stateName:${stateName} schema:${schema}`)
+    // console.log(`Creating new stateName:${stateName} schema:${schema}`)
     var inst = new (__getGeoBoundaryClasses()[key])(map);
     __geoBoundaryCache.set(key, inst);
     return inst;
@@ -666,6 +666,8 @@ class JSONGeoBoundariesBase {
             "features": [/*...*/]
         };
         var that = this;
+
+        // console.log('here',geoJSONData['features'])
 
         geoJSONData['features'].filter(
             (feature) => !!feature['geometry']

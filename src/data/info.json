@@ -754,8 +754,9 @@
                 "text_1": [],
                 "ulist_1": [
                     "Queenslanders would be able to shop for non-essential items from Friday 1 May",
-                    "Picnics and weekend drives are now allowed, and national parks will reopen. However, residents must not travel further than 50km from their homes, and the “two-person rule” is still in effect. This means if someone leaves their house, they can be joined by only one other person or the members of their household, and physical distancing requirements must still be observed.",
-                    "A household and those who live alone are allowed to have two guests",
+                    "From Mother's Day to allow up to five members from one household to visit another home. Multiple families can visit the same householdas long as it is as different times",
+                    "Residents must not travel further than 50km from their homes,except for when they are visiting another household",
+                    "Picnics and weekend drives are now allowed, and national parks will reopen",
                     "Borders are closed to everyone except residents and essential workers, including freight carriers and emergency workers. There are some exemptions for those who regularly cross the Queensland-NSW border for work."
                 ],
                 "text_middle": [],
@@ -763,15 +764,19 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.abc.net.au/news/2020-05-07/coronavirus-queensland-easing-restrictions-mothers-day/12218690",
+                        "name": "Coronavirus distancing restrictions to ease across Queensland for Mother's Day - ABC News"
+                    },
+                    {
                         "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
                         "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
                     }
                 ]
             },
-            "lastUpdated": "29 April 2020"
+            "lastUpdated": "07 May 2020"
         },
         {
-            "name": "NSW",
+            "name": "New South Wales",
             "text": {
                 "text_1": [],
                 "ulist_1": [
