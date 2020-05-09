@@ -3,19 +3,19 @@
         {
             "image": [
                 {
-                    "imgLink": "https://static.ffx.io/images/$zoom_0.393%2C$multiply_0.7554%2C$ratio_1.776846%2C$width_1059%2C$x_254%2C$y_0/t_crop_custom/q_86%2Cf_auto/e04b109c006b9c54375120fce44c6cd76a9e0f7d",
-                    "source": "https://www.brisbanetimes.com.au/national/queensland/the-robot-doctor-helping-treat-hospital-patients-during-a-pandemic-20200507-p54qsd.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland"
+                    "imgLink": "https://static.ffx.io/images/$zoom_0.358%2C$multiply_0.7554%2C$ratio_1.776846%2C$width_1059%2C$x_0%2C$y_240/t_crop_custom/q_86%2Cf_auto/1d559bc83d634f2b0e4ebc76a9b0a56590c58d26",
+                    "source": "https://www.watoday.com.au/national/readers-find-silver-linings-to-life-in-lockdown-20200408-p54i4i.html?ref=rss&utm_medium=rss&utm_source=rss_national"
                 }
             ],
             "video": [],
-            "title": "Temi, the robot doctor",
-            "content": "<p>Temi is the newest edition to the medical staff at Brisbane's Greenslopes hospital! Doctors can use Temi to provide patients with one on one treatment while still maintaining social-distancing.</p><p>Read more in the article below!</p>",
+            "title": "Silver Linings",
+            "content": "<p>WA Today have shared a collection og feel-good stories and messages from their readers. Above is a painting by a reader that had their art course cancelled, but they are continuing to make new works every weekend!</p><p>Check out more stories through the link below!</p>",
             "type": "motivation",
-            "date": "9/5/2020",
+            "date": "10/5/2020",
             "citation": [
                 {
-                    "link": "https://www.brisbanetimes.com.au/national/queensland/the-robot-doctor-helping-treat-hospital-patients-during-a-pandemic-20200507-p54qsd.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
-                    "name": "The robot doctor helping treat hospital patients during a pandemic - Brisbane Times"
+                    "link": "https://www.watoday.com.au/national/readers-find-silver-linings-to-life-in-lockdown-20200408-p54i4i.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+                    "name": "Readers find silver linings to life in lockdown - WA Today"
                 }
             ]
         }
