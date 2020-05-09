@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-09/how-travel-will-resume-around-australia-coronavirus-restrictions/12231242",
+            "title": "How travel will resume around Australia as coronavirus restrictions ease in each state and territory",
+            "source": "ABCNews",
+            "date": "9 May 2020",
+            "time": "15:11",
+            "summary": "While Prime Minister Scott Morrison has made it very clear that any hopes of an overseas adventure should be shelved for \"the foreseeable future\", the prospects for regional and interstate travel are more promising. As each state and territory unveils its individual plans, in line with the Federal Government's three-step framework announced on Friday, the road back to domestic travel becomes slightly clearer. There's still much to be decided, and a number of states are yet to lay out their plans. This article outlines all the information about the regional and interstate travel plans in each state and territory that has been released so far."
+        },
+        {
             "link": "https://www.theguardian.com/world/2020/may/08/the-three-step-plan-to-relax-restrictions-and-reopen-australia-after-coronavirus-crisis",
             "title": "The three-step plan for reopening Australia after Covid-19 and what Stage 1, 2 and 3 looks like ",
             "source": "TheGuardian",
@@ -159,30 +167,6 @@
             "date": "2 May 2020",
             "time": "15:02",
             "summary": "A plane passenger returning to Brisbane from Melbourne has tested positive to COVID-19 overnight, triggering a public health alert. State health authorities are urgently tracing people the infected traveller was in contact with on Qantas flight QF614 from Melbourne to Brisbane on April 22. Those who travelled in rows 19, 20, 21, 22 and 23 are urged to contact Queensland Health."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/australia-s-aged-care-centres-to-get-205-million-to-stay-open-during-coronavirus-crisis",
-            "title": "Australia's aged care centres to get $205 million to stay open during coronavirus crisis",
-            "source": "SBSNews",
-            "date": "1 May 2020",
-            "time": "16:39",
-            "summary": "Aged care providers will get another $205 million from the federal government to help them keep centres open to visitors during the coronavirus crisis. Providers will receive $900 per occupied bed under the new funding package, with regional centres offered $1,350 per resident. The national cabinet has also released a draft visitor access code, which is open for comment until May 11, to ensure families and carers can visit residents in nursing homes."
-        },
-        {
-            "link": "https://www.theguardian.com/world/2020/may/01/morrison-says-early-mark-of-eased-restrictions-depends-on-uptake-of-covidsafe-tracing-app",
-            "title": "Morrison says 'early mark' of eased restrictions depends on uptake of Covidsafe tracing app ",
-            "source": "TheGuardian",
-            "date": "1 May 2020",
-            "time": "18:35",
-            "summary": "Scott Morrison has offered Australians an “early mark” to ease Covid-19 restrictions next week while warning a return to normality will depend on uptake of the Covidsafe contact tracing app. Morrison also revealed that net overseas migration is down 30% and is expected to fall by 80% in 2020-21, both compared with 2018-19, in a sign the economic contraction from Covid-19 will last much longer than restrictions to social life. Treasury officials and the Reserve Bank both estimate that unemployment is set to top 10%."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/marise-payne-julie-bishop-urge-calm-in-tense-relations-with-china-over-coronavirus-origins",
-            "title": "Marise Payne, Julie Bishop urge calm in tense relations with China over coronavirus origins",
-            "source": "SBSNews",
-            "date": "1 May 2020",
-            "time": "12:38",
-            "summary": "There are rising tensions between Australia and China, which began when Australia started pressing for an investigation into the origin of COVID-19. Foreign Minister Marise Payne says that global co-operation not economic coercion is the appropriate way to resolve the dispute over an international investigation into COVID-19. Ms Payne said she rejected the approach of ambassador Cheng Jingye, who floated a Chinese consumer boycott of Australian products in retaliation to tension over the probe, targeting the crucial agriculture, education and tourism markets."
         }
     ]
 }

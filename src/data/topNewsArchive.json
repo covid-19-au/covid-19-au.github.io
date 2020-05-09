@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/australia-s-aged-care-centres-to-get-205-million-to-stay-open-during-coronavirus-crisis",
+            "title": "Australia's aged care centres to get $205 million to stay open during coronavirus crisis",
+            "source": "SBSNews",
+            "date": "1 May 2020",
+            "time": "16:39",
+            "summary": "Aged care providers will get another $205 million from the federal government to help them keep centres open to visitors during the coronavirus crisis. Providers will receive $900 per occupied bed under the new funding package, with regional centres offered $1,350 per resident. The national cabinet has also released a draft visitor access code, which is open for comment until May 11, to ensure families and carers can visit residents in nursing homes."
+        },
+        {
+            "link": "https://www.theguardian.com/world/2020/may/01/morrison-says-early-mark-of-eased-restrictions-depends-on-uptake-of-covidsafe-tracing-app",
+            "title": "Morrison says 'early mark' of eased restrictions depends on uptake of Covidsafe tracing app ",
+            "source": "TheGuardian",
+            "date": "1 May 2020",
+            "time": "18:35",
+            "summary": "Scott Morrison has offered Australians an “early mark” to ease Covid-19 restrictions next week while warning a return to normality will depend on uptake of the Covidsafe contact tracing app. Morrison also revealed that net overseas migration is down 30% and is expected to fall by 80% in 2020-21, both compared with 2018-19, in a sign the economic contraction from Covid-19 will last much longer than restrictions to social life. Treasury officials and the Reserve Bank both estimate that unemployment is set to top 10%."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/marise-payne-julie-bishop-urge-calm-in-tense-relations-with-china-over-coronavirus-origins",
+            "title": "Marise Payne, Julie Bishop urge calm in tense relations with China over coronavirus origins",
+            "source": "SBSNews",
+            "date": "1 May 2020",
+            "time": "12:38",
+            "summary": "There are rising tensions between Australia and China, which began when Australia started pressing for an investigation into the origin of COVID-19. Foreign Minister Marise Payne says that global co-operation not economic coercion is the appropriate way to resolve the dispute over an international investigation into COVID-19. Ms Payne said she rejected the approach of ambassador Cheng Jingye, who floated a Chinese consumer boycott of Australian products in retaliation to tension over the probe, targeting the crucial agriculture, education and tourism markets."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-04-30/coronavirus-eliminated-in-act-no-known-covid-19-cases/12201088",
             "title": "Coronavirus recovery: ACT becomes first state or territory to be free of known cases of COVID-19",
             "source": "ABCNews",

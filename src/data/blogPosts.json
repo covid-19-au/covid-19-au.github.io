@@ -1,6 +1,28 @@
 {
     "blogPosts": [
         {
+            "tag": "Informative",
+            "title": "New Zealand's Success",
+            "media": "https://i.imgur.com/UFsp4YD.png",
+            "summary": "Today’s blog post investigates how New Zealand was able to contain the spread of COVID-19 so quickly.",
+            "date": "10/05/2020", 
+            "text": {
+                "text_1": [
+                    "<h3><strong>New Zealand's COVID-19 Response</strong></h3>",
+                    "New Zealand has been making headlines recently due to their success in containing the COVID-19 pandemic. Their success in ending community transmission has led many to investigate why their approach was so effective. Here are a few things New Zealand did well that can be upheld as examples for other nations.",
+                    "<h3><strong>Committing to a Strategy</strong></h3>",
+                    "Jacinta Ardern announced on the 23rd of March that NZ was going to pursue an elimination strategy. A few days later some of the world’s most strict lockdown measures were imposed including border closures and an order to stay at home unless absolutely necessary. All businesses were ordered to close except those ‘necessary to life.’",
+                    "<h3><strong>Clear Communication</strong></h3>",
+                    "Clear campaigns were key in ensuring the public understood why certain restrictions in place. This included simple infographics about handwashing that explained the importance of such an activity without using highly scientific jargon, to gifs explaining why it matters if an individual does not abide by social distancing restrictions. Ensuring the public understood the reasoning behind certain social limitations was crucial.",
+                    "<h3><strong>The population of New Zealand</strong></h3>",
+                    "It’s worth noting that NZ has a couple of pre-existing factors that were helpful in the fight against COVID-19. Low population density likely assisted in slowing the spread of the virus, along with New Zealand’s geographical isolation."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
             "tag": "Informative Fun",
             "title": "Arts & Entertainment in Isolation",
             "media": "https://i.imgur.com/do3dXwq.png",
