@@ -420,7 +420,7 @@ function UpdatesToday() {
             }
             {currentView === 4 ?
                 <span className="due" style={{ fontSize: "80%", paddingTop: 0, marginLeft: 0, padding: 0 }}>
-                    *Days without new cases
+                    *<strong>Consecutive </strong>days without new cases
                 </span>
 
                 : ""}

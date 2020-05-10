@@ -117,7 +117,7 @@ function GoogleMap({ province, newData }) {
                     if (newData[i][4] === "N/A" || newData[i][1] === "N/A") { continue; }
                     let strikeRate = newData[i][1] / newData[i][4] * 100;
                     // 1 decimal place
-                    value = Math.round(strikeRate);
+                    value = Math.round(strikeRate* 100)/100;
                     break;
             }
             // Don't include if there's no data
@@ -125,8 +125,8 @@ function GoogleMap({ province, newData }) {
 
             // v: Tooltip text, f: ISO region code
             mapType === 'test-strike' ?
-                temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseInt(value), "Test Positive Rate: " + parseInt(value) + '%']) :
-                temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseInt(value)]);
+                temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseFloat(value), "Test Positive Rate: " + parseFloat(value) + '%']) :
+                temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseFloat(value)]);
         }
 
         setMyData(temp)
