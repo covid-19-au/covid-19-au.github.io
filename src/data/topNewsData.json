@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/may/10/ten-arrested-and-police-officer-injured-at-protest-against-victorias-covid-19-lockdown-laws",
+            "title": "Ten arrested and police officer injured at protest against Victoria’s Covid-19 lockdown laws ",
+            "source": "TheGuardian",
+            "date": "10 May 2020",
+            "time": "17:49",
+            "summary": "Ten people have been arrested and one police officer has been hospitalised after demonstrators who gathered in Melbourne’s CBD to protest against “self-isolating, social distancing, tracking apps [and] 5G being installed” clashed with police enforcing Victoria’s lockdown laws. Victoria police said on Sunday that 10 people, including two organisers, were arrested after more than 100 people turned out on the steps of Victoria’s parliament on Sunday in contravention of emergency powers restricting gatherings introduced to slow the spread of Covid-19."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-10/wa-relaxes-coronavirus-restrictions-from-may-18-including-travel/12232268",
+            "title": "WA to ease coronavirus restrictions from May 18, with 20-person gatherings allowed",
+            "source": "ABCNews",
+            "date": "10 May 2020",
+            "time": "16:05",
+            "summary": "West Australian Premier Mark McGowan has announced a roadmap for the reopening of the state's economy, doubling the number of people allowed at non-work gatherings and removing some regional travel borders. Notably, up to 20 people will be allowed to gather indoors and outdoors, pubs, restaurants and cafes may have 20 patrons dine in and regional travel boundaries have dropped from 13 to four. More details on the restrictions lifted can be found in the article."
+        },
+        {
+            "link": "https://www.smh.com.au/national/nsw/nsw-to-ease-lockdown-restrictions-from-friday-20200509-p54rek.html",
+            "title": "NSW to ease lockdown restrictions from Friday",
+            "source": "TheSydneyMorningHerald",
+            "date": "10 May 2020",
+            "time": "12:05",
+            "summary": "NSW will further ease COVID-19 restrictions from this Friday, with cafes, restaurants, playgrounds and outdoor pools making the cut for early reopening. Premier Gladys Berejiklian said \"the changes will allow NSW to fire up the economy, while allowing more personal freedoms.\" Notably, NSW residents will be permitted to have outdoor gatherings of up to 10 people, visits to a household of up to five people, while cafes and restaurants can seat 10 patrons at any one time. More details on the restrictions lifted can be found in the article."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-09/how-travel-will-resume-around-australia-coronavirus-restrictions/12231242",
             "title": "How travel will resume around Australia as coronavirus restrictions ease in each state and territory",
             "source": "ABCNews",
@@ -143,30 +167,6 @@
             "date": "3 May 2020",
             "time": "14:57",
             "summary": "The consumer watchdog was preparing to launch court action against Flight Centre for charging $300 fees to process Covid-19 refunds before the company agreed to end the practice. Flight Centre angered many of its customers by charging the $300 fee to each person for each element of their trip that was cancelled due to the pandemic and associated travel restrictions. Flight Centre on Saturday announced it will no longer charge the fee if the travel provider cancels its service. "
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-02/coronavirus-app-currently-not-fully-operational/12208924",
-            "title": "Coronavirus app tracing capability not operational, despite 4 million downloads",
-            "source": "ABCNews",
-            "date": "2 May 2020",
-            "time": "18:55",
-            "summary": "More than 4 million people have downloaded the COVIDSafe app, but the information it collects is not yet available to state and territory health officials. He said the app was already logging users' close contacts, and that information could be accessed at a later date. The app will not be fully functional until states and territories finalise rules on privacy, and final IT testing is conducted."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-02/coronavirus-cluster-melbourne-abbatoir-paramedic-tests-postive/12208560",
-            "title": "Coronavirus cases revealed in Victorian paramedic and cluster of Melbourne abattoir workers",
-            "source": "ABCNews",
-            "date": "2 May 2020",
-            "time": "18:54",
-            "summary": "The number of coronavirus cases in Victoria continues to inch up as a paramedic tests positive to the virus and health authorities investigate a cluster at a meat processing plant. The unnamed Melbourne meat processing plant has been temporarily closed after eight employees tested positive to coronavirus, including three in the past 24 hours. A spokesperson said there was nothing to indicate that the paramedic that tested positive had acquired the virus from patient contact, however, as a precaution, five paramedics who came into contact with them are also in isolation."
-        },
-        {
-            "link": "https://www.brisbanetimes.com.au/national/queensland/public-health-alert-issued-over-new-queensland-coronavirus-case-20200502-p54p88.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
-            "title": "Public health alert issued over new Queensland coronavirus case",
-            "source": "BrisbaneTimes",
-            "date": "2 May 2020",
-            "time": "15:02",
-            "summary": "A plane passenger returning to Brisbane from Melbourne has tested positive to COVID-19 overnight, triggering a public health alert. State health authorities are urgently tracing people the infected traveller was in contact with on Qantas flight QF614 from Melbourne to Brisbane on April 22. Those who travelled in rows 19, 20, 21, 22 and 23 are urged to contact Queensland Health."
         }
     ]
 }
