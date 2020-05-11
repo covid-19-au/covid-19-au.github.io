@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-11/coronavirus-victoria-eases-restrictions-the-new-covid-19-rules/12233798",
+            "title": "Coronavirus restrictions eased in Victoria to allow five visitors to a household and outdoor gatherings of 10 people",
+            "source": "ABCNews",
+            "date": "11 May 2020",
+            "time": "16:18",
+            "summary": "Victorian Premier Daniel Andrews has announced \"a small first step\" in the relaxation of the state's coronavirus restrictions. The changes come into effect at 11:59pm on Tuesday and will be in place until the end of May. Notably, the restriction changes mean that residents can now invite five friends or family members over to their house; go hiking, fishing, hunting, diving, prospecting, boating, go for a walk or play non-contact sport together outdoors in groups of up to 10 people; have more guests for weddings and funerals and more. More details on the restrictions lifted can be found in the article."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/may/10/ten-arrested-and-police-officer-injured-at-protest-against-victorias-covid-19-lockdown-laws",
             "title": "Ten arrested and police officer injured at protest against Victoria’s Covid-19 lockdown laws ",
             "source": "TheGuardian",
@@ -151,22 +159,6 @@
             "date": "4 May 2020",
             "time": "13:00",
             "summary": "Human rights and advocacy groups say Australia's more than one million temporary visa holders will be at risk of homelessness if the government does not extend its coronavirus relief measures to the most vulnerable. Almost 200 Australian community groups have signed an open letter to Prime Minister Scott Morrison, urging him to include more than one million refugees, asylum seekers and vulnerable communities in the government's coronavirus response. "
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-03/sa-playgrounds-reopen-after-coronavirus-free-streak/12209046",
-            "title": "South Australian playgrounds to reopen after 11-day coronavirus-free streak",
-            "source": "ABCNews",
-            "date": "3 May 2020",
-            "time": "17:04",
-            "summary": "South Australia's Chief Public Health Officer, Nicola Spurrier, has recommended reopening parks, playgrounds and equipment from today after the state recorded 11 days without a new coronavirus case. Most — but not all — councils taped off playgrounds and fitness outdoor equipment during the pandemic. Dr Spurrier said reopening public play spaces was an indication of the community's efforts to slow the spread of coronavirus."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/may/03/flight-centre-waives-cancellation-fees-after-consumer-watchdog-threatens-legal-action",
-            "title": "Flight Centre waives cancellation fees after consumer watchdog threatens legal action ",
-            "source": "TheGuardian",
-            "date": "3 May 2020",
-            "time": "14:57",
-            "summary": "The consumer watchdog was preparing to launch court action against Flight Centre for charging $300 fees to process Covid-19 refunds before the company agreed to end the practice. Flight Centre angered many of its customers by charging the $300 fee to each person for each element of their trip that was cancelled due to the pandemic and associated travel restrictions. Flight Centre on Saturday announced it will no longer charge the fee if the travel provider cancels its service. "
         }
     ]
 }
