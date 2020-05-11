@@ -1,23 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "imgLink": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/GJZ5TVpAk84wrTzsQfLQRB/213a1907-7285-4a69-9b62-882584fadca2.png/r0_0_1920_1079_w1200_h678_fmax.jpg",
-                    "source": "https://www.canberratimes.com.au/story/6750832/believe-it-or-not-theres-good-news-about-too/?src=rss"
+                    "link": "https://www.youtube.com/watch?v=NDjNX3nEfYo",
+                    "description": "Some Good News with the cast of The Office!"
                 }
             ],
-            "video": [],
-            "title": "More positive news!",
-            "content": "<p>Another collection of positive news stories from The Canberra Times. Check it out at the link below!</p>",
-            "type": "motivation",
-            "date": "11/5/2020",
-            "citation": [
-                {
-                    "link": "https://www.canberratimes.com.au/story/6750832/believe-it-or-not-theres-good-news-about-too/?src=rss",
-                    "name": "It's not all doom and gloom: We have positive news stories right here  - The Canberra Times"
-                }
-            ]
+            "type": "distraction",
+            "date": "12/5/2020"
         }
     ]
 }
