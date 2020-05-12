@@ -2,12 +2,10 @@ import React from "react";
 import mapboxgl from 'mapbox-gl';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import hospitalData from "../data/mapdataHos"
 
 import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
-import hospitalImg from '../img/icon/hospital.png'
 import Acknowledgement from "../Acknowledgment"
 import absStatsData from "../data/absStats";
 
@@ -17,7 +15,6 @@ import TimeSeriesDataSourceForPeriod from "./ConfirmedMap/CaseDataPeriod"
 import ConfirmedMapShipsData from "./ConfirmedMap/ShipsData"
 import BigTableOValuesDataSource from "./ConfirmedMap/ABSData"
 import GeoBoundaries from "./ConfirmedMap/GeoBoundaries" // FIXME!
-import HospitalMarker from "./ConfirmedMap/HospitalMarker"
 
 
 const absStats = absStatsData['data'];
@@ -51,7 +48,6 @@ class MbMap extends React.Component {
         this.markersSelect = React.createRef();
         this.otherStatsSelect = React.createRef();
 
-        this.hospitalMessage = React.createRef();
         this.accuracyWarning = React.createRef();
 
         this.statesAndTerritories = [
@@ -120,7 +116,7 @@ class MbMap extends React.Component {
                 flexDirection: 'column'
             }}>
                 <h2 style={{ display: "flex" }}
-                    aria-label="Hospital and Case Map">Hospital & Case Map<div style={{
+                    aria-label="Case Map">Case Map<div style={{
                         alignSelf: "flex-end",
                         marginLeft: "auto",
                         fontSize: "60%"
@@ -136,9 +132,6 @@ class MbMap extends React.Component {
                             <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Markers</div>
                             <select ref={this.markersSelect}
                                 style={{ "width": "100%" }}>
-                                <optgroup label="COVID-19 Test Facilities">
-                                    <option value="hospitals">Testing Hospitals and Clinics</option>
-                                </optgroup>
                                 <optgroup label="Basic Numbers">
                                     <option value="total" selected>Total Cases</option>
                                     <option value="status_active">Active Cases</option>
@@ -209,10 +202,6 @@ class MbMap extends React.Component {
                 </div>
 
                 <span className="due">
-                    <div ref={this.hospitalMessage}
-                        style={{ display: 'none' }}>
-                        <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
-                    </div>
                     <div ref={this.accuracyWarning}>
                         <p style={{ color: 'red' }}>*Cases on map are approximate and
                             identify regions only, not specific addresses.</p>
@@ -267,10 +256,6 @@ class MbMap extends React.Component {
         //Add zoom+fullscreen controls
         map.addControl(new mapboxgl.NavigationControl());
         map.addControl(new mapboxgl.FullscreenControl());
-
-        this.hospitalMarkers = hospitalData.map((item) => {
-            return new HospitalMarker(map, item);
-        });
 
         // Create case data instances
         var caseDataInsts = this.caseDataInsts = {};
@@ -498,16 +483,7 @@ class MbMap extends React.Component {
             }
         };
 
-        if (this.state._markers === 'hospitals') {
-            this.hospitalMessage.current.style.display = 'block';
-            this.hospitalMarkers.forEach((marker) => {
-                marker.show();
-                this.markersButtonGroup.current.parentNode.style.display = 'none';
-                this.underlayBGCont.current.style.display = 'none';
-            });
-            return;
-        }
-        else if (this.state._markers === 'status_active' ||
+        if (this.state._markers === 'status_active' ||
             (this.state._markers && this.state._markers.toUpperCase() === this.state._markers)) {
             this.markersButtonGroup.current.parentNode.style.display = 'none';
         }
@@ -587,16 +563,7 @@ class MbMap extends React.Component {
             }
         }
 
-        if (prevState._markers === 'hospitals') {
-            this.hospitalMessage.current.style.display = 'none';
-            this.hospitalMarkers.forEach((marker) => {
-                marker.hide();
-                this.markersButtonGroup.current.parentNode.style.display = 'block';
-                this.underlayBGCont.current.style.display = 'block';
-            });
-            return;
-        }
-        else if (prevState._markers === 'status_active' ||
+        if (prevState._markers === 'status_active' ||
             (prevState._markers && prevState._markers.toUpperCase() === prevState._markers)) {
             this.markersButtonGroup.current.parentNode.style.display = 'block';
         }
