@@ -6,7 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import hospitalImg from '../img/icon/hospital.png'
 
-import HospitalMarker from "./ConfirmedMap/HospitalMarker"
+import MarkerHospital from "./ConfirmedMap/MarkerHospital"
 
 
 //Fetch Token from env
@@ -87,7 +87,7 @@ class HospitalsMap extends React.Component {
         map.addControl(new mapboxgl.FullscreenControl());
 
         this.hospitalMarkers = hospitalData.map((item) => {
-            return new HospitalMarker(map, item);
+            return new MarkerHospital(map, item);
         });
 
         map.on('load', () => {

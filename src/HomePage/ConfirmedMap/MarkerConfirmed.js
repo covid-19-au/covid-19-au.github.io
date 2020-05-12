@@ -6,7 +6,7 @@ import mapboxgl from "mapbox-gl";
  * Confirmed markers
  *******************************************************************/
 
-class ConfirmedMarker {
+class MarkerConfirmed {
     constructor(map, item) {
         this.map = map;
         this.item = item;
@@ -73,7 +73,7 @@ class ConfirmedMarker {
             let caseDate = new Date(year, month, day);
 
             // Add two weeks for comparison
-            caseDate.setDate(caseDate.getDate() + ConfirmedMarker.oldCaseDays);
+            caseDate.setDate(caseDate.getDate() + MarkerConfirmed.oldCaseDays);
 
             // True iff the original date was more than two weeks old
             if (today > caseDate) {
@@ -110,6 +110,6 @@ class ConfirmedMarker {
 }
 
 // Threshold for an 'old case', in days
-ConfirmedMarker.oldCaseDays = 14;
+MarkerConfirmed.oldCaseDays = 14;
 
-export default ConfirmedMarker;
+export default MarkerConfirmed;

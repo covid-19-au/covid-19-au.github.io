@@ -10,10 +10,10 @@ import Acknowledgement from "../Acknowledgment"
 import absStatsData from "../data/absStats";
 
 import ConfirmedMapFns from "./ConfirmedMap/Fns"
-import TimeSeriesDataSource from "./ConfirmedMap/CaseData"
-import TimeSeriesDataSourceForPeriod from "./ConfirmedMap/CaseDataPeriod"
-import ConfirmedMapShipsData from "./ConfirmedMap/ShipsData"
-import BigTableOValuesDataSource from "./ConfirmedMap/ABSData"
+import TimeSeriesDataSource from "./ConfirmedMap/DataCases"
+import TimeSeriesDataSourceForPeriod from "./ConfirmedMap/DataCasesPeriod"
+import ConfirmedMapShipsData from "./ConfirmedMap/DataShips"
+import BigTableOValuesDataSource from "./ConfirmedMap/DataABS"
 import GeoBoundaries from "./ConfirmedMap/GeoBoundaries" // FIXME!
 
 
@@ -40,6 +40,7 @@ class MbMap extends React.Component {
             _underlay: null
         };
         this._firstTime = true;
+        this.geoBoundaries = new GeoBoundaries();
 
         this.markersBGGroup = React.createRef();
         this.underlayBGCont = React.createRef();
@@ -141,9 +142,9 @@ class MbMap extends React.Component {
                                     {/*<option value="status_icu_ventilators">ICU Ventilators</option>*/}
                                     <option value="status_hospitalized">Hospitalized</option>
                                 </optgroup>
-                                {/*<optgroup label="Test Numbers">
+                                <optgroup label="Test Numbers">
                                     <option value="tests_total">Total People Tested</option>
-                                </optgroup>*/}
+                                </optgroup>
                                 <optgroup label="Source of Infection">
                                     <option value="source_overseas">Contracted Overseas</option>
                                     <option value="source_community">Unknown Community Transmission</option>
@@ -339,8 +340,8 @@ class MbMap extends React.Component {
 
             // Create map data instances
             var geoBoundaryInsts = this.geoBoundaryInsts = {};
-            for (var key of GeoBoundaries.getAvailableGeoBoundaries()) {
-                geoBoundaryInsts[key] = GeoBoundaries.getGeoBoundary(
+            for (var key of this.geoBoundaries.getAvailableGeoBoundaries()) {
+                geoBoundaryInsts[key] = this.geoBoundaries.getGeoBoundary(
                     map, key.split(":")[1], key.split(":")[0]
                 );
             }
@@ -359,7 +360,7 @@ class MbMap extends React.Component {
 
     componentWillUnmount() {
         this.map.remove();
-        GeoBoundaries.clearGeoBoundaryCache();
+        this.geoBoundaries.clearGeoBoundaryCache();
     }
 
     /*******************************************************************

@@ -1,4 +1,4 @@
-import BigTableOValuesDataSource from "./ABSData";
+import BigTableOValuesDataSource from "./DataABS";
 import FillPolyLayer from "./LayerFillPoly";
 import LinePolyLayer from "./LayerLinePoly";
 import HeatMapLayer from "./LayerHeatMap";

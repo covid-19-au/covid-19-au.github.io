@@ -165,8 +165,37 @@ class TimeSeriesDataSource extends DataSourceBase {
                 }
             }
         }
-        r.sort((x, y) => x.x > y.x)
+        r.sort((x, y) => x.x - y.x);
         return r;
+    }
+
+    getMaxMinValues() {
+        var min = 99999999999,
+            max = -99999999999,
+            allVals = [];
+
+        for (var i = 0; i < this.data.length; i++) {
+            var iData = this.data[i],
+                iRegion = iData[0],
+                iAgeRange = iData[1];
+
+            // PERFORMANCE WARNING!
+            var value = this.getCaseNumber(iRegion, iAgeRange)['numCases'];
+
+            if (value === '' || value == null) {
+                continue;
+            }
+            if (value > max) max = value;
+            if (value < min) min = value;
+            allVals.push(value);
+        }
+
+        allVals.sort();
+        return {
+            'max': max,
+            'min': min,
+            'median': allVals[Math.round(allVals.length / 2.0)]
+        }
     }
 }
 
