@@ -1,4 +1,4 @@
-import ConfirmedMapFns from "./ConfirmedMapFns";
+import ConfirmedMapFns from "./Fns";
 import StateLatestNums from "../../data/stateCaseData.json"
 
 

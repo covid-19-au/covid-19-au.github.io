@@ -6,7 +6,7 @@ import qldOutlineData from "../../data/boundary_qld.geojson";
 import saOutlineData from "../../data/boundary_sa.geojson";
 import tasOutlineData from "../../data/boundary_tas.geojson";
 import waOutlineData from "../../data/boundary_wa.geojson";
-import JSONGeoBoundariesBase from "./ConfirmedMapGeoBoundariesBase"
+import JSONGeoBoundariesBase from "./GeoBoundariesBase"
 
 
 /*******************************************************************

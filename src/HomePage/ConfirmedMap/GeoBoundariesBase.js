@@ -1,7 +1,7 @@
-import BigTableOValuesDataSource from "./ConfirmedMapABSData";
-import FillPolyLayer from "./ConfirmedMapLayerFillPoly";
-import LinePolyLayer from "./ConfirmedMapLayerLinePoly";
-import HeatMapLayer from "./ConfirmedMapLayerHeatMap";
+import BigTableOValuesDataSource from "./ABSData";
+import FillPolyLayer from "./LayerFillPoly";
+import LinePolyLayer from "./LayerLinePoly";
+import HeatMapLayer from "./LayerHeatMap";
 import polylabel from "polylabel";
 
 

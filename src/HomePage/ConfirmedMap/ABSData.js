@@ -1,4 +1,4 @@
-import ConfirmedMapFns from "./ConfirmedMapFns";
+import ConfirmedMapFns from "./Fns";
 import absStatsData from "../../data/absStats";
 
 

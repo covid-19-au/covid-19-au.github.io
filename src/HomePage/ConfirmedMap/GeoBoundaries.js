@@ -1,8 +1,8 @@
-import ConfirmedMapFns from "./ConfirmedMapFns"
+import ConfirmedMapFns from "./Fns"
 
-import lgaGeoSchemas from "./ConfirmedMapGeoSchemaLGA"
-import otherGeoSchemas from "./ConfirmedMapGeoSchemaOther"
-import stateGeoSchemas from "./ConfirmedMapGeoSchemaState"
+import lgaGeoSchemas from "./GeoSchemaLGA"
+import otherGeoSchemas from "./GeoSchemaOther"
+import stateGeoSchemas from "./GeoSchemaState"
 
 
 function __getGeoBoundaryClasses() {
