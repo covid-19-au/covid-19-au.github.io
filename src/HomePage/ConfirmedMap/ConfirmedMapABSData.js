@@ -1,5 +1,5 @@
 import ConfirmedMapFns from "./ConfirmedMapFns";
-import absStatsData from "../data/absStats";
+import absStatsData from "../../data/absStats";
 
 
 const absStats = absStatsData['data'],

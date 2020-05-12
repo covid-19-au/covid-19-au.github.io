@@ -1,4 +1,4 @@
-import hospitalImg from "../img/icon/hospital.png";
+import hospitalImg from "../../img/icon/hospital.png";
 import mapboxgl from "mapbox-gl";
 
 /*******************************************************************

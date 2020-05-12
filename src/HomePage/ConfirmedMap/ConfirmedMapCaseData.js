@@ -1,5 +1,5 @@
 import ConfirmedMapFns from "./ConfirmedMapFns";
-import StateLatestNums from "../data/stateCaseData.json"
+import StateLatestNums from "../../data/stateCaseData.json"
 
 
 function getFromStateCaseData(stateName, subHeader) {

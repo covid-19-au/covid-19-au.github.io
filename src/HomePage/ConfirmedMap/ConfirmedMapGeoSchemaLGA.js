@@ -1,11 +1,11 @@
-import waLgaData from "../data/lga_wa.geojson";
+import waLgaData from "../../data/lga_wa.geojson";
 import ConfirmedMapFns from "./ConfirmedMapFns";
-import nswLgaData from "../data/lga_nsw.geojson";
-import vicLgaData from "../data/lga_vic.geojson";
-import ntLgaData from "../data/lga_nt.geojson";
-import qldLgaData from "../data/lga_qld.geojson";
-import saLgaData from "../data/lga_sa.geojson";
-import tasLgaData from "../data/lga_tas.geojson";
+import nswLgaData from "../../data/lga_nsw.geojson";
+import vicLgaData from "../../data/lga_vic.geojson";
+import ntLgaData from "../../data/lga_nt.geojson";
+import qldLgaData from "../../data/lga_qld.geojson";
+import saLgaData from "../../data/lga_sa.geojson";
+import tasLgaData from "../../data/lga_tas.geojson";
 import JSONGeoBoundariesBase from "./ConfirmedMapGeoBoundariesBase"
 
 

@@ -11,13 +11,13 @@ import hospitalImg from '../img/icon/hospital.png'
 import Acknowledgement from "../Acknowledgment"
 import absStatsData from "../data/absStats";
 
-import ConfirmedMapFns from "./ConfirmedMapFns"
-import TimeSeriesDataSource from "./ConfirmedMapCaseData"
-import TimeSeriesDataSourceForPeriod from "./ConfirmedMapCaseDataPeriod"
-import ConfirmedMapShipsData from "./ConfirmedMapShipsData"
-import BigTableOValuesDataSource from "./ConfirmedMapABSData"
-import GeoBoundaries from "./ConfirmedMapGeoBoundaries" // FIXME!
-import HospitalMarker from "./ConfirmedMapHospitalMarker"
+import ConfirmedMapFns from "./ConfirmedMap/ConfirmedMapFns"
+import TimeSeriesDataSource from "./ConfirmedMap/ConfirmedMapCaseData"
+import TimeSeriesDataSourceForPeriod from "./ConfirmedMap/ConfirmedMapCaseDataPeriod"
+import ConfirmedMapShipsData from "./ConfirmedMap/ConfirmedMapShipsData"
+import BigTableOValuesDataSource from "./ConfirmedMap/ConfirmedMapABSData"
+import GeoBoundaries from "./ConfirmedMap/ConfirmedMapGeoBoundaries" // FIXME!
+import HospitalMarker from "./ConfirmedMap/ConfirmedMapHospitalMarker"
 
 
 const absStats = absStatsData['data'];
