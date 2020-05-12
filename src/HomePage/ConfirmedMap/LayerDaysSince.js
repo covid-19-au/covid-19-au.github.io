@@ -1,3 +1,5 @@
+var MAX_VAL = 40;
+
 class DaysSinceLayer {
     constructor(map, dataSource, uniqueId, daysSinceSourceId) {
         this.map = map;
@@ -17,7 +19,6 @@ class DaysSinceLayer {
 
     _addDaysSince() {
         const map = this.map;
-        var divBy = parseFloat(100); // HACK!
 
         var heatCirclesLayer = map.addLayer(
             {
@@ -33,35 +34,40 @@ class DaysSinceLayer {
                         'interpolate',
                         ['linear'],
                         ['get', 'dayssince'],
-                        0, 'rgb(255,0,0)',
-                        5, 'rgb(200,0,50)',
-                        10, 'rgb(150,0,100)',
-                        20, 'rgb(100,0,150)',
-                        50, 'rgb(50,0,200)',
-                        100, 'rgb(0,0,255)'
+                        0, 'rgba(255,0,0,0.9)',
+                        5, 'rgba(200,0,50,0.9)',
+                        10, 'rgba(150,0,100,0.9)',
+                        20, 'rgba(100,0,150,0.9)',
+                        50, 'rgba(50,0,200,0.9)',
+                        100, 'rgba(0,0,255,0.9)'
                     ]
+                },
+                layout: {
+                    'circle-sort-key': ["to-number", ["get", "revdayssince"], 1]
                 }
             }
         );
 
-        var daysSinceLabels = map.addLayer({
-            id: this.getDaysSinceId()+'label',
-            type: 'symbol',
-            source: this.daysSinceSourceId,
-            filter: ['has', 'dayssince'],
-            layout: {
-                'text-field': '{dayssince}',
-                'text-font': [
-                    'Arial Unicode MS Bold',
-                    'Open Sans Bold',
-                    'DIN Offc Pro Medium'
-                ],
-                'text-size': 13
-            },
-            paint: {
-                "text-color": "rgba(255, 255, 255, 1.0)"
-            }
-        });
+        for (var i=MAX_VAL; i>-1; i--) {
+            var daysSinceLabels = map.addLayer({
+                id: this.getDaysSinceId() + 'label' + i,
+                type: 'symbol',
+                source: this.daysSinceSourceId,
+                filter: [(i === MAX_VAL-1) ? '>=' : '==', ["get", "dayssince"], i],
+                layout: {
+                    'text-field': '{dayssince}',
+                    'text-font': [
+                        'Arial Unicode MS Bold',
+                        'Open Sans Bold',
+                        'DIN Offc Pro Medium'
+                    ],
+                    'text-size': 13
+                },
+                paint: {
+                    "text-color": "rgba(255, 255, 255, 1.0)"
+                }
+            });
+        }
 
         return {
             daysSinceCircles: heatCirclesLayer,
@@ -72,7 +78,10 @@ class DaysSinceLayer {
     remove() {
         const map = this.map;
         map.removeLayer(this.getDaysSinceId());
-        map.removeLayer(this.getDaysSinceId()+'label');
+
+        for (var i=MAX_VAL; i>-1; i--) {
+            map.removeLayer(this.getDaysSinceId() + 'label' + i);
+        }
     }
 }
 

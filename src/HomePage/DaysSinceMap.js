@@ -112,8 +112,16 @@ class DaysSinceMap extends React.Component {
         var caseDataInsts = this.caseDataInsts = {};
         for (let key in regionsTimeSeries) {
             // key => "statename:schema"
+            if (key === 'tas:lga' || key === 'tas:ths') {
+                // HACK: Tas LGA is every week currently, so isn't as useful for day counts
+                continue;
+            }
+            else if (!regionsTimeSeries[key] || regionsTimeSeries[key]['sub_headers'].indexOf('total') === -1) {
+                continue;
+            }
+
             caseDataInsts[key] = new TimeSeriesDataSource(
-                key, key,
+                key, 'total',
                 regionsTimeSeries[key],
                 regionsDateIDs,
                 key.split(":")[1],
@@ -125,10 +133,7 @@ class DaysSinceMap extends React.Component {
             setTimeout(() => {
                 // Create map data instances
                 var geoBoundaryInsts = this.geoBoundaryInsts = {};
-                for (var key of this.geoBoundaries.getAvailableGeoBoundaries()) {
-                    if (!regionsTimeSeries[key] || regionsTimeSeries[key]['sub_headers'].indexOf('total') === -1) {
-                        continue;
-                    }
+                for (var key in caseDataInsts) {
                     geoBoundaryInsts[key] = this.geoBoundaries.getGeoBoundary(
                         map, key.split(":")[1], key.split(":")[0]
                     );
@@ -144,10 +149,18 @@ class DaysSinceMap extends React.Component {
                     if (!caseGeoBoundariesInst) {
                         return;
                     }
-                    caseGeoBoundariesInst.addDaysSince(caseDataInst);
                     caseGeoBoundariesInst.addLinePoly(caseDataInst);
+
+                    caseGeoBoundariesInst.addDaysSince(caseDataInst);
+                    caseGeoBoundariesInst.addFillPoly(
+                        null,
+                        caseDataInst,
+                        0,
+                        false,
+                        true
+                    );
                 })
-                }, 1000)
+                }, 500)
 
         });
     }
@@ -179,7 +192,7 @@ class DaysSinceMap extends React.Component {
 
         for (var schema of schemas) {
             var key = `${stateName}:${schema}`;
-            // console.log("TRYING: "+key+" "+(key in this.caseDataInsts));
+            console.log("TRYING: "+key+" "+(key in this.caseDataInsts));
 
             if (key in this.caseDataInsts) {
                 return this.caseDataInsts[key];

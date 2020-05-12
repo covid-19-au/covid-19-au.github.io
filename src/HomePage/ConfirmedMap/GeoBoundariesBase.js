@@ -386,7 +386,8 @@ class JSONGeoBoundariesBase {
                     cityName, null
                 );
                 if (dayssince != null) {
-                    data.properties['dayssince'] = dayssince
+                    data.properties['dayssince'] = dayssince;
+                    data.properties['revdayssince'] = 1000000-(dayssince*2);
                 }
             }
             data.properties['cases'] = caseInfo['numCases'];
