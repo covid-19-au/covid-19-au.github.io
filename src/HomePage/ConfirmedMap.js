@@ -572,7 +572,6 @@ class MbMap extends React.Component {
                 insts[i].removeHeatMap();
                 insts[i].removeLinePoly();
                 insts[i].removeFillPoly();
-                insts[i].resetPopups();
             }
         }
         function disableNonLGAInst(otherInst, lgaInst) {
@@ -581,7 +580,6 @@ class MbMap extends React.Component {
             otherInst.removeHeatMap();
             otherInst.removeLinePoly();
             otherInst.removeFillPoly();
-            otherInst.resetPopups();
 
             if (prevState._underlay && lgaInst) {
                 lgaInst.removeLinePoly();
