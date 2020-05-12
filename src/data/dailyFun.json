@@ -1,15 +1,23 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=NDjNX3nEfYo",
-                    "description": "Some Good News with the cast of The Office!"
+                    "imgLink": "https://www.visitphillipisland.com/wp-content/uploads/2012/11/Penguin-2-700x476.jpg",
+                    "source": "https://www.visitphillipisland.com/listing/penguin-parade/"
                 }
             ],
-            "type": "distraction",
-            "date": "12/5/2020"
+            "video": [],
+            "title": "Phillip Island Penguin Parade",
+            "content": "<p>BBC sports commentator Andrew Cotter is now using his talents to narrate Phillip Island's penguin parade! Check out the video in the link below!</p>",
+            "type": "motivation",
+            "date": "13/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.theguardian.com/global/video/2020/may/12/bbc-sports-commentator-narrates-australias-penguin-parade-in-lockdown-voiceover-video",
+                    "name": "BBC sports commentator narrates Australia's penguin parade in lockdown voiceover – The Guardian"
+                }
+            ]
         }
     ]
 }

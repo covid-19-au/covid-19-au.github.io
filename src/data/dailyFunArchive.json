@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=NDjNX3nEfYo",
+                    "description": "Some Good News with the cast of The Office!"
+                }
+            ],
+            "type": "distraction",
+            "date": "12/5/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/GJZ5TVpAk84wrTzsQfLQRB/213a1907-7285-4a69-9b62-882584fadca2.png/r0_0_1920_1079_w1200_h678_fmax.jpg",
