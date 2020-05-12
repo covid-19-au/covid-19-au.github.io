@@ -2,6 +2,29 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "COVID-19's impact on the ecoonomy",
+            "media": "https://i.imgur.com/jXGH4b5.png",
+            "summary": "Today’s blog post takes a look at the impact of COVID-19 on the Australian economy.",
+            "date": "12/05/2020", 
+            "text": {
+                "text_1": [
+                    "COVID-19 impact on the Australian economy Not long after the bushfire catastrophe, the coronavirus started to spread in Australia, infecting more than 6900 people. Even though the curve is flattening today, it is without a doubt that the global pandemic had a significant impact on Australia’s economy, which was referred to as the miracle economy for avoiding the 2007-2008 financial crisis.",
+                    "Here are the main impact of the COVID-19 on the Australian economy:"
+                ],
+                "ulist_1": [],
+                "olist_1": [
+                    "China is Australia’s largest two-way trading partner, and a disruption to the Chinese economy meant that Australia’s economy would consequently be affected. Domestic businesses including education and tourism were the first ones to be affected. Exports including gas, iron ore, lobster were also hit hard, and as inventories depreciated, it became harder to supply and manufacture products.",
+                    "Many local and small businesses were forced to shut down, or experienced an adverse impact as a result of the COVID-19; thousands of service venues including pubs, gyms, beauty salons, and many other businesses were affected. As social distancing rules and isolation rules were implemented, consumers became more cautious about going out and spending money, and, therefore, many businesses experienced a reduction in demand. Many also were impacted by increased supply costs and reduced supply levels.",
+                    "The pandemic and subsequent economic shutdowns resulted in 780,000 people losing their jobs, and data shows that 6 percent of all jobs were eliminated between mid-March and early April. Also, wages went down by 6.7 percent. Unfortunately, job losses were concentrated among the younger and older workers by 9.9 percent and 9.7 percent respectively.",
+                    "Australia has estimated that the coronavirus lockdown is going to cost $4 billion a week in reduced economic activity, and has warned that there could be a 10 - 12 percent drop in the gross domestic product (GDP), which is a measure of a country’s net output, during the June quarter. Furthermore, the Australian dollars plunged to as low as 55.10 US cents, which is the lowest level since 2002."
+                ],
+                "text_2": [
+                    "Australia recently announced its plans for lifting coronavirus restrictions, and it puts high focus on not only handling further outbreak, but also on recovering the economy. It plans to restore 850,000 jobs by July, and the first step of the plan estimates $3.1 billion Economic Activity (GVA) per month."
+                ]
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "New Zealand's Success",
             "media": "https://i.imgur.com/UFsp4YD.png",
             "summary": "Today’s blog post investigates how New Zealand was able to contain the spread of COVID-19 so quickly.",
