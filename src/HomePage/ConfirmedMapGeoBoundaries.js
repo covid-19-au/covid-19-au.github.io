@@ -574,9 +574,9 @@ class JSONGeoBoundariesBase {
                         'interpolate',
                         ['linear'],
                         ['get', 'cases'],
-                        1, 3,
-                        5, 6,
-                        10, 8,
+                        1, 8,
+                        5, 9,
+                        10, 10,
                         50, 20,
                         100, 30,
                         300, 40
@@ -587,11 +587,11 @@ class JSONGeoBoundariesBase {
                         ['linear'],
                         ['get', 'cases'],
                         0, 'rgba(0,0,0,0.0)',
-                        1, 'rgba(178,24,43,0.6)',
-                        5, 'rgba(178,24,43,0.6)',
-                        10, 'rgba(178,24,43,0.7)',
-                        50, 'rgba(178,24,43,0.7)',
-                        100, 'rgba(178,24,43,0.8)',
+                        1, 'rgba(178,24,43,0.8)',
+                        5, 'rgba(178,24,43,0.8)',
+                        10, 'rgba(178,24,43,0.8)',
+                        50, 'rgba(178,24,43,0.85)',
+                        100, 'rgba(178,24,43,0.9)',
                         300, 'rgba(178,24,43,1.0)'
                     ],
                     // Transition from heatmap to circle layer by zoom level
@@ -606,9 +606,43 @@ class JSONGeoBoundariesBase {
             }
         );
 
+        var heatLabels = map.addLayer({
+            id: this.getHeatPointId()+'label',
+            type: 'symbol',
+            source: this.getHeatmapSourceId(dataSource),
+            filter: ['all',
+                ['>', 'cases', 0],
+                ['has', 'cases']
+            ],
+            layout: {
+                'text-field': '{cases}',
+                'text-font': [
+                    'Arial Unicode MS Bold',
+                    'Open Sans Bold',
+                    'DIN Offc Pro Medium'
+                ],
+                'text-size': 13
+            },
+            paint: {
+                "text-color": "rgba(255, 255, 255, 1.0)",
+                'text-opacity': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    6, 0,
+                    7, 0.7,
+                    8, 1
+                ]
+                //"text-halo-width": 1,
+                //"text-halo-color": "rgba(255, 255, 180, 0.8)",
+                //"text-halo-blur": 1
+            }
+        });
+
         return {
             heatMapLayer: heatMapLayer,
-            heatCirclesLayer: heatCirclesLayer
+            heatCirclesLayer: heatCirclesLayer,
+            heatLabels: heatLabels
         };
     }
 
@@ -616,6 +650,7 @@ class JSONGeoBoundariesBase {
         const map = this.map;
         map.removeLayer(this.getHeatPointId());
         map.removeLayer(this.getHeatMapId());
+        map.removeLayer(this.getHeatPointId()+'label');
     }
 
     /*******************************************************************
