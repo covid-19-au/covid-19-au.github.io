@@ -20,6 +20,10 @@ class HeatMapLayer {
 
     _addHeatMap() {
         const map = this.map;
+        const maxMin = this.dataSource.getMaxMinValues();
+
+        var divBy = parseFloat(maxMin['max']);
+        var radiusDivBy = divBy / 20;
 
         var heatMapLayer = map.addLayer(
             {
@@ -34,7 +38,7 @@ class HeatMapLayer {
                         ['linear'],
                         ['get', 'cases'],
                         0, 0,
-                        6, 1
+                        1, 1
                     ],
                     // Increase the heatmap color weight weight by zoom level
                     // heatmap-intensity is a multiplier on top of heatmap-weight
@@ -64,10 +68,10 @@ class HeatMapLayer {
                         'interpolate',
                         ['linear'],
                         ['zoom'],
-                        0, ['^', ['get', 'cases'], 0.6],
-                        2, ['^', ['get', 'cases'], 0.6],
-                        4, ['^', ['get', 'cases'], 0.6],
-                        16, ['^', ['get', 'cases'], 0.6]
+                        0, ['/', ['get', 'cases'], radiusDivBy],
+                        2, ['/', ['get', 'cases'], radiusDivBy],
+                        4, ['/', ['get', 'cases'], radiusDivBy],
+                        16, ['/', ['get', 'cases'], radiusDivBy]
                     ],
                     // Transition from heatmap to circle layer by zoom level
                     'heatmap-opacity': [
@@ -92,13 +96,10 @@ class HeatMapLayer {
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
-                        ['get', 'cases'],
-                        1, 8,
-                        5, 9,
-                        10, 10,
-                        50, 20,
-                        100, 30,
-                        300, 40
+                        ['/', ['get', 'cases'], divBy],
+                        0, 0,
+                        0.00000001, 10,
+                        1, 35
                     ],
                     // Color circle by value
                     'circle-color': [
@@ -149,8 +150,7 @@ class HeatMapLayer {
                     ['linear'],
                     ['zoom'],
                     6, 0,
-                    7, 0.7,
-                    8, 1
+                    7, 1
                 ]
                 //"text-halo-width": 1,
                 //"text-halo-color": "rgba(255, 255, 180, 0.8)",
