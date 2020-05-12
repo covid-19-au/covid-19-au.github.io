@@ -127,6 +127,44 @@ class TimeSeriesDataSource extends DataSourceBase {
         };
     }
 
+    getDaysSince(region, ageRange) {
+        // Return only the latest value
+
+        region = ConfirmedMapFns.prepareForComparison(region || '');
+        ageRange = ageRange || '';
+        var firstVal = null;
+
+        for (var i = 0; i < this.data.length; i++) {
+            var iData = this.data[i],
+                iRegion = iData[0],
+                iAgeRange = iData[1],
+                iValues = iData[2];
+
+            if (
+                (this.schema === 'statewide' || iRegion === region) &&
+                iAgeRange === ageRange
+            ) {
+                for (var j = 0; j < iValues.length; j++) {
+                    var dateUpdated = this.regionsDateIDs[iValues[j][0]],
+                        iValue = iValues[j][this.subHeaderIndex + 1];
+
+                    if (iValue == null || iValue === '') {
+                        continue;
+                    }
+
+                    if (firstVal == null) {
+                        firstVal = iValue;
+                    }
+                    else if (firstVal > iValue) {
+                        //console.log(dateUpdated+' '+ConfirmedMapFns.dateDiffFromToday(dateUpdated));
+                        return ConfirmedMapFns.dateDiffFromToday(dateUpdated)
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     getCaseNumberTimeSeries(region, ageRange) {
         var r = [];
         var latest = this.__getCaseNumber(region, ageRange);

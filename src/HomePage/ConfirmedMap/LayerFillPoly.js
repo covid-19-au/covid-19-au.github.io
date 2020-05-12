@@ -10,6 +10,7 @@ class FillPolyLayer {
         opacity,
         addLegend,
         addPopupOnClick,
+        stateName,
         addUnderLayerId,
         uniqueId,
         fillSourceId,
@@ -25,6 +26,7 @@ class FillPolyLayer {
         this.opacity = opacity;
         this.addLegend = addLegend;
         this.addPopupOnClick = addPopupOnClick;
+        this.stateName = stateName;
         this.addUnderLayerId = addUnderLayerId;
         this.uniqueId = uniqueId;
         this.fillSourceId = fillSourceId;

@@ -2,6 +2,8 @@ import BigTableOValuesDataSource from "./DataABS";
 import FillPolyLayer from "./LayerFillPoly";
 import LinePolyLayer from "./LayerLinePoly";
 import HeatMapLayer from "./LayerHeatMap";
+import DaysSinceLayer from "./LayerDaysSince"
+import Fns from "./Fns"
 import polylabel from "polylabel";
 
 
@@ -61,7 +63,7 @@ class JSONGeoBoundariesBase {
         this._fillPolyLayer = new FillPolyLayer(
             this.map,
             absDataSource, caseDataSource, opacity,
-            addLegend, addPopupOnClick, addUnderLayerId,
+            addLegend, addPopupOnClick, this.stateName, addUnderLayerId,
             this.uniqueId,
             this.getFillSourceId(
                 absDataSource || caseDataSource
@@ -115,6 +117,27 @@ class JSONGeoBoundariesBase {
         if (this._heatMapLayer) {
             this._heatMapLayer.remove();
             delete this._heatMapLayer;
+        }
+    }
+
+    /*******************************************************************
+     * Days since maps
+     *******************************************************************/
+
+    addDaysSince(dataSource) {
+        this.removeDaysSince();
+        this._associateSource(dataSource);
+
+        this._daysSinceLayer = new DaysSinceLayer(
+            this.map, dataSource, this.uniqueId,
+            this.getHeatmapSourceId(dataSource)
+        );
+    }
+
+    removeDaysSince() {
+        if (this._daysSinceLayer) {
+            this._daysSinceLayer.remove();
+            delete this._daysSinceLayer;
         }
     }
 
@@ -343,7 +366,6 @@ class JSONGeoBoundariesBase {
 
     _assignCaseInfoToGeoJSON(geoJSONData, dataSource) {
         var caseInfo;
-        const state = this.stateName;
 
         for (var i = 0; i < geoJSONData.features.length; i++) {
             var data = geoJSONData.features[i];
@@ -357,6 +379,15 @@ class JSONGeoBoundariesBase {
             if (!caseInfo) {
                 //console.log("NOT CASE INFO:", state, cityName);
                 continue;
+            }
+
+            if (caseInfo['updatedDate']) {
+                var dayssince = dataSource.getDaysSince(
+                    cityName, null
+                );
+                if (dayssince != null) {
+                    data.properties['dayssince'] = dayssince
+                }
             }
             data.properties['cases'] = caseInfo['numCases'];
             data.properties['city'] = cityName;
