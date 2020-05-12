@@ -1,9 +1,10 @@
 class HeatMapLayer {
-    constructor(map, dataSource, uniqueId, heatMapSourceId) {
+    constructor(map, dataSource, uniqueId, maxMinValues, heatMapSourceId) {
         this.map = map;
         this.dataSource = dataSource;
         this.uniqueId = uniqueId;
         this.heatMapSourceId = heatMapSourceId;
+        this.maxMinValues = maxMinValues;
         this._addHeatMap()
     }
 
@@ -20,10 +21,10 @@ class HeatMapLayer {
 
     _addHeatMap() {
         const map = this.map;
-        const maxMin = this.dataSource.getMaxMinValues();
+        const maxMin = this.maxMinValues;
 
         var divBy = parseFloat(maxMin['max']);
-        var radiusDivBy = divBy / 20;
+        var radiusDivBy = divBy / 40;
 
         var heatMapLayer = map.addLayer(
             {
@@ -99,7 +100,7 @@ class HeatMapLayer {
                         ['/', ['get', 'cases'], divBy],
                         0, 0,
                         0.00000001, 10,
-                        1, 35
+                        1, 50
                     ],
                     // Color circle by value
                     'circle-color': [

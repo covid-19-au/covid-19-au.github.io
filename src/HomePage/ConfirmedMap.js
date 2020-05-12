@@ -35,7 +35,7 @@ class MbMap extends React.Component {
             lat: -26.344589,
             zoom: 2,
             showMarker: true,
-            _timeperiod: 'alltime',
+            _timeperiod: '21days',
             _markers: 'total',
             _underlay: null
         };
@@ -432,13 +432,64 @@ class MbMap extends React.Component {
     }
 
     _updateMode() {
+        // Get the absolute max/min values among all the datasources
+        // so that we can scale heatmap values for the entire of the
+        // country
+        var otherMaxMin = null,
+            stateWideMaxMin = null,
+            numStateWide = 0;
+
+        this.statesAndTerritories.forEach((stateName) => {
+            var caseDataInst = this.getCaseDataInst(stateName);
+            if (!caseDataInst) {
+                return;
+            }
+            var iMaxMinValues = caseDataInst.getMaxMinValues();
+
+            if (caseDataInst.schema === 'statewide') {
+                if (!stateWideMaxMin) {
+                    stateWideMaxMin = iMaxMinValues
+                }
+                if (iMaxMinValues['max'] > stateWideMaxMin['max']) {
+                    stateWideMaxMin['max'] = iMaxMinValues['max'];
+                }
+                if (iMaxMinValues['min'] < stateWideMaxMin['min']) {
+                    stateWideMaxMin['min'] = iMaxMinValues['min'];
+                }
+                numStateWide += 1;
+            }
+            else {
+                if (!otherMaxMin) {
+                    otherMaxMin = iMaxMinValues
+                }
+                if (iMaxMinValues['max'] > otherMaxMin['max']) {
+                    otherMaxMin['max'] = iMaxMinValues['max'];
+                }
+                if (iMaxMinValues['min'] < otherMaxMin['min']) {
+                    otherMaxMin['min'] = iMaxMinValues['min'];
+                }
+            }
+        });
+
+        if (numStateWide === 1) {
+            // HACK: Because there's only one state level value,
+            // there's likely no common point of comparison,
+            // so at least tone it down!
+            stateWideMaxMin['max'] *= 4;
+        }
+
         var enableInsts = (dataSource, insts) => {
             // Overlay LGA ABS data on LGA stats
             for (var i = 0; i < insts.length; i++) {
                 //console.log(`Enable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
 
-                insts[i].addHeatMap(dataSource);
+                insts[i].addHeatMap(
+                    dataSource,
+                    dataSource.schema === 'statewide' ?
+                        stateWideMaxMin : otherMaxMin
+                );
                 insts[i].addLinePoly(dataSource);
+
                 insts[i].addFillPoly(
                     this.absStatsInsts[this.state._underlay],
                     dataSource,
@@ -454,12 +505,12 @@ class MbMap extends React.Component {
             //console.log(`Enable non-lga inst: dataSource->${dataSource.schema}:${dataSource.stateName} otherInst->${otherInst.schema}:${otherInst.stateName} ${otherInst} ${lgaInst}`);
 
             otherInst.addHeatMap(
-                dataSource
-            );
-            otherInst.addLinePoly(
                 dataSource,
-                'rgba(0, 0, 0, 1.0)'
+                dataSource.schema === 'statewide' ?
+                    stateWideMaxMin : otherMaxMin
             );
+            otherInst.addLinePoly(dataSource,'rgba(0, 0, 0, 1.0)');
+
             otherInst.addFillPoly(
                 null,
                 dataSource,

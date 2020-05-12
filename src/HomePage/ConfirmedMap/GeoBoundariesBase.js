@@ -101,12 +101,12 @@ class JSONGeoBoundariesBase {
      * Heat maps
      *******************************************************************/
 
-    addHeatMap(dataSource) {
+    addHeatMap(dataSource, maxMinValues) {
         this.removeHeatMap();
         this._associateSource(dataSource);
 
         this._heatMapLayer = new HeatMapLayer(
-            this.map, dataSource, this.uniqueId,
+            this.map, dataSource, this.uniqueId, maxMinValues,
             this.getHeatmapSourceId(dataSource)
         );
     }

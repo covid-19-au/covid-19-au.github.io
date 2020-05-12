@@ -78,6 +78,31 @@ class ConfirmedMapShipsData extends DataSourceBase {
         }
         return null;
     }
+
+    getMaxMinValues() {
+        var min = 99999999999,
+            max = -99999999999,
+            allVals = [];
+
+        var data = this.data['data'];
+
+        for (var dataItem of data) {
+            var value = parseInt(dataItem['case']);
+            if (value === '' || value == null) {
+                continue;
+            }
+            if (value > max) max = value;
+            if (value < min) min = value;
+            allVals.push(value);
+        }
+
+        allVals.sort();
+        return {
+            'max': max,
+            'min': min,
+            'median': allVals[Math.round(allVals.length / 2.0)]
+        }
+    }
 }
 
 export default {
