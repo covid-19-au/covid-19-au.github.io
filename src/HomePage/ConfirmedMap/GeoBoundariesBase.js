@@ -3,8 +3,7 @@ import FillPolyLayer from "./LayerFillPoly";
 import LinePolyLayer from "./LayerLinePoly";
 import HeatMapLayer from "./LayerHeatMap";
 import DaysSinceLayer from "./LayerDaysSince"
-import Fns from "./Fns"
-import polylabel from "polylabel";
+import GeoBoundaryCentralPoints from "./GeoBoundaryCentralPoints"
 
 
 // Higher values will result in less accurate lines,
@@ -19,25 +18,28 @@ class JSONGeoBoundariesBase {
         this.stateName = stateName;
         this.uniqueId = uniqueId;
         this.addedSources = {};  // Using as a set
+        this.geoBoundaryCentralPoints = new GeoBoundaryCentralPoints();
         this._onLoadData(data);
     }
 
     _onLoadData(data) {
         this.geoJSONData = data;
-        this.pointGeoJSONData = this._getModifiedGeoJSONWithPolyCentralAreaPoints(
-            this.geoJSONData
-        );
+        this.pointGeoJSONData = this.geoBoundaryCentralPoints
+            ._getModifiedGeoJSONWithPolyCentralAreaPoints(
+                this.geoJSONData
+            );
     }
 
     /*******************************************************************
      * Unique IDs for sources and layers
      *******************************************************************/
 
-    getHeatmapSourceId(dataSource) {
+    getHeatmapSourceId(dataSource, zoomNum) {
         // Get a unique ID for sources shared by the
         // auto-generated central points in the
         // middle of the polys for the heat maps
-        return this.uniqueId+dataSource.getSourceName()+'heatmapsource';
+        zoomNum = zoomNum || '';
+        return this.uniqueId+dataSource.getSourceName()+'heatmapsource'+zoomNum;
     }
     getFillSourceId(dataSource) {
         // Get a unique ID for sources shared by fill/line polys
@@ -142,7 +144,7 @@ class JSONGeoBoundariesBase {
     }
 
     /*******************************************************************
-     * Data processing
+     * Data processing: associate source
      *******************************************************************/
 
     _associateSource(dataSource) {
@@ -155,8 +157,13 @@ class JSONGeoBoundariesBase {
         }
     }
 
+    /*******************************************************************
+     * Data processing: associate case nums
+     *******************************************************************/
+
     _associateCaseNumsDataSource(dataSource) {
         this._assignCaseInfoToGeoJSON(this.pointGeoJSONData, dataSource);
+
         let oid = this.getHeatmapSourceId(dataSource);
         if (!(oid in this.addedSources)) {
             //console.log("ADDING HEATMAP SOURCE:"+oid);
@@ -164,6 +171,44 @@ class JSONGeoBoundariesBase {
             this.map.addSource(oid, {
                 type: 'geojson',
                 data: this.pointGeoJSONData,
+                tolerance: MAPBOX_TOLERANCE
+            });
+
+            this.pointGeoJSONDataZoom3 = this.geoBoundaryCentralPoints
+                ._getModifiedGeoJSONWithPointsJoined(
+                    this.pointGeoJSONData, 3
+                );
+            this.pointGeoJSONDataZoom4 = this.geoBoundaryCentralPoints
+                ._getModifiedGeoJSONWithPointsJoined(
+                    this.pointGeoJSONData, 4
+                );
+            this.pointGeoJSONDataZoom5 = this.geoBoundaryCentralPoints
+                ._getModifiedGeoJSONWithPointsJoined(
+                    this.pointGeoJSONData, 5
+                );
+            this.pointGeoJSONDataZoom5 = this.geoBoundaryCentralPoints
+                ._getModifiedGeoJSONWithPointsJoined(
+                    this.pointGeoJSONData, 6
+                );
+
+            this.map.addSource(this.getHeatmapSourceId(dataSource, 3), {
+                type: 'geojson',
+                data: this.pointGeoJSONDataZoom3,
+                tolerance: MAPBOX_TOLERANCE
+            });
+            this.map.addSource(this.getHeatmapSourceId(dataSource, 4), {
+                type: 'geojson',
+                data: this.pointGeoJSONDataZoom4,
+                tolerance: MAPBOX_TOLERANCE
+            });
+            this.map.addSource(this.getHeatmapSourceId(dataSource, 5), {
+                type: 'geojson',
+                data: this.pointGeoJSONDataZoom5,
+                tolerance: MAPBOX_TOLERANCE
+            });
+            this.map.addSource(this.getHeatmapSourceId(dataSource, 6), {
+                type: 'geojson',
+                data: this.pointGeoJSONDataZoom5,
                 tolerance: MAPBOX_TOLERANCE
             });
         }
@@ -179,189 +224,6 @@ class JSONGeoBoundariesBase {
                 tolerance: MAPBOX_TOLERANCE
             });
         }
-    }
-
-    _getModifiedGeoJSONWithPolyCentralAreaPoints(geoJSONData) {
-        // Uses https://github.com/mapbox/polylabel
-        // to get the central point of the polygon
-        let r = {
-            "type": "FeatureCollection",
-            "features": [/*...*/]
-        };
-        var that = this;
-
-        // console.log('here',geoJSONData['features'])
-
-        geoJSONData['features'].filter(
-            (feature) => !!feature['geometry']
-        ).map((feature) => {
-
-            // First, collect as individual polygons,
-            // as we can't work with MultiPolygons
-
-            function collectCoordinates(coordinates) {
-                r["features"].push({
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": coordinates
-                    },
-                    "properties": feature["properties"]
-                });
-            }
-
-            if (feature['geometry']['type'] === 'MultiPolygon') {
-                feature["geometry"]["coordinates"].forEach(
-                    (coordinates) => collectCoordinates(coordinates)
-                );
-            }
-            else if (feature['geometry']['type'] === 'Polygon') {
-                collectCoordinates(feature["geometry"]["coordinates"]);
-            }
-            else {
-                throw "Unknown geometry type: " +
-                feature['geometry']['type'];
-            }
-        });
-
-        // Ignore small islands etc, only adding a
-        // heatmap to the polygons with the largest area
-
-        function filterToOnlyLargestAreas(features) {
-            var areaMap = {};
-
-            for (let i = 0; i < features.length; i++) {
-                var feature = features[i],
-                    properties = feature['properties'];
-
-                // WA data HACK!
-                delete properties['lg_ply_pid'];
-                delete properties['id'];
-
-                var area = that._getArea(
-                    feature['geometry']['coordinates']
-                );
-
-                function getUniqueKey(d) {
-                    var r = [];
-                    for (var k in d) {
-                        r.push([k, d[k]])
-                    }
-                    r.sort();
-                    return JSON.stringify(r);
-                }
-
-                var uniqueKey = getUniqueKey(properties);
-
-                if (!(uniqueKey in areaMap) || areaMap[uniqueKey][0] < area) {
-                    areaMap[uniqueKey] = [area, feature];
-                }
-            }
-
-            var r = [];
-            for (var k in areaMap) {
-                // Convert from polygon to a single point
-                areaMap[k][1]['geometry']['type'] = 'Point';
-                areaMap[k][1]['geometry']['coordinates'] = getPointCoord(
-                    areaMap[k][1]['geometry']['coordinates']
-                );
-                r.push(areaMap[k][1])
-            }
-            return r;
-        }
-
-        function getPointCoord(coordinates) {
-            var center = that._findCenter(coordinates),
-                pointCoord;
-
-            if (that._canPutInCenter(center, coordinates)) {
-                pointCoord = polylabel(
-                    coordinates, 10.0
-                );
-                pointCoord = [
-                    (pointCoord[0] + center[0]) / 2.0,
-                    (pointCoord[1] + center[1]) / 2.0
-                ];
-            }
-            else {
-                pointCoord = polylabel(
-                    coordinates, 0.5
-                )
-            }
-            return pointCoord;
-        }
-
-        r["features"] = filterToOnlyLargestAreas(
-            r["features"]
-        );
-        return r
-    }
-
-    _getArea(coordinates) {
-        // Get approximate area of polygons
-        var minX = 999999999999,
-            minY = 999999999999,
-            maxX = -999999999999,
-            maxY = -999999999999;
-
-        for (let i = 0; i < coordinates.length; i++) {
-            for (let j = 0; j < coordinates[i].length; j++) {
-                let x = coordinates[i][j][0],
-                    y = coordinates[i][j][1];
-
-                if (x > maxX) maxX = x;
-                if (x < minX) minX = x;
-                if (y > maxY) maxY = y;
-                if (y < minY) minY = y;
-            }
-        }
-        return (
-            (maxX - minX) *
-            (maxY - minY)
-        );
-    }
-
-    _findCenter(coordinates) {
-        var minX = 999999999999,
-            minY = 999999999999,
-            maxX = -999999999999,
-            maxY = -999999999999;
-
-        for (let i = 0; i < coordinates.length; i++) {
-            for (let j = 0; j < coordinates[i].length; j++) {
-                let x = coordinates[i][j][0],
-                    y = coordinates[i][j][1];
-
-                if (x > maxX) maxX = x;
-                if (x < minX) minX = x;
-                if (y > maxY) maxY = y;
-                if (y < minY) minY = y;
-            }
-        }
-
-        var centerX = minX + (maxX - minX) / 2.0,
-            centerY = minY + (maxY - minY) / 2.0;
-        return [centerX, centerY];
-    }
-
-    _canPutInCenter(point, vs) {
-        // ray-casting algorithm based on
-        // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
-        // (MIT license)
-
-        var x = point[0], y = point[1];
-
-        var inside = false;
-        for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-            var xi = vs[i][0], yi = vs[i][1];
-            var xj = vs[j][0], yj = vs[j][1];
-
-            var intersect = ((yi > y) !== (yj > y))
-                && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-            if (intersect) inside = !inside;
-        }
-
-        return inside;
     }
 
     _assignCaseInfoToGeoJSON(geoJSONData, dataSource) {
@@ -394,6 +256,10 @@ class JSONGeoBoundariesBase {
             data.properties['city'] = cityName;
         }
     }
+
+    /*******************************************************************
+     * Data processing: associate abs statistics
+     *******************************************************************/
 
     _associateStatSource(dataSource) {
         if (dataSource.getMaxMinValues) {
