@@ -436,6 +436,22 @@ function Information({ hospitalData, columns, gspace }) {
                                     </ExpansionPanelSummary>
                                     <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
                                         <div>
+
+                                            {/* Custom Text (For content that doesn't fit the schema) */}
+                                            {info.text.customText ?
+
+                                                info.text.customText.map(t1 => (
+                                                    <React.Fragment>
+                                                        <p key={uuid()}>{t1.paraText}</p>
+                                                        <ul>
+                                                            {t1.pointText.map(ul1 => (
+                                                                <li key={uuid()}>{ul1}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </React.Fragment>
+                                                ))
+                                                : ""}
+
                                             {/* First block of text */}
                                             {info.text.text_1.map(t1 => (
                                                 <p key={uuid()}>{t1}</p>
