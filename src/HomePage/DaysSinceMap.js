@@ -38,11 +38,6 @@ class DaysSinceMap extends React.Component {
      * HTML Template
      *******************************************************************/
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        this._resetMode(prevState);
-        this._updateMode();
-    }
-
     render() {
         return (
             <div className="card" style={{
