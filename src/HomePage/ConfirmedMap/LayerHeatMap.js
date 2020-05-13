@@ -35,7 +35,7 @@ class HeatMapLayer {
                     ['zoom'],
                     0, 1,
                     zoomLevel + 1, 1,
-                    zoomLevel + 1.15, 0
+                    zoomLevel + 1.001, 0
                 ];
             }
             else {
