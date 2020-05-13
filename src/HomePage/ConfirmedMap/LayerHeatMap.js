@@ -32,8 +32,6 @@ class HeatMapLayer {
                     'id': this.getHeatPointId()+zoomLevel,
                     'type': 'circle',
                     'source': this.heatMapSourceId+zoomLevel,
-                    'minzoom': zoomLevel,
-                    'maxzoom': zoomLevel+1,
                     'paint': {
                         // Size circle radius by value
                         'circle-radius': [
@@ -56,6 +54,16 @@ class HeatMapLayer {
                             50, 'rgba(178,40,43,0.8)',
                             100, 'rgba(178,30,43,0.9)',
                             300, 'rgba(178,24,43,0.9)'
+                        ],
+                        // Transition by zoom level
+                        'circle-opacity': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            zoomLevel-0.15, 0,
+                            zoomLevel, 1,
+                            zoomLevel+1, 1,
+                            zoomLevel+1.15, 0
                         ]
                     }
                 }
@@ -65,8 +73,6 @@ class HeatMapLayer {
                 id: this.getHeatPointId()+'label'+zoomLevel,
                 type: 'symbol',
                 source: this.heatMapSourceId+zoomLevel,
-                minzoom: zoomLevel,
-                maxzoom: zoomLevel+2,
                 filter: ['all',
                     ['>', 'cases', 0],
                     ['has', 'cases']
@@ -83,7 +89,17 @@ class HeatMapLayer {
                     'symbol-sort-key': ["to-number", ["get", "cases"], 1]
                 },
                 paint: {
-                    "text-color": "rgba(255, 255, 255, 1.0)"
+                    "text-color": "rgba(255, 255, 255, 1.0)",
+                    // Transition by zoom level
+                    'text-opacity': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        zoomLevel-0.15, 0,
+                        zoomLevel, 1,
+                        zoomLevel+1, 1,
+                        zoomLevel+1.15, 0
+                    ]
                 }
             });
         }
@@ -93,7 +109,6 @@ class HeatMapLayer {
                 id: this.getHeatPointId(),
                 type: 'circle',
                 source: this.heatMapSourceId,
-                minzoom: 7,
                 paint: {
                     // Size circle radius by value
                     'circle-radius': [
@@ -109,13 +124,21 @@ class HeatMapLayer {
                         'interpolate',
                         ['linear'],
                         ['get', 'cases'],
-                        0, 'rgba(0,0,0,0.0)',
-                        1, 'rgba(178,24,43,0.8)',
-                        5, 'rgba(178,24,43,0.8)',
-                        10, 'rgba(178,24,43,0.8)',
-                        50, 'rgba(178,24,43,0.85)',
-                        100, 'rgba(178,24,43,0.9)',
-                        300, 'rgba(178,24,43,1.0)'
+                        0, 'rgba(0,0,80,0.0)',
+                        1, 'rgba(178,70,43,0.95)',
+                        5, 'rgba(178,60,43,0.95)',
+                        10, 'rgba(178,50,43,0.95)',
+                        50, 'rgba(178,40,43,0.95)',
+                        100, 'rgba(178,30,43,0.95)',
+                        300, 'rgba(178,24,43,0.95)'
+                    ],
+                    // Transition by zoom level
+                    'circle-opacity': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        6.85, 0,
+                        7, 1
                     ]
                 }
             }
@@ -125,7 +148,6 @@ class HeatMapLayer {
             id: this.getHeatPointId()+'label',
             type: 'symbol',
             source: this.heatMapSourceId,
-            minzoom: 7,
             filter: ['all',
                 ['>', 'cases', 0],
                 ['has', 'cases']
@@ -142,7 +164,15 @@ class HeatMapLayer {
                 'symbol-sort-key': ["to-number", ["get", "cases"], 1]
             },
             paint: {
-                "text-color": "rgba(255, 255, 255, 1.0)"
+                "text-color": "rgba(255, 255, 255, 1.0)",
+                // Transition by zoom level
+                'text-opacity': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    6.85, 0,
+                    7, 1
+                ]
             }
         });
 
