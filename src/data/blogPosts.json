@@ -2,6 +2,29 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "Weekly Fitness: DIY Home Gym Equipment",
+            "media": "https://i.imgur.com/ydF88pO.jpg",
+            "summary": "Today we have another weekly fitness blog. You'll learn all about setting up some DIY gym equipment to use in your workouts!",
+            "date": "14/05/2020", 
+            "text": {
+                "text_1": [
+                    "On a positive note, restrictions in many states have started loosening this week. However, gyms across the country are still closed, and gym junkies like me are getting increasingly restless. This week, our focus will be on DIY projects at home that you can work on yourself to get your gym fix. This process definitely requires the most hassle, but can pay high dividends! There have been plenty of DIY projects circulating online, and we’re here to share a few good ones that we’ve seen.",
+                    "<strong>Chin-up bar:</strong><br />If you have a free patch of grass outside, plant two same size wooden poles approximate a metre apart, and stick a metal pole on the top. <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://youtu.be/S1lEjdXfoVE'>Here's</a> a fairly well explained video that you can imitate.",
+                    "<strong>Barbells and weights:</strong><br />"
+                ],
+                "ulist_1": [
+                    "<strong>Kettle Bell:</strong> An easy way to make DIY kettle bells are to use shipping bags. Fill them up with heavy content such as rice or sand, then add duct take across the weight to reinforce the strength. Attach a rope to the top and firmly tape it down.",
+                    "<strong>Dumbbell:</strong> You can use either a strong PVC scrap tube or a metal pole as handles. Make a mould in the rough shape of a dumbbell weight, and put wet concrete in it. Put the handle in, and wait it to set. Repeat for the otherside until you have a home-made dumbbell! This process can definitely be long and tiresome, but as gyms probably won’t be opening for a while, it is worth the effort! These steps can be applied in the same fashion for barbells, but a metal pole instead of a PVC pole is highly recommended."
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "<strong>Lat pull down:</strong><br />This one probably requires the most work to build, and a few tools are required to get it up and running. <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://youtu.be/up1-7i8OVDM'>Here's</a> a comprehensive video guide on how to build one if you have the time and effort to spare!",
+                    "Hopefully the last few weeks have inspired a few of you to try different workouts from home given the closure of most people’s access to gym and exercise facilities!"
+                ]
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "COVID-19's impact on the ecoonomy",
             "media": "https://i.imgur.com/jXGH4b5.png",
             "summary": "Today’s blog post takes a look at the impact of COVID-19 on the Australian economy.",

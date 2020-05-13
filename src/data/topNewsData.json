@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/australia-appoints-first-deputy-chief-medical-officer-for-mental-health-as-part-of-coronavirus-response",
+            "title": "Australia appoints first deputy chief medical officer for mental health as part of coronavirus response",
+            "source": "SBSNews",
+            "date": "13 May 2020",
+            "time": "14:12",
+            "summary": "Australia has a new mental health official to help prevent a spike in suicides related to the coronavirus. Former chief psychiatrist of Victoria Ruth Vine has been appointed as the country's first deputy chief medical officer for mental health. Professor Vine will listen to community concerns and provide advice to the federal government, with a focus on anxiety linked to social distancing and economic stress. Health Minister Greg Hunt announced the appointment on Wednesday, saying the COVID-19 pandemic, bushfires and drought had affected Australians' mental health."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-13/australia-coronavirus-kawasaki-disease-illness-advice/12241330",
+            "title": "Government requests advice on link between coronavirus and illness resembling Kawasaki disease in children",
+            "source": "ABCNews",
+            "date": "13 May 2020",
+            "time": "18:11",
+            "summary": "The Federal Government is requesting urgent advice about a mystery illness that has killed at least three children in the United States, including on whether the condition could be linked to COVID-19. The inflammatory condition, which resembles Kawasaki disease or toxic shock syndrome, has been noted in children in the United Kingdom, Italy and the US, where 70 children have been diagnosed with it in New York. No conclusive link between the inflammatory illness and COVID-19 has been made by scientists, and while it has appeared in some children who have COVID-19, other children diagnosed with the condition have not tested positive for coronavirus. Health Minister Greg Hunt said officials were keen to learn more about the illness, but stressed there were no known cases in Australia."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-13/church-in-australia-selling-bleach-coronavirus-treatment-fined/12242150",
+            "title": "Church in Australia selling bleach as a coronavirus treatment fined $151,200",
+            "source": "ABCNews",
+            "date": "13 May 2020",
+            "time": "17:09",
+            "summary": "The Australian chapter of an international church selling and promoting bleach as a cure for COVID-19 has been issued infringement notices totalling $151,200. The Genesis II Church of Health and Healing has been claiming chlorine dioxide is a \"miracle cure\". For years it has sold the industrial bleach as Miracle Mineral Solution (MMS), stating it can cure things like autism, acne, cancer, diabetes and now COVID-19.  Following an investigation by 7.30 last week, the Therapeutic Goods Administration today announced it had issued 12 infringement notices totalling $151,200 to MMS Australia for alleged unlawful advertising of Miracle Mineral Solution and other medicines. "
+        },
+        {
             "link": "https://www.sbs.com.au/news/coronavirus-restrictions-to-cut-50-billion-from-australia-s-economy-josh-frydenberg-says",
             "title": "Coronavirus restrictions to cut $50 billion from Australia's economy, Josh Frydenberg says",
             "source": "SBSNews",
@@ -135,30 +159,6 @@
             "date": "6 May 2020",
             "time": "11:54",
             "summary": "Prime Minister Scott Morrison says the herd immunity approach to dealing with the COVID-19 virus is a \"death sentence.\" Mr Morrison once again praised Australia's response to the coronavirus crisis, saying we've done very well compared to other nations. The Prime Minister also questioned the aggressive interrogation of a New South Wales health official at the Ruby Princess inquiry yesterday. Furthermore, the Prime Minister said he will continue to push for a global inquiry into the origins of COVID-19."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/government-releases-proposed-laws-to-underpin-privacy-protections-for-covidsafe-app",
-            "title": "Government releases proposed laws to underpin privacy protections for COVIDSafe app",
-            "source": "SBSNews",
-            "date": "5 May 2020",
-            "time": "08:54",
-            "summary": "The government has released a draft of its legislative backing to privacy and data protections for the COVIDSafe tracing app. It proposes to make it illegal for anyone to refuse a person without the app entry to a public place, ban them from an activity or refuse to buy or sell goods and services to them.The legislation would also make it an offence to access the data without proper authorisation and for the data to be stored anywhere outside of Australia, and says records of the Bluetooth \"handshakes\" a user's phone makes with people they come in close contact with must be deleted after 21 days or upon request. All offences have a maximum penalty of five years in jail, a $63,00 fine or both."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/scott-morrison-wants-to-get-one-million-australians-back-to-work ",
-            "title": "Scott Morrison maps out Australia's path back to work",
-            "source": "SBSNews",
-            "date": "5 May 2020",
-            "time": "15:53",
-            "summary": "Australia has succeeded in containing the coronavirus outbreak but now needs to flatten a new \"curve\" of unemployment, Prime Minister Scott Morrison says. \"We now need to get one million Australians back to work, that is the curve we need to address,\" Mr Morrison said. \"As long as these restrictions are in place, they are costing our economy some $4 billion each week ... it certainly puts enormous pressure, as it should, on the timetable as we seek to move Australia back to that safe economy.\""
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-coles-to-extend-trading-hours-as-panic-buying-eases/42114a8e-6fba-437b-8354-d94e865e3510",
-            "title": "Coles extends trading hours as panic-buying eases",
-            "source": "9News",
-            "date": "5 May 2020",
-            "time": "08:28",
-            "summary": "Coles will extend trading hours at the majority of its stores. Almost 200 stores will begin trading from 6am, the supermarket giant confirmed this morning. The news comes as panic-buying across the country eases and stores begin replenishing empty shelves. Coles Chief Operations Officer, Matt Swindells said more stock on shelves and improved customer behaviour meant dedicated community hours could also be lifted."
         }
     ]
 }

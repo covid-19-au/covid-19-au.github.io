@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/government-releases-proposed-laws-to-underpin-privacy-protections-for-covidsafe-app",
+            "title": "Government releases proposed laws to underpin privacy protections for COVIDSafe app",
+            "source": "SBSNews",
+            "date": "5 May 2020",
+            "time": "08:54",
+            "summary": "The government has released a draft of its legislative backing to privacy and data protections for the COVIDSafe tracing app. It proposes to make it illegal for anyone to refuse a person without the app entry to a public place, ban them from an activity or refuse to buy or sell goods and services to them.The legislation would also make it an offence to access the data without proper authorisation and for the data to be stored anywhere outside of Australia, and says records of the Bluetooth \"handshakes\" a user's phone makes with people they come in close contact with must be deleted after 21 days or upon request. All offences have a maximum penalty of five years in jail, a $63,00 fine or both."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/scott-morrison-wants-to-get-one-million-australians-back-to-work ",
+            "title": "Scott Morrison maps out Australia's path back to work",
+            "source": "SBSNews",
+            "date": "5 May 2020",
+            "time": "15:53",
+            "summary": "Australia has succeeded in containing the coronavirus outbreak but now needs to flatten a new \"curve\" of unemployment, Prime Minister Scott Morrison says. \"We now need to get one million Australians back to work, that is the curve we need to address,\" Mr Morrison said. \"As long as these restrictions are in place, they are costing our economy some $4 billion each week ... it certainly puts enormous pressure, as it should, on the timetable as we seek to move Australia back to that safe economy.\""
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-coles-to-extend-trading-hours-as-panic-buying-eases/42114a8e-6fba-437b-8354-d94e865e3510",
+            "title": "Coles extends trading hours as panic-buying eases",
+            "source": "9News",
+            "date": "5 May 2020",
+            "time": "08:28",
+            "summary": "Coles will extend trading hours at the majority of its stores. Almost 200 stores will begin trading from 6am, the supermarket giant confirmed this morning. The news comes as panic-buying across the country eases and stores begin replenishing empty shelves. Coles Chief Operations Officer, Matt Swindells said more stock on shelves and improved customer behaviour meant dedicated community hours could also be lifted."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-04/new-zealand-pm-to-join-australian-covid-19-cabinet-talks/12211878",
             "title": "Jacinda Ardern says travel with Australia amid coronavirus pandemic could have 'huge advantages'",
             "source": "ABCNews",
