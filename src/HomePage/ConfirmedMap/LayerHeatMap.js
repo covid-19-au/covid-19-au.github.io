@@ -26,7 +26,30 @@ class HeatMapLayer {
         var divBy = parseFloat(maxMin['max']);
         var radiusDivBy = divBy / 40;
 
-        for (var zoomLevel of [3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
+        for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
+            var opacity;
+            if (zoomLevel === 2) {
+                opacity = [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    0, 1,
+                    zoomLevel + 1, 1,
+                    zoomLevel + 1.15, 0
+                ];
+            }
+            else {
+                opacity = [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    zoomLevel - 0.15, 0,
+                    zoomLevel, 1,
+                    zoomLevel + 1, 1,
+                    zoomLevel + 1.15, 0
+                ];
+            }
+
             var heatCirclesLayer = map.addLayer(
                 {
                     'id': this.getHeatPointId()+zoomLevel,
@@ -56,15 +79,7 @@ class HeatMapLayer {
                             300, 'rgba(178,24,43,0.9)'
                         ],
                         // Transition by zoom level
-                        'circle-opacity': [
-                            'interpolate',
-                            ['linear'],
-                            ['zoom'],
-                            zoomLevel-0.15, 0,
-                            zoomLevel, 1,
-                            zoomLevel+1, 1,
-                            zoomLevel+1.15, 0
-                        ]
+                        'circle-opacity': opacity
                     }
                 }
             );
@@ -91,15 +106,7 @@ class HeatMapLayer {
                 paint: {
                     "text-color": "rgba(255, 255, 255, 1.0)",
                     // Transition by zoom level
-                    'text-opacity': [
-                        'interpolate',
-                        ['linear'],
-                        ['zoom'],
-                        zoomLevel-0.15, 0,
-                        zoomLevel, 1,
-                        zoomLevel+1, 1,
-                        zoomLevel+1.15, 0
-                    ]
+                    'text-opacity': opacity
                 }
             });
         }
@@ -117,7 +124,7 @@ class HeatMapLayer {
                         ['/', ['get', 'cases'], divBy],
                         0, 0,
                         0.00000001, 10,
-                        1, 50
+                        1, 40
                     ],
                     // Color circle by value
                     'circle-color': [
@@ -187,7 +194,7 @@ class HeatMapLayer {
         map.removeLayer(this.getHeatPointId());
         map.removeLayer(this.getHeatPointId()+'label');
 
-        for (var zoomLevel of [3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
+        for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
             map.removeLayer(this.getHeatPointId()+'label'+zoomLevel);
             map.removeLayer(this.getHeatPointId()+zoomLevel);
         }

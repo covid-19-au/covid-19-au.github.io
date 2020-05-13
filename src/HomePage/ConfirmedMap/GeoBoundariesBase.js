@@ -174,6 +174,10 @@ class JSONGeoBoundariesBase {
                 tolerance: MAPBOX_TOLERANCE
             });
 
+            this.pointGeoJSONDataZoom2 = this.geoBoundaryCentralPoints
+                ._getModifiedGeoJSONWithPointsJoined(
+                    this.pointGeoJSONData, 2
+                );
             this.pointGeoJSONDataZoom3 = this.geoBoundaryCentralPoints
                 ._getModifiedGeoJSONWithPointsJoined(
                     this.pointGeoJSONData, 3
@@ -191,6 +195,11 @@ class JSONGeoBoundariesBase {
                     this.pointGeoJSONData, 6
                 );
 
+            this.map.addSource(this.getHeatmapSourceId(dataSource, 2), {
+                type: 'geojson',
+                data: this.pointGeoJSONDataZoom2,
+                tolerance: MAPBOX_TOLERANCE
+            });
             this.map.addSource(this.getHeatmapSourceId(dataSource, 3), {
                 type: 'geojson',
                 data: this.pointGeoJSONDataZoom3,

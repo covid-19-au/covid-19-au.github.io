@@ -14,7 +14,7 @@ class GeoBoundaryCentralPoints {
         var zoomMap = {
             // I have no idea if these are right...
             //1: 3.0,
-            //2: 0.8,
+            2: 5.0,
             3: 2.2, // around 2.0 seems a good value - don't touch!
             4: 0.7,
             5: 0.35,
