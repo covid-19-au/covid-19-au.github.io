@@ -865,34 +865,116 @@
         {
             "name": "Tasmania",
             "text": {
-                "text_1": [
-                    "Individuals are only allowed to leave their homes for essential reasons and gatherings limited to two people. Reason for Tasmanians to go out in public include:"
+                "customText": [
+                    {
+                        "paraText": [
+                            "From May :"
+                        ],
+                        "pointText": [
+                            "Mourners at funerals can increase from 10 to 20 people",
+                            "Aged care visits can begin with one visit a week with no more than two visitors",
+                            "You will be able to visit national parks and reserves that are within 30 kilometres of your home for exercise",
+                            "TasTAFE campuses open for invited small groups for practical learning and assessments"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From May 18:"
+                        ],
+                        "pointText": [
+                            "Indoor and outdoor gatherings can increase to 10 people, including for realestate purposes, small religious groups, and weddings, but household gatherings are still limited to five visitors. Funerals can extend to 30 attendees outdoors",
+                            "Restaurants and cafes can open and seat up to 10 people at a time with table service and social distancing",
+                            "Border controls remain in place, but Tasmanian residents can quarantine intheir residence if it is suitable",
+                            "Libraries and local community facilities will open for up to 10 people",
+                            "Park exercise equipment and playgrounds, pools and boot camps will openfor up to 10 people"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From May 25:"
+                        ],
+                        "pointText": [
+                            "Kindergarten to year six students return to learning at school",
+                            "Year 11 and 12 students at extension schools and colleges return to learning at schoo",
+                            "Aged care moves to be inline with national restrictions allowing two visitors once a day."
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From June 9:"
+                        ],
+                        "pointText": [
+                            "High school students from years seven to 10 return to learning at school"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From June 13:"
+                        ],
+                        "pointText": [
+                            "Racing will resume, subject to a review and risk-assessment by Public Health"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From June 15:"
+                        ],
+                        "pointText": [
+                            "Gatherings increase to 20 people at a time for indoor and outdoor, including restaurants/cafes, cinemas, museums, galleries, historic sites, religious gatherings and weddings",
+                            "Visitors to households will be reviewed",
+                            "Funerals increase to up to 50 people",
+                            "Accommodation is \"unlimited\"",
+                            "Camping, overnight boating and visits to shacks are allowed",
+                            "Open homes and auctions can resume with 20 people",
+                            "Border controls remain in place",
+                            "Gyms and boot camps for up to 20 people",
+                            "Beauty services (including tattoo, nails, waxing, facials and tanning) can resume for up to 20 people",
+                            "Park exercise equipment and playgrounds will open for up to 20 people",
+                            "Outdoor community sport to resume, with up to 20 athletes and personnel",
+                            "Indoor sport and recreation, including pools with up to 20 people, can reopen without spectators"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From July 13:"
+                        ],
+                        "pointText": [
+                            "Indoor and outdoor maximum gathering limits will increase, with the maximum allowable number to be determined by Public Health",
+                            "Aged care residents will be allowed five visitors and multiple visits",
+                            "Border controls remain in place",
+                            "The Government will consider opening bars, night clubs and casinos and gaming",
+                            "Markets will open subject to Public Health advice",
+                            "Food courts and food vans at markets may open",
+                            "Spas and bathhouses will reopen",
+                            "Day trips and camping for school groups will be allowed",
+                            "Outdoor community sport to resume, with numbers to be guided by Public Health",
+                            "Indoor sport and recreation, including pools with numbers to be guided by Public Health"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "Travel:"
+                        ],
+                        "pointText": [
+                            "As of Monday, May 11, Tasmanians will be able to visit national parks and reserves within 30 kilometres of their home for exercise. ",
+                            "During step 1,which is set to be on June 15, accommodation including \"camping, overnight boating and shacks\" will be reopen for up to 20 people.",
+                            "There are currently no plans to ease the state's tight border restrictions at any point during the currently scheduled three steps. The third step is set to begin on July 13 with \"border controls remaining in place\"."
+                        ]
+                    }
                 ],
-                "ulist_1": [
-                    "Shopping for supplies",
-                    "Undertaking personal exercise",
-                    "Attending medical or healthcare appointments",
-                    "Seeking veterinary services",
-                    "Providing social support or care to another person",
-                    "Attending school or study, if unable to be done at home",
-                    "Attending work or volunteering, if unable to be done at home",
-                    "Performing essential maintenance or security inspections of other premises owned or occupied by the person",
-                    "Attending another location if the person has a reasonableexcuse (such as clearing out a recently deceased relative’s house) in the opinion of the director of public health"
-                ],
-                "text_middle": [
-                    "Tasmania also restricts gatherings of more than two people inside and outside the home, but they have a broad definition of “social support”. This allows families and couples who live apart to visit one another’s homes. Households are allowed to have two visitors as long as physical distancing requirements can be met.",
-                    "Tasmania also requires that all non-essential travellers enteringthe state quarantine for a period of 14 days."
-                ],
+                "text_1": [],
+                "ulist_1": [],
+                "text_middle": [],
                 "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
-                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
-                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                        "link": "https://www.abc.net.au/news/2020-05-08/what-can-you-do-in-tasmania-as-coronavirus-restrictions-ease/12229696",
+                        "name": "Tasmania's cautious plan to reopen as the coronavirus crisis continues - ABC News"
                     }
                 ]
             },
-            "lastUpdated": "29 April 2020"
+            "lastUpdated": "11 May 2020"
         },
         {
             "name": "Australian Capital Territory",
