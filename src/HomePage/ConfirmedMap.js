@@ -52,7 +52,8 @@ class MbMap extends React.Component {
         this.accuracyWarning = React.createRef();
 
         this.statesAndTerritories = [
-            'act', 'nsw', 'vic', 'tas', 'wa', 'nt', 'qld', 'sa'
+            // note act is last, so it's drawn first
+            'nsw', 'vic', 'tas', 'wa', 'nt', 'qld', 'sa', 'act'
         ];
     }
 
@@ -232,7 +233,7 @@ class MbMap extends React.Component {
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
             zoom: zoom,
-            maxZoom: 9,
+            maxZoom: 9.5,
             maxBounds: bounds // Sets bounds as max
         });
 
@@ -483,11 +484,6 @@ class MbMap extends React.Component {
             for (var i = 0; i < insts.length; i++) {
                 //console.log(`Enable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
 
-                insts[i].addHeatMap(
-                    dataSource,
-                    dataSource.schema === 'statewide' ?
-                        stateWideMaxMin : otherMaxMin
-                );
                 insts[i].addLinePoly(dataSource);
 
                 insts[i].addFillPoly(
@@ -497,6 +493,12 @@ class MbMap extends React.Component {
                     !!this.state._underlay,
                     true
                 );
+
+                insts[i].addHeatMap(
+                    dataSource,
+                    dataSource.schema === 'statewide' ?
+                        stateWideMaxMin : otherMaxMin
+                );
             }
         };
         var enableNonLGAInst = (dataSource, otherInst, lgaInst) => {
@@ -504,11 +506,6 @@ class MbMap extends React.Component {
             // (e.g. Queensland HHS/ACT SA3)
             //console.log(`Enable non-lga inst: dataSource->${dataSource.schema}:${dataSource.stateName} otherInst->${otherInst.schema}:${otherInst.stateName} ${otherInst} ${lgaInst}`);
 
-            otherInst.addHeatMap(
-                dataSource,
-                dataSource.schema === 'statewide' ?
-                    stateWideMaxMin : otherMaxMin
-            );
             otherInst.addLinePoly(dataSource,'rgba(0, 0, 0, 1.0)');
 
             otherInst.addFillPoly(
@@ -533,6 +530,12 @@ class MbMap extends React.Component {
                     //fillPoly['fillPolyId']
                 );
             }
+
+            otherInst.addHeatMap(
+                dataSource,
+                dataSource.schema === 'statewide' ?
+                    stateWideMaxMin : otherMaxMin
+            );
         };
 
         if (this.state._markers === 'status_active' ||

@@ -81,7 +81,7 @@ class DaysSinceMap extends React.Component {
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
             zoom: zoom,
-            maxZoom: 9,
+            maxZoom: 9.5,
             maxBounds: bounds // Sets bounds as max
         });
 
