@@ -2,6 +2,23 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "Sports in Australia post COVID-19",
+            "media": "https://i.imgur.com/Vsb9wOF.png",
+            "summary": "Professional sports have all shut down since the start of the pandemic. What will the state of sport be like when this is all over? Read our blog to find out.",
+            "date": "16/05/2020", 
+            "text": {
+                "text_1": [
+                    "As restrictions ease around the country and life begins its return to normality, many Australians will look forward to domestic sporting competitions resuming. With some state borders remaining closed or with mandatory quarantine procedures for those entering, a restart for domestic competition faces some challenges. Some of the nation’s biggest sporting codes have sought alternative arrangements to allow for their return.",
+                    "Both the AFL and NRL have announced plans to resume their seasons. The NRL plan to begin on May 28, with fixtures to be held at locations in NSW and QLD. This is aided by the New Zealand Warriors being permitted to relocate to Queensland to allow the competition to function in its entirety. The AFL has announced intentions to resume their season on June 11, with the West Coast Eagles, Fremantle Dockers, Port Adelaide Power and Adelaide Crows all relocating to the Gold Coast to allow them to compete. Both competitions are enforcing strict testing procedures and will release their fixtures gradually to allow for flexibility in the event of changing circumstances.",
+                    "Other sporting codes such as Super Rugby, A-League Soccer, and cricket are yet to officially announce a restart. What remains clear now is that it is highly unlikely we will see crowds at sporting matches for some time – if at all – this year. Despite this, there is no doubt the restart of some sporting competitions will excite fans all around the country and continue to help the transition back to some sense of normality."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "Weekly Fitness: DIY Home Gym Equipment",
             "media": "https://i.imgur.com/ydF88pO.jpg",
             "summary": "Today we have another weekly fitness blog. You'll learn all about setting up some DIY gym equipment to use in your workouts!",
