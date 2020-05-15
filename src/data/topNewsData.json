@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://7news.com.au/travel/international-travel-wont-return-to-normal-until-2023-despite-coronavirus-restrictions-lifted-in-australia-c-1037270",
+            "title": "International travel won’t return to normal until 2023 despite coronavirus restrictions lifted in Australia",
+            "source": "7News",
+            "date": "15 May 2020",
+            "time": "17:03",
+            "summary": "International travel has been severely impacted by the coronavirus pandemic and won’t return to normal until 2023. The International Air Transport Association (IATA), based in Geneva, has released new data showing how the pandemic has affected air travel and when it’s expected to recover. The new data revealed long-haul, international travel was the most severely impacted area of air travel and will take years to recover. They suggested that if international markets open, levels of global passenger demand next year are expected to be 24 per cent lower than 2019 levels. Furthermore, an IATA survey conducted in April revealed that 58 percent of recent travellers are likely to initially travel domestically."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-15/national-cabinet-prime-minister-scott-morrison-coronavirus/12252754 ",
+            "title": "Coronavirus restrictions successfully being eased, domestic holidays may be back on cards by July, Scott Morrison says",
+            "source": "ABCNews",
+            "date": "15 May 2020",
+            "time": "17:33",
+            "summary": "Prime Minister Scott Morrison says domestic holidays are on the horizon - hopefully by July - as Australia continues along the road back from coronavirus restrictions. He said all states and territories were moving through stage one of eased restrictions successfully, one week after National Cabinet agreed on a three-stage approach to lift restrictions. Mr Morrison said as restrictions ease, \"borders will fall\" across Australia, opening the domestic tourism market to potentially billions of dollars in business."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-15/victoria-coronavirus-cases-rise-by-20-mcdonalds-cedar-meats/12251762",
+            "title": "Victoria records another 21 coronavirus cases as McDonald's and Cedar Meats outbreaks grow",
+            "source": "ABCNews",
+            "date": "15 May 2020",
+            "time": "18:32",
+            "summary": "A second McDonald's outlet has closed for cleaning in Melbourne after a worker was diagnosed with COVID-19, as Victoria recorded 21 new coronavirus cases. In a statement, the fast food giant said its Craigieburn store had been closed for cleaning and staff were advised to self-quarantine for 14 days and get tested after the worker tested positive. It came as the state's total number of coronavirus cases rose by 21, including two new cases which were linked to the Fawkner McDonald's franchise. The outbreak at the Fawkner outlet is now linked to 10 of the state's COVID-19 cases, while the cluster at the Cedar Meats Australia abattoir in Brooklyn is linked to 91 infections."
+        },
+        {
             "link": "https://www.theguardian.com/business/2020/may/14/unemployment-rate-in-australia-jumps-to-62-due-to-covid-19-as-600000-jobs-lost",
             "title": "Unemployment rate in Australia jumps to 6.2% due to Covid-19 as 600,000 jobs lost ",
             "source": "TheGuardian",
@@ -127,22 +151,6 @@
             "date": "8 May 2020",
             "time": "14:44",
             "summary": "Employers could be held liable for workers who contract coronavirus on the job, lawyers say. As restrictions ease and workers prepare to return to offices, employers are being warned they need to adhere to the health guidelines or they face serious legal trouble. Maurice Blackburn principal lawyer Liberty Sanger said even in a pandemic, employers must provide a safe workplace and if they ignore hygiene and social distancing guidelines, they could be sued by employees who suffer long-term impacts."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-07/coronavirus-queensland-easing-restrictions-mothers-day/12218690",
-            "title": "Coronavirus distancing restrictions to ease across Queensland for Mother's Day",
-            "source": "ABCNews",
-            "date": "7 May 2020",
-            "time": "14:00",
-            "summary": "Queensland will again ease COVID-19 contact restrictions from Mother's Day this Sunday to allow up to five members from one household to visit another home. Multiple families can visit the same household as long as it is at different times. Chief Medical Officer Jeannette Young said the 50-kilometre limit on travel would also be lifted \"if you're visiting another household\". \"But you can't go out into that community. You can only go to that residence, visit there, and leave,\" Dr Young said."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-07/sa-ends-coronavirus-free-streak-with-new-case/12225130",
-            "title": "South Australia ends 14-day coronavirus-free streak with new case contracted in UK",
-            "source": "ABCNews",
-            "date": "7 May 2020",
-            "time": "16:00",
-            "summary": "South Australia has recorded its first new coronavirus case in a fortnight after a man who returned from the United Kingdom in March tested positive. SA Health believes the man in his 70s acquired COVID–19 overseas, but developed \"very mild\" symptoms, including a loss of taste and smell sensations, after his return on March 20. The latest diagnosis brings the total number of positive coronavirus cases in the state to 439."
         }
     ]
 }

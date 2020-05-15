@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-07/coronavirus-queensland-easing-restrictions-mothers-day/12218690",
+            "title": "Coronavirus distancing restrictions to ease across Queensland for Mother's Day",
+            "source": "ABCNews",
+            "date": "7 May 2020",
+            "time": "14:00",
+            "summary": "Queensland will again ease COVID-19 contact restrictions from Mother's Day this Sunday to allow up to five members from one household to visit another home. Multiple families can visit the same household as long as it is at different times. Chief Medical Officer Jeannette Young said the 50-kilometre limit on travel would also be lifted \"if you're visiting another household\". \"But you can't go out into that community. You can only go to that residence, visit there, and leave,\" Dr Young said."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-07/sa-ends-coronavirus-free-streak-with-new-case/12225130",
+            "title": "South Australia ends 14-day coronavirus-free streak with new case contracted in UK",
+            "source": "ABCNews",
+            "date": "7 May 2020",
+            "time": "16:00",
+            "summary": "South Australia has recorded its first new coronavirus case in a fortnight after a man who returned from the United Kingdom in March tested positive. SA Health believes the man in his 70s acquired COVID–19 overseas, but developed \"very mild\" symptoms, including a loss of taste and smell sensations, after his return on March 20. The latest diagnosis brings the total number of positive coronavirus cases in the state to 439."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-06/coronavirus-numbers-raise-covid19-growth-factor/12217846",
             "title": "Coronavirus numbers have put Australia's growth factor back above one — should we be worried?",
             "source": "ABCNews",
