@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/more-than-one-million-australians-tested-for-coronavirus-but-authorities-warn-pandemic-isn-t-over",
+            "title": "More than one million Australians tested for coronavirus, but authorities warn pandemic isn't over",
+            "source": "SBSNews",
+            "date": "16 May 2020",
+            "time": "17:27",
+            "summary": "Australia has now surpassed more than one million COVID-19 tests since the start of the pandemic. While COVID-19 restrictions are being loosened around Australia, health authorities continue to warn against complacency. Deputy Chief Medical Officer Michael Kidd said Australians over 70 and those who are immunocompromised or have other health problems should still stay at home apart from essential outings. He also warned that it's important Australians are adhering to physical distancing measures so that there will not be a resurgence of COVID-19."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/sa-pledges-1-million-package-for-coronavirus-hit-musicians-and-venues",
+            "title": "SA pledges $1 million package for coronavirus-hit musicians and venues",
+            "source": "SBSNews",
+            "date": "16 May 2020",
+            "time": "17:26",
+            "summary": "South Australian artists, bands and live music venues hit hard by the COVID-19 pandemic will receive state government support with a $1 million package. The Music Development Office Project will help musicians who write and perform original music as well as local businesses who support those artists' development, delivery or production. Grants up to $5,000 are available to artists while music businesses can apply for up to $20,000."
+        },
+        {
+            "link": "https://www.watoday.com.au/national/victoria/melbourne-s-west-a-covid-19-hotspot-as-clusters-continue-to-grow-20200516-p54tlq.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Melbourne's west a COVID-19 hotspot as clusters continue to grow",
+            "source": "WAToday",
+            "date": "16 May 2020",
+            "time": "14:37",
+            "summary": "Melbourne’s inner north-west is emerging as the state’s new coronavirus red zone, government data shows. After outbreaks in McDonald’s restaurants in Craigieburn and Fawkner, as well as the huge and still-growing cluster at Cedar Meats, health department data shows the council areas of Hume and Brimbank now make up a quarter of Melbourne’s active cases. Brimbank takes in parts of Brooklyn, the suburb where the Cedar Meats meat-processing plant linked to 98 cases of COVID-19 so far is located. The council area has 14 active cases of COVID-19 as of Saturday afternoon, the most in the state."
+        },
+        {
             "link": "https://7news.com.au/travel/international-travel-wont-return-to-normal-until-2023-despite-coronavirus-restrictions-lifted-in-australia-c-1037270",
             "title": "International travel won’t return to normal until 2023 despite coronavirus restrictions lifted in Australia",
             "source": "7News",
@@ -127,30 +151,6 @@
             "date": "9 May 2020",
             "time": "15:11",
             "summary": "While Prime Minister Scott Morrison has made it very clear that any hopes of an overseas adventure should be shelved for \"the foreseeable future\", the prospects for regional and interstate travel are more promising. As each state and territory unveils its individual plans, in line with the Federal Government's three-step framework announced on Friday, the road back to domestic travel becomes slightly clearer. There's still much to be decided, and a number of states are yet to lay out their plans. This article outlines all the information about the regional and interstate travel plans in each state and territory that has been released so far."
-        },
-        {
-            "link": "https://www.theguardian.com/world/2020/may/08/the-three-step-plan-to-relax-restrictions-and-reopen-australia-after-coronavirus-crisis",
-            "title": "The three-step plan for reopening Australia after Covid-19 and what Stage 1, 2 and 3 looks like ",
-            "source": "TheGuardian",
-            "date": "8 May 2020",
-            "time": "15:22",
-            "summary": "Scott Morrison and the chief medical officer, Brendan Murphy, have laid out a three-step plan to reopen Australia after the coronavirus crisis. Morrison said he hoped step three could be achieved in July, but it would be up to each state and territory when they moved from one step to the next."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/federal-government-delays-banking-royal-commission-reforms-due-to-pandemic",
-            "title": "Federal government delays banking royal commission reforms due to pandemic",
-            "source": "SBSNews",
-            "date": "8 May 2020",
-            "time": "15:04",
-            "summary": "Misbehaving bankers and financiers have been given a six-month reprieve as a result of the coronavirus pandemic. The Morrison government has delayed the implementation of commitments associated with the banking royal commission so lenders can concentrate on addressing the COVID-19 crisis. The new timeline will see legislation scheduled for introduction before 30 June, moved to December 2020, and measures originally set for implementation by December shifted to June 2021."
-        },
-        {
-            "link": "https://www.watoday.com.au/national/employers-could-be-held-liable-for-workers-who-contract-covid-19-20200508-p54r7e.html?ref=rss&utm_medium=rss&utm_source=rss_national",
-            "title": "Employers could be held liable for workers who contract COVID-19",
-            "source": "WAToday",
-            "date": "8 May 2020",
-            "time": "14:44",
-            "summary": "Employers could be held liable for workers who contract coronavirus on the job, lawyers say. As restrictions ease and workers prepare to return to offices, employers are being warned they need to adhere to the health guidelines or they face serious legal trouble. Maurice Blackburn principal lawyer Liberty Sanger said even in a pandemic, employers must provide a safe workplace and if they ignore hygiene and social distancing guidelines, they could be sued by employees who suffer long-term impacts."
         }
     ]
 }
