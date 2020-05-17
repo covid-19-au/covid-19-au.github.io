@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-17/coronavirus-inquiry-world-health-assembly-china-covid-19/12256910",
+            "title": "Coalition of 62 countries backs joint Australian, EU push for independent inquiry into coronavirus outbreak",
+            "source": "ABCNews",
+            "date": "17 May 2020",
+            "time": "19:00",
+            "summary": "A coalition of 62 countries has backed a joint Australian and European Union push for an independent inquiry into the coronavirus outbreak ahead of a crucial World Health Assembly (WHA) meeting tomorrow in Geneva. Australia was the first nation to call for an independent inquiry into how the coronavirus started. That drew furious condemnation from Beijing, which accused Australia of launching a political attack on China. But international support for the idea has been steadily growing. The Morrison Government has now swung its diplomatic firepower behind the European Union, which has also been pressing for an investigation while taking a more conciliatory line with Beijing."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-17/victoria-coronavirus-cafes-restaurants-pub-dining-to-reopen/12256306",
+            "title": "Victorian cafes, restaurants and pubs to reopen for dining in June in easing of coronavirus restrictions",
+            "source": "ABCNews",
+            "date": "17 May 2020",
+            "time": "18:00",
+            "summary": "Victorians will be allowed to enjoy a meal inside cafes, restaurants and pubs from next month as part of a staged reopening of the hospitality industry, Premier Daniel Andrews has announced. Mr Andrews said the reopening would be subject to "a long and extensive set of rules" covering matters such as cleaning, temperature checks and screening of staff to ensure they were not unwell. Venues will be required to take the contact details of every customer to help with rapid contact tracing. Existing physical distancing requirements will continue to apply, meaning each person will need four square metres of space, and tables will need to be spaced at least 1.5 metres apart."
+        },
+        {
             "link": "https://www.sbs.com.au/news/more-than-one-million-australians-tested-for-coronavirus-but-authorities-warn-pandemic-isn-t-over",
             "title": "More than one million Australians tested for coronavirus, but authorities warn pandemic isn't over",
             "source": "SBSNews",
@@ -143,14 +159,6 @@
             "date": "10 May 2020",
             "time": "12:05",
             "summary": "NSW will further ease COVID-19 restrictions from this Friday, with cafes, restaurants, playgrounds and outdoor pools making the cut for early reopening. Premier Gladys Berejiklian said \"the changes will allow NSW to fire up the economy, while allowing more personal freedoms.\" Notably, NSW residents will be permitted to have outdoor gatherings of up to 10 people, visits to a household of up to five people, while cafes and restaurants can seat 10 patrons at any one time. More details on the restrictions lifted can be found in the article."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-09/how-travel-will-resume-around-australia-coronavirus-restrictions/12231242",
-            "title": "How travel will resume around Australia as coronavirus restrictions ease in each state and territory",
-            "source": "ABCNews",
-            "date": "9 May 2020",
-            "time": "15:11",
-            "summary": "While Prime Minister Scott Morrison has made it very clear that any hopes of an overseas adventure should be shelved for \"the foreseeable future\", the prospects for regional and interstate travel are more promising. As each state and territory unveils its individual plans, in line with the Federal Government's three-step framework announced on Friday, the road back to domestic travel becomes slightly clearer. There's still much to be decided, and a number of states are yet to lay out their plans. This article outlines all the information about the regional and interstate travel plans in each state and territory that has been released so far."
         }
     ]
 }
