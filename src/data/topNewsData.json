@@ -1,188 +1,156 @@
 {
     "weeklyTopNews": [
         {
-            "link": "https://www.abc.net.au/news/2020-05-07/coronavirus-queensland-easing-restrictions-mothers-day/12218690",
-            "title": "Coronavirus distancing restrictions to ease across Queensland for Mother's Day",
-            "source": "ABCNews",
-            "date": "7 May 2020",
-            "time": "14:00",
-            "summary": "Queensland will again ease COVID-19 contact restrictions from Mother's Day this Sunday to allow up to five members from one household to visit another home. Multiple families can visit the same household as long as it is at different times. Chief Medical Officer Jeannette Young said the 50-kilometre limit on travel would also be lifted \"if you're visiting another household\". \"But you can't go out into that community. You can only go to that residence, visit there, and leave,\" Dr Young said."
+            "link": "https://www.sbs.com.au/news/more-than-one-million-australians-tested-for-coronavirus-but-authorities-warn-pandemic-isn-t-over",
+            "title": "More than one million Australians tested for coronavirus, but authorities warn pandemic isn't over",
+            "source": "SBSNews",
+            "date": "16 May 2020",
+            "time": "17:27",
+            "summary": "Australia has now surpassed more than one million COVID-19 tests since the start of the pandemic. While COVID-19 restrictions are being loosened around Australia, health authorities continue to warn against complacency. Deputy Chief Medical Officer Michael Kidd said Australians over 70 and those who are immunocompromised or have other health problems should still stay at home apart from essential outings. He also warned that it's important Australians are adhering to physical distancing measures so that there will not be a resurgence of COVID-19."
         },
         {
-            "link": "https://www.abc.net.au/news/2020-05-07/sa-ends-coronavirus-free-streak-with-new-case/12225130",
-            "title": "South Australia ends 14-day coronavirus-free streak with new case contracted in UK",
-            "source": "ABCNews",
-            "date": "7 May 2020",
-            "time": "16:00",
-            "summary": "South Australia has recorded its first new coronavirus case in a fortnight after a man who returned from the United Kingdom in March tested positive. SA Health believes the man in his 70s acquired COVID–19 overseas, but developed \"very mild\" symptoms, including a loss of taste and smell sensations, after his return on March 20. The latest diagnosis brings the total number of positive coronavirus cases in the state to 439."
+            "link": "https://www.sbs.com.au/news/sa-pledges-1-million-package-for-coronavirus-hit-musicians-and-venues",
+            "title": "SA pledges $1 million package for coronavirus-hit musicians and venues",
+            "source": "SBSNews",
+            "date": "16 May 2020",
+            "time": "17:26",
+            "summary": "South Australian artists, bands and live music venues hit hard by the COVID-19 pandemic will receive state government support with a $1 million package. The Music Development Office Project will help musicians who write and perform original music as well as local businesses who support those artists' development, delivery or production. Grants up to $5,000 are available to artists while music businesses can apply for up to $20,000."
         },
         {
-            "link": "https://www.abc.net.au/news/2020-05-06/coronavirus-numbers-raise-covid19-growth-factor/12217846",
-            "title": "Coronavirus numbers have put Australia's growth factor back above one — should we be worried?",
-            "source": "ABCNews",
-            "date": "6 May 2020",
-            "time": "05:22",
-            "summary": "For the first time in more than a month, the 'growth factor' for COVID-19 cases in Australia has risen above one - it is currently 1.04. That is, there are more new cases this week than there were last week. Put simply, growth factor is a measure of how quickly the number of new cases is rising or falling — and the critical thing to remember is that we want to keep it below one. Catherine Bennett, the chair of epidemiology at Deakin University, says that the importance of this number at this stage in the outbreak is really as a signal that something's changed over the last seven days and what we expect that to be now is probably clusters of cases. She stated that this means that we've got work to do — we've got to make sure that the reason it's above one is well under control."
+            "link": "https://www.watoday.com.au/national/victoria/melbourne-s-west-a-covid-19-hotspot-as-clusters-continue-to-grow-20200516-p54tlq.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Melbourne's west a COVID-19 hotspot as clusters continue to grow",
+            "source": "WAToday",
+            "date": "16 May 2020",
+            "time": "14:37",
+            "summary": "Melbourne’s inner north-west is emerging as the state’s new coronavirus red zone, government data shows. After outbreaks in McDonald’s restaurants in Craigieburn and Fawkner, as well as the huge and still-growing cluster at Cedar Meats, health department data shows the council areas of Hume and Brimbank now make up a quarter of Melbourne’s active cases. Brimbank takes in parts of Brooklyn, the suburb where the Cedar Meats meat-processing plant linked to 98 cases of COVID-19 so far is located. The council area has 14 active cases of COVID-19 as of Saturday afternoon, the most in the state."
         },
         {
-            "link": "https://www.theguardian.com/world/2020/may/06/covidsafe-app-is-not-working-properly-on-iphones-authorities-admit",
-            "title": "Covidsafe app is not working properly on iPhones, authorities admit ",
-            "source": "TheGuardian",
-            "date": "6 May 2020",
+            "link": "https://7news.com.au/travel/international-travel-wont-return-to-normal-until-2023-despite-coronavirus-restrictions-lifted-in-australia-c-1037270",
+            "title": "International travel won’t return to normal until 2023 despite coronavirus restrictions lifted in Australia",
+            "source": "7News",
+            "date": "15 May 2020",
             "time": "17:03",
-            "summary": "Australians running the COVIDSafe contact tracing app on iPhones may not be recording all the data required if they don’t have the app running in the foreground or they are using an older model phone, the government has admitted. More than 5.1 million Australians have downloaded and registered to use the app on iPhone and Android devices, and, while the Android version works while running in the background (ie, not open on the screen), the iPhone version works best when the app is open on the screen and the phone is unlocked."
+            "summary": "International travel has been severely impacted by the coronavirus pandemic and won’t return to normal until 2023. The International Air Transport Association (IATA), based in Geneva, has released new data showing how the pandemic has affected air travel and when it’s expected to recover. The new data revealed long-haul, international travel was the most severely impacted area of air travel and will take years to recover. They suggested that if international markets open, levels of global passenger demand next year are expected to be 24 per cent lower than 2019 levels. Furthermore, an IATA survey conducted in April revealed that 58 percent of recent travellers are likely to initially travel domestically."
         },
         {
-            "link": "https://www.sbs.com.au/news/wa-marks-one-week-without-new-coronavirus-cases",
-            "title": "WA marks one week without new coronavirus cases",
-            "source": "SBSNews",
-            "date": "6 May 2020",
-            "time": "15:24",
-            "summary": "Western Australia has marked one week of no new COVID-19 cases, as the state government expands a study testing asymptomatic people. Only 14 active cases remain in the state, including seven patients in Perth hospitals, while 528 people have recovered. Premier Mark McGowan stated that while the state government was focused on loosening restrictions that would boost the economy and keep people safe, the hard border closure would remain in place for now."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-scott-morrison-covid-19-herd-immunity-death-sentence/c5b1b198-dec6-4547-a909-444f8d92db09",
-            "title": "Prime Minister Scott Morrison labels herd immunity a death sentence ",
-            "source": "9News",
-            "date": "6 May 2020",
-            "time": "11:54",
-            "summary": "Prime Minister Scott Morrison says the herd immunity approach to dealing with the COVID-19 virus is a \"death sentence.\" Mr Morrison once again praised Australia's response to the coronavirus crisis, saying we've done very well compared to other nations. The Prime Minister also questioned the aggressive interrogation of a New South Wales health official at the Ruby Princess inquiry yesterday. Furthermore, the Prime Minister said he will continue to push for a global inquiry into the origins of COVID-19."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/government-releases-proposed-laws-to-underpin-privacy-protections-for-covidsafe-app",
-            "title": "Government releases proposed laws to underpin privacy protections for COVIDSafe app",
-            "source": "SBSNews",
-            "date": "5 May 2020",
-            "time": "08:54",
-            "summary": "The government has released a draft of its legislative backing to privacy and data protections for the COVIDSafe tracing app. It proposes to make it illegal for anyone to refuse a person without the app entry to a public place, ban them from an activity or refuse to buy or sell goods and services to them.The legislation would also make it an offence to access the data without proper authorisation and for the data to be stored anywhere outside of Australia, and says records of the Bluetooth \"handshakes\" a user's phone makes with people they come in close contact with must be deleted after 21 days or upon request. All offences have a maximum penalty of five years in jail, a $63,00 fine or both."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/scott-morrison-wants-to-get-one-million-australians-back-to-work ",
-            "title": "Scott Morrison maps out Australia's path back to work",
-            "source": "SBSNews",
-            "date": "5 May 2020",
-            "time": "15:53",
-            "summary": "Australia has succeeded in containing the coronavirus outbreak but now needs to flatten a new \"curve\" of unemployment, Prime Minister Scott Morrison says. \"We now need to get one million Australians back to work, that is the curve we need to address,\" Mr Morrison said. \"As long as these restrictions are in place, they are costing our economy some $4 billion each week ... it certainly puts enormous pressure, as it should, on the timetable as we seek to move Australia back to that safe economy.\""
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-coles-to-extend-trading-hours-as-panic-buying-eases/42114a8e-6fba-437b-8354-d94e865e3510",
-            "title": "Coles extends trading hours as panic-buying eases",
-            "source": "9News",
-            "date": "5 May 2020",
-            "time": "08:28",
-            "summary": "Coles will extend trading hours at the majority of its stores. Almost 200 stores will begin trading from 6am, the supermarket giant confirmed this morning. The news comes as panic-buying across the country eases and stores begin replenishing empty shelves. Coles Chief Operations Officer, Matt Swindells said more stock on shelves and improved customer behaviour meant dedicated community hours could also be lifted."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-04/new-zealand-pm-to-join-australian-covid-19-cabinet-talks/12211878",
-            "title": "Jacinda Ardern says travel with Australia amid coronavirus pandemic could have 'huge advantages'",
+            "link": "https://www.abc.net.au/news/2020-05-15/national-cabinet-prime-minister-scott-morrison-coronavirus/12252754 ",
+            "title": "Coronavirus restrictions successfully being eased, domestic holidays may be back on cards by July, Scott Morrison says",
             "source": "ABCNews",
-            "date": "4 May 2020",
-            "time": "16:55",
-            "summary": "New Zealand's Prime Minister will tomorrow join the Australian Government's National Cabinet meeting to discuss the proposal. Australia and New Zealand have earned international praise for their success containing the COVID-19 outbreak, and both governments are now seriously contemplating lifting restrictions on flights between the countries. Ms Arden has declared that a trans-Tasman travel bubble would offer \"huge advantages\" as both countries intensify negotiations over possibly opening borders later this year. She would not be drawn on the possible timing, adding that there was no chance of flights resuming in the next few weeks."
+            "date": "15 May 2020",
+            "time": "17:33",
+            "summary": "Prime Minister Scott Morrison says domestic holidays are on the horizon - hopefully by July - as Australia continues along the road back from coronavirus restrictions. He said all states and territories were moving through stage one of eased restrictions successfully, one week after National Cabinet agreed on a three-stage approach to lift restrictions. Mr Morrison said as restrictions ease, \"borders will fall\" across Australia, opening the domestic tourism market to potentially billions of dollars in business."
         },
         {
-            "link": "https://www.brisbanetimes.com.au/national/queensland/queensland-children-to-return-to-classroom-in-two-stages-starting-next-week-20200504-p54pjp.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
-            "title": "Queensland children to return to classroom in two stages - starting next week",
-            "source": "BrisbaneTimes",
-            "date": "4 May 2020",
-            "time": "11:56",
-            "summary": "Community kindy, prep as well as Years 1, 11 and 12 will return to classrooms in Queensland next Monday, May 11, as part of the state government plan to reopen schools in two stages over three weeks. Premier Annastacia Palaszczuk outlined the proposed agenda on Monday, with a reassessment to be done on May 15, before Years 2-10 were due to return to school on Monday, May 25. Chief health officer Dr Jeannette Young said the theory behind the two-stage school reopening was to get the pick-up and drop-off procedures, which were of most concern for potential COVID-19 transmission, perfected with the younger children while there were fewer students around and before the remaining students return."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/scott-morrison-urged-to-extend-coronavirus-assistance-to-one-million-vulnerable-temporary-visa-holders",
-            "title": "Scott Morrison urged to extend coronavirus assistance to one million 'vulnerable' temporary visa holders",
-            "source": "SBSNews",
-            "date": "4 May 2020",
-            "time": "13:00",
-            "summary": "Human rights and advocacy groups say Australia's more than one million temporary visa holders will be at risk of homelessness if the government does not extend its coronavirus relief measures to the most vulnerable. Almost 200 Australian community groups have signed an open letter to Prime Minister Scott Morrison, urging him to include more than one million refugees, asylum seekers and vulnerable communities in the government's coronavirus response. "
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-03/sa-playgrounds-reopen-after-coronavirus-free-streak/12209046",
-            "title": "South Australian playgrounds to reopen after 11-day coronavirus-free streak",
+            "link": "https://www.abc.net.au/news/2020-05-15/victoria-coronavirus-cases-rise-by-20-mcdonalds-cedar-meats/12251762",
+            "title": "Victoria records another 21 coronavirus cases as McDonald's and Cedar Meats outbreaks grow",
             "source": "ABCNews",
-            "date": "3 May 2020",
-            "time": "17:04",
-            "summary": "South Australia's Chief Public Health Officer, Nicola Spurrier, has recommended reopening parks, playgrounds and equipment from today after the state recorded 11 days without a new coronavirus case. Most — but not all — councils taped off playgrounds and fitness outdoor equipment during the pandemic. Dr Spurrier said reopening public play spaces was an indication of the community's efforts to slow the spread of coronavirus."
+            "date": "15 May 2020",
+            "time": "18:32",
+            "summary": "A second McDonald's outlet has closed for cleaning in Melbourne after a worker was diagnosed with COVID-19, as Victoria recorded 21 new coronavirus cases. In a statement, the fast food giant said its Craigieburn store had been closed for cleaning and staff were advised to self-quarantine for 14 days and get tested after the worker tested positive. It came as the state's total number of coronavirus cases rose by 21, including two new cases which were linked to the Fawkner McDonald's franchise. The outbreak at the Fawkner outlet is now linked to 10 of the state's COVID-19 cases, while the cluster at the Cedar Meats Australia abattoir in Brooklyn is linked to 91 infections."
         },
         {
-            "link": "https://www.theguardian.com/australia-news/2020/may/03/flight-centre-waives-cancellation-fees-after-consumer-watchdog-threatens-legal-action",
-            "title": "Flight Centre waives cancellation fees after consumer watchdog threatens legal action ",
+            "link": "https://www.theguardian.com/business/2020/may/14/unemployment-rate-in-australia-jumps-to-62-due-to-covid-19-as-600000-jobs-lost",
+            "title": "Unemployment rate in Australia jumps to 6.2% due to Covid-19 as 600,000 jobs lost ",
             "source": "TheGuardian",
-            "date": "3 May 2020",
-            "time": "14:57",
-            "summary": "The consumer watchdog was preparing to launch court action against Flight Centre for charging $300 fees to process Covid-19 refunds before the company agreed to end the practice. Flight Centre angered many of its customers by charging the $300 fee to each person for each element of their trip that was cancelled due to the pandemic and associated travel restrictions. Flight Centre on Saturday announced it will no longer charge the fee if the travel provider cancels its service. "
+            "date": "14 May 2020",
+            "time": "14:55",
+            "summary": "The jobless rate in Australia has hit the highest level since September 2015, with seasonally adjusted employment falling by 594,300 in April as the economic shock of the coronavirus pandemic cut a swathe through the labour market. Scott Morrison told reporters in Canberra the job losses recorded to date were devastating, and he warned more would follow. The prime minister said the unemployment rate jumping a full percentage point in a month, from 5.2% to 6.2%, was “terribly shocking, although not totally unexpected”."
         },
         {
-            "link": "https://www.abc.net.au/news/2020-05-02/coronavirus-app-currently-not-fully-operational/12208924",
-            "title": "Coronavirus app tracing capability not operational, despite 4 million downloads",
-            "source": "ABCNews",
-            "date": "2 May 2020",
-            "time": "18:55",
-            "summary": "More than 4 million people have downloaded the COVIDSafe app, but the information it collects is not yet available to state and territory health officials. He said the app was already logging users' close contacts, and that information could be accessed at a later date. The app will not be fully functional until states and territories finalise rules on privacy, and final IT testing is conducted."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-02/coronavirus-cluster-melbourne-abbatoir-paramedic-tests-postive/12208560",
-            "title": "Coronavirus cases revealed in Victorian paramedic and cluster of Melbourne abattoir workers",
-            "source": "ABCNews",
-            "date": "2 May 2020",
-            "time": "18:54",
-            "summary": "The number of coronavirus cases in Victoria continues to inch up as a paramedic tests positive to the virus and health authorities investigate a cluster at a meat processing plant. The unnamed Melbourne meat processing plant has been temporarily closed after eight employees tested positive to coronavirus, including three in the past 24 hours. A spokesperson said there was nothing to indicate that the paramedic that tested positive had acquired the virus from patient contact, however, as a precaution, five paramedics who came into contact with them are also in isolation."
-        },
-        {
-            "link": "https://www.brisbanetimes.com.au/national/queensland/public-health-alert-issued-over-new-queensland-coronavirus-case-20200502-p54p88.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
-            "title": "Public health alert issued over new Queensland coronavirus case",
-            "source": "BrisbaneTimes",
-            "date": "2 May 2020",
-            "time": "15:02",
-            "summary": "A plane passenger returning to Brisbane from Melbourne has tested positive to COVID-19 overnight, triggering a public health alert. State health authorities are urgently tracing people the infected traveller was in contact with on Qantas flight QF614 from Melbourne to Brisbane on April 22. Those who travelled in rows 19, 20, 21, 22 and 23 are urged to contact Queensland Health."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/australia-s-aged-care-centres-to-get-205-million-to-stay-open-during-coronavirus-crisis",
-            "title": "Australia's aged care centres to get $205 million to stay open during coronavirus crisis",
-            "source": "SBSNews",
-            "date": "1 May 2020",
-            "time": "16:39",
-            "summary": "Aged care providers will get another $205 million from the federal government to help them keep centres open to visitors during the coronavirus crisis. Providers will receive $900 per occupied bed under the new funding package, with regional centres offered $1,350 per resident. The national cabinet has also released a draft visitor access code, which is open for comment until May 11, to ensure families and carers can visit residents in nursing homes."
-        },
-        {
-            "link": "https://www.theguardian.com/world/2020/may/01/morrison-says-early-mark-of-eased-restrictions-depends-on-uptake-of-covidsafe-tracing-app",
-            "title": "Morrison says 'early mark' of eased restrictions depends on uptake of Covidsafe tracing app ",
+            "link": "https://www.theguardian.com/law/2020/may/14/questions-remain-over-whether-data-collected-by-covidsafe-app-could-be-accessed-by-us-law-enforcement",
+            "title": "Questions remain over whether data collected by Covidsafe app could be accessed by US law enforcement",
             "source": "TheGuardian",
-            "date": "1 May 2020",
-            "time": "18:35",
-            "summary": "Scott Morrison has offered Australians an “early mark” to ease Covid-19 restrictions next week while warning a return to normality will depend on uptake of the Covidsafe contact tracing app. Morrison also revealed that net overseas migration is down 30% and is expected to fall by 80% in 2020-21, both compared with 2018-19, in a sign the economic contraction from Covid-19 will last much longer than restrictions to social life. Treasury officials and the Reserve Bank both estimate that unemployment is set to top 10%."
+            "date": "14 May 2020",
+            "time": "17:14",
+            "summary": "The federal government has reassured the public that Covidsafe data held by Amazon will not be able to be accessed by US law enforcement, but a parliamentary committee is currently investigating separate legislation that would pave the way for US law enforcement to access data held in Australia. A major concern held by those critical of the app is that the data is being hosted in Australia by US tech giant Amazon Web Services, and any data held by the company in Australia would be subject to the US Cloud Act – a law which can force US companies to hand over data to US law enforcement regardless of where that data is held. The defence minister, Marise Payne, argued that because the Covidsafe legislation makes “any transfer of data to any country outside Australia … a criminal offence under the provisions of the bill”, US law enforcement would not be able to get the Covidsafe data."
         },
         {
-            "link": "https://www.sbs.com.au/news/marise-payne-julie-bishop-urge-calm-in-tense-relations-with-china-over-coronavirus-origins",
-            "title": "Marise Payne, Julie Bishop urge calm in tense relations with China over coronavirus origins",
+            "link": "https://www.sbs.com.au/news/australia-appoints-first-deputy-chief-medical-officer-for-mental-health-as-part-of-coronavirus-response",
+            "title": "Australia appoints first deputy chief medical officer for mental health as part of coronavirus response",
             "source": "SBSNews",
-            "date": "1 May 2020",
-            "time": "12:38",
-            "summary": "There are rising tensions between Australia and China, which began when Australia started pressing for an investigation into the origin of COVID-19. Foreign Minister Marise Payne says that global co-operation not economic coercion is the appropriate way to resolve the dispute over an international investigation into COVID-19. Ms Payne said she rejected the approach of ambassador Cheng Jingye, who floated a Chinese consumer boycott of Australian products in retaliation to tension over the probe, targeting the crucial agriculture, education and tourism markets."
+            "date": "13 May 2020",
+            "time": "14:12",
+            "summary": "Australia has a new mental health official to help prevent a spike in suicides related to the coronavirus. Former chief psychiatrist of Victoria Ruth Vine has been appointed as the country's first deputy chief medical officer for mental health. Professor Vine will listen to community concerns and provide advice to the federal government, with a focus on anxiety linked to social distancing and economic stress. Health Minister Greg Hunt announced the appointment on Wednesday, saying the COVID-19 pandemic, bushfires and drought had affected Australians' mental health."
         },
         {
-            "link": "https://www.abc.net.au/news/2020-04-30/coronavirus-eliminated-in-act-no-known-covid-19-cases/12201088",
-            "title": "Coronavirus recovery: ACT becomes first state or territory to be free of known cases of COVID-19",
+            "link": "https://www.abc.net.au/news/2020-05-13/australia-coronavirus-kawasaki-disease-illness-advice/12241330",
+            "title": "Government requests advice on link between coronavirus and illness resembling Kawasaki disease in children",
             "source": "ABCNews",
-            "date": "30 April 2020",
-            "time": "18:35",
-            "summary": "The ACT has become the first Australian jurisdiction to be free of all known cases of COVID-19. After a total of 106 diagnoses and three deaths in the ACT, Jan Stoop, the last Canberran to test positive to coronavirus, has recovered. ACT Chief Health Officer Dr Kerryn Coleman welcomed the local elimination of the virus, and reiterated that the pandemic is ongoing, emphasising it is important not to undo the work that has been done."
+            "date": "13 May 2020",
+            "time": "18:11",
+            "summary": "The Federal Government is requesting urgent advice about a mystery illness that has killed at least three children in the United States, including on whether the condition could be linked to COVID-19. The inflammatory condition, which resembles Kawasaki disease or toxic shock syndrome, has been noted in children in the United Kingdom, Italy and the US, where 70 children have been diagnosed with it in New York. No conclusive link between the inflammatory illness and COVID-19 has been made by scientists, and while it has appeared in some children who have COVID-19, other children diagnosed with the condition have not tested positive for coronavirus. Health Minister Greg Hunt said officials were keen to learn more about the illness, but stressed there were no known cases in Australia."
         },
         {
-            "link": "https://www.sbs.com.au/news/australia-s-coronavirus-restrictions-are-easing-here-s-what-you-can-do-in-your-state-this-weekend",
-            "title": "Australia's coronavirus restrictions are easing. Here's what you can do in your state this weekend",
+            "link": "https://www.abc.net.au/news/2020-05-13/church-in-australia-selling-bleach-coronavirus-treatment-fined/12242150",
+            "title": "Church in Australia selling bleach as a coronavirus treatment fined $151,200",
+            "source": "ABCNews",
+            "date": "13 May 2020",
+            "time": "17:09",
+            "summary": "The Australian chapter of an international church selling and promoting bleach as a cure for COVID-19 has been issued infringement notices totalling $151,200. The Genesis II Church of Health and Healing has been claiming chlorine dioxide is a \"miracle cure\". For years it has sold the industrial bleach as Miracle Mineral Solution (MMS), stating it can cure things like autism, acne, cancer, diabetes and now COVID-19.  Following an investigation by 7.30 last week, the Therapeutic Goods Administration today announced it had issued 12 infringement notices totalling $151,200 to MMS Australia for alleged unlawful advertising of Miracle Mineral Solution and other medicines. "
+        },
+        {
+            "link": "https://www.sbs.com.au/news/coronavirus-restrictions-to-cut-50-billion-from-australia-s-economy-josh-frydenberg-says",
+            "title": "Coronavirus restrictions to cut $50 billion from Australia's economy, Josh Frydenberg says",
             "source": "SBSNews",
-            "date": "30 April 2020",
-            "time": "17:25",
-            "summary": "Millions of Australians are set to enjoy more freedoms over the coming days as COVID-19 restrictions are eased, but the rules are different in every state and territory. This article outlines the restrictions that have been dropped state-by-state."
+            "date": "12 May 2020",
+            "time": "14:02",
+            "summary": "Treasurer Josh Frydenberg says Australia's coronavirus restrictions have wiped the equivalent of $50 billion from the nation's economy. He confirmed Treasury's forecast that the economy will shrink by $50 billion, or 10 per cent, in the June quarter amid the coronavirus restrictions that have shut down swathes of businesses. Mr Frydenberg also outlined the boost to jobs and GDP expected during the three-stage relaxing of restrictions between now and July. Once the third stage is reached, the economy should be $9.4 billion a month better off and 850,000 Australians should be back in work."
         },
         {
-            "link": "https://www.theguardian.com/australia-news/2020/apr/30/australians-on-jobseeker-payment-up-450000-in-less-than-a-month",
-            "title": "More than 1.3 million Australians on jobseeker as Senate inquiry calls for permanent increase to rate ",
+            "link": "https://www.abc.net.au/news/rural/2020-05-12/china-trade-escalation-as-beef-farmers-are-targeted/12237468",
+            "title": "Red-meat processors have beef sales to China suspended as trade barriers escalate",
+            "source": "ABCNews",
+            "date": "12 May 2020",
+            "time": "23:40",
+            "summary": "China has imposed an import ban on four Australian abattoirs in an apparent escalation of Beijing's trade war tactics. The blacklisting of the red meat abattoirs — three in Queensland and one in NSW — comes just days after China flagged plans to introduce an 80 per cent tariff on Australian barley, bringing the trade to its knees. These four meatworks represent 35 per cent of beef exports to China, a trade that had been on track to reach $3.5 billion this year. There are fears the barriers introduced by Australia's largest trading partner are in retaliation to Prime Minister Scott Morrison's demand for an independent investigation into the COVID-19 outbreak."
+        },
+        {
+            "link": "https://www.canberratimes.com.au/story/6754290/canberra-cafes-and-restaurants-to-reopen-from-this-weekend-with-restrictions/?cs=14225",
+            "title": "Coronavirus: Canberra cafes and restaurants to reopen from this weekend with restrictions ",
+            "source": "CanberraTimes",
+            "date": "12 May 2020",
+            "time": "14:31",
+            "summary": "Canberra cafes and restaurants will be able to reopen from midnight on Friday, but with a 10-customer limit in place. The move is part of the first stage of the ACT government's relaxation of coronavirus restrictions. Pubs and bars would only be able to open if alcohol served was accompanied by a meal. National parks, playgrounds and nature reserves will also open, except those shut for remediation after bushfires."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-11/coronavirus-victoria-eases-restrictions-the-new-covid-19-rules/12233798",
+            "title": "Coronavirus restrictions eased in Victoria to allow five visitors to a household and outdoor gatherings of 10 people",
+            "source": "ABCNews",
+            "date": "11 May 2020",
+            "time": "16:18",
+            "summary": "Victorian Premier Daniel Andrews has announced \"a small first step\" in the relaxation of the state's coronavirus restrictions. The changes come into effect at 11:59pm on Tuesday and will be in place until the end of May. Notably, the restriction changes mean that residents can now invite five friends or family members over to their house; go hiking, fishing, hunting, diving, prospecting, boating, go for a walk or play non-contact sport together outdoors in groups of up to 10 people; have more guests for weddings and funerals and more. More details on the restrictions lifted can be found in the article."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/may/10/ten-arrested-and-police-officer-injured-at-protest-against-victorias-covid-19-lockdown-laws",
+            "title": "Ten arrested and police officer injured at protest against Victoria’s Covid-19 lockdown laws ",
             "source": "TheGuardian",
-            "date": "30 April 2020",
-            "time": "16:23",
-            "summary": "More than 1.3 million people are now receiving unemployed benefits across the country, with that number expected to reach about 1.7 million in September. The government faces growing pressure to consider a permanent increase to the jobseeker payment, which has received a temporary $550 per fortnight boost for about six months."
+            "date": "10 May 2020",
+            "time": "17:49",
+            "summary": "Ten people have been arrested and one police officer has been hospitalised after demonstrators who gathered in Melbourne’s CBD to protest against “self-isolating, social distancing, tracking apps [and] 5G being installed” clashed with police enforcing Victoria’s lockdown laws. Victoria police said on Sunday that 10 people, including two organisers, were arrested after more than 100 people turned out on the steps of Victoria’s parliament on Sunday in contravention of emergency powers restricting gatherings introduced to slow the spread of Covid-19."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-10/wa-relaxes-coronavirus-restrictions-from-may-18-including-travel/12232268",
+            "title": "WA to ease coronavirus restrictions from May 18, with 20-person gatherings allowed",
+            "source": "ABCNews",
+            "date": "10 May 2020",
+            "time": "16:05",
+            "summary": "West Australian Premier Mark McGowan has announced a roadmap for the reopening of the state's economy, doubling the number of people allowed at non-work gatherings and removing some regional travel borders. Notably, up to 20 people will be allowed to gather indoors and outdoors, pubs, restaurants and cafes may have 20 patrons dine in and regional travel boundaries have dropped from 13 to four. More details on the restrictions lifted can be found in the article."
+        },
+        {
+            "link": "https://www.smh.com.au/national/nsw/nsw-to-ease-lockdown-restrictions-from-friday-20200509-p54rek.html",
+            "title": "NSW to ease lockdown restrictions from Friday",
+            "source": "TheSydneyMorningHerald",
+            "date": "10 May 2020",
+            "time": "12:05",
+            "summary": "NSW will further ease COVID-19 restrictions from this Friday, with cafes, restaurants, playgrounds and outdoor pools making the cut for early reopening. Premier Gladys Berejiklian said \"the changes will allow NSW to fire up the economy, while allowing more personal freedoms.\" Notably, NSW residents will be permitted to have outdoor gatherings of up to 10 people, visits to a household of up to five people, while cafes and restaurants can seat 10 patrons at any one time. More details on the restrictions lifted can be found in the article."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-09/how-travel-will-resume-around-australia-coronavirus-restrictions/12231242",
+            "title": "How travel will resume around Australia as coronavirus restrictions ease in each state and territory",
+            "source": "ABCNews",
+            "date": "9 May 2020",
+            "time": "15:11",
+            "summary": "While Prime Minister Scott Morrison has made it very clear that any hopes of an overseas adventure should be shelved for \"the foreseeable future\", the prospects for regional and interstate travel are more promising. As each state and territory unveils its individual plans, in line with the Federal Government's three-step framework announced on Friday, the road back to domestic travel becomes slightly clearer. There's still much to be decided, and a number of states are yet to lay out their plans. This article outlines all the information about the regional and interstate travel plans in each state and territory that has been released so far."
         }
     ]
 }

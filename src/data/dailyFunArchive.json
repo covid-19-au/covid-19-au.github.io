@@ -1,6 +1,161 @@
 {
     "dailyFunStuff": [
         {
+            "image": [
+                {
+                    "imgLink": "https://www.goodnewsnetwork.org/wp-content/uploads/2020/05/baby-gray-whale-near-boat-swns-696x553.jpg",
+                    "source": "https://www.goodnewsnetwork.org/video-shows-lucky-whale-watcher-getting-to-pet-baby-grey/"
+                }
+            ],
+            "video": [],
+            "title": "A baby whale decided to surprise a whale watcher",
+            "content": "<p>A baby grey whale made a whale watcher's day by coming over to her boat to say hi!</p><p>Check out the video in the link below!</p>",
+            "type": "motivation",
+            "date": "15/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.goodnewsnetwork.org/video-shows-lucky-whale-watcher-getting-to-pet-baby-grey/",
+                    "name": "A Curious Baby Whale Gives Passengers Their Moment of a Lifetime With its Mother Watching Nearby – Good News Network"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://s.yimg.com/uu/api/res/1.2/d457R5ycFL7GSVvdtrzSdQ--~B/aD03MjA7dz0xMjgwO3NtPTE7YXBwaWQ9eXRhY2h5b24-/https://s.yimg.com/hd/cp-video-transcode/prod/2020-05/13/5ebc2e6190fe357a07b57a6b/5ebc2e6190fe357a07b57a6c_o_U_v2.jpg",
+                    "source": "https://www.foxnews.com/us/georgia-teacher-running-to-cheer-up-students"
+                }
+            ],
+            "video": [],
+            "title": "A teacher in Georgia is running over 50 miles to meet his students!",
+            "content": "<p>Bill McAllister, last taught class on March 16th before the coronavirus caused the cessation of in-person classes. He has since decided to run and visit all his students to pick up their day. For those there's aren't home, he leaves wholesome notes in their mailboxes.</p><p>We absolutely love heartwarming stories like these, and wish Bill all the best on his runs!</p>",
+            "type": "motivation",
+            "date": "15/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.foxnews.com/us/georgia-teacher-running-to-cheer-up-students",
+                    "name": "Georgia teacher running more than 50 miles to visit each student outside their homes – Fox News"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://i2.wp.com/disruptive.asia/wp-content/uploads/2020/05/2020-05-08T131420Z_1_LYNXMPEG4714D_RTROPTP_4_HEALTH-CORONAVIRUS-SINGAPORE-ROBOT.jpg?resize=530%2C360&ssl=1",
+                    "source": "https://disruptive.asia/spot-the-robot-dog-politely-enforces-social-distancing-in-singapore/"
+                }
+            ],
+            "video": [],
+            "title": "Spot the robot is reminding parkgoers in Singapore to keep their distance from one another",
+            "content": "<p>Spot the robot dog is reminding people to keep their distance in Singapore. Check out the video in the article below!</p>",
+            "type": "motivation",
+            "date": "14/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.theverge.com/2020/5/8/21251788/spot-boston-dynamics-robot-singapore-park-social-distancing",
+                    "name": "Spot the robot is reminding parkgoers in Singapore to keep their distance from one another – The Verge"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://www.visitphillipisland.com/wp-content/uploads/2012/11/Penguin-2-700x476.jpg",
+                    "source": "https://www.visitphillipisland.com/listing/penguin-parade/"
+                }
+            ],
+            "video": [],
+            "title": "Phillip Island Penguin Parade",
+            "content": "<p>BBC sports commentator Andrew Cotter is now using his talents to narrate Phillip Island's penguin parade! Check out the video in the link below!</p>",
+            "type": "motivation",
+            "date": "13/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.theguardian.com/global/video/2020/may/12/bbc-sports-commentator-narrates-australias-penguin-parade-in-lockdown-voiceover-video",
+                    "name": "BBC sports commentator narrates Australia's penguin parade in lockdown voiceover – The Guardian"
+                }
+            ]
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=NDjNX3nEfYo",
+                    "description": "Some Good News with the cast of The Office!"
+                }
+            ],
+            "type": "distraction",
+            "date": "12/5/2020"
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/GJZ5TVpAk84wrTzsQfLQRB/213a1907-7285-4a69-9b62-882584fadca2.png/r0_0_1920_1079_w1200_h678_fmax.jpg",
+                    "source": "https://www.canberratimes.com.au/story/6750832/believe-it-or-not-theres-good-news-about-too/?src=rss"
+                }
+            ],
+            "video": [],
+            "title": "More positive news!",
+            "content": "<p>Another collection of positive news stories from The Canberra Times. Check it out at the link below!</p>",
+            "type": "motivation",
+            "date": "11/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.canberratimes.com.au/story/6750832/believe-it-or-not-theres-good-news-about-too/?src=rss",
+                    "name": "It's not all doom and gloom: We have positive news stories right here  - The Canberra Times"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://static.ffx.io/images/$zoom_0.358%2C$multiply_0.7554%2C$ratio_1.776846%2C$width_1059%2C$x_0%2C$y_240/t_crop_custom/q_86%2Cf_auto/1d559bc83d634f2b0e4ebc76a9b0a56590c58d26",
+                    "source": "https://www.watoday.com.au/national/readers-find-silver-linings-to-life-in-lockdown-20200408-p54i4i.html?ref=rss&utm_medium=rss&utm_source=rss_national"
+                }
+            ],
+            "video": [],
+            "title": "Silver Linings",
+            "content": "<p>WA Today have shared a collection og feel-good stories and messages from their readers. Above is a painting by a reader that had their art course cancelled, but they are continuing to make new works every weekend!</p><p>Check out more stories through the link below!</p>",
+            "type": "motivation",
+            "date": "10/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.watoday.com.au/national/readers-find-silver-linings-to-life-in-lockdown-20200408-p54i4i.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+                    "name": "Readers find silver linings to life in lockdown - WA Today"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://static.ffx.io/images/$zoom_0.393%2C$multiply_0.7554%2C$ratio_1.776846%2C$width_1059%2C$x_254%2C$y_0/t_crop_custom/q_86%2Cf_auto/e04b109c006b9c54375120fce44c6cd76a9e0f7d",
+                    "source": "https://www.brisbanetimes.com.au/national/queensland/the-robot-doctor-helping-treat-hospital-patients-during-a-pandemic-20200507-p54qsd.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland"
+                }
+            ],
+            "video": [],
+            "title": "Temi, the robot doctor",
+            "content": "<p>Temi is the newest edition to the medical staff at Brisbane's Greenslopes hospital! Doctors can use Temi to provide patients with one on one treatment while still maintaining social-distancing.</p><p>Read more in the article below!</p>",
+            "type": "motivation",
+            "date": "9/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.brisbanetimes.com.au/national/queensland/the-robot-doctor-helping-treat-hospital-patients-during-a-pandemic-20200507-p54qsd.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
+                    "name": "The robot doctor helping treat hospital patients during a pandemic - Brisbane Times"
+                }
+            ]
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=rWXAiWYywLk",
+                    "description": "5 minute NO OVEN, Pizza!"
+                }
+            ],
+            "type": "distraction",
+            "date": "08/5/2020"
+        },
+        {
             "image": [],
             "video": [
                 {

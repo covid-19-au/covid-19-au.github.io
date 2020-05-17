@@ -123,7 +123,7 @@ function InfoDrawer() {
             <List style={{ marginTop: "0px" }}>
                 {sections.map((section, index) => (
                     <div>
-                        <ListItem fullWidth="true">
+                        <ListItem key={uuid()} fullWidth="true">
                             <Button fullWidth="true" size="small" style={{ textTransform: "none", padding: "0px", marginTop: 0 }}>
                                 <Link
                                     activeClass="active"
@@ -321,12 +321,12 @@ function Information({ hospitalData, columns, gspace }) {
                                                 )}
 
                                             {/* First Ordered List */}
-                                            {info.text.olist_1 ? (
-                                                <ol>
-                                                    {info.text.olist_1.map(ol1 => (
+                                            {info.text.ulist_2 ? (
+                                                <ul>
+                                                    {info.text.ulist_2.map(ol1 => (
                                                         <li key={uuid()}>{ol1}</li>
                                                     ))}
-                                                </ol>
+                                                </ul>
                                             ) : (
                                                     ""
                                                 )}
@@ -389,12 +389,12 @@ function Information({ hospitalData, columns, gspace }) {
                                             ))}
 
                                             {/* First Ordered List */}
-                                            {info.text.olist_1 ? (
-                                                <ol>
-                                                    {info.text.olist_1.map(ol1 => (
+                                            {info.text.ulist_2 ? (
+                                                <ul>
+                                                    {info.text.ulist_2.map(ol1 => (
                                                         <li key={uuid()}>{ol1}</li>
                                                     ))}
-                                                </ol>
+                                                </ul>
                                             ) : (
                                                     ""
                                                 )}
@@ -437,6 +437,22 @@ function Information({ hospitalData, columns, gspace }) {
                                     </ExpansionPanelSummary>
                                     <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
                                         <div>
+
+                                            {/* Custom Text (For content that doesn't fit the schema) */}
+                                            {info.text.customText ?
+
+                                                info.text.customText.map(t1 => (
+                                                    <React.Fragment>
+                                                        <p key={uuid()}>{t1.paraText}</p>
+                                                        <ul>
+                                                            {t1.pointText.map(ul1 => (
+                                                                <li key={uuid()}>{ul1}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </React.Fragment>
+                                                ))
+                                                : ""}
+
                                             {/* First block of text */}
                                             {info.text.text_1.map(t1 => (
                                                 <p key={uuid()}>{t1}</p>
@@ -458,12 +474,12 @@ function Information({ hospitalData, columns, gspace }) {
                                             ))}
 
                                             {/* First Ordered List */}
-                                            {info.text.olist_1 ? (
-                                                <ol>
-                                                    {info.text.olist_1.map(ol1 => (
+                                            {info.text.ulist_2 ? (
+                                                <ul>
+                                                    {info.text.ulist_2.map(ol1 => (
                                                         <li key={uuid()}>{ol1}</li>
                                                     ))}
-                                                </ol>
+                                                </ul>
                                             ) : (
                                                     ""
                                                 )}
@@ -483,7 +499,7 @@ function Information({ hospitalData, columns, gspace }) {
                                             {/* last updated */}
                                             <br />
                                             <div>
-                                                <small key={uuid()}>Last updated: {info.text.lastUpdated}</small><br />
+                                                <small key={uuid()}>Last updated: {info.lastUpdated}</small><br />
                                             </div>
                                         </div>
                                     </ExpansionPanelDetails>
@@ -607,12 +623,12 @@ function Information({ hospitalData, columns, gspace }) {
                                                 )}
 
                                             {/* First Ordered List */}
-                                            {info.text.olist_1 ? (
-                                                <ol>
-                                                    {info.text.olist_1.map(ol1 => (
+                                            {info.text.ulist_2 ? (
+                                                <ul>
+                                                    {info.text.ulist_2.map(ol1 => (
                                                         <li key={uuid()}>{ol1}</li>
                                                     ))}
-                                                </ol>
+                                                </ul>
                                             ) : (
                                                     ""
                                                 )}
@@ -701,12 +717,12 @@ function Information({ hospitalData, columns, gspace }) {
                                                 )}
 
                                             {/* First Ordered List */}
-                                            {info.text.olist_1 ? (
-                                                <ol>
-                                                    {info.text.olist_1.map(ol1 => (
+                                            {info.text.ulist_2 ? (
+                                                <ul>
+                                                    {info.text.ulist_2.map(ol1 => (
                                                         <li key={uuid()}>{ol1}</li>
                                                     ))}
-                                                </ol>
+                                                </ul>
                                             ) : (
                                                     ""
                                                 )}

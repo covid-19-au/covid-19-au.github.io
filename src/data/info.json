@@ -7,7 +7,7 @@
                     "Coronaviruses are a group of viruses that can affect humans and animals. In humans, coronaviruses can cause mild illness, such as the common cold and gastrointestinal infections, as well as more severe illness, such as that caused by SARS (Severe Acute Respiratory Syndrome) and MERS (Middle East Respiratory Syndrome)."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -28,7 +28,7 @@
                     "There is currently an outbreak of a disease called ‘COVID-19’, which is caused by a new strain of coronavirus. COVID-19 causes a spectrum of illness, from mild to very severe. The outbreak was first identified in Wuhan, Hubei Province, China, and has spread to many other countries. The virus can be spread from person to person, so good hygiene is very important in slowing the spread of infection."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -54,7 +54,7 @@
                     "shortness of breath",
                     "sore throat"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [
                     "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days.",
                     "In more severe cases, COVID-19 can also result in pneumonia. Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days."
@@ -78,7 +78,7 @@
                     "People can catch COVID-19 from others who have the virus. The disease can spread from person to person through small droplets from the nose or mouth which are spread when a person with COVID-19 coughs or exhales. These droplets land on objects and surfaces around the person. Other people then catch COVID-19 by touching these objects or surfaces, then touching their eyes, nose or mouth. People can also catch COVID-19 if they breathe in droplets from a person with COVID-19 who coughs out or exhales droplets."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -96,7 +96,7 @@
                     "Early diagnosis and general supportive care are important. Most of the time, symptoms will resolve on their own. People who have serious disease with complications can be cared for in hospital."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -120,7 +120,7 @@
                     "Recently been in in a high risk country or region (mainland China, Iran, Italy or Korea)",
                     "Been in close contact with someone who has a confirmed case of COVID-19"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -148,7 +148,7 @@
                     "People in group residential settings",
                     "People in detention facilities"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [
                     "It is important for all individuals to practice good hygiene and carry out social distancing to reduce the likelihood of the disease spreading to the more vulnerable parts of the population."
                 ],
@@ -168,7 +168,7 @@
                     "It is prudent for households to have a small stock of non-perishable groceries to cover the event that in the coming months the household has been asked to self-isolate for 14 days."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -193,7 +193,7 @@
                     "Wearing multiple masks",
                     "Taking antibiotics"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [
                     "More information about coronavirus myths can be found in the site below."
                 ],
@@ -215,7 +215,7 @@
                     "If you are within that 14 day period and concerned that you may have symptoms, it’s important that you take steps to reduce the risk of transmission and arrange to get tested if required."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -244,7 +244,7 @@
                     "However, if using public transport is your only option, you should wear a mask, avoid direct contact with other people (including other passengers, drivers and transport staff), cough/sneeze into your elbow, and wash your hands before and after you travel.",
                     "You do not need to visit the Emergency Department unless you have severe symptoms, such as shortness of breath, chest pain or very high fever."
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -263,7 +263,7 @@
                     "It may take a few days for you to get your test results. In this time, if you have serious symptoms, you will be kept in the hospital and isolated from other patients to keep them safe. If your doctor says you are well enough to go home, you should self-isolate at home and take measures to protect yourself and others."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -297,7 +297,7 @@
                     "Ask someone to get food and other necessities for you and leave them at your front door ",
                     "Do not let visitors in — only people who usually live with you should be in your home  "
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [
                     "You do not need to wear a mask in your home. If you need to go out to seek medical attention, wear a surgical mask (if you have one) to protect others.",
                     "All people who arrive in Australia from midnight 15 March 2020, or think they may have been in close contact with a confirmed case of coronavirus, are required to self-isolate for 14 days.",
@@ -323,7 +323,7 @@
                     "Under the current lockdown, the government is also asking people who are not confirmed or suspected COVID-19 cases not to leave their homes unless they need to for groceries, exercise, medical needs, care or support or work which cannot be from home. "
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -356,7 +356,7 @@
                     "Practice social distancing",
                     "Abide by all government lockdown regulations and recommendations"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -375,7 +375,7 @@
                     "Social distancing is one way to help slow the spread of viruses such as COVID-19. Social distancing includes staying at home when you are unwell, avoiding large public gatherings if they’re not essential, keeping a distance of 1.5 metres between you and other people whenever possible and minimising physical contact such as shaking hands, especially with people at higher risk of developing serious symptoms, such as older people and people with existing health conditions."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -396,7 +396,7 @@
                     "The only way to truly reduce that is with social distancing: Keeping people home as much as possible, for as long as possible until this recedes."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -424,7 +424,7 @@
                     "Additional information about “flattening the curve,” and “raising the line,” can be found in the resources below."
                 ],
                 "ulist_1": [],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -454,7 +454,7 @@
                     "Avoid public gatherings and at risk groups",
                     "Practise good hygiene"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -480,7 +480,7 @@
                     "Regularly disinfect surfaces that are touched a lot, such as tables, kitchen benches and doorknobs",
                     "Increase ventilation in the home by opening windows or adjust air conditioning"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -505,7 +505,7 @@
                     "Wear a surgical mask when you are in the same room as the sick person. The sick person should also wear a mask",
                     "Protect other vulnerable family members by keeping them away from the sick person. At-risk people include those over 65 years or people with a chronic illness. If possible, find them somewhere else to live while the family member is sick."
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -538,7 +538,7 @@
                     "Promote strict hygiene among food preparation (canteen) staff and their close contacts",
                     "Consider if you can reschedule, stagger or cancel non-essential meetings"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -567,7 +567,7 @@
                     "Consider opening windows and adjusting conditioning for more ventilation ",
                     "Promote strictest hygiene among food preparation (canteen) staff and their close contacts"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [
                     "If your child is sick, they must not go to school or childcare. You must keep them at home and away from others."
                 ],
@@ -595,7 +595,7 @@
                     "If you have a fever, cough or difficulty breathing, seek medical attention early – be sure to call in advance and follow the directions of your local health authority",
                     "Stay informed and follow advice given by your healthcare provider"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
@@ -623,7 +623,7 @@
                 "text_middle": [
                     "It is recommended that you stay home except for:"
                 ],
-                "olist_1": [
+                "ulist_2": [
                     "Shopping for what you need - food and necessary supplies",
                     "Medical or health care needs, including compassionate requirements",
                     "Exercise in compliance with the public gathering requirements",
@@ -664,7 +664,7 @@
                     "Playgrounds, skate parks and outside gyms in public places will be closed",
                     "Bootcamps will be reduced to two persons, including the trainer."
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_middle": [],
                 "text_2": [
                     "These measures also apply to the outdoor areas associated with each of these venues. Australians should expect these measures to be in place for at least 6 months. Isolated remote community hubs are not included in these restrictions. ",
@@ -698,7 +698,7 @@
                     "The venue/facility remains closed to the public",
                     "Social distancing principles are adhered to — 1 person per 4 square metres"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_middle": [],
                 "text_2": [],
                 "citation": [
@@ -723,7 +723,7 @@
                     "Diplomats",
                     "People may be exempt on a case-by-case basis on compassionate or medical grounds"
                 ],
-                "olist_1": [],
+                "ulist_2": [],
                 "text_middle": [],
                 "text_2": [],
                 "citation": [
@@ -751,18 +751,33 @@
         {
             "name": "Queensland",
             "text": {
-                "text_1": [],
+                "text_1": [
+                    "Restrictions:"
+                ],
                 "ulist_1": [
                     "Queenslanders would be able to shop for non-essential items from Friday 1 May",
+                    "Kindergarten, Prep, Years 1, 11 and 12 go back to school on Monday May 11",
                     "From Mother's Day to allow up to five members from one household to visit another home. Multiple families can visit the same householdas long as it is as different times",
                     "Residents must not travel further than 50km from their homes,except for when they are visiting another household",
                     "Picnics and weekend drives are now allowed, and national parks will reopen",
+                    "You can have a picnic with people from your house",
+                    "If you go out by yourself, you can only meet one other person from outsideyour house for a run or picnic. It can only be the two of you, not your family plus one other",
                     "Borders are closed to everyone except residents and essential workers, including freight carriers and emergency workers. There are some exemptions for those who regularly cross the Queensland-NSW border for work."
                 ],
-                "text_middle": [],
-                "olist_1": [],
+                "text_middle": [
+                    "Travel:"
+                ],
+                "ulist_2": [
+                    "During step 1, which begins at 11:59pm next Friday, May 15,people will be allowed to travel up to 150 kilometres within their region — or up to 500km for those who live in the outback — but only for a day trip.",
+                    "During step 2, which is planned to begin June 12, recreational travel is increased to a max of 250km within your region, withaccommodation — including camping and caravan parks — open for business to encourage \"drive holidays\".",
+                    "Step 3, which is planned to begin July 10, will see residents able to move around the state freely."
+                ],
                 "text_2": [],
                 "citation": [
+                    {
+                        "link": "https://www.abc.net.au/news/2020-05-08/coronavirus-queensland-restrictions-eased/12211002",
+                        "name": "Coronavirus restrictions on movement are starting to lift — but Queenslanders aren't out of the woods just yet - ABC News"
+                    },
                     {
                         "link": "https://www.abc.net.au/news/2020-05-07/coronavirus-queensland-easing-restrictions-mothers-day/12218690",
                         "name": "Coronavirus distancing restrictions to ease across Queensland for Mother's Day - ABC News"
@@ -773,12 +788,14 @@
                     }
                 ]
             },
-            "lastUpdated": "07 May 2020"
+            "lastUpdated": "11 May 2020"
         },
         {
             "name": "New South Wales",
             "text": {
-                "text_1": [],
+                "text_1": [
+                    "Restrictions:"
+                ],
                 "ulist_1": [
                     "From Friday 1 May, two adults and the children in their care areallowed to visit another person’s home. These visits must be for “care” reasons, however, the NSW definition or care will be significantly broadened. For example, visiting friends would be considered beneficial for mental health and would, therefore, constitute “care”",
                     "There are no limits on how many guests someone is allowed per day as long as there are no more than two adults at a time.Details on how far residents are allowed to travel are still to come",
@@ -786,8 +803,12 @@
                     "People who are learning to drive can continue to learn to drive and get their hours logged.",
                     "Children who live across two households can continue to switchbetween houses"
                 ],
-                "text_middle": [],
-                "olist_1": [],
+                "text_middle": [
+                    "Travel:"
+                ],
+                "ulist_2": [
+                    "No changes to current restrictions"
+                ],
                 "text_2": [],
                 "citation": [
                     {
@@ -796,91 +817,216 @@
                     }
                 ]
             },
-            "lastUpdated": "29 April 2020"
+            "lastUpdated": "11 May 2020"
         },
         {
             "name": "Victoria",
             "text": {
-                "text_1": [],
-                "ulist_1": [
-                    "Victorians cannot visit family members who do not live with them, but may drop off food and supplies for care and compassionate reasons",
-                    "Children who may need to move between the houses of their parents or carers are also allowed to travel, and court-ordered visitation rights for parents can also be upheld"
+                "text_1": [
+                    "Restrictions:",
+                    "As of 11:59pm Tuesday 12th May:"
                 ],
-                "text_middle": [],
-                "olist_1": [],
+                "ulist_1": [
+                    "You can now invite five friends or family members over to your house, in addition to those who already live in your household",
+                    "it is now possible for children to see their grandparents, but Premier Daniel Andrews is advising against it",
+                    "You can go hiking, fishing, hunting, diving, prospecting, boating, go for a walk or play non-contact sport together outdoors in groups of up to 10 people.",
+                    "10 guests are now allowed to attend weddings, in addition to the couple and celebrant.",
+                    "Funerals held indoors may have 20 mourners in addition to the people required to conduct the funeral, while 30 mourners will be allowed at services held outdoors. If a funeral is held at a private home the five-visitor rule still applies.",
+                    "Fishing is back on the cards if you can maintain a safe distance from other people.",
+                    "While you can drive as far as you like to go for a surf or a hike, you are notallowed to stay overnight. This also applies to National Parks. Those parks which can facilitate social distancing will be open but camping will not be allowed.",
+                    "Golf is now allowed but the club houses will be shut",
+                    "Community sports clubs can start training again, if they adhere to the 10-person rule and \"common sense\" public health measures were put in place. However, there will not be a return to competitions or large community events this month.",
+                    "Shopping is still only allowed for essential items",
+                    "Ten people will be allowed to attend an open house inspection plus the minimum number of people reasonably required to facilitate the inspection",
+                    "Cafes, restaurants, and pubs are still restricted to takeaway",
+                    "Essential support groups, such as parents' groups and alcohol and drug support groups, will be allowed to operate. There can be no more than 10 people in the group, plus the people facilitating the session. They must maintain physical distancing of four-square-metres per person and can be held in community facilities such as halls and RSL clubs",
+                    "AFL clubs and other professional sporting codes will be allowed to train"
+                ],
+                "text_middle": [
+                    "Travel:"
+                ],
+                "ulist_2": [
+                    "No changes to current restrictions"
+                ],
                 "text_2": [],
                 "citation": [
+                    {
+                        "link": "https://www.abc.net.au/news/2020-05-11/coronavirus-victoria-eases-restrictions-the-new-covid-19-rules/12233798",
+                        "name": "Coronavirus restrictions eased in Victoria to allow five visitors to a household and outdoor gatherings of 10 people - ABC News"
+                    },
                     {
                         "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
                         "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
                     }
                 ]
             },
-            "lastUpdated": "29 April 2020"
+            "lastUpdated": "11 May 2020"
         },
         {
             "name": "Tasmania",
             "text": {
-                "text_1": [
-                    "Individuals are only allowed to leave their homes for essential reasons and gatherings limited to two people. Reason for Tasmanians to go out in public include:"
+                "customText": [
+                    {
+                        "paraText": [
+                            "From May :"
+                        ],
+                        "pointText": [
+                            "Mourners at funerals can increase from 10 to 20 people",
+                            "Aged care visits can begin with one visit a week with no more than two visitors",
+                            "You will be able to visit national parks and reserves that are within 30 kilometres of your home for exercise",
+                            "TasTAFE campuses open for invited small groups for practical learning and assessments"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From May 18:"
+                        ],
+                        "pointText": [
+                            "Indoor and outdoor gatherings can increase to 10 people, including for realestate purposes, small religious groups, and weddings, but household gatherings are still limited to five visitors. Funerals can extend to 30 attendees outdoors",
+                            "Restaurants and cafes can open and seat up to 10 people at a time with table service and social distancing",
+                            "Border controls remain in place, but Tasmanian residents can quarantine intheir residence if it is suitable",
+                            "Libraries and local community facilities will open for up to 10 people",
+                            "Park exercise equipment and playgrounds, pools and boot camps will openfor up to 10 people"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From May 25:"
+                        ],
+                        "pointText": [
+                            "Kindergarten to year six students return to learning at school",
+                            "Year 11 and 12 students at extension schools and colleges return to learning at schoo",
+                            "Aged care moves to be inline with national restrictions allowing two visitors once a day."
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From June 9:"
+                        ],
+                        "pointText": [
+                            "High school students from years seven to 10 return to learning at school"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From June 13:"
+                        ],
+                        "pointText": [
+                            "Racing will resume, subject to a review and risk-assessment by Public Health"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From June 15:"
+                        ],
+                        "pointText": [
+                            "Gatherings increase to 20 people at a time for indoor and outdoor, including restaurants/cafes, cinemas, museums, galleries, historic sites, religious gatherings and weddings",
+                            "Visitors to households will be reviewed",
+                            "Funerals increase to up to 50 people",
+                            "Accommodation is \"unlimited\"",
+                            "Camping, overnight boating and visits to shacks are allowed",
+                            "Open homes and auctions can resume with 20 people",
+                            "Border controls remain in place",
+                            "Gyms and boot camps for up to 20 people",
+                            "Beauty services (including tattoo, nails, waxing, facials and tanning) can resume for up to 20 people",
+                            "Park exercise equipment and playgrounds will open for up to 20 people",
+                            "Outdoor community sport to resume, with up to 20 athletes and personnel",
+                            "Indoor sport and recreation, including pools with up to 20 people, can reopen without spectators"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From July 13:"
+                        ],
+                        "pointText": [
+                            "Indoor and outdoor maximum gathering limits will increase, with the maximum allowable number to be determined by Public Health",
+                            "Aged care residents will be allowed five visitors and multiple visits",
+                            "Border controls remain in place",
+                            "The Government will consider opening bars, night clubs and casinos and gaming",
+                            "Markets will open subject to Public Health advice",
+                            "Food courts and food vans at markets may open",
+                            "Spas and bathhouses will reopen",
+                            "Day trips and camping for school groups will be allowed",
+                            "Outdoor community sport to resume, with numbers to be guided by Public Health",
+                            "Indoor sport and recreation, including pools with numbers to be guided by Public Health"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "Travel:"
+                        ],
+                        "pointText": [
+                            "As of Monday, May 11, Tasmanians will be able to visit national parks and reserves within 30 kilometres of their home for exercise. ",
+                            "During step 1,which is set to be on June 15, accommodation including \"camping, overnight boating and shacks\" will be reopen for up to 20 people.",
+                            "There are currently no plans to ease the state's tight border restrictions at any point during the currently scheduled three steps. The third step is set to begin on July 13 with \"border controls remaining in place\"."
+                        ]
+                    }
                 ],
-                "ulist_1": [
-                    "Shopping for supplies",
-                    "Undertaking personal exercise",
-                    "Attending medical or healthcare appointments",
-                    "Seeking veterinary services",
-                    "Providing social support or care to another person",
-                    "Attending school or study, if unable to be done at home",
-                    "Attending work or volunteering, if unable to be done at home",
-                    "Performing essential maintenance or security inspections of other premises owned or occupied by the person",
-                    "Attending another location if the person has a reasonableexcuse (such as clearing out a recently deceased relative’s house) in the opinion of the director of public health"
-                ],
-                "text_middle": [
-                    "Tasmania also restricts gatherings of more than two people inside and outside the home, but they have a broad definition of “social support”. This allows families and couples who live apart to visit one another’s homes. Households are allowed to have two visitors as long as physical distancing requirements can be met.",
-                    "Tasmania also requires that all non-essential travellers enteringthe state quarantine for a period of 14 days."
-                ],
-                "olist_1": [],
+                "text_1": [],
+                "ulist_1": [],
+                "text_middle": [],
+                "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
-                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
-                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                        "link": "https://www.abc.net.au/news/2020-05-08/what-can-you-do-in-tasmania-as-coronavirus-restrictions-ease/12229696",
+                        "name": "Tasmania's cautious plan to reopen as the coronavirus crisis continues - ABC News"
                     }
                 ]
             },
-            "lastUpdated": "29 April 2020"
+            "lastUpdated": "11 May 2020"
         },
         {
             "name": "Australian Capital Territory",
             "text": {
                 "text_1": [
-                    "Australian Capital Territory lockdown laws remain in place."
+                    "Restrictions:"
                 ],
-                "ulist_1": [],
-                "text_middle": [],
-                "olist_1": [],
+                "ulist_1": [
+                    "Rules on gatherings are set to be eased, allowingup to 10 people to get together, indoors or outdoors",
+                    "House parties are not allowed",
+                    "No changes to rules for cafes and restaurants",
+                    "Playgrounds across the city are set to stay close",
+                    "Boot camps will be allowed once morein groups of no more than 10, but gym equipment should not be shared",
+                    "The limit has gone from five people at a wedding, up to 10",
+                    "No more than 10 in an open home, and no more than 10 at an auction"
+                ],
+                "text_middle": [
+                    "Travel:"
+                ],
+                "ulist_2": [
+                    "Campgrounds and national parks remain closed, and no time frame has been put on when any further restrictions are likely to be removed."
+                ],
                 "text_2": [],
                 "citation": [
                     {
-                        "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
-                        "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                        "link": "https://www.abc.net.au/news/2020-05-08/coronavirus-covid19-restrictions-easing-in-act-what-you-can-do/12228936",
+                        "name": "ACoronavirus restrictions are easing in the ACT — here's what can and can't do in Canberra this weekend - ABC News"
                     }
                 ]
             },
-            "lastUpdated": "29 April 2020"
+            "lastUpdated": "11 May 2020"
         },
         {
             "name": "Northern Territory",
             "text": {
-                "text_1": [],
+                "text_1": [
+                    "Restrictions:"
+                ],
                 "ulist_1": [
                     "Some physical distancing rules will be eased in theNorthern Territoryfrom Friday 1 May",
                     "National parks will be opened for the Mayday long weekend forcamping, swimming and hiking but Territorians are urged to practice safe physical distancing",
                     "The Northern Territory maintains a 10-person gathering limit but Chief minister Michael Gunner has threatened to bring in stricter laws if people do not follow social distancing rules",
                     "The Northern Territory now requires any non-essential travellers to self-quarantine for a period of 14 days. Remote communities also have protection in place to stop non-essential visitors from entering"
                 ],
-                "text_middle": [],
-                "olist_1": [],
+                "text_middle": [
+                    "Travel:"
+                ],
+                "ulist_2": [
+                    "As of Friday, May 1, people are allowed to \"visit parks and reserves, including campgrounds\", though residents are still being encouraged to only travel they you feel well.",
+                    "During stage three on Friday, June 5, \"all businesses, facilities and servicespreviously restricted\" will be able to resume",
+                    "At this stage, Chief Minister Michael Gunne says opening borders to allow interstate travel is still some way away."
+                ],
                 "text_2": [],
                 "citation": [
                     {
@@ -889,7 +1035,7 @@
                     }
                 ]
             },
-            "lastUpdated": "29 April 2020"
+            "lastUpdated": "11 May 2020"
         },
         {
             "name": "South Australia",
@@ -897,21 +1043,32 @@
                 "text_1": [],
                 "ulist_1": [
                     "Students will be back in the classroom for term 2",
-                    "South Australia opted not to enforce new two-person-gatheringlaws but premier Steven Marshall still urged people to follow these rules. On-the-spot fines of $1,000 still will only be applied to those who are gathering in groups larger than 10",
-                    "Gatherings with less than 10 people indoors must abide by the one person per four square meters rules",
-                    "All people entering South Australia are required to undertake a 14-day quarantine"
+                    "South Australian authorities will allow outdoor dining at restaurants and cafes — and reopen university and TAFE tutorials, public libraries, pools, churches and community halls — from this Monday 11 May. Groups will be limited to a maximum of 10 people at a time",
+                    "Funerals will be able to have 20 people at indoor ceremonies, or 30 outdoors, in addition to those officiating.",
+                    "Those involved in non-contact sport will be able to go back to training.",
+                    "House auctions and open inspections will be able to be held again",
+                    "RSL clubs will be able to reopen for 10 people at a time",
+                    "The SA Government's roadmap to ease restrictions also envisions reopening cinemas and theatres, seated dining, galleries, museums and gyms for groups of up to 20 people on June 8. Premier Steven Marshall saidborder closuresand mass gatherings would be among the last of the restrictions to be lifted"
                 ],
-                "text_middle": [],
-                "olist_1": [],
+                "text_middle": [
+                    "Travel:"
+                ],
+                "ulist_2": [
+                    "Residents are free to travel around the state from this Monday, May 11. Border restrictions in South Australia currently require any interstate visitor to quarantine for 14 days, and that will remain the case even after May 11"
+                ],
                 "text_2": [],
                 "citation": [
+                    {
+                        "link": "https://www.abc.net.au/news/2020-05-08/sa-to-reopen-as-no-new-coronavirus-cases-recorded/12228898",
+                        "name": "South Australia set to reopen as authorities relax coronavirus social distancing measures - ABCNews"
+                    },
                     {
                         "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
                         "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
                     }
                 ]
             },
-            "lastUpdated": "29 April 2020"
+            "lastUpdated": "11 May 2020"
         },
         {
             "name": "Western Australia",
@@ -923,8 +1080,12 @@
                     "The maximum number of people at a wedding has been raised from five to 10",
                     "Open houses and display villages will also be allowed to operate, however public playgrounds, skateparks and outdoor gym equipment will remain closed, and restaurants and cafes will still be restricted to takeaway and home delivery"
                 ],
-                "text_middle": [],
-                "olist_1": [],
+                "text_middle": [
+                    "Travel:"
+                ],
+                "ulist_2": [
+                    "No changes to current restrictions"
+                ],
                 "text_2": [],
                 "citation": [
                     {
@@ -933,7 +1094,7 @@
                     }
                 ]
             },
-            "lastUpdated": "29 April 2020"
+            "lastUpdated": "11 May 2020"
         }
     ],
     "helplinesTranslated": {
