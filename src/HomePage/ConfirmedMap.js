@@ -474,6 +474,8 @@ class MbMap extends React.Component {
         if (this.state._markers === 'days_since') {
             this.mapContainer.style.display = 'none';
             this.dsMapContainer.style.display = 'block';
+            this.markersButtonGroup.current.parentNode.style.display = 'none';
+            this.underlayBGCont.current.style.display = 'none';
             this.dsMap.map.resize();
             return;
         }
@@ -643,6 +645,8 @@ class MbMap extends React.Component {
         if (prevState._markers === 'days_since') {
             this.mapContainer.style.display = 'block';
             this.dsMapContainer.style.display = 'none';
+            this.markersButtonGroup.current.parentNode.style.display = 'block';
+            this.underlayBGCont.current.style.display = 'block';
             this.map.resize();
             return;
         }
