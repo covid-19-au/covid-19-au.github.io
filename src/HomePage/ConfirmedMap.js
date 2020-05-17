@@ -454,7 +454,11 @@ class MbMap extends React.Component {
     setMarkers() {
         var val = this.markersSelect.current.value;
 
-        if (val === 'status_active' || (val && val.toUpperCase() === val)) {
+        if (val === 'status_active' ||
+            val === 'status_icu' ||
+            val === 'status_hospitalized' ||
+            (val && val.toUpperCase() === val)) {
+
             // Ships data doesn't have histories currently,
             // and it doesn't make sense to have
             // e.g. a 7-day difference for active cases
@@ -606,6 +610,8 @@ class MbMap extends React.Component {
         };
 
         if (this.state._markers === 'status_active' ||
+            this.state._markers === 'status_icu' ||
+            this.state._markers === 'status_hospitalized' ||
             (this.state._markers && this.state._markers.toUpperCase() === this.state._markers)) {
             this.markersButtonGroup.current.parentNode.style.display = 'none';
         }
@@ -697,6 +703,8 @@ class MbMap extends React.Component {
         }
 
         if (prevState._markers === 'status_active' ||
+            prevState._markers === 'status_icu' ||
+            prevState._markers === 'status_hospitalized' ||
             (prevState._markers && prevState._markers.toUpperCase() === prevState._markers)) {
             this.markersButtonGroup.current.parentNode.style.display = 'block';
         }
