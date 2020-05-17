@@ -35,7 +35,7 @@ class GeoBoundaryCentralPoints {
         geoJSONData['features'].forEach((feature1, index1) => {
             var coords1 = feature1['geometry']['coordinates'];
 
-            if (!feature1.properties['cases'] || feature1.properties['cases'] < 0) {
+            if (!feature1.properties['cases']) { //  || feature1.properties['cases'] < 0
                 // Only add if cases has been added to!
                 return;
             }
@@ -46,7 +46,7 @@ class GeoBoundaryCentralPoints {
                 if (index1 === index2) {
                     return;
                 }
-                else if (!feature2.properties['cases'] || feature2.properties['cases'] < 0) {
+                else if (!feature2.properties['cases']) { //  || feature2.properties['cases'] < 0
                     // Only add if cases has been added to!
                     return;
                 }

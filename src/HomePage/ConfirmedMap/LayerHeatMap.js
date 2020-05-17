@@ -62,7 +62,7 @@ class HeatMapLayer {
                         'circle-radius': [
                             'interpolate',
                             ['linear'],
-                            ['/', ['get', 'cases'], divBy],
+                            ["abs", ['/', ['get', 'cases'], divBy]],
                             0, 0,
                             0.00000001, 10,
                             1, 15
@@ -71,7 +71,7 @@ class HeatMapLayer {
                         'circle-color': [
                             'interpolate',
                             ['linear'],
-                            ['get', 'cases'],
+                            ["abs", ['get', 'cases']],
                             0, 'rgba(0,0,80,0.0)',
                             1, 'rgba(178,70,43,0.7)',
                             5, 'rgba(178,60,43,0.7)',
@@ -93,7 +93,7 @@ class HeatMapLayer {
                 'min-zoom': zoomLevel-0.5,
                 'max-zoom': zoomLevel+1.5,
                 filter: ['all',
-                    ['>', 'cases', 0],
+                    ['!=', 'cases', 0],
                     ['has', 'cases']
                 ],
                 layout: {
@@ -126,7 +126,7 @@ class HeatMapLayer {
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
-                        ['/', ['get', 'cases'], divBy],
+                        ["abs", ['/', ['get', 'cases'], divBy]],
                         0, 0,
                         0.00000001, 10,
                         1, 40
@@ -135,7 +135,7 @@ class HeatMapLayer {
                     'circle-color': [
                         'interpolate',
                         ['linear'],
-                        ['get', 'cases'],
+                        ["abs", ['get', 'cases']],
                         0, 'rgba(0,0,80,0.0)',
                         1, 'rgba(178,70,43,0.95)',
                         5, 'rgba(178,60,43,0.95)',
@@ -162,7 +162,7 @@ class HeatMapLayer {
             source: this.heatMapSourceId,
             'min-zoom': 6.5,
             filter: ['all',
-                ['>', 'cases', 0],
+                ['!=', 'cases', 0],
                 ['has', 'cases']
             ],
             layout: {
