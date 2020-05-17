@@ -177,25 +177,25 @@ class JSONGeoBoundariesBase {
                 tolerance: MAPBOX_TOLERANCE
             });
 
-            this.pointGeoJSONDataZoom2 = this.geoBoundaryCentralPoints
-                ._getModifiedGeoJSONWithPointsJoined(
-                    this.pointGeoJSONData, 2
-                );
-            this.pointGeoJSONDataZoom3 = this.geoBoundaryCentralPoints
-                ._getModifiedGeoJSONWithPointsJoined(
-                    this.pointGeoJSONData, 3
-                );
-            this.pointGeoJSONDataZoom4 = this.geoBoundaryCentralPoints
-                ._getModifiedGeoJSONWithPointsJoined(
-                    this.pointGeoJSONData, 4
-                );
-            this.pointGeoJSONDataZoom5 = this.geoBoundaryCentralPoints
+            this.pointGeoJSONDataZoom6 = this.geoBoundaryCentralPoints
                 ._getModifiedGeoJSONWithPointsJoined(
                     this.pointGeoJSONData, 5
                 );
             this.pointGeoJSONDataZoom5 = this.geoBoundaryCentralPoints
                 ._getModifiedGeoJSONWithPointsJoined(
-                    this.pointGeoJSONData, 6
+                    this.pointGeoJSONDataZoom6, 6
+                );
+            this.pointGeoJSONDataZoom4 = this.geoBoundaryCentralPoints
+                ._getModifiedGeoJSONWithPointsJoined(
+                    this.pointGeoJSONDataZoom5, 4
+                );
+            this.pointGeoJSONDataZoom3 = this.geoBoundaryCentralPoints
+                ._getModifiedGeoJSONWithPointsJoined(
+                    this.pointGeoJSONDataZoom4, 3
+                );
+            this.pointGeoJSONDataZoom2 = this.geoBoundaryCentralPoints
+                ._getModifiedGeoJSONWithPointsJoined(
+                    this.pointGeoJSONDataZoom3, 2
                 );
 
             this.map.addSource(this.getHeatmapSourceId(dataSource, 2), {
@@ -220,7 +220,7 @@ class JSONGeoBoundariesBase {
             });
             this.map.addSource(this.getHeatmapSourceId(dataSource, 6), {
                 type: 'geojson',
-                data: this.pointGeoJSONDataZoom5,
+                data: this.pointGeoJSONDataZoom6,
                 tolerance: MAPBOX_TOLERANCE
             });
         }
