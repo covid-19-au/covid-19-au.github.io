@@ -179,11 +179,11 @@ class JSONGeoBoundariesBase {
 
             this.pointGeoJSONDataZoom6 = this.geoBoundaryCentralPoints
                 ._getModifiedGeoJSONWithPointsJoined(
-                    this.pointGeoJSONData, 5
+                    this.pointGeoJSONData, 6
                 );
             this.pointGeoJSONDataZoom5 = this.geoBoundaryCentralPoints
                 ._getModifiedGeoJSONWithPointsJoined(
-                    this.pointGeoJSONDataZoom6, 6
+                    this.pointGeoJSONDataZoom6, 5
                 );
             this.pointGeoJSONDataZoom4 = this.geoBoundaryCentralPoints
                 ._getModifiedGeoJSONWithPointsJoined(
