@@ -168,7 +168,7 @@ class MbMap extends React.Component {
                                 style={{ "width": "100%" }}>
                                 <optgroup label="Basic Numbers">
                                     <option value="total" selected>Total Cases</option>
-                                    <option value="days_since" selected>Days Since Last Case</option>
+                                    <option value="days_since">Days Since Last Case</option>
                                     <option value="status_active">Active Cases</option>
                                     <option value="status_recovered">Recovered Cases</option>
                                     <option value="status_deaths">Deaths</option>
