@@ -62,10 +62,12 @@ class HeatMapLayer {
                         'circle-radius': [
                             'interpolate',
                             ['linear'],
-                            ["abs", ['/', ['get', 'cases'], divBy]],
+                            ['get', 'casesSz'],
                             0, 0,
-                            0.00000001, maxMin['median'] > 100 ? 15 : 10,
-                            1, 15
+                            1, 13,
+                            2, 13,
+                            3, 16,
+                            4, 20
                         ],
                         // Color circle by value
                         'circle-color': [
@@ -126,10 +128,12 @@ class HeatMapLayer {
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
-                        ["abs", ['/', ['get', 'cases'], divBy]],
+                        ['get', 'casesSz'],
                         0, 0,
-                        0.00000001, maxMin['median'] > 100 ? 15 : 10,
-                        1, 40
+                        1, 15,
+                        2, 15,
+                        3, 25,
+                        4, 30
                     ],
                     // Color circle by value
                     'circle-color': [

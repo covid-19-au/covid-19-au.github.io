@@ -265,7 +265,8 @@ class JSONGeoBoundariesBase {
                 }
             }
             data.properties['cases'] = caseInfo['numCases'];
-            data.properties['casesFmt'] = Fns.numberFormat(caseInfo['numCases']);
+            data.properties['casesFmt'] = Fns.numberFormat(caseInfo['numCases'], 1);
+            data.properties['casesSz'] = data.properties['casesFmt'].length;
             data.properties['city'] = cityName;
         }
     }
