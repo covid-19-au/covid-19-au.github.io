@@ -476,6 +476,8 @@ class MbMap extends React.Component {
             this.dsMapContainer.style.display = 'block';
             this.markersButtonGroup.current.parentNode.style.display = 'none';
             this.underlayBGCont.current.style.display = 'none';
+            this.dsMap.map.setZoom(this.map.getZoom());
+            this.dsMap.map.setCenter(this.map.getCenter());
             this.dsMap.map.resize();
             return;
         }
@@ -647,6 +649,8 @@ class MbMap extends React.Component {
             this.dsMapContainer.style.display = 'none';
             this.markersButtonGroup.current.parentNode.style.display = 'block';
             this.underlayBGCont.current.style.display = 'block';
+            this.map.setZoom(this.dsMap.map.getZoom());
+            this.map.setCenter(this.dsMap.map.getCenter());
             this.map.resize();
             return;
         }
