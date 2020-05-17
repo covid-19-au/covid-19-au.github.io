@@ -4,6 +4,7 @@ import LinePolyLayer from "./LayerLinePoly";
 import HeatMapLayer from "./LayerHeatMap";
 import DaysSinceLayer from "./LayerDaysSince"
 import GeoBoundaryCentralPoints from "./GeoBoundaryCentralPoints"
+import Fns from "./Fns"
 
 
 // Higher values will result in less accurate lines,
@@ -264,6 +265,7 @@ class JSONGeoBoundariesBase {
                 }
             }
             data.properties['cases'] = caseInfo['numCases'];
+            data.properties['casesFmt'] = Fns.numberFormat(caseInfo['numCases']);
             data.properties['city'] = cityName;
         }
     }

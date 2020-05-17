@@ -64,7 +64,7 @@ class HeatMapLayer {
                             ['linear'],
                             ["abs", ['/', ['get', 'cases'], divBy]],
                             0, 0,
-                            0.00000001, 10,
+                            0.00000001, maxMin['median'] > 100 ? 15 : 10,
                             1, 15
                         ],
                         // Color circle by value
@@ -97,7 +97,7 @@ class HeatMapLayer {
                     ['has', 'cases']
                 ],
                 layout: {
-                    'text-field': '{cases}',
+                    'text-field': '{casesFmt}',
                     'text-font': [
                         'Arial Unicode MS Bold',
                         'Open Sans Bold',
@@ -128,7 +128,7 @@ class HeatMapLayer {
                         ['linear'],
                         ["abs", ['/', ['get', 'cases'], divBy]],
                         0, 0,
-                        0.00000001, 10,
+                        0.00000001, maxMin['median'] > 100 ? 15 : 10,
                         1, 40
                     ],
                     // Color circle by value
@@ -166,7 +166,7 @@ class HeatMapLayer {
                 ['has', 'cases']
             ],
             layout: {
-                'text-field': '{cases}',
+                'text-field': '{casesFmt}',
                 'text-font': [
                     'Arial Unicode MS Bold',
                     'Open Sans Bold',

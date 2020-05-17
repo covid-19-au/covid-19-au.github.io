@@ -106,6 +106,7 @@ class GeoBoundaryCentralPoints {
                 });
 
                 feature.properties['cases'] = cases;
+                feature.properties['casesFmt'] = Fns.numberFormat(cases);
                 feature.geometry.coordinates = [x/n, y/n];
                 newFeatures.push(feature);
             }
