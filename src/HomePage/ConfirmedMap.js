@@ -1,7 +1,9 @@
-import React from "react";
-import mapboxgl from 'mapbox-gl';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Button from '@material-ui/core/Button';
+import React from "react"
+import mapboxgl from 'mapbox-gl'
+import ButtonGroup from '@material-ui/core/ButtonGroup'
+import Button from '@material-ui/core/Button'
+//import Tooltip from '@material-ui/core/Tooltip'
+//import ReactCountryFlag from "react-country-flag"
 
 import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -15,6 +17,7 @@ import TimeSeriesDataSourceForPeriod from "./ConfirmedMap/DataCasesPeriod"
 import ConfirmedMapShipsData from "./ConfirmedMap/DataShips"
 import BigTableOValuesDataSource from "./ConfirmedMap/DataABS"
 import GeoBoundaries from "./ConfirmedMap/GeoBoundaries" // FIXME!
+import DaysSinceMap from "./DaysSinceMap"
 
 
 const absStats = absStatsData['data'];
@@ -91,7 +94,9 @@ class MbMap extends React.Component {
     }
 
     render() {
-        const padding = '6px';
+        const padding = '6px',
+              fbPadding = '2px 3px';
+
         const activeStyles = {
             color: 'black',
             borderColor: '#8ccfff',
@@ -112,6 +117,32 @@ class MbMap extends React.Component {
             textTransform: "none"
         };
 
+        const activeFBStyles = {
+            color: 'black',
+            borderColor: '#8ccfff',
+            padding: fbPadding,
+            //padding: "0px 5px",
+            zIndex: 10,
+            outline: "none",
+            textTransform: "none",
+            minWidth: 0,
+            minHeight: 0
+        };
+        const inactiveFBStyles = {
+            color: 'grey',
+            borderColor: '#e3f3ff',
+            padding: fbPadding,
+            //padding: "0px 5px",
+            outline: "none",
+            textTransform: "none",
+            minWidth: 0,
+            minHeight: 0,
+            opacity: 0.8,
+            filter: "grayscale(50%)"
+        };
+
+        var countrySize = '1.32em';
+
         return (
             <div className="card" style={{
                 display: 'flex',
@@ -124,7 +155,8 @@ class MbMap extends React.Component {
                         fontSize: "60%"
                     }}>
                         <Acknowledgement>
-                        </Acknowledgement></div></h2>
+                        </Acknowledgement>
+                        </div></h2>
 
                 <div style={{position: 'relative'}}>
                     <div class="map-cont-controls" ref={this.mapContControls}>
@@ -136,6 +168,7 @@ class MbMap extends React.Component {
                                 style={{ "width": "100%" }}>
                                 <optgroup label="Basic Numbers">
                                     <option value="total" selected>Total Cases</option>
+                                    <option value="days_since" selected>Days Since Last Case</option>
                                     <option value="status_active">Active Cases</option>
                                     <option value="status_recovered">Recovered Cases</option>
                                     <option value="status_deaths">Deaths</option>
@@ -201,11 +234,15 @@ class MbMap extends React.Component {
                     <div ref={el => this.mapContainer = el} >
 
                     </div>
+                    <div ref={el => this.dsMapContainer = el} style={{display: 'none'}}>
+                        <DaysSinceMap ref={el => this.dsMap = el} />
+                    </div>
                 </div>
 
                 <span className="due">
                     <div ref={this.accuracyWarning}>
-                        <p style={{ color: 'red' }}>*Cases on map are approximate and
+                        <p style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>* Zoom in to get regional numbers. Click on regions to get a history over time.</p>
+                        <p style={{ color: 'red', marginTop: '0px', paddingTop: '0px' }}>* Cases on map are approximate and
                             identify regions only, not specific addresses.</p>
                     </div>
                 </span>
@@ -230,6 +267,7 @@ class MbMap extends React.Component {
 
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
+            //style: 'mapbox://styles/mapbox/satellite-v9',
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
             zoom: zoom,
@@ -433,6 +471,13 @@ class MbMap extends React.Component {
     }
 
     _updateMode() {
+        if (this.state._markers === 'days_since') {
+            this.mapContainer.style.display = 'none';
+            this.dsMapContainer.style.display = 'block';
+            this.dsMap.map.resize();
+            return;
+        }
+
         // Get the absolute max/min values among all the datasources
         // so that we can scale heatmap values for the entire of the
         // country
@@ -484,8 +529,6 @@ class MbMap extends React.Component {
             for (var i = 0; i < insts.length; i++) {
                 //console.log(`Enable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
 
-                insts[i].addLinePoly(dataSource);
-
                 insts[i].addFillPoly(
                     this.absStatsInsts[this.state._underlay],
                     dataSource,
@@ -493,6 +536,7 @@ class MbMap extends React.Component {
                     !!this.state._underlay,
                     true
                 );
+                insts[i].addLinePoly(dataSource);
 
                 insts[i].addHeatMap(
                     dataSource,
@@ -506,8 +550,6 @@ class MbMap extends React.Component {
             // (e.g. Queensland HHS/ACT SA3)
             //console.log(`Enable non-lga inst: dataSource->${dataSource.schema}:${dataSource.stateName} otherInst->${otherInst.schema}:${otherInst.stateName} ${otherInst} ${lgaInst}`);
 
-            otherInst.addLinePoly(dataSource,'rgba(0, 0, 0, 1.0)');
-
             otherInst.addFillPoly(
                 null,
                 dataSource,
@@ -517,10 +559,6 @@ class MbMap extends React.Component {
             );
 
             if (this.state._underlay && lgaInst) {
-                lgaInst.addLinePoly(
-                    this.absStatsInsts[this.state._underlay],
-                    'rgba(0, 0, 0, 0.1)'
-                );
                 lgaInst.addFillPoly(
                     this.absStatsInsts[this.state._underlay],
                     null,
@@ -529,7 +567,13 @@ class MbMap extends React.Component {
                     false//,
                     //fillPoly['fillPolyId']
                 );
+                lgaInst.addLinePoly(
+                    this.absStatsInsts[this.state._underlay],
+                    'rgba(0, 0, 0, 0.1)'
+                );
             }
+
+            otherInst.addLinePoly(dataSource,'rgba(0, 0, 0, 1.0)');
 
             otherInst.addHeatMap(
                 dataSource,
@@ -596,6 +640,13 @@ class MbMap extends React.Component {
     }
 
     _resetMode(prevState) {
+        if (prevState._markers === 'days_since') {
+            this.mapContainer.style.display = 'block';
+            this.dsMapContainer.style.display = 'none';
+            this.map.resize();
+            return;
+        }
+
         function disableInsts(insts) {
             for (var i = 0; i < insts.length; i++) {
                 //console.log(`Disable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
@@ -622,7 +673,7 @@ class MbMap extends React.Component {
             (prevState._markers && prevState._markers.toUpperCase() === prevState._markers)) {
             this.markersButtonGroup.current.parentNode.style.display = 'block';
         }
-        this.accuracyWarning.current.style.display = 'none';
+        //this.accuracyWarning.current.style.display = 'none';
 
         this.statesAndTerritories.forEach((stateName) => {
             var absStatDataInst = this.absStatsInsts[prevState._underlay],

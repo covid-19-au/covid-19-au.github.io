@@ -40,24 +40,8 @@ class DaysSinceMap extends React.Component {
 
     render() {
         return (
-            <div className="card" style={{
-                display: 'flex',
-                flexDirection: 'column'
-            }}>
-                <h2 style={{ display: "flex" }}
-                    aria-label="Days Since Last Case">Days Since Last Case<div style={{
-                        alignSelf: "flex-end",
-                        marginLeft: "auto",
-                        fontSize: "60%"
-                    }}>
-                        <Acknowledgement>
-                        </Acknowledgement></div></h2>
+            <div ref={el => this.mapContainer = el} >
 
-                <div style={{position: 'relative'}}>
-                    <div ref={el => this.mapContainer = el} >
-
-                    </div>
-                </div>
             </div>
         );
     }
@@ -187,7 +171,7 @@ class DaysSinceMap extends React.Component {
 
         for (var schema of schemas) {
             var key = `${stateName}:${schema}`;
-            console.log("TRYING: "+key+" "+(key in this.caseDataInsts));
+            //console.log("TRYING: "+key+" "+(key in this.caseDataInsts));
 
             if (key in this.caseDataInsts) {
                 return this.caseDataInsts[key];
