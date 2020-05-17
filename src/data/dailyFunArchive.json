@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=2k9MpD1gM14",
+                    "description": "Full episodes of Mr. Bean are on Youtube!"
+                }
+            ],
+            "type": "distraction",
+            "date": "17/5/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://www.goodnewsnetwork.org/wp-content/uploads/2020/05/baby-gray-whale-near-boat-swns-696x553.jpg",
@@ -11,7 +22,7 @@
             "title": "A baby whale decided to surprise a whale watcher",
             "content": "<p>A baby grey whale made a whale watcher's day by coming over to her boat to say hi!</p><p>Check out the video in the link below!</p>",
             "type": "motivation",
-            "date": "15/5/2020",
+            "date": "16/5/2020",
             "citation": [
                 {
                     "link": "https://www.goodnewsnetwork.org/video-shows-lucky-whale-watcher-getting-to-pet-baby-grey/",
