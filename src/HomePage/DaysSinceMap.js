@@ -66,7 +66,11 @@ class DaysSinceMap extends React.Component {
             center: [lng, lat],
             zoom: zoom,
             maxZoom: 9.5,
-            maxBounds: bounds // Sets bounds as max
+            maxBounds: bounds, // Sets bounds as max
+            transition: {
+                duration: 0,
+                delay: 0
+            }
         });
 
         // Disable map rotation
