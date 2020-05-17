@@ -35,21 +35,22 @@ class GeoBoundaryCentralPoints {
         geoJSONData['features'].forEach((feature1, index1) => {
             var coords1 = feature1['geometry']['coordinates'];
 
-            if (!feature1.properties['cases']) {
-                // Only add if there actually are cases!
+            if (!feature1.properties['cases'] || feature1.properties['cases'] < 0) {
+                // Only add if cases has been added to!
                 return;
             }
 
             geoJSONData['features'].forEach((feature2, index2) => {
+                var coords2 = feature2['geometry']['coordinates'];
+
                 if (index1 === index2) {
                     return;
                 }
-                else if (!feature2.properties['cases']) {
-                    // Only add if there actually are cases!
+                else if (!feature2.properties['cases'] || feature2.properties['cases'] < 0) {
+                    // Only add if cases has been added to!
                     return;
                 }
 
-                var coords2 = feature2['geometry']['coordinates'];
                 var a = coords1[0] - coords2[0],
                     b = coords1[1] - coords2[1],
                     c = Math.sqrt(a*a + b*b);
@@ -76,7 +77,8 @@ class GeoBoundaryCentralPoints {
                 var merged = mergedMap.get(index1) || [];
                 merged.push(index2);
                 if (mergedMap.has(index2)) {
-                    merged = merged.concat(mergedMap.get(index2))
+                    merged = merged.concat(mergedMap.get(index2));
+                    mergedMap.delete(index2);
                 }
                 mergedMap.set(index1, merged);
                 eliminatedMap.set(index2, null);
@@ -86,25 +88,25 @@ class GeoBoundaryCentralPoints {
         var newFeatures = [];
         geoJSONData['features'].forEach((feature, index) => {
             if (eliminatedMap.has(index)) {
-                return;
+                //feature.properties['cases'] = 0;
+                //newFeatures.push(feature);
             }
             else if (mergedMap.has(index)) {
-                var cases = feature.properties['cases'] || 0,
+                var cases = feature.properties['cases'],
                     x = feature.geometry.coordinates[0],
                     y = feature.geometry.coordinates[1],
                     n = 1;
 
                 mergedMap.get(index).forEach(function(otherIndex) {
                     var otherFeature =  geoJSONData['features'][otherIndex];
-                    x += otherFeature.geometry.coordinates[0];
-                    y += otherFeature.geometry.coordinates[1];
-                    cases += otherFeature.properties['cases'] || 0;
-                    n += 1;
+                    x = x + otherFeature.geometry.coordinates[0];
+                    y = y + otherFeature.geometry.coordinates[1];
+                    cases = cases + otherFeature.properties['cases'];
+                    n = n + 1;
                 });
 
                 feature.properties['cases'] = cases;
                 feature.geometry.coordinates = [x/n, y/n];
-
                 newFeatures.push(feature);
             }
             else {
