@@ -206,6 +206,13 @@ function GoogleMap({ province, newData }) {
     return (
         loading ? <div className="loading">{i18next.t("homePage:misc.loadingText")}</div> :
             <div className="stateMap">
+                <h2 style={{ display: "flex" }} aria-label="Cases of COVID 19 by state">{i18next.t("homePage:caseByState.title")}{province ? `· ${province.name}` : false}
+                    <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+                        <Acknowledgement>
+                        </Acknowledgement></div>
+
+                </h2>
+
                 {i18next.t("homePage:caseByState.buttonPrompt")}&nbsp;
                 <ButtonGroup aria-label="small outlined button group">
                     <Tooltip title="Confirmed cases so far" arrow>

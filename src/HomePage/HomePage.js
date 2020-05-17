@@ -6,7 +6,6 @@ import Area from "./Area";
 import Flights from "./Flights";
 import StateGraph from "./StateGraph";
 import MbMap from "./ConfirmedMap";
-import DaysSinceMap from "./DaysSinceMap"
 import Stat from "./Stat";
 import HistoryGraph from "./HistoryGraph";
 import EChartGlobalLog from "./EChartGlobalLog";
@@ -22,8 +21,6 @@ import all from "../data/overall";
 import OverallTrend from "./OverallTrend";
 import StateComparisonChart from "./StateComparisonChart";
 import Ships from "./Ships";
-import i18next from "../i18n";
-import Acknowledgement from "../Acknowledgment";
 
 const provincesByName = keyBy(provinces, "name");
 
@@ -48,41 +45,28 @@ export default function HomePage({
           countryData={country}
         />
         <div className="card">
-            <h2 style={{ display: "flex" }} aria-label="Cases of COVID 19 by state">{i18next.t("homePage:caseByState.title")}{province ? `· ${province.name}` : false}
-                    <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
-                        <Acknowledgement>
-                        </Acknowledgement></div>
-
-            </h2>
+          <Suspense fallback={<div className="loading">Loading...</div>}>
+            <GoogleMap
+              province={province}
+              data={data}
+              onClick={(name) => {
+                const p = provincesByName[name];
+                if (p) {
+                  setProvince(p);
+                }
+              }}
+              newData={myData}
+            />
             <Area area={area} onChange={setProvince} data={myData} />
+          </Suspense>
         </div>
       </Grid>
-      <Grid item xs={11} sm={11} md={10} lg={5}>
-            <MbMap />
-
-      </Grid>
-      <Grid item xs={11} sm={11} md={10} lg={5}>
-          <Suspense fallback={<div className="loading">Loading...</div>}>
-            <div className="card">
-                 <GoogleMap
-                  province={province}
-                  data={data}
-                  onClick={(name) => {
-                    const p = provincesByName[name];
-                    if (p) {
-                      setProvince(p);
-                    }
-                  }}
-                  newData={myData}
-                />
-                </div>
-          </Suspense>
-          <DaysSinceMap />
-      </Grid>
 
       <Grid item xs={11} sm={11} md={10} lg={5}>
-        <StateComparisonChart />
+        <MbMap />
         <OverallTrend />
+
+        <StateComparisonChart />
       </Grid>
       <Grid item xs={11} sm={11} md={10} lg={5}>
         <EChartGlobalLog />
