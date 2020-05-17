@@ -70,7 +70,8 @@ class DaysSinceMap extends React.Component {
             transition: {
                 duration: 0,
                 delay: 0
-            }
+            },
+            fadeDuration: 0
         });
 
         // Disable map rotation
