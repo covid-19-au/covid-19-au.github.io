@@ -1,4 +1,5 @@
 import React from "react"
+import ReactDOM from "react-dom"
 import mapboxgl from 'mapbox-gl'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import Button from '@material-ui/core/Button'
@@ -235,7 +236,7 @@ class MbMap extends React.Component {
 
                     </div>
                     <div ref={el => this.dsMapContainer = el} style={{display: 'none'}}>
-                        <DaysSinceMap ref={el => this.dsMap = el} />
+
                     </div>
                 </div>
 
@@ -472,13 +473,26 @@ class MbMap extends React.Component {
 
     _updateMode() {
         if (this.state._markers === 'days_since') {
-            this.mapContainer.style.display = 'none';
-            this.dsMapContainer.style.display = 'block';
-            this.markersButtonGroup.current.parentNode.style.display = 'none';
-            this.underlayBGCont.current.style.display = 'none';
-            this.dsMap.map.setZoom(this.map.getZoom());
-            this.dsMap.map.setCenter(this.map.getCenter());
-            this.dsMap.map.resize();
+            if (!this.dsMap) {
+                ReactDOM.render(
+                    <DaysSinceMap ref={el => this.dsMap = el} />,
+                    this.dsMapContainer
+                );
+            }
+            var runUntilLoaded = () => {
+                if (!this.dsMap) {
+                    setTimeout(runUntilLoaded, 50);
+                    return;
+                }
+                this.mapContainer.style.display = 'none';
+                this.dsMapContainer.style.display = 'block';
+                this.markersButtonGroup.current.parentNode.style.display = 'none';
+                this.underlayBGCont.current.style.display = 'none';
+                this.dsMap.map.setZoom(this.map.getZoom());
+                this.dsMap.map.setCenter(this.map.getCenter());
+                this.dsMap.map.resize();
+            };
+            runUntilLoaded();
             return;
         }
 
