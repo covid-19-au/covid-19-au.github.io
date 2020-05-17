@@ -55,6 +55,8 @@ class HeatMapLayer {
                     'id': this.getHeatPointId()+zoomLevel,
                     'type': 'circle',
                     'source': this.heatMapSourceId+zoomLevel,
+                    'min-zoom': zoomLevel-0.5,
+                    'max-zoom': zoomLevel+1.5,
                     'paint': {
                         // Size circle radius by value
                         'circle-radius': [
@@ -88,6 +90,8 @@ class HeatMapLayer {
                 id: this.getHeatPointId()+'label'+zoomLevel,
                 type: 'symbol',
                 source: this.heatMapSourceId+zoomLevel,
+                'min-zoom': zoomLevel-0.5,
+                'max-zoom': zoomLevel+1.5,
                 filter: ['all',
                     ['>', 'cases', 0],
                     ['has', 'cases']
@@ -116,6 +120,7 @@ class HeatMapLayer {
                 id: this.getHeatPointId(),
                 type: 'circle',
                 source: this.heatMapSourceId,
+                'min-zoom': 6.5,
                 paint: {
                     // Size circle radius by value
                     'circle-radius': [
@@ -155,6 +160,7 @@ class HeatMapLayer {
             id: this.getHeatPointId()+'label',
             type: 'symbol',
             source: this.heatMapSourceId,
+            'min-zoom': 6.5,
             filter: ['all',
                 ['>', 'cases', 0],
                 ['has', 'cases']

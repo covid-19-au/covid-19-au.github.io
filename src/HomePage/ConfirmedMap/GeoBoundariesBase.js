@@ -65,8 +65,10 @@ class JSONGeoBoundariesBase {
         this._fillPolyLayer = new FillPolyLayer(
             this.map,
             absDataSource, caseDataSource, opacity,
-            addLegend, addPopupOnClick, this.stateName, addUnderLayerId,
-            this.uniqueId,
+            addLegend, addPopupOnClick, this.stateName,
+            this.maxMinStatVal,
+
+            addUnderLayerId, this.uniqueId,
             this.getFillSourceId(
                 absDataSource || caseDataSource
             )

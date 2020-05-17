@@ -11,13 +11,14 @@ class FillPolyLayer {
         addLegend,
         addPopupOnClick,
         stateName,
+        maxMinStatVal,
         addUnderLayerId,
         uniqueId,
         fillSourceId,
     ) {
 
         if (opacity == null) {
-            opacity = 0.75;
+            opacity = 0.70;
         }
 
         this.map = map;
@@ -27,6 +28,7 @@ class FillPolyLayer {
         this.addLegend = addLegend;
         this.addPopupOnClick = addPopupOnClick;
         this.stateName = stateName;
+        this.maxMinStatVal = maxMinStatVal;
         this.addUnderLayerId = addUnderLayerId;
         this.uniqueId = uniqueId;
         this.fillSourceId = fillSourceId;
@@ -83,14 +85,18 @@ class FillPolyLayer {
             max
         ];
         var colors = [
+            //'#ffffff',
+            '#f0f5ff',
+            '#dcf0ff',
+            //'#c8ebff',
             '#bae1ff',
             '#9ed0fb',
             '#83bff8',
-            '#68adf4',
+            //'#68adf4',
             '#4f9bef',
             '#3689e9',
             '#1e76e3',
-            '#0463da',
+            //'#0463da',
             '#004fd0'
         ];
 
