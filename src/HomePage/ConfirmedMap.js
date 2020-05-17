@@ -55,8 +55,8 @@ class MbMap extends React.Component {
         this.accuracyWarning = React.createRef();
 
         this.statesAndTerritories = [
-            // note act is last, so it's drawn first
-            'nsw', 'vic', 'tas', 'wa', 'nt', 'qld', 'sa', 'act'
+            // note if act is last, it will be drawn first!!!
+            'act', 'nsw', 'vic', 'tas', 'wa', 'nt', 'qld', 'sa'
         ];
     }
 
