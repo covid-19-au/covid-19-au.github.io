@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theage.com.au/national/victoria/andrews-reveals-2-7b-for-building-blitz-including-1-1b-for-schools-20200518-p54tw4.html",
+            "title": "Andrews reveals $2.7b for building blitz, including $1.1b for schools",
+            "source": "TheAge",
+            "date": "18 May 2020",
+            "time": "11:09",
+            "summary": "The Victorian government has announced $2.7 billion in funding for building projects across the state, led by about $1.1 billion to build new schools and classrooms. Some of the $1.18 billion for schools and education will go towards fulfilling previously announced projects, such as the new 3000-student Greater Shepparton Secondary College – one of a total of 10 new schools in growth areas included in the funding – while $114 million will go towards 250 demountable classrooms. More widely there will be $382 million in upgrades for tourism destinations such as new mountain bike trails in the Ararat Hills, along with $328 million for resurfacing and patching roads, repairs at about 15 train stations and 300 kilometres of regional train track works. Premier Daniel Andrews said he expected the $2.7 billion package to create 3700 construction jobs, many for Victorians out of work due to the coronavirus pandemic."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/mcdonald-s-closes-12-restaurants-in-victoria-after-delivery-driver-tests-positive",
+            "title": "McDonald's closes 12 restaurants in Victoria after delivery driver tests positive",
+            "source": "SBSNews",
+            "date": "18 May 2020",
+            "time": "09:00",
+            "summary": "Twelve McDonald's outlets have been closed in Victoria due to a coronavirus-infected truck driver, while the state announces $2.7 billion to help revive the economy. The fast-food outlets will be shut and deep-cleaned after the driver made deliveries while he was asymptomatic and unaware he had COVID-19. The chain says no employee has tested positive in connection to the driver and customers are not at risk. \"Out of an abundance of caution, we have made the decision to close and conduct a deep clean of 12 restaurants in Victoria, following confirmation a truck driver for an external service provider has tested positive for COVID-19,\" McDonald's said in a statement."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-18/nsw-school-students-to-return-full-time-on-monday/12260252",
+            "title": "NSW public school students to return to classrooms full time after coronavirus shutdown",
+            "source": "ABCNews",
+            "date": "18 May 2020",
+            "time": "21:10",
+            "summary": "Students at NSW public schools will return to classrooms full time from next Monday after weeks of remote learning. NSW Premier Gladys Berejiklian will confirm the May 25 start date tomorrow. Most students have been attending school one day a week since last week. Last month the NSW Government announced students across the state would make a staggered return from May 11. At the time Ms Berejiklian said she hoped students would be back in classrooms full time by term three, which does not start until July 21."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-17/coronavirus-inquiry-world-health-assembly-china-covid-19/12256910",
             "title": "Coalition of 62 countries backs joint Australian, EU push for independent inquiry into coronavirus outbreak",
             "source": "ABCNews",
@@ -135,30 +159,6 @@
             "date": "11 May 2020",
             "time": "16:18",
             "summary": "Victorian Premier Daniel Andrews has announced \"a small first step\" in the relaxation of the state's coronavirus restrictions. The changes come into effect at 11:59pm on Tuesday and will be in place until the end of May. Notably, the restriction changes mean that residents can now invite five friends or family members over to their house; go hiking, fishing, hunting, diving, prospecting, boating, go for a walk or play non-contact sport together outdoors in groups of up to 10 people; have more guests for weddings and funerals and more. More details on the restrictions lifted can be found in the article."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/may/10/ten-arrested-and-police-officer-injured-at-protest-against-victorias-covid-19-lockdown-laws",
-            "title": "Ten arrested and police officer injured at protest against Victoria’s Covid-19 lockdown laws ",
-            "source": "TheGuardian",
-            "date": "10 May 2020",
-            "time": "17:49",
-            "summary": "Ten people have been arrested and one police officer has been hospitalised after demonstrators who gathered in Melbourne’s CBD to protest against “self-isolating, social distancing, tracking apps [and] 5G being installed” clashed with police enforcing Victoria’s lockdown laws. Victoria police said on Sunday that 10 people, including two organisers, were arrested after more than 100 people turned out on the steps of Victoria’s parliament on Sunday in contravention of emergency powers restricting gatherings introduced to slow the spread of Covid-19."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-10/wa-relaxes-coronavirus-restrictions-from-may-18-including-travel/12232268",
-            "title": "WA to ease coronavirus restrictions from May 18, with 20-person gatherings allowed",
-            "source": "ABCNews",
-            "date": "10 May 2020",
-            "time": "16:05",
-            "summary": "West Australian Premier Mark McGowan has announced a roadmap for the reopening of the state's economy, doubling the number of people allowed at non-work gatherings and removing some regional travel borders. Notably, up to 20 people will be allowed to gather indoors and outdoors, pubs, restaurants and cafes may have 20 patrons dine in and regional travel boundaries have dropped from 13 to four. More details on the restrictions lifted can be found in the article."
-        },
-        {
-            "link": "https://www.smh.com.au/national/nsw/nsw-to-ease-lockdown-restrictions-from-friday-20200509-p54rek.html",
-            "title": "NSW to ease lockdown restrictions from Friday",
-            "source": "TheSydneyMorningHerald",
-            "date": "10 May 2020",
-            "time": "12:05",
-            "summary": "NSW will further ease COVID-19 restrictions from this Friday, with cafes, restaurants, playgrounds and outdoor pools making the cut for early reopening. Premier Gladys Berejiklian said \"the changes will allow NSW to fire up the economy, while allowing more personal freedoms.\" Notably, NSW residents will be permitted to have outdoor gatherings of up to 10 people, visits to a household of up to five people, while cafes and restaurants can seat 10 patrons at any one time. More details on the restrictions lifted can be found in the article."
         }
     ]
 }
