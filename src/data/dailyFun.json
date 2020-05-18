@@ -1,23 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "imgLink": "https://images.thewest.com.au/publication/B881547564Z/1589549999018_GCO2OIEB3.1-2.jpg?imwidth=828&impolicy=wan_v3",
-                    "source": "https://thewest.com.au/news/coronavirus/crown-perth-and-the-west-australian-launch-250000-campaign-to-thank-hero-nurses-during-pandemic-ng-b881547564z"
+                    "link": "https://www.youtube.com/watch?v=TXdKrtmexWU",
+                    "description": "SGN: The SGN Community episode!"
                 }
             ],
-            "video": [],
-            "title": "Thanking Nurses",
-            "content": "<p>Crown Perth and The West Australian have teamed up to launch a $250,000 campaign to thank nurses in WA Hospitals. Our healthcare professionals have done a fantastic job and deserve all the praise they get!</p><p>Read more about the campaign below!</p>",
-            "type": "motivation",
-            "date": "18/5/2020",
-            "citation": [
-                {
-                    "link": "https://thewest.com.au/news/coronavirus/crown-perth-and-the-west-australian-launch-250000-campaign-to-thank-hero-nurses-during-pandemic-ng-b881547564z",
-                    "name": "Crown Perth and The West Australian launch $250,000 campaign to thank hero nurses during pandemic – The West Australian"
-                }
-            ]
+            "type": "distraction",
+            "date": "18/5/2020"
         }
     ]
 }
