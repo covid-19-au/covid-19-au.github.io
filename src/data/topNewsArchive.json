@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/may/10/ten-arrested-and-police-officer-injured-at-protest-against-victorias-covid-19-lockdown-laws",
+            "title": "Ten arrested and police officer injured at protest against Victoria’s Covid-19 lockdown laws ",
+            "source": "TheGuardian",
+            "date": "10 May 2020",
+            "time": "17:49",
+            "summary": "Ten people have been arrested and one police officer has been hospitalised after demonstrators who gathered in Melbourne’s CBD to protest against “self-isolating, social distancing, tracking apps [and] 5G being installed” clashed with police enforcing Victoria’s lockdown laws. Victoria police said on Sunday that 10 people, including two organisers, were arrested after more than 100 people turned out on the steps of Victoria’s parliament on Sunday in contravention of emergency powers restricting gatherings introduced to slow the spread of Covid-19."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-10/wa-relaxes-coronavirus-restrictions-from-may-18-including-travel/12232268",
+            "title": "WA to ease coronavirus restrictions from May 18, with 20-person gatherings allowed",
+            "source": "ABCNews",
+            "date": "10 May 2020",
+            "time": "16:05",
+            "summary": "West Australian Premier Mark McGowan has announced a roadmap for the reopening of the state's economy, doubling the number of people allowed at non-work gatherings and removing some regional travel borders. Notably, up to 20 people will be allowed to gather indoors and outdoors, pubs, restaurants and cafes may have 20 patrons dine in and regional travel boundaries have dropped from 13 to four. More details on the restrictions lifted can be found in the article."
+        },
+        {
+            "link": "https://www.smh.com.au/national/nsw/nsw-to-ease-lockdown-restrictions-from-friday-20200509-p54rek.html",
+            "title": "NSW to ease lockdown restrictions from Friday",
+            "source": "TheSydneyMorningHerald",
+            "date": "10 May 2020",
+            "time": "12:05",
+            "summary": "NSW will further ease COVID-19 restrictions from this Friday, with cafes, restaurants, playgrounds and outdoor pools making the cut for early reopening. Premier Gladys Berejiklian said \"the changes will allow NSW to fire up the economy, while allowing more personal freedoms.\" Notably, NSW residents will be permitted to have outdoor gatherings of up to 10 people, visits to a household of up to five people, while cafes and restaurants can seat 10 patrons at any one time. More details on the restrictions lifted can be found in the article."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-09/how-travel-will-resume-around-australia-coronavirus-restrictions/12231242",
             "title": "How travel will resume around Australia as coronavirus restrictions ease in each state and territory",
             "source": "ABCNews",
