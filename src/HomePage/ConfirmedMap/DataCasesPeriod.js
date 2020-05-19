@@ -1,5 +1,5 @@
-import ConfirmedMapFns from "./ConfirmedMapFns";
-import TimeSeriesDataSource from "./ConfirmedMapCaseData"
+import ConfirmedMapFns from "./Fns";
+import TimeSeriesDataSource from "./DataCases"
 
 class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
     constructor(sourceName, subHeader, mapAreaData,

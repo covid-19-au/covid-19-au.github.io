@@ -1,23 +1,24 @@
-import React from "react";
-import mapboxgl from 'mapbox-gl';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Button from '@material-ui/core/Button';
-import hospitalData from "../data/mapdataHos"
+import React from "react"
+import ReactDOM from "react-dom"
+import mapboxgl from 'mapbox-gl'
+import ButtonGroup from '@material-ui/core/ButtonGroup'
+import Button from '@material-ui/core/Button'
+//import Tooltip from '@material-ui/core/Tooltip'
+//import ReactCountryFlag from "react-country-flag"
 
 import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
-import hospitalImg from '../img/icon/hospital.png'
 import Acknowledgement from "../Acknowledgment"
 import absStatsData from "../data/absStats";
 
-import ConfirmedMapFns from "./ConfirmedMapFns"
-import TimeSeriesDataSource from "./ConfirmedMapCaseData"
-import TimeSeriesDataSourceForPeriod from "./ConfirmedMapCaseDataPeriod"
-import ConfirmedMapShipsData from "./ConfirmedMapShipsData"
-import BigTableOValuesDataSource from "./ConfirmedMapABSData"
-import GeoBoundaries from "./ConfirmedMapGeoBoundaries" // FIXME!
-import HospitalMarker from "./ConfirmedMapHospitalMarker"
+import ConfirmedMapFns from "./ConfirmedMap/Fns"
+import TimeSeriesDataSource from "./ConfirmedMap/DataCases"
+import TimeSeriesDataSourceForPeriod from "./ConfirmedMap/DataCasesPeriod"
+import ConfirmedMapShipsData from "./ConfirmedMap/DataShips"
+import BigTableOValuesDataSource from "./ConfirmedMap/DataABS"
+import GeoBoundaries from "./ConfirmedMap/GeoBoundaries" // FIXME!
+import DaysSinceMap from "./DaysSinceMap"
 
 
 const absStats = absStatsData['data'];
@@ -38,11 +39,12 @@ class MbMap extends React.Component {
             lat: -26.344589,
             zoom: 2,
             showMarker: true,
-            _timeperiod: 'alltime',
+            _timeperiod: '7days',
             _markers: 'total',
             _underlay: null
         };
         this._firstTime = true;
+        this.geoBoundaries = new GeoBoundaries();
 
         this.markersBGGroup = React.createRef();
         this.underlayBGCont = React.createRef();
@@ -51,10 +53,10 @@ class MbMap extends React.Component {
         this.markersSelect = React.createRef();
         this.otherStatsSelect = React.createRef();
 
-        this.hospitalMessage = React.createRef();
         this.accuracyWarning = React.createRef();
 
         this.statesAndTerritories = [
+            // note if act is last, it will be drawn first!!!
             'act', 'nsw', 'vic', 'tas', 'wa', 'nt', 'qld', 'sa'
         ];
     }
@@ -93,7 +95,9 @@ class MbMap extends React.Component {
     }
 
     render() {
-        const padding = '6px';
+        const padding = '6px',
+              fbPadding = '2px 3px';
+
         const activeStyles = {
             color: 'black',
             borderColor: '#8ccfff',
@@ -114,19 +118,46 @@ class MbMap extends React.Component {
             textTransform: "none"
         };
 
+        const activeFBStyles = {
+            color: 'black',
+            borderColor: '#8ccfff',
+            padding: fbPadding,
+            //padding: "0px 5px",
+            zIndex: 10,
+            outline: "none",
+            textTransform: "none",
+            minWidth: 0,
+            minHeight: 0
+        };
+        const inactiveFBStyles = {
+            color: 'grey',
+            borderColor: '#e3f3ff',
+            padding: fbPadding,
+            //padding: "0px 5px",
+            outline: "none",
+            textTransform: "none",
+            minWidth: 0,
+            minHeight: 0,
+            opacity: 0.8,
+            filter: "grayscale(50%)"
+        };
+
+        var countrySize = '1.32em';
+
         return (
             <div className="card" style={{
                 display: 'flex',
                 flexDirection: 'column'
             }}>
                 <h2 style={{ display: "flex" }}
-                    aria-label="Hospital and Case Map">Hospital & Case Map<div style={{
+                    aria-label="Case Map">Case Map<div style={{
                         alignSelf: "flex-end",
                         marginLeft: "auto",
                         fontSize: "60%"
                     }}>
                         <Acknowledgement>
-                        </Acknowledgement></div></h2>
+                        </Acknowledgement>
+                        </div></h2>
 
                 <div style={{position: 'relative'}}>
                     <div class="map-cont-controls" ref={this.mapContControls}>
@@ -136,11 +167,9 @@ class MbMap extends React.Component {
                             <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Markers</div>
                             <select ref={this.markersSelect}
                                 style={{ "width": "100%" }}>
-                                <optgroup label="COVID-19 Test Facilities">
-                                    <option value="hospitals">Testing Hospitals and Clinics</option>
-                                </optgroup>
                                 <optgroup label="Basic Numbers">
                                     <option value="total" selected>Total Cases</option>
+                                    <option value="days_since">Days Since Last Case</option>
                                     <option value="status_active">Active Cases</option>
                                     <option value="status_recovered">Recovered Cases</option>
                                     <option value="status_deaths">Deaths</option>
@@ -148,9 +177,9 @@ class MbMap extends React.Component {
                                     {/*<option value="status_icu_ventilators">ICU Ventilators</option>*/}
                                     <option value="status_hospitalized">Hospitalized</option>
                                 </optgroup>
-                                {/*<optgroup label="Test Numbers">
+                                <optgroup label="Test Numbers">
                                     <option value="tests_total">Total People Tested</option>
-                                </optgroup>*/}
+                                </optgroup>
                                 <optgroup label="Source of Infection">
                                     <option value="source_overseas">Contracted Overseas</option>
                                     <option value="source_community">Unknown Community Transmission</option>
@@ -206,15 +235,15 @@ class MbMap extends React.Component {
                     <div ref={el => this.mapContainer = el} >
 
                     </div>
+                    <div ref={el => this.dsMapContainer = el} style={{display: 'none'}}>
+
+                    </div>
                 </div>
 
                 <span className="due">
-                    <div ref={this.hospitalMessage}
-                        style={{ display: 'none' }}>
-                        <span className="key"><img src={hospitalImg} /><p>Hospital or COVID-19 assessment centre</p></span>
-                    </div>
                     <div ref={this.accuracyWarning}>
-                        <p style={{ color: 'red' }}>*Cases on map are approximate and
+                        <p style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>* Zoom in to get regional numbers. Click on regions to get a history over time.</p>
+                        <p style={{ color: 'red', marginTop: '0px', paddingTop: '0px' }}>* Cases on map are approximate and
                             identify regions only, not specific addresses.</p>
                     </div>
                 </span>
@@ -239,11 +268,17 @@ class MbMap extends React.Component {
 
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
+            //style: 'mapbox://styles/mapbox/satellite-v9',
             style: 'mapbox://styles/mapbox/streets-v9',
             center: [lng, lat],
             zoom: zoom,
-            maxZoom: 9,
-            maxBounds: bounds // Sets bounds as max
+            maxZoom: 9.5,
+            maxBounds: bounds, // Sets bounds as max
+            transition: {
+                duration: 0,
+                delay: 0
+            },
+            fadeDuration: 0
         });
 
         // Set the HTML *once only*!
@@ -267,10 +302,6 @@ class MbMap extends React.Component {
         //Add zoom+fullscreen controls
         map.addControl(new mapboxgl.NavigationControl());
         map.addControl(new mapboxgl.FullscreenControl());
-
-        this.hospitalMarkers = hospitalData.map((item) => {
-            return new HospitalMarker(map, item);
-        });
 
         // Create case data instances
         var caseDataInsts = this.caseDataInsts = {};
@@ -354,8 +385,8 @@ class MbMap extends React.Component {
 
             // Create map data instances
             var geoBoundaryInsts = this.geoBoundaryInsts = {};
-            for (var key of GeoBoundaries.getAvailableGeoBoundaries()) {
-                geoBoundaryInsts[key] = GeoBoundaries.getGeoBoundary(
+            for (var key of this.geoBoundaries.getAvailableGeoBoundaries()) {
+                geoBoundaryInsts[key] = this.geoBoundaries.getGeoBoundary(
                     map, key.split(":")[1], key.split(":")[0]
                 );
             }
@@ -374,7 +405,7 @@ class MbMap extends React.Component {
 
     componentWillUnmount() {
         this.map.remove();
-        GeoBoundaries.clearGeoBoundaryCache();
+        this.geoBoundaries.clearGeoBoundaryCache();
     }
 
     /*******************************************************************
@@ -423,7 +454,11 @@ class MbMap extends React.Component {
     setMarkers() {
         var val = this.markersSelect.current.value;
 
-        if (val === 'status_active' || (val && val.toUpperCase() === val)) {
+        if (val === 'status_active' ||
+            val === 'status_icu' ||
+            val === 'status_hospitalized' ||
+            (val && val.toUpperCase() === val)) {
+
             // Ships data doesn't have histories currently,
             // and it doesn't make sense to have
             // e.g. a 7-day difference for active cases
@@ -446,19 +481,94 @@ class MbMap extends React.Component {
     }
 
     _updateMode() {
+        if (this.state._markers === 'days_since') {
+            if (!this.dsMap) {
+                ReactDOM.render(
+                    <DaysSinceMap ref={el => this.dsMap = el} />,
+                    this.dsMapContainer
+                );
+            }
+            var runUntilLoaded = () => {
+                if (!this.dsMap) {
+                    setTimeout(runUntilLoaded, 50);
+                    return;
+                }
+                this.mapContainer.style.display = 'none';
+                this.dsMapContainer.style.display = 'block';
+                this.markersButtonGroup.current.parentNode.style.display = 'none';
+                this.underlayBGCont.current.style.display = 'none';
+                this.dsMap.map.setZoom(this.map.getZoom());
+                this.dsMap.map.setCenter(this.map.getCenter());
+                this.dsMap.map.resize();
+            };
+            runUntilLoaded();
+            return;
+        }
+
+        // Get the absolute max/min values among all the datasources
+        // so that we can scale heatmap values for the entire of the
+        // country
+        var otherMaxMin = null,
+            stateWideMaxMin = null,
+            numStateWide = 0;
+
+        this.statesAndTerritories.forEach((stateName) => {
+            var caseDataInst = this.getCaseDataInst(stateName);
+            if (!caseDataInst) {
+                return;
+            }
+            var iMaxMinValues = caseDataInst.getMaxMinValues();
+
+            if (caseDataInst.schema === 'statewide') {
+                if (!stateWideMaxMin) {
+                    stateWideMaxMin = iMaxMinValues
+                }
+                if (iMaxMinValues['max'] > stateWideMaxMin['max']) {
+                    stateWideMaxMin['max'] = iMaxMinValues['max'];
+                }
+                if (iMaxMinValues['min'] < stateWideMaxMin['min']) {
+                    stateWideMaxMin['min'] = iMaxMinValues['min'];
+                }
+                numStateWide += 1;
+            }
+            else {
+                if (!otherMaxMin) {
+                    otherMaxMin = iMaxMinValues
+                }
+                if (iMaxMinValues['max'] > otherMaxMin['max']) {
+                    otherMaxMin['max'] = iMaxMinValues['max'];
+                }
+                if (iMaxMinValues['min'] < otherMaxMin['min']) {
+                    otherMaxMin['min'] = iMaxMinValues['min'];
+                }
+            }
+        });
+
+        if (numStateWide === 1) {
+            // HACK: Because there's only one state level value,
+            // there's likely no common point of comparison,
+            // so at least tone it down!
+            stateWideMaxMin['max'] *= 4;
+        }
+
         var enableInsts = (dataSource, insts) => {
             // Overlay LGA ABS data on LGA stats
             for (var i = 0; i < insts.length; i++) {
                 //console.log(`Enable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
 
-                insts[i].addHeatMap(dataSource);
-                insts[i].addLinePoly(dataSource);
                 insts[i].addFillPoly(
                     this.absStatsInsts[this.state._underlay],
                     dataSource,
                     this.state._underlay ? 0.5 : 0,
                     !!this.state._underlay,
                     true
+                );
+                insts[i].addLinePoly(dataSource);
+
+                insts[i].addHeatMap(
+                    dataSource,
+                    dataSource.schema === 'statewide' ?
+                        stateWideMaxMin : otherMaxMin
                 );
             }
         };
@@ -467,13 +577,6 @@ class MbMap extends React.Component {
             // (e.g. Queensland HHS/ACT SA3)
             //console.log(`Enable non-lga inst: dataSource->${dataSource.schema}:${dataSource.stateName} otherInst->${otherInst.schema}:${otherInst.stateName} ${otherInst} ${lgaInst}`);
 
-            otherInst.addHeatMap(
-                dataSource
-            );
-            otherInst.addLinePoly(
-                dataSource,
-                'rgba(0, 0, 0, 1.0)'
-            );
             otherInst.addFillPoly(
                 null,
                 dataSource,
@@ -483,10 +586,6 @@ class MbMap extends React.Component {
             );
 
             if (this.state._underlay && lgaInst) {
-                lgaInst.addLinePoly(
-                    this.absStatsInsts[this.state._underlay],
-                    'rgba(0, 0, 0, 0.1)'
-                );
                 lgaInst.addFillPoly(
                     this.absStatsInsts[this.state._underlay],
                     null,
@@ -495,19 +594,24 @@ class MbMap extends React.Component {
                     false//,
                     //fillPoly['fillPolyId']
                 );
+                lgaInst.addLinePoly(
+                    this.absStatsInsts[this.state._underlay],
+                    'rgba(0, 0, 0, 0.1)'
+                );
             }
+
+            otherInst.addLinePoly(dataSource,'rgba(0, 0, 0, 1.0)');
+
+            otherInst.addHeatMap(
+                dataSource,
+                dataSource.schema === 'statewide' ?
+                    stateWideMaxMin : otherMaxMin
+            );
         };
 
-        if (this.state._markers === 'hospitals') {
-            this.hospitalMessage.current.style.display = 'block';
-            this.hospitalMarkers.forEach((marker) => {
-                marker.show();
-                this.markersButtonGroup.current.parentNode.style.display = 'none';
-                this.underlayBGCont.current.style.display = 'none';
-            });
-            return;
-        }
-        else if (this.state._markers === 'status_active' ||
+        if (this.state._markers === 'status_active' ||
+            this.state._markers === 'status_icu' ||
+            this.state._markers === 'status_hospitalized' ||
             (this.state._markers && this.state._markers.toUpperCase() === this.state._markers)) {
             this.markersButtonGroup.current.parentNode.style.display = 'none';
         }
@@ -565,6 +669,17 @@ class MbMap extends React.Component {
     }
 
     _resetMode(prevState) {
+        if (prevState._markers === 'days_since') {
+            this.mapContainer.style.display = 'block';
+            this.dsMapContainer.style.display = 'none';
+            this.markersButtonGroup.current.parentNode.style.display = 'block';
+            this.underlayBGCont.current.style.display = 'block';
+            this.map.setZoom(this.dsMap.map.getZoom());
+            this.map.setCenter(this.dsMap.map.getCenter());
+            this.map.resize();
+            return;
+        }
+
         function disableInsts(insts) {
             for (var i = 0; i < insts.length; i++) {
                 //console.log(`Disable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
@@ -572,7 +687,6 @@ class MbMap extends React.Component {
                 insts[i].removeHeatMap();
                 insts[i].removeLinePoly();
                 insts[i].removeFillPoly();
-                insts[i].resetPopups();
             }
         }
         function disableNonLGAInst(otherInst, lgaInst) {
@@ -581,7 +695,6 @@ class MbMap extends React.Component {
             otherInst.removeHeatMap();
             otherInst.removeLinePoly();
             otherInst.removeFillPoly();
-            otherInst.resetPopups();
 
             if (prevState._underlay && lgaInst) {
                 lgaInst.removeLinePoly();
@@ -589,20 +702,13 @@ class MbMap extends React.Component {
             }
         }
 
-        if (prevState._markers === 'hospitals') {
-            this.hospitalMessage.current.style.display = 'none';
-            this.hospitalMarkers.forEach((marker) => {
-                marker.hide();
-                this.markersButtonGroup.current.parentNode.style.display = 'block';
-                this.underlayBGCont.current.style.display = 'block';
-            });
-            return;
-        }
-        else if (prevState._markers === 'status_active' ||
+        if (prevState._markers === 'status_active' ||
+            prevState._markers === 'status_icu' ||
+            prevState._markers === 'status_hospitalized' ||
             (prevState._markers && prevState._markers.toUpperCase() === prevState._markers)) {
             this.markersButtonGroup.current.parentNode.style.display = 'block';
         }
-        this.accuracyWarning.current.style.display = 'none';
+        //this.accuracyWarning.current.style.display = 'none';
 
         this.statesAndTerritories.forEach((stateName) => {
             var absStatDataInst = this.absStatsInsts[prevState._underlay],

@@ -1,5 +1,5 @@
-import ConfirmedMapFns from "./ConfirmedMapFns";
-import StateLatestNums from "../data/stateCaseData.json"
+import ConfirmedMapFns from "./Fns";
+import StateLatestNums from "../../data/stateCaseData.json"
 
 
 function getFromStateCaseData(stateName, subHeader) {
@@ -127,6 +127,44 @@ class TimeSeriesDataSource extends DataSourceBase {
         };
     }
 
+    getDaysSince(region, ageRange) {
+        // Return only the latest value
+
+        region = ConfirmedMapFns.prepareForComparison(region || '');
+        ageRange = ageRange || '';
+        var firstVal = null;
+
+        for (var i = 0; i < this.data.length; i++) {
+            var iData = this.data[i],
+                iRegion = iData[0],
+                iAgeRange = iData[1],
+                iValues = iData[2];
+
+            if (
+                (this.schema === 'statewide' || iRegion === region) &&
+                iAgeRange === ageRange
+            ) {
+                for (var j = 0; j < iValues.length; j++) {
+                    var dateUpdated = this.regionsDateIDs[iValues[j][0]],
+                        iValue = iValues[j][this.subHeaderIndex + 1];
+
+                    if (iValue == null || iValue === '') {
+                        continue;
+                    }
+
+                    if (firstVal == null) {
+                        firstVal = iValue;
+                    }
+                    else if (firstVal > iValue) {
+                        //console.log(dateUpdated+' '+ConfirmedMapFns.dateDiffFromToday(dateUpdated));
+                        return ConfirmedMapFns.dateDiffFromToday(dateUpdated)
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     getCaseNumberTimeSeries(region, ageRange) {
         var r = [];
         var latest = this.__getCaseNumber(region, ageRange);
@@ -165,8 +203,37 @@ class TimeSeriesDataSource extends DataSourceBase {
                 }
             }
         }
-        r.sort((x, y) => x.x > y.x)
+        r.sort((x, y) => x.x - y.x);
         return r;
+    }
+
+    getMaxMinValues() {
+        var min = 99999999999,
+            max = -99999999999,
+            allVals = [];
+
+        for (var i = 0; i < this.data.length; i++) {
+            var iData = this.data[i],
+                iRegion = iData[0],
+                iAgeRange = iData[1];
+
+            // PERFORMANCE WARNING!
+            var value = this.getCaseNumber(iRegion, iAgeRange)['numCases'];
+
+            if (value === '' || value == null) {
+                continue;
+            }
+            if (value > max) max = value;
+            if (value < min) min = value;
+            allVals.push(value);
+        }
+
+        allVals.sort();
+        return {
+            'max': max,
+            'min': min,
+            'median': allVals[Math.round(allVals.length / 2.0)]
+        }
     }
 }
 

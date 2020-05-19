@@ -70,6 +70,13 @@ const Developers = {
             github: "",
             website: "",
             fileName: "Robin.png"
+        },{
+            name: "Dave Morrissey",
+            linkedin: "",
+            email: "david.l.morrissey@gmail.com",
+            github: "https://github.com/mcyph",
+            website: "https://langlynx.com",
+            fileName: "Dave.png"
         }
     ]
 }
@@ -246,8 +253,9 @@ const Data_Collection = {
         {
             name: "Dave Morrissey",
             linkedin: "",
-            email: "",
+            email: "david.l.morrissey@gmail.com",
             github: "https://github.com/mcyph",
+            website: "https://langlynx.com",
             fileName: "Dave.png"
         },
         {
