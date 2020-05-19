@@ -73,7 +73,8 @@ class HeatMapLayer {
                         'circle-color': [
                             'interpolate',
                             ['linear'],
-                            ["abs", ['get', 'cases']],
+                            ['get', 'cases'],
+                            -1, 'rgba(0,80,0,0.6)',
                             0, 'rgba(0,0,80,0.0)',
                             1, 'rgba(178,70,43,0.7)',
                             5, 'rgba(178,60,43,0.7)',
@@ -139,7 +140,8 @@ class HeatMapLayer {
                     'circle-color': [
                         'interpolate',
                         ['linear'],
-                        ["abs", ['get', 'cases']],
+                        ['get', 'cases'],
+                        -1, 'rgba(0,80,0,0.6)',
                         0, 'rgba(0,0,80,0.0)',
                         1, 'rgba(178,70,43,0.95)',
                         5, 'rgba(178,60,43,0.95)',

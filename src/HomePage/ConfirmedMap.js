@@ -39,7 +39,7 @@ class MbMap extends React.Component {
             lat: -26.344589,
             zoom: 2,
             showMarker: true,
-            _timeperiod: '21days',
+            _timeperiod: '7days',
             _markers: 'total',
             _underlay: null
         };
