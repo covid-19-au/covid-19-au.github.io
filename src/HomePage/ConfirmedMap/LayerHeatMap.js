@@ -141,7 +141,7 @@ class HeatMapLayer {
                         'interpolate',
                         ['linear'],
                         ['get', 'cases'],
-                        -1, 'rgba(0,80,0,0.6)',
+                        -1, 'rgba(0,80,0,0.8)',
                         0, 'rgba(0,0,80,0.0)',
                         1, 'rgba(178,70,43,0.95)',
                         5, 'rgba(178,60,43,0.95)',
