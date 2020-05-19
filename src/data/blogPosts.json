@@ -1,25 +1,6 @@
 {
     "blogPosts": [
         {
-            "tag": "Informative",
-            "title": "The restart of International Sports",
-            "media": "https://i.imgur.com/n9oyEES.jpg",
-            "summary": "With pandemic restrictions beginning to loosen up globally, many of us are excited for our favourite sporting leagues to commence their seasons around the world. Read today’s blog post about what the international sporting world will look like post COVID-19!",
-            "date": "21/05/2020", 
-            "text": {
-                "text_1": [
-                    "With restrictions beginning to loosen up around the world, the restart of many sporting leagues around the globe are highly anticipated. Although they will essentially all be played behind closed doors with no crowds, leagues are slowly but surely finding ways to re-commence their seasons. All sports matches will have some level of social distancing outside of the necessary contact.",
-                    "<strong>Soccer:</strong><br />The Bundesliga has already restarted their regular season, being the first soccer league internationally to return to the pitch. 6 matches were played on Saturday, including the highly anticipated Ruhr Valley Derby between Borussia Dortmund and FC Shalke, with Dortmund comfortably winning 4-0. The Premier League hopes to return Friday June 12, as the league aims to play 92 matches across a 7 week period, ending July 27th. UEFA’s remaining Champions League (UCL) matches and Europa League have been confirmed by the UEFA president to conclude in August. Exciting news for the highest level of competition in Europe!",
-                    "<strong>Tennis:</strong><br />ATP are starting to work on a restart of the season, giving a 6-8 week time frame of their decisions. Unfortunately, tennis stars such as Rafael Nadal have voiced their concerns and doubts over the restart, due to the high level of international travel required for the players on tour.",
-                    "<strong>NBA:</strong><br />Following the suspension of the 2019-20 regular season in mid-March, players and fans across the world have been eagerly anticipating the restart of the regular season and progression into playoffs. Unfortunately, NBA Commissioner Adam Silver has still not decided on a date, and says that he ultimately plans to decide within the coming 2-4 weeks. Despite players and staff from several teams having tested positive, an overwhelming majority of players support the decision to restart the season, including superstars Lebron James, Giannis Antetokounmpo and Kawhi Leonard.",
-                    "<strong>NFL:</strong><br />Facilities across the US have started opening up, but unfortunately, players and coaches will still not be able to participate in training or other activities. The NFL are closely monitoring the restart of soccer in Europe, particularly the German Bundesliga at the moment, as it has already re-commenced its season."
-                ],
-                "ulist_1": [],
-                "olist_1": [],
-                "text_2": []
-            }
-        },
-        {
             "tag": "Informative Lifestyle",
             "title": "Mental Health and COVID-19",
             "media": "https://i.imgur.com/VWv7hLz.png",
