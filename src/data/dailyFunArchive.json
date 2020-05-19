@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=TXdKrtmexWU",
+                    "description": "SGN: The SGN Community episode!"
+                }
+            ],
+            "type": "distraction",
+            "date": "19/5/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://images.thewest.com.au/publication/B881547564Z/1589549999018_GCO2OIEB3.1-2.jpg?imwidth=828&impolicy=wan_v3",
