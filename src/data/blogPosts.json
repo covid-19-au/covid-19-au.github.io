@@ -1,6 +1,33 @@
 {
     "blogPosts": [
         {
+            "tag": "Informative Lifestyle",
+            "title": "Mental Health and COVID-19",
+            "media": "https://i.imgur.com/VWv7hLz.png",
+            "summary": "It is important to remember that it is normal for COVID-19 to have a mental impact on you. If you want to find out more about potential mental impacts, ways to maintain positive mental health or get support, check out today’s blog post!",
+            "date": "19/05/2020", 
+            "text": {
+                "text_1": [
+                    "It is important to remember that it is OK to feel stressed out and worried about the COVID-19 pandemic. It is possible to have mental health impacts such as:"
+                ],
+                "ulist_1": [
+                    "Feeling more anxious about yourself and other people",
+                    "Psychological distress",
+                    "Social isolation",
+                    "Interruption to employment or study",
+                    "Impact on normal daily routine and functioning"
+                ],
+                "olist_1": [],
+                "text_2": [
+                    "A few ways to help make sure that you are in a good headspace are:",
+                    "<ul> <li>Having a daily routine</li> <li>Chatting with family and friends</li> <li>Exercising regularly and eating healthy meals</li> <li>Don’t indulge in alcohol or comfort foods</li> <li>Make sure you have time to relax and make time for your hobbies</li> <li>Minimise your exposure to COVID-19 media content</li> </ul>",
+                    "Here are a few places where you can find help and support if you need it:",
+                    "<ul> <li><a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.skylight.org.au/covid-19-support-line'>COVID-19 Mental Health Peer Support Line</a></li> <li> <a target='_blank' rel='noopener noreferrer' class='citationLink' href='http://www.beyondblue.org.au'>Beyond Blue</a></li> <li><a target='_blank' rel='noopener noreferrer' class='citationLink' href='http://www.lifeline.org.au'>Lifeline Australia</a></li> </ul>",
+                    "The pandemic is a difficult time for everyone, if you need any help or support, please always reach out."
+                ]
+            }
+        },
+        {
             "tag": "Informative",
             "title": "Sports in Australia post COVID-19",
             "media": "https://i.imgur.com/Vsb9wOF.png",
