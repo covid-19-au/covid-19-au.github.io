@@ -40,7 +40,26 @@ class HeatMapLayer {
             300, 'rgba(178,24,43,0.95)'
         ];
 
-        var firstLayer = null;
+        // Make it so that symbol/circle layers are given different priorities
+        // This is essentially a hack to make it so Canberra is situated above
+        // NSW lines, but under NSW cases which are larger in number.
+        // Ideally, all the layers for all the schemas should be combined,
+        // so as to be able to combine ACT+NSW cases at different zooms
+        var lastSymbolLayer,
+            lastCircleLayer;
+
+        var layers = map.getStyle().layers;
+        for (var i = 0; i < layers.length; i++) {
+            if (layers[i].type === 'symbol') {
+                lastSymbolLayer = layers[i].id;
+            }
+            else if (layers[i].type === 'circle') {
+                lastCircleLayer = layers[i].id;
+            }
+            else if (layers[i].type === 'fill' || layers[i].type === 'line') {
+                lastSymbolLayer = lastCircleLayer = null;
+            }
+        }
 
         for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
             var opacity;
@@ -90,11 +109,8 @@ class HeatMapLayer {
                         // Transition by zoom level
                         'circle-opacity': opacity
                     }
-                }
+                }, lastCircleLayer
             );
-            if (!firstLayer) {
-                firstLayer = heatCirclesLayer;
-            }
 
             var heatLabels = map.addLayer({
                 id: this.getHeatPointId()+'label'+zoomLevel,
@@ -122,7 +138,7 @@ class HeatMapLayer {
                     // Transition by zoom level
                     'text-opacity': opacity
                 }
-            });
+            }, lastSymbolLayer);
         }
 
         var heatCirclesLayer = map.addLayer(
@@ -154,41 +170,8 @@ class HeatMapLayer {
                         7.00000000001, 1
                     ]
                 }
-            }
+            }, lastCircleLayer
         );
-
-        var heatLabels = map.addLayer({
-            id: this.getHeatPointId()+'label',
-            type: 'symbol',
-            source: this.heatMapSourceId,
-            minzoom: 6,
-            filter: ['all',
-                ['!=', 'cases', 0],
-                ['has', 'cases']
-            ],
-            layout: {
-                'text-field': '{casesFmt}',
-                'text-font': [
-                    'Arial Unicode MS Bold',
-                    'Open Sans Bold',
-                    'DIN Offc Pro Medium'
-                ],
-                'text-size': 13,
-                'text-allow-overlap': true,
-                'symbol-sort-key': ["to-number", ["get", "cases"], 1]
-            },
-            paint: {
-                "text-color": "rgba(255, 255, 255, 1.0)",
-                // Transition by zoom level
-                'text-opacity': [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    6.99999999999, 0,
-                    7.00000000001, 1
-                ]
-            }
-        });
 
         map.addLayer({
             'id': this.getHeatPointId()+'citylabel',
@@ -216,7 +199,40 @@ class HeatMapLayer {
                 'text-halo-width': 3,
                 'text-halo-blur': 2
             }
-        });
+        }, lastSymbolLayer);
+
+        var heatLabels = map.addLayer({
+            id: this.getHeatPointId()+'label',
+            type: 'symbol',
+            source: this.heatMapSourceId,
+            minzoom: 6,
+            filter: ['all',
+                ['!=', 'cases', 0],
+                ['has', 'cases']
+            ],
+            layout: {
+                'text-field': '{casesFmt}',
+                'text-font': [
+                    'Arial Unicode MS Bold',
+                    'Open Sans Bold',
+                    'DIN Offc Pro Medium'
+                ],
+                'text-size': 13,
+                'text-allow-overlap': true,
+                'symbol-sort-key': ["to-number", ["get", "negcases"], 1]
+            },
+            paint: {
+                "text-color": "rgba(255, 255, 255, 1.0)",
+                // Transition by zoom level
+                'text-opacity': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    6.99999999999, 0,
+                    7.00000000001, 1
+                ]
+            }
+        }, lastSymbolLayer);
 
         return {
             heatCirclesLayer: heatCirclesLayer,
