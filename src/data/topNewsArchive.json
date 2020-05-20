@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/coronavirus-restrictions-to-cut-50-billion-from-australia-s-economy-josh-frydenberg-says",
+            "title": "Coronavirus restrictions to cut $50 billion from Australia's economy, Josh Frydenberg says",
+            "source": "SBSNews",
+            "date": "12 May 2020",
+            "time": "14:02",
+            "summary": "Treasurer Josh Frydenberg says Australia's coronavirus restrictions have wiped the equivalent of $50 billion from the nation's economy. He confirmed Treasury's forecast that the economy will shrink by $50 billion, or 10 per cent, in the June quarter amid the coronavirus restrictions that have shut down swathes of businesses. Mr Frydenberg also outlined the boost to jobs and GDP expected during the three-stage relaxing of restrictions between now and July. Once the third stage is reached, the economy should be $9.4 billion a month better off and 850,000 Australians should be back in work."
+        },
+        {
+            "link": "https://www.abc.net.au/news/rural/2020-05-12/china-trade-escalation-as-beef-farmers-are-targeted/12237468",
+            "title": "Red-meat processors have beef sales to China suspended as trade barriers escalate",
+            "source": "ABCNews",
+            "date": "12 May 2020",
+            "time": "23:40",
+            "summary": "China has imposed an import ban on four Australian abattoirs in an apparent escalation of Beijing's trade war tactics. The blacklisting of the red meat abattoirs — three in Queensland and one in NSW — comes just days after China flagged plans to introduce an 80 per cent tariff on Australian barley, bringing the trade to its knees. These four meatworks represent 35 per cent of beef exports to China, a trade that had been on track to reach $3.5 billion this year. There are fears the barriers introduced by Australia's largest trading partner are in retaliation to Prime Minister Scott Morrison's demand for an independent investigation into the COVID-19 outbreak."
+        },
+        {
+            "link": "https://www.canberratimes.com.au/story/6754290/canberra-cafes-and-restaurants-to-reopen-from-this-weekend-with-restrictions/?cs=14225",
+            "title": "Coronavirus: Canberra cafes and restaurants to reopen from this weekend with restrictions ",
+            "source": "CanberraTimes",
+            "date": "12 May 2020",
+            "time": "14:31",
+            "summary": "Canberra cafes and restaurants will be able to reopen from midnight on Friday, but with a 10-customer limit in place. The move is part of the first stage of the ACT government's relaxation of coronavirus restrictions. Pubs and bars would only be able to open if alcohol served was accompanied by a meal. National parks, playgrounds and nature reserves will also open, except those shut for remediation after bushfires."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-11/coronavirus-victoria-eases-restrictions-the-new-covid-19-rules/12233798",
             "title": "Coronavirus restrictions eased in Victoria to allow five visitors to a household and outdoor gatherings of 10 people",
             "source": "ABCNews",
