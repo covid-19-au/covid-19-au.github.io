@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/business/2020/may/20/australian-domestic-travel-explained-where-can-i-fly-and-is-it-too-soon-to-plan-an-interstate-holiday",
+            "title": "Australian domestic travel explained: where can I fly and is it too soon to plan an interstate holiday? ",
+            "source": "TheGuardian",
+            "date": "20 May 2020",
+            "time": "17:22",
+            "summary": "Australian states are tentatively easing its state lockdowns after flattening the curve, attention has turned to tourism, flights and reopening state borders. This article provides a breakdown of the most pressing questions when it comes to air travel and holidays during the pandemic. These answers are based on comments from politicians, experts and industry stakeholders and should not be treated as medical or legal advice."
+        },
+        {
+            "link": "https://www.watoday.com.au/national/victoria/victorian-health-officials-use-covidsafe-app-data-for-first-time-to-trace-infected-person-s-contacts-20200520-p54unq.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Victorian health officials use COVIDSafe app data for first time to trace infected person's contacts",
+            "source": "WAToday",
+            "date": "20 May 2020",
+            "time": "13:11",
+            "summary": "Victorian health officials have used the COVIDSafe app to trace an infected person's close contacts for the first time since the app launched late last month. The Department of Health and Human Services said a coronavirus-infected person, who had the COVIDSafe app installed on their phone, was identified on Monday night. Victorian Deputy Chief Health Officer Annaliese van Diemen said the app was used to identify a close contact of the infected person who had been missed in initial screening."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-20/retail-sales-plunge-as-stockpiling-shoppers-shut-their-wallets/12266788",
+            "title": "Retail sales post record plunge in April, as coronavirus panic buying subsides",
+            "source": "ABCNews",
+            "date": "20 May 2020",
+            "time": "16:00",
+            "summary": "Shoppers who spent March panic buying tinned food, toilet paper and pasta shut their wallets in April, sending retail sales plunging last month. Preliminary figures from the Australian Bureau of Statistics (ABS) show a 17.9 per cent drop in retail turnover — the steepest monthly fall on record. It is the realisation of the 'pay back' economists had warned about, with the April fall more than double the record 8.5 per cent climb in sales in March. Transaction data from the major banks show a pick up in spending in May and consumer confidence has recovered some ground, but economists do not see a fast recovery."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-19/chinese-embassy-australia-credit-coronavirus-inquiry-a-joke/12262968",
             "title": "Chinese embassy ridicules Australia for claiming vindication for global coronavirus inquiry",
             "source": "ABCNews",
@@ -151,30 +175,6 @@
             "date": "13 May 2020",
             "time": "17:09",
             "summary": "The Australian chapter of an international church selling and promoting bleach as a cure for COVID-19 has been issued infringement notices totalling $151,200. The Genesis II Church of Health and Healing has been claiming chlorine dioxide is a \"miracle cure\". For years it has sold the industrial bleach as Miracle Mineral Solution (MMS), stating it can cure things like autism, acne, cancer, diabetes and now COVID-19.  Following an investigation by 7.30 last week, the Therapeutic Goods Administration today announced it had issued 12 infringement notices totalling $151,200 to MMS Australia for alleged unlawful advertising of Miracle Mineral Solution and other medicines. "
-        },
-        {
-            "link": "https://www.sbs.com.au/news/coronavirus-restrictions-to-cut-50-billion-from-australia-s-economy-josh-frydenberg-says",
-            "title": "Coronavirus restrictions to cut $50 billion from Australia's economy, Josh Frydenberg says",
-            "source": "SBSNews",
-            "date": "12 May 2020",
-            "time": "14:02",
-            "summary": "Treasurer Josh Frydenberg says Australia's coronavirus restrictions have wiped the equivalent of $50 billion from the nation's economy. He confirmed Treasury's forecast that the economy will shrink by $50 billion, or 10 per cent, in the June quarter amid the coronavirus restrictions that have shut down swathes of businesses. Mr Frydenberg also outlined the boost to jobs and GDP expected during the three-stage relaxing of restrictions between now and July. Once the third stage is reached, the economy should be $9.4 billion a month better off and 850,000 Australians should be back in work."
-        },
-        {
-            "link": "https://www.abc.net.au/news/rural/2020-05-12/china-trade-escalation-as-beef-farmers-are-targeted/12237468",
-            "title": "Red-meat processors have beef sales to China suspended as trade barriers escalate",
-            "source": "ABCNews",
-            "date": "12 May 2020",
-            "time": "23:40",
-            "summary": "China has imposed an import ban on four Australian abattoirs in an apparent escalation of Beijing's trade war tactics. The blacklisting of the red meat abattoirs — three in Queensland and one in NSW — comes just days after China flagged plans to introduce an 80 per cent tariff on Australian barley, bringing the trade to its knees. These four meatworks represent 35 per cent of beef exports to China, a trade that had been on track to reach $3.5 billion this year. There are fears the barriers introduced by Australia's largest trading partner are in retaliation to Prime Minister Scott Morrison's demand for an independent investigation into the COVID-19 outbreak."
-        },
-        {
-            "link": "https://www.canberratimes.com.au/story/6754290/canberra-cafes-and-restaurants-to-reopen-from-this-weekend-with-restrictions/?cs=14225",
-            "title": "Coronavirus: Canberra cafes and restaurants to reopen from this weekend with restrictions ",
-            "source": "CanberraTimes",
-            "date": "12 May 2020",
-            "time": "14:31",
-            "summary": "Canberra cafes and restaurants will be able to reopen from midnight on Friday, but with a 10-customer limit in place. The move is part of the first stage of the ACT government's relaxation of coronavirus restrictions. Pubs and bars would only be able to open if alcohol served was accompanied by a meal. National parks, playgrounds and nature reserves will also open, except those shut for remediation after bushfires."
         }
     ]
 }
