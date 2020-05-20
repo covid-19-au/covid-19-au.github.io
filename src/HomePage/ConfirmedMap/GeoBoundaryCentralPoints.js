@@ -95,13 +95,22 @@ class GeoBoundaryCentralPoints {
                 var cases = feature.properties['cases'],
                     x = feature.geometry.coordinates[0],
                     y = feature.geometry.coordinates[1],
-                    n = 1;
+                    n = 1,
+                    highestCases = cases;
 
                 mergedMap.get(index).forEach(function(otherIndex) {
                     var otherFeature =  geoJSONData['features'][otherIndex];
                     x = x + otherFeature.geometry.coordinates[0];
                     y = y + otherFeature.geometry.coordinates[1];
                     cases = cases + otherFeature.properties['cases'];
+
+                    if (otherFeature.properties['cases'] > highestCases) {
+                        // Make it so city names/labels with the
+                        // largest number of cases take precedence!
+                        highestCases = otherFeature.properties['cases'];
+                        feature.properties['city'] = otherFeature.properties['city'];
+                    }
+
                     n = n + 1;
                 });
 

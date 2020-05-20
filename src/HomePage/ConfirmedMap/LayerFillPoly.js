@@ -48,14 +48,14 @@ class FillPolyLayer {
         // Add the colored fill area
         const map = this.map;
 
-        // Display before the heatmap
-        // (if one is displayed)
+        // Make it so that symbol/circle layers are given different priorities
+        // This is a temporary fix to make ACT display in the correct priority -
+        // see also LayerHeatMap.js for an explanation.
+        var lastFillLayer;
         var layers = map.getStyle().layers;
-        var firstHeatmapId = null;
         for (var i = 0; i < layers.length; i++) {
-            if (layers[i].type === 'heatmap') {
-                firstHeatmapId = layers[i].id;
-                break;
+            if (layers[i].type === 'fill' && layers[i].id.indexOf('fillpoly') !== -1) {
+                lastFillLayer = layers[i].id;
             }
         }
 
@@ -125,7 +125,7 @@ class FillPolyLayer {
                 },
                 filter: ['==', '$type', 'Polygon']
             },
-            this.addUnderLayerId || firstHeatmapId
+            this.addUnderLayerId || lastFillLayer
         );
 
         // Add legend/popup event as specified

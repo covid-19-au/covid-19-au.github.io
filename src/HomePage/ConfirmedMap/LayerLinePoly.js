@@ -21,6 +21,20 @@ class LinePolyLayer {
         // Add the line outline
         const map = this.map;
 
+        // Make it so that symbol/circle layers are given different priorities
+        // This is a temporary fix to make ACT display in the correct priority -
+        // see also LayerHeatMap.js for an explanation.
+        var lastLineLayer;
+        var layers = map.getStyle().layers;
+        for (var i = 0; i < layers.length; i++) {
+            if (layers[i].type === 'line') {
+                lastLineLayer = layers[i].id;
+            }
+            else if (layers[i].type === 'fill') {
+                lastLineLayer = null;
+            }
+        }
+
         var linePolyLayer = map.addLayer({
             id: this.getLinePolyId(),
             minzoom: 2,
@@ -32,7 +46,7 @@ class LinePolyLayer {
                 'line-width': 1,
             },
             filter: ['==', '$type', 'Polygon']
-        });
+        }, lastLineLayer);
 
         return {
             linePolyLayer: linePolyLayer

@@ -26,6 +26,41 @@ class HeatMapLayer {
         var divBy = parseFloat(maxMin['max']);
         var radiusDivBy = divBy / 40;
 
+        var circleColor = [
+            'interpolate',
+            ['linear'],
+            ['get', 'cases'],
+            -1, 'rgba(0,80,0,0.8)',
+            0, 'rgba(0,0,80,0.0)',
+            1, 'rgba(178,70,43,0.95)',
+            5, 'rgba(178,60,43,0.95)',
+            10, 'rgba(178,50,43,0.95)',
+            50, 'rgba(178,40,43,0.95)',
+            100, 'rgba(178,30,43,0.95)',
+            300, 'rgba(178,24,43,0.95)'
+        ];
+
+        // Make it so that symbol/circle layers are given different priorities
+        // This is essentially a hack to make it so Canberra is situated above
+        // NSW lines, but under NSW cases which are larger in number.
+        // Ideally, all the layers for all the schemas should be combined,
+        // so as to be able to combine ACT+NSW cases at different zooms
+        var lastSymbolLayer,
+            lastCircleLayer;
+
+        var layers = map.getStyle().layers;
+        for (var i = 0; i < layers.length; i++) {
+            if (layers[i].type === 'symbol') {
+                lastSymbolLayer = layers[i].id;
+            }
+            else if (layers[i].type === 'circle') {
+                lastCircleLayer = layers[i].id;
+            }
+            else if (layers[i].type === 'fill' || layers[i].type === 'line') {
+                lastSymbolLayer = lastCircleLayer = null;
+            }
+        }
+
         for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
             var opacity;
             if (zoomLevel === 2) {
@@ -70,23 +105,11 @@ class HeatMapLayer {
                             4, 20
                         ],
                         // Color circle by value
-                        'circle-color': [
-                            'interpolate',
-                            ['linear'],
-                            ['get', 'cases'],
-                            -1, 'rgba(0,80,0,0.6)',
-                            0, 'rgba(0,0,80,0.0)',
-                            1, 'rgba(178,70,43,0.7)',
-                            5, 'rgba(178,60,43,0.7)',
-                            10, 'rgba(178,50,43,0.8)',
-                            50, 'rgba(178,40,43,0.8)',
-                            100, 'rgba(178,30,43,0.9)',
-                            300, 'rgba(178,24,43,0.9)'
-                        ],
+                        'circle-color': circleColor,
                         // Transition by zoom level
                         'circle-opacity': opacity
                     }
-                }
+                }, lastCircleLayer
             );
 
             var heatLabels = map.addLayer({
@@ -115,7 +138,7 @@ class HeatMapLayer {
                     // Transition by zoom level
                     'text-opacity': opacity
                 }
-            });
+            }, lastSymbolLayer);
         }
 
         var heatCirclesLayer = map.addLayer(
@@ -137,19 +160,7 @@ class HeatMapLayer {
                         4, 30
                     ],
                     // Color circle by value
-                    'circle-color': [
-                        'interpolate',
-                        ['linear'],
-                        ['get', 'cases'],
-                        -1, 'rgba(0,80,0,0.8)',
-                        0, 'rgba(0,0,80,0.0)',
-                        1, 'rgba(178,70,43,0.95)',
-                        5, 'rgba(178,60,43,0.95)',
-                        10, 'rgba(178,50,43,0.95)',
-                        50, 'rgba(178,40,43,0.95)',
-                        100, 'rgba(178,30,43,0.95)',
-                        300, 'rgba(178,24,43,0.95)'
-                    ],
+                    'circle-color': circleColor,
                     // Transition by zoom level
                     'circle-opacity': [
                         'interpolate',
@@ -159,8 +170,36 @@ class HeatMapLayer {
                         7.00000000001, 1
                     ]
                 }
-            }
+            }, lastCircleLayer
         );
+
+        map.addLayer({
+            'id': this.getHeatPointId()+'citylabel',
+            'type': 'symbol',
+            'minzoom': 6,
+            'source': this.heatMapSourceId,
+            'filter': ['all',
+                ['!=', 'cases', 0],
+                ['has', 'cases']
+            ],
+            'layout': {
+                'text-field': [
+                    'format',
+                    ['get', 'city'],
+                    { 'font-scale': 0.7 },
+                ],
+                'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                'text-offset': [0, 0.8],
+                'text-anchor': 'top',
+                'symbol-sort-key': ['get', 'negcases']
+            },
+            'paint': {
+                'text-color': 'rgba(0, 0, 0, 0.8)',
+                'text-halo-color': 'rgba(255, 255, 255, 0.8)',
+                'text-halo-width': 3,
+                'text-halo-blur': 2
+            }
+        }, lastSymbolLayer);
 
         var heatLabels = map.addLayer({
             id: this.getHeatPointId()+'label',
@@ -180,7 +219,7 @@ class HeatMapLayer {
                 ],
                 'text-size': 13,
                 'text-allow-overlap': true,
-                'symbol-sort-key': ["to-number", ["get", "cases"], 1]
+                'symbol-sort-key': ["to-number", ["get", "negcases"], 1]
             },
             paint: {
                 "text-color": "rgba(255, 255, 255, 1.0)",
@@ -193,7 +232,7 @@ class HeatMapLayer {
                     7.00000000001, 1
                 ]
             }
-        });
+        }, lastSymbolLayer);
 
         return {
             heatCirclesLayer: heatCirclesLayer,
@@ -205,6 +244,7 @@ class HeatMapLayer {
         const map = this.map;
         map.removeLayer(this.getHeatPointId());
         map.removeLayer(this.getHeatPointId()+'label');
+        map.removeLayer(this.getHeatPointId()+'citylabel');
 
         for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
             map.removeLayer(this.getHeatPointId()+'label'+zoomLevel);

@@ -265,10 +265,42 @@ class JSONGeoBoundariesBase {
                 }
             }
             data.properties['cases'] = caseInfo['numCases'];
+            data.properties['negcases'] = -caseInfo['numCases'];
             data.properties['casesFmt'] = Fns.numberFormat(caseInfo['numCases'], 1);
-            data.properties['casesSz'] = data.properties['casesFmt'].length;
+            data.properties['casesSz'] = this._getCasesSize(data);
             data.properties['city'] = cityName;
         }
+    }
+
+    _getCasesSize(data) {
+        var len = data.properties['casesFmt'].length,
+            absCases = Math.abs(data.properties['cases']);
+
+        if (100000000 >= absCases >= 10000000) {
+            return len+absCases/100000000.0;
+        }
+        else if (absCases >= 1000000) {
+            return len+absCases/10000000.0;
+        }
+        else if (absCases >= 100000) {
+            return len+absCases/1000000.0;
+        }
+        else if (absCases >= 10000) {
+            return len+absCases/100000.0;
+        }
+        else if (absCases >= 1000) {
+            return len+absCases/10000.0;
+        }
+        else if (absCases >= 100) {
+            return len+absCases/1000.0;
+        }
+        else if (absCases >= 10) {
+            return len+absCases/100.0;
+        }
+        else if (absCases >= 1) {
+            return len+absCases/10.0;
+        }
+        return len;
     }
 
     /*******************************************************************

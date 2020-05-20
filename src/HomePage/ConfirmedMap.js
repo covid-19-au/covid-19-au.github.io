@@ -39,7 +39,7 @@ class MbMap extends React.Component {
             lat: -26.344589,
             zoom: 2,
             showMarker: true,
-            _timeperiod: '7days',
+            _timeperiod: 'alltime',
             _markers: 'total',
             _underlay: null
         };
@@ -241,11 +241,11 @@ class MbMap extends React.Component {
                 </div>
 
                 <span className="due">
-                    <div ref={this.accuracyWarning}>
-                        <p style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>* Zoom in to get regional numbers. Click on regions to get a history over time.</p>
-                        <p style={{ color: 'red', marginTop: '0px', paddingTop: '0px' }}>* Cases on map are approximate and
-                            identify regions only, not specific addresses.</p>
-                    </div>
+                    <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '0px'}}>
+                        <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>Zoom in to get regional numbers. Click on regions to get a history over time and updated dates.</li>
+                        <li style={{ color: '#555', marginTop: '0px', paddingTop: '0px' }}>Regional data is auto-generated and may not always be the most up-to-date.<br />
+                            Displayed cases identify regions only, not specific addresses.</li>
+                    </ul>
                 </span>
             </div>
         );
@@ -268,8 +268,13 @@ class MbMap extends React.Component {
 
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
-            //style: 'mapbox://styles/mapbox/satellite-v9',
-            style: 'mapbox://styles/mapbox/streets-v9',
+            // https://docs.mapbox.com/api/maps/#styles
+            //style: 'mapbox://styles/mapbox/bright-v8',
+            //style: 'mapbox://styles/mapbox/satellite-streets-v11',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            //style: 'mapbox://styles/mapbox/light-v10',
+            //style: 'mapbox://styles/mapbox/dark-v10',
+            //style: 'mapbox://styles/mapbox/outdoors-v11',
             center: [lng, lat],
             zoom: zoom,
             maxZoom: 9.5,
