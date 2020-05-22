@@ -78,6 +78,25 @@ class TimeSeriesDataSource extends DataSourceBase {
         this.stateName = stateName;
     }
 
+    getUpdatedDate() {
+        var updatedDates = [];
+
+        if (this.schema === 'statewide') {
+            var n = getFromStateCaseData(this.stateName, this.subHeader);
+            if (n != null) {
+                var d = n[1].split('/');
+                updatedDates.push([d[2]+d[1]+d[0], d.join('/')]);
+            }
+        }
+        for (var k in this.regionsDateIDs) {
+            var d = this.regionsDateIDs[k].split('/');
+            updatedDates.push([d[2]+d[1]+d[0], d.join('/')]);
+        }
+        updatedDates.sort();
+
+        return updatedDates[updatedDates.length-1][1];
+    }
+
     getCaseNumber(region, ageRange) {
         return this.__getCaseNumber(region, ageRange);
     }
