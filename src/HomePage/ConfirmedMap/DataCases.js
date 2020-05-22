@@ -79,6 +79,10 @@ class TimeSeriesDataSource extends DataSourceBase {
     }
 
     getUpdatedDate() {
+        if (this._updated) {
+            // Cache to improve performance if possible
+            return this._updated;
+        }
         var updatedDates = [];
 
         if (this.schema === 'statewide') {
@@ -94,7 +98,9 @@ class TimeSeriesDataSource extends DataSourceBase {
         }
         updatedDates.sort();
 
-        return updatedDates[updatedDates.length-1][1];
+        var updated = updatedDates[updatedDates.length-1][1];
+        this._updated = updated;
+        return updated;
     }
 
     getCaseNumber(region, ageRange) {
