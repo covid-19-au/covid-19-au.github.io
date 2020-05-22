@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-22/jobkeeper-numbers-cut-by-3-million-businesses-accounting-bungle/12277488",
+            "title": "JobKeeper numbers cut by 3 million after Federal Government reveals accounting bungle in coronavirus stimulus program",
+            "source": "ABCNews",
+            "date": "22 May 2020",
+            "time": "19:00",
+            "summary": "The number of people on JobKeeper has been revised down by 3 million, with Treasury and the Australian Tax Office (ATO) blaming businesses for making "significant errors" in their applications. The estimated cost of the program has been nearly halved from $130 billion to about $70 billion. In a statement, Treasury and the ATO said the mistake came from businesses reporting how much financial assistance they expected to receive, instead of how many employees they thought would be eligible."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-22/nsw-coronavirus-restrictions-in-restaurants-pubs-relaxed/12276034",
+            "title": "NSW coronavirus restrictions relaxed for restaurants, pubs and cafes, Premier Gladys Berejiklian reveals",
+            "source": "ABCNews",
+            "date": "22 May 2020",
+            "time": "19:00",
+            "summary": "Premier Gladys Berejiklian says pubs, cafes and restaurants will be able to serve up to 50 people at a time from June 1, as NSW coronavirus cases continue to decline. The Premier described expanding the social-distancing limits as a "big step" in the state's economic recovery from COVID-19. Under the new measures, hospitality venues will be required to adhere to strict guidelines to operate: each patron must have at least four-square-metres of space; bookings can be no larger than 10 people; no patrons will be allowed to stand, mingle or dance; and shared cutlery and buffets are also banned."
+        },
+        {
+            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-sa-to-move-to-stage-two-of-covid-19-restrictions-on-june-5-with-indoor-dining-allowed-from-friday-c-1048469",
+            "title": "SA to move to stage two of COVID-19 restrictions on June 5, with indoor dining allowed from Friday",
+            "source": "7News",
+            "date": "21 May 2020",
+            "time": "19:43",
+            "summary": "South Australia will lift coronavirus restrictions earlier than first hoped, following a clean sweep without COVID-19 cases. From this Friday, cafes and restaurants will be allowed indoor dining for groups of up to 10 in addition to existing outdoor dining limits. Alcohol service will be allowed for up to 10 people indoors and 10 people outdoors. Premier Steven Marshall has also announced the state will move to stage two of restrictions from Friday June 5, ahead of the long weekend."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/may/21/nsw-pressure-to-reopen-state-borders-triggers-accusations-of-bullying-from-wa-and-queensland-premiers",
             "title": "NSW pressure to reopen state borders triggers accusations of bullying from WA and Queensland premiers ",
             "source": "TheGuardian",
@@ -143,22 +167,6 @@
             "date": "15 May 2020",
             "time": "18:32",
             "summary": "A second McDonald's outlet has closed for cleaning in Melbourne after a worker was diagnosed with COVID-19, as Victoria recorded 21 new coronavirus cases. In a statement, the fast food giant said its Craigieburn store had been closed for cleaning and staff were advised to self-quarantine for 14 days and get tested after the worker tested positive. It came as the state's total number of coronavirus cases rose by 21, including two new cases which were linked to the Fawkner McDonald's franchise. The outbreak at the Fawkner outlet is now linked to 10 of the state's COVID-19 cases, while the cluster at the Cedar Meats Australia abattoir in Brooklyn is linked to 91 infections."
-        },
-        {
-            "link": "https://www.theguardian.com/business/2020/may/14/unemployment-rate-in-australia-jumps-to-62-due-to-covid-19-as-600000-jobs-lost",
-            "title": "Unemployment rate in Australia jumps to 6.2% due to Covid-19 as 600,000 jobs lost ",
-            "source": "TheGuardian",
-            "date": "14 May 2020",
-            "time": "14:55",
-            "summary": "The jobless rate in Australia has hit the highest level since September 2015, with seasonally adjusted employment falling by 594,300 in April as the economic shock of the coronavirus pandemic cut a swathe through the labour market. Scott Morrison told reporters in Canberra the job losses recorded to date were devastating, and he warned more would follow. The prime minister said the unemployment rate jumping a full percentage point in a month, from 5.2% to 6.2%, was “terribly shocking, although not totally unexpected”."
-        },
-        {
-            "link": "https://www.theguardian.com/law/2020/may/14/questions-remain-over-whether-data-collected-by-covidsafe-app-could-be-accessed-by-us-law-enforcement",
-            "title": "Questions remain over whether data collected by Covidsafe app could be accessed by US law enforcement",
-            "source": "TheGuardian",
-            "date": "14 May 2020",
-            "time": "17:14",
-            "summary": "The federal government has reassured the public that Covidsafe data held by Amazon will not be able to be accessed by US law enforcement, but a parliamentary committee is currently investigating separate legislation that would pave the way for US law enforcement to access data held in Australia. A major concern held by those critical of the app is that the data is being hosted in Australia by US tech giant Amazon Web Services, and any data held by the company in Australia would be subject to the US Cloud Act – a law which can force US companies to hand over data to US law enforcement regardless of where that data is held. The defence minister, Marise Payne, argued that because the Covidsafe legislation makes “any transfer of data to any country outside Australia … a criminal offence under the provisions of the bill”, US law enforcement would not be able to get the Covidsafe data."
         }
     ]
 }
