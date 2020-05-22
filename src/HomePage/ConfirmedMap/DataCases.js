@@ -92,9 +92,16 @@ class TimeSeriesDataSource extends DataSourceBase {
                 updatedDates.push([d[2]+d[1]+d[0], d.join('/')]);
             }
         }
-        for (var k in this.regionsDateIDs) {
-            var d = this.regionsDateIDs[k].split('/');
-            updatedDates.push([d[2]+d[1]+d[0], d.join('/')]);
+
+        for (var i = 0; i < this.data.length; i++) {
+            var iData = this.data[i],
+                iValues = iData[2];
+
+            for (var j = 0; j < iValues.length; j++) {
+                var dateUpdated = this.regionsDateIDs[iValues[j][0]];
+                var d = dateUpdated.split('/');
+                updatedDates.push([d[2] + d[1] + d[0], d.join('/')]);
+            }
         }
         updatedDates.sort();
 

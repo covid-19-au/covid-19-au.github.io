@@ -337,10 +337,7 @@ class MbMap extends React.Component {
                 );
 
                 if (
-                    (!stateUpdatedDates.length || (
-                        !(key in addedStateUpdated) &&
-                        subKey === 'total'
-                    )) &&
+                    (!stateUpdatedDates.length || !(key in addedStateUpdated)) &&
                     key.split(':')[1] !== 'statewide'
                 ) {
                     addedStateUpdated[key] = null;
