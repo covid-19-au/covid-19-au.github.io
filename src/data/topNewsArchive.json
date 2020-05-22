@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.theguardian.com/business/2020/may/14/unemployment-rate-in-australia-jumps-to-62-due-to-covid-19-as-600000-jobs-lost",
+            "title": "Unemployment rate in Australia jumps to 6.2% due to Covid-19 as 600,000 jobs lost ",
+            "source": "TheGuardian",
+            "date": "14 May 2020",
+            "time": "14:55",
+            "summary": "The jobless rate in Australia has hit the highest level since September 2015, with seasonally adjusted employment falling by 594,300 in April as the economic shock of the coronavirus pandemic cut a swathe through the labour market. Scott Morrison told reporters in Canberra the job losses recorded to date were devastating, and he warned more would follow. The prime minister said the unemployment rate jumping a full percentage point in a month, from 5.2% to 6.2%, was “terribly shocking, although not totally unexpected”."
+        },
+        {
+            "link": "https://www.theguardian.com/law/2020/may/14/questions-remain-over-whether-data-collected-by-covidsafe-app-could-be-accessed-by-us-law-enforcement",
+            "title": "Questions remain over whether data collected by Covidsafe app could be accessed by US law enforcement",
+            "source": "TheGuardian",
+            "date": "14 May 2020",
+            "time": "17:14",
+            "summary": "The federal government has reassured the public that Covidsafe data held by Amazon will not be able to be accessed by US law enforcement, but a parliamentary committee is currently investigating separate legislation that would pave the way for US law enforcement to access data held in Australia. A major concern held by those critical of the app is that the data is being hosted in Australia by US tech giant Amazon Web Services, and any data held by the company in Australia would be subject to the US Cloud Act – a law which can force US companies to hand over data to US law enforcement regardless of where that data is held. The defence minister, Marise Payne, argued that because the Covidsafe legislation makes “any transfer of data to any country outside Australia … a criminal offence under the provisions of the bill”, US law enforcement would not be able to get the Covidsafe data."
+        },
+        {
             "link": "https://www.sbs.com.au/news/australia-appoints-first-deputy-chief-medical-officer-for-mental-health-as-part-of-coronavirus-response",
             "title": "Australia appoints first deputy chief medical officer for mental health as part of coronavirus response",
             "source": "SBSNews",
