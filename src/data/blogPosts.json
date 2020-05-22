@@ -2,6 +2,26 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "COVID-19 and the environment",
+            "media": "https://i.imgur.com/ZUZrEXfg.png",
+            "summary": "With the streets empty and cars off the road, it's easy to see the impact of COVID-19 on the environment. Many industries have been hit by the lack of travel, while nature has been flourishing. Check out the blog to learn more about the impacts COVID-19 has had on the environment!",
+            "date": "23/05/2020", 
+            "text": {
+                "text_1": [
+                    "The outbreak of COVID 19 has resulted in various impacts on the environment, and the climate as countries around the globe enforce strict lockdowns and allow limited commercial activities. Industries that generally produce a massive volume of carbon emission such as the aviation industry are forced to minimise their businesses under such global pandemic, which, in return, provides an opportunity for the earth to breathe. The severe decrease in planned travel through most means of transportation has resulted in a significant reduction in air pollution.",
+                    "For example, lockdowns and other measures of restrictions for two months are directly responsible for the visible better air quality that visually demonstrates what 25% reduction in carbon emissions and 50% reduction in nitrogen oxides emissions mean. Wild animals are also spotted to breed and hang out in streets while humans are locked inside of their houses. However, we need to stay vigilant about making the assumption that the environment wins in this epidemic.",
+                    "While the environments show signs of recovering from human activities in the last four months, the unrepairable disruptions and damage human impose on earth can be traced back from decades ago. The short-term reduce of carbon emission is barely as important as people think when the goal is to 'combat' global environmental challenges and climate change in the long run. Some people may blindly assume the solution to the environmental problems we face is stop focusing on economic growth and shutting down the fossil fuel-based economy as we did in this medical pandemic.",
+                    "But, they neglected the fact that economic disruptions induced by the sudden change of economic model will impose a great threat on the social structure. There is no doubt billions of population will be jobless in an immediate economic transformation with no realisable technologies that could support it. Moreover, as seen in the 2008-2009 financial crash that resulted in a significant drop in global emission for a year-long, the overall global anthropogenic emissions quickly rebounded back by 2010 as the economy recovers where the emission that year landed on an all-time high. Hence, it is clear that such practices are neither desirable nor sustainable.",
+                    "On the bright side, the COVID-19 pandemic does provide us with an opportunity to promote long-term environmental sustainability. As supported by various academics in the sustainability studies, a critical factor that could lead to environmental sustainability is by people practising pro-environment behaviours. COVID-19 crisis has forced billions of people to alter their behaviours in significant ways. Luckily, a lot of these habitual behaviours are deemed good for the environment.",
+                    "Overall, the global response to COVID-19 has already shown exhibiting environmental benefits for the past months. But the question of whether these pro-environment practices can be carried on after the pandemic is gone depends on if individually and collectively we are willing to make these changes."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "The restart of International Sports",
             "media": "https://i.imgur.com/n9oyEES.jpg",
             "summary": "With pandemic restrictions beginning to loosen up globally, many of us are excited for our favourite sporting leagues to commence their seasons around the world. Read today’s blog post about what the international sporting world will look like post COVID-19!",
