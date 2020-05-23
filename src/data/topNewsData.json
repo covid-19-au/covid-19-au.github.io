@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.canberratimes.com.au/story/6767007/nsw-govt-eyes-opening-gyms-beauty-salons/?cs=14231",
+            "title": "NSW govt eyes opening gyms, beauty salons",
+            "source": "CanberraTimes",
+            "date": "23 May 2020",
+            "time": "16:21",
+            "summary": "The NSW government has flagged the \"imminent\" re-opening of gyms and beauty salons as the state over the next two weeks prepares for a landmark easing of COVID-19 restrictions. The government remains cautious yet bullish after three cases of coronavirus were recorded over the preceding 24 hours. All three were overseas acquired - two from Pakistan and one from the USA - and were already in hotel quarantine meaning they didn't represent a risk of onward infection. Premier Gladys Berejiklian has announced that from June 1, up to 50 people will be allowed in restaurants, pubs and cafes. Regional travel restrictions will also ease while museums, galleries and libraries will also be allowed to open."
+        },
+        {
+            "link": "https://www.9news.com.au/national/governments-60b-jobkeeper-bungle-ups-pressure-to-extend--scheme-as-economy-recovers-from-coronavirus-pandemic/17878c0a-6235-45a5-8082-dfca1d38fdb0",
+            "title": "Government's $60b accounting bungle ups pressure to extend JobKeeper scheme as economy recovers from COVID-19",
+            "source": "9News",
+            "date": "23 May 2020",
+            "time": "10:22",
+            "summary": "The Australian Government is facing tough questions about whether they plan to reallocate the $60 billion windfall following the ATO's JobKeeper bungle. The Government had budgeted for the JobKeeper scheme to cost $130 billion however the actual price tag has been reduced to $70 billion after major miscalculations by the Australian Taxation Office due to a confusing question on the application sheet. Australians were told six and a half million workers would receive these payments but that number has been revised down to three and a half million following the revision of figures. With $60 billion now on the table, various stakeholders are trying to get their hands on a portion of the money with calls to extend the JobKeeper scheme to those still in need. "
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-22/jobkeeper-numbers-cut-by-3-million-businesses-accounting-bungle/12277488",
             "title": "JobKeeper numbers cut by 3 million after Federal Government reveals accounting bungle in coronavirus stimulus program",
             "source": "ABCNews",
@@ -143,30 +159,6 @@
             "date": "16 May 2020",
             "time": "14:37",
             "summary": "Melbourne’s inner north-west is emerging as the state’s new coronavirus red zone, government data shows. After outbreaks in McDonald’s restaurants in Craigieburn and Fawkner, as well as the huge and still-growing cluster at Cedar Meats, health department data shows the council areas of Hume and Brimbank now make up a quarter of Melbourne’s active cases. Brimbank takes in parts of Brooklyn, the suburb where the Cedar Meats meat-processing plant linked to 98 cases of COVID-19 so far is located. The council area has 14 active cases of COVID-19 as of Saturday afternoon, the most in the state."
-        },
-        {
-            "link": "https://7news.com.au/travel/international-travel-wont-return-to-normal-until-2023-despite-coronavirus-restrictions-lifted-in-australia-c-1037270",
-            "title": "International travel won’t return to normal until 2023 despite coronavirus restrictions lifted in Australia",
-            "source": "7News",
-            "date": "15 May 2020",
-            "time": "17:03",
-            "summary": "International travel has been severely impacted by the coronavirus pandemic and won’t return to normal until 2023. The International Air Transport Association (IATA), based in Geneva, has released new data showing how the pandemic has affected air travel and when it’s expected to recover. The new data revealed long-haul, international travel was the most severely impacted area of air travel and will take years to recover. They suggested that if international markets open, levels of global passenger demand next year are expected to be 24 per cent lower than 2019 levels. Furthermore, an IATA survey conducted in April revealed that 58 percent of recent travellers are likely to initially travel domestically."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-15/national-cabinet-prime-minister-scott-morrison-coronavirus/12252754 ",
-            "title": "Coronavirus restrictions successfully being eased, domestic holidays may be back on cards by July, Scott Morrison says",
-            "source": "ABCNews",
-            "date": "15 May 2020",
-            "time": "17:33",
-            "summary": "Prime Minister Scott Morrison says domestic holidays are on the horizon - hopefully by July - as Australia continues along the road back from coronavirus restrictions. He said all states and territories were moving through stage one of eased restrictions successfully, one week after National Cabinet agreed on a three-stage approach to lift restrictions. Mr Morrison said as restrictions ease, \"borders will fall\" across Australia, opening the domestic tourism market to potentially billions of dollars in business."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-15/victoria-coronavirus-cases-rise-by-20-mcdonalds-cedar-meats/12251762",
-            "title": "Victoria records another 21 coronavirus cases as McDonald's and Cedar Meats outbreaks grow",
-            "source": "ABCNews",
-            "date": "15 May 2020",
-            "time": "18:32",
-            "summary": "A second McDonald's outlet has closed for cleaning in Melbourne after a worker was diagnosed with COVID-19, as Victoria recorded 21 new coronavirus cases. In a statement, the fast food giant said its Craigieburn store had been closed for cleaning and staff were advised to self-quarantine for 14 days and get tested after the worker tested positive. It came as the state's total number of coronavirus cases rose by 21, including two new cases which were linked to the Fawkner McDonald's franchise. The outbreak at the Fawkner outlet is now linked to 10 of the state's COVID-19 cases, while the cluster at the Cedar Meats Australia abattoir in Brooklyn is linked to 91 infections."
         }
     ]
 }
