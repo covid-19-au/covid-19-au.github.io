@@ -1,6 +1,45 @@
 {
     "blogPosts": [
         {
+            "tag": "Informative",
+            "title": "COVID-19 and the environment",
+            "media": "https://i.imgur.com/ZUZrEXfg.png",
+            "summary": "With the streets empty and cars off the road, it's easy to see the impact of COVID-19 on the environment. Many industries have been hit by the lack of travel, while nature has been flourishing. Check out the blog to learn more about the impacts COVID-19 has had on the environment!",
+            "date": "23/05/2020", 
+            "text": {
+                "text_1": [
+                    "The outbreak of COVID 19 has resulted in various impacts on the environment, and the climate as countries around the globe enforce strict lockdowns and allow limited commercial activities. Industries that generally produce a massive volume of carbon emission such as the aviation industry are forced to minimise their businesses under such global pandemic, which, in return, provides an opportunity for the earth to breathe. The severe decrease in planned travel through most means of transportation has resulted in a significant reduction in air pollution.",
+                    "For example, lockdowns and other measures of restrictions for two months are directly responsible for the visible better air quality that visually demonstrates what 25% reduction in carbon emissions and 50% reduction in nitrogen oxides emissions mean. Wild animals are also spotted to breed and hang out in streets while humans are locked inside of their houses. However, we need to stay vigilant about making the assumption that the environment wins in this epidemic.",
+                    "While the environments show signs of recovering from human activities in the last four months, the unrepairable disruptions and damage human impose on earth can be traced back from decades ago. The short-term reduce of carbon emission is barely as important as people think when the goal is to 'combat' global environmental challenges and climate change in the long run. Some people may blindly assume the solution to the environmental problems we face is stop focusing on economic growth and shutting down the fossil fuel-based economy as we did in this medical pandemic.",
+                    "But, they neglected the fact that economic disruptions induced by the sudden change of economic model will impose a great threat on the social structure. There is no doubt billions of population will be jobless in an immediate economic transformation with no realisable technologies that could support it. Moreover, as seen in the 2008-2009 financial crash that resulted in a significant drop in global emission for a year-long, the overall global anthropogenic emissions quickly rebounded back by 2010 as the economy recovers where the emission that year landed on an all-time high. Hence, it is clear that such practices are neither desirable nor sustainable.",
+                    "On the bright side, the COVID-19 pandemic does provide us with an opportunity to promote long-term environmental sustainability. As supported by various academics in the sustainability studies, a critical factor that could lead to environmental sustainability is by people practising pro-environment behaviours. COVID-19 crisis has forced billions of people to alter their behaviours in significant ways. Luckily, a lot of these habitual behaviours are deemed good for the environment.",
+                    "Overall, the global response to COVID-19 has already shown exhibiting environmental benefits for the past months. But the question of whether these pro-environment practices can be carried on after the pandemic is gone depends on if individually and collectively we are willing to make these changes."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
+            "title": "The restart of International Sports",
+            "media": "https://i.imgur.com/n9oyEES.jpg",
+            "summary": "With pandemic restrictions beginning to loosen up globally, many of us are excited for our favourite sporting leagues to commence their seasons around the world. Read today’s blog post about what the international sporting world will look like post COVID-19!",
+            "date": "21/05/2020", 
+            "text": {
+                "text_1": [
+                    "With restrictions beginning to loosen up around the world, the restart of many sporting leagues around the globe are highly anticipated. Although they will essentially all be played behind closed doors with no crowds, leagues are slowly but surely finding ways to re-commence their seasons. All sports matches will have some level of social distancing outside of the necessary contact.",
+                    "<strong>Soccer:</strong><br />The Bundesliga has already restarted their regular season, being the first soccer league internationally to return to the pitch. 6 matches were played on Saturday, including the highly anticipated Ruhr Valley Derby between Borussia Dortmund and FC Shalke, with Dortmund comfortably winning 4-0. The Premier League hopes to return Friday June 12, as the league aims to play 92 matches across a 7 week period, ending July 27th. UEFA’s remaining Champions League (UCL) matches and Europa League have been confirmed by the UEFA president to conclude in August. Exciting news for the highest level of competition in Europe!",
+                    "<strong>Tennis:</strong><br />ATP are starting to work on a restart of the season, giving a 6-8 week time frame of their decisions. Unfortunately, tennis stars such as Rafael Nadal have voiced their concerns and doubts over the restart, due to the high level of international travel required for the players on tour.",
+                    "<strong>NBA:</strong><br />Following the suspension of the 2019-20 regular season in mid-March, players and fans across the world have been eagerly anticipating the restart of the regular season and progression into playoffs. Unfortunately, NBA Commissioner Adam Silver has still not decided on a date, and says that he ultimately plans to decide within the coming 2-4 weeks. Despite players and staff from several teams having tested positive, an overwhelming majority of players support the decision to restart the season, including superstars Lebron James, Giannis Antetokounmpo and Kawhi Leonard.",
+                    "<strong>NFL:</strong><br />Facilities across the US have started opening up, but unfortunately, players and coaches will still not be able to participate in training or other activities. The NFL are closely monitoring the restart of soccer in Europe, particularly the German Bundesliga at the moment, as it has already re-commenced its season."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
             "tag": "Informative Lifestyle",
             "title": "Mental Health and COVID-19",
             "media": "https://i.imgur.com/VWv7hLz.png",

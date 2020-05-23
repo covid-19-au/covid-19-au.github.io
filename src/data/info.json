@@ -758,11 +758,13 @@
                     "Queenslanders would be able to shop for non-essential items from Friday 1 May",
                     "Kindergarten, Prep, Years 1, 11 and 12 go back to school on Monday May 11",
                     "From Mother's Day to allow up to five members from one household to visit another home. Multiple families can visit the same householdas long as it is as different times",
-                    "Residents must not travel further than 50km from their homes,except for when they are visiting another household",
-                    "Picnics and weekend drives are now allowed, and national parks will reopen",
-                    "You can have a picnic with people from your house",
-                    "If you go out by yourself, you can only meet one other person from outsideyour house for a run or picnic. It can only be the two of you, not your family plus one other",
-                    "Borders are closed to everyone except residents and essential workers, including freight carriers and emergency workers. There are some exemptions for those who regularly cross the Queensland-NSW border for work."
+                    "Up to five adults from different households are allowed to visit another home",
+                    "Residents are now allowed to travel up to 150km from your home for recreational purposes, but cannot enter the “Outback” unless they live there",
+                    "Those who live in Outback Queensland can travel up to 500km within the Outback for recreational reasons, and can stay for multiple nights away from their place of residence given how far they may be travelling. For definition of \"outback\" refer to the citations below.",
+                    "Picnics and weekend drives are now allowed, and national parks will reopen.",
+                    "Up to 10 people can gather outside. This means that groups of 10 or less can engage in outdoor non-contact sport, group training and boot camps, and picnics. Queenslanders can also go to the park, playground, skatepark, or national park for recreational purposes",
+                    "Weddings are allowed 10 guests, and funerals 20 guests indoors and 30 outdoors",
+                    "Beauty salons can open back up, and pubs and cafes in regional or rural areas with no cases are able to seat up to 20 people. Open homes will alsobe allowed"
                 ],
                 "text_middle": [
                     "Travel:"
@@ -774,6 +776,14 @@
                 ],
                 "text_2": [],
                 "citation": [
+                    {
+                        "link": "https://www.covid19.qld.gov.au/government-actions/outback-queensland",
+                        "name": "Outback Definition - Queensland Government"
+                    },
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/may/18/social-distancing-rules-australia-when-will-end-guidelines-coronavirus-laws-physical-covid-19-restrictions-signs-posters-nsw-victoria-qld-queensland-act-sa-wa-nt-tasmania",
+                        "name": "Social distancing rules explained: Australia's current state by state coronavirus guidelines - The Guardian"
+                    },
                     {
                         "link": "https://www.abc.net.au/news/2020-05-08/coronavirus-queensland-restrictions-eased/12211002",
                         "name": "Coronavirus restrictions on movement are starting to lift — but Queenslanders aren't out of the woods just yet - ABC News"
@@ -788,7 +798,7 @@
                     }
                 ]
             },
-            "lastUpdated": "11 May 2020"
+            "lastUpdated": "18 May 2020"
         },
         {
             "name": "New South Wales",
@@ -798,10 +808,15 @@
                 ],
                 "ulist_1": [
                     "From Friday 1 May, two adults and the children in their care areallowed to visit another person’s home. These visits must be for “care” reasons, however, the NSW definition or care will be significantly broadened. For example, visiting friends would be considered beneficial for mental health and would, therefore, constitute “care”",
-                    "There are no limits on how many guests someone is allowed per day as long as there are no more than two adults at a time.Details on how far residents are allowed to travel are still to come",
-                    "Premier Gladys Berejilklian has also encouraged retails stores to open and NSW residents to shop as long as physically distancing can be maintained",
-                    "People who are learning to drive can continue to learn to drive and get their hours logged.",
-                    "Children who live across two households can continue to switchbetween houses"
+                    "As of Friday 15 May, up to five adults are allowed to visit another person’s home in NSW. There is no limit the number of guests someone is allowed per day as long as there are no more than five at a time",
+                    "There is no limit on how far someone can travel to visit another household under this rule, but you are still not allowed to travel to regional or rural areas for a holiday.",
+                    "From Friday May 22, public gatherings of up to 10 people, or members of the same household, are also allowed. Outdoor playground and exercise equipment can also now be used, with caution, and outdoor pools are open.",
+                    "Premier Gladys Berejilklian has also encouraged retails stores to open and NSW residents to shop as long as physically distancing can be maintained.Cafes, restaurants and pubs can seat 10 diners at any one time, as long asthey allow for four square metres per person.",
+                    "People who are learning to drive can continue to learn to drive and get their hours logged",
+                    "Children who live across two households can continue to switchbetween houses",
+                    "Weddings can now have up to 10 guests, in addition to those conducting the service, a photographer, a videographer and the couple. Up to 20 mourners can attend indoor funerals, and outdoor funerals can have up to 30",
+                    "Religious gatherings and places of worship can also invite up to 10 worshippers inside at a time",
+                    "Movement is also allowed for the purpose of moving into a new home or inspecting a potential new home, providing care or assistance to a vulnerable person or in an emergency, and undertaking legal obligations, accessing government services, or donating blood. Exemptions also exist for priests or members of religious orders, and where someone is escapingpotential injury, illness or harm"
                 ],
                 "text_middle": [
                     "Travel:"
@@ -812,12 +827,16 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.theguardian.com/australia-news/2020/may/18/social-distancing-rules-australia-when-will-end-guidelines-coronavirus-laws-physical-covid-19-restrictions-signs-posters-nsw-victoria-qld-queensland-act-sa-wa-nt-tasmania",
+                        "name": "Social distancing rules explained: Australia's current state by state coronavirus guidelines - The Guardian"
+                    },
+                    {
                         "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
                         "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
                     }
                 ]
             },
-            "lastUpdated": "11 May 2020"
+            "lastUpdated": "18 May 2020"
         },
         {
             "name": "Victoria",
@@ -840,7 +859,8 @@
                     "Ten people will be allowed to attend an open house inspection plus the minimum number of people reasonably required to facilitate the inspection",
                     "Cafes, restaurants, and pubs are still restricted to takeaway",
                     "Essential support groups, such as parents' groups and alcohol and drug support groups, will be allowed to operate. There can be no more than 10 people in the group, plus the people facilitating the session. They must maintain physical distancing of four-square-metres per person and can be held in community facilities such as halls and RSL clubs",
-                    "AFL clubs and other professional sporting codes will be allowed to train"
+                    "AFL clubs and other professional sporting codes will be allowed to train",
+                    "From 1 June, Victorian cafes, restaurants, and the dining areas of pubs andclubs will be allowed to reopen and host up to 20 patrons at a time indoors"
                 ],
                 "text_middle": [
                     "Travel:"
@@ -851,6 +871,10 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.theguardian.com/australia-news/2020/may/18/social-distancing-rules-australia-when-will-end-guidelines-coronavirus-laws-physical-covid-19-restrictions-signs-posters-nsw-victoria-qld-queensland-act-sa-wa-nt-tasmania",
+                        "name": "Social distancing rules explained: Australia's current state by state coronavirus guidelines - The Guardian"
+                    },
+                    {
                         "link": "https://www.abc.net.au/news/2020-05-11/coronavirus-victoria-eases-restrictions-the-new-covid-19-rules/12233798",
                         "name": "Coronavirus restrictions eased in Victoria to allow five visitors to a household and outdoor gatherings of 10 people - ABC News"
                     },
@@ -860,7 +884,7 @@
                     }
                 ]
             },
-            "lastUpdated": "11 May 2020"
+            "lastUpdated": "18 May 2020"
         },
         {
             "name": "Tasmania",
@@ -983,12 +1007,13 @@
                     "Restrictions:"
                 ],
                 "ulist_1": [
-                    "Rules on gatherings are set to be eased, allowingup to 10 people to get together, indoors or outdoors",
+                    "Rules on gatherings are set to be eased, allowing up to 10 people to get together, indoors or outdoors. This includes boot camps, picnics, house inspections and auctions.",
                     "House parties are not allowed",
                     "No changes to rules for cafes and restaurants",
-                    "Playgrounds across the city are set to stay close",
+                    "Playgrounds across the city are set to stay closed",
                     "Boot camps will be allowed once morein groups of no more than 10, but gym equipment should not be shared",
                     "The limit has gone from five people at a wedding, up to 10",
+                    "Indoor funerals will are allowed to have up to 20 attendees, while those taking place outside can have up to 30 attendees",
                     "No more than 10 in an open home, and no more than 10 at an auction"
                 ],
                 "text_middle": [
@@ -1000,12 +1025,16 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.theguardian.com/australia-news/2020/may/18/social-distancing-rules-australia-when-will-end-guidelines-coronavirus-laws-physical-covid-19-restrictions-signs-posters-nsw-victoria-qld-queensland-act-sa-wa-nt-tasmania",
+                        "name": "Social distancing rules explained: Australia's current state by state coronavirus guidelines - The Guardian"
+                    },
+                    {
                         "link": "https://www.abc.net.au/news/2020-05-08/coronavirus-covid19-restrictions-easing-in-act-what-you-can-do/12228936",
                         "name": "ACoronavirus restrictions are easing in the ACT — here's what can and can't do in Canberra this weekend - ABC News"
                     }
                 ]
             },
-            "lastUpdated": "11 May 2020"
+            "lastUpdated": "18 May 2020"
         },
         {
             "name": "Northern Territory",
@@ -1016,8 +1045,13 @@
                 "ulist_1": [
                     "Some physical distancing rules will be eased in theNorthern Territoryfrom Friday 1 May",
                     "National parks will be opened for the Mayday long weekend forcamping, swimming and hiking but Territorians are urged to practice safe physical distancing",
-                    "The Northern Territory maintains a 10-person gathering limit but Chief minister Michael Gunner has threatened to bring in stricter laws if people do not follow social distancing rules",
-                    "The Northern Territory now requires any non-essential travellers to self-quarantine for a period of 14 days. Remote communities also have protection in place to stop non-essential visitors from entering"
+                    "The Northern Territory maintains a 10-person gathering limit for indoors and outdoors",
+                    "From Friday 8 May these were lifted for outdoor weddings and funerals. An unlimited number of people may attend as long as physical distancing can still be observed",
+                    "The Northern Territory now requires any non-essential travellers to self-quarantine for a period of 14 days. Remote communities also have protection in place to stop non-essential visitors from entering",
+                    "Since 15 May additional indoor activities have been permitted, as long as they take less than two hours. These include going to the gym, eating at a cafe or restaurant, visiting a museum or undergoing non-facial cosmetic procedures like manicures or tanning. Bars can reopen but alcohol can only be served with a meal",
+                    "Indoor weddings, funerals and religious activities will also be allowed",
+                    "From 5 June all businesses will be allowed to reopen as long as they have aCovid-19 plan. The two-hour limit will be lifted allowing night clubs, cinemas, tattoo parlours casinos and pokies to reopen. However physical distancing must still be observed",
+                    "All sporting activities will be allowed to restart from 5 June and spectators will be allowed to attend"
                 ],
                 "text_middle": [
                     "Travel:"
@@ -1030,12 +1064,16 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.theguardian.com/australia-news/2020/may/18/social-distancing-rules-australia-when-will-end-guidelines-coronavirus-laws-physical-covid-19-restrictions-signs-posters-nsw-victoria-qld-queensland-act-sa-wa-nt-tasmania",
+                        "name": "Social distancing rules explained: Australia's current state by state coronavirus guidelines - The Guardian"
+                    },
+                    {
                         "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
                         "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
                     }
                 ]
             },
-            "lastUpdated": "11 May 2020"
+            "lastUpdated": "18 May 2020"
         },
         {
             "name": "South Australia",
@@ -1048,7 +1086,9 @@
                     "Those involved in non-contact sport will be able to go back to training.",
                     "House auctions and open inspections will be able to be held again",
                     "RSL clubs will be able to reopen for 10 people at a time",
-                    "The SA Government's roadmap to ease restrictions also envisions reopening cinemas and theatres, seated dining, galleries, museums and gyms for groups of up to 20 people on June 8. Premier Steven Marshall saidborder closuresand mass gatherings would be among the last of the restrictions to be lifted"
+                    "The SA Government's roadmap to ease restrictions also envisions reopening cinemas and theatres, seated dining, galleries, museums and gyms for groups of up to 20 people on June 8. Premier Steven Marshall saidborder closuresand mass gatherings would be among the last of the restrictions to be lifted",
+                    "South Australia has also eased its ban on caravanning, camping and regional travel in general",
+                    "From 8 June, South Australia will see the reopening of cinemas and theatres, seated dining, gyms and indoor fitness, galleries and museums, and beauty services. Sporting competition will also start back up, without spectators"
                 ],
                 "text_middle": [
                     "Travel:"
@@ -1059,6 +1099,10 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.theguardian.com/australia-news/2020/may/18/social-distancing-rules-australia-when-will-end-guidelines-coronavirus-laws-physical-covid-19-restrictions-signs-posters-nsw-victoria-qld-queensland-act-sa-wa-nt-tasmania",
+                        "name": "Social distancing rules explained: Australia's current state by state coronavirus guidelines - The Guardian"
+                    },
+                    {
                         "link": "https://www.abc.net.au/news/2020-05-08/sa-to-reopen-as-no-new-coronavirus-cases-recorded/12228898",
                         "name": "South Australia set to reopen as authorities relax coronavirus social distancing measures - ABCNews"
                     },
@@ -1068,17 +1112,20 @@
                     }
                 ]
             },
-            "lastUpdated": "11 May 2020"
+            "lastUpdated": "18 May 2020"
         },
         {
             "name": "Western Australia",
             "text": {
                 "text_1": [],
                 "ulist_1": [
-                    "Gathering limits have been increased from two people to 10",
                     "Residents are allowed to leave home for recreational activities including picnics, fishing, boating or camping",
-                    "The maximum number of people at a wedding has been raised from five to 10",
-                    "Open houses and display villages will also be allowed to operate, however public playgrounds, skateparks and outdoor gym equipment will remain closed, and restaurants and cafes will still be restricted to takeaway and home delivery"
+                    "As of Monday 18 May, up to 20 people are allowed to gather publicly and privately. Residents are allowed to leave their homes for recreational activities including picnics, fishing, boating or camping",
+                    "Cafes and restaurants – including dine-in services at pubs, clubs and casinos - are allowed to seat 20 diners, as long as they follow the four sq metres per person rule",
+                    "Non-contact sport, outdoor and indoor fitness classes, and public swimming pools have been allowed to reopen to up to 20 participants at a time. The number of attendees at weddings and funerals has increased to 20 if held indoors, or 30 if outdoors",
+                    "Places of worship and community facilities, like libraries, are also allowed up to 20 people inside",
+                    "Open houses and display villages are allowed to operate, however public playgrounds, skateparks and outdoor gym equipment are closed",
+                    "Travel to most nearby regions is now allowed. But travel is still restricted to remote communities in the Pilbara, Goldfields, and Kimberley"
                 ],
                 "text_middle": [
                     "Travel:"
@@ -1089,12 +1136,16 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.theguardian.com/australia-news/2020/may/18/social-distancing-rules-australia-when-will-end-guidelines-coronavirus-laws-physical-covid-19-restrictions-signs-posters-nsw-victoria-qld-queensland-act-sa-wa-nt-tasmania",
+                        "name": "Social distancing rules explained: Australia's current state by state coronavirus guidelines - The Guardian"
+                    },
+                    {
                         "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
                         "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
                     }
                 ]
             },
-            "lastUpdated": "11 May 2020"
+            "lastUpdated": "18 May 2020"
         }
     ],
     "helplinesTranslated": {
