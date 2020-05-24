@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=rOWGe7uOuPU",
+                    "description": "Work-from-Home Fails"
+                }
+            ],
+            "type": "distraction",
+            "date": "24/5/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://i.insider.com/5ebc052e204ad36b9c687253",
@@ -11,7 +22,7 @@
             "title": "BBC sports broadcaster reviews his dogs",
             "content": "<p>Andrew Cotter has decided to give both his Labradors an annual review. Check out the video below!</p>",
             "type": "motivation",
-            "date": "18/5/2020",
+            "date": "23/5/2020",
             "citation": [
                 {
                     "link": "https://www.businessinsider.com.au/bbc-sports-broadcaster-dogs-pets-performance-review-2020-5",
