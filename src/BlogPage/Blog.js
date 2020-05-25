@@ -15,6 +15,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import Chip from '@material-ui/core/Chip';
 
 class AWrapper extends Component {
     render() {
@@ -114,10 +115,13 @@ const Blog = (props) => {
                                                     {blog.summary}
                                                     </Typography>
                                                 </div>
-                                                <div>
-                                                    <Typography gutterBottom variant="overline" color="textSecondary" component="p">
-                                                    {blog.date}
-                                                    </Typography>
+                                                <Typography gutterBottom variant="overline" color="textSecondary" component="p" style={{float: "left", width: "fitContent"}}>
+                                                {blog.date}
+                                                </Typography>
+                                                <div style={{float: 'right'}}>
+                                                    {blog.tag.split(' ').map((tagName) => (
+                                                        <Chip key={uuid()} color="primary" size="small" label={tagName} style={{marginRight: "3px", backgroundColor: "#bae1ff", color: 'black'}}/>
+                                                    ))}
                                                 </div>
                                             </CardContent>
                                         </Grid>
@@ -140,10 +144,13 @@ const Blog = (props) => {
                                                     {blog.summary}
                                                     </Typography>
                                                 </div>
-                                                <div>
-                                                    <Typography style={{textAlign: 'right'}} gutterBottom variant="overline" color="textSecondary" component="p">
-                                                    {blog.date}
-                                                    </Typography>
+                                                <Typography gutterBottom variant="overline" color="textSecondary" component="p" style={{float: "left", width: "fitContent"}}>
+                                                {blog.date}
+                                                </Typography>
+                                                <div style={{float: 'right'}}>
+                                                    {blog.tag.split(' ').map((tagName) => (
+                                                        <Chip key={uuid()} color="primary" size="small" label={tagName} style={{marginRight: "3px", backgroundColor: "#bae1ff", color: 'black'}}/>
+                                                    ))}
                                                 </div>
                                             </CardContent>
                                         </Grid>
