@@ -1,6 +1,25 @@
 {
     "dailyFunStuff": [
         {
+            "image": [
+                {
+                    "imgLink": "https://static.wixstatic.com/media/9aa79b_943d429087ac428d8b4083e51f5e9ab3~mv2.jpeg/v1/fill/w_1600,h_986,al_c,q_85,usm_0.66_1.00_0.01/9aa79b_943d429087ac428d8b4083e51f5e9ab3~mv2.jpeg",
+                    "source": "https://www.chelseascharity.com/"
+                }
+            ],
+            "video": [],
+            "title": "10-year-old runs charity for at-risk children",
+            "content": "<p>10-year old Chelsea Phaire started her own charity in 2019 (with help from her parents) to provide art supplies to more than 1500 kids in foster care and homeless shelters.</p><p>Read more about her amazing contributions below!</p>",
+            "type": "motivation",
+            "date": "25/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.goodnewsnetwork.org/10-year-old-gives-art-kits-to-1500-kids-in-quarantine/",
+                    "name": "10-Year-old Gives the Gift of Art to More Than 1,500 Kids in Shelters and Foster Care During Quarantine - Good News Network"
+                }
+            ]
+        },
+        {
             "image": [],
             "video": [
                 {
