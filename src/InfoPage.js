@@ -15,6 +15,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import dailyFun from "./data/dailyFun"
 import information from "./data/info";
 import mapDataHos from "./data/mapdataHos";
+import HospitalsMap from "./HomePage/HospitalsMap"
 // import i18n bundle
 import i18next from './i18n';
 import ReactGA from "react-ga";
@@ -886,7 +887,10 @@ function Information({ hospitalData, columns, gspace }) {
                 </div>
 
                 <div className="card" id="hospitalList" >
-                    <h2 className="responsiveH2">List of Hospitals doing Coronavirus testing</h2>
+                    <h2 className="responsiveH2">Hospitals doing Coronavirus testing</h2>
+
+                    <HospitalsMap />
+
                     <p className="responsiveText"><strong>Note: </strong>For anyone in Tasmania, all four testing clinics will not be open for walk-up testing, and anyone who thinks they may need testing should first contact the Public Health Hotline on <a className="citationLink" href="tel:1800671738">1800 671 738</a></p>
                     <small>Filter the table by clicking the dropdown below state.</small>
                     <div className="row centerMedia">

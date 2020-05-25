@@ -1,11 +1,11 @@
-import hospitalImg from "../img/icon/hospital.png";
+import hospitalImg from "../../img/icon/hospital.png";
 import mapboxgl from "mapbox-gl";
 
 /*******************************************************************
  * Hospital markers
  *******************************************************************/
 
-class HospitalMarker {
+class MarkerHospital {
     constructor(map, item) {
         this.map = map;
         this.item = item;
@@ -65,4 +65,4 @@ class HospitalMarker {
     }
 }
 
-export default HospitalMarker;
+export default MarkerHospital;
