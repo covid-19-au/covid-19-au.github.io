@@ -2,6 +2,24 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "Future of workforce post-COVID-19",
+            "media": "https://i.imgur.com/j8JNSEG.png",
+            "summary": "Whilst the economic impact of covid19 has been astronomical and rightly documented about in media, have you wondered what work could look like post-covid19? If you’re after some insights, check out today’s blog post! 💙",
+            "date": "26/05/2020", 
+            "text": {
+                "text_1": [
+                    "The economic impact of covid19 cannot be understated - it’s a crisis that hasn’t been witnessed since the Great Depression. In April, Australian businesses shed 800,000 jobs, equating to 6% of the total workforce, with industries such as hospitality, travel, retail and accommodation among those taking the biggest hit. Simultaneously, some businesses have adapted in these uncertain times and are in high demand, including food delivery services, health, IT and postal services.",
+                    "With the pandemic forcing many to work from home, the merits of working remotely have been proven to employers - many have found that their work can still be done from home, over the phone or from a computer. This will save employers money on office space going forward and mean that the future of our workforce will have an increased emphasis on flexibility and work-life balance.",
+                    "Another interesting factor to consider is decreased loyalty to an employer - a few decades ago, people used to stay in a job for life, whereas now, the average tenure of an Australian in a job is three years, and this will decrease as time goes by. A key question for many is - how do we ensure we’re available to take on various roles in a shorter period of time? One answer to this is online upskilling - many online courses, diplomas and degrees, have all had their prices slashed by 50% or more, so it’s an opportune time to learn and develop oneself.",
+                    "Some of the sectors that will be looking for work afterwards - health, education, social care - were incidentally the sectors that were hiring pre-covid19, so there has been sustained growth and that growth is certain to continue."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "COVID-19 and the environment",
             "media": "https://i.imgur.com/ZUZrEXfg.png",
             "summary": "With the streets empty and cars off the road, it's easy to see the impact of COVID-19 on the environment. Many industries have been hit by the lack of travel, while nature has been flourishing. Check out the blog to learn more about the impacts COVID-19 has had on the environment!",
