@@ -274,33 +274,39 @@ class JSONGeoBoundariesBase {
 
     _getCasesSize(data) {
         var len = data.properties['casesFmt'].length,
-            absCases = Math.abs(data.properties['cases']);
+            absCases = Math.abs(data.properties['cases']),
+            isNeg = data.properties['cases'] < 0.0,
+            r;
 
+        // TODO: Make millions slightly larger than thousands!
         if (100000000 >= absCases >= 10000000) {
-            return len+absCases/100000000.0;
+            r = len+absCases/100000000.0;
         }
         else if (absCases >= 1000000) {
-            return len+absCases/10000000.0;
+            r = len+absCases/10000000.0;
         }
         else if (absCases >= 100000) {
-            return len+absCases/1000000.0;
+            r = len+absCases/1000000.0;
         }
         else if (absCases >= 10000) {
-            return len+absCases/100000.0;
+            r = len+absCases/100000.0;
         }
         else if (absCases >= 1000) {
-            return len+absCases/10000.0;
+            r = len+absCases/10000.0;
         }
         else if (absCases >= 100) {
-            return len+absCases/1000.0;
+            r = len+absCases/1000.0;
         }
         else if (absCases >= 10) {
-            return len+absCases/100.0;
+            r = len+absCases/100.0;
         }
         else if (absCases >= 1) {
-            return len+absCases/10.0;
+            r = len+absCases/10.0;
         }
-        return len;
+        else {
+            r = len;
+        }
+        return isNeg ? -r : r;
     }
 
     /*******************************************************************

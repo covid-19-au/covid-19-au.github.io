@@ -44,6 +44,7 @@ class MbMap extends React.Component {
             _underlay: null
         };
         this._firstTime = true;
+        this.stateUpdatedDates = [];
         this.geoBoundaries = new GeoBoundaries();
 
         this.markersBGGroup = React.createRef();
@@ -242,9 +243,14 @@ class MbMap extends React.Component {
 
                 <span className="due">
                     <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '0px'}}>
-                        <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>Zoom in to get regional numbers. Click on regions to get a history over time and updated dates.</li>
-                        <li style={{ color: '#555', marginTop: '0px', paddingTop: '0px' }}>Regional data is auto-generated and may not always be the most up-to-date.<br />
-                            Displayed cases identify regions only, not specific addresses.</li>
+                        <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>Displayed cases identify regions only, not specific addresses.</li>
+                        <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>Zoom in for regional numbers. Click regions for history over time.</li>
+                        <li style={{color: '#555'}}><div style={{color: '#777', fontSize: '0.9em'}}>Regional data updated: {
+                            this.stateUpdatedDates.length ? this.stateUpdatedDates.map((item, index) => {
+                                return <span style={{margin:0, padding: 0}}>{item[0]}&nbsp;({item[1]}):&nbsp;{item[2]}{index === this.stateUpdatedDates.length-1 ? '' : ';'} </span>
+                            }) : 'loading, please wait...'
+                        }</div>
+                        </li>
                     </ul>
                 </span>
             </div>
@@ -309,15 +315,18 @@ class MbMap extends React.Component {
         map.addControl(new mapboxgl.FullscreenControl());
 
         // Create case data instances
+        var stateUpdatedDates = this.stateUpdatedDates = [];
+        var addedStateUpdated = {};
         var caseDataInsts = this.caseDataInsts = {};
+
         for (let key in regionsTimeSeries) {
             // key => "statename:schema"
             var d = caseDataInsts[key] = {};
             var subheaders = regionsTimeSeries[key]['sub_headers']; // CHECK ME!
+
             for (let subKey of subheaders) {
                 // console.log(`${key}|${subKey}|alltime`)
-
-                caseDataInsts[`${key}|${subKey}|alltime`] = new TimeSeriesDataSource(
+                var inst = caseDataInsts[`${key}|${subKey}|alltime`] = new TimeSeriesDataSource(
                     `${key}|${subKey}|alltime`,
                     subKey,
                     regionsTimeSeries[key],
@@ -325,6 +334,19 @@ class MbMap extends React.Component {
                     key.split(":")[1],
                     key.split(":")[0]
                 );
+
+                if (
+                    (!stateUpdatedDates.length || !(key in addedStateUpdated)) &&
+                    key.split(':')[1] !== 'statewide'
+                ) {
+                    addedStateUpdated[key] = null;
+                    stateUpdatedDates.push([
+                        key.split(':')[0],
+                        key.split(':')[1],
+                        inst.getUpdatedDate()
+                    ]);
+                }
+
                 caseDataInsts[`${key}|${subKey}|7days`] = new TimeSeriesDataSourceForPeriod(
                     `${key}|${subKey}|7days`,
                     subKey,
@@ -354,6 +376,7 @@ class MbMap extends React.Component {
                 );
             }
         }
+        this.stateUpdatedDates.sort();
 
         // Add cruise ship data
         for (let shipName of ConfirmedMapShipsData.getPossibleShips()) {
@@ -405,6 +428,7 @@ class MbMap extends React.Component {
 
             this.mapLoaded = true;
             this._updateMode();
+            this.forceUpdate();
         });
     }
 
@@ -667,10 +691,14 @@ class MbMap extends React.Component {
 
     _disableControls() {
         this.mapContControls.current.style.pointerEvents = 'none';
+        this.mapContainer.style.pointerEvents = 'none';
+        this.dsMapContainer.style.pointerEvents = 'none';
     }
 
     _enableControls() {
         this.mapContControls.current.style.pointerEvents = 'all';
+        this.mapContainer.style.pointerEvents = 'all';
+        this.dsMapContainer.style.pointerEvents = 'all';
     }
 
     _resetMode(prevState) {
