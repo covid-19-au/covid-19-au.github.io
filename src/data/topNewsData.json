@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-25/sa-coronavirus-stage-two-restrictions-relaxation-starting-june-1/12282246",
+            "title": "Coronavirus restrictions to be relaxed in South Australia ahead of schedule",
+            "source": "ABCNews",
+            "date": "25 May 2020",
+            "time": "17:00",
+            "summary": "Stage two restrictions were originally due to ease on June 8, but that was previously brought forward to June 5 and now to Monday, June 1. Cinemas, theatres, galleries, museums, beauty salons, gyms and indoor fitness centres across South Australia will be able to open from next Monday, with the SA Government bringing forward the relaxation of coronavirus restrictions. Those venues, along with pubs, bars, restaurants and cafes, will be able to admit up to 80 patrons, provided they can contain them to groups of 20 in discrete rooms or areas within the business. Furthermore, up to 50 mourners will be allowed at funerals, non-contact outdoor sport will be able to resume on June 1 and competition for outdoor contact sports can resume from June 25. "
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-04/australian-schools-reopening-after-coronavirus-closures/12211526",
+            "title": "Schools are reopening, so here's a guide to the situation in each state and territory",
+            "source": "ABCNews",
+            "date": "25 May 2020",
+            "time": "00:00",
+            "summary": "Government advice on whether students should attend schools amid the ongoing coronavirus situation varies widely across Australia, and has sometimes led to confusion and controversy. Some states still have restrictions on school attendance while some states have never had restrictions on school attendance; however Prime Minister Scott Morrison wants all public schools to return to face-to-face learning by June. Here's the latest on when schools will reopen in your state or territory, if they haven't already."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-25/australia-500-active-coronavirus-cases-decline/12275030",
+            "title": "Australian active coronavirus cases dip below 500 for the first time since March as recoveries outpace new infections",
+            "source": "ABCNews",
+            "date": "25 May 2020",
+            "time": "19:10",
+            "summary": "The number of active cases of coronavirus in Australia has dipped below 500 as the number of Australians recovering from the disease continues to outstrip the number of new infections recorded each day. More than 6,500 people have recovered from the virus, while a further 102 people have died due to COVID-19 since the pandemic took hold. It leaves just 484 currently infected with COVID-19. While data on recovered cases was not consistently reported earlier than April 5, the total number of confirmed cases in Australia was last below 500 on March 17."
+        },
+        {
             "link": "https://www.9news.com.au/national/coronavirus-what-you-can-do-in-victoria-from-june-explained/3f04ae9c-7deb-4bce-b20c-88673ca8bec6",
             "title": "Victoria eases coronavirus restrictions; what you can do from June 1",
             "source": "9News",
@@ -143,22 +167,6 @@
             "date": "18 May 2020",
             "time": "21:10",
             "summary": "Students at NSW public schools will return to classrooms full time from next Monday after weeks of remote learning. NSW Premier Gladys Berejiklian will confirm the May 25 start date tomorrow. Most students have been attending school one day a week since last week. Last month the NSW Government announced students across the state would make a staggered return from May 11. At the time Ms Berejiklian said she hoped students would be back in classrooms full time by term three, which does not start until July 21."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-17/coronavirus-inquiry-world-health-assembly-china-covid-19/12256910",
-            "title": "Coalition of 62 countries backs joint Australian, EU push for independent inquiry into coronavirus outbreak",
-            "source": "ABCNews",
-            "date": "17 May 2020",
-            "time": "19:00",
-            "summary": "A coalition of 62 countries has backed a joint Australian and European Union push for an independent inquiry into the coronavirus outbreak ahead of a crucial World Health Assembly (WHA) meeting tomorrow in Geneva. Australia was the first nation to call for an independent inquiry into how the coronavirus started. That drew furious condemnation from Beijing, which accused Australia of launching a political attack on China. But international support for the idea has been steadily growing. The Morrison Government has now swung its diplomatic firepower behind the European Union, which has also been pressing for an investigation while taking a more conciliatory line with Beijing."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-17/victoria-coronavirus-cafes-restaurants-pub-dining-to-reopen/12256306",
-            "title": "Victorian cafes, restaurants and pubs to reopen for dining in June in easing of coronavirus restrictions",
-            "source": "ABCNews",
-            "date": "17 May 2020",
-            "time": "18:00",
-            "summary": "Victorians will be allowed to enjoy a meal inside cafes, restaurants and pubs from next month as part of a staged reopening of the hospitality industry, Premier Daniel Andrews has announced. Mr Andrews said the reopening would be subject to \"a long and extensive set of rules\" covering matters such as cleaning, temperature checks and screening of staff to ensure they were not unwell. Venues will be required to take the contact details of every customer to help with rapid contact tracing. Existing physical distancing requirements will continue to apply, meaning each person will need four square metres of space, and tables will need to be spaced at least 1.5 metres apart."
         }
     ]
 }
