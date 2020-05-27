@@ -1,23 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "imgLink": "https://images.squarespace-cdn.com/content/v1/5b48ae2d96e76ffeb9871ba6/1589403284440-QWQJQC85ASO6XFKQOM0R/ke17ZwdGBToddI8pDm48kEXmIAFfm-jEVAMn4PATRvQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJ0ML4pw1z1eBGIdjEc5vkUeANcTMJ2ztEcjDWCkbcibujMCoaEo2hhEIDboHxA99w/bd828afc-1309-4f2f-bb1b-26e538191eb6.jpg?format=300w",
-                    "source": "https://wck.org/restaurantsforthepeople"
+                    "link": "https://www.youtube.com/watch?v=kYuFgg2_SGM",
+                    "description": "Goalie Cat!"
                 }
             ],
-            "video": [],
-            "title": "Restaurants for the People is injecting $50 million into restaurants to feed the hungry!",
-            "content": "<p>The initiative was launched by the World Central Kitchen (WCK): a Washington DC-based charity whose \"Food First Responders\" program has already served millions of meals to people in dire circumstances around the world.</p><p>The money is being given to restaurants to pay for meals for those who need it most!</p>",
-            "type": "motivation",
-            "date": "26/5/2020",
-            "citation": [
-                {
-                    "link": "https://www.goodnewsnetwork.org/chef-andres-charity-paying-restaurants-to-feed-hungry-during-covid/",
-                    "name": "Chef Andrés’ Charity is Injecting $50 Million into Restaurants By Paying Them to Feed the Hungry - Good News Network"
-                }
-            ]
+            "type": "distraction",
+            "date": "27/5/2020"
         }
     ]
 }
