@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=kYuFgg2_SGM",
+                    "description": "Goalie Cat!"
+                }
+            ],
+            "type": "distraction",
+            "date": "27/5/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://images.squarespace-cdn.com/content/v1/5b48ae2d96e76ffeb9871ba6/1589403284440-QWQJQC85ASO6XFKQOM0R/ke17ZwdGBToddI8pDm48kEXmIAFfm-jEVAMn4PATRvQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJ0ML4pw1z1eBGIdjEc5vkUeANcTMJ2ztEcjDWCkbcibujMCoaEo2hhEIDboHxA99w/bd828afc-1309-4f2f-bb1b-26e538191eb6.jpg?format=300w",
