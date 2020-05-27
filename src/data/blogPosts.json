@@ -2,6 +2,24 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "The New Normal",
+            "media": "https://i.imgur.com/PVb4qfj.png",
+            "summary": "With the pandemic dying down, and things slowly returning back to how they were before, there are things that will inevitably be different. Read todays blog to find out more about the new normal post covid-19.",
+            "date": "28/05/2020", 
+            "text": {
+                "text_1": [
+                    "The vaccines are under development and with being in the lockdown for some time, our lifestyle and habit changes. This will continue and we will have to get used to a 'new normal', even if some restrictions are eased. Last week, each state premier of Australia announced new plans to reopen their jurisdiction.",
+                    "The new plans contain further easing of restrictions will come into effect next week and the weeks ahead as the governments are under extreme financial pressure to reopen their economies. In New South Wales, beauty parlors, pubs, cafes, restaurants will be able to reopen and allow to serve up to 50 customers at a time from June 1. At the same time, Victoria will also allow gathering of 20 people in a home and serving up to 20 patrons at one time at beauty salons, restaurants, bars, and cafes. To read the latest restrictions plan in each state and territory, click <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.abc.net.au/news/2020-05-25/coronavirus-restrictions-eased-in-your-state-territory-this-week/12281004?fbclid=IwAR3UyDB7dukIMXZZqBJimdOrQFRGzLxPnPGoCzX3dXRRs7VY1tt4wwtB92M'>here</a>.",
+                    "Nevertheless, a 'new normal' wouldn't be the same as once we called 'normal' with the social distancing measures set to remain place for some time. Your gym experience can't be same as your prior experience. Restaurants will have limited serving capacity and you can only dine-in in a designed seat to ensure the social distancing between guests. It is critical for us to follow the guidelines and adapt to a new normal to avoid a new surge in cases.",
+                    "Whether by circumstances or choice, it would appear that life after lockdown is going to be different as it previously did. This is not all about bad things. This gives us more time to reflect and re-evaluate our lives. This gives an opportunity to reconnect and spend more time with family, friends, and partners. This taught us the value of money with the increment in job losses and more importantly, it taught us how precious and fragile our life is."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "Future of workforce post-COVID-19",
             "media": "https://i.imgur.com/j8JNSEG.png",
             "summary": "Whilst the economic impact of covid19 has been astronomical and rightly documented about in media, have you wondered what work could look like post-covid19? If you’re after some insights, check out today’s blog post! 💙",
