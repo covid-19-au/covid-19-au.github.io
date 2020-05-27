@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/queensland-man-30-becomes-youngest-person-to-die-from-coronavirus-in-australia",
+            "title": "Queensland man, 30, becomes youngest person to die from coronavirus in Australia",
+            "source": "SBSNews",
+            "date": "27 May 2020",
+            "time": "16:00",
+            "summary": "A 30-year-old Queensland man has died from coronavirus, making him Australia's youngest COVID-19 victim to date. The man's partner is currently being isolated at Rockhampton Hospital and is also showing COVID-19 symptoms. Premier Annastacia Palaszczuk said the man was from Blackwater in central Queensland and urged anyone in the area with flu-like symptoms to get tested urgently."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-27/coronavirus-nsw-government-freezes-public-sector-salaries/12291032",
+            "title": "NSW Government freezes staff salaries to save $3 billion amid coronavirus pandemic",
+            "source": "ABCNews",
+            "date": "27 May 2020",
+            "time": "16:00",
+            "summary": "The NSW Government will freeze pay rises for public sector workers for 12 months, as it deals with rising unemployment across the state due to the coronavirus pandemic. Under the current wages policy, hundreds of thousands of public sector employees can pursue a 2.5 per cent pay rise each year. However, under the wage freeze policy, salaries will remain unchanged for 12 months. Premier Gladys Berejiklian said the measure will save about $3 billion and has assured government workers there will be no job losses. "
+        },
+        {
             "link": "https://www.sbs.com.au/news/scott-morrison-outlines-jobmaker-plan-for-post-coronavirus-economic-recovery",
             "title": "Scott Morrison outlines 'JobMaker' plan for post-coronavirus economic recovery",
             "source": "SBSNews",
@@ -143,30 +159,6 @@
             "date": "20 May 2020",
             "time": "16:00",
             "summary": "Shoppers who spent March panic buying tinned food, toilet paper and pasta shut their wallets in April, sending retail sales plunging last month. Preliminary figures from the Australian Bureau of Statistics (ABS) show a 17.9 per cent drop in retail turnover — the steepest monthly fall on record. It is the realisation of the 'pay back' economists had warned about, with the April fall more than double the record 8.5 per cent climb in sales in March. Transaction data from the major banks show a pick up in spending in May and consumer confidence has recovered some ground, but economists do not see a fast recovery."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-19/chinese-embassy-australia-credit-coronavirus-inquiry-a-joke/12262968",
-            "title": "Chinese embassy ridicules Australia for claiming vindication for global coronavirus inquiry",
-            "source": "ABCNews",
-            "date": "19 May 2020",
-            "time": "18:00",
-            "summary": "China's embassy in Canberra says it is a joke for Australia to claim it has been vindicated by international support for a coronavirus inquiry. Australia was the second country, after the United States, to call for an independent inquiry into the global pandemic, a move which sparked a diplomatic row with China. But last night, at a meeting of the World Health Assembly (WHA) in Geneva, China indicated it would likely back a European Union motion that called for an \"impartial, independent and comprehensive\" evaluation of the response to the global outbreak. However, Beijing's embassy in Canberra issued a statement saying the inquiry being considered by the WHA was \"totally different\" to the one Australia proposed, saying that to claim vindication was \"nothing but a joke\"."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/australia-s-coronavirus-death-toll-hits-100-after-93-year-old-sydney-aged-care-resident-dies",
-            "title": "Australia's coronavirus death toll hits 100 after 93-year-old Sydney aged care resident dies",
-            "source": "SBSNews",
-            "date": "19 May 2020",
-            "time": "14:00",
-            "summary": "Another elderly resident of the Newmarch House nursing home in Sydney has died after becoming infected with COVID-19, taking the national death toll to 100. Operator Anglicare confirmed 93-year-old Alice Bacon died on Tuesday morning, raising the NSW tally to 49. Seventeen residents have now died from COVID-19 at the western Sydney nursing home where about 70 people have been infected with the virus."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/may/19/nsw-and-victoria-are-unable-to-use-covidsafe-apps-data-for-contact-tracing",
-            "title": "NSW is unable to use Covidsafe app’s data for contact tracing ",
-            "source": "TheGuardian",
-            "date": "19 May 2020",
-            "time": "16:31",
-            "summary": "Sydney has not yet been able to use the COVIDSafe app for contact tracing. In nearly a month since it launched, more than 5.87 million Australians have downloaded and registered to use the Covidsafe contact-tracing app, which is designed to make it easier for state health officials to find close contacts in the event a user tests positive for coronavirus. Last week, state health department contact tracers received training in how to access the data, but no states have yet reported using the data for contact. NSW Health has tested the data but has had issues integrating it into the existing contact-tracing methods."
         }
     ]
 }
