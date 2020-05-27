@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-19/chinese-embassy-australia-credit-coronavirus-inquiry-a-joke/12262968",
+            "title": "Chinese embassy ridicules Australia for claiming vindication for global coronavirus inquiry",
+            "source": "ABCNews",
+            "date": "19 May 2020",
+            "time": "18:00",
+            "summary": "China's embassy in Canberra says it is a joke for Australia to claim it has been vindicated by international support for a coronavirus inquiry. Australia was the second country, after the United States, to call for an independent inquiry into the global pandemic, a move which sparked a diplomatic row with China. But last night, at a meeting of the World Health Assembly (WHA) in Geneva, China indicated it would likely back a European Union motion that called for an \"impartial, independent and comprehensive\" evaluation of the response to the global outbreak. However, Beijing's embassy in Canberra issued a statement saying the inquiry being considered by the WHA was \"totally different\" to the one Australia proposed, saying that to claim vindication was \"nothing but a joke\"."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/australia-s-coronavirus-death-toll-hits-100-after-93-year-old-sydney-aged-care-resident-dies",
+            "title": "Australia's coronavirus death toll hits 100 after 93-year-old Sydney aged care resident dies",
+            "source": "SBSNews",
+            "date": "19 May 2020",
+            "time": "14:00",
+            "summary": "Another elderly resident of the Newmarch House nursing home in Sydney has died after becoming infected with COVID-19, taking the national death toll to 100. Operator Anglicare confirmed 93-year-old Alice Bacon died on Tuesday morning, raising the NSW tally to 49. Seventeen residents have now died from COVID-19 at the western Sydney nursing home where about 70 people have been infected with the virus."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/may/19/nsw-and-victoria-are-unable-to-use-covidsafe-apps-data-for-contact-tracing",
+            "title": "NSW is unable to use Covidsafe app’s data for contact tracing ",
+            "source": "TheGuardian",
+            "date": "19 May 2020",
+            "time": "16:31",
+            "summary": "Sydney has not yet been able to use the COVIDSafe app for contact tracing. In nearly a month since it launched, more than 5.87 million Australians have downloaded and registered to use the Covidsafe contact-tracing app, which is designed to make it easier for state health officials to find close contacts in the event a user tests positive for coronavirus. Last week, state health department contact tracers received training in how to access the data, but no states have yet reported using the data for contact. NSW Health has tested the data but has had issues integrating it into the existing contact-tracing methods."
+        },
+        {
             "link": "https://www.theage.com.au/national/victoria/andrews-reveals-2-7b-for-building-blitz-including-1-1b-for-schools-20200518-p54tw4.html",
             "title": "Andrews reveals $2.7b for building blitz, including $1.1b for schools",
             "source": "TheAge",
