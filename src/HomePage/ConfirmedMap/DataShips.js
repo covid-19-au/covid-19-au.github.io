@@ -51,6 +51,22 @@ class ConfirmedMapShipsData extends DataSourceBase {
         this.schema = 'statewide';
     }
 
+    getUpdatedDate() {
+        var data = this.data['data'];
+
+        for (var dataItem of data) {
+            if (this.stateName.toUpperCase() !== dataItem['state'].toUpperCase()) {
+                continue;
+            }
+            return dataItem['update'];
+        }
+        return null;
+    }
+
+    getDaysSince() {
+        return null;
+    }
+
     getCaseNumber(region, ageRange) {
         var data = this.data['data'];
         // console.log("get: "+region+' '+this.stateName);
