@@ -449,7 +449,7 @@ class MbMap extends React.Component {
 
         var schemas = [
             // In order of preference
-            //'postcode',
+            'postcode',
             'lga',
             'hhs',
             'ths',

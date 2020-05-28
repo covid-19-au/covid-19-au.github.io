@@ -35,8 +35,8 @@ class GeoBoundaries {
             "act:sa3": otherGeoSchemas.ACTSA3Boundaries,
             "qld:hhs": otherGeoSchemas.QLDHHSGeoBoundaries,
             "nsw:lhd": otherGeoSchemas.NSWLHDGeoBoundaries,
-            "tas:ths": otherGeoSchemas.TasTHSBoundaries
-            //"nsw:postcode": otherGeoSchemas.NSWPostCodeBoundaries
+            "tas:ths": otherGeoSchemas.TasTHSBoundaries,
+            "nsw:postcode": otherGeoSchemas.NSWPostCodeBoundaries
         };
     }
 

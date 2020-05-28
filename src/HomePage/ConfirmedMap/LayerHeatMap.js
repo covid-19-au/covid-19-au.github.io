@@ -193,7 +193,7 @@ class HeatMapLayer {
             'layout': {
                 'text-field': [
                     'format',
-                    ['get', 'city'],
+                    ['get', 'cityLabel'],
                     { 'font-scale': 0.7 },
                 ],
                 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],

@@ -269,6 +269,8 @@ class JSONGeoBoundariesBase {
             data.properties['casesFmt'] = Fns.numberFormat(caseInfo['numCases'], 1);
             data.properties['casesSz'] = this._getCasesSize(data);
             data.properties['city'] = cityName;
+            data.properties['cityLabel'] = this.getCityPrintableNameFromProperty ?
+                this.getCityPrintableNameFromProperty(data) : cityName;
         }
     }
 

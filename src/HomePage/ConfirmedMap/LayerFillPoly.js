@@ -248,7 +248,8 @@ class FillPolyLayer {
                 popup.remove();
             }
 
-            var cityName = e.features[0].properties.city;
+            var cityName = e.features[0].properties.city,
+                cityLabel = e.features[0].properties.cityLabel;
             var caseInfo = this.caseDataSource.getCaseNumber(cityName, null);
 
             if (!caseInfo || caseInfo['numCases'] == null || caseInfo['updatedDate'] == null) {
@@ -275,7 +276,7 @@ class FillPolyLayer {
                 })
                     .setLngLat(e.lngLat)
                     .setHTML(
-                        `${cityName} (${this.caseDataSource.schema === 'statewide' ? 'statewide' : this.caseDataSource.schema.toUpperCase()})` +
+                        `${cityLabel} (${this.caseDataSource.schema === 'statewide' ? 'statewide' : this.caseDataSource.schema.toUpperCase()}${cityName !== cityLabel ? ' '+cityName : ''})` +
                         '<br/>Cases: ' + caseInfo['numCases'] +
                         '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo['updatedDate'] +
                         (absInfo ? ('<br>ABS Underlay: '+this._getABSValue(this.absDataSource, absInfo['numCases'], true)) : '') +
@@ -308,7 +309,7 @@ class FillPolyLayer {
                 })
                     .setLngLat(e.lngLat)
                     .setHTML(
-                        e.features[0].properties.city +
+                        cityLabel +
                         '<br/>Cases: ' + caseInfo['numCases'] +
                         '<br/>By: ' + caseInfo['updatedDate']
                     )

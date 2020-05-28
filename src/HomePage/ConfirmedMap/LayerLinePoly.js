@@ -43,7 +43,7 @@ class LinePolyLayer {
             paint: {
                 'line-color': this.color || '#000',
                 'line-opacity': 1,
-                'line-width': 1,
+                'line-width': this.uniqueId.indexOf('postcode') !== -1 ? 0.5 : 1.0,
             },
             filter: ['==', '$type', 'Polygon']
         }, lastLineLayer);
