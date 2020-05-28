@@ -1,6 +1,110 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/queensland-man-30-becomes-youngest-person-to-die-from-coronavirus-in-australia",
+            "title": "Queensland man, 30, becomes youngest person to die from coronavirus in Australia",
+            "source": "SBSNews",
+            "date": "27 May 2020",
+            "time": "16:00",
+            "summary": "A 30-year-old Queensland man has died from coronavirus, making him Australia's youngest COVID-19 victim to date. The man's partner is currently being isolated at Rockhampton Hospital and is also showing COVID-19 symptoms. Premier Annastacia Palaszczuk said the man was from Blackwater in central Queensland and urged anyone in the area with flu-like symptoms to get tested urgently."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-27/coronavirus-nsw-government-freezes-public-sector-salaries/12291032",
+            "title": "NSW Government freezes staff salaries to save $3 billion amid coronavirus pandemic",
+            "source": "ABCNews",
+            "date": "27 May 2020",
+            "time": "16:00",
+            "summary": "The NSW Government will freeze pay rises for public sector workers for 12 months, as it deals with rising unemployment across the state due to the coronavirus pandemic. Under the current wages policy, hundreds of thousands of public sector employees can pursue a 2.5 per cent pay rise each year. However, under the wage freeze policy, salaries will remain unchanged for 12 months. Premier Gladys Berejiklian said the measure will save about $3 billion and has assured government workers there will be no job losses. "
+        },
+        {
+            "link": "https://www.sbs.com.au/news/scott-morrison-outlines-jobmaker-plan-for-post-coronavirus-economic-recovery",
+            "title": "Scott Morrison outlines 'JobMaker' plan for post-coronavirus economic recovery",
+            "source": "SBSNews",
+            "date": "26 May 2020",
+            "time": "13:17",
+            "summary": "The prime minister on Tuesday unveiled part of the coalition's economic plan designed to claw the nation back from pandemic-induced pain.  Under Mr Morrison's plan, funding would be more closely linked to skill gaps based on what businesses need. Industry will be given greater power to shape training, with pilot schemes across human services, digital technologies and mining used as examples for other sectors. Mr Morrison made the case to ditch a \"clunky and unresponsive\" system in favour of more consistency across states and greater transparency around spending. Mr Morrison will flag changes to the funding model which sees $1.5 billion of federal cash flow to state governments annually for skills and training."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-26/coronavirus-vaccine-trial-begins-in-melbourne-brisbane/12286028",
+            "title": "Human trials of potential coronavirus vaccine begin in Melbourne",
+            "source": "ABCNews",
+            "date": "26 May 2020",
+            "time": "14:00",
+            "summary": "Australia's first human trials of a potential COVID-19 vaccine have begun in Melbourne, with about 130 people involved in the program. Clinical research organisation Nucleus Network will be in charge of the early stages of testing the vaccine NVX-CoV2373, before the trial expands to Brisbane within a week. If it is successful, researchers hope 100 million doses of the vaccine can be made by the end of the year and 1.5 billion next year. Preliminary results for phase one are expected in July, and phase two results by the end of the year. "
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-26/south-australia-records-new-coronavirus-case/12287142",
+            "title": "South Australia records first new coronavirus case in 19 days amid easing restrictions",
+            "source": "ABCNews",
+            "date": "26 May 2020",
+            "time": "18:48",
+            "summary": "South Australia has recorded its first COVID-19 case in 19 days — an overseas traveller who was given an exemption from quarantine. SA Health said the woman aged in her 50s had travelled from overseas to Victoria where she had been quarantined in a hotel for less than a week, before travelling to South Australia. She was given an exemption to fly to South Australia for \"compelling family reasons\" and was tested on arrival at Adelaide Airport. The new case comes amid an accelerated easing of coronavirus restrictions in South Australia. It is the first new case since that of a man in his 70s was declared on May 7, and follows a declaration of no remaining active cases which occurred just over a week later."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-25/sa-coronavirus-stage-two-restrictions-relaxation-starting-june-1/12282246",
+            "title": "Coronavirus restrictions to be relaxed in South Australia ahead of schedule",
+            "source": "ABCNews",
+            "date": "25 May 2020",
+            "time": "17:00",
+            "summary": "Stage two restrictions were originally due to ease on June 8, but that was previously brought forward to June 5 and now to Monday, June 1. Cinemas, theatres, galleries, museums, beauty salons, gyms and indoor fitness centres across South Australia will be able to open from next Monday, with the SA Government bringing forward the relaxation of coronavirus restrictions. Those venues, along with pubs, bars, restaurants and cafes, will be able to admit up to 80 patrons, provided they can contain them to groups of 20 in discrete rooms or areas within the business. Furthermore, up to 50 mourners will be allowed at funerals, non-contact outdoor sport will be able to resume on June 1 and competition for outdoor contact sports can resume from June 25. "
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-04/australian-schools-reopening-after-coronavirus-closures/12211526",
+            "title": "Schools are reopening, so here's a guide to the situation in each state and territory",
+            "source": "ABCNews",
+            "date": "25 May 2020",
+            "time": "00:00",
+            "summary": "Government advice on whether students should attend schools amid the ongoing coronavirus situation varies widely across Australia, and has sometimes led to confusion and controversy. Some states still have restrictions on school attendance while some states have never had restrictions on school attendance; however Prime Minister Scott Morrison wants all public schools to return to face-to-face learning by June. Here's the latest on when schools will reopen in your state or territory, if they haven't already."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-25/australia-500-active-coronavirus-cases-decline/12275030",
+            "title": "Australian active coronavirus cases dip below 500 for the first time since March as recoveries outpace new infections",
+            "source": "ABCNews",
+            "date": "25 May 2020",
+            "time": "19:10",
+            "summary": "The number of active cases of coronavirus in Australia has dipped below 500 as the number of Australians recovering from the disease continues to outstrip the number of new infections recorded each day. More than 6,500 people have recovered from the virus, while a further 102 people have died due to COVID-19 since the pandemic took hold. It leaves just 484 currently infected with COVID-19. While data on recovered cases was not consistently reported earlier than April 5, the total number of confirmed cases in Australia was last below 500 on March 17."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-what-you-can-do-in-victoria-from-june-explained/3f04ae9c-7deb-4bce-b20c-88673ca8bec6",
+            "title": "Victoria eases coronavirus restrictions; what you can do from June 1",
+            "source": "9News",
+            "date": "24 May 2020",
+            "time": "19:31",
+            "summary": "Victoria has announced it will further ease coronavirus restrictions from June 1, reopening parks and allowing up to 20 people to gather at once. Restaurants and cafes will be allowed to seat and serve more customers, but bars serving alcohol without food must remain closed and people are encouraged to continue working from home when possible. A breakdown of the new restrictions can be found in the article below."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-nsw-beauty-nail-tanning-eyebrow-salons-will-open-on-june-1/da5bbce8-1b72-4412-a25e-35cfd49713b1",
+            "title": "NSW beauty salons can reopen from June 1 as coronavirus restrictions ease",
+            "source": "9News",
+            "date": "24 May 2020",
+            "time": "19:05",
+            "summary": "Beauty salons will be allowed to reopen in New South Wales on June 1. This includes nail salons, tanning salons and waxing salons, as long as the business has a COVID-safe plan in place and there are no more than ten clients in a business at one time. Salons must still adhere to strict social distancing regulations including the four square metre rule, limiting the number of patrons they can treat at a time, and create a COVID-safe plan before their re-opening."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/may/24/labor-calls-on-josh-frydenberg-to-front-covid-19-inquiry-to-explain-jobkeeper-60bn-black-hole",
+            "title": "Scott Morrison dismisses calls for Josh Frydenberg to front Covid-19 inquiry over jobkeeper",
+            "source": "TheGuardian",
+            "date": "24 May 2020",
+            "time": "15:16",
+            "summary": "Labor will attempt to pressure the treasurer, Josh Frydenberg, to appear before the Senate’s Covid-19 inquiry to explain the “$60bn black hole” in the jobkeeper program – but the government has dismissed the call as a political stunt. However, Prime Minister Scott Morrison denied the revision (which means just 3.5 million workers are likely to be covered by the $1,500 fortnightly payment, not the 6.5 million estimated at one point) raised any issue with the government’s overall economic competence."
+        },
+        {
+            "link": "https://www.canberratimes.com.au/story/6767007/nsw-govt-eyes-opening-gyms-beauty-salons/?cs=14231",
+            "title": "NSW govt eyes opening gyms, beauty salons",
+            "source": "CanberraTimes",
+            "date": "23 May 2020",
+            "time": "16:21",
+            "summary": "The NSW government has flagged the \"imminent\" re-opening of gyms and beauty salons as the state over the next two weeks prepares for a landmark easing of COVID-19 restrictions. The government remains cautious yet bullish after three cases of coronavirus were recorded over the preceding 24 hours. All three were overseas acquired - two from Pakistan and one from the USA - and were already in hotel quarantine meaning they didn't represent a risk of onward infection. Premier Gladys Berejiklian has announced that from June 1, up to 50 people will be allowed in restaurants, pubs and cafes. Regional travel restrictions will also ease while museums, galleries and libraries will also be allowed to open."
+        },
+        {
+            "link": "https://www.9news.com.au/national/governments-60b-jobkeeper-bungle-ups-pressure-to-extend--scheme-as-economy-recovers-from-coronavirus-pandemic/17878c0a-6235-45a5-8082-dfca1d38fdb0",
+            "title": "Government's $60b accounting bungle ups pressure to extend JobKeeper scheme as economy recovers from COVID-19",
+            "source": "9News",
+            "date": "23 May 2020",
+            "time": "10:22",
+            "summary": "The Australian Government is facing tough questions about whether they plan to reallocate the $60 billion windfall following the ATO's JobKeeper bungle. The Government had budgeted for the JobKeeper scheme to cost $130 billion however the actual price tag has been reduced to $70 billion after major miscalculations by the Australian Taxation Office due to a confusing question on the application sheet. Australians were told six and a half million workers would receive these payments but that number has been revised down to three and a half million following the revision of figures. With $60 billion now on the table, various stakeholders are trying to get their hands on a portion of the money with calls to extend the JobKeeper scheme to those still in need. "
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-22/jobkeeper-numbers-cut-by-3-million-businesses-accounting-bungle/12277488",
             "title": "JobKeeper numbers cut by 3 million after Federal Government reveals accounting bungle in coronavirus stimulus program",
             "source": "ABCNews",
@@ -55,118 +159,6 @@
             "date": "20 May 2020",
             "time": "16:00",
             "summary": "Shoppers who spent March panic buying tinned food, toilet paper and pasta shut their wallets in April, sending retail sales plunging last month. Preliminary figures from the Australian Bureau of Statistics (ABS) show a 17.9 per cent drop in retail turnover — the steepest monthly fall on record. It is the realisation of the 'pay back' economists had warned about, with the April fall more than double the record 8.5 per cent climb in sales in March. Transaction data from the major banks show a pick up in spending in May and consumer confidence has recovered some ground, but economists do not see a fast recovery."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-19/chinese-embassy-australia-credit-coronavirus-inquiry-a-joke/12262968",
-            "title": "Chinese embassy ridicules Australia for claiming vindication for global coronavirus inquiry",
-            "source": "ABCNews",
-            "date": "19 May 2020",
-            "time": "18:00",
-            "summary": "China's embassy in Canberra says it is a joke for Australia to claim it has been vindicated by international support for a coronavirus inquiry. Australia was the second country, after the United States, to call for an independent inquiry into the global pandemic, a move which sparked a diplomatic row with China. But last night, at a meeting of the World Health Assembly (WHA) in Geneva, China indicated it would likely back a European Union motion that called for an \"impartial, independent and comprehensive\" evaluation of the response to the global outbreak. However, Beijing's embassy in Canberra issued a statement saying the inquiry being considered by the WHA was \"totally different\" to the one Australia proposed, saying that to claim vindication was \"nothing but a joke\"."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/australia-s-coronavirus-death-toll-hits-100-after-93-year-old-sydney-aged-care-resident-dies",
-            "title": "Australia's coronavirus death toll hits 100 after 93-year-old Sydney aged care resident dies",
-            "source": "SBSNews",
-            "date": "19 May 2020",
-            "time": "14:00",
-            "summary": "Another elderly resident of the Newmarch House nursing home in Sydney has died after becoming infected with COVID-19, taking the national death toll to 100. Operator Anglicare confirmed 93-year-old Alice Bacon died on Tuesday morning, raising the NSW tally to 49. Seventeen residents have now died from COVID-19 at the western Sydney nursing home where about 70 people have been infected with the virus."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/may/19/nsw-and-victoria-are-unable-to-use-covidsafe-apps-data-for-contact-tracing",
-            "title": "NSW is unable to use Covidsafe app’s data for contact tracing ",
-            "source": "TheGuardian",
-            "date": "19 May 2020",
-            "time": "16:31",
-            "summary": "Sydney has not yet been able to use the COVIDSafe app for contact tracing. In nearly a month since it launched, more than 5.87 million Australians have downloaded and registered to use the Covidsafe contact-tracing app, which is designed to make it easier for state health officials to find close contacts in the event a user tests positive for coronavirus. Last week, state health department contact tracers received training in how to access the data, but no states have yet reported using the data for contact. NSW Health has tested the data but has had issues integrating it into the existing contact-tracing methods."
-        },
-        {
-            "link": "https://www.theage.com.au/national/victoria/andrews-reveals-2-7b-for-building-blitz-including-1-1b-for-schools-20200518-p54tw4.html",
-            "title": "Andrews reveals $2.7b for building blitz, including $1.1b for schools",
-            "source": "TheAge",
-            "date": "18 May 2020",
-            "time": "11:09",
-            "summary": "The Victorian government has announced $2.7 billion in funding for building projects across the state, led by about $1.1 billion to build new schools and classrooms. Some of the $1.18 billion for schools and education will go towards fulfilling previously announced projects, such as the new 3000-student Greater Shepparton Secondary College – one of a total of 10 new schools in growth areas included in the funding – while $114 million will go towards 250 demountable classrooms. More widely there will be $382 million in upgrades for tourism destinations such as new mountain bike trails in the Ararat Hills, along with $328 million for resurfacing and patching roads, repairs at about 15 train stations and 300 kilometres of regional train track works. Premier Daniel Andrews said he expected the $2.7 billion package to create 3700 construction jobs, many for Victorians out of work due to the coronavirus pandemic."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/mcdonald-s-closes-12-restaurants-in-victoria-after-delivery-driver-tests-positive",
-            "title": "McDonald's closes 12 restaurants in Victoria after delivery driver tests positive",
-            "source": "SBSNews",
-            "date": "18 May 2020",
-            "time": "09:00",
-            "summary": "Twelve McDonald's outlets have been closed in Victoria due to a coronavirus-infected truck driver, while the state announces $2.7 billion to help revive the economy. The fast-food outlets will be shut and deep-cleaned after the driver made deliveries while he was asymptomatic and unaware he had COVID-19. The chain says no employee has tested positive in connection to the driver and customers are not at risk. \"Out of an abundance of caution, we have made the decision to close and conduct a deep clean of 12 restaurants in Victoria, following confirmation a truck driver for an external service provider has tested positive for COVID-19,\" McDonald's said in a statement."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-18/nsw-school-students-to-return-full-time-on-monday/12260252",
-            "title": "NSW public school students to return to classrooms full time after coronavirus shutdown",
-            "source": "ABCNews",
-            "date": "18 May 2020",
-            "time": "21:10",
-            "summary": "Students at NSW public schools will return to classrooms full time from next Monday after weeks of remote learning. NSW Premier Gladys Berejiklian will confirm the May 25 start date tomorrow. Most students have been attending school one day a week since last week. Last month the NSW Government announced students across the state would make a staggered return from May 11. At the time Ms Berejiklian said she hoped students would be back in classrooms full time by term three, which does not start until July 21."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-17/coronavirus-inquiry-world-health-assembly-china-covid-19/12256910",
-            "title": "Coalition of 62 countries backs joint Australian, EU push for independent inquiry into coronavirus outbreak",
-            "source": "ABCNews",
-            "date": "17 May 2020",
-            "time": "19:00",
-            "summary": "A coalition of 62 countries has backed a joint Australian and European Union push for an independent inquiry into the coronavirus outbreak ahead of a crucial World Health Assembly (WHA) meeting tomorrow in Geneva. Australia was the first nation to call for an independent inquiry into how the coronavirus started. That drew furious condemnation from Beijing, which accused Australia of launching a political attack on China. But international support for the idea has been steadily growing. The Morrison Government has now swung its diplomatic firepower behind the European Union, which has also been pressing for an investigation while taking a more conciliatory line with Beijing."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-17/victoria-coronavirus-cafes-restaurants-pub-dining-to-reopen/12256306",
-            "title": "Victorian cafes, restaurants and pubs to reopen for dining in June in easing of coronavirus restrictions",
-            "source": "ABCNews",
-            "date": "17 May 2020",
-            "time": "18:00",
-            "summary": "Victorians will be allowed to enjoy a meal inside cafes, restaurants and pubs from next month as part of a staged reopening of the hospitality industry, Premier Daniel Andrews has announced. Mr Andrews said the reopening would be subject to \"a long and extensive set of rules\" covering matters such as cleaning, temperature checks and screening of staff to ensure they were not unwell. Venues will be required to take the contact details of every customer to help with rapid contact tracing. Existing physical distancing requirements will continue to apply, meaning each person will need four square metres of space, and tables will need to be spaced at least 1.5 metres apart."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/more-than-one-million-australians-tested-for-coronavirus-but-authorities-warn-pandemic-isn-t-over",
-            "title": "More than one million Australians tested for coronavirus, but authorities warn pandemic isn't over",
-            "source": "SBSNews",
-            "date": "16 May 2020",
-            "time": "17:27",
-            "summary": "Australia has now surpassed more than one million COVID-19 tests since the start of the pandemic. While COVID-19 restrictions are being loosened around Australia, health authorities continue to warn against complacency. Deputy Chief Medical Officer Michael Kidd said Australians over 70 and those who are immunocompromised or have other health problems should still stay at home apart from essential outings. He also warned that it's important Australians are adhering to physical distancing measures so that there will not be a resurgence of COVID-19."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/sa-pledges-1-million-package-for-coronavirus-hit-musicians-and-venues",
-            "title": "SA pledges $1 million package for coronavirus-hit musicians and venues",
-            "source": "SBSNews",
-            "date": "16 May 2020",
-            "time": "17:26",
-            "summary": "South Australian artists, bands and live music venues hit hard by the COVID-19 pandemic will receive state government support with a $1 million package. The Music Development Office Project will help musicians who write and perform original music as well as local businesses who support those artists' development, delivery or production. Grants up to $5,000 are available to artists while music businesses can apply for up to $20,000."
-        },
-        {
-            "link": "https://www.watoday.com.au/national/victoria/melbourne-s-west-a-covid-19-hotspot-as-clusters-continue-to-grow-20200516-p54tlq.html?ref=rss&utm_medium=rss&utm_source=rss_national",
-            "title": "Melbourne's west a COVID-19 hotspot as clusters continue to grow",
-            "source": "WAToday",
-            "date": "16 May 2020",
-            "time": "14:37",
-            "summary": "Melbourne’s inner north-west is emerging as the state’s new coronavirus red zone, government data shows. After outbreaks in McDonald’s restaurants in Craigieburn and Fawkner, as well as the huge and still-growing cluster at Cedar Meats, health department data shows the council areas of Hume and Brimbank now make up a quarter of Melbourne’s active cases. Brimbank takes in parts of Brooklyn, the suburb where the Cedar Meats meat-processing plant linked to 98 cases of COVID-19 so far is located. The council area has 14 active cases of COVID-19 as of Saturday afternoon, the most in the state."
-        },
-        {
-            "link": "https://7news.com.au/travel/international-travel-wont-return-to-normal-until-2023-despite-coronavirus-restrictions-lifted-in-australia-c-1037270",
-            "title": "International travel won’t return to normal until 2023 despite coronavirus restrictions lifted in Australia",
-            "source": "7News",
-            "date": "15 May 2020",
-            "time": "17:03",
-            "summary": "International travel has been severely impacted by the coronavirus pandemic and won’t return to normal until 2023. The International Air Transport Association (IATA), based in Geneva, has released new data showing how the pandemic has affected air travel and when it’s expected to recover. The new data revealed long-haul, international travel was the most severely impacted area of air travel and will take years to recover. They suggested that if international markets open, levels of global passenger demand next year are expected to be 24 per cent lower than 2019 levels. Furthermore, an IATA survey conducted in April revealed that 58 percent of recent travellers are likely to initially travel domestically."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-15/national-cabinet-prime-minister-scott-morrison-coronavirus/12252754 ",
-            "title": "Coronavirus restrictions successfully being eased, domestic holidays may be back on cards by July, Scott Morrison says",
-            "source": "ABCNews",
-            "date": "15 May 2020",
-            "time": "17:33",
-            "summary": "Prime Minister Scott Morrison says domestic holidays are on the horizon - hopefully by July - as Australia continues along the road back from coronavirus restrictions. He said all states and territories were moving through stage one of eased restrictions successfully, one week after National Cabinet agreed on a three-stage approach to lift restrictions. Mr Morrison said as restrictions ease, \"borders will fall\" across Australia, opening the domestic tourism market to potentially billions of dollars in business."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-15/victoria-coronavirus-cases-rise-by-20-mcdonalds-cedar-meats/12251762",
-            "title": "Victoria records another 21 coronavirus cases as McDonald's and Cedar Meats outbreaks grow",
-            "source": "ABCNews",
-            "date": "15 May 2020",
-            "time": "18:32",
-            "summary": "A second McDonald's outlet has closed for cleaning in Melbourne after a worker was diagnosed with COVID-19, as Victoria recorded 21 new coronavirus cases. In a statement, the fast food giant said its Craigieburn store had been closed for cleaning and staff were advised to self-quarantine for 14 days and get tested after the worker tested positive. It came as the state's total number of coronavirus cases rose by 21, including two new cases which were linked to the Fawkner McDonald's franchise. The outbreak at the Fawkner outlet is now linked to 10 of the state's COVID-19 cases, while the cluster at the Cedar Meats Australia abattoir in Brooklyn is linked to 91 infections."
         }
     ]
 }

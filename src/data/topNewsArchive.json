@@ -1,6 +1,118 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-19/chinese-embassy-australia-credit-coronavirus-inquiry-a-joke/12262968",
+            "title": "Chinese embassy ridicules Australia for claiming vindication for global coronavirus inquiry",
+            "source": "ABCNews",
+            "date": "19 May 2020",
+            "time": "18:00",
+            "summary": "China's embassy in Canberra says it is a joke for Australia to claim it has been vindicated by international support for a coronavirus inquiry. Australia was the second country, after the United States, to call for an independent inquiry into the global pandemic, a move which sparked a diplomatic row with China. But last night, at a meeting of the World Health Assembly (WHA) in Geneva, China indicated it would likely back a European Union motion that called for an \"impartial, independent and comprehensive\" evaluation of the response to the global outbreak. However, Beijing's embassy in Canberra issued a statement saying the inquiry being considered by the WHA was \"totally different\" to the one Australia proposed, saying that to claim vindication was \"nothing but a joke\"."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/australia-s-coronavirus-death-toll-hits-100-after-93-year-old-sydney-aged-care-resident-dies",
+            "title": "Australia's coronavirus death toll hits 100 after 93-year-old Sydney aged care resident dies",
+            "source": "SBSNews",
+            "date": "19 May 2020",
+            "time": "14:00",
+            "summary": "Another elderly resident of the Newmarch House nursing home in Sydney has died after becoming infected with COVID-19, taking the national death toll to 100. Operator Anglicare confirmed 93-year-old Alice Bacon died on Tuesday morning, raising the NSW tally to 49. Seventeen residents have now died from COVID-19 at the western Sydney nursing home where about 70 people have been infected with the virus."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/may/19/nsw-and-victoria-are-unable-to-use-covidsafe-apps-data-for-contact-tracing",
+            "title": "NSW is unable to use Covidsafe app’s data for contact tracing ",
+            "source": "TheGuardian",
+            "date": "19 May 2020",
+            "time": "16:31",
+            "summary": "Sydney has not yet been able to use the COVIDSafe app for contact tracing. In nearly a month since it launched, more than 5.87 million Australians have downloaded and registered to use the Covidsafe contact-tracing app, which is designed to make it easier for state health officials to find close contacts in the event a user tests positive for coronavirus. Last week, state health department contact tracers received training in how to access the data, but no states have yet reported using the data for contact. NSW Health has tested the data but has had issues integrating it into the existing contact-tracing methods."
+        },
+        {
+            "link": "https://www.theage.com.au/national/victoria/andrews-reveals-2-7b-for-building-blitz-including-1-1b-for-schools-20200518-p54tw4.html",
+            "title": "Andrews reveals $2.7b for building blitz, including $1.1b for schools",
+            "source": "TheAge",
+            "date": "18 May 2020",
+            "time": "11:09",
+            "summary": "The Victorian government has announced $2.7 billion in funding for building projects across the state, led by about $1.1 billion to build new schools and classrooms. Some of the $1.18 billion for schools and education will go towards fulfilling previously announced projects, such as the new 3000-student Greater Shepparton Secondary College – one of a total of 10 new schools in growth areas included in the funding – while $114 million will go towards 250 demountable classrooms. More widely there will be $382 million in upgrades for tourism destinations such as new mountain bike trails in the Ararat Hills, along with $328 million for resurfacing and patching roads, repairs at about 15 train stations and 300 kilometres of regional train track works. Premier Daniel Andrews said he expected the $2.7 billion package to create 3700 construction jobs, many for Victorians out of work due to the coronavirus pandemic."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/mcdonald-s-closes-12-restaurants-in-victoria-after-delivery-driver-tests-positive",
+            "title": "McDonald's closes 12 restaurants in Victoria after delivery driver tests positive",
+            "source": "SBSNews",
+            "date": "18 May 2020",
+            "time": "09:00",
+            "summary": "Twelve McDonald's outlets have been closed in Victoria due to a coronavirus-infected truck driver, while the state announces $2.7 billion to help revive the economy. The fast-food outlets will be shut and deep-cleaned after the driver made deliveries while he was asymptomatic and unaware he had COVID-19. The chain says no employee has tested positive in connection to the driver and customers are not at risk. \"Out of an abundance of caution, we have made the decision to close and conduct a deep clean of 12 restaurants in Victoria, following confirmation a truck driver for an external service provider has tested positive for COVID-19,\" McDonald's said in a statement."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-18/nsw-school-students-to-return-full-time-on-monday/12260252",
+            "title": "NSW public school students to return to classrooms full time after coronavirus shutdown",
+            "source": "ABCNews",
+            "date": "18 May 2020",
+            "time": "21:10",
+            "summary": "Students at NSW public schools will return to classrooms full time from next Monday after weeks of remote learning. NSW Premier Gladys Berejiklian will confirm the May 25 start date tomorrow. Most students have been attending school one day a week since last week. Last month the NSW Government announced students across the state would make a staggered return from May 11. At the time Ms Berejiklian said she hoped students would be back in classrooms full time by term three, which does not start until July 21."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-17/coronavirus-inquiry-world-health-assembly-china-covid-19/12256910",
+            "title": "Coalition of 62 countries backs joint Australian, EU push for independent inquiry into coronavirus outbreak",
+            "source": "ABCNews",
+            "date": "17 May 2020",
+            "time": "19:00",
+            "summary": "A coalition of 62 countries has backed a joint Australian and European Union push for an independent inquiry into the coronavirus outbreak ahead of a crucial World Health Assembly (WHA) meeting tomorrow in Geneva. Australia was the first nation to call for an independent inquiry into how the coronavirus started. That drew furious condemnation from Beijing, which accused Australia of launching a political attack on China. But international support for the idea has been steadily growing. The Morrison Government has now swung its diplomatic firepower behind the European Union, which has also been pressing for an investigation while taking a more conciliatory line with Beijing."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-17/victoria-coronavirus-cafes-restaurants-pub-dining-to-reopen/12256306",
+            "title": "Victorian cafes, restaurants and pubs to reopen for dining in June in easing of coronavirus restrictions",
+            "source": "ABCNews",
+            "date": "17 May 2020",
+            "time": "18:00",
+            "summary": "Victorians will be allowed to enjoy a meal inside cafes, restaurants and pubs from next month as part of a staged reopening of the hospitality industry, Premier Daniel Andrews has announced. Mr Andrews said the reopening would be subject to \"a long and extensive set of rules\" covering matters such as cleaning, temperature checks and screening of staff to ensure they were not unwell. Venues will be required to take the contact details of every customer to help with rapid contact tracing. Existing physical distancing requirements will continue to apply, meaning each person will need four square metres of space, and tables will need to be spaced at least 1.5 metres apart."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/more-than-one-million-australians-tested-for-coronavirus-but-authorities-warn-pandemic-isn-t-over",
+            "title": "More than one million Australians tested for coronavirus, but authorities warn pandemic isn't over",
+            "source": "SBSNews",
+            "date": "16 May 2020",
+            "time": "17:27",
+            "summary": "Australia has now surpassed more than one million COVID-19 tests since the start of the pandemic. While COVID-19 restrictions are being loosened around Australia, health authorities continue to warn against complacency. Deputy Chief Medical Officer Michael Kidd said Australians over 70 and those who are immunocompromised or have other health problems should still stay at home apart from essential outings. He also warned that it's important Australians are adhering to physical distancing measures so that there will not be a resurgence of COVID-19."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/sa-pledges-1-million-package-for-coronavirus-hit-musicians-and-venues",
+            "title": "SA pledges $1 million package for coronavirus-hit musicians and venues",
+            "source": "SBSNews",
+            "date": "16 May 2020",
+            "time": "17:26",
+            "summary": "South Australian artists, bands and live music venues hit hard by the COVID-19 pandemic will receive state government support with a $1 million package. The Music Development Office Project will help musicians who write and perform original music as well as local businesses who support those artists' development, delivery or production. Grants up to $5,000 are available to artists while music businesses can apply for up to $20,000."
+        },
+        {
+            "link": "https://www.watoday.com.au/national/victoria/melbourne-s-west-a-covid-19-hotspot-as-clusters-continue-to-grow-20200516-p54tlq.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Melbourne's west a COVID-19 hotspot as clusters continue to grow",
+            "source": "WAToday",
+            "date": "16 May 2020",
+            "time": "14:37",
+            "summary": "Melbourne’s inner north-west is emerging as the state’s new coronavirus red zone, government data shows. After outbreaks in McDonald’s restaurants in Craigieburn and Fawkner, as well as the huge and still-growing cluster at Cedar Meats, health department data shows the council areas of Hume and Brimbank now make up a quarter of Melbourne’s active cases. Brimbank takes in parts of Brooklyn, the suburb where the Cedar Meats meat-processing plant linked to 98 cases of COVID-19 so far is located. The council area has 14 active cases of COVID-19 as of Saturday afternoon, the most in the state."
+        },
+        {
+            "link": "https://7news.com.au/travel/international-travel-wont-return-to-normal-until-2023-despite-coronavirus-restrictions-lifted-in-australia-c-1037270",
+            "title": "International travel won’t return to normal until 2023 despite coronavirus restrictions lifted in Australia",
+            "source": "7News",
+            "date": "15 May 2020",
+            "time": "17:03",
+            "summary": "International travel has been severely impacted by the coronavirus pandemic and won’t return to normal until 2023. The International Air Transport Association (IATA), based in Geneva, has released new data showing how the pandemic has affected air travel and when it’s expected to recover. The new data revealed long-haul, international travel was the most severely impacted area of air travel and will take years to recover. They suggested that if international markets open, levels of global passenger demand next year are expected to be 24 per cent lower than 2019 levels. Furthermore, an IATA survey conducted in April revealed that 58 percent of recent travellers are likely to initially travel domestically."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-15/national-cabinet-prime-minister-scott-morrison-coronavirus/12252754 ",
+            "title": "Coronavirus restrictions successfully being eased, domestic holidays may be back on cards by July, Scott Morrison says",
+            "source": "ABCNews",
+            "date": "15 May 2020",
+            "time": "17:33",
+            "summary": "Prime Minister Scott Morrison says domestic holidays are on the horizon - hopefully by July - as Australia continues along the road back from coronavirus restrictions. He said all states and territories were moving through stage one of eased restrictions successfully, one week after National Cabinet agreed on a three-stage approach to lift restrictions. Mr Morrison said as restrictions ease, \"borders will fall\" across Australia, opening the domestic tourism market to potentially billions of dollars in business."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-15/victoria-coronavirus-cases-rise-by-20-mcdonalds-cedar-meats/12251762",
+            "title": "Victoria records another 21 coronavirus cases as McDonald's and Cedar Meats outbreaks grow",
+            "source": "ABCNews",
+            "date": "15 May 2020",
+            "time": "18:32",
+            "summary": "A second McDonald's outlet has closed for cleaning in Melbourne after a worker was diagnosed with COVID-19, as Victoria recorded 21 new coronavirus cases. In a statement, the fast food giant said its Craigieburn store had been closed for cleaning and staff were advised to self-quarantine for 14 days and get tested after the worker tested positive. It came as the state's total number of coronavirus cases rose by 21, including two new cases which were linked to the Fawkner McDonald's franchise. The outbreak at the Fawkner outlet is now linked to 10 of the state's COVID-19 cases, while the cluster at the Cedar Meats Australia abattoir in Brooklyn is linked to 91 infections."
+        },
+        {
             "link": "https://www.theguardian.com/business/2020/may/14/unemployment-rate-in-australia-jumps-to-62-due-to-covid-19-as-600000-jobs-lost",
             "title": "Unemployment rate in Australia jumps to 6.2% due to Covid-19 as 600,000 jobs lost ",
             "source": "TheGuardian",

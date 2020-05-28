@@ -4,6 +4,85 @@
             "image": [],
             "video": [
                 {
+                    "link": "https://www.youtube.com/watch?v=kYuFgg2_SGM",
+                    "description": "Goalie Cat!"
+                }
+            ],
+            "type": "distraction",
+            "date": "27/5/2020"
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://images.squarespace-cdn.com/content/v1/5b48ae2d96e76ffeb9871ba6/1589403284440-QWQJQC85ASO6XFKQOM0R/ke17ZwdGBToddI8pDm48kEXmIAFfm-jEVAMn4PATRvQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJ0ML4pw1z1eBGIdjEc5vkUeANcTMJ2ztEcjDWCkbcibujMCoaEo2hhEIDboHxA99w/bd828afc-1309-4f2f-bb1b-26e538191eb6.jpg?format=300w",
+                    "source": "https://wck.org/restaurantsforthepeople"
+                }
+            ],
+            "video": [],
+            "title": "Restaurants for the People is injecting $50 million into restaurants to feed the hungry!",
+            "content": "<p>The initiative was launched by the World Central Kitchen (WCK): a Washington DC-based charity whose \"Food First Responders\" program has already served millions of meals to people in dire circumstances around the world.</p><p>The money is being given to restaurants to pay for meals for those who need it most!</p>",
+            "type": "motivation",
+            "date": "26/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.goodnewsnetwork.org/chef-andres-charity-paying-restaurants-to-feed-hungry-during-covid/",
+                    "name": "Chef Andrés’ Charity is Injecting $50 Million into Restaurants By Paying Them to Feed the Hungry - Good News Network"
+                }
+            ]
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://static.wixstatic.com/media/9aa79b_943d429087ac428d8b4083e51f5e9ab3~mv2.jpeg/v1/fill/w_1600,h_986,al_c,q_85,usm_0.66_1.00_0.01/9aa79b_943d429087ac428d8b4083e51f5e9ab3~mv2.jpeg",
+                    "source": "https://www.chelseascharity.com/"
+                }
+            ],
+            "video": [],
+            "title": "10-year-old runs charity for at-risk children",
+            "content": "<p>10-year old Chelsea Phaire started her own charity in 2019 (with help from her parents) to provide art supplies to more than 1500 kids in foster care and homeless shelters.</p><p>Read more about her amazing contributions below!</p>",
+            "type": "motivation",
+            "date": "25/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.goodnewsnetwork.org/10-year-old-gives-art-kits-to-1500-kids-in-quarantine/",
+                    "name": "10-Year-old Gives the Gift of Art to More Than 1,500 Kids in Shelters and Foster Care During Quarantine - Good News Network"
+                }
+            ]
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=rOWGe7uOuPU",
+                    "description": "Work-from-Home Fails"
+                }
+            ],
+            "type": "distraction",
+            "date": "24/5/2020"
+        },
+        {
+            "image": [
+                {
+                    "imgLink": "https://i.insider.com/5ebc052e204ad36b9c687253",
+                    "source": "https://www.businessinsider.com.au/bbc-sports-broadcaster-dogs-pets-performance-review-2020-5"
+                }
+            ],
+            "video": [],
+            "title": "BBC sports broadcaster reviews his dogs",
+            "content": "<p>Andrew Cotter has decided to give both his Labradors an annual review. Check out the video below!</p>",
+            "type": "motivation",
+            "date": "23/5/2020",
+            "citation": [
+                {
+                    "link": "https://www.businessinsider.com.au/bbc-sports-broadcaster-dogs-pets-performance-review-2020-5",
+                    "name": "A BBC sports broadcaster held a Zoom meeting with his 2 dogs to deliver their annual performance reviews - Business Insider Australia"
+                }
+            ]
+        },
+        {
+            "image": [],
+            "video": [
+                {
                     "link": "https://www.youtube.com/watch?v=a_TvKH-qEJk",
                     "description": "22 Musicals In 12 Minutes w/ Lin Manuel Miranda & Emily Blunt"
                 }

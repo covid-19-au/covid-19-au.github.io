@@ -32,12 +32,12 @@ class HeatMapLayer {
             ['get', 'cases'],
             -1, 'rgba(0,80,0,0.8)',
             0, 'rgba(0,0,80,0.0)',
-            1, 'rgba(178,70,43,0.95)',
-            5, 'rgba(178,60,43,0.95)',
-            10, 'rgba(178,50,43,0.95)',
-            50, 'rgba(178,40,43,0.95)',
-            100, 'rgba(178,30,43,0.95)',
-            300, 'rgba(178,24,43,0.95)'
+            1, '#ff9f85',
+            5, '#ff9f85',
+            10, '#fc653d',
+            50, '#ff5c30',
+            100, '#ff4817',
+            300, '#e73210'
         ];
 
         // Make it so that symbol/circle layers are given different priorities

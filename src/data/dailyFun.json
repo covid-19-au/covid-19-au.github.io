@@ -1,23 +1,15 @@
 {
     "dailyFunStuff": [
         {
-            "image": [
+            "image": [],
+            "video": [
                 {
-                    "imgLink": "https://i.insider.com/5ebc052e204ad36b9c687253",
-                    "source": "https://www.businessinsider.com.au/bbc-sports-broadcaster-dogs-pets-performance-review-2020-5"
+                    "link": "https://www.youtube.com/watch?v=hn8NF2yx7mU",
+                    "description": "Puppies' First Belly Rubs!"
                 }
             ],
-            "video": [],
-            "title": "BBC sports broadcaster reviews his dogs",
-            "content": "<p>Andrew Cotter has decided to give both his Labradors an annual review. Check out the video below!</p>",
-            "type": "motivation",
-            "date": "18/5/2020",
-            "citation": [
-                {
-                    "link": "https://www.businessinsider.com.au/bbc-sports-broadcaster-dogs-pets-performance-review-2020-5",
-                    "name": "A BBC sports broadcaster held a Zoom meeting with his 2 dogs to deliver their annual performance reviews - Business Insider Australia"
-                }
-            ]
+            "type": "distraction",
+            "date": "28/5/2020"
         }
     ]
 }
