@@ -23,7 +23,8 @@ import DaysSinceMap from "./DaysSinceMap"
 
 const absStats = absStatsData['data'];
 const regionsTimeSeries = regionsData['time_series_data'],
-      regionsDateIDs = regionsData['date_ids'];
+      regionsDateIDs = regionsData['date_ids'],
+      regionsUpdatedDates = regionsData['updated_dates'];
 
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
@@ -332,6 +333,7 @@ class MbMap extends React.Component {
                     subKey,
                     regionsTimeSeries[key],
                     regionsDateIDs,
+                    regionsUpdatedDates[key],
                     key.split(":")[1],
                     key.split(":")[0]
                 );
@@ -353,6 +355,7 @@ class MbMap extends React.Component {
                     subKey,
                     regionsTimeSeries[key],
                     regionsDateIDs,
+                    regionsUpdatedDates[key],
                     key.split(":")[1],
                     key.split(":")[0],
                     7
@@ -362,6 +365,7 @@ class MbMap extends React.Component {
                     subKey,
                     regionsTimeSeries[key],
                     regionsDateIDs,
+                    regionsUpdatedDates[key],
                     key.split(":")[1],
                     key.split(":")[0],
                     14
@@ -371,6 +375,7 @@ class MbMap extends React.Component {
                     subKey,
                     regionsTimeSeries[key],
                     regionsDateIDs,
+                    regionsUpdatedDates[key],
                     key.split(":")[1],
                     key.split(":")[0],
                     21

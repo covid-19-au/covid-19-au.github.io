@@ -9,7 +9,8 @@ import GeoBoundaries from "./ConfirmedMap/GeoBoundaries" // FIXME!
 
 
 const regionsTimeSeries = regionsData['time_series_data'],
-      regionsDateIDs = regionsData['date_ids'];
+      regionsDateIDs = regionsData['date_ids'],
+      regionsUpdatedDates = regionsData['updated_dates'];
 
 
 //Fetch Token from env
@@ -108,6 +109,7 @@ class DaysSinceMap extends React.Component {
                 key, 'total',
                 regionsTimeSeries[key],
                 regionsDateIDs,
+                regionsUpdatedDates[key],
                 key.split(":")[1],
                 key.split(":")[0]
             );

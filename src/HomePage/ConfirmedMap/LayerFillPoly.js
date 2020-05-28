@@ -276,7 +276,8 @@ class FillPolyLayer {
                 })
                     .setLngLat(e.lngLat)
                     .setHTML(
-                        `${cityLabel} (${this.caseDataSource.schema === 'statewide' ? 'statewide' : this.caseDataSource.schema.toUpperCase()}${cityName !== cityLabel ? ' '+cityName : ''})` +
+                        `${cityLabel} (${this.caseDataSource.schema in {'statewide':0, 'postcode':0} ? 
+                            this.caseDataSource.schema.toLowerCase() : this.caseDataSource.schema.toUpperCase()}${cityName !== cityLabel ? ' '+cityName : ''})` +
                         '<br/>Cases: ' + caseInfo['numCases'] +
                         '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo['updatedDate'] +
                         (absInfo ? ('<br>ABS Underlay: '+this._getABSValue(this.absDataSource, absInfo['numCases'], true)) : '') +

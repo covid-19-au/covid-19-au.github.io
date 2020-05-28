@@ -3,11 +3,11 @@ import TimeSeriesDataSource from "./DataCases"
 
 class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
     constructor(sourceName, subHeader, mapAreaData,
-                regionsDateIDs, schema, stateName,
+                regionsDateIDs, updatedDate, schema, stateName,
                 daysAgo) {
         super(
             sourceName, subHeader, mapAreaData,
-            regionsDateIDs, schema, stateName
+            regionsDateIDs, updatedDate, schema, stateName
         );
         this.daysAgo = daysAgo;
     }
