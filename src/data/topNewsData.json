@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.9news.com.au/national/coronavirus-australia-131-billion-dollars-to-be-injected-into-public-health-system/650e29c5-80c1-4a16-b635-dffa2801b95f",
+            "title": "PM pledges $131.4b towards Australia's public hospitals in wake of COVID-19",
+            "source": "9News",
+            "date": "29 May 2020",
+            "time": "14:38",
+            "summary": "The Federal Government will pour $131.4 billion into Australia's public hospitals to future-proof the health system against crises like COVID-19. Announcing the huge cash injection in a national address this afternoon, Prime Minister Scott Morrison said the money will be used to improve health outcomes for all Australians. The government will start proceedings with an additional $34.4 billion in funding to hospitals from July 1 this year."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-29/wa-coronavirus-restrictions-eased-further-with-phase-three/12299276",
+            "title": "Coronavirus restrictions eased in WA with almost all businesses set to reopen under new rules",
+            "source": "ABCNews",
+            "date": "29 May 2020",
+            "time": "18:00",
+            "summary": "West Australians can gather in groups of up to 100 people from June 6 as the state moves to phase three of relaxing coronavirus restrictions, with the "vast majority" of businesses affected by the lockdown permitted to reopen. Up to 300 people will be permitted in some settings, like for indoor and outdoor venues, with multiple divided spaces with up to 100 people in each space. The Premier said Western Australia would be the first state to move away from the one person per four square metres rule under phase three, replacing it with a one person per two square metres rule."
+        },
+        {
             "link": "https://www.theguardian.com/business/2020/may/28/scrapping-jobkeeper-too-early-risks-australian-economy-falling-off-a-cliff-covid-inquiry-told",
             "title": "Scrapping jobkeeper too early risks Australian economy falling off a cliff, Covid inquiry told ",
             "source": "TheGuardian",
@@ -135,22 +151,6 @@
             "date": "22 May 2020",
             "time": "19:00",
             "summary": "Premier Gladys Berejiklian says pubs, cafes and restaurants will be able to serve up to 50 people at a time from June 1, as NSW coronavirus cases continue to decline. The Premier described expanding the social-distancing limits as a \"big step\" in the state's economic recovery from COVID-19. Under the new measures, hospitality venues will be required to adhere to strict guidelines to operate: each patron must have at least four-square-metres of space; bookings can be no larger than 10 people; no patrons will be allowed to stand, mingle or dance; and shared cutlery and buffets are also banned."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-sa-to-move-to-stage-two-of-covid-19-restrictions-on-june-5-with-indoor-dining-allowed-from-friday-c-1048469",
-            "title": "SA to move to stage two of COVID-19 restrictions on June 5, with indoor dining allowed from Friday",
-            "source": "7News",
-            "date": "21 May 2020",
-            "time": "19:43",
-            "summary": "South Australia will lift coronavirus restrictions earlier than first hoped, following a clean sweep without COVID-19 cases. From this Friday, cafes and restaurants will be allowed indoor dining for groups of up to 10 in addition to existing outdoor dining limits. Alcohol service will be allowed for up to 10 people indoors and 10 people outdoors. Premier Steven Marshall has also announced the state will move to stage two of restrictions from Friday June 5, ahead of the long weekend."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/may/21/nsw-pressure-to-reopen-state-borders-triggers-accusations-of-bullying-from-wa-and-queensland-premiers",
-            "title": "NSW pressure to reopen state borders triggers accusations of bullying from WA and Queensland premiers ",
-            "source": "TheGuardian",
-            "date": "21 May 2020",
-            "time": "17:35",
-            "summary": "The New South Wales premier, Gladys Berejiklian, remains in a sparring contest with her Queensland and Western Australian counterparts, as pressure to reopen state borders triggers accusations of bullying between leaders and threats of travel restrictions until September. In a week without a national cabinet meeting, the WA premier, Mark McGowan, and Queensland premier, Annastacia Palaszczuk, have blasted Berejiklian for calling on them to lift bans on interstate travel, with the latter saying she would not be “lectured” by a state that has recorded more Covid-19 cases."
         }
     ]
 }
