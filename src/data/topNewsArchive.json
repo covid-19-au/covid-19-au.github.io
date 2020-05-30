@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-22/jobkeeper-numbers-cut-by-3-million-businesses-accounting-bungle/12277488",
+            "title": "JobKeeper numbers cut by 3 million after Federal Government reveals accounting bungle in coronavirus stimulus program",
+            "source": "ABCNews",
+            "date": "22 May 2020",
+            "time": "19:00",
+            "summary": "The number of people on JobKeeper has been revised down by 3 million, with Treasury and the Australian Tax Office (ATO) blaming businesses for making \"significant errors\" in their applications. The estimated cost of the program has been nearly halved from $130 billion to about $70 billion. In a statement, Treasury and the ATO said the mistake came from businesses reporting how much financial assistance they expected to receive, instead of how many employees they thought would be eligible."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-22/nsw-coronavirus-restrictions-in-restaurants-pubs-relaxed/12276034",
+            "title": "NSW coronavirus restrictions relaxed for restaurants, pubs and cafes, Premier Gladys Berejiklian reveals",
+            "source": "ABCNews",
+            "date": "22 May 2020",
+            "time": "19:00",
+            "summary": "Premier Gladys Berejiklian says pubs, cafes and restaurants will be able to serve up to 50 people at a time from June 1, as NSW coronavirus cases continue to decline. The Premier described expanding the social-distancing limits as a \"big step\" in the state's economic recovery from COVID-19. Under the new measures, hospitality venues will be required to adhere to strict guidelines to operate: each patron must have at least four-square-metres of space; bookings can be no larger than 10 people; no patrons will be allowed to stand, mingle or dance; and shared cutlery and buffets are also banned."
+        },
+        {
             "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-sa-to-move-to-stage-two-of-covid-19-restrictions-on-june-5-with-indoor-dining-allowed-from-friday-c-1048469",
             "title": "SA to move to stage two of COVID-19 restrictions on June 5, with indoor dining allowed from Friday",
             "source": "7News",
