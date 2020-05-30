@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-30/victoria-coronavirus-cases-rise-by-11-keilor-downs-outbreak-grow/12298344",
+            "title": "Melbourne primary school students in quarantine as Keilor Downs cluster grows",
+            "source": "ABCNews",
+            "date": "30 May 2020",
+            "time": "16:36",
+            "summary": "A class of year two children in Victoria has been placed into quarantine for a fortnight after a student tested positive to coronavirus. All classmates of the student at Holy Eucharist Primary School who tested positive will go into quarantine for two weeks. The student was in close contact with a person linked to a family cluster in Keilor Downs in Melbourne's west, including a student at Keilor Downs Secondary College. The cluster increased by three overnight to a total of 11."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-30/coronavirus-ruby-princess-passengers-warned-tuberculosis/12303858",
+            "title": "Coronavirus-hit Ruby Princess passengers contacted about crew member with tuberculosis",
+            "source": "ABCNews",
+            "date": "30 May 2020",
+            "time": "16:30",
+            "summary": "Passengers onboard the coronavirus-afflicted Ruby Princess have been issued another health warning after a crew member was diagnosed with tuberculosis this week. NSW Health said the male crew member was being treated in Sydney's Royal Prince Alfred Hospital. NSW Health said the risk of infection for passengers was low and requires \"close and prolonged contact.\""
+        },
+        {
+            "link": "https://7news.com.au/news/health/no-new-nsw-virus-cases-easing-imminent-c-1069345",
+            "title": "Coronavirus Australia: NSW records no new cases for the first time in almost three weeks",
+            "source": "7News",
+            "date": "30 May 2020",
+            "time": "11:48",
+            "summary": "NSW has recorded no new cases of COVID-19 for the first time in almost three weeks as the easing of restrictions around the state nears. Zero cases were recorded from 9500 tests in the 24 hours to 8pm on Friday, NSW Health said in a statement, with one person currently in intensive care. Just 11 cases of COVID-19 have been recorded in NSW in the past 11 days - seven from overseas travellers and four with an unknown local source."
+        },
+        {
             "link": "https://www.9news.com.au/national/coronavirus-australia-131-billion-dollars-to-be-injected-into-public-health-system/650e29c5-80c1-4a16-b635-dffa2801b95f",
             "title": "PM pledges $131.4b towards Australia's public hospitals in wake of COVID-19",
             "source": "9News",
@@ -135,22 +159,6 @@
             "date": "23 May 2020",
             "time": "10:22",
             "summary": "The Australian Government is facing tough questions about whether they plan to reallocate the $60 billion windfall following the ATO's JobKeeper bungle. The Government had budgeted for the JobKeeper scheme to cost $130 billion however the actual price tag has been reduced to $70 billion after major miscalculations by the Australian Taxation Office due to a confusing question on the application sheet. Australians were told six and a half million workers would receive these payments but that number has been revised down to three and a half million following the revision of figures. With $60 billion now on the table, various stakeholders are trying to get their hands on a portion of the money with calls to extend the JobKeeper scheme to those still in need. "
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-22/jobkeeper-numbers-cut-by-3-million-businesses-accounting-bungle/12277488",
-            "title": "JobKeeper numbers cut by 3 million after Federal Government reveals accounting bungle in coronavirus stimulus program",
-            "source": "ABCNews",
-            "date": "22 May 2020",
-            "time": "19:00",
-            "summary": "The number of people on JobKeeper has been revised down by 3 million, with Treasury and the Australian Tax Office (ATO) blaming businesses for making \"significant errors\" in their applications. The estimated cost of the program has been nearly halved from $130 billion to about $70 billion. In a statement, Treasury and the ATO said the mistake came from businesses reporting how much financial assistance they expected to receive, instead of how many employees they thought would be eligible."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-22/nsw-coronavirus-restrictions-in-restaurants-pubs-relaxed/12276034",
-            "title": "NSW coronavirus restrictions relaxed for restaurants, pubs and cafes, Premier Gladys Berejiklian reveals",
-            "source": "ABCNews",
-            "date": "22 May 2020",
-            "time": "19:00",
-            "summary": "Premier Gladys Berejiklian says pubs, cafes and restaurants will be able to serve up to 50 people at a time from June 1, as NSW coronavirus cases continue to decline. The Premier described expanding the social-distancing limits as a \"big step\" in the state's economic recovery from COVID-19. Under the new measures, hospitality venues will be required to adhere to strict guidelines to operate: each patron must have at least four-square-metres of space; bookings can be no larger than 10 people; no patrons will be allowed to stand, mingle or dance; and shared cutlery and buffets are also banned."
         }
     ]
 }
