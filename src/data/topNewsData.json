@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-31/what-does-coronavirus-queensland-restrictions-easing-mean-for-me/12303370",
+            "title": "Queensland eases coronavirus restrictions early: Here's what's changing",
+            "source": "ABCNews",
+            "date": "31 May 2020",
+            "time": "16:24",
+            "summary": "From midday tomorrow, Queenslanders will be able to enjoy unrestricted travel throughout the state. Premier Annastacia Palaszczuk said she had been able to bring forward intra-state travel because of so few coronavirus cases, but also because of the detailed plans submitted by the tourism industry. Furthermore, 20 people be allowed to dine-in at restaurants and cafes, to attend a gym, cinema, library, museum, art gallery, or place of worship.  The same rule will apply to bars, but patrons must be seated."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-31/victoria-coronavirus-cluster-keilor-downs/12304686",
+            "title": "Coronavirus state of emergency extended in Victoria as cases two clusters continue to rise",
+            "source": "ABCNews",
+            "date": "31 May 2020",
+            "time": "18:22",
+            "summary": "Victoria's state of emergency has been extended by three weeks to ensure the new restrictions that come into effect on Monday can be enforced. This comes as there was a net increase of four new cases of COVID-19, including new cases linked to outbreaks at the Rydges hotel and a family group at Keilor Downs and up to 100 students in Melbourne's west are in isolation following exposure to a positive case linked to the Keilor Downs cluster. Health Minister Jenny Mikakos said the state of emergency, which will now expire at 11:59pm on June 21, was extended to give the Chief Health Officer the powers needed to enforce new restrictions that come into effect on Monday."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-31/three-new-coronavirus-cases-in-wa-including-three-year-old-child/12305566",
+            "title": "WA records three new coronavirus cases, including a three-year-old child",
+            "source": "ABCNews",
+            "date": "31 May 2020",
+            "time": "18:00",
+            "summary": "Western Australia has recorded three new cases of COVID-19 overnight, including a three-year-old-child. The other two cases are a woman in her 60s and man in his 30s. All three cases returned from overseas and are currently in hotel quarantine. The three-year-old contracted the virus from a known contact. Western Australia's total number of cases is now 589, of which 28 are active."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-30/victoria-coronavirus-cases-rise-by-11-keilor-downs-outbreak-grow/12298344",
             "title": "Melbourne primary school students in quarantine as Keilor Downs cluster grows",
             "source": "ABCNews",
@@ -143,22 +167,6 @@
             "date": "24 May 2020",
             "time": "15:16",
             "summary": "Labor will attempt to pressure the treasurer, Josh Frydenberg, to appear before the Senate’s Covid-19 inquiry to explain the “$60bn black hole” in the jobkeeper program – but the government has dismissed the call as a political stunt. However, Prime Minister Scott Morrison denied the revision (which means just 3.5 million workers are likely to be covered by the $1,500 fortnightly payment, not the 6.5 million estimated at one point) raised any issue with the government’s overall economic competence."
-        },
-        {
-            "link": "https://www.canberratimes.com.au/story/6767007/nsw-govt-eyes-opening-gyms-beauty-salons/?cs=14231",
-            "title": "NSW govt eyes opening gyms, beauty salons",
-            "source": "CanberraTimes",
-            "date": "23 May 2020",
-            "time": "16:21",
-            "summary": "The NSW government has flagged the \"imminent\" re-opening of gyms and beauty salons as the state over the next two weeks prepares for a landmark easing of COVID-19 restrictions. The government remains cautious yet bullish after three cases of coronavirus were recorded over the preceding 24 hours. All three were overseas acquired - two from Pakistan and one from the USA - and were already in hotel quarantine meaning they didn't represent a risk of onward infection. Premier Gladys Berejiklian has announced that from June 1, up to 50 people will be allowed in restaurants, pubs and cafes. Regional travel restrictions will also ease while museums, galleries and libraries will also be allowed to open."
-        },
-        {
-            "link": "https://www.9news.com.au/national/governments-60b-jobkeeper-bungle-ups-pressure-to-extend--scheme-as-economy-recovers-from-coronavirus-pandemic/17878c0a-6235-45a5-8082-dfca1d38fdb0",
-            "title": "Government's $60b accounting bungle ups pressure to extend JobKeeper scheme as economy recovers from COVID-19",
-            "source": "9News",
-            "date": "23 May 2020",
-            "time": "10:22",
-            "summary": "The Australian Government is facing tough questions about whether they plan to reallocate the $60 billion windfall following the ATO's JobKeeper bungle. The Government had budgeted for the JobKeeper scheme to cost $130 billion however the actual price tag has been reduced to $70 billion after major miscalculations by the Australian Taxation Office due to a confusing question on the application sheet. Australians were told six and a half million workers would receive these payments but that number has been revised down to three and a half million following the revision of figures. With $60 billion now on the table, various stakeholders are trying to get their hands on a portion of the money with calls to extend the JobKeeper scheme to those still in need. "
         }
     ]
 }
