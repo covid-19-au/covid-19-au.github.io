@@ -1,15 +1,23 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=HVO7sLEqvBU",
-                    "description": "EP3: Cate Blanchett, Sarah Paulson and more join Taika Waititi to read James & Giant Peach | #WithMe"
+                    "imgLink": "https://pbs.twimg.com/media/EY-wMV1WkAY7Wsi?format=jpg&name=large",
+                    "source": "https://twitter.com/bhchapman/status/1265423756232732672/photo/1"
                 }
             ],
-            "type": "distraction",
-            "date": "1/6/2020"
+            "video": [],
+            "title": "7-year-old Throws Socially Distant Senior Prom for His Nanny",
+            "content": "<p>Upon finding out that his nanny was sad that her prom had been cancelled, Curtis Rogers stepped up to throw her a socially distant senior prom!</p><p>Check out the full story below!</p>",
+            "type": "motivation",
+            "date": "01/6/2020",
+            "citation": [
+                {
+                    "link": "https://time.com/5844613/prom-coronavirus-nanny/",
+                    "name": "The 7-Year Old Who Stepped Up to Throw a Socially Distant Senior Prom for His Nanny Was the Life of the Party - Time"
+                }
+            ]
         }
     ]
 }

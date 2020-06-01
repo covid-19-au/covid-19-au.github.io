@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.9news.com.au/world/coronavirus-restrictions-national-lockdown-continues-to-ease/fa8b6532-d74e-4e14-9f2c-a3a806274439",
+            "title": "Coronavirus restrictions continue to ease nationwide",
+            "source": "9News",
+            "date": "1 June 2020",
+            "time": "04:55",
+            "summary": "Australians will experience more freedom as much of the country enters a new phase of COVID-19 restrictions. Deputy Chief Medical Officer Nick Coatsworth says the lifting of restrictions is a balancing act between the socio-economic benefit from their removal and the public health risk. The more flexible restrictions – which differ across the states – will mean more movement in public places, including pubs, cafes, and restaurants. However authorities continue to urge the public to practise safe hygiene and social distancing measures."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/scott-morrison-says-households-may-get-cash-grants-for-home-renovations",
+            "title": "Scott Morrison says households may get cash grants for home renovations",
+            "source": "SBSNews",
+            "date": "1 June 2020",
+            "time": "15:05",
+            "summary": "New home construction and major renovation projects could be boosted through cash grants under a federal government coronavirus recovery plan. The ailing entertainment sector is also likely to receive stimulus, with the focus shifting from economy-wide packages to targeted assistance. Prime Minister Scott Morrison confirmed the government was considering giving householders cash grants for home renovations. He said it would be important any construction industry measures helped local tradies rather than major contractors."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-31/what-does-coronavirus-queensland-restrictions-easing-mean-for-me/12303370",
             "title": "Queensland eases coronavirus restrictions early: Here's what's changing",
             "source": "ABCNews",
@@ -143,30 +159,6 @@
             "date": "25 May 2020",
             "time": "19:10",
             "summary": "The number of active cases of coronavirus in Australia has dipped below 500 as the number of Australians recovering from the disease continues to outstrip the number of new infections recorded each day. More than 6,500 people have recovered from the virus, while a further 102 people have died due to COVID-19 since the pandemic took hold. It leaves just 484 currently infected with COVID-19. While data on recovered cases was not consistently reported earlier than April 5, the total number of confirmed cases in Australia was last below 500 on March 17."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-what-you-can-do-in-victoria-from-june-explained/3f04ae9c-7deb-4bce-b20c-88673ca8bec6",
-            "title": "Victoria eases coronavirus restrictions; what you can do from June 1",
-            "source": "9News",
-            "date": "24 May 2020",
-            "time": "19:31",
-            "summary": "Victoria has announced it will further ease coronavirus restrictions from June 1, reopening parks and allowing up to 20 people to gather at once. Restaurants and cafes will be allowed to seat and serve more customers, but bars serving alcohol without food must remain closed and people are encouraged to continue working from home when possible. A breakdown of the new restrictions can be found in the article below."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-nsw-beauty-nail-tanning-eyebrow-salons-will-open-on-june-1/da5bbce8-1b72-4412-a25e-35cfd49713b1",
-            "title": "NSW beauty salons can reopen from June 1 as coronavirus restrictions ease",
-            "source": "9News",
-            "date": "24 May 2020",
-            "time": "19:05",
-            "summary": "Beauty salons will be allowed to reopen in New South Wales on June 1. This includes nail salons, tanning salons and waxing salons, as long as the business has a COVID-safe plan in place and there are no more than ten clients in a business at one time. Salons must still adhere to strict social distancing regulations including the four square metre rule, limiting the number of patrons they can treat at a time, and create a COVID-safe plan before their re-opening."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/may/24/labor-calls-on-josh-frydenberg-to-front-covid-19-inquiry-to-explain-jobkeeper-60bn-black-hole",
-            "title": "Scott Morrison dismisses calls for Josh Frydenberg to front Covid-19 inquiry over jobkeeper",
-            "source": "TheGuardian",
-            "date": "24 May 2020",
-            "time": "15:16",
-            "summary": "Labor will attempt to pressure the treasurer, Josh Frydenberg, to appear before the Senate’s Covid-19 inquiry to explain the “$60bn black hole” in the jobkeeper program – but the government has dismissed the call as a political stunt. However, Prime Minister Scott Morrison denied the revision (which means just 3.5 million workers are likely to be covered by the $1,500 fortnightly payment, not the 6.5 million estimated at one point) raised any issue with the government’s overall economic competence."
         }
     ]
 }
