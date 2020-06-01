@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.9news.com.au/national/coronavirus-what-you-can-do-in-victoria-from-june-explained/3f04ae9c-7deb-4bce-b20c-88673ca8bec6",
+            "title": "Victoria eases coronavirus restrictions; what you can do from June 1",
+            "source": "9News",
+            "date": "24 May 2020",
+            "time": "19:31",
+            "summary": "Victoria has announced it will further ease coronavirus restrictions from June 1, reopening parks and allowing up to 20 people to gather at once. Restaurants and cafes will be allowed to seat and serve more customers, but bars serving alcohol without food must remain closed and people are encouraged to continue working from home when possible. A breakdown of the new restrictions can be found in the article below."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-nsw-beauty-nail-tanning-eyebrow-salons-will-open-on-june-1/da5bbce8-1b72-4412-a25e-35cfd49713b1",
+            "title": "NSW beauty salons can reopen from June 1 as coronavirus restrictions ease",
+            "source": "9News",
+            "date": "24 May 2020",
+            "time": "19:05",
+            "summary": "Beauty salons will be allowed to reopen in New South Wales on June 1. This includes nail salons, tanning salons and waxing salons, as long as the business has a COVID-safe plan in place and there are no more than ten clients in a business at one time. Salons must still adhere to strict social distancing regulations including the four square metre rule, limiting the number of patrons they can treat at a time, and create a COVID-safe plan before their re-opening."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/may/24/labor-calls-on-josh-frydenberg-to-front-covid-19-inquiry-to-explain-jobkeeper-60bn-black-hole",
+            "title": "Scott Morrison dismisses calls for Josh Frydenberg to front Covid-19 inquiry over jobkeeper",
+            "source": "TheGuardian",
+            "date": "24 May 2020",
+            "time": "15:16",
+            "summary": "Labor will attempt to pressure the treasurer, Josh Frydenberg, to appear before the Senate’s Covid-19 inquiry to explain the “$60bn black hole” in the jobkeeper program – but the government has dismissed the call as a political stunt. However, Prime Minister Scott Morrison denied the revision (which means just 3.5 million workers are likely to be covered by the $1,500 fortnightly payment, not the 6.5 million estimated at one point) raised any issue with the government’s overall economic competence."
+        },
+        {
             "link": "https://www.canberratimes.com.au/story/6767007/nsw-govt-eyes-opening-gyms-beauty-salons/?cs=14231",
             "title": "NSW govt eyes opening gyms, beauty salons",
             "source": "CanberraTimes",
