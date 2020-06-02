@@ -760,7 +760,7 @@
                     "Residents are now allowed to travel up to 150km from your home for recreational purposes, but cannot enter the “Outback” unless they live there",
                     "Those who live in Outback Queensland can travel up to 500km within the Outback for recreational reasons, and can stay for multiple nights away from their place of residence given how far they may be travelling. For definition of \"outback\" refer to the citations below.",
                     "Picnics and weekend drives are now allowed, and national parks will reopen.",
-                    "Up to 10 people can gather outside. This means that groups of 10 or less can engage in outdoor non-contact sport, group training and boot camps, and picnics. Queenslanders can also go to the park, playground, skatepark, or national park for recreational purposes",
+                    "Up to 10 people can gather outside. This means that groups of 10 or less can engage in outdoor non-contact ssport, group training and boot camps, and picnics. Queenslanders can also go to the park, playground, skatepark, or national park for recreational purposes",
                     "Weddings are allowed 10 guests, and funerals 20 guests indoors and 30 outdoors",
                     "Beauty salons can open back up, and pubs and cafes in regional or rural areas with no cases are able to seat up to 20 people. Open homes will also be allowed",
                     "Borders are closed to everyone except residents and essential workers, including freight carriers and emergency workers. There are some exemptions for those who regularly cross the Queensland-NSW border for work.",
@@ -965,7 +965,7 @@
                     },
                     {
                         "paraText": [
-                            "From June 15:"
+                            "From 3pm, June 5:"
                         ],
                         "pointText": [
                             "Gatherings increase to 20 people at a time for indoor and outdoor, including restaurants/cafes, cinemas, museums, galleries, historic sites, religious gatherings and weddings",
@@ -1016,6 +1016,10 @@
                 "ulist_2": [],
                 "text_2": [],
                 "citation": [
+                    {
+                        "link": "https://www.abc.net.au/news/2020-06-02/tasmania-to-lift-coronavirus-restrictions-ahead-of-schedule/12310236",
+                        "name": "Tasmania to lift coronavirus restrictions ahead of schedule - ABC News"
+                    },
                     {
                         "link": "https://www.abc.net.au/news/2020-05-08/what-can-you-do-in-tasmania-as-coronavirus-restrictions-ease/12229696",
                         "name": "Tasmania's cautious plan to reopen as the coronavirus crisis continues - ABC News"
