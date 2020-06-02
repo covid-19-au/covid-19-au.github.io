@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-02/tasmania-to-lift-coronavirus-restrictions-ahead-of-schedule/12310236",
+            "title": "Tasmania to lift coronavirus restrictions ahead of schedule",
+            "source": "ABCNews",
+            "date": "2 June 2020",
+            "time": "18:00",
+            "summary": "Tasmania is relaxing coronavirus restrictions early, allowing more movement around the state ahead of the coming long weekend. The state was due to move to \"stage two\" of its recovery \"roadmap\" on June 15, but many restrictions will now be lifted from 3:00pm this Friday. Speaking this morning, Premier Peter Gutwein said camping and overnight stays would be permitted, and pubs and clubs, excluding nightclubs, would be allowed up to 40 patrons."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-02/nsw-coronavirus-restrictions-on-gyms-to-be-lifted-from-june-13/12310984",
+            "title": "NSW coronavirus restrictions on gyms to be lifted from June 13",
+            "source": "ABCNews",
+            "date": "2 June 2020",
+            "time": "15:00",
+            "summary": "NSW coronavirus restrictions on a raft of fitness facilities including gyms, yoga studios and indoor pools will be lifted next week, as new infections in the state flatline. From Saturday, June 13, indoor fitness activities like yoga, pilates or group training sessions will be permitted, but class sizes will be capped at 10 people. Indoor pools and saunas, as well as tattoo and massage parlours will be allowed to reopen from the same date, with restricted numbers. Children's community sport competitions will be permitted to restart from July 1."
+        },
+        {
             "link": "https://www.9news.com.au/world/coronavirus-restrictions-national-lockdown-continues-to-ease/fa8b6532-d74e-4e14-9f2c-a3a806274439",
             "title": "Coronavirus restrictions continue to ease nationwide",
             "source": "9News",
@@ -135,30 +151,6 @@
             "date": "26 May 2020",
             "time": "18:48",
             "summary": "South Australia has recorded its first COVID-19 case in 19 days — an overseas traveller who was given an exemption from quarantine. SA Health said the woman aged in her 50s had travelled from overseas to Victoria where she had been quarantined in a hotel for less than a week, before travelling to South Australia. She was given an exemption to fly to South Australia for \"compelling family reasons\" and was tested on arrival at Adelaide Airport. The new case comes amid an accelerated easing of coronavirus restrictions in South Australia. It is the first new case since that of a man in his 70s was declared on May 7, and follows a declaration of no remaining active cases which occurred just over a week later."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-25/sa-coronavirus-stage-two-restrictions-relaxation-starting-june-1/12282246",
-            "title": "Coronavirus restrictions to be relaxed in South Australia ahead of schedule",
-            "source": "ABCNews",
-            "date": "25 May 2020",
-            "time": "17:00",
-            "summary": "Stage two restrictions were originally due to ease on June 8, but that was previously brought forward to June 5 and now to Monday, June 1. Cinemas, theatres, galleries, museums, beauty salons, gyms and indoor fitness centres across South Australia will be able to open from next Monday, with the SA Government bringing forward the relaxation of coronavirus restrictions. Those venues, along with pubs, bars, restaurants and cafes, will be able to admit up to 80 patrons, provided they can contain them to groups of 20 in discrete rooms or areas within the business. Furthermore, up to 50 mourners will be allowed at funerals, non-contact outdoor sport will be able to resume on June 1 and competition for outdoor contact sports can resume from June 25. "
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-04/australian-schools-reopening-after-coronavirus-closures/12211526",
-            "title": "Schools are reopening, so here's a guide to the situation in each state and territory",
-            "source": "ABCNews",
-            "date": "25 May 2020",
-            "time": "00:00",
-            "summary": "Government advice on whether students should attend schools amid the ongoing coronavirus situation varies widely across Australia, and has sometimes led to confusion and controversy. Some states still have restrictions on school attendance while some states have never had restrictions on school attendance; however Prime Minister Scott Morrison wants all public schools to return to face-to-face learning by June. Here's the latest on when schools will reopen in your state or territory, if they haven't already."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-25/australia-500-active-coronavirus-cases-decline/12275030",
-            "title": "Australian active coronavirus cases dip below 500 for the first time since March as recoveries outpace new infections",
-            "source": "ABCNews",
-            "date": "25 May 2020",
-            "time": "19:10",
-            "summary": "The number of active cases of coronavirus in Australia has dipped below 500 as the number of Australians recovering from the disease continues to outstrip the number of new infections recorded each day. More than 6,500 people have recovered from the virus, while a further 102 people have died due to COVID-19 since the pandemic took hold. It leaves just 484 currently infected with COVID-19. While data on recovered cases was not consistently reported earlier than April 5, the total number of confirmed cases in Australia was last below 500 on March 17."
         }
     ]
 }
