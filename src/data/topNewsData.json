@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.9news.com.au/national/coronavirus-travel-bubble-western-australia-south-australia-tasmania-act-could-open-for-school-holidays/6a15fc13-b166-403d-9cd9-57680282f3a2",
+            "title": "\"Travel bubble\" could open between select states in time for school holidays",
+            "source": "9News",
+            "date": "3 June 2020",
+            "time": ":",
+            "summary": "A travel bubble between select states could become a reality in just a month, which could herald good news for families wanting a domestic break during the school holidays. Authorities in South Australia, Canberra and Tasmania are reportedly considering the measures which would allow residents to move freely between the borders, given their relatively low number of coronavirus cases. South Australia's premier Steven Marshall has hinted he wants to see travel open up between Western Australia, the Northern Territory, Tasmania, the ACT and even potentially Queensland."
+        },
+        {
+            "link": "https://www.theguardian.com/business/2020/jun/03/australia-enters-first-recession-in-29-years-after-blow-from-bushfires-and-coronavirus",
+            "title": "Australia enters first recession in 29 years after blow from bushfires and coronavirus ",
+            "source": "TheGuardian",
+            "date": "3 June 2020",
+            "time": "15:36",
+            "summary": "Australia has entered its first recession for 29 years after the economy went backwards by 0.3% in the March quarter, with the impact of bushfires and the coronavirus ending the nation’s extraordinary, uninterrupted run of economic growth. The treasurer, Josh Frydenberg, told reporters a recession was inevitable after the Australian Bureau of Statistics released national accounts showing gross domestic product fell 0.3% in the quarter. The economy grew only 1.4% over the past 12 months, which is the weakest performance since the global financial crisis."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jun/03/australian-universities-facing-16bn-black-hole-as-covid-19-student-numbers-plummet  ",
+            "title": "Australian universities facing $16bn black hole as Covid-19 student numbers plummet ",
+            "source": "TheGuardian",
+            "date": "3 June 2020",
+            "time": "07:37",
+            "summary": "Universities claim they will lose up to $16bn by 2023 due to the impact of Covid-19, according to new modelling. Universities Australia has raised the stakes in lobbying for an industry assistance package or relaxed visa conditions to facilitate international students by revealing it now expects members to lose between $3.1bn and $4.8bn this year alone. The university sector is struggling after a series of changes that excluded all public universities from the jobkeeper wage subsidy and the collapse of a deal with the National Tertiary Education Union to accept pay cuts in return for saving up to 12,000 jobs."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-02/tasmania-to-lift-coronavirus-restrictions-ahead-of-schedule/12310236",
             "title": "Tasmania to lift coronavirus restrictions ahead of schedule",
             "source": "ABCNews",
@@ -127,30 +151,6 @@
             "date": "27 May 2020",
             "time": "16:00",
             "summary": "The NSW Government will freeze pay rises for public sector workers for 12 months, as it deals with rising unemployment across the state due to the coronavirus pandemic. Under the current wages policy, hundreds of thousands of public sector employees can pursue a 2.5 per cent pay rise each year. However, under the wage freeze policy, salaries will remain unchanged for 12 months. Premier Gladys Berejiklian said the measure will save about $3 billion and has assured government workers there will be no job losses. "
-        },
-        {
-            "link": "https://www.sbs.com.au/news/scott-morrison-outlines-jobmaker-plan-for-post-coronavirus-economic-recovery",
-            "title": "Scott Morrison outlines 'JobMaker' plan for post-coronavirus economic recovery",
-            "source": "SBSNews",
-            "date": "26 May 2020",
-            "time": "13:17",
-            "summary": "The prime minister on Tuesday unveiled part of the coalition's economic plan designed to claw the nation back from pandemic-induced pain.  Under Mr Morrison's plan, funding would be more closely linked to skill gaps based on what businesses need. Industry will be given greater power to shape training, with pilot schemes across human services, digital technologies and mining used as examples for other sectors. Mr Morrison made the case to ditch a \"clunky and unresponsive\" system in favour of more consistency across states and greater transparency around spending. Mr Morrison will flag changes to the funding model which sees $1.5 billion of federal cash flow to state governments annually for skills and training."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-26/coronavirus-vaccine-trial-begins-in-melbourne-brisbane/12286028",
-            "title": "Human trials of potential coronavirus vaccine begin in Melbourne",
-            "source": "ABCNews",
-            "date": "26 May 2020",
-            "time": "14:00",
-            "summary": "Australia's first human trials of a potential COVID-19 vaccine have begun in Melbourne, with about 130 people involved in the program. Clinical research organisation Nucleus Network will be in charge of the early stages of testing the vaccine NVX-CoV2373, before the trial expands to Brisbane within a week. If it is successful, researchers hope 100 million doses of the vaccine can be made by the end of the year and 1.5 billion next year. Preliminary results for phase one are expected in July, and phase two results by the end of the year. "
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-26/south-australia-records-new-coronavirus-case/12287142",
-            "title": "South Australia records first new coronavirus case in 19 days amid easing restrictions",
-            "source": "ABCNews",
-            "date": "26 May 2020",
-            "time": "18:48",
-            "summary": "South Australia has recorded its first COVID-19 case in 19 days — an overseas traveller who was given an exemption from quarantine. SA Health said the woman aged in her 50s had travelled from overseas to Victoria where she had been quarantined in a hotel for less than a week, before travelling to South Australia. She was given an exemption to fly to South Australia for \"compelling family reasons\" and was tested on arrival at Adelaide Airport. The new case comes amid an accelerated easing of coronavirus restrictions in South Australia. It is the first new case since that of a man in his 70s was declared on May 7, and follows a declaration of no remaining active cases which occurred just over a week later."
         }
     ]
 }
