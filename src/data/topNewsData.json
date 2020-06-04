@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.9news.com.au/national/australia-homebuilder-politics-plan-housing-renovations-construction-economy-coronavirus-recovery-covid-19/0dac152a-23d6-4d1a-b2f1-87b66f8e3ca1",
+            "title": "'Keep that dream alive': PM announces $688 million HomeBuilder scheme for Australians looking to build or renovate",
+            "source": "9News",
+            "date": "4 June 2020",
+            "time": "08:22",
+            "summary": "Australians looking to build or renovate in the second half of the year will be able to get $25,000 from the federal government as part of a scheme aiming to keep the construction industry moving. The $688 million HomeBuilder package is available to owner-occupiers who sign a contract to start building or substantially renovating their property after June 4."
+        },
+        {
+            "link": "https://www.smh.com.au/business/companies/qantas-prepares-to-restart-40pc-of-domestic-flying-by-end-of-july-20200604-p54ze1.html",
+            "title": "Qantas prepares to restart 40 per cent of domestic flying by end of July",
+            "source": "TheSydneyMorningHerald",
+            "date": "4 June 2020",
+            "time": "11:00",
+            "summary": "Qantas is preparing to scale up its domestic flying from its current 5 per cent of pre-pandemic levels to 40 per cent by the end of July, pending the reopening of state borders. The airline said on Thursday that travel demand was picking up sufficiently to start adding capacity to its Australian network, which would enable some of its 25,000 stood down employees to return to work. The airline said it would gradually start increasing capacity to reach 15 per cent by the end of June, or about 300 return flights per week. Qantas and Jetstar flights between Sydney and Melbourne would increase from 12 return flights a week to 67 by the end of June."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-04/victoria-coronavirus-cases-rise-as-premier-discourages-protest/12318372",
+            "title": "Coronavirus cluster revealed in Melbourne's west as Premier urges people to avoid Black Lives Matter protest",
+            "source": "ABCNews",
+            "date": "4 June 2020",
+            "time": "18:14",
+            "summary": "Victorian health authorities have revealed a waste management facility in Melbourne's west went into lockdown last week after staff tested positive to coronavirus. Meanwhile, Mr Andrews has urged people to stay away from a planned protest this week in support of the Black Lives Matter movement. Mr Andrews said he would prefer the protest did not go ahead, but understood Victoria Police shutting it down may do nothing but \"inflame a volatile situation\"."
+        },
+        {
             "link": "https://www.9news.com.au/national/coronavirus-travel-bubble-western-australia-south-australia-tasmania-act-could-open-for-school-holidays/6a15fc13-b166-403d-9cd9-57680282f3a2",
             "title": "\"Travel bubble\" could open between select states in time for school holidays",
             "source": "9News",
@@ -135,22 +159,6 @@
             "date": "28 May 2020",
             "time": "20:01",
             "summary": "Australians will be allowed to travel to NZ and the Pacific from July if an 'ambitious' timetable produced by the Tourism Restart Taskforce goes ahead. The taskforce meets once a week to discuss a plan to reopen the tourism industry, with government representatives often in attendance. The taskforce recently approved a timetable covering domestic travel and events, and possible international travel resumption dates. Travel between Australia and New Zealand and the Pacific would restart by July 1 , while September 10 was earmarked for potential travel to countries deemed \"safe\". All international travel could be resumed by 2021 if the plan is approved."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/queensland-man-30-becomes-youngest-person-to-die-from-coronavirus-in-australia",
-            "title": "Queensland man, 30, becomes youngest person to die from coronavirus in Australia",
-            "source": "SBSNews",
-            "date": "27 May 2020",
-            "time": "16:00",
-            "summary": "A 30-year-old Queensland man has died from coronavirus, making him Australia's youngest COVID-19 victim to date. The man's partner is currently being isolated at Rockhampton Hospital and is also showing COVID-19 symptoms. Premier Annastacia Palaszczuk said the man was from Blackwater in central Queensland and urged anyone in the area with flu-like symptoms to get tested urgently."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-27/coronavirus-nsw-government-freezes-public-sector-salaries/12291032",
-            "title": "NSW Government freezes staff salaries to save $3 billion amid coronavirus pandemic",
-            "source": "ABCNews",
-            "date": "27 May 2020",
-            "time": "16:00",
-            "summary": "The NSW Government will freeze pay rises for public sector workers for 12 months, as it deals with rising unemployment across the state due to the coronavirus pandemic. Under the current wages policy, hundreds of thousands of public sector employees can pursue a 2.5 per cent pay rise each year. However, under the wage freeze policy, salaries will remain unchanged for 12 months. Premier Gladys Berejiklian said the measure will save about $3 billion and has assured government workers there will be no job losses. "
         }
     ]
 }
