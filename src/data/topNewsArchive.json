@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/queensland-man-30-becomes-youngest-person-to-die-from-coronavirus-in-australia",
+            "title": "Queensland man, 30, becomes youngest person to die from coronavirus in Australia",
+            "source": "SBSNews",
+            "date": "27 May 2020",
+            "time": "16:00",
+            "summary": "A 30-year-old Queensland man has died from coronavirus, making him Australia's youngest COVID-19 victim to date. The man's partner is currently being isolated at Rockhampton Hospital and is also showing COVID-19 symptoms. Premier Annastacia Palaszczuk said the man was from Blackwater in central Queensland and urged anyone in the area with flu-like symptoms to get tested urgently."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-27/coronavirus-nsw-government-freezes-public-sector-salaries/12291032",
+            "title": "NSW Government freezes staff salaries to save $3 billion amid coronavirus pandemic",
+            "source": "ABCNews",
+            "date": "27 May 2020",
+            "time": "16:00",
+            "summary": "The NSW Government will freeze pay rises for public sector workers for 12 months, as it deals with rising unemployment across the state due to the coronavirus pandemic. Under the current wages policy, hundreds of thousands of public sector employees can pursue a 2.5 per cent pay rise each year. However, under the wage freeze policy, salaries will remain unchanged for 12 months. Premier Gladys Berejiklian said the measure will save about $3 billion and has assured government workers there will be no job losses. "
+        },
+        {
             "link": "https://www.sbs.com.au/news/scott-morrison-outlines-jobmaker-plan-for-post-coronavirus-economic-recovery",
             "title": "Scott Morrison outlines 'JobMaker' plan for post-coronavirus economic recovery",
             "source": "SBSNews",
