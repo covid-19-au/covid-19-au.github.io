@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=V6Q_nlSULio",
+                    "description": "The Cast of Community Reunites for Table Read"
+                }
+            ],
+            "type": "distraction",
+            "date": "04/6/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/t7dzvta5NUQvz8uk8bzMfu/93555026-267e-495f-a58e-e1c1ffa99a8c.jpg/r0_36_1000_598_w1200_h678_fmax.jpg",

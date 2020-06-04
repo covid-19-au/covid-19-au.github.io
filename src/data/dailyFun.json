@@ -1,15 +1,23 @@
 {
     "dailyFunStuff": [
         {
-            "image": [],
-            "video": [
+            "image": [
                 {
-                    "link": "https://www.youtube.com/watch?v=V6Q_nlSULio",
-                    "description": "The Cast of Community Reunites for Table Read"
+                    "imgLink": "https://www.goodnewsnetwork.org/wp-content/uploads/2020/05/Nutritious-Vegetables-and-Produce-CC-Marco-Verch-via-Flickr-w-URL-696x429.jpg",
+                    "source": "https://www.goodnewsnetwork.org/people-are-eating-healthier-during-covid-shutdowns/"
                 }
             ],
-            "type": "distraction",
-            "date": "04/6/2020"
+            "video": [],
+            "title": "People are eating healthier and wasting less food",
+            "content": "<p>Preliminary results from a worldwide corona cooking survey has found that people at home are eating healthier, cooking their own food, and consuming more fruit and vegetables. Read about some notable results in the article below.</p>",
+            "type": "motivation",
+            "date": "05/6/2020",
+            "citation": [
+                {
+                    "link": "https://www.goodnewsnetwork.org/people-are-eating-healthier-during-covid-shutdowns/",
+                    "name": "Coronavirus Cooking Survey’ Finds That People Are Eating Healthier and Wasting Less Food  - Good News Network"
+                }
+            ]
         }
     ]
 }
