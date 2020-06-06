@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=l2kXnoLepsY",
+                    "description": "Extreme Cup Challenge! Can My Cats Cross the Course?"
+                }
+            ],
+            "type": "distraction",
+            "date": "06/6/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://www.goodnewsnetwork.org/wp-content/uploads/2020/05/Nutritious-Vegetables-and-Produce-CC-Marco-Verch-via-Flickr-w-URL-696x429.jpg",
