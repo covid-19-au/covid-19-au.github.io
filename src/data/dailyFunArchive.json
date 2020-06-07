@@ -1,6 +1,25 @@
 {
     "dailyFunStuff": [
         {
+            "image": [
+                {
+                    "imgLink": "https://www.abc.net.au/cm/rimage/12320618-3x2-xlarge.jpg?v=2",
+                    "source": "https://www.abc.net.au/news/2020-06-04/broken-hill-woman-sews-hundreds-of-covid-scrub-caps-in-isolation/12320530"
+                }
+            ],
+            "video": [],
+            "title": "Scrub caps for COVID-19 health workers",
+            "content": "<p>Cheryl Kattou-Holmes decided to use her time in isolation to sew thousands of scrub caps for medical workers in western New South Wales. She initially planned to sew 1000, but her gesture grew into a national phenomenon and now volunteers have sewn over 13,000 caps!</p><p>Read more about Cheryl and her volunteers below!</p>",
+            "type": "motivation",
+            "date": "07/6/2020",
+            "citation": [
+                {
+                    "link": "https://www.abc.net.au/news/2020-06-04/broken-hill-woman-sews-hundreds-of-covid-scrub-caps-in-isolation/12320530",
+                    "name": "Broken Hill woman sews hundreds of scrub caps for COVID-19 health workers in isolation  - ABC News"
+                }
+            ]
+        },
+        {
             "image": [],
             "video": [
                 {
