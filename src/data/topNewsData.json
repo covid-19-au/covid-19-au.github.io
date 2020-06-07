@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/act-records-first-coronavirus-case-in-a-month-as-nsw-has-second-day-with-no-new-infections",
+            "title": "ACT records first coronavirus case in a month as NSW has second day with no new infections",
+            "source": "SBSNews",
+            "date": "7 June 2020",
+            "time": "15:11",
+            "summary": "The ACT has recorded its first case of COVID-19 in more than a month. A man aged in his 40s, who recently returned from overseas, was the ACT's first confirmed virus case since 4 May, ACT Health said in a statement on Sunday. This brings the ACT's confirmed cases to 108. The territory has suffered three deaths. Chief Health Officer Kerryn Coleman is confident there has been no risk to the broader ACT community."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-06/coronavirus-cases-queensland-fruit-picker-public-health-alert/12309468",
             "title": "Coronavirus case in fruit picker who flew from Melbourne to Brisbane and Bundaberg causes public health alert in Queensland",
             "source": "ABCNews",
@@ -151,30 +159,6 @@
             "date": "31 May 2020",
             "time": "18:00",
             "summary": "Western Australia has recorded three new cases of COVID-19 overnight, including a three-year-old-child. The other two cases are a woman in her 60s and man in his 30s. All three cases returned from overseas and are currently in hotel quarantine. The three-year-old contracted the virus from a known contact. Western Australia's total number of cases is now 589, of which 28 are active."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-30/victoria-coronavirus-cases-rise-by-11-keilor-downs-outbreak-grow/12298344",
-            "title": "Melbourne primary school students in quarantine as Keilor Downs cluster grows",
-            "source": "ABCNews",
-            "date": "30 May 2020",
-            "time": "16:36",
-            "summary": "A class of year two children in Victoria has been placed into quarantine for a fortnight after a student tested positive to coronavirus. All classmates of the student at Holy Eucharist Primary School who tested positive will go into quarantine for two weeks. The student was in close contact with a person linked to a family cluster in Keilor Downs in Melbourne's west, including a student at Keilor Downs Secondary College. The cluster increased by three overnight to a total of 11."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-30/coronavirus-ruby-princess-passengers-warned-tuberculosis/12303858",
-            "title": "Coronavirus-hit Ruby Princess passengers contacted about crew member with tuberculosis",
-            "source": "ABCNews",
-            "date": "30 May 2020",
-            "time": "16:30",
-            "summary": "Passengers onboard the coronavirus-afflicted Ruby Princess have been issued another health warning after a crew member was diagnosed with tuberculosis this week. NSW Health said the male crew member was being treated in Sydney's Royal Prince Alfred Hospital. NSW Health said the risk of infection for passengers was low and requires \"close and prolonged contact.\""
-        },
-        {
-            "link": "https://7news.com.au/news/health/no-new-nsw-virus-cases-easing-imminent-c-1069345",
-            "title": "Coronavirus Australia: NSW records no new cases for the first time in almost three weeks",
-            "source": "7News",
-            "date": "30 May 2020",
-            "time": "11:48",
-            "summary": "NSW has recorded no new cases of COVID-19 for the first time in almost three weeks as the easing of restrictions around the state nears. Zero cases were recorded from 9500 tests in the 24 hours to 8pm on Friday, NSW Health said in a statement, with one person currently in intensive care. Just 11 cases of COVID-19 have been recorded in NSW in the past 11 days - seven from overseas travellers and four with an unknown local source."
         }
     ]
 }
