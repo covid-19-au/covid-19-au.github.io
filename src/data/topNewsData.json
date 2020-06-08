@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-08/free-childcare-coronavirus-support-to-end-july/12332066",
+            "title": "Free child care to end in July after Minister says it did its job during coronavirus",
+            "source": "ABCNews",
+            "date": "8 June 2020",
+            "time": "00:00",
+            "summary": "The Federal Government will ditch its free childcare scheme next month, moving to reintroduce childcare subsidies for parents while ending the JobKeeper payment for workers in the sector. Changes announced by Federal Education Minister Dan Tehan today will see free child care come to an end on July 12, with a three-month, $708 million support package to be offered to the sector from the following day. Changes to government support for the sector will also see the JobKeeper payment ended for workers in the sector. Instead, the Government's $708 million support package will require employment levels be guaranteed to protect staff coming off of JobKeeper."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-australia-updates--new-cases-in-new-south-wales-victoria-warnings-over-protests/5754476a-0a65-4993-97f7-344b2bbbaf28",
+            "title": "Those who attended protests do not need to isolate for two weeks, health officials say",
+            "source": "9News",
+            "date": "8 June 2020",
+            "time": "12:15",
+            "summary": "Those who attended protests across the nation at the weekend must get tested for coronavirus if they develop any symptoms, health officials have warned. Marches were held in Sydney, Melbourne, Brisbane and Adelaide in support of the Black Lives Matter movement and to protest Aboriginal deaths in custody. This morning the Australian Medical Association advised anyone who had attended a rally to self-isolate for two weeks. However Deputy Chief Medical Officer Dr Coatsworth said that was not the case, and only those with symptoms need to take such precautions."
+        },
+        {
             "link": "https://www.sbs.com.au/news/act-records-first-coronavirus-case-in-a-month-as-nsw-has-second-day-with-no-new-infections",
             "title": "ACT records first coronavirus case in a month as NSW has second day with no new infections",
             "source": "SBSNews",
@@ -135,30 +151,6 @@
             "date": "1 June 2020",
             "time": "15:05",
             "summary": "New home construction and major renovation projects could be boosted through cash grants under a federal government coronavirus recovery plan. The ailing entertainment sector is also likely to receive stimulus, with the focus shifting from economy-wide packages to targeted assistance. Prime Minister Scott Morrison confirmed the government was considering giving householders cash grants for home renovations. He said it would be important any construction industry measures helped local tradies rather than major contractors."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-31/what-does-coronavirus-queensland-restrictions-easing-mean-for-me/12303370",
-            "title": "Queensland eases coronavirus restrictions early: Here's what's changing",
-            "source": "ABCNews",
-            "date": "31 May 2020",
-            "time": "16:24",
-            "summary": "From midday tomorrow, Queenslanders will be able to enjoy unrestricted travel throughout the state. Premier Annastacia Palaszczuk said she had been able to bring forward intra-state travel because of so few coronavirus cases, but also because of the detailed plans submitted by the tourism industry. Furthermore, 20 people be allowed to dine-in at restaurants and cafes, to attend a gym, cinema, library, museum, art gallery, or place of worship.  The same rule will apply to bars, but patrons must be seated."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-31/victoria-coronavirus-cluster-keilor-downs/12304686",
-            "title": "Coronavirus state of emergency extended in Victoria as cases two clusters continue to rise",
-            "source": "ABCNews",
-            "date": "31 May 2020",
-            "time": "18:22",
-            "summary": "Victoria's state of emergency has been extended by three weeks to ensure the new restrictions that come into effect on Monday can be enforced. This comes as there was a net increase of four new cases of COVID-19, including new cases linked to outbreaks at the Rydges hotel and a family group at Keilor Downs and up to 100 students in Melbourne's west are in isolation following exposure to a positive case linked to the Keilor Downs cluster. Health Minister Jenny Mikakos said the state of emergency, which will now expire at 11:59pm on June 21, was extended to give the Chief Health Officer the powers needed to enforce new restrictions that come into effect on Monday."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-05-31/three-new-coronavirus-cases-in-wa-including-three-year-old-child/12305566",
-            "title": "WA records three new coronavirus cases, including a three-year-old child",
-            "source": "ABCNews",
-            "date": "31 May 2020",
-            "time": "18:00",
-            "summary": "Western Australia has recorded three new cases of COVID-19 overnight, including a three-year-old-child. The other two cases are a woman in her 60s and man in his 30s. All three cases returned from overseas and are currently in hotel quarantine. The three-year-old contracted the virus from a known contact. Western Australia's total number of cases is now 589, of which 28 are active."
         }
     ]
 }
