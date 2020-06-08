@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-05-31/what-does-coronavirus-queensland-restrictions-easing-mean-for-me/12303370",
+            "title": "Queensland eases coronavirus restrictions early: Here's what's changing",
+            "source": "ABCNews",
+            "date": "31 May 2020",
+            "time": "16:24",
+            "summary": "From midday tomorrow, Queenslanders will be able to enjoy unrestricted travel throughout the state. Premier Annastacia Palaszczuk said she had been able to bring forward intra-state travel because of so few coronavirus cases, but also because of the detailed plans submitted by the tourism industry. Furthermore, 20 people be allowed to dine-in at restaurants and cafes, to attend a gym, cinema, library, museum, art gallery, or place of worship.  The same rule will apply to bars, but patrons must be seated."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-31/victoria-coronavirus-cluster-keilor-downs/12304686",
+            "title": "Coronavirus state of emergency extended in Victoria as cases two clusters continue to rise",
+            "source": "ABCNews",
+            "date": "31 May 2020",
+            "time": "18:22",
+            "summary": "Victoria's state of emergency has been extended by three weeks to ensure the new restrictions that come into effect on Monday can be enforced. This comes as there was a net increase of four new cases of COVID-19, including new cases linked to outbreaks at the Rydges hotel and a family group at Keilor Downs and up to 100 students in Melbourne's west are in isolation following exposure to a positive case linked to the Keilor Downs cluster. Health Minister Jenny Mikakos said the state of emergency, which will now expire at 11:59pm on June 21, was extended to give the Chief Health Officer the powers needed to enforce new restrictions that come into effect on Monday."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-05-31/three-new-coronavirus-cases-in-wa-including-three-year-old-child/12305566",
+            "title": "WA records three new coronavirus cases, including a three-year-old child",
+            "source": "ABCNews",
+            "date": "31 May 2020",
+            "time": "18:00",
+            "summary": "Western Australia has recorded three new cases of COVID-19 overnight, including a three-year-old-child. The other two cases are a woman in her 60s and man in his 30s. All three cases returned from overseas and are currently in hotel quarantine. The three-year-old contracted the virus from a known contact. Western Australia's total number of cases is now 589, of which 28 are active."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-05-30/victoria-coronavirus-cases-rise-by-11-keilor-downs-outbreak-grow/12298344",
             "title": "Melbourne primary school students in quarantine as Keilor Downs cluster grows",
             "source": "ABCNews",
