@@ -1,6 +1,17 @@
 {
     "dailyFunStuff": [
         {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=td-OFKT-GPk",
+                    "description": "Casually Explained: Working From Home"
+                }
+            ],
+            "type": "distraction",
+            "date": "08/6/2020"
+        },
+        {
             "image": [
                 {
                     "imgLink": "https://www.abc.net.au/cm/rimage/12320618-3x2-xlarge.jpg?v=2",
