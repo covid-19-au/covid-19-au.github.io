@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/jun/09/coalition-hints-at-further-adjustments-to-jobkeeper-as-labor-accuses-it-of-breaking-promise",
+            "title": "Coalition hints at 'further adjustments' to jobkeeper as Labor accuses it of breaking promise ",
+            "source": "TheGuardian",
+            "date": "9 June 2020",
+            "time": "18:39",
+            "summary": "Mathias Cormann has indicated the government may make \"further adjustments\" to the $70bn jobkeeper program as Labor continues to target the Coalition for breaking a promise by withdrawing the wage subsidy from 120,000 childcare sector workers. Furthermore, on Tuesday the finance minister fronted the Senate Covid-19 committee to explain the $60bn discrepancy in the projected cost of the program, which he described as an \"estimates variation\" and for which the Treasury secretary, Steven Kennedy, said he took \"full responsibility\"."
+        },
+        {
+            "link": "https://www.theage.com.au/politics/federal/australian-economy-appears-to-have-avoided-cycle-of-destruction-treasury-secretary-20200609-p550we.html",
+            "title": "Australian economy appears to have avoided 'cycle of destruction': Treasury secretary",
+            "source": "TheAge",
+            "date": "9 June 2020",
+            "time": "17:47",
+            "summary": "The Australian economy is coming out of the coronavirus pandemic better than expected with unemployment unlikely to hit double figures, the Treasury secretary has revealed while taking responsibility for the $60 billion overestimation of the JobKeeper wage subsidy program. Steven Kennedy, giving evidence to a Senate inquiry into the government's policies to deal with the virus outbreak, said Australia was outperforming much of the rest of the world and appeared to have avoided a \"cycle of destruction\" that would weigh on the nation for years."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-08/free-childcare-coronavirus-support-to-end-july/12332066",
             "title": "Free child care to end in July after Minister says it did its job during coronavirus",
             "source": "ABCNews",
@@ -135,22 +151,6 @@
             "date": "2 June 2020",
             "time": "15:00",
             "summary": "NSW coronavirus restrictions on a raft of fitness facilities including gyms, yoga studios and indoor pools will be lifted next week, as new infections in the state flatline. From Saturday, June 13, indoor fitness activities like yoga, pilates or group training sessions will be permitted, but class sizes will be capped at 10 people. Indoor pools and saunas, as well as tattoo and massage parlours will be allowed to reopen from the same date, with restricted numbers. Children's community sport competitions will be permitted to restart from July 1."
-        },
-        {
-            "link": "https://www.9news.com.au/world/coronavirus-restrictions-national-lockdown-continues-to-ease/fa8b6532-d74e-4e14-9f2c-a3a806274439",
-            "title": "Coronavirus restrictions continue to ease nationwide",
-            "source": "9News",
-            "date": "1 June 2020",
-            "time": "04:55",
-            "summary": "Australians will experience more freedom as much of the country enters a new phase of COVID-19 restrictions. Deputy Chief Medical Officer Nick Coatsworth says the lifting of restrictions is a balancing act between the socio-economic benefit from their removal and the public health risk. The more flexible restrictions – which differ across the states – will mean more movement in public places, including pubs, cafes, and restaurants. However authorities continue to urge the public to practise safe hygiene and social distancing measures."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/scott-morrison-says-households-may-get-cash-grants-for-home-renovations",
-            "title": "Scott Morrison says households may get cash grants for home renovations",
-            "source": "SBSNews",
-            "date": "1 June 2020",
-            "time": "15:05",
-            "summary": "New home construction and major renovation projects could be boosted through cash grants under a federal government coronavirus recovery plan. The ailing entertainment sector is also likely to receive stimulus, with the focus shifting from economy-wide packages to targeted assistance. Prime Minister Scott Morrison confirmed the government was considering giving householders cash grants for home renovations. He said it would be important any construction industry measures helped local tradies rather than major contractors."
         }
     ]
 }
