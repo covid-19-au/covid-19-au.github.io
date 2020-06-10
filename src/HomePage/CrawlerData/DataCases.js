@@ -1,4 +1,4 @@
-import ConfirmedMapFns from "./Fns";
+import ConfirmedMapFns from "../ConfirmedMap/Fns";
 import StateLatestNums from "../../data/stateCaseData.json"
 
 
@@ -64,12 +64,12 @@ class TimeSeriesDataSource extends DataSourceBase {
     This is way too resource-intensive to run otherwise!
     */
 
-    constructor(sourceName, subHeader, mapAreaData, regionsDateIDs, updatedDate, schema, stateName) {
+    constructor(sourceName, subHeader, casesData, regionsDateIDs, updatedDate, schema, stateName) {
         super(sourceName);
-        this.subHeaderIndex = mapAreaData['sub_headers'].indexOf(subHeader);
+        this.subHeaderIndex = casesData['sub_headers'].indexOf(subHeader);
 
         this.subHeader = subHeader;
-        this.data = mapAreaData['data'];
+        this.data = casesData['data'];
         // This is map from {id: date string in format DD/MM/YYYY, ...}
         // as otherwise the data will be a lot larger!
         this.regionsDateIDs = regionsDateIDs;
@@ -104,12 +104,7 @@ class TimeSeriesDataSource extends DataSourceBase {
         region = ConfirmedMapFns.prepareForComparison(region || '');
         ageRange = ageRange || '';
 
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iRegion = iData[0],
-                iAgeRange = iData[1],
-                iValues = iData[2];
-
+        for (var [iRegion, iAgeRange, iValues] of this.data) {
             if (
                 (this.schema === 'statewide' || iRegion === region) &&
                 iAgeRange === ageRange
@@ -140,12 +135,7 @@ class TimeSeriesDataSource extends DataSourceBase {
         ageRange = ageRange || '';
         var firstVal = null;
 
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iRegion = iData[0],
-                iAgeRange = iData[1],
-                iValues = iData[2];
-
+        for (var [iRegion, iAgeRange, iValues] of this.data) {
             if (
                 (this.schema === 'statewide' || iRegion === region) &&
                 iAgeRange === ageRange
@@ -185,12 +175,7 @@ class TimeSeriesDataSource extends DataSourceBase {
         region = ConfirmedMapFns.prepareForComparison(region || '');
         ageRange = ageRange || '';
 
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iRegion = iData[0],
-                iAgeRange = iData[1],
-                iValues = iData[2];
-
+        for (var [iRegion, iAgeRange, iValues] of this.data) {
             if (
                 (this.schema === 'statewide' || iRegion === region) &&
                 iAgeRange === ageRange
@@ -218,11 +203,7 @@ class TimeSeriesDataSource extends DataSourceBase {
             max = -99999999999,
             allVals = [];
 
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iRegion = iData[0],
-                iAgeRange = iData[1];
-
+        for (var [iRegion, iAgeRange, iValues] of this.data) {
             // PERFORMANCE WARNING!
             var value = this.getCaseNumber(iRegion, iAgeRange)['numCases'];
 

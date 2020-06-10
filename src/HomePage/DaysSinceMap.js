@@ -4,8 +4,8 @@ import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import Acknowledgement from "../Acknowledgment"
-import TimeSeriesDataSource from "./ConfirmedMap/DataCases"
-import GeoBoundaries from "./ConfirmedMap/GeoBoundaries" // FIXME!
+import TimeSeriesDataSource from "./CrawlerData/DataCases"
+import GeoBoundaries from "./ConfirmedMap/GeoBoundaries/GeoBoundaries" // FIXME!
 
 
 const regionsTimeSeries = regionsData['time_series_data'],

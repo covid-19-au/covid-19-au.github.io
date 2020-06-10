@@ -1,5 +1,5 @@
 import mapboxgl from "mapbox-gl";
-import CanvasJS from "../../assets/canvasjs.min";
+import CanvasJS from "../../../assets/canvasjs.min";
 
 
 class FillPolyLayer {

@@ -1,0 +1,7 @@
+class CovidUnderlayData {
+    constructor() {
+        // TODO!
+    }
+
+
+}

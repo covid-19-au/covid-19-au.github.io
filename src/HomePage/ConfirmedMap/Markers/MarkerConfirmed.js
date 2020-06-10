@@ -1,5 +1,5 @@
-import confirmedOldImg from "../../img/icon/confirmed-old.png";
-import confirmedImg from "../../img/icon/confirmed-recent.png";
+import confirmedOldImg from "../../../img/icon/confirmed-old.png";
+import confirmedImg from "../../../img/icon/confirmed-recent.png";
 import mapboxgl from "mapbox-gl";
 
 /*******************************************************************

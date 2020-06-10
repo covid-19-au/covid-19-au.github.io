@@ -1,14 +1,69 @@
-import polylabel from "polylabel";
-import Fns from "./Fns"
+import Fns from "../ConfirmedMap/Fns";
+import BigTableOValuesDataSource from "./DataABS";
 
+class CovidGeoData {
+    constructor(geoData, regionSchema, regionParent) {
+        this.regionSchema = regionSchema;
+        this.regionParent = regionParent;
+        this.geoData = geoData;
 
-class GeoBoundaryCentralPoints {
+        this.pointData = {};
+        this.polyData = {};
+
+         this._processData(geoData);
+    }
+
+    _processData(geoData) {
+        /*
+        this.geodata -> {
+            schemaType: {
+                regionParent: {
+                    regionChild: {
+                        geodata: [
+                            [area,
+                             x1,y1,x2,y2 bounding coords,
+                             center coords,
+                             points],
+                        ...],
+                        label: {
+                            'en': ...,
+                            ...
+                        }
+                    }
+                }
+            }
+        }
+
+        where:
+        * schemaType is e.g. 'admin0' for countries, 'admin1' for
+          states/territories/provinces, or a custom system like 'lga'
+        * regionParent is the ISO-3166-a2 code (e.g. 'AU') or
+          ISO-3166-2 code (e.g. 'AU-VIC') this item replaces.
+          Should be a blank string for admin0.
+        * regionChild is the ISO-3166-a2 code (when admin0),
+          ISO-3166-2 code (when admin1/can otherwise be converted,
+          as some for 'uk-area' are) or other unique ID
+          (such as "geelong"). Note the name has been pre-processed with
+
+        This file converts the data into a format MapBox GL can use for
+        displaying layers.
+         */
+
+    }
+
+    getForItem(regionChild, noCopy) {
+        // TODO!
+    }
+
+    getByISO_3166_2(iso_3166_2, noCopy) {
+        // TODO!
+    }
+
     /*******************************************************************
      * Data processing: combine very close points at different zoom levels
      *******************************************************************/
 
     _getModifiedGeoJSONWithPointsJoined(geoJSONData, zoomLevel) {
-
         // Values which are below the specified amount will be merged
         // so larger values will mean less will be displayed
         var zoomMap = {
@@ -133,146 +188,6 @@ class GeoBoundaryCentralPoints {
      * Data processing: find central x,y points in polygon areas
      *******************************************************************/
 
-    _getModifiedGeoJSONWithPolyCentralAreaPoints(geoJSONData) {
-        // Uses https://github.com/mapbox/polylabel
-        // to get the central point of the polygon
-        let r = {
-            "type": "FeatureCollection",
-            "features": [/*...*/]
-        };
-        var that = this;
-
-        // console.log('here',geoJSONData['features'])
-
-        geoJSONData['features'].filter(
-            (feature) => !!feature['geometry']
-        ).map((feature) => {
-
-            // First, collect as individual polygons,
-            // as we can't work with MultiPolygons
-
-            function collectCoordinates(coordinates) {
-                r["features"].push({
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": coordinates
-                    },
-                    "properties": feature["properties"]
-                });
-            }
-
-            if (feature['geometry']['type'] === 'MultiPolygon') {
-                feature["geometry"]["coordinates"].forEach(
-                    (coordinates) => collectCoordinates(coordinates)
-                );
-            }
-            else if (feature['geometry']['type'] === 'Polygon') {
-                collectCoordinates(feature["geometry"]["coordinates"]);
-            }
-            else {
-                throw "Unknown geometry type: " +
-                feature['geometry']['type'];
-            }
-        });
-
-        // Ignore small islands etc, only adding a
-        // heatmap to the polygons with the largest area
-
-        function filterToOnlyLargestAreas(features) {
-            var areaMap = {};
-
-            for (let i = 0; i < features.length; i++) {
-                var feature = features[i],
-                    properties = feature['properties'];
-
-                // WA data HACK!
-                delete properties['lg_ply_pid'];
-                delete properties['id'];
-
-                var area = that._getArea(
-                    feature['geometry']['coordinates']
-                );
-
-                function getUniqueKey(d) {
-                    var r = [];
-                    for (var k in d) {
-                        r.push([k, d[k]])
-                    }
-                    r.sort();
-                    return JSON.stringify(r);
-                }
-
-                var uniqueKey = getUniqueKey(properties);
-
-                if (!(uniqueKey in areaMap) || areaMap[uniqueKey][0] < area) {
-                    areaMap[uniqueKey] = [area, feature];
-                }
-            }
-
-            var r = [];
-            for (var k in areaMap) {
-                // Convert from polygon to a single point
-                areaMap[k][1]['geometry']['type'] = 'Point';
-                areaMap[k][1]['geometry']['coordinates'] = getPointCoord(
-                    areaMap[k][1]['geometry']['coordinates']
-                );
-                r.push(areaMap[k][1])
-            }
-            return r;
-        }
-
-        function getPointCoord(coordinates) {
-            var center = that._findCenter(coordinates),
-                pointCoord;
-
-            if (that._canPutInCenter(center, coordinates)) {
-                pointCoord = polylabel(
-                    coordinates, 10.0
-                );
-                pointCoord = [
-                    (pointCoord[0] + center[0]) / 2.0,
-                    (pointCoord[1] + center[1]) / 2.0
-                ];
-            }
-            else {
-                pointCoord = polylabel(
-                    coordinates, 0.5
-                )
-            }
-            return pointCoord;
-        }
-
-        r["features"] = filterToOnlyLargestAreas(
-            r["features"]
-        );
-        return r
-    }
-
-    _getArea(coordinates) {
-        // Get approximate area of polygons
-        var minX = 999999999999,
-            minY = 999999999999,
-            maxX = -999999999999,
-            maxY = -999999999999;
-
-        for (let i = 0; i < coordinates.length; i++) {
-            for (let j = 0; j < coordinates[i].length; j++) {
-                let x = coordinates[i][j][0],
-                    y = coordinates[i][j][1];
-
-                if (x > maxX) maxX = x;
-                if (x < minX) minX = x;
-                if (y > maxY) maxY = y;
-                if (y < minY) minY = y;
-            }
-        }
-        return (
-            (maxX - minX) *
-            (maxY - minY)
-        );
-    }
-
     _findCenter(coordinates) {
         var minX = 999999999999,
             minY = 999999999999,
@@ -316,5 +231,3 @@ class GeoBoundaryCentralPoints {
         return inside;
     }
 }
-
-export default GeoBoundaryCentralPoints;

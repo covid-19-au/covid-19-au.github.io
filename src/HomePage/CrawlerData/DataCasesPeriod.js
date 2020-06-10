@@ -1,4 +1,4 @@
-import ConfirmedMapFns from "./Fns";
+import ConfirmedMapFns from "../ConfirmedMap/Fns";
 import TimeSeriesDataSource from "./DataCases"
 
 class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
@@ -26,12 +26,7 @@ class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
         region = ConfirmedMapFns.prepareForComparison(region || '');
         ageRange = ageRange || '';
 
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iRegion = iData[0],
-                iAgeRange = iData[1],
-                iValues = iData[2];
-
+        for (var [iRegion, iAgeRange, iValues] of this.data) {
             if (
                 (this.schema === 'statewide' || iRegion === region) &&
                 iAgeRange === ageRange
