@@ -188,21 +188,21 @@ class MbMap extends React.Component {
                                     <option value="source_interstate">Contracted Interstate</option>
                                     <option value="source_under_investigation">Under Investigation</option>
                                 </optgroup>
-                                <optgroup label="Cruise Ship Numbers">
-                                    <option value="RUBY PRINCESS">Ruby Princess</option>
-                                    <option value="OVATION OF THE SEAS">Ovation of the Seas</option>
-                                    <option value="GREG MORTIMER">Greg Mortimer</option>
-                                    <option value="ARTANIA">Artania</option>
-                                    <option value="VOYAGERS OF THE SEA">Voyagers of the sea</option>
-                                    <option value="CELEBRITY SOLSTICE">Celebrity Solstice</option>
-                                    <option value="COSTA VICTORIA">Costa Victoria</option>
-                                    <option value="DIAMOND PRINCESS">Diamond Princess</option>
-                                    <option value="COSTA LUMINOSA">Contracted Costa Luminosa</option>
-                                    <option value="SUN PRINCESS">Sun Princess</option>
-                                    <option value="CELEBRITY APEX">Celebrity Apex</option>
-                                    <option value="MSC FANTASIA">MSC Fantasia</option>
-                                    <option value="UNKNOWN">Unknown Ship</option>
-                                </optgroup>
+                                {/*<optgroup label="Cruise Ship Numbers">*/}
+                                    {/*<option value="RUBY PRINCESS">Ruby Princess</option>*/}
+                                    {/*<option value="OVATION OF THE SEAS">Ovation of the Seas</option>*/}
+                                    {/*<option value="GREG MORTIMER">Greg Mortimer</option>*/}
+                                    {/*<option value="ARTANIA">Artania</option>*/}
+                                    {/*<option value="VOYAGERS OF THE SEA">Voyagers of the sea</option>*/}
+                                    {/*<option value="CELEBRITY SOLSTICE">Celebrity Solstice</option>*/}
+                                    {/*<option value="COSTA VICTORIA">Costa Victoria</option>*/}
+                                    {/*<option value="DIAMOND PRINCESS">Diamond Princess</option>*/}
+                                    {/*<option value="COSTA LUMINOSA">Contracted Costa Luminosa</option>*/}
+                                    {/*<option value="SUN PRINCESS">Sun Princess</option>*/}
+                                    {/*<option value="CELEBRITY APEX">Celebrity Apex</option>*/}
+                                    {/*<option value="MSC FANTASIA">MSC Fantasia</option>*/}
+                                    {/*<option value="UNKNOWN">Unknown Ship</option>*/}
+                                {/*</optgroup>*/}
                             </select>
                         </div>
 
