@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.9news.com.au/national/australia-homebuilder-politics-plan-housing-renovations-construction-economy-coronavirus-recovery-covid-19/0dac152a-23d6-4d1a-b2f1-87b66f8e3ca1",
+            "title": "'Keep that dream alive': PM announces $688 million HomeBuilder scheme for Australians looking to build or renovate",
+            "source": "9News",
+            "date": "4 June 2020",
+            "time": "08:22",
+            "summary": "Australians looking to build or renovate in the second half of the year will be able to get $25,000 from the federal government as part of a scheme aiming to keep the construction industry moving. The $688 million HomeBuilder package is available to owner-occupiers who sign a contract to start building or substantially renovating their property after June 4."
+        },
+        {
+            "link": "https://www.smh.com.au/business/companies/qantas-prepares-to-restart-40pc-of-domestic-flying-by-end-of-july-20200604-p54ze1.html",
+            "title": "Qantas prepares to restart 40 per cent of domestic flying by end of July",
+            "source": "TheSydneyMorningHerald",
+            "date": "4 June 2020",
+            "time": "11:00",
+            "summary": "Qantas is preparing to scale up its domestic flying from its current 5 per cent of pre-pandemic levels to 40 per cent by the end of July, pending the reopening of state borders. The airline said on Thursday that travel demand was picking up sufficiently to start adding capacity to its Australian network, which would enable some of its 25,000 stood down employees to return to work. The airline said it would gradually start increasing capacity to reach 15 per cent by the end of June, or about 300 return flights per week. Qantas and Jetstar flights between Sydney and Melbourne would increase from 12 return flights a week to 67 by the end of June."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-04/victoria-coronavirus-cases-rise-as-premier-discourages-protest/12318372",
+            "title": "Coronavirus cluster revealed in Melbourne's west as Premier urges people to avoid Black Lives Matter protest",
+            "source": "ABCNews",
+            "date": "4 June 2020",
+            "time": "18:14",
+            "summary": "Victorian health authorities have revealed a waste management facility in Melbourne's west went into lockdown last week after staff tested positive to coronavirus. Meanwhile, Mr Andrews has urged people to stay away from a planned protest this week in support of the Black Lives Matter movement. Mr Andrews said he would prefer the protest did not go ahead, but understood Victoria Police shutting it down may do nothing but \"inflame a volatile situation\"."
+        },
+        {
             "link": "https://www.9news.com.au/national/coronavirus-travel-bubble-western-australia-south-australia-tasmania-act-could-open-for-school-holidays/6a15fc13-b166-403d-9cd9-57680282f3a2",
             "title": "\"Travel bubble\" could open between select states in time for school holidays",
             "source": "9News",
