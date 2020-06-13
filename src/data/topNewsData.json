@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.9news.com.au/national/coronavirus-covid19-second-australia-wave-could-cost-country-80-billion/5343670d-d4dd-4810-aaa3-7e39143d936e",
+            "title": "Second coronavirus wave may cost Australia $80 billion",
+            "source": "9News",
+            "date": "13 June 2020",
+            "time": "11:41",
+            "summary": "Finance Minister Mathias Cormann has warned a second wave of coronavirus could cost the Australian economy $80 billion over the next two years. His calculation came as global share markets erupted into a sea of selling on fears of a pandemic resurgence, killing off optimism for a quick recovery. The Morrison government is concerned last week's anti-racism rallies, and more marches slated for this weekend, will spread the virus."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-13/victoria-records-eight-new-coronavirus-cases-including-doctor/12352210",
+            "title": "Victoria records eight new coronavirus cases, including Melbourne doctor",
+            "source": "ABCNews",
+            "date": "13 June 2020",
+            "time": "00:00",
+            "summary": "Victoria has recorded eight new coronavirus infections since yesterday, including a doctor who worked across three clinics in Melbourne while potentially infectious. The Department of Health and Human Services (DHHS) said the doctor had worked at Lilydale Medical Clinic, Croydon Family Practice and Cedars Medical Clinic in Coburg while asymptomatic. The three clinics have been closed for cleaning. Of the other new cases, six were detected in returned overseas travellers, while one is linked to the Rydges on Swanston outbreak."
+        },
+        {
             "link": "https://www.sbs.com.au/news/gathering-limits-relaxed-for-large-venues-under-stage-three-coronavirus-restrictions ",
             "title": "Gathering limits relaxed for large venues under stage three coronavirus restrictions",
             "source": "SBSNews",
@@ -135,30 +151,6 @@
             "date": "6 June 2020",
             "time": "19:16",
             "summary": "The Sydney “Stop All Black Deaths in Custody” rally has been declared an authorised public assembly after a late decision by the court of appeal as thousands of protesters rallied in cities and towns across Australia to march against Indigenous deaths in custody and the killing of unarmed US man George Floyd. The decision came minutes before the rally’s scheduled start at 3pm outside Town Hall on Saturday."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-05/pm-tells-people-not-to-attend-black-lives-matter-protests/12325210 ",
-            "title": "Scott Morrison tells people not to attend Black Lives Matter protests over coronavirus infection risk",
-            "source": "ABCNews",
-            "date": "5 June 2020",
-            "time": "17:31",
-            "summary": "The Federal Government has sternly warned Australians not to attend large anti-racism protests slated for this weekend, saying the progress Australia has made in suppressing COVID-19 is at risk. As hundreds of protesters marched towards Parliament House to protest against racial injustice this morning, Prime Minister Scott Morrison urged all Australians to avoid mass gatherings and adhere to social-distancing rules. He said anyone who did attend further protests scheduled for this weekend would put their own health, and the health of others, at risk."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-05/stage-three-coronavirus-restrictions-easing-nt/12316388",
-            "title": "NT coronavirus restrictions are lifting for pubs, sport and cinemas as remote communities open",
-            "source": "ABCNews",
-            "date": "5 June 2020",
-            "time": "07:30",
-            "summary": "The Northern Territory's journey to a \"new normal\" is complete — stage three coronavirus restrictions ease from noon Friday. Sweeping changes will today be made to what Territorians can do and all the changes together mean one thing: more freedom for Territorians. This includes changes to movement for remote communities, bars, sports and more. More information about the specific changes can be read in the article below."
-        },
-        {
-            "link": "https://www.watoday.com.au/national/western-australia/tens-of-thousands-of-west-australians-return-to-work-as-government-eases-restrictions-20200605-p54zx6.html?ref=rss&utm_medium=rss&utm_source=rss_national",
-            "title": "Tens of thousands of West Australians return to work as government eases restrictions",
-            "source": "WAToday",
-            "date": "5 June 2020",
-            "time": "13:27",
-            "summary": "Premier Mark McGowan has urged people to go out and spend money in their own backyard, as tens of thousands of West Australians return to work on Saturday in light of eased pandemic restrictions. From midnight, the Kimberley, Shire of Ngaanyatjarraku and parts of the East Pilbara will reopen to the public after the federal government lifted the Commonwealth biosecurity restrictions this week. A new 2-square-metre rule will also replace the current one person per 4 square metre requirement and indoor and outdoor gatherings of up to 300 people per venue will be allowed. More information about the additional, specific changes can be read in the article below."
         }
     ]
 }
