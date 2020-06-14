@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-06/coronavirus-cases-queensland-fruit-picker-public-health-alert/12309468",
+            "title": "Coronavirus case in fruit picker who flew from Melbourne to Brisbane and Bundaberg causes public health alert in Queensland",
+            "source": "ABCNews",
+            "date": "6 June 2020",
+            "time": "18:35",
+            "summary": "A mass public health alert has been issued after a fruit picker flew into Queensland from Victoria while infectious with coronavirus. Health Minister Steven Miles said the man received the diagnosis in the past 24 hours, taking the number of active cases in the state to four. He said the Melbourne man, in his 20s, flew to Brisbane on June 1 when he was infectious and then took a second flight the next day to Bundaberg, where he picked fruit and lived in shared accommodation. Contact tracing is underway for Virgin flights VA313, Melbourne to Brisbane, on June 1 and VA2905, Brisbane to Bundaberg, on June 2. Health authorities say Bundaberg and Brisbane should be on high alert for infections."
+        },
+        {
+            "link": "https://www.9news.com.au/national/china-warns-citizens-against-travel-to-australia-due-to-racial-violence-during-coronavirus-pandemic/bd6c06c9-32a5-45e4-9a57-d7d166d7d8ca",
+            "title": "China warns citizens not to travel to Australia due to 'significant increase' in racial violence ",
+            "source": "9News",
+            "date": "6 June 2020",
+            "time": "20:34",
+            "summary": "Trade Minister Simon Birmingham has rejected China's accusation of Australians attacking Chinese people during the coronavirus pandemic. China's Ministry of Culture and Tourism has advised the public to avoid travelling to Australia, citing racial discrimination and violence against Chinese people in connection with the COVID-19 pandemic. \"There has been an alarming increase recently in acts of racial discrimination and violence against Chinese and Asians in Australia, due to the impact of the COVID-19 pandemic,\" the ministry said in a statement on Friday evening."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jun/06/black-lives-matter-protests-nsw-police-minister-says-officers-prepared-for-anyone-who-flouts-the-law",
+            "title": "Black Lives Matter protests: Sydney rally given green light as court ruling overturned ",
+            "source": "TheGuardian",
+            "date": "6 June 2020",
+            "time": "19:16",
+            "summary": "The Sydney “Stop All Black Deaths in Custody” rally has been declared an authorised public assembly after a late decision by the court of appeal as thousands of protesters rallied in cities and towns across Australia to march against Indigenous deaths in custody and the killing of unarmed US man George Floyd. The decision came minutes before the rally’s scheduled start at 3pm outside Town Hall on Saturday."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-05/pm-tells-people-not-to-attend-black-lives-matter-protests/12325210 ",
             "title": "Scott Morrison tells people not to attend Black Lives Matter protests over coronavirus infection risk",
             "source": "ABCNews",
