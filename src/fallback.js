@@ -202,8 +202,8 @@ function Fallback(props) {
           rel="noopener noreferrer"
         >
           <u>Mapbox</u>
-        </a>{" "}
-        for sponsoring our map, to{" "}
+        </a>
+        {""},{" "}
         <a
           href="://www.slack.com/"
           style={{ color: "blue" }}
@@ -211,8 +211,8 @@ function Fallback(props) {
           rel="noopener noreferrer"
         >
           <u>Slack</u>
-        </a>{" "}
-        for sponsoring our communication platform, to{" "}
+        </a>
+        {""},{" "}
         <a
           href="://aws.amazon.com/"
           style={{ color: "blue" }}
@@ -221,7 +221,7 @@ function Fallback(props) {
         >
           <u>AWS</u>
         </a>{" "}
-        for sponsoring our cloud service!
+        for their sponsorship to this website!
       </div>
 
       <div>
