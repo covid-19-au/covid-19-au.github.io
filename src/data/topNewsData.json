@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-15/coronavirus-cases-at-melbourne-pakenham-springs-primary-school/12354622 ",
+            "title": "12 New Cases in Victoria including 7 from a family outbreak in Coburg, and 1 BLM protest attendee",
+            "source": "ABCNews",
+            "date": "15 June 2020",
+            "time": "20:10",
+            "summary": "The 7 new cases bring the total number of cases from the Coburg cluster to 11. A second person who attended Melbourne's Black Lives Matter protest has also tested positive for COVID-19. Victoria's Chief Health Officer Brett Sutton said the Black Lives Matter protester was a young woman who attended the demonstration in Melbourne on June 6, but was very unlikely to have acquired the virus there. Professor Sutton said the woman wore personal protective equipment (PPE) at the protest and was unlikely to have transmitted the virus to other attendees because she had been minimally symptomatic at the time. The individual is also unlikely to have acquired the virus at the protest, having taken great care to socially distance from others."
+        },
+        {
+            "link": "https://www.brisbanetimes.com.au/national/queensland/more-people-allowed-at-queensland-funerals-from-tuesday-20200615-p552m0.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
+            "title": "More people allowed at Queensland funerals from Tuesday",
+            "source": "BrisbaneTimes",
+            "date": "15 June 2020",
+            "time": "10:09",
+            "summary": "One hundred people will be allowed to attend Queensland funerals from Tuesday after the state recorded no new cases of COVID-19 overnight. Premier Annastacia Palaszczuk and her deputy Steven Miles announced the relaxation on Monday morning. Chief Health Officer Dr Jeannette Young said funeral organisers would have to keep a list of attendees for eight weeks. The easing of funeral restrictions comes as the state recorded no new cases of COVID-19 on Monday, keeping the state's total steady at 1065."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-14/victorian-coronavirus-restrictions-will-ease-from-june-22/12353530",
             "title": "Victorian coronavirus restrictions will be eased again on June 22, Premier confirms",
             "source": "ABCNews",
@@ -135,14 +151,6 @@
             "date": "8 June 2020",
             "time": "12:15",
             "summary": "Those who attended protests across the nation at the weekend must get tested for coronavirus if they develop any symptoms, health officials have warned. Marches were held in Sydney, Melbourne, Brisbane and Adelaide in support of the Black Lives Matter movement and to protest Aboriginal deaths in custody. This morning the Australian Medical Association advised anyone who had attended a rally to self-isolate for two weeks. However Deputy Chief Medical Officer Dr Coatsworth said that was not the case, and only those with symptoms need to take such precautions."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/act-records-first-coronavirus-case-in-a-month-as-nsw-has-second-day-with-no-new-infections",
-            "title": "ACT records first coronavirus case in a month as NSW has second day with no new infections",
-            "source": "SBSNews",
-            "date": "7 June 2020",
-            "time": "15:11",
-            "summary": "The ACT has recorded its first case of COVID-19 in more than a month. A man aged in his 40s, who recently returned from overseas, was the ACT's first confirmed virus case since 4 May, ACT Health said in a statement on Sunday. This brings the ACT's confirmed cases to 108. The territory has suffered three deaths. Chief Health Officer Kerryn Coleman is confident there has been no risk to the broader ACT community."
         }
     ]
 }
