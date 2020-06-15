@@ -1,6 +1,14 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/act-records-first-coronavirus-case-in-a-month-as-nsw-has-second-day-with-no-new-infections",
+            "title": "ACT records first coronavirus case in a month as NSW has second day with no new infections",
+            "source": "SBSNews",
+            "date": "7 June 2020",
+            "time": "15:11",
+            "summary": "The ACT has recorded its first case of COVID-19 in more than a month. A man aged in his 40s, who recently returned from overseas, was the ACT's first confirmed virus case since 4 May, ACT Health said in a statement on Sunday. This brings the ACT's confirmed cases to 108. The territory has suffered three deaths. Chief Health Officer Kerryn Coleman is confident there has been no risk to the broader ACT community."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-06/coronavirus-cases-queensland-fruit-picker-public-health-alert/12309468",
             "title": "Coronavirus case in fruit picker who flew from Melbourne to Brisbane and Bundaberg causes public health alert in Queensland",
             "source": "ABCNews",
