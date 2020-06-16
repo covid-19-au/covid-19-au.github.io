@@ -22,37 +22,37 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-class TimeSeriesItem extends Array {
-    /**
-     * A basic time series datapoint, with a DateType
-     * instance and NumberType instance associated with it
-     *
-     * @param dateType
-     * @param numberType
-     */
-    constructor(dateType, numberType) {
-        super([dateType, numberType]);
+
+class NumberType extends Number {
+    getPrettifiedValue() {
+        // TODO!
     }
 
-    /********************************************************************
-     * Basic Methods
-     ********************************************************************/
+    getCompactValue(digits) {
+        // https://stackoverflow.com/questions/9461621/format-a-number-as-2-5k-if-a-thousand-or-more-otherwise-900
+        var si = [
+            {value: 1, symbol: ""},
+            {value: 1E3, symbol: "k"},
+            {value: 1E6, symbol: "M"},
+            {value: 1E9, symbol: "G"},
+            {value: 1E12, symbol: "T"},
+            {value: 1E15, symbol: "P"},
+            {value: 1E18, symbol: "E"}
+        ];
+        var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+        var i;
 
-    /**
-     * Get the DateType supplied to this TimeSeriesItem
-     * @returns {T}
-     */
-    getDateType() {
-        return this[0];
+        for (i = si.length - 1; i > 0; i--) {
+            if (this >= si[i].value) {
+                break;
+            }
+        }
+        return (this / si[i].value)
+               .toFixed(digits)
+               .replace(rx, "$1") + si[i].symbol;
     }
 
-    /**
-     * Get the NumberType supplied to this TimeSeriesItem
-     * @returns {T}
-     */
-    getValue() {
-        return this[1];
+    getCanvasJSFormat() {
+
     }
 }
-
-export default TimeSeriesItem;
