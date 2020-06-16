@@ -22,49 +22,58 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-var fns = {
+import React from "react"
+
+
+class CovidMapControls extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.schemas = FXIME;
+        this.admin0Coords = FIXME;
+        this.admin1Coords = FIXME;
+
+        this.constantSelect = FIXME;
+        this.dataTypes = FIXME;
+
+        this.staticDataListing = FIXME;
+        this.caseDataListing = FIXME;
+
+        this.staticData = {};
+        this.caseData = {};
+
+        this.displayedSchemaInsts = [];
+        this.displayedCaseDataInsts = [];
+
+        this.mapContControls = React.createRef();
+    }
+
     /*******************************************************************
-     * Array helper functions
+     * HTML Template
      *******************************************************************/
 
-    /**
-     * Return the keys in `o`, sorting (case-sensitive)
-     *
-     * @param o
-     * @returns {[]}
-     */
-    sortedKeys: function(o) {
-        //
-        var r = [];
-        for (var k in o) {
-            if (!o.hasOwnProperty(k)) {
-                continue;
-            }
-            r.push(k);
-        }
-        r.sort();
-        return r
-    },
-
-    /*******************************************************************
-     * String functions
-     *******************************************************************/
-
-    /**
-     * Convert to Title Case
-     *
-     * @param str
-     * @returns {*}
-     */
-    toTitleCase: function(str) {
-        // From https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
-        return str.replace(
-            /\w\S*/g,
-            function (txt) {
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }
+    render() {
+        return (
+            <div className="map-cont-controls" ref={this.mapContControls}>
+                <SchemaTypeSelect></SchemaTypeSelect>
+                <SchemaTypeUnderlaySelect></SchemaTypeUnderlaySelect>
+            </div>
         );
     }
-};
 
-export default fns;
+    /*******************************************************************
+     * Intialization after load
+     *******************************************************************/
+
+    componentDidMount() {
+
+    }
+
+    disable() {
+        this.mapContControls.current.style.pointerEvents = 'none';
+    }
+
+    enalbe() {
+        this.mapContControls.current.style.pointerEvents = 'all';
+    }
+}

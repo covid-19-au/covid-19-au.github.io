@@ -3,6 +3,20 @@ import CanvasJS from "../../../assets/canvasjs.min";
 
 
 class FillPolyLayer {
+    /**
+     *
+     * @param map
+     * @param absDataSource
+     * @param caseDataSource
+     * @param opacity
+     * @param addLegend
+     * @param addPopupOnClick
+     * @param stateName
+     * @param maxMinStatVal
+     * @param addUnderLayerId
+     * @param uniqueId
+     * @param fillSourceId
+     */
     constructor(
         map,
         absDataSource, // the ABS underlay source (if any)
@@ -36,6 +50,10 @@ class FillPolyLayer {
         this._addFillPoly();
     }
 
+    /**
+     *
+     * @returns {string}
+     */
     getFillPolyId() {
         return this.uniqueId+'fillpoly';
     }
@@ -44,6 +62,11 @@ class FillPolyLayer {
      * Fill poly
      *******************************************************************/
 
+    /**
+     *
+     * @returns {{fillLayer: *, fillPolyId: string}}
+     * @private
+     */
     _addFillPoly() {
         // Add the colored fill area
         const map = this.map;
@@ -143,6 +166,9 @@ class FillPolyLayer {
         };
     }
 
+    /**
+     *
+     */
     remove() {
         const map = this.map;
         map.removeLayer(this.getFillPolyId());
@@ -154,6 +180,13 @@ class FillPolyLayer {
      * Map legends
      *******************************************************************/
 
+    /**
+     *
+     * @param dataSource
+     * @param labels
+     * @param colors
+     * @private
+     */
     _addLegend(dataSource, labels, colors) {
         this._removeLegend();
 
@@ -205,6 +238,10 @@ class FillPolyLayer {
         }
     }
 
+    /**
+     *
+     * @private
+     */
     _removeLegend() {
         if (this.legend) {
             this.legend.parentNode.removeChild(this.legend);
@@ -212,6 +249,15 @@ class FillPolyLayer {
         }
     }
 
+    /**
+     *
+     * @param dataSource
+     * @param label
+     * @param allBetween0_10
+     * @param sameConsecutive
+     * @returns {string}
+     * @private
+     */
     _getABSValue(dataSource, label, allBetween0_10, sameConsecutive) {
         var isPercent = dataSource.getSourceName().indexOf('(%)') !== -1;
         return (
@@ -225,6 +271,11 @@ class FillPolyLayer {
      * Map popups
      *******************************************************************/
 
+    /**
+     *
+     * @param useID
+     * @private
+     */
     _addMapPopupEvent(useID) {
         this._resetPopups();
         const map = this.map;
@@ -343,6 +394,10 @@ class FillPolyLayer {
         }
     }
 
+    /**
+     *
+     * @private
+     */
     _resetPopups() {
         if (this.resetPopupEvent) {
             this.resetPopupEvent();

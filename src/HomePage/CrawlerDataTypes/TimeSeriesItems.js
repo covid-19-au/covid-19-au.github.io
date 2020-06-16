@@ -22,14 +22,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+import CasesData from "../CrawlerData/CasesData"
+import RegionType from "../CrawlerDataTypes/DateType"
+import UnderlayData from "../CrawlerDataTypes/TimeSeriesItem"
+
+
 class TimeSeriesItems extends Array {
     /**
+     * An array of TimeSeriesItem instances. Inherits from Array,
+     * so has all the normal methods like push() etc, but also
+     * associates a data source, region schema/parent/child,
+     * the time period the data is over and optionally an age range
      *
-     * @param dataSource
-     * @param regionType
-     * @param dateRangeType
-     * @param ageRange
-     * @param items
+     * @param dataSource a CasesData or UnderlayData instance
+     * @param regionType a RegionType instance
+     * @param dateRangeType a DateRangeType instance. Note this may
+     *        not necessarily be the maximum and minimum dates within
+     *        the TimeSeriesItem's contained in the array if datapoints
+     *        aren't available for the requested time interval
+     * @param ageRange (optional) the age range the time series value
+     *        is relevant for, e.g. "0-9"
+     * @param items (optional) populate with these initial items
      */
     constructor(dataSource, regionType, dateRangeType, ageRange, items) {
         super();
@@ -40,7 +53,7 @@ class TimeSeriesItems extends Array {
         }
 
         if (
-            !(dataSource instanceof DataSourceBase) &&
+            !(dataSource instanceof CasesData) &&
             !(dataSource instanceof UnderlayData)
         ) {
             throw (
@@ -85,9 +98,8 @@ class TimeSeriesItems extends Array {
     }
 
     /**
-     * Get the age range (e.g. "0-9") which
-     * is associated with this set of items.
-     * `null` if  there is no such association
+     * Get the age range (e.g. "0-9") which is associated with this
+     * set of items. `null` if  there is no such association
      *
      * @returns {*}
      */
@@ -141,6 +153,41 @@ class TimeSeriesItems extends Array {
                 }
             }
         }
+    }
+
+    /********************************************************************
+     * TODO!
+     ********************************************************************/
+
+    /**
+     *
+     * @param overNumDays
+     */
+    getRateOfChange(overNumDays) {
+
+    }
+
+    /**
+     * Get the rolling average over a provided number of days
+     *
+     * @param overNumDays the number of days to average over
+     */
+    getDayAverage(overNumDays) {
+
+    }
+
+    /**
+     *
+     */
+    getRatePerCapita100k() {
+
+    }
+
+    /**
+     *
+     */
+    getRatePerRegion100k() {
+
     }
 
     /********************************************************************

@@ -37,12 +37,17 @@ class DateRangeType {
         this.toDate = toDate;
     }
 
+    equalTo(dateRangeType) {
+        return this.toString() === dateRangeType.toString();
+    }
+
     /********************************************************************
      * Get from/to dates
      ********************************************************************/
 
     /**
      * Get the "from" range DateType object
+     *
      * @returns {*}
      */
     getFromDate() {
@@ -51,6 +56,7 @@ class DateRangeType {
 
     /**
      * Get the "to" range DateType object
+     *
      * @returns {*}
      */
     getToDate() {

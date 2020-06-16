@@ -32,18 +32,63 @@ class RegionType {
      * regionChild "AU-VIC" refers to Victoria, Australia
      * using the admin1 (ISO 3166-2) system
      *
-     * @param geoDataInst the GeoData instance which has localization info etc
-     *        for this schema/parent/child combination
-     * @param regionSchema the region schema
+     * @param geoDataInst the GeoData instance which has localization info
+     *        etc for this schema/parent/child combination
      * @param regionParent the region parent
+     * @param regionSchema the region schema
      * @param regionChild the region child
      */
     constructor(geoDataInst, regionSchema, regionParent, regionChild) {
         this.geoDataInst = geoDataInst;
-
         this.regionSchema = regionSchema;
-        this.regionParent = regionParent;
-        this.regionChild = regionChild;
+        this.regionParent = this._prepareForComparison(regionParent);
+        this.regionChild = this._prepareForComparison(regionChild);
+    }
+
+    /**
+     * Replace different kinds of successive hyphens
+     * and whitespace with only a single hyphen,
+     * then lowercase before comparing to make sure
+     * e.g. "KALGOORLIE-BOULDER" matches against
+     * "Kalgoorlie - Boulder"
+     *
+     * @param s
+     * @returns {*}
+     */
+    _prepareForComparison(s) {
+        s = s.replace(/(\s*[-‒–—])\s+/g, '-');
+        s = s.toLowerCase();
+        // Sync me with get_regions_json_data in the web app!!
+        s = s.replace('the corporation of the city of ', '');
+        s = s.replace('the corporation of the town of ', '');
+        s = s.replace('pastoral unincorporated area', 'pua');
+        s = s.replace('district council', '');
+        s = s.replace('regional council', '');
+        s = s.replace('unincorporated sa', 'pua');
+        s = s.replace(' shire', '');
+        s = s.replace(' council', '');
+        s = s.replace(' regional', '');
+        s = s.replace(' rural', '');
+        s = s.replace(' city', '');
+        s = s.replace('the dc of ', '');
+        s = s.replace('town of ', '');
+        s = s.replace('city of ', '');
+        if (s.indexOf('the ') === 0)
+            s = s.slice(4);
+        return s;
+    }
+
+    /**
+     *
+     * @param regionType
+     * @returns {boolean}
+     */
+    equalTo(regionType) {
+        return (
+            this.getRegionSchema() === regionType.getRegionSchema() &&
+            this.getRegionParent() === regionType.getRegionParent() &&
+            this.getRegionChild() === regionType.getRegionChild()
+        );
     }
 
     /********************************************************************
@@ -87,6 +132,9 @@ class RegionType {
      ********************************************************************/
 
     /**
+     * Get a pretty-printed
+     * "region child, region parent (region schema)"
+     * string representation
      *
      * @param langCode an ISO 631 language code,
      *        e.g. "en" or "zh" for Chinese
@@ -96,12 +144,14 @@ class RegionType {
         // TODO: Localize the region parent too!!
         return (
             `${this.getLocalized(this.regionChild, langCode)}, `+
-            `${this.regionParent} `+
+            `${this.regionParent ? (this.regionParent+' ') : ''}`+
             `(${this.regionSchema})`
         );
     }
 
     /**
+     * Get the localized name of a child region.
+     * If langCode isn't supplied, it will default to English.
      *
      * @param regionChild a child region
      * @param langCode langCode an ISO 631 language code,
@@ -128,9 +178,8 @@ class RegionType {
     }
 
     /**
-     * Get the population of the child region.
-     * This is normally based on satellite data,
-     * so may be inaccurate
+     * Get the population of the child region. This is
+     * normally based on satellite data, so may be inaccurate
      *
      * @param regionChild a child region
      * @returns {*}

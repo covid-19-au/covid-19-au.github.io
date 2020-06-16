@@ -34,12 +34,25 @@ class TimeSeriesItem extends Array {
         super([dateType, numberType]);
     }
 
+    /**
+     *
+     * @param timeSeriesItem
+     * @returns {boolean|boolean}
+     */
+    equalTo(timeSeriesItem) {
+        return (
+            this.getDateType().toString() === timeSeriesItem.toString() &&
+            this.getValue() == timeSeriesItem.getValue()
+        );
+    }
+
     /********************************************************************
      * Basic Methods
      ********************************************************************/
 
     /**
      * Get the DateType supplied to this TimeSeriesItem
+     *
      * @returns {T}
      */
     getDateType() {
@@ -48,6 +61,7 @@ class TimeSeriesItem extends Array {
 
     /**
      * Get the NumberType supplied to this TimeSeriesItem
+     *
      * @returns {T}
      */
     getValue() {

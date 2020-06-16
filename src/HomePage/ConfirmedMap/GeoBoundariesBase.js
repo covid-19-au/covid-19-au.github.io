@@ -6,6 +6,14 @@ import GeoBoundaryCentralPoints from "./GeoBoundaryCentralPoints"
 
 
 class JSONGeoBoundariesBase {
+    /**
+     *
+     * @param map
+     * @param schema
+     * @param stateName
+     * @param uniqueId
+     * @param data
+     */
     constructor(map, schema, stateName, uniqueId, data) {
         this.map = map;
         this.schema = schema;
@@ -16,6 +24,11 @@ class JSONGeoBoundariesBase {
         this._onLoadData(data);
     }
 
+    /**
+     *
+     * @param data
+     * @private
+     */
     _onLoadData(data) {
         this.geoJSONData = data;
         this.pointGeoJSONData = this.geoBoundaryCentralPoints
@@ -28,6 +41,12 @@ class JSONGeoBoundariesBase {
      * Unique IDs for sources and layers
      *******************************************************************/
 
+    /**
+     *
+     * @param dataSource
+     * @param zoomNum
+     * @returns {string}
+     */
     getHeatmapSourceId(dataSource, zoomNum) {
         // Get a unique ID for sources shared by the
         // auto-generated central points in the
@@ -35,6 +54,12 @@ class JSONGeoBoundariesBase {
         zoomNum = zoomNum || '';
         return this.uniqueId+dataSource.getSourceName()+'heatmapsource'+zoomNum;
     }
+
+    /**
+     *
+     * @param dataSource
+     * @returns {string}
+     */
     getFillSourceId(dataSource) {
         // Get a unique ID for sources shared by fill/line polys
         return this.uniqueId+dataSource.getSourceName()+'fillsource';
@@ -44,6 +69,15 @@ class JSONGeoBoundariesBase {
      * Fill poly-related
      *******************************************************************/
 
+    /**
+     *
+     * @param absDataSource
+     * @param caseDataSource
+     * @param opacity
+     * @param addLegend
+     * @param addPopupOnClick
+     * @param addUnderLayerId
+     */
     addFillPoly(absDataSource, caseDataSource, opacity,
         addLegend, addPopupOnClick, addUnderLayerId) {
 
@@ -69,6 +103,9 @@ class JSONGeoBoundariesBase {
         );
     }
 
+    /**
+     *
+     */
     removeFillPoly() {
         if (this._fillPolyLayer) {
             this._fillPolyLayer.remove();
@@ -80,6 +117,11 @@ class JSONGeoBoundariesBase {
      * Line polys
      *******************************************************************/
 
+    /**
+     *
+     * @param dataSource
+     * @param color
+     */
     addLinePoly(dataSource, color) {
         this.removeLinePoly();
         this._associateSource(dataSource);
@@ -90,6 +132,9 @@ class JSONGeoBoundariesBase {
         );
     }
 
+    /**
+     *
+     */
     removeLinePoly() {
         if (this._linePolyLayer) {
             this._linePolyLayer.remove();
@@ -101,6 +146,11 @@ class JSONGeoBoundariesBase {
      * Heat maps
      *******************************************************************/
 
+    /**
+     *
+     * @param dataSource
+     * @param maxMinValues
+     */
     addHeatMap(dataSource, maxMinValues) {
         this.removeHeatMap();
         this._associateSource(dataSource);
@@ -111,6 +161,9 @@ class JSONGeoBoundariesBase {
         );
     }
 
+    /**
+     *
+     */
     removeHeatMap() {
         if (this._heatMapLayer) {
             this._heatMapLayer.remove();
@@ -122,6 +175,10 @@ class JSONGeoBoundariesBase {
      * Days since maps
      *******************************************************************/
 
+    /**
+     *
+     * @param dataSource
+     */
     addDaysSince(dataSource) {
         this.removeDaysSince();
         this._associateSource(dataSource);
@@ -132,6 +189,9 @@ class JSONGeoBoundariesBase {
         );
     }
 
+    /**
+     *
+     */
     removeDaysSince() {
         if (this._daysSinceLayer) {
             this._daysSinceLayer.remove();

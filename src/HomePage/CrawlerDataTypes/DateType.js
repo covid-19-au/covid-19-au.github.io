@@ -106,12 +106,23 @@ class DateType extends Date {
         this.days = days;
     }
 
+    /**
+     * Returns whether this DateType instance is of the same day to another
+     *
+     * @param dateType
+     * @returns {boolean}
+     */
+    equalTo(dateType) {
+        return this.toString() === dateType.toString();
+    }
+
     /********************************************************************
      * Get whether today
      ********************************************************************/
 
     /**
      * Return whether this DateType instance is today
+     *
      * @returns {boolean}
      */
     isToday() {
@@ -125,6 +136,7 @@ class DateType extends Date {
     /**
      * Get the difference in days between
      * this DateType instance and today
+     *
      * @returns {number}
      */
     numDaysSince() {
@@ -139,6 +151,7 @@ class DateType extends Date {
     /**
      * Get the difference in days between this DateType
      * instance and another supplied DateType instance
+     *
      * @param otherDateType
      * @returns {number}
      */
@@ -154,6 +167,7 @@ class DateType extends Date {
 
     /**
      * Add days to this DateType, returning a new DateType object
+     *
      * @param days
      * @returns {DateType}
      */
@@ -166,6 +180,7 @@ class DateType extends Date {
 
     /**
      * Subtract days from this DateType, returning a new DateType object
+     *
      * @param days
      * @returns {DateType}
      */
@@ -182,6 +197,7 @@ class DateType extends Date {
 
     /**
      * Get the date in prettified DD/MM/YYYY format
+     *
      * @returns {string}
      */
     prettified() {
@@ -198,6 +214,7 @@ class DateType extends Date {
 
     /**
      * Get the date in binary-sortable YYYY_MM_DD format
+     *
      * @returns {string}
      */
     toString() {
