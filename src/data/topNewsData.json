@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/jun/17/covid-safe-app-australia-covidsafe-contact-tracing-australian-government-covid19-tracking-problems-working",
+            "title": "Australia's Covidsafe coronavirus tracing app works as few as one in four times for some devices ",
+            "source": "TheGuardian",
+            "date": "17 June 2020",
+            "time": "15:50",
+            "summary": "The federal government’s Covidsafe contact tracing app works as few as one in every four times for some devices, documents tabled in the Senate have revealed. The evidence for the first time shows the true state of the operation of the app, despite continuous claims from the government services minister, Stuart Robert, and the Digital Transformation Agency over the past two months that the app \"works\"."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-records-21-new-coronavirus-cases-in-the-biggest-spike-since-early-may",
+            "title": "Victoria records 21 new coronavirus cases in the biggest spike since early May",
+            "source": "SBSNews",
+            "date": "17 June 2020",
+            "time": "12:00",
+            "summary": "Returned travellers in hotel quarantine have given Victoria its biggest spike in daily coronavirus cases in more than a month. Health Minister Jenny Mikakos on Wednesday announced the state's infection tally had increased to 1762 after 21 new cases were recorded. The last time a bigger increase was recorded was on May 4, when 22 cases were identified amid the Cedar Meats outbreak crisis."
+        },
+        {
             "link": "https://www.sbs.com.au/news/south-australia-is-opening-its-borders-to-tasmania-wa-and-the-nt",
             "title": "South Australia is opening its borders to Tasmania, WA and the NT",
             "source": "SBSNews",
@@ -127,22 +143,6 @@
             "date": "10 June 2020",
             "time": "08:00",
             "summary": "China on Tuesday urged students going overseas to study to think carefully before choosing Australia, due to a spate of racial incidents targeting Asians in the wake of the coronavirus pandemic. The Ministry of Education’s warning comes days after the Chinese culture and tourism ministry advised citizens against travelling to Australia due to racial discrimination and violence stemming from the coronavirus outbreak, which first emerged in China in late 2019. In its statement, the education ministry reminded \"overseas students to conduct a good risk assessment and be cautious about choosing to go to Australia or return to Australia to study.\""
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/jun/09/coalition-hints-at-further-adjustments-to-jobkeeper-as-labor-accuses-it-of-breaking-promise",
-            "title": "Coalition hints at 'further adjustments' to jobkeeper as Labor accuses it of breaking promise ",
-            "source": "TheGuardian",
-            "date": "9 June 2020",
-            "time": "18:39",
-            "summary": "Mathias Cormann has indicated the government may make \"further adjustments\" to the $70bn jobkeeper program as Labor continues to target the Coalition for breaking a promise by withdrawing the wage subsidy from 120,000 childcare sector workers. Furthermore, on Tuesday the finance minister fronted the Senate Covid-19 committee to explain the $60bn discrepancy in the projected cost of the program, which he described as an \"estimates variation\" and for which the Treasury secretary, Steven Kennedy, said he took \"full responsibility\"."
-        },
-        {
-            "link": "https://www.theage.com.au/politics/federal/australian-economy-appears-to-have-avoided-cycle-of-destruction-treasury-secretary-20200609-p550we.html",
-            "title": "Australian economy appears to have avoided 'cycle of destruction': Treasury secretary",
-            "source": "TheAge",
-            "date": "9 June 2020",
-            "time": "17:47",
-            "summary": "The Australian economy is coming out of the coronavirus pandemic better than expected with unemployment unlikely to hit double figures, the Treasury secretary has revealed while taking responsibility for the $60 billion overestimation of the JobKeeper wage subsidy program. Steven Kennedy, giving evidence to a Senate inquiry into the government's policies to deal with the virus outbreak, said Australia was outperforming much of the rest of the world and appeared to have avoided a \"cycle of destruction\" that would weigh on the nation for years."
         }
     ]
 }
