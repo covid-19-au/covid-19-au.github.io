@@ -125,7 +125,7 @@ export default function Area({ area, onChange, data }) {
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
         <div className="cured">{numberWithCommas(sumRow(CURED, data))}</div>
         <div className="activeCase">{numberWithCommas(sumRow(CONFIRMED, data) - sumRow(DEATH, data) - sumRow(CURED, data))}</div>
-        <div className="tested">{numberWithCommas(sumRow(TESTED, data))}</div>
+        <div className="tested">{numberWithCommasLarge(sumRow(TESTED, data))}</div>
       </div>
     );
   };
@@ -158,4 +158,8 @@ export default function Area({ area, onChange, data }) {
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+function numberWithCommasLarge(x) {
+    let numStr = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return numStr.substring(0,5).replace(',','.')+'M'
 }
