@@ -1,6 +1,38 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-10/coronavirus-oecd-calls-for-extension-to-jobkeeper-gdp/12340832",
+            "title": "OECD calls for extension of coronavirus JobKeeper scheme as it warns Australia's economy could fall by 6.3 per cent",
+            "source": "ABCNews",
+            "date": "10 June 2020",
+            "time": "20:35",
+            "summary": "Australia's economy could contract by 6.3 per cent this year if there is a second wave of coronavirus infections, according to the OECD's latest economic outlook. The report urges the Morrison Government to introduce further policy measures to support households and businesses, including extending income support payments, such as the $70 billion JobKeeper wage subsidy, and building social housing. "
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-10/nz-travel-bubble-delayed-coronavirus-state-border-restrictions/12338458",
+            "title": "NZ travel bubble being delayed by Australian states' coronavirus border closures, Winston Peters says",
+            "source": "ABCNews",
+            "date": "10 June 2020",
+            "time": "21:16",
+            "summary": "State border restrictions are holding up the resumption of travel between Australia and New Zealand, with leaders across the Tasman Sea becoming frustrated at the delays. New Zealand's Foreign Affairs Minister Winston Peters has complained about the \"roadblock of federalism\" getting in the way of plans to create a trans-Tasman 'travel bubble' between the two countries. While some states are now welcoming interstate tourists, others, such as Queensland and Western Australia, are still banning visitors from outside the state."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-ruby-princess-ship-was-allowed-to-dock-so-passengers-didnt-miss-flights/f7de25ea-301b-450a-a096-564c599a4fcd",
+            "title": "Ruby Princess was allowed to dock in Sydney before coronavirus test results so passengers didn't miss flights",
+            "source": "9News",
+            "date": "10 June 2020",
+            "time": "16:43",
+            "summary": "Passengers were allowed to disembark the Ruby Princess six hours before coronavirus test results came back, so they did not miss their flights. Today Dr Sean Tobin, NSW Chief Biosecurity Officer, fronted the inquiry into why 2700 passengers were allowed to disembark and subsequently carry the deadly disease around the country. He said the NSW Health decision to allow thousands of people off the ship instead of keeping them on board for just six hours was made so as not to disrupt their travel plans."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/china-warns-students-against-studying-in-australia-in-latest-coronavirus-escalation",
+            "title": "China warns students against studying in Australia in latest coronavirus escalation",
+            "source": "SBSNews",
+            "date": "10 June 2020",
+            "time": "08:00",
+            "summary": "China on Tuesday urged students going overseas to study to think carefully before choosing Australia, due to a spate of racial incidents targeting Asians in the wake of the coronavirus pandemic. The Ministry of Education’s warning comes days after the Chinese culture and tourism ministry advised citizens against travelling to Australia due to racial discrimination and violence stemming from the coronavirus outbreak, which first emerged in China in late 2019. In its statement, the education ministry reminded \"overseas students to conduct a good risk assessment and be cautious about choosing to go to Australia or return to Australia to study.\""
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/jun/09/coalition-hints-at-further-adjustments-to-jobkeeper-as-labor-accuses-it-of-breaking-promise",
             "title": "Coalition hints at 'further adjustments' to jobkeeper as Labor accuses it of breaking promise ",
             "source": "TheGuardian",

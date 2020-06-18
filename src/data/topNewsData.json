@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-18/coronavirus-cases-in-victoria-climb-blm-protester-positive/12368000",
+            "title": "Coronavirus cases in Victoria rise by 18",
+            "source": "ABCNews",
+            "date": "18 June 2020",
+            "time": "00:00",
+            "summary": "Victorian Premier Daniel Andrews says the state will press on with its plans to further ease coronavirus restrictions next week, despite an apparent increase in community transmission of COVID-19. The state has recorded a further 18 new cases, including a third Black Lives Matter protester and a \"very young child\" who attended a childcare centre while infectious. Mr Andrews said health officials believed the state could continue to \"slowly, cautiously, safely\" reopen, but reminded people to adhere to social distancing measures."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-health-minister-greg-hunt-australia-island-sanctuary-international-travel-ruled-out/12bf4920-d444-4152-a7c6-2698dba8dc22",
+            "title": "Coronavirus: Greg Hunt says Australia is an island sanctuary as global pandemic grows and international travel ruled out",
+            "source": "9News",
+            "date": "18 June 2020",
+            "time": "9:29",
+            "summary": "Health Minister Greg Hunt has stressed international travel probably won't resume until next year as the global COVID-19 pandemic continues but says Australia is an \"island sanctuary\". Mr Hunt told Today global infections are growing at a concerning rate and this rules out overseas travel for Australians. The only possibility of overseas travel for Australians now rests on bilateral agreements or a COVID-19 vaccine."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jun/18/australian-arts-support-package-expected-after-talks-with-scott-morrison",
+            "title": "Australian arts support package expected after talks with Scott Morrison ",
+            "source": "TheGuardian",
+            "date": "18 June 2020",
+            "time": "16:12",
+            "summary": "The expenditure review committee of cabinet is expected to sign off on a support package for the struggling arts and entertainment industry on Thursday night after talks between Scott Morrison and representatives from the entertainment sector. The support under consideration includes assistance with startup costs to help artists resume touring as public health restrictions ease, and a dedicated grants fund to help entertainment businesses replenish their capital after the economic devastation created by Covid-19."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/jun/17/covid-safe-app-australia-covidsafe-contact-tracing-australian-government-covid19-tracking-problems-working",
             "title": "Australia's Covidsafe coronavirus tracing app works as few as one in four times for some devices ",
             "source": "TheGuardian",
@@ -111,38 +135,6 @@
             "date": "11 June 2020",
             "time": "18:01",
             "summary": "Scott Morrison has apologised for any “hurt or harm” caused by the way the Coalition rolled out the controversial robodebt scheme, but the government services minister, Stuart Robert, has flagged regular debt collection will resume on the other side of the Covid-19 crisis. Scott Morrison has apologised for any “hurt or harm” caused by the way the Coalition rolled out the controversial robodebt scheme, but the government services minister, Stuart Robert, has flagged regular debt collection will resume on the other side of the Covid-19 crisis. Guardian Australia reported this week the true value of all welfare debts unlawfully issued is expected to easily exceed $1bn."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-10/coronavirus-oecd-calls-for-extension-to-jobkeeper-gdp/12340832",
-            "title": "OECD calls for extension of coronavirus JobKeeper scheme as it warns Australia's economy could fall by 6.3 per cent",
-            "source": "ABCNews",
-            "date": "10 June 2020",
-            "time": "20:35",
-            "summary": "Australia's economy could contract by 6.3 per cent this year if there is a second wave of coronavirus infections, according to the OECD's latest economic outlook. The report urges the Morrison Government to introduce further policy measures to support households and businesses, including extending income support payments, such as the $70 billion JobKeeper wage subsidy, and building social housing. "
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-10/nz-travel-bubble-delayed-coronavirus-state-border-restrictions/12338458",
-            "title": "NZ travel bubble being delayed by Australian states' coronavirus border closures, Winston Peters says",
-            "source": "ABCNews",
-            "date": "10 June 2020",
-            "time": "21:16",
-            "summary": "State border restrictions are holding up the resumption of travel between Australia and New Zealand, with leaders across the Tasman Sea becoming frustrated at the delays. New Zealand's Foreign Affairs Minister Winston Peters has complained about the \"roadblock of federalism\" getting in the way of plans to create a trans-Tasman 'travel bubble' between the two countries. While some states are now welcoming interstate tourists, others, such as Queensland and Western Australia, are still banning visitors from outside the state."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-ruby-princess-ship-was-allowed-to-dock-so-passengers-didnt-miss-flights/f7de25ea-301b-450a-a096-564c599a4fcd",
-            "title": "Ruby Princess was allowed to dock in Sydney before coronavirus test results so passengers didn't miss flights",
-            "source": "9News",
-            "date": "10 June 2020",
-            "time": "16:43",
-            "summary": "Passengers were allowed to disembark the Ruby Princess six hours before coronavirus test results came back, so they did not miss their flights. Today Dr Sean Tobin, NSW Chief Biosecurity Officer, fronted the inquiry into why 2700 passengers were allowed to disembark and subsequently carry the deadly disease around the country. He said the NSW Health decision to allow thousands of people off the ship instead of keeping them on board for just six hours was made so as not to disrupt their travel plans."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/china-warns-students-against-studying-in-australia-in-latest-coronavirus-escalation",
-            "title": "China warns students against studying in Australia in latest coronavirus escalation",
-            "source": "SBSNews",
-            "date": "10 June 2020",
-            "time": "08:00",
-            "summary": "China on Tuesday urged students going overseas to study to think carefully before choosing Australia, due to a spate of racial incidents targeting Asians in the wake of the coronavirus pandemic. The Ministry of Education’s warning comes days after the Chinese culture and tourism ministry advised citizens against travelling to Australia due to racial discrimination and violence stemming from the coronavirus outbreak, which first emerged in China in late 2019. In its statement, the education ministry reminded \"overseas students to conduct a good risk assessment and be cautious about choosing to go to Australia or return to Australia to study.\""
         }
     ]
 }
