@@ -853,31 +853,93 @@
         {
             "name": "Victoria",
             "text": {
-                "text_1": [
-                    "Restrictions:",
-                    "As of 11:59pm Tuesday 12th May:"
+                "customText": [
+                    {
+                        "paraText": [
+                            "From 11:59pm Tuesday 12th May:"
+                        ],
+                        "pointText": [
+                            "From 1 June, you can have up to 20 people at your home at any one time, including members of your household, children and babies",
+                            "Outdoor gatherings will have the same rules with a total of 20 people if physical distancing is adhered to",
+                            "From 1 June, Victorian cafes, restaurants, and the dining areas of pubs andclubs will be allowed to reopen and host up to 20 patrons at a time indoors",
+                            "Cafes, restaurants and other spaces where people gather are preparing to re-open, although a 20-person limit will apply",
+                            "Libraries, galleries, museums, amusement parks, places of worship, beauty clinics, nail salons and massage parlours will also be allowed to reopen with no more than 20 people",
+                            "People will also be permitted to stay in holiday homes and attend tourist accommodation such as caravan parks and camping grounds",
+                            "Despite the easing of restrictions, people are still required to work from home if they can",
+                            "Victorians will be able to stay at another private residence or accommodation. Holiday rentals, hotels and Airbnbs will be allowed as will caravan park and camping stays. However, camping grounds that have communal facilities, including shared bathrooms and kitchens, will remain closed. Saunas and spas athotels will also stay closed",
+                            "You can go hiking, fishing, hunting, diving, prospecting, boating, go for a walk or play non-contact sport together outdoors",
+                            "From June 1, 20 people can attend a wedding in addition to the couple, and the celebrant",
+                            "Fifty mourners can attend a funeral in person as well as the people required for the funeral, such as the officiant or funeral company",
+                            "Drive-in cinemas will be allowed to open from June 1",
+                            "Zoos will also be able to open with 20 visitors per separate space at any one time",
+                            "Public playgrounds, skateparks and outdoor communal gyms are open",
+                            "Golf is now allowed but the club houses will be shut",
+                            "Shopping is still only allowed for essential items",
+                            "Ten people will be allowed to attend an open house inspection plus the minimum number of people reasonably required to facilitate the inspection",
+                            "Essential support groups, such as parents' groups and alcohol and drug support groups, will be allowed to operate. There can be no more than 10 people in the group, plus the people facilitating the session. They must maintain physical distancing of four-square-metres per person and can be held in community facilities such as halls and RSL clubs",
+                            "AFL clubs and other professional sporting codes will be allowed to train"
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From 11:59pm on Monday 25th May:"
+                        ],
+                        "pointText": [
+                            "In line with schools returning to face-to-face learning, public playgrounds, outdoor communal gym equipment and skateparks will be opened. Physical distancing and group limits remain in place."
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From 11:59pm on Sunday 31st May:"
+                        ],
+                        "pointText": [
+                            "Private gatherings increase to a total of 20 people in a house, including members of the household.",
+                            "Public gatherings, both indoor and outdoor, will increase to 20.",
+                            "Weddings increase to 20 people, plus the celebrant and the couple.",
+                            "Both indoor and outdoor funerals increase to 50 people, plus people reasonably required to conduct the funeral.",
+                            "Private worship or small religious ceremonies increase to up to 20 people plus people reasonably required for the ceremony.",
+                            "Auction houses, real estate auctions and open house inspections increase to 20 people plus the minimum number reasonably required to facilitate.",
+                            "Restaurants, cafes and pubs can open and serve meals for up to 20 patrons per space. Alcohol with meals only.",
+                            "Overnight stays in private residences allowed.",
+                            "Camping and tourist accommodation allowed if no use of shared facilities.",
+                            "Beauty therapy, tanning, waxing, nail salons, spas, tattoo parlours, massage parlours to open with up to 20 patrons.",
+                            "Non-food and drink market stalls to open.",
+                            "Learner permit and licence testing including drive tests will progressively resume from Monday 15 June.",
+                            "Community facilities to open, with no more than 20 people in a single space plus those reasonably required to run the space.",
+                            "Indoor and outdoor pools to open, to maximum 20 patrons and limit of 3 people per lane in each pool.",
+                            "Galleries, museums, national institutions, historic sites, outdoor amusement parks, drive-in cinemas, zoos and arcades to open with up to 20 patrons per space, while ensuring density limits are applied to the entire venue.",
+                            "Non-contact outdoor sporting activities will increase to 20 people plus the instructor."
+                        ]
+                    },
+                    {
+                        "paraText": [
+                            "From 11:59pm on Sunday 21st June:"
+                        ],
+                        "pointText": [
+                            "Increased number of patrons in restaurants, cafes and pubs to open to up to 50 seated patrons per space. Maximum group size of 20 applies.",
+                            "Bars and clubs can have up to 50 patrons per space. Maximum group size of 20 applies.",
+                            "Seated service of alcohol without food.",
+                            "Pub TABs and Retail TABs to open, followed by electronic gaming areas in pubs, clubs, casinos and hotels on 20 July.",
+                            "Increased number of patrons in galleries, museums, national institutions, historic sites, outdoor amusement parks, zoos and outdoor arcades to up to 50 patrons per indoor space. Density quotient is applied to the entire venue.",
+                            "Indoor cinemas, movie theatres, concert venues, theatres and auditoriums to open with up to 50 seated patrons per space.",
+                            "Private worship or small religious ceremonies can include up to 50 people plus people reasonably required for the ceremony. Group size limited to 20.",
+                            "Auction houses, real estate auctions and open house inspections and community facilities increase to 50 people plus those reasonably required to facilitate/run the auction.",
+                            "Indoor sports centres and venues can open with up to 20 people per space, with a limit of up to 10 people per group/activity at any one time for those aged over 18 years old.",
+                            "A staggered approach to the return of community sport will begin from 11:59pm on 21 June:",
+                            " - Resumption of full-contact training and competition for people 18 years and under",
+                            " - Resumption of non-contact competition for people aged over 18 years (indoors and outdoors)",
+                            " - From 13 July: resumption of full-contact training for adults",
+                            " - From 20 July: resumption of competition for adults",
+                            "Changing rooms and showers can open for sporting and recreational facilities, including swimming pools",
+                            "The limit on 3 per lane in swimming pools will no longer apply",
+                            "Ski season to open",
+                            "Shared facilities at camping and tourist accommodation can open",
+                            "Indoor play centres and toy libraries will be able to open with 20 people per space"
+                        ]
+                    }
                 ],
-                "ulist_1": [
-                    "From 1 June, you can have up to 20 people at your home at any one time, including members of your household, children and babies",
-                    "Outdoor gatherings will have the same rules with a total of 20 people if physical distancing is adhered to",
-                    "From 1 June, Victorian cafes, restaurants, and the dining areas of pubs andclubs will be allowed to reopen and host up to 20 patrons at a time indoors",
-                    "Cafes, restaurants and other spaces where people gather are preparing to re-open, although a 20-person limit will apply",
-                    "Libraries, galleries, museums, amusement parks, places of worship, beauty clinics, nail salons and massage parlours will also be allowed to reopen with no more than 20 people",
-                    "People will also be permitted to stay in holiday homes and attend tourist accommodation such as caravan parks and camping grounds",
-                    "Despite the easing of restrictions, people are still required to work from home if they can",
-                    "Victorians will be able to stay at another private residence or accommodation. Holiday rentals, hotels and Airbnbs will be allowed as will caravan park and camping stays. However, camping grounds that have communal facilities, including shared bathrooms and kitchens, will remain closed. Saunas and spas athotels will also stay closed",
-                    "You can go hiking, fishing, hunting, diving, prospecting, boating, go for a walk or play non-contact sport together outdoors",
-                    "From June 1, 20 people can attend a wedding in addition to the couple, and the celebrant",
-                    "Fifty mourners can attend a funeral in person as well as the people required for the funeral, such as the officiant or funeral company",
-                    "Drive-in cinemas will be allowed to open from June 1",
-                    "Zoos will also be able to open with 20 visitors per separate space at any one time",
-                    "Public playgrounds, skateparks and outdoor communal gyms are open",
-                    "Golf is now allowed but the club houses will be shut",
-                    "Shopping is still only allowed for essential items",
-                    "Ten people will be allowed to attend an open house inspection plus the minimum number of people reasonably required to facilitate the inspection",
-                    "Essential support groups, such as parents' groups and alcohol and drug support groups, will be allowed to operate. There can be no more than 10 people in the group, plus the people facilitating the session. They must maintain physical distancing of four-square-metres per person and can be held in community facilities such as halls and RSL clubs",
-                    "AFL clubs and other professional sporting codes will be allowed to train"
-                ],
+                "text_1": [],
+                "ulist_1": [],
                 "text_middle": [
                     "Travel:"
                 ],
@@ -905,10 +967,14 @@
                     {
                         "link": "https://www.theguardian.com/australia-news/2020/apr/29/social-distancing-rules-australia-coronavirus-strict-new-laws-legal-illegal-state-physical-restrictions-guidelines-explained-nsw-victoria-qld-queensland-act-sa-wa-two-person-rule",
                         "name": "Australia's coronavirus social distancing rules explained: state by state guidelines - The Guardian"
+                    },
+                    {
+                        "link": "https://www.vic.gov.au/coronavirus-covid-19-restrictions-victoria",
+                        "name": "Coronavirus (COVID-19) restrictions Victoria"
                     }
                 ]
             },
-            "lastUpdated": "31 May 2020"
+            "lastUpdated": "19 June 2020"
         },
         {
             "name": "Tasmania",
