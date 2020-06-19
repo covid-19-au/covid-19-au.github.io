@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.watoday.com.au/national/victoria/coronavirus-restrictions-to-ease-despite-new-lift-in-cases-deputy-health-chief-20200619-p554bu.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Coronavirus restrictions to ease despite fears of second wave 'tipping point'",
+            "source": "WAToday",
+            "date": "19 June 2020",
+            "time": "14:05",
+            "summary": "Victoria will forge ahead with loosening coronavirus restrictions on Monday as experts worry the state could be at the \"tipping point\" of a second wave of infections. Thirteen new COVID-19 cases were reported in Victoria on Friday - the third successive day with a double-digit rise. Professor James McCaw, an epidemiologist with the Doherty Institute who has worked on government modelling during the pandemic, said it was fair to ask whether Victoria should be loosening the rules on June 22."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/the-northern-territory-will-open-its-borders-to-interstate-travellers-on-17-july",
+            "title": "The Northern Territory will open its borders to interstate travellers on 17 July",
+            "source": "SBSNews",
+            "date": "19 June 2020",
+            "time": "00:00",
+            "summary": "The Northern Territory will reopen its borders to interstate travellers on July 17, nearly four months after they were closed due to the coronavirus pandemic. Thursday marked 28 days since the last of the 30 people to have COVID-19 in the Territory recovered, a period of time NT Chief Health Officer Hugh Heggie had recommended as it represented two 14-day incubation periods of the virus. From 12.01am on July 17, people who enter the Territory from other states will no longer have to go into quarantine. It also means Territorians will be able to travel to the rest of Australia to see friends and family without having to serve 14 days' quarantine on their return."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-18/coronavirus-cases-in-victoria-climb-blm-protester-positive/12368000",
             "title": "Coronavirus cases in Victoria rise by 18",
             "source": "ABCNews",
@@ -111,30 +127,6 @@
             "date": "12 June 2020",
             "time": "17:00",
             "summary": "Some international students could be allowed to return to Australia on a \"pilot basis\" as soon as next month but only if states agree to open their borders, Prime Minister Scott Morrison has announced. Addressing the media after a national cabinet meeting with state and territory leaders on Friday, Mr Morrison said the federal government was working with states and territories to enable international students to return in a \"very controlled setting\" and only under pre-approved plans provided by institutions. But the Prime Minister made clear that if the states and territories wanted international students to return, they would have to \"open up borders for Australians\"."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-11/victorian-black-lives-matter-protester-diagnosed-coronavirus/12343130",
-            "title": "Black Lives Matter protester among eight new coronavirus infections in Victoria",
-            "source": "ABCNews",
-            "date": "11 June 2020",
-            "time": "19:00",
-            "summary": "A man in his 30s who went to Saturday's Black Lives Matter protest in Melbourne, which thousands of others attended, has tested positive for COVID-19. The man, who wore a mask to the protest, developed symptoms in the 24 hours after the demonstration, the state's Chief Health Officer Brett Sutton said on Thursday. Professor Sutton told reporters it was unlikely the man contracted the virus at the demonstration. However, he may have been infectious. Close contacts who spent more than 15 minutes directly with the person will be told to quarantine."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-11/nsw-coronavirus-restrictions-eased-20-people-allowed-in-homes/12343052",
-            "title": "NSW coronavirus restrictions eased further, up to 20 people allowed in homes from Saturday",
-            "source": "ABCNews",
-            "date": "11 June 2020",
-            "time": "14:00",
-            "summary": "NSW coronavirus restrictions will be further eased from Saturday, when households will be able to welcome up to 20 guests. Premier Gladys Berejiklian made the announcement this morning, and also revealed up to 20 people would be able to gather in groups outside from the same date. Food courts will also be open from Saturday, as long as people can abide by the four-square-metre rule."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/jun/11/scott-morrison-apologises-for-hurt-or-harm-caused-by-robodebt-rollout",
-            "title": "Scott Morrison apologises for 'hurt or harm' caused by robodebt rollout ",
-            "source": "TheGuardian",
-            "date": "11 June 2020",
-            "time": "18:01",
-            "summary": "Scott Morrison has apologised for any “hurt or harm” caused by the way the Coalition rolled out the controversial robodebt scheme, but the government services minister, Stuart Robert, has flagged regular debt collection will resume on the other side of the Covid-19 crisis. Scott Morrison has apologised for any “hurt or harm” caused by the way the Coalition rolled out the controversial robodebt scheme, but the government services minister, Stuart Robert, has flagged regular debt collection will resume on the other side of the Covid-19 crisis. Guardian Australia reported this week the true value of all welfare debts unlawfully issued is expected to easily exceed $1bn."
         }
     ]
 }
