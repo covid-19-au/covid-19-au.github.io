@@ -22,58 +22,49 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import DateType from "../CrawlerDataTypes/DateType"
+var __currentId = 0;
 
 
-class TimeSeriesItem extends Array {
+class LayerBase {
     /**
-     * A basic time series datapoint, with a DateType
-     * instance and NumberType instance associated with it
      *
-     * @param dateType
-     * @param numberType
+     * @param map
      */
-    constructor(dateType, numberType) {
-        if (!(dateType instanceof DateType)) {
-            dateType = new DateType(dateType);
+    constructor(map) {
+        this.map = map;
+        this.__layerIds = new Set();
+    }
+
+    /**
+     *
+     * @param prefix
+     * @returns {*}
+     */
+    _getNewLayerId(prefix) {
+        __currentId++;
+        var id = prefix+__currentId;
+        this.__layerIds.add(id);
+        return id;
+    }
+
+    /**
+     *
+     * @param id
+     */
+    _removeLayerId(id) {
+        if (!this.__layerIds.has(id)) {
+            TODO;
         }
-        super([dateType, numberType]);
+        this.__layerIds.remove(id);
+        this.map.removeLayer(id);
     }
 
     /**
-     * Get whether another TimeSeriesItem is equal to this one
      *
-     * @param timeSeriesItem
-     * @returns {boolean|boolean}
      */
-    equalTo(timeSeriesItem) {
-        return (
-            this.getDateType().toString() === timeSeriesItem.toString() &&
-            this.getValue() === timeSeriesItem.getValue()
-        );
-    }
-
-    /********************************************************************
-     * Basic Methods
-     ********************************************************************/
-
-    /**
-     * Get the DateType supplied to this TimeSeriesItem
-     *
-     * @returns {T}
-     */
-    getDateType() {
-        return this[0];
-    }
-
-    /**
-     * Get the NumberType supplied to this TimeSeriesItem
-     *
-     * @returns {T}
-     */
-    getValue() {
-        return this[1];
+    _resetLayerIds() {
+        for (var layerId of this.__layerIds) {
+            this._removeLayerId(layerId);
+        }
     }
 }
-
-export default TimeSeriesItem;

@@ -1,4 +1,12 @@
 class LinePolyLayer {
+    /**
+     *
+     * @param map
+     * @param dataSource
+     * @param uniqueId
+     * @param color
+     * @param fillSourceId
+     */
     constructor(map, dataSource, uniqueId, color, fillSourceId) {
         this.map = map;
         this.dataSource = dataSource;

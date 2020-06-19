@@ -32,45 +32,7 @@ import RegionType from "../CrawlerDataTypes/RegionType"
 import TimeSeriesItem from "../CrawlerDataTypes/TimeSeriesItem"
 import TimeSeriesItems from "../CrawlerDataTypes/TimeSeriesItems"
 
-
-/**
- * Get stats from today's hand-crafted state data
- *
- * @param stateName the Australian state name
- * @param dataType the datatype
- * @returns {null|*[]}
- */
-function getFromStateCaseData(stateName, dataType) {
-    var dateUpdated = StateLatestNums.updatedTime.split(' ')[1].replace(/[-]/g, '/');
-
-    for (var [
-        iStateName, iConfirmed, iDeaths, iRecovered,
-        iTested, iInHospital, iInICU, iUnknown
-    ] of StateLatestNums.values) {
-        if (stateName.toUpperCase() !== iStateName.toUpperCase()) {
-            continue;
-        }
-        else if (dataType === 'total') {
-            return new TimeSeriesItem(dateUpdated, iConfirmed);
-        }
-        else if (dataType === 'status_deaths') {
-            return new TimeSeriesItem(dateUpdated, iDeaths);
-        }
-        else if (dataType === 'status_recovered') {
-            return new TimeSeriesItem(dateUpdated, iRecovered);
-        }
-        else if (dataType === 'tests_total') { //  CHECK ME!!!
-            return new TimeSeriesItem(dateUpdated, iTested);
-        }
-        else if (dataType === 'status_icu') {
-            return new TimeSeriesItem(dateUpdated, iInICU);
-        }
-        else if (dataType === 'status_hospitalized') {
-            return new TimeSeriesItem(dateUpdated, iInHospital);
-        }
-    }
-    return null;
-}
+import getFromTodaysStateCaseData from "./getFromTodaysStateCaseData"
 
 
 class CasesData {
@@ -109,7 +71,7 @@ class CasesData {
         this.regionsDateIds = this._getRegionsDateIds(regionsDateIds);
 
         this.dataType = dataType;
-        this.updatedDate = updatedDate;
+        this.updatedDate = new DateType(updatedDate);
 
         this.regionSchema = regionSchema;
         this.regionParent = regionParent;
@@ -135,6 +97,7 @@ class CasesData {
     }
 
     /**
+     * Get a unique ID that can be used for mapbox gl source IDs etc
      *
      * @returns {*}
      */
@@ -143,6 +106,7 @@ class CasesData {
     }
 
     /**
+     * Get when this data source was updated as a DateType
      *
      * @returns {*}
      */
@@ -157,46 +121,33 @@ class CasesData {
     /**
      * Return only the latest value
      *
-     * @param region
+     * @param regionType
      * @param ageRange
      * @returns {{numCases: number, updatedDate: *}|{numCases, updatedDate}|{numCases: number, updatedDate}}
      */
     getCaseNumber(regionType, ageRange) {
         if (this.schema === 'statewide') {
-            var n = getFromStateCaseData(this.stateName, this.dataType);
+            var n = getFromTodaysStateCaseData(this.stateName, this.dataType);
             if (n != null) {
-                return new TimeSeriesItem(
-                    new DateType(n[1]),
-                    getNumberByType(FIXME, parseInt(n[0]))
-                );
+                return new TimeSeriesItem(new DateType(n[1]), parseInt(n[0]));
             }
         }
 
-        regionChild = ConfirmedMapFns.prepareForComparison(regionChild || '');
         ageRange = ageRange || '';
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
-            if (
-                (this.schema === 'statewide' || iRegion === regionChild) &&
-                iAgeRange === ageRange
-            ) {
+            if (iRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
                 for (var j = 0; j < iValues.length; j++) {
                     var dateUpdated = this.regionsDateIds[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
 
                     if (iValue != null && iValue !== '') {
-                        return new TimeSeriesItem(
-                            new DateType(dateUpdated),
-                            getNumberByType(FIXME, parseInt(iValue))
-                        );
+                        return new TimeSeriesItem(dateUpdated, parseInt(iValue));
                     }
                 }
             }
         }
-        return new TimeSeriesItem(
-            new DateType(dateUpdated),
-            getNumberByType(FIXME, 0)
-        );
+        return new TimeSeriesItem(dateUpdated, 0);
     }
 
     /**
@@ -207,38 +158,33 @@ class CasesData {
      * This is both useful when active numbers aren't provided,
      * or for comparison with the active figures
      *
-     * @param region
+     * @param regionType
      * @param ageRange
      * @param numDays
      * @returns {{numCases: number, updatedDate: *}|null|{numCases: number, updatedDate: *}}
      */
     getCaseNumberOverNumDays(regionType, ageRange, numDays) {
-
         var oldest = null;
-        var latest = super.getCaseNumber(region, ageRange);
+
+        var latest = this.getCaseNumber(regionType, ageRange);
         if (!latest) {
             return null;
         }
 
-        region = ConfirmedMapFns.prepareForComparison(region || '');
         ageRange = ageRange || '';
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
-            if (
-                (this.schema === 'statewide' || iRegion === region) &&
-                iAgeRange === ageRange
-            ) {
+            if (iRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
                 for (var j = 0; j < iValues.length; j++) {
                     var dateUpdated = this.regionsDateIds[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
 
                     if (iValue != null && iValue !== '') {
-                        oldest = {
-                            'numCases': latest['numCases'] - parseInt(iValue),
-                            'updatedDate': latest['updatedDate']
-                        };
+                        oldest = new TimeSeriesItem(
+                            latest['updatedDate'], latest['numCases'] - parseInt(iValue)
+                        );
 
-                        if (ConfirmedMapFns.dateDiffFromToday(dateUpdated) > numDays) {
+                        if (dateUpdated.numDaysSince() > numDays) {
                             return oldest;
                         }
                     }
@@ -248,10 +194,9 @@ class CasesData {
 
         // Can't do much if data doesn't go back
         // that far other than show oldest we can
-        return oldest || {
-            'numCases': 0,
-            'updatedDate': latest['updatedDate']
-        };
+        return oldest || new TimeSeriesItem(
+            latest['updatedDate'], 0
+        );
     }
 
     /*******************************************************************
@@ -259,49 +204,48 @@ class CasesData {
      *******************************************************************/
 
     /**
+     * Get the case numbers as a TimeSeriesItems array
      *
-     * @param region
+     * @param regionType
      * @param ageRange
      * @returns {[]}
      */
     getCaseNumberTimeSeries(regionType, ageRange) {
-        var r = [];
-        var latest = this.__getCaseNumber(region, ageRange);
+        var dateRangeType = new DateRangeType(DateType.today(), DateType.today());
+        var r = new TimeSeriesItems(
+            this, regionType, dateRangeType, ageRange
+        );
+
+        var latest = this.getCaseNumber(regionType, ageRange);
         if (latest && latest.numCases) {
             // Make sure we use the manually entered values first!
-            r.push({
-                x: ConfirmedMapFns.parseDate(latest.updatedDate),
-                y: parseInt(latest.numCases)
-            });
+            r.push(new TimeSeriesItem(latest.updatedDate, parseInt(latest.numCases)));
         }
 
-        region = ConfirmedMapFns.prepareForComparison(region || '');
         ageRange = ageRange || '';
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
-            if (
-                (this.schema === 'statewide' || iRegion === region) &&
-                iAgeRange === ageRange
-            ) {
+            if (iRegion === regionType.getChildRegion() && iAgeRange === ageRange) {
                 for (var j = 0; j < iValues.length; j++) {
                     var dateUpdated = this.regionsDateIds[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
 
                     if (iValue != null && iValue !== '') {
                         // May as well use CanvasJS format
-                        r.push({
-                            x: ConfirmedMapFns.parseDate(dateUpdated),
-                            y: parseInt(iValue)
-                        });
+                        r.push(new TimeSeriesItem(dateUpdated, parseInt(iValue)));
                     }
                 }
             }
         }
-        r.sort((x, y) => x.x - y.x);
+
+        r.sort((x, y) => x.getDateType() - y.getDateType());
+        dateRangeType.setDateRange(r[0].getUpdatedDate(), r[r.length-1].getUpdatedDate());
         return r;
     }
 
     /**
+     * Get the case numbers as a TimeSeriesItems array,
+     * but only over the specified number of days
      *
      * @param regionType a RegionType instance
      * @param ageRange
@@ -310,13 +254,11 @@ class CasesData {
      */
     getCaseNumberTimeSeriesOverNumDays(regionType, ageRange, numDays) {
         var r = [];
-        var values = super.getCaseNumberTimeSeries(
-            regionType, ageRange
-        );
+        var values = this.getCaseNumberTimeSeries(regionType, ageRange);
 
         for (var i = 0; i < values.length; i++) {
             var iData = values[i];
-            if (ConfirmedMapFns.dateDiff(iData.x, ConfirmedMapFns.getToday()) > numDays) {
+            if (iData.getDateType().numDaysSince() > numDays) {
                 continue;
             }
             r.push(iData);
@@ -329,6 +271,7 @@ class CasesData {
      *******************************************************************/
 
     /**
+     * Get the maximum, minimum and median case values
      *
      * @returns {{min: number, median: *, max: number}}
      */
@@ -369,7 +312,6 @@ class CasesData {
      * @returns {null|*}
      */
     getDaysSince(regionType, ageRange) {
-        // Return only the latest value
         ageRange = ageRange || '';
         var firstVal = null;
 

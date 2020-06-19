@@ -172,6 +172,13 @@ class SchemaTypeSelect extends React.Component {
     //                   Get Select Options                   //
     //========================================================//
 
+    /**
+     *
+     * @param covidGeoData
+     * @param admin0InView
+     * @param admin1InView
+     * @returns {[]}
+     */
     getPossibleMarkersSelectOptions(covidGeoData, admin0InView, admin1InView) {
         /*
         TODO: Get all the possible markers that can be displayed

@@ -26,17 +26,245 @@ import GeoData from "./GeoData.js"
 import CasesData from "./CasesData.js"
 import UnderlayData from "./UnderlayData";
 
+import schemaTypes from "../../data/caseData/schema_types.json"
+import mapbox from "mapbox-gl";
+
+
+var MODE_GEOJSON_ONLY = 0,
+    MODE_UNDERLAY = 1,
+    MODE_CASES = 2;
+
 
 class DataDownloader {
+    /**
+     *
+     */
     constructor() {
         this._geoDataInsts = {};
         this._underlayDataInsts = {};
         this._caseDataInsts = {};
+
+        this.schemas = schemaTypes['schemas'];
+        this.adminBounds = this._getAdminBounds(schemaTypes['admin_bounds'])
     }
 
-    //========================================================//
-    //                     Download Files                     //
-    //========================================================//
+    /**************************************************************************
+     * Get possible schemas based on current map boundaries
+     **************************************************************************/
+
+    /**
+     * Get a Map with keys of [parent schema, parent iso 3166 code]
+     * and values of [priority, schema, iso 3166-2 codes as an array],
+     * filtering only to schemas which have GeoJSON data.
+     *
+     * The iso 3166-2 codes are only provided when data files are split
+     * to make downloads more manageable
+     *
+     * @param zoomLevel
+     * @param lngLatBounds
+     * @returns {Map<any, any>}
+     */
+    getPossibleSchemasForGeoJSON(zoomLevel, lngLatBounds) {
+        return this.__getPossibleSchemas(MODE_GEOJSON_ONLY, zoomLevel, lngLatBounds);
+    }
+
+    /**
+     * Get a Map with keys of [parent schema, parent iso 3166 code]
+     * and values of [priority, schema, iso 3166-2 codes as an array],
+     * filtering only to schemas which have underlay data.
+     *
+     * The iso 3166-2 codes are only provided when data files are split
+     * to make downloads more manageable
+     *
+     * @param zoomLevel
+     * @param lngLatBounds
+     * @returns {Map<any, any>}
+     */
+    getPossibleSchemasForUnderlay(zoomLevel, lngLatBounds) {
+        return this.__getPossibleSchemas(MODE_UNDERLAY, zoomLevel, lngLatBounds);
+    }
+
+    /**
+     * Get a Map with keys of [parent schema, parent iso 3166 code]
+     * and values of [priority, schema, iso 3166-2 codes as an array],
+     * filtering only to schemas which have cases data.
+     *
+     * The iso 3166-2 codes are only provided when data files are split
+     * to make downloads more manageable
+     *
+     * @param zoomLevel
+     * @param lngLatBounds
+     * @returns {Map<any, any>}
+     */
+    getPossibleSchemasForCases(zoomLevel, lngLatBounds) {
+        return this.__getPossibleSchemas(MODE_CASES, zoomLevel, lngLatBounds);
+    }
+
+    /**
+     * Get a Map with keys of [parent schema, parent iso 3166 code]
+     * and values of [priority, schema, iso 3166-2 codes as an array].
+     *
+     * The iso 3166-2 codes are only provided when data files are split
+     * to make downloads more manageable
+     *
+     * @param mode
+     * @param zoomLevel
+     * @param lngLatBounds
+     * @returns {Map<any, any>}
+     * @private
+     */
+    __getPossibleSchemas(mode, zoomLevel, lngLatBounds) {
+        var r = new Map();
+        var iso3166WithinView = this._getISO3166WithinView(lngLatBounds);
+
+        for (let [schema, schemaObj] of this.schemas.entries()) {
+            var parentSchema = this.__getParentSchema(schema, schemaObj['iso_3166']),
+                parentISO = schemaObj['iso_3166'], // TODO: What about admin0/1??
+                minZoom = schemaObj['min_zoom'],
+                maxZoom = schemaObj['max_zoom'],
+                priority = schemaObj['priority'],
+                splitByParentRegion = schemaObj['split_by_parent_region'];
+
+            if (mode === MODE_CASES) {
+                if (minZoom != null && zoomLevel < minZoom) {
+                    continue;
+                } else if (maxZoom != null && zoomLevel > maxZoom) {
+                    continue;
+                } else if (
+                    priority != null &&
+                    r.has([parentSchema, parentISO]) &&
+                    r.get([parentSchema, parentISO])[0] >= priority
+                ) {
+                    continue;
+                }
+            }
+
+            if (splitByParentRegion && parentSchema === 'admin0') {
+                // Split into different files by parent region
+                // e.g. admin1 has no parent (signifying for all admin0's),
+                //          but is split into e.g. AU-VIC etc
+                //      jp_city has a parent of JP (signifying for all Japan)
+                let iso3166Codes = [];
+                for (let iso3166 of iso3166WithinView) {
+                    if (iso3166.indexOf('_') === -1) {
+                        // Splitting is only supported at an admin1 level
+                        continue;
+
+                    } else if (!this.__fileInGeoJSONData(schema, iso3166)) {
+                        continue;
+                    } else if (mode === MODE_CASES && !this.__fileInCaseData(schema, iso3166)){
+                        // Cases data not in listing
+                        continue;
+                    } else if (mode === MODE_UNDERLAY && !this.__fileInUnderlayData(schema, iso3166)){
+                        // Cases data not in listing
+                        continue;
+                    }
+                    iso3166Codes.push(iso3166);
+                }
+
+                // Data is split into multiple files to save downloads -
+                // only get files which are in view!
+                r.set([parentSchema, parentISO], [priority, schema, iso3166Codes]);
+
+            } else if (!splitByParentRegion) {
+                if (!iso3166WithinView.has(parentISO)) {
+                    // The parent isn't in view, so isn't possible!
+                    continue;
+                } else if (!this.__fileInGeoJSONData(schema, null)) {
+                    continue;
+                } else if (mode & MODE_CASES && !this.__fileInCaseData(schema, null)){
+                    // Cases data not in listing
+                    continue;
+                } else if (mode & MODE_UNDERLAY && !this.__fileInUnderlayData(schema, null)){
+                    // Cases data not in listing
+                    continue;
+                }
+
+                // All data is in one file, so assign for all
+                r.set([parentSchema, parentISO], [priority, schema]);
+
+            } else {
+                throw "Parent schema must be admin0 to allow splitting files!";
+            }
+        }
+
+        if (mode === MODE_CASES) {
+            for (let [parentSchema, parentISO] of r.keys()) {
+                // e.g. if LGA is displayed for AU-VIC, don't
+                // display either AU-VIC (admin1) or AU (admin0)
+                var admin0 = parentISO ? parentISO.split('_')[0] : null;
+
+                if ((parentSchema === 'admin0' || parentSchema === 'admin1') && r.has([null, admin0])) {
+                    r.delete([null, admin0]);
+                }
+                if (parentSchema === 'admin1' && r.has(['admin0', admin0])) {
+                    r.delete(['admin0', admin0]);
+                }
+            }
+        }
+        return r;
+    }
+
+    /**************************************************************************
+     * Map boundaries
+     **************************************************************************/
+
+    /**
+     * Get each ISO 3166-a2 (admin0) and ISO 3166-2 (admin1) code mapped
+     * to a boundary area (a mapbox LngLatBounds instance), so that we
+     * can know when a given admin0/1 area is in view and download as
+     * necessary
+     *
+     * @param adminBounds
+     * @returns {{}}
+     * @private
+     */
+    _getAdminBounds(adminBounds) {
+        var r = {};
+        for (var key in adminBounds) {
+            let [lng1, lat1, lng2, lat2] = adminBounds[key];
+            r[key] = new mapbox.LngLatBounds(
+                new mapbox.LngLat(lng1, lat1),
+                new mapbox.LngLat(lng2, lat2)
+            );
+        }
+        return r
+    }
+
+    /**
+     * Get which ISO 3166-a2 (admin0) and ISO 3166-2 (admin1) codes
+     * are within view as a set
+     *
+     * @param lngLatBounds a mapbox LngLatBounds instance
+     * @returns {Set<unknown>}
+     * @private
+     */
+    _getISO3166WithinView(lngLatBounds) {
+        var r = new Set();
+
+        for (var [iso_3166, iLngLatBounds] of this.adminBounds.entries()) { // region parent, region child??? ==========
+            if (
+                lngLatBounds.contains(iLngLatBounds.getSouthWest()) ||
+                lngLatBounds.contains(iLngLatBounds.getNorthEast()) ||
+                lngLatBounds.contains(iLngLatBounds.getNorthWest()) ||
+                lngLatBounds.contains(iLngLatBounds.getSouthEast()) ||
+                iLngLatBounds.contains(lngLatBounds.getSouthWest()) ||
+                iLngLatBounds.contains(lngLatBounds.getNorthEast()) ||
+                iLngLatBounds.contains(lngLatBounds.getNorthWest()) ||
+                iLngLatBounds.contains(lngLatBounds.getSouthEast())
+            ) {
+                r.add(iso_3166);
+
+                // If ISO 3166 2 is in view, assume ISO 3166 a2 is in view too
+                r.add(iso_3166.split('_')[0])
+            }
+        }
+        return r;
+    }
+
+    /**************************************************************************
+     * Download Files
+     **************************************************************************/
 
     /**
      * Download GeoJSON (geographic) data and create instances as needed.
@@ -49,28 +277,20 @@ class DataDownloader {
         var fileNames = this.__getFileNames(schemaType, regionParent);
 
         return new Promise(resolve => {
-            if (this.staticData[schemaType][regionParent]) {
-                return resolve(this.staticData[schemaType][regionParent]);
+            if (this._geoDataInsts[schemaType][regionParent]) {
+                return resolve(this._geoDataInsts[schemaType][regionParent]);
             }
-            import(`../data/mapStaticData/${fileNames.staticDataFilename}`).then((module) => {  // FIXME!!
+            import(`../data/mapGeoData/${fileNames.geoDataFilename}`).then((module) => {  // FIXME!!
                 var geodata = module['geodata'];
                 for (var schema of geodata) {
                     for (var regionParent of geodata[schema]) {
-                        this.staticData[schema][regionParent] = new GeoData(
+                        this._geoDataInsts[schema][regionParent] = new GeoData(
                             geodata[schema][regionParent]
                         );
 
                     }
                 }
-                var underlayData = module['underlay_data'];
-                for (var schema of underlayData) {
-                    for (var regionParent of underlayData[schema]) {
-                        this.staticData[schema][regionParent] = new UnderlayData(
-                            underlayData[schema][regionParent]
-                        );
-                    }
-                }
-                resolve(resolve(this.staticData[schema][regionParent]));
+                resolve(resolve(this._geoDataInsts[schema][regionParent]));
             });
         });
     }
@@ -87,28 +307,19 @@ class DataDownloader {
         var fileNames = this.__getFileNames(schemaType, regionParent);
 
         return new Promise(resolve => {
-            if (this.staticData[schemaType][regionParent]) {
-                return resolve(this.staticData[schemaType][regionParent]);
+            if (this._underlayDataInsts[schemaType][regionParent]) {
+                return resolve(this._underlayDataInsts[schemaType][regionParent]);
             }
-            import(`../data/mapStaticData/${fileNames.staticDataFilename}`).then((module) => {  // FIXME!!
-                var geodata = module['geodata'];
-                for (var schema of geodata) {
-                    for (var regionParent of geodata[schema]) {
-                        this.staticData[schema][regionParent] = new GeoData(
-                            geodata[schema][regionParent]
-                        );
-
-                    }
-                }
+            import(`../data/mapUnderlayData/${fileNames.underlayDataFilename}`).then((module) => {  // FIXME!!
                 var underlayData = module['underlay_data'];
                 for (var schema of underlayData) {
                     for (var regionParent of underlayData[schema]) {
-                        this.staticData[schema][regionParent] = new UnderlayData(
+                        this._underlayDataInsts[schema][regionParent] = new UnderlayData(
                             underlayData[schema][regionParent]
                         );
                     }
                 }
-                resolve(resolve(this.staticData[schema][regionParent]));
+                resolve(resolve(this._underlayDataInsts[schema][regionParent]));
             });
         });
     }
@@ -124,8 +335,8 @@ class DataDownloader {
         var fileNames = this.__getFileNames(schemaType, regionParent);
 
         return new Promise(resolve => {
-            if (this.caseData[schemaType][regionParent]) {
-                return resolve(this.caseData[schemaType][regionParent]);
+            if (this._caseDataInsts[schemaType][regionParent]) {
+                return resolve(this._caseDataInsts[schemaType][regionParent]);
             }
             import(`../data/mapCaseData/${fileNames.caseDataFilename}`).then((module) => {  // FIXME!!
                 var caseData = module['case_data'];
@@ -137,15 +348,19 @@ class DataDownloader {
                     }
                 }
             });
-            resolve(this.caseData[schemaType][regionParent]);
+            resolve(this._caseDataInsts[schemaType][regionParent]);
         });
     }
 
-    //========================================================//
-    //                     Miscellaneous                      //
-    //========================================================//
+    /**************************************************************************
+     * Remote data filenames
+     **************************************************************************/
 
     /**
+     * Get the remove filenames for a given schema type and region parent.
+     *
+     * Note that if a given schema type isn't split into multiple files,
+     * the region parent will be ignored
      *
      * @param schemaType
      * @param regionParent
@@ -153,38 +368,100 @@ class DataDownloader {
      * @private
      */
     __getFileNames(schemaType, regionParent) {
-        var staticDataFilename,
-            caseDataFilename;
+        var caseDataFilename,
+            geoJSONFilename,
+            underlayDataFilename;
 
         if (this.schemas[schemaType].split_by_parent_region) {
-            staticDataFilename = `../data/mapStaticData/${schemaType}_${regionParent}.json`;
-            caseDataFilename = `../data/mapCaseData/${schemaType}_${regionParent}.json`;
+            geoJSONFilename = `${schemaType}_${regionParent}.json`;
+            underlayDataFilename = `${schemaType}_${regionParent}.json`;
+            caseDataFilename = `${schemaType}_${regionParent}.json`;
         }
         else {
-            staticDataFilename = `../data/mapStaticData/${schemaType}.json`;
-            caseDataFilename = `../data/mapCaseData/${schemaType}.json`;
+            geoJSONFilename = `${schemaType}.json`;
+            underlayDataFilename = `${schemaType}.json`;
+            caseDataFilename = `${schemaType}.json`;
         }
 
         return {
-            staticDataFilename: staticDataFilename,
+            geoJSONFilename: geoJSONFilename,
+            underlayDataFilename: underlayDataFilename,
             caseDataFilename: caseDataFilename
         };
     }
 
     /**
+     * Get whether a cases data file exists on the remote server
      *
      * @param schemaType
      * @param regionParent
-     * @returns {boolean|boolean}
+     * @returns {boolean}
      * @private
      */
-    __filesInListings(schemaType, regionParent) {
+    __fileInCaseData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
+        return fileNames.caseDataFilename in this.caseDataListing;
+    }
 
-        return (
-            fileNames.staticDataFilename in this.staticDataListing &&
-            fileNames.caseDataFilename in this.caseDataListing
-        );
+    /**
+     * Get whether a GeoJSON data file exists on the remote server
+     *
+     * @param schemaType
+     * @param regionParent
+     * @returns {boolean}
+     * @private
+     */
+    __fileInGeoJSONData(schemaType, regionParent) {
+        var fileNames = this.__getFileNames(schemaType, regionParent);
+        return fileNames.geoJSONFilename in this.geoJSONDataListing;
+    }
+
+    /**
+     * Get whether an underlay data file exists on the remote server
+     *
+     * @param schemaType
+     * @param regionParent
+     * @returns {boolean}
+     * @private
+     */
+    __fileInUnderlayData(schemaType, regionParent) {
+        var fileNames = this.__getFileNames(schemaType, regionParent);
+        return fileNames.underlayFilename in this.underlayDataListing;
+    }
+
+    /**************************************************************************
+     * Miscellaneous
+     **************************************************************************/
+
+    /**
+     * Given a parent ISO 3166 code and a schema, get the parent schema.
+     *
+     * @param schema
+     * @param parentISO
+     * @returns {string}
+     * @private
+     */
+    __getParentSchema(schema, parentISO) {
+        var parentSchema;
+        if (schema === 'admin0') {
+            // Countries: has no parent
+            // (may change this to make "world" or
+            // regions like West Europe parents later)
+            parentSchema = null;
+        }
+        else if (schema === 'admin1') {
+            // Replaces all admin0 (states/territories)
+            parentSchema = 'admin0';
+        }
+        else if (parentISO.indexOf('_') !== -1) {
+            // e.g. AU-VIC: replaces only a single admin1 region
+            parentSchema = 'admin1';
+        }
+        else {
+            // e.g. AU: replaces entire admin0 (country)
+            parentSchema = 'admin0';
+        }
+        return parentSchema;
     }
 }
 

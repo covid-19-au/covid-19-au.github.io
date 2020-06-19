@@ -4,7 +4,7 @@ import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import Acknowledgement from "../Acknowledgment"
-import TimeSeriesDataSource from "./CrawlerData/DataCases"
+import TimeSeriesDataSource from "./CrawlerData/CasesData"
 import GeoBoundaries from "./ConfirmedMap/GeoBoundaries/GeoBoundaries" // FIXME!
 
 

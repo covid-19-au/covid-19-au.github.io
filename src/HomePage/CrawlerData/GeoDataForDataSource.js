@@ -22,8 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import BigTableOValuesDataSource from "./DEPRECATED/DataABS";
-import Fns from "../ConfirmedMap/Fns";
+import UnderlayData from "./UnderlayData"
+import CasesData from "./CasesData"
+import Fns from "../ConfirmedMap/Fns"
 
 // Higher values will result in less accurate lines,
 // but faster performance. Default is 0.375
@@ -45,6 +46,9 @@ class GeoDataForDataSource {
         this.geoData = geoData;
         this.dataSource = dataSource;
 
+        this._polygonDataCache = {};
+        this._pointDataCache = {};
+
         this._associateSource(geoData, dataSource)
     }
 
@@ -53,16 +57,56 @@ class GeoDataForDataSource {
      *******************************************************************/
 
     /**
+     * Cluster points for cases, so as to be able
+     * to get a zoomed-out general overview of an area
+     *
+     * @param pointGeoJSONData
+     * @param dataSource
+     */
+    getPointDataByZoomLevel(pointGeoJSONData, dataSource) {
+        var byZoom = {};
+
+        byZoom[8] = this.getModifiedGeoJSONWithPointsJoined(
+            pointGeoJSONData, 8
+        );
+        byZoom[7] = this.getModifiedGeoJSONWithPointsJoined(
+            byZoom[8], 7
+        );
+        byZoom[6] = this.getModifiedGeoJSONWithPointsJoined(
+            byZoom[7], 6
+        );
+        byZoom[5] = this.getModifiedGeoJSONWithPointsJoined(
+            byZoom[6], 5
+        );
+        byZoom[4] = this.getModifiedGeoJSONWithPointsJoined(
+            byZoom[5], 4
+        );
+        byZoom[3] = this.getModifiedGeoJSONWithPointsJoined(
+            byZoom[4], 3
+        );
+        byZoom[2] = this.getModifiedGeoJSONWithPointsJoined(
+            byZoom[3], 2
+        );
+        byZoom[1] = this.getModifiedGeoJSONWithPointsJoined(
+            byZoom[2], 1
+        );
+        byZoom[0] = this.getModifiedGeoJSONWithPointsJoined(
+            byZoom[1], 0
+        );
+
+        return byZoom;
+    }
+
+    /**
      * Values which are below the specified amount will be merged
      * so larger values will mean less will be displayed
      *
      * @param geoJSONData
      * @param zoomLevel
-     * @returns {*|GeoDataForDataSource._getModifiedGeoJSONWithPointsJoined.props}
-     * @private
+     * @returns {*|GeoDataForDataSource.getModifiedGeoJSONWithPointsJoined.props}
      */
-    _getModifiedGeoJSONWithPointsJoined(geoJSONData, zoomLevel) {
-        //
+    getModifiedGeoJSONWithPointsJoined(geoJSONData, zoomLevel) {
+
         var zoomMap = {
             // I have no idea if these are right...
             0: 20.0,
@@ -140,37 +184,44 @@ class GeoDataForDataSource {
 
         var newFeatures = [];
         geoJSONData['features'].forEach((feature, index) => {
+            var properties = feature.properties,
+                geometry = feature.geometry;
+
             if (eliminatedMap.has(index)) {
                 //feature.properties['cases'] = 0;
                 //newFeatures.push(feature);
             }
             else if (mergedMap.has(index)) {
-                var cases = feature.properties['cases'],
-                    x = feature.geometry.coordinates[0],
-                    y = feature.geometry.coordinates[1],
+                var cases = properties['cases'],
+                    x = geometry.coordinates[0],
+                    y = geometry.coordinates[1],
                     n = 1,
                     highestCases = cases;
 
                 mergedMap.get(index).forEach(function(otherIndex) {
-                    var otherFeature =  geoJSONData['features'][otherIndex];
-                    x = x + otherFeature.geometry.coordinates[0];
-                    y = y + otherFeature.geometry.coordinates[1];
-                    cases = cases + otherFeature.properties['cases'];
+                    var otherFeature =  geoJSONData['features'][otherIndex],
+                        otherProperties = otherFeature.properties,
+                        otherGeometry = otherFeature.geometry;
 
-                    if (otherFeature.properties['cases'] > highestCases) {
+                    x = x + otherGeometry.coordinates[0];
+                    y = y + otherGeometry.coordinates[1];
+
+                    cases = cases + otherProperties['cases'];
+
+                    if (otherProperties['cases'] > highestCases) {
                         // Make it so city names/labels with the
                         // largest number of cases take precedence!
-                        highestCases = otherFeature.properties['cases'];
-                        feature.properties['city'] = otherFeature.properties['city'];
+                        highestCases = otherProperties['cases'];
+                        properties['city'] = otherProperties['city'];
                     }
 
                     n = n + 1;
                 });
 
-                feature.properties['cases'] = cases;
-                feature.properties['casesFmt'] = Fns.numberFormat(cases, 1);
-                feature.properties['casesSz'] = feature.properties['casesFmt'].length;
-                feature.geometry.coordinates = [x/n, y/n];
+                properties['cases'] = cases;
+                properties['casesFmt'] = Fns.numberFormat(cases, 1);
+                properties['casesSz'] = properties['casesFmt'].length;
+                geometry.coordinates = [x/n, y/n];
                 newFeatures.push(feature);
             }
             else {
@@ -187,57 +238,21 @@ class GeoDataForDataSource {
      *******************************************************************/
 
     /**
-     * Cluster points for cases, so as to be able
-     * to get a zoomed-out general overview of an area
-     *
-     * @param dataSource
-     * @private
-     */
-    getPointDataByZoomLevel(dataSource) {
-        var byZoom = {};
-
-        byZoom[8] = this._getModifiedGeoJSONWithPointsJoined(
-            this.pointGeoJSONData, 8
-        );
-        byZoom[7] = this._getModifiedGeoJSONWithPointsJoined(
-            byZoom[8], 7
-        );
-        byZoom[6] = this._getModifiedGeoJSONWithPointsJoined(
-            byZoom[7], 6
-        );
-        byZoom[5] = this._getModifiedGeoJSONWithPointsJoined(
-            byZoom[6], 5
-        );
-        byZoom[4] = this._getModifiedGeoJSONWithPointsJoined(
-            byZoom[5], 4
-        );
-        byZoom[3] = this._getModifiedGeoJSONWithPointsJoined(
-            byZoom[4], 3
-        );
-        byZoom[2] = this._getModifiedGeoJSONWithPointsJoined(
-            byZoom[3], 2
-        );
-        byZoom[1] = this._getModifiedGeoJSONWithPointsJoined(
-            byZoom[2], 1
-        );
-        byZoom[0] = this._getModifiedGeoJSONWithPointsJoined(
-            byZoom[1], 0
-        );
-
-        return byZoom;
-    }
-
-    /**
+     * Assign cases time series data from  a CasesData instance
      *
      * @param geoJSONData
      * @param dataSource
-     * @private
      */
-    _assignCaseInfoToGeoJSON(geoJSONData, dataSource) {
-        for (var i = 0; i < geoJSONData.features.length; i++) {
-            var feature = geoJSONData.features[i];
-            var cityName = this.getCityNameFromProperty(feature);
+    assignCaseInfoToGeoJSON(geoJSONData, dataSource) {
+        if (!(dataSource instanceof CasesData)) {
+            throw "Data source must be an instance of CasesData";
+        }
 
+        for (var i = 0; i < geoJSONData.features.length; i++) {
+            var feature = geoJSONData.features[i],
+                properties = feature.properties;
+
+            var cityName = this.getCityNameFromProperty(feature);
             if (!cityName) {
                 //console.log("NOT CITYNAME:", data)
                 continue; // WARNING!!
@@ -252,21 +267,22 @@ class GeoDataForDataSource {
             if (timeSeriesItem.getDaysSince) {
                 var dayssince = dataSource.getDaysSince(cityName, null);
                 if (dayssince != null) {
-                    feature.properties['dayssince'] = dayssince;
-                    feature.properties['revdayssince'] = 1000000-(dayssince*2);
+                    properties['dayssince'] = dayssince;
+                    properties['revdayssince'] = 1000000-(dayssince*2);
                 }
             }
 
-            feature.properties['cases'] = timeSeriesItem.getValue();
-            feature.properties['negcases'] = -timeSeriesItem.getValue();
-            feature.properties['casesFmt'] = Fns.numberFormat(timeSeriesItem.getValue(), 1);
-            feature.properties['casesSz'] = this._getCasesSize(feature);
-            feature.properties['city'] = cityName;
-            feature.properties['cityLabel'] = (
+            properties['cases'] = timeSeriesItem.getValue();
+            properties['negcases'] = -timeSeriesItem.getValue();
+            properties['casesFmt'] = Fns.numberFormat(timeSeriesItem.getValue(), 1);
+            properties['casesSz'] = this._getCasesSize(feature);
+            properties['city'] = cityName;
+            properties['cityLabel'] = (
                 this.getCityPrintableNameFromProperty ?
                     this.getCityPrintableNameFromProperty(feature) : cityName
             );
         }
+        return geoJSONData;
     }
 
     /**
@@ -278,14 +294,14 @@ class GeoDataForDataSource {
      * balance here, and it may not work well for
      * millions or above.
      *
-     * @param data
+     * @param feature
      * @returns {*}
      * @private
      */
-    _getCasesSize(data) {
-        var len = data.properties['casesFmt'].length,
-            absCases = Math.abs(data.properties['cases']),
-            isNeg = data.properties['cases'] < 0.0,
+    _getCasesSize(feature) {
+        var len = feature.properties['casesFmt'].length,
+            absCases = Math.abs(feature.properties['cases']),
+            isNeg = feature.properties['cases'] < 0.0,
             r;
 
         // TODO: Make millions slightly larger than thousands!
@@ -324,46 +340,29 @@ class GeoDataForDataSource {
      *******************************************************************/
 
     /**
-     *
-     * @param dataSource
-     * @private
-     */
-    _associateStatSource(dataSource) {
-        if (dataSource.getMaxMinValues) {
-            this.maxMinStatVal = dataSource.getMaxMinValues();
-        }
-        this._assignStatInfoToGeoJSON(this.geoJSONData, dataSource);
-
-        let uniqueId = this.getFillSourceId(dataSource);
-        if (uniqueId in this.addedSources) {
-            return;
-        }
-        this.addedSources[uniqueId] = null;
-
-        this.map.addSource(uniqueId, {
-            type: 'geojson',
-            data: this.geoJSONData,
-            tolerance: MAPBOX_TOLERANCE
-        });
-    }
-
-    /**
+     * Assign statistics data from an UnderlayData instance
      *
      * @param geoJSONData
      * @param dataSource
-     * @private
      */
-    _assignStatInfoToGeoJSON(geoJSONData, dataSource) {
+    assignStatInfoToGeoJSON(geoJSONData, dataSource) {
+        if (!(dataSource instanceof UnderlayData)) {
+            throw "Data source must be an instance of UnderlayData";
+        }
+
         var statInfo;
         const state = this.stateName;
 
         for (var i = 0; i < geoJSONData.features.length; i++) {
-            var feature = geoJSONData.features[i];
+            var feature = geoJSONData.features[i],
+                properties = feature.properties;
+
             var cityName = this.getCityNameFromProperty(feature);
             if (!cityName) {
                 //console.log("NOT CITYNAME:", data)
                 continue; // WARNING!!
             }
+
             statInfo = dataSource.getCaseInfoForCity(
                 state, cityName
             );
@@ -371,10 +370,11 @@ class GeoDataForDataSource {
                 //console.log("NOT STAT INFO:", state, cityName);
                 continue;
             }
-            feature.properties['stat'] = statInfo['numCases'];
-            feature.properties['statCity'] = cityName;
-            feature.properties['statDate'] = statInfo['updatedDate'];
-            feature.properties['city'] = cityName;
+
+            properties['stat'] = statInfo['numCases'];
+            properties['statCity'] = cityName;
+            properties['statDate'] = statInfo['updatedDate'];
+            properties['city'] = cityName;
         }
 
         return geoJSONData;

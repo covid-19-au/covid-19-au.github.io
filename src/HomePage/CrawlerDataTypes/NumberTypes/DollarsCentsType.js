@@ -1,4 +1,4 @@
-class DollarsType extends NumberType {
+class DollarsCentsType extends NumberType {
     getPrettifiedValue() {
 
     }
@@ -9,6 +9,6 @@ class DollarsType extends NumberType {
     }
 
     getCanvasJSFormat() {
-        return "$#,##0";
+        return "$#,##0.00";
     }
 }

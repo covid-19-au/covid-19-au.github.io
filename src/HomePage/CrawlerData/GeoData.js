@@ -135,6 +135,7 @@ class GeoData {
      *******************************************************************/
 
     /**
+     * Get the region schema
      *
      * @returns {*}
      */
@@ -143,6 +144,7 @@ class GeoData {
     }
 
     /**
+     * Get the region parent
      *
      * @returns {*}
      */
@@ -151,6 +153,8 @@ class GeoData {
     }
 
     /**
+     * Get the GeoData instance of the parent.
+     * null if this GeoData is for admin0
      *
      * @returns {*}
      */
@@ -159,9 +163,10 @@ class GeoData {
     }
 
     /**
+     * Get the localized label/name of a given region
      *
-     * @param regionChild
-     * @param iso_639
+     * @param regionChild the region child
+     * @param iso_639 the ISO 639 language code
      * @returns {*}
      */
     getLabel(regionChild, iso_639) {
@@ -176,6 +181,7 @@ class GeoData {
      *******************************************************************/
 
     /**
+     * Get the central x,y point of a child region
      *
      * @param regionChild
      * @param noCopy
@@ -189,6 +195,7 @@ class GeoData {
     }
 
     /**
+     * Get the polygon outline for a child region
      *
      * @param regionChild
      * @param noCopy
@@ -240,6 +247,7 @@ class GeoData {
     }
 
     /**
+     * Get whether a given point is contained within a polygon
      *
      * @param point
      * @param vs

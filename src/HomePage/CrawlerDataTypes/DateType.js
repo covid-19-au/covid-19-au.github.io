@@ -23,18 +23,6 @@ SOFTWARE.
  */
 
 
-/**
- * Get a new DateType instance initialized to the current day
- * @returns {DateType}
- */
-function getToday() {
-    // TODO!
-    var today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return new DateType(today);
-}
-
-
 class DateType extends Date {
     /**
      * A date type which inherits from Date (so can be used as one),
@@ -104,6 +92,17 @@ class DateType extends Date {
         this.years = years;
         this.months = months;
         this.days = days;
+    }
+
+    /**
+     * Get a new DateType instance initialized to the current day
+     * @returns {DateType}
+     */
+    static today() {
+        // TODO!
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return new DateType(today);
     }
 
     /**

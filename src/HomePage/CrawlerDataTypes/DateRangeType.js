@@ -30,19 +30,20 @@ class DateRangeType {
      * @param toDate the DateType instance representing the "to" date
      */
     constructor(fromDate, toDate) {
-        if (fromDate > toDate) {
-            throw `fromDate ${fromDate} should be greater than toDate ${toDate}`;
-        }
-        this.fromDate = fromDate;
-        this.toDate = toDate;
+        this.setDateRange(fromDate, toDate);
     }
 
+    /**
+     *
+     * @param dateRangeType
+     * @returns {boolean}
+     */
     equalTo(dateRangeType) {
         return this.toString() === dateRangeType.toString();
     }
 
     /********************************************************************
-     * Get from/to dates
+     * Get/set from/to dates
      ********************************************************************/
 
     /**
@@ -61,6 +62,19 @@ class DateRangeType {
      */
     getToDate() {
         return this.toDate;
+    }
+
+    /**
+     * Set the "from" and "to" range of this date range object
+     *
+     * @returns {*}
+     */
+    setDateRange(fromDate, toDate) {
+        if (fromDate > toDate) {
+            throw `fromDate ${fromDate} should be greater than or equal to toDate ${toDate}`;
+        }
+        this.fromDate = fromDate;
+        this.toDate = toDate;
     }
 
     /********************************************************************

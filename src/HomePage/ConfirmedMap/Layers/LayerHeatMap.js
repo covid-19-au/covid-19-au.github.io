@@ -24,6 +24,14 @@ SOFTWARE.
 
 
 class HeatMapLayer {
+    /**
+     *
+     * @param map
+     * @param dataSource
+     * @param uniqueId
+     * @param maxMinValues
+     * @param heatMapSourceId
+     */
     constructor(map, dataSource, uniqueId, maxMinValues, heatMapSourceId) {
         this.map = map;
         this.dataSource = dataSource;

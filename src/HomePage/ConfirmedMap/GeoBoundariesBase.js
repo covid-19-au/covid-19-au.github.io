@@ -70,6 +70,10 @@ class JSONGeoBoundariesBase {
      *******************************************************************/
 
     /**
+     * Add polygons for regional coloured/transparent fill
+     *
+     * (when transparent, they can still allow for
+     * click events, which can trigger popup events etc)
      *
      * @param absDataSource
      * @param caseDataSource
@@ -104,7 +108,7 @@ class JSONGeoBoundariesBase {
     }
 
     /**
-     *
+     * Remove polygons for regional coloured/transparent fill
      */
     removeFillPoly() {
         if (this._fillPolyLayer) {
@@ -118,6 +122,7 @@ class JSONGeoBoundariesBase {
      *******************************************************************/
 
     /**
+     * Add regional outline polygons
      *
      * @param dataSource
      * @param color
@@ -133,7 +138,7 @@ class JSONGeoBoundariesBase {
     }
 
     /**
-     *
+     * Remove regional outline polygons
      */
     removeLinePoly() {
         if (this._linePolyLayer) {
@@ -147,6 +152,7 @@ class JSONGeoBoundariesBase {
      *******************************************************************/
 
     /**
+     * Add the cases heatmap layer
      *
      * @param dataSource
      * @param maxMinValues
@@ -162,7 +168,7 @@ class JSONGeoBoundariesBase {
     }
 
     /**
-     *
+     * Remove the cases heatmap layer
      */
     removeHeatMap() {
         if (this._heatMapLayer) {
@@ -176,6 +182,7 @@ class JSONGeoBoundariesBase {
      *******************************************************************/
 
     /**
+     * Add the "days since" layer
      *
      * @param dataSource
      */
@@ -190,7 +197,7 @@ class JSONGeoBoundariesBase {
     }
 
     /**
-     *
+     * Remove the "days since" layer
      */
     removeDaysSince() {
         if (this._daysSinceLayer) {

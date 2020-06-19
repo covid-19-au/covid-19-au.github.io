@@ -29,6 +29,6 @@ class PercentageType extends NumberType {
     }
 
     getCanvasJSFormat() {
-
+        return "# '%'";
     }
 }

@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+
 class RegionType {
     /**
      * A type which stores information about a given region.
@@ -79,6 +80,7 @@ class RegionType {
     }
 
     /**
+     * Get whether another RegionType is equal to this one
      *
      * @param regionType
      * @returns {boolean}
