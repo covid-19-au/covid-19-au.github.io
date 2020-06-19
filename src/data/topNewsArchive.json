@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-11/victorian-black-lives-matter-protester-diagnosed-coronavirus/12343130",
+            "title": "Black Lives Matter protester among eight new coronavirus infections in Victoria",
+            "source": "ABCNews",
+            "date": "11 June 2020",
+            "time": "19:00",
+            "summary": "A man in his 30s who went to Saturday's Black Lives Matter protest in Melbourne, which thousands of others attended, has tested positive for COVID-19. The man, who wore a mask to the protest, developed symptoms in the 24 hours after the demonstration, the state's Chief Health Officer Brett Sutton said on Thursday. Professor Sutton told reporters it was unlikely the man contracted the virus at the demonstration. However, he may have been infectious. Close contacts who spent more than 15 minutes directly with the person will be told to quarantine."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-11/nsw-coronavirus-restrictions-eased-20-people-allowed-in-homes/12343052",
+            "title": "NSW coronavirus restrictions eased further, up to 20 people allowed in homes from Saturday",
+            "source": "ABCNews",
+            "date": "11 June 2020",
+            "time": "14:00",
+            "summary": "NSW coronavirus restrictions will be further eased from Saturday, when households will be able to welcome up to 20 guests. Premier Gladys Berejiklian made the announcement this morning, and also revealed up to 20 people would be able to gather in groups outside from the same date. Food courts will also be open from Saturday, as long as people can abide by the four-square-metre rule."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jun/11/scott-morrison-apologises-for-hurt-or-harm-caused-by-robodebt-rollout",
+            "title": "Scott Morrison apologises for 'hurt or harm' caused by robodebt rollout ",
+            "source": "TheGuardian",
+            "date": "11 June 2020",
+            "time": "18:01",
+            "summary": "Scott Morrison has apologised for any “hurt or harm” caused by the way the Coalition rolled out the controversial robodebt scheme, but the government services minister, Stuart Robert, has flagged regular debt collection will resume on the other side of the Covid-19 crisis. Scott Morrison has apologised for any “hurt or harm” caused by the way the Coalition rolled out the controversial robodebt scheme, but the government services minister, Stuart Robert, has flagged regular debt collection will resume on the other side of the Covid-19 crisis. Guardian Australia reported this week the true value of all welfare debts unlawfully issued is expected to easily exceed $1bn."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-10/coronavirus-oecd-calls-for-extension-to-jobkeeper-gdp/12340832",
             "title": "OECD calls for extension of coronavirus JobKeeper scheme as it warns Australia's economy could fall by 6.3 per cent",
             "source": "ABCNews",
