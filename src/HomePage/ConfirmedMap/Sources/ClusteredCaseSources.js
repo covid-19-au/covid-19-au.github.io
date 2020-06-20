@@ -26,9 +26,100 @@ import Fns from "../Fns";
 import MapBoxSource from "./MapBoxSource"
 
 
-class ClusteredCaseSources {
-    constructor() {
+var UNCLUSTERED_ZOOM = 9;
 
+
+class ClusteredCaseSources {
+    /**
+     * A collection of mapbox sources which largely functions like
+     * a single one, clustering/merging case numbers which overlap
+     * so as to be able to get a zoomed out overview
+     *
+     * @param map
+     */
+    constructor(map) {
+        this.__sources = {};
+
+        for (var i=0; i<UNCLUSTERED_ZOOM+1; i++) {
+            this.__sources[i] = new MapBoxSource(
+                map, i, UNCLUSTERED_ZOOM === i ? null : i+1
+            );
+        }
+    }
+
+    /**
+     *
+     * @returns {number}
+     */
+    getMinZoom() {
+        return 0;
+    }
+
+    /**
+     *
+     * @returns {number}
+     */
+    getMaxZoom() {
+        return UNCLUSTERED_ZOOM;
+    }
+
+    /**
+     *
+     * @param zoomLevel
+     * @returns {string}
+     */
+    getSourceIdByZoom(zoomLevel) {
+        return this.__sources[zoomLevel].getSourceId();
+    }
+
+    /**
+     *
+     * @param zoomLevel
+     */
+    getSourceInstByZoom(zoomLevel) {
+        return this.__sources[zoomLevel];
+    }
+
+    /**************************************************************************
+     * Update data/features
+     **************************************************************************/
+
+    /**
+     * Reset the GeoJSON data when changing modes etc
+     */
+    clearData() {
+        for (let [key, source] of this.__sources.entries()) {
+            source.clearData();
+        }
+    }
+
+    /**
+     * Update the GeoJSON data if regions changed
+     *
+     * @param data
+     */
+    setData(data) {
+        if (this.__sources[UNCLUSTERED_ZOOM].setData[data]) {
+            var byZoom = this.getPointDataByZoomLevel(data);
+
+            for (let i=0; i<UNCLUSTERED_ZOOM; i++) {
+                if (!byZoom[i]) throw "Shouldn't get here!";
+                this.__sources[i].setData(byZoom[i]);
+            }
+        }
+    }
+
+    /**************************************************************************
+     * Remove source
+     **************************************************************************/
+
+    /**
+     * Remove the sources
+     */
+    remove() {
+        for (let [key, source] of this.__sources.entries()) {
+            source.remove();
+        }
     }
 
     /*******************************************************************
@@ -40,36 +131,35 @@ class ClusteredCaseSources {
      * to get a zoomed-out general overview of an area
      *
      * @param pointGeoJSONData
-     * @param dataSource
      */
-    getPointDataByZoomLevel(pointGeoJSONData, dataSource) {
-        var byZoom = {};
+    getPointDataByZoomLevel(pointGeoJSONData) {
+        let byZoom = {};
 
-        byZoom[8] = this.getModifiedGeoJSONWithPointsJoined(
+        byZoom[8] = this.__getModifiedGeoJSONWithPointsJoined(
             pointGeoJSONData, 8
         );
-        byZoom[7] = this.getModifiedGeoJSONWithPointsJoined(
+        byZoom[7] = this.__getModifiedGeoJSONWithPointsJoined(
             byZoom[8], 7
         );
-        byZoom[6] = this.getModifiedGeoJSONWithPointsJoined(
+        byZoom[6] = this.__getModifiedGeoJSONWithPointsJoined(
             byZoom[7], 6
         );
-        byZoom[5] = this.getModifiedGeoJSONWithPointsJoined(
+        byZoom[5] = this.__getModifiedGeoJSONWithPointsJoined(
             byZoom[6], 5
         );
-        byZoom[4] = this.getModifiedGeoJSONWithPointsJoined(
+        byZoom[4] = this.__getModifiedGeoJSONWithPointsJoined(
             byZoom[5], 4
         );
-        byZoom[3] = this.getModifiedGeoJSONWithPointsJoined(
+        byZoom[3] = this.__getModifiedGeoJSONWithPointsJoined(
             byZoom[4], 3
         );
-        byZoom[2] = this.getModifiedGeoJSONWithPointsJoined(
+        byZoom[2] = this.__getModifiedGeoJSONWithPointsJoined(
             byZoom[3], 2
         );
-        byZoom[1] = this.getModifiedGeoJSONWithPointsJoined(
+        byZoom[1] = this.__getModifiedGeoJSONWithPointsJoined(
             byZoom[2], 1
         );
-        byZoom[0] = this.getModifiedGeoJSONWithPointsJoined(
+        byZoom[0] = this.__getModifiedGeoJSONWithPointsJoined(
             byZoom[1], 0
         );
 
@@ -82,10 +172,9 @@ class ClusteredCaseSources {
      *
      * @param geoJSONData
      * @param zoomLevel
-     * @returns {*|GeoDataForDataSource.getModifiedGeoJSONWithPointsJoined.props}
+     * @returns {*|GeoDataForDataSource.__getModifiedGeoJSONWithPointsJoined.props}
      */
-    getModifiedGeoJSONWithPointsJoined(geoJSONData, zoomLevel) {
-
+    __getModifiedGeoJSONWithPointsJoined(geoJSONData, zoomLevel) {
         var zoomMap = {
             // I have no idea if these are right...
             0: 20.0,

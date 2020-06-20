@@ -53,6 +53,15 @@ class MapBoxSource {
         }
     }
 
+    /**
+     * Get the MapBox source Id to allow associating layers etc
+     *
+     * @returns {string}
+     */
+    getSourceId() {
+        return `mapboxSource${this.__id}`;
+    }
+
     /**************************************************************************
      * Update data/features
      **************************************************************************/
@@ -77,15 +86,19 @@ class MapBoxSource {
      * as referenced by "__getDataKeys" below contains
      * "{region schema}||{region parent}||{region child}"
      *
+     * Returns true if really updated, otherwise false
+     *
      * @param data
+     * @returns {boolean}
      */
     setData(data) {
         var dataKeys = this.__getDataKeys(data);
-        if (!this.__dataKeys || !this.__setsEqual(this.__dataKeys, dataKeys)) {
-            return;
+        if (!this.__dataKeys && !this.__setsEqual(this.__dataKeys, dataKeys)) {
+            return false;
         }
         this.__source.setData(data);
         this.__dataKeys = dataKeys;
+        return true;
     }
 
     /**************************************************************************
