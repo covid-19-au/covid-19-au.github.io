@@ -44,6 +44,10 @@ class DataDownloader {
         this._underlayDataInsts = {};
         this._caseDataInsts = {};
 
+        this._caseDataPending = {};
+        this._underlayDataPending = {};
+        this._geoDataPending = {};
+
         this.schemas = schemaTypes['schemas'];
         this.adminBounds = this._getAdminBounds(schemaTypes['admin_bounds'])
     }
@@ -172,10 +176,10 @@ class DataDownloader {
                     continue;
                 } else if (!this.__fileInGeoJSONData(schema, null)) {
                     continue;
-                } else if (mode & MODE_CASES && !this.__fileInCaseData(schema, null)){
+                } else if (mode === MODE_CASES && !this.__fileInCaseData(schema, null)){
                     // Cases data not in listing
                     continue;
-                } else if (mode & MODE_UNDERLAY && !this.__fileInUnderlayData(schema, null)){
+                } else if (mode === MODE_UNDERLAY && !this.__fileInUnderlayData(schema, null)){
                     // Cases data not in listing
                     continue;
                 }
@@ -266,32 +270,47 @@ class DataDownloader {
      * Download Files
      **************************************************************************/
 
+    // There a fair amount of duplicated code below, but can't
+    // think of a way of making it much better at the moment
+
     /**
      * Download GeoJSON (geographic) data and create instances as needed.
      *
-     * @param schemaType
+     * @param regionSchema
      * @param regionParent
      * @returns {Promise<unknown>}
      */
-    getGeoData(schemaType, regionParent) {
-        var fileNames = this.__getFileNames(schemaType, regionParent);
+    getGeoData(regionSchema, regionParent) {
+        var fileNames = this.__getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
-            if (this._geoDataInsts[schemaType][regionParent]) {
-                return resolve(this._geoDataInsts[schemaType][regionParent]);
+            if (this._geoDataInsts[regionSchema][regionParent]) {
+                // Data already downloaded+instance created
+                return resolve(this._geoDataInsts[regionSchema][regionParent]);
             }
-            import(`../data/mapGeoData/${fileNames.geoDataFilename}`).then((module) => {  // FIXME!!
-                var geodata = module['geodata'];
-                for (var schema of geodata) {
-                    for (var regionParent of geodata[schema]) {
-                        this._geoDataInsts[schema][regionParent] = new GeoData(
-                            geodata[schema][regionParent]
-                        );
+            else if (this._geoDataPending[fileNames.geoDataFilename]) {
+                // Request already pending!
+                this._geoDataPending[fileNames.geoDataFilename].push(resolve);
+            }
+            else {
+                // Otherwise send a new request
+                this._geoDataPending[fileNames.geoDataFilename] = [resolve];
 
+                import(`../data/mapGeoData/${fileNames.geoDataFilename}`).then((module) => {  // FIXME!!
+                    var geodata = module['geodata'];
+                    for (var regionSchema of geodata) {
+                        for (var regionParent of geodata[regionSchema]) {
+                            let geoData = this._geoDataInsts[regionSchema][regionParent] = new GeoData(
+                                geodata[regionSchema][regionParent]
+                            );
+                            for (let iResolve of this._geoDataPending[fileNames.geoDataFilename]) {
+                                iResolve(geoData);
+                            }
+                            delete this._geoDataPending[fileNames.geoDataFilename];
+                        }
                     }
-                }
-                resolve(resolve(this._geoDataInsts[schema][regionParent]));
-            });
+                });
+            }
         });
     }
 
@@ -310,17 +329,29 @@ class DataDownloader {
             if (this._underlayDataInsts[schemaType][regionParent]) {
                 return resolve(this._underlayDataInsts[schemaType][regionParent]);
             }
-            import(`../data/mapUnderlayData/${fileNames.underlayDataFilename}`).then((module) => {  // FIXME!!
-                var underlayData = module['underlay_data'];
-                for (var schema of underlayData) {
-                    for (var regionParent of underlayData[schema]) {
-                        this._underlayDataInsts[schema][regionParent] = new UnderlayData(
-                            underlayData[schema][regionParent]
-                        );
+            else if (this._underlayDataPending[fileNames.underlayDataFilename]) {
+                // Request already pending!
+                this._underlayDataPending[fileNames.underlayDataFilename].push(resolve);
+            }
+            else {
+                // Otherwise send a new request
+                this._underlayDataPending[fileNames.underlayDataFilename] = [resolve];
+
+                import(`../data/mapUnderlayData/${fileNames.underlayDataFilename}`).then((module) => {  // FIXME!!
+                    var underlayData = module['underlay_data'];
+                    for (var regionSchema of underlayData) {
+                        for (var regionParent of underlayData[regionSchema]) {
+                            let underlayDataInst = this._underlayDataInsts[regionSchema][regionParent] = new UnderlayData(
+                                underlayData[regionSchema][regionParent]
+                            );
+                            for (let iResolve of this._underlayDataPending[fileNames.underlayDataFilename]) {
+                                iResolve(underlayDataInst);
+                            }
+                            delete this._underlayDataPending[fileNames.underlayDataFilename];
+                        }
                     }
-                }
-                resolve(resolve(this._underlayDataInsts[schema][regionParent]));
-            });
+                });
+            }
         });
     }
 
@@ -338,17 +369,29 @@ class DataDownloader {
             if (this._caseDataInsts[schemaType][regionParent]) {
                 return resolve(this._caseDataInsts[schemaType][regionParent]);
             }
-            import(`../data/mapCaseData/${fileNames.caseDataFilename}`).then((module) => {  // FIXME!!
-                var caseData = module['case_data'];
-                for (var schema of caseData) {
-                    for (var regionParent of caseData[schema]) {
-                        this._caseDataInsts[schema][regionParent] = new CasesData(  // TODO: Create a new one for each datatype!!
-                            caseData[schema][regionParent]
-                        );
+            else if (this._caseDataPending[fileNames.caseDataFilename]) {
+                // Request already pending!
+                this._caseDataPending[fileNames.caseDataFilename].push(resolve);
+            }
+            else {
+                // Otherwise send a new request
+                this._caseDataPending[fileNames.caseDataFilename] = [resolve];
+
+                import(`../data/mapCaseData/${fileNames.caseDataFilename}`).then((module) => {  // FIXME!!
+                    var caseData = module['case_data'];
+                    for (var schema of caseData) {
+                        for (var regionParent of caseData[schema]) {
+                            let caseDataInst = this._caseDataInsts[schema][regionParent] = new CasesData(  // TODO: Create a new one for each datatype!!
+                                caseData[schema][regionParent]
+                            );
+                            for (let iResolve of this._caseDataPending[fileNames.caseDataFilename]) {
+                                iResolve(caseDataInst);
+                            }
+                            delete this._caseDataPending[fileNames.caseDataFilename];
+                        }
                     }
-                }
-            });
-            resolve(this._caseDataInsts[schemaType][regionParent]);
+                });
+            }
         });
     }
 
@@ -373,6 +416,9 @@ class DataDownloader {
             underlayDataFilename;
 
         if (this.schemas[schemaType].split_by_parent_region) {
+            if (regionParent == null) {
+                throw `schemaType ${schemaType} is split by parent region but parent not provided`;
+            }
             geoJSONFilename = `${schemaType}_${regionParent}.json`;
             underlayDataFilename = `${schemaType}_${regionParent}.json`;
             caseDataFilename = `${schemaType}_${regionParent}.json`;

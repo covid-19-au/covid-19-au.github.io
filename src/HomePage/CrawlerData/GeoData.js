@@ -45,6 +45,7 @@ class GeoData {
         this.regionParent = regionParent;
 
         this.regionParentGeoData = regionParentGeoData;
+        this.iso639code = 'en'; // HACK: Please add localization support later!!! ======================================
         this._processData(regionParentGeoData);
     }
 
@@ -94,17 +95,20 @@ class GeoData {
         };
 
         for (let [regionChild, childData] of regionParentGeoData.entries()) {
-            var geodata = childData['geodata'],
+            let geodata = childData['geodata'],
                 label = childData['label'];
+            let uniqueId = `${this.regionSchema}||${this.regionParent}||${regionChild}`;
 
             for (let [area, boundingCoords, centerCoords, points] of geodata) {
                 var properties = {
                     "area": area,
                     "boundingCoords": boundingCoords,
                     "centerCoords": centerCoords,
-                    "schemaType": this.schemaType,
+                    "regionSchema": this.regionSchema,
                     "regionParent": this.regionParent,
-                    "regionChild": regionChild
+                    "regionChild": regionChild,
+                    "uniqueid": uniqueId,
+                    "label": this.getLabel(regionChild, this.iso639code)
                 };
                 outlines.push({
                     "type": "Feature",

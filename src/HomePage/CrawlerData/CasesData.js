@@ -22,9 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import ConfirmedMapFns from "../ConfirmedMap/Fns";
-import StateLatestNums from "../../data/stateCaseData.json"
-import DataSourceBase from "./DataSourceBase"
+import Fns from "../Fns";
 
 import DateRangeType from "../CrawlerDataTypes/DateRangeType"
 import DateType from "../CrawlerDataTypes/DateType"
@@ -112,6 +110,96 @@ class CasesData {
      */
     getUpdatedDate() {
         return this.updatedDate;
+    }
+
+    /*******************************************************************
+     * Data processing: associate case nums
+     *******************************************************************/
+
+    /**
+     * Assign cases time series data from a CasesData instance
+     *
+     * @param geoJSONData
+     * @param ageRange
+     */
+    assignCaseInfoToGeoJSON(geoJSONData, ageRange) {
+        for (let feature of geoJSONData) {
+            let properties = feature.properties;
+            let regionType = new RegionType(
+                properties['regionSchema'],
+                properties['regionParent'],
+                properties['regionChild']
+            );
+
+            var timeSeriesItem = this.getCaseNumber(regionType, ageRange);
+            if (!timeSeriesItem) {
+                continue;
+            }
+
+            if (timeSeriesItem.getDaysSince) {
+                var dayssince = this.getDaysSince(regionType, ageRange);
+                if (dayssince != null) {
+                    properties['dayssince'] = dayssince;
+                    properties['revdayssince'] = 1000000-(dayssince*2);
+                }
+            }
+
+            properties['cases'] = timeSeriesItem.getValue();
+            properties['negcases'] = -timeSeriesItem.getValue();
+            properties['casesFmt'] = Fns.numberFormat(timeSeriesItem.getValue(), 1);
+            properties['casesSz'] = this._getCasesSize(feature);
+        }
+        return geoJSONData;
+    }
+
+    /**
+     * Make it so that there's roughly enough area
+     * within circles to be able to display the text.
+     *
+     * This also makes it so that e.g. 100 is slightly
+     * smaller than 999 etc. It's hard to find a good
+     * balance here, and it may not work well for
+     * millions or above.
+     *
+     * @param feature
+     * @returns {*}
+     * @private
+     */
+    _getCasesSize(feature) {
+        var len = feature.properties['casesFmt'].length,
+            absCases = Math.abs(feature.properties['cases']),
+            isNeg = feature.properties['cases'] < 0.0,
+            r;
+
+        // TODO: Make millions slightly larger than thousands!
+        if (100000000 >= absCases >= 10000000) {
+            r = len+absCases/100000000.0;
+        }
+        else if (absCases >= 1000000) {
+            r = len+absCases/10000000.0;
+        }
+        else if (absCases >= 100000) {
+            r = len+absCases/1000000.0;
+        }
+        else if (absCases >= 10000) {
+            r = len+absCases/100000.0;
+        }
+        else if (absCases >= 1000) {
+            r = len+absCases/10000.0;
+        }
+        else if (absCases >= 100) {
+            r = len+absCases/1000.0;
+        }
+        else if (absCases >= 10) {
+            r = len+absCases/100.0;
+        }
+        else if (absCases >= 1) {
+            r = len+absCases/10.0;
+        }
+        else {
+            r = len;
+        }
+        return isNeg ? -r : r;
     }
 
     /*******************************************************************

@@ -72,7 +72,7 @@ class DateType extends Date {
             // Passed a date, so use the
             // supplied years/months/days
             years = arguments[0].getYear();
-            months = arguments[0].getMonth()-1;
+            months = arguments[0].getMonth()+1;
             days = arguments[0].getDay();
         }
         else {
@@ -125,7 +125,7 @@ class DateType extends Date {
      * @returns {boolean}
      */
     isToday() {
-        return getToday().toString() === this.toString();
+        return DateType.today().toString() === this.toString();
     }
 
     /********************************************************************
@@ -143,7 +143,7 @@ class DateType extends Date {
         // `dateString` in dd/mm/yyyy format
         // NOTE: returns a *positive* number if
         // `dateString` is in the past
-        var today = getToday();
+        var today = DateType.today();
         return this.dateDiff(this, today); // CHECK ME!!! ================================================
     }
 

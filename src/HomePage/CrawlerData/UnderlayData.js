@@ -158,6 +158,39 @@ class UnderlayData {
         return r;
     }
 
+    /*******************************************************************
+     * Data processing: associate abs statistics
+     *******************************************************************/
+
+    /**
+     * Assign statistics data from an UnderlayData instance
+     *
+     * @param geoJSONData
+     * @param dateType
+     */
+    assignStatInfoToGeoJSON(geoJSONData, dateType) {
+        dateType = dateType || DateType.today();
+
+        for (let feature of geoJSONData.features) {
+            let properties = feature.properties;
+            let regionType = new RegionType(
+                properties['regionSchema'],
+                properties['regionParent'],
+                properties['regionChild']
+            );
+
+            let statInfo = this.getOnOrBeforeDate(regionType, dateType);
+            if (!statInfo) {
+                continue;
+            }
+
+            properties['stat'] = statInfo.getValue();
+            properties['statDate'] = statInfo.getUpdatedDate().toString();
+        }
+
+        return geoJSONData;
+    }
+
     /********************************************************************
      * Get by dates
      ********************************************************************/
@@ -165,7 +198,7 @@ class UnderlayData {
     /**
      * Get a single time series item by a given date
      *
-     * @param regionTypea RegionType instance
+     * @param regionType RegionType instance
      * @param dateType a DateType instance
      * @returns {*[]}
      */
@@ -174,9 +207,9 @@ class UnderlayData {
         var values = this.data[regionSchemaID][regionParentID][regionChildID];
 
         for (var i=0; i<values.length; i+=2) {
-            if (new DateType(values[i]).toString() == dateType.toString()) {
+            if (new DateType(values[i]).toString() === dateType.toString()) {
                 return new TimeSeriesItem(
-                    new DateType(values[i]), getNumberByType(FIXME, values[i+1])
+                    new DateType(values[i]), values[i+1]
                 );
             }
         }
@@ -198,7 +231,7 @@ class UnderlayData {
         for (var i=0; i<values.length; i+=2) {
             if (values[i] <= dateTypeString) {
                 return new TimeSeriesItem(
-                    new DateType(values[i]), getNumberByType(FIXME, values[i+1])
+                    new DateType(values[i]), values[i+1]
                 );
             }
         }
@@ -219,7 +252,7 @@ class UnderlayData {
         for (var i=values.length-2; i>=0; i-=2) {
             if (values[i] >= dateTypeString) {
                 return new TimeSeriesItem(
-                    new DateType(values[i]), getNumberByType(FIXME, values[i+1])
+                    new DateType(values[i]), values[i+1]
                 );
             }
         }
@@ -244,7 +277,7 @@ class UnderlayData {
         for (var i=0; i<values.length; i+=2) {
             if (fromDateString <= values[i] <= toDateString) {
                 var timeSeriesItem = new TimeSeriesItem(
-                    new DateType(values[i]), getNumberByType(FIXME, values[i+1])
+                    new DateType(values[i]), values[i+1]
                 );
                 r.push(timeSeriesItem);
             }
