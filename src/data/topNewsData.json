@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-21/victoria-coronavirus-numbers-rise-by-19-state-of-emergency/12377472",
+            "title": "Coronavirus cases in Victoria rise by 19 as state of emergency extended for a further four weeks",
+            "source": "ABCNews",
+            "date": "21 June 2020",
+            "time": "21:12",
+            "summary": "Victoria has recorded 19 new coronavirus cases overnight, the fifth day in a row of double-digit increases, prompting the Government to extend the state of emergency for a further four weeks. Ms Mikakos said the state of emergency had been extended to allow the Chief Health Officer to continue to issue fresh legal directions. The recent spike in cases has prompted the Government to bring back some tougher restrictions, including limiting visitors inside homes to five people and outdoor gatherings to 10 people from midnight tonight. But some restrictions will still be relaxed, including allowing gyms to reopen from tomorrow."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-21/coronavirus-restrictions-allow-more-fans-queensland-stadiums/12366528",
+            "title": "Queensland Government loosens coronavirus restrictions, allowing more fans in sport stadiums",
+            "source": "ABCNews",
+            "date": "21 June 2020",
+            "time": "15:00",
+            "summary": "The cheering in Queensland stadiums will be a little louder from next weekend, as the State Government further loosens coronavirus restrictions. Speaking on the pitch at Lang Park, Health Minister Steven Miles said up to 10,000 fans would be allowed in time for Saturday's clash between the Brisbane Broncos and the Gold Coast Titans. \"Beginning next weekend, our stadiums will be allowed to have up to 25 per cent of their usual crowd capacity, up to that cap of 10,000 that was set by the Prime Minister and National Cabinet,\" Mr Miles said."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-20/victoria-coronavirus-numbers-increase-again-with-more-new-cases/12376316",
             "title": "Victorian coronavirus restrictions tightening as cases continue to increase",
             "source": "ABCNews",
@@ -111,22 +127,6 @@
             "date": "14 June 2020",
             "time": "19:43",
             "summary": "The NSW Government has announced another tranche of downgraded coronavirus restrictions, with the 50-person limit on pubs and restaurants to be lifted next month. From July 1, venues will be able to operate without capacity limits other than accommodating one person per four square metres. Outdoor venues with a capacity of up to 40,000 people can seat a quarter of that, a move to free restrictions on concerts and sporting events flagged by Scott Morrison after Friday's National Cabinet meeting."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-covid19-second-australia-wave-could-cost-country-80-billion/5343670d-d4dd-4810-aaa3-7e39143d936e",
-            "title": "Second coronavirus wave may cost Australia $80 billion",
-            "source": "9News",
-            "date": "13 June 2020",
-            "time": "11:41",
-            "summary": "Finance Minister Mathias Cormann has warned a second wave of coronavirus could cost the Australian economy $80 billion over the next two years. His calculation came as global share markets erupted into a sea of selling on fears of a pandemic resurgence, killing off optimism for a quick recovery. The Morrison government is concerned last week's anti-racism rallies, and more marches slated for this weekend, will spread the virus."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-13/victoria-records-eight-new-coronavirus-cases-including-doctor/12352210",
-            "title": "Victoria records eight new coronavirus cases, including Melbourne doctor",
-            "source": "ABCNews",
-            "date": "13 June 2020",
-            "time": "00:00",
-            "summary": "Victoria has recorded eight new coronavirus infections since yesterday, including a doctor who worked across three clinics in Melbourne while potentially infectious. The Department of Health and Human Services (DHHS) said the doctor had worked at Lilydale Medical Clinic, Croydon Family Practice and Cedars Medical Clinic in Coburg while asymptomatic. The three clinics have been closed for cleaning. Of the other new cases, six were detected in returned overseas travellers, while one is linked to the Rydges on Swanston outbreak."
         }
     ]
 }
