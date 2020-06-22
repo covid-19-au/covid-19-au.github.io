@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-14/victorian-coronavirus-restrictions-will-ease-from-june-22/12353530",
+            "title": "Victorian coronavirus restrictions will be eased again on June 22, Premier confirms",
+            "source": "ABCNews",
+            "date": "14 June 2020",
+            "time": "12:00",
+            "summary": "Victorian Premier Daniel Andrews has confirmed the state will further ease coronavirus restrictions on June 22, allowing cinemas and theatres to reopen and boosting customer capacity for hospitality venues. From June 22, up to 50 people will be allowed inside a range of venues including cinemas, theatres and cafes and people will be able to buy a drink at a pub or restaurant without ordering a meal. However, a density rule of 4 square metres per customer will remain."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-14/nsw-announces-easing-coronavirus-restrictions-pubs-july1/12352204",
+            "title": "NSW eases coronavirus restrictions further by dropping 50-person limit on indoor venues",
+            "source": "ABCNews",
+            "date": "14 June 2020",
+            "time": "19:43",
+            "summary": "The NSW Government has announced another tranche of downgraded coronavirus restrictions, with the 50-person limit on pubs and restaurants to be lifted next month. From July 1, venues will be able to operate without capacity limits other than accommodating one person per four square metres. Outdoor venues with a capacity of up to 40,000 people can seat a quarter of that, a move to free restrictions on concerts and sporting events flagged by Scott Morrison after Friday's National Cabinet meeting."
+        },
+        {
             "link": "https://www.9news.com.au/national/coronavirus-covid19-second-australia-wave-could-cost-country-80-billion/5343670d-d4dd-4810-aaa3-7e39143d936e",
             "title": "Second coronavirus wave may cost Australia $80 billion",
             "source": "9News",
