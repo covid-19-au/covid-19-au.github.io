@@ -23,28 +23,13 @@ SOFTWARE.
  */
 
 import React from "react"
+import SchemaTypeSelect from "./SchemaTypeSelect";
+import SchemaTypeUnderlaySelect from "./SchemaTypeUnderlaySelect";
 
 
 class CovidMapControls extends React.Component {
     constructor(props) {
         super(props);
-
-        this.schemas = FXIME;
-        this.admin0Coords = FIXME;
-        this.admin1Coords = FIXME;
-
-        this.constantSelect = FIXME;
-        this.dataTypes = FIXME;
-
-        this.staticDataListing = FIXME;
-        this.caseDataListing = FIXME;
-
-        this.staticData = {};
-        this.caseData = {};
-
-        this.displayedSchemaInsts = [];
-        this.displayedCaseDataInsts = [];
-
         this.mapContControls = React.createRef();
     }
 
@@ -54,11 +39,37 @@ class CovidMapControls extends React.Component {
 
     render() {
         return (
-            <div className="map-cont-controls" ref={this.mapContControls}>
-                <SchemaTypeSelect></SchemaTypeSelect>
-                <SchemaTypeUnderlaySelect></SchemaTypeUnderlaySelect>
+            <div className="map-cont-controls" ref={this.mapContControls}
+                 style={{ pointerEvents: this.disabled ? 'none' : 'all '}}>
+                <SchemaTypeSelect onchange={this.onChangeType} />
+                <SchemaTypeUnderlaySelect onchange={this.onChangeUnderlay}/>
             </div>
         );
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.props.onchange({
+            dataType: this.state.type,
+            timePeriod: this.state.timePeriod,
+            underlay: this.state.underlay
+        })
+    }
+
+    /*******************************************************************
+     * Events
+     *******************************************************************/
+
+    onChangeType(type, timePeriod) {
+        this.setState({
+            type: type,
+            timePeriod: timePeriod
+        });
+    }
+
+    onChangeUnderlay(underlay) {
+        this.setState({
+            underlay: underlay
+        });
     }
 
     /*******************************************************************
@@ -70,10 +81,14 @@ class CovidMapControls extends React.Component {
     }
 
     disable() {
-        this.mapContControls.current.style.pointerEvents = 'none';
+        this.setState({
+            disabled: true
+        });
     }
 
-    enalbe() {
-        this.mapContControls.current.style.pointerEvents = 'all';
+    enable() {
+        this.setState({
+            disabled: false
+        });
     }
 }

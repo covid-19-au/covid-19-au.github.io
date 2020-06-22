@@ -25,6 +25,7 @@ SOFTWARE.
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import React from "react";
+import schemaTypes from "../../../data/caseData/schema_types.json"
 
 
 class SchemaTypeSelect extends React.Component {
@@ -32,18 +33,19 @@ class SchemaTypeSelect extends React.Component {
         super(props);
 
         this.state = {
-            _timeperiod: 'alltime',
-            _markers: 'total'
+            _timeperiod: null,
+            _markers: 'total',
+            _enabled: true
         };
 
         this.markersBGGroup = React.createRef();
         this.markersSelect = React.createRef();
         this.markersButtonGroup = React.createRef();
+        this.schemaTypeCont = React.createRef();
     }
 
     render() {
-        const padding = '6px',
-              fbPadding = '2px 3px';
+        const padding = '6px';
 
         const activeStyles = {
             color: 'black',
@@ -65,93 +67,62 @@ class SchemaTypeSelect extends React.Component {
             textTransform: "none"
         };
 
-        const activeFBStyles = {
-            color: 'black',
-            borderColor: '#8ccfff',
-            padding: fbPadding,
-            //padding: "0px 5px",
-            zIndex: 10,
-            outline: "none",
-            textTransform: "none",
-            minWidth: 0,
-            minHeight: 0
-        };
-        const inactiveFBStyles = {
-            color: 'grey',
-            borderColor: '#e3f3ff',
-            padding: fbPadding,
-            //padding: "0px 5px",
-            outline: "none",
-            textTransform: "none",
-            minWidth: 0,
-            minHeight: 0,
-            opacity: 0.8,
-            filter: "grayscale(50%)"
+        var getSelectOptions = () => {
+            // TODO: Filter to
+            var out = [];
+            for (let [optGroupLabel, options] of schemaTypes.constant_select) {
+                out.push(`<optgroup label="${optGroupLabel}">`);
+                for (let [optionLabel, optionValue] of options) {
+                    out.push(`<option value="${optionValue}">${optionLabel}</option>`);
+                }
+                out.push(`</optgroup>`);
+            }
+            return out.join('\n');
         };
 
         return (
-            <div>
+            <div ref={this.schemaTypeCont}
+                 style={{ pointerEvents: this._enabled ? 'all' : 'none' }}>
+
                 <div ref={this.markersBGGroup}
                     style={{ marginBottom: "8px" }}>
                     <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Markers</div>
                     <select ref={this.markersSelect}
                         style={{ "width": "100%" }}>
-                        <optgroup label="Basic Numbers">
-                            <option value="total" selected>Total Cases</option>
-                            <option value="days_since">Days Since Last Case</option>
-                            <option value="status_active">Active Cases</option>
-                            <option value="status_recovered">Recovered Cases</option>
-                            <option value="status_deaths">Deaths</option>
-                            <option value="status_icu">ICU</option>
-                            {/*<option value="status_icu_ventilators">ICU Ventilators</option>*/}
-                            <option value="status_hospitalized">Hospitalized</option>
-                        </optgroup>
-                        <optgroup label="Test Numbers">
-                            <option value="tests_total">Total People Tested</option>
-                        </optgroup>
-                        <optgroup label="Source of Infection">
-                            <option value="source_overseas">Contracted Overseas</option>
-                            <option value="source_community">Unknown Community Transmission</option>
-                            <option value="source_confirmed">Contracted from Confirmed Case</option>
-                            <option value="source_interstate">Contracted Interstate</option>
-                            <option value="source_under_investigation">Under Investigation</option>
-                        </optgroup>
-                        <optgroup label="Cruise Ship Numbers">
-                            <option value="RUBY PRINCESS">Ruby Princess</option>
-                            <option value="OVATION OF THE SEAS">Ovation of the Seas</option>
-                            <option value="GREG MORTIMER">Greg Mortimer</option>
-                            <option value="ARTANIA">Artania</option>
-                            <option value="VOYAGERS OF THE SEA">Voyagers of the sea</option>
-                            <option value="CELEBRITY SOLSTICE">Celebrity Solstice</option>
-                            <option value="COSTA VICTORIA">Costa Victoria</option>
-                            <option value="DIAMOND PRINCESS">Diamond Princess</option>
-                            <option value="COSTA LUMINOSA">Contracted Costa Luminosa</option>
-                            <option value="SUN PRINCESS">Sun Princess</option>
-                            <option value="CELEBRITY APEX">Celebrity Apex</option>
-                            <option value="MSC FANTASIA">MSC Fantasia</option>
-                            <option value="UNKNOWN">Unknown Ship</option>
-                        </optgroup>
+                        { getSelectOptions() }
                     </select>
                 </div>
 
-                <div>
+                <div style={{ display: schemaTypes.constants[this._dataType].timeperiods ? 'block' : 'none' }}>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "5px" }}>
                         <ButtonGroup ref={this.markersButtonGroup}
                             size="small"
                             aria-label="small outlined button group">
                             <Button style={this.state._timeperiod === 'alltime' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setTimePeriod('alltime')}>All</Button>
+                                onClick={() => this.setTimePeriod(null)}>All</Button>
                             <Button style={this.state._timeperiod === '7days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setTimePeriod('7days')}>7 Days</Button>
+                                onClick={() => this.setTimePeriod(7)}>7 Days</Button>
                             <Button style={this.state._timeperiod === '14days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setTimePeriod('14days')}>14 Days</Button>
+                                onClick={() => this.setTimePeriod(14)}>14 Days</Button>
                             <Button style={this.state._timeperiod === '21days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setTimePeriod('21days')}>21 Days</Button>
+                                onClick={() => this.setTimePeriod(21)}>21 Days</Button>
                         </ButtonGroup>
                     </span>
                 </div>
             </div>
         );
+    }
+
+    onMarkersChange(dataType) {
+        this.setState({
+            _dataType: dataType
+        });
+    }
+
+    onTimePeriodChange(timePeriod) {
+        this.setState({
+            _timePeriod: timePeriod
+        });
     }
 
     /*******************************************************************
@@ -162,11 +133,16 @@ class SchemaTypeSelect extends React.Component {
 
     }
 
-    disable() {}
-    enable() {}
-
-    hide() {}
-    show() {}
+    disable() {
+        this.setState({
+            _enabled: false
+        });
+    }
+    enable() {
+        this.setState({
+            _enabled: true
+        });
+    }
 
     //========================================================//
     //                   Get Select Options                   //
@@ -184,6 +160,7 @@ class SchemaTypeSelect extends React.Component {
         TODO: Get all the possible markers that can be displayed
           considering whether the admin0/admin1
          */
+        /*
         var selOptionsOut = [];
 
         for (var [groupText, groupItems] of this.constantSelect) {
@@ -204,6 +181,7 @@ class SchemaTypeSelect extends React.Component {
             selOptionsOut.push([groupText, groupItemsOut]);
         }
         return selOptionsOut;
+        */
     }
 }
 

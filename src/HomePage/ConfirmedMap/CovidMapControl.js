@@ -25,6 +25,16 @@ SOFTWARE.
 import React from "react"
 import "./schema_types";
 import mapboxgl from "mapbox-gl";
+import CovidMapControls from "./MapControls/CovidMapControls";
+import DataDownloader from "../CrawlerData/DataDownloader";
+
+import LayerDaysSince from "./Layers/LayerDaysSince";
+import LayerFillPoly from "./Layers/LayerFillPoly";
+import LayerHeatMap from "./Layers/LayerHeatMap";
+import LayerLinePoly from "./Layers/LayerLinePoly";
+
+import MapBoxSource from "./Sources/MapBoxSource";
+import ClusteredCaseSources from "./Sources/ClusteredCaseSources";
 
 
 class CovidMapControl extends React.Component {
@@ -36,22 +46,45 @@ class CovidMapControl extends React.Component {
         super(props);
 
         this.schemas = FXIME;
-        this.admin0Coords = FIXME;
-        this.admin1Coords = FIXME;
+        this.dataDownloader = new DataDownloader();
 
-        this.constantSelect = FIXME;
-        this.dataTypes = FIXME;
+        let casesSource = this.casesSource = new MapBoxSource(
 
-        this.staticDataListing = FIXME;
-        this.caseDataListing = FIXME;
+        );
+        let clusteredCaseSources = this.clusteredCaseSources = new ClusteredCaseSources(
 
-        this.staticData = {};
-        this.caseData = {};
+        );
 
-        this.displayedSchemaInsts = [];
-        this.displayedCaseDataInsts = [];
-
-        this.covidDataDownloader = new DataDownloader();
+        this.layerDaysSince = new LayerDaysSince(
+            this.map, 'daysSince', casesSource
+        );
+        /*
+        map,
+        opacity,
+        addLegend,
+        addPopupOnClick,
+        maxMinStatVal,
+        addUnderLayerId,
+        uniqueId,
+        casesMapBoxSource
+         */
+        this.underlayFillPoly = new LayerFillPoly(
+            this.map, 0.0, true,
+            null, 'underlayFillPoly', casesSource
+        );
+        this.underlayLinePoly = new LayerLinePoly(
+            this.map, 'underlayLinePoly', 'rgba(0,0,0,0.3)', casesSource
+        );
+        this.casesFillPoly = new LayerFillPoly(
+            this.map, 0.7, true,
+            null, 'casesFillPoly', casesSource
+        );
+        this.casesLinePoly = new LayerLinePoly(
+            this.map, 'casesLinePoly', 'gray', casesSource
+        );
+        this.casesHeatMap = new LayerHeatMap(
+            this.map, 'heatMap', maxMinValues, clusteredCaseSources
+        );
     }
 
     /*******************************************************************
@@ -61,9 +94,7 @@ class CovidMapControl extends React.Component {
     render() {
         return (
             <div>
-                <CovidMapControls>
-
-                </CovidMapControls>
+                <CovidMapControls onchange={this.onControlsChange} />
 
                 <div ref={el => this.mapContainer = el} >
                 </div>
@@ -126,6 +157,12 @@ class CovidMapControl extends React.Component {
         map.on('load', () => {
             this.props.onload(this, map);
         });
+        map.on('moveend', () => {
+            this.onMapMoveChange();
+        });
+        map.on('zoomend', () => {
+            this.onMapMoveChange();
+        });
     }
 
     /*******************************************************************
@@ -133,48 +170,93 @@ class CovidMapControl extends React.Component {
      *******************************************************************/
 
     /**
-     *
+     * Download any static/case data based on the
+     * countries/regions in view, and hide/show as needed!
      */
     onMapMoveChange() {
-        // TODO: Download any static/case data based on the
-        //  countries/regions in view, and hide/show as needed!
-
-        this.schemaTypeSelect.setPossibleOptions(
-            this.getPossibleSchemaTypeSelectOptions()
+        let zoomLevel = this.map.getZoom(),
+            lngLatBounds = this.map.getBoundingRect(); // CHECK ME!!
+        let schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
+            zoomLevel, lngLatBounds
         );
+
+
+        this._onMapMoveChange(zoomLevel, lngLatBounds, schemasForCases);
     }
 
-    //========================================================//
-    //              Enable/Disable Map+Controls               //
-    //========================================================//
+    async _onMapMoveChange(zoomLevel, lngLatBounds, schemasForCases) {
+        var promises = [];
+
+        for (let [parentSchema, parentISO] of schemasForCases.keys()) {
+            let [priority, regionSchema, iso3166Codes] = schemasForCases.get(
+                [parentSchema, parentISO]
+            );
+            if (iso3166Codes) {
+                for (let iso3166 of iso3166Codes) {
+                    promises.push([
+                        this.dataDownloader.getGeoData(regionSchema, iso3166),
+                        this.dataDownloader.getCaseData(regionSchema, iso3166)
+                    ]);
+                }
+            }
+            else {
+                promises.push([
+                    this.dataDownloader.getGeoData(regionSchema, null),
+                    this.dataDownloader.getCaseData(regionSchema, null)
+                ]);
+            }
+        }
+
+        let points = [],
+            polygons = [];
+
+        for (let [geoDataPromise, caseDataPromise] of promises) {
+            let geoData = await geoDataPromise,
+                caseData = await caseDataPromise;
+
+            let iPoints = geoData.getCentralPoints(),
+                iPolygons = geoData.getPolygonOutlines();
+
+            iPoints['features'] = caseData.assignCaseInfoToGeoJSON(iPoints['features'], null);
+            iPolygons['features'] = caseData.assignCaseInfoToGeoJSON(iPolygons['features'], null);
+
+            points['features'].push(...iPoints['features']);
+            polygons['features'].push(...iPolygons['features']);
+        }
+
+        this.clusteredCaseSources.setData(points);
+        this.caseSource.setData(polygons);
+    }
+
+    /*******************************************************************
+     * Enable/Disable Map+Controls
+     *******************************************************************/
 
     /**
      *
      * @private
      */
-    _disableControls() {
-        this.mapContainer.style.pointerEvents = 'none';
-        this.dsMapContainer.style.pointerEvents = 'none';
+    disable() {
+        this.covidMapControls.disable()
     }
 
     /**
      *
      * @private
      */
-    _enableControls() {
-        this.mapContainer.style.pointerEvents = 'all';
-        this.dsMapContainer.style.pointerEvents = 'all';
+    enable() {
+        this.covidMapControls.enable()
     }
 
     /**
      *
      * @private
      */
-    _enableControlsWhenMapReady() {
+    enableControlsWhenMapReady() {
         var _enableControlsWhenMapReady = () => {
             if (this.map.loaded()) {
                 this._enableControlsJob = null;
-                this._enableControls();
+                this.enable();
             }
             else {
                 this._enableControlsJob = setTimeout(
@@ -191,168 +273,9 @@ class CovidMapControl extends React.Component {
         );
     }
 
-    //========================================================//
-    //                     Miscellaneous                      //
-    //========================================================//
-
-    /**
-     *
-     * @param long
-     * @param lat
-     * @param bounds
-     * @returns {*}
-     */
-    mapContainsCoord(long, lat, bounds) {
-        bounds = bounds || this.map.getBounds();
-        return bounds.contains([long, lat]);
-    }
-
-    /**
-     *
-     * @param long1
-     * @param lat1
-     * @param long2
-     * @param lat2
-     * @param bounds
-     * @returns {*}
-     */
-    mapIntersects(long1, lat1, long2, lat2, bounds) {
-        bounds = bounds || this.map.getBounds();
-
-        return (
-            bounds.contains([long1, lat1]) ||
-            bounds.contains([long1, lat2]) ||
-            bounds.contains([long2, lat1]) ||
-            bounds.contains([long2, lat2])
-        );
-    }
-
-    //========================================================//
-    //                     Change Schemas                     //
-    //========================================================//
-
-    /**
-     *
-     * @returns {[]}
-     */
-    getPossibleSchemaTypes() {
-        var admin0InView = this.getAdmin0InView(),
-            mapZoom = this.map.getZoom(),
-            r = [];
-
-        for (var schema in this.schemas) {
-            /*
-            schemaInfo ->
-            {
-                "iso_3166": "TH",
-                "min_zoom": 8,
-                "priority": -1,
-                "line_width": 0.5,
-                "split_by_parent_region": false
-            }
-             */
-            var schemaInfo = this.schemas[schema];
-
-            if (schemaInfo.min_zoom != null && mapZoom <= schemaInfo.min_zoom) {
-                continue;
-            }
-            else if (schemaInfo.max_zoom != null && mapZoom >= schemaInfo.max_zoom) {
-                continue;
-            }
-            r.push(schema);
-        }
-        return r;
-    }
-
-    /**
-     * Find which admin0-level units (i.e. countries) are visible
-     *
-     * Returns an object of e.g. {'AU': true, 'US': false, ...}
-     *
-     * @returns {{}}
-     */
-    getAdmin0InView() {
-        /*
-
-         */
-        return this.__getCoordsInView(this.admin0Coords);
-    }
-
-    /**
-     * Find which admin1-level units (i.e. states/territories/provinces) are visible
-     *
-     * Returns an object of e.g. {'AU-VIC': false, 'AU-WA': true, 'JP-01': false, ...}
-     *
-     * @returns {{}}
-     */
-    getAdmin1InView() {
-        return this.__getCoordsInView(this.admin1Coords);
-    }
-
-    /**
-     * Find which admin0-level units (i.e. countries) are visible
-     *
-     * @param adminCoords
-     * @returns {{}}
-     * @private
-     */
-    __getCoordsInView(adminCoords) {
-        var bounds = this.map.getBounds(),
-            inView = {};
-
-        for (var [adminCode, long1, lat1, long2, lat2] of adminCoords) {
-            inView[adminCode] = this.mapIntersects(
-                long1, lat1, long2, lat2, bounds
-            );
-        }
-        return inView;
-    }
-
-    //========================================================//
-    //                     Get DataTypes                      //
-    //========================================================//
-
-    /**
-     *
-     */
-    getPossibleDataTypes() {
-        for (var dataType in this.dataTypes) {
-
-        }
-    }
-
     /*******************************************************************
      * Mode update
      *******************************************************************/
-
-    /**
-     *
-     */
-    setUnderlay() {
-        this.setState({
-            _underlay: this.otherStatsSelect.current.value
-        });
-    }
-
-    /**
-     *
-     */
-    setMarkers() {
-        var val = this.markersSelect.current.value;
-        this.setState({
-            _markers: val
-        });
-    }
-
-    /**
-     *
-     * @param timeperiod
-     */
-    setTimePeriod(timeperiod) {
-        this.setState({
-            _timeperiod: timeperiod
-        });
-    }
 
     /**
      *
@@ -362,9 +285,7 @@ class CovidMapControl extends React.Component {
         // Get the absolute max/min values among all the datasources
         // so that we can scale heatmap values for the entire of the
         // country
-        var otherMaxMin = null,
-            stateWideMaxMin = null,
-            numStateWide = 0;
+        var otherMaxMin = null;
 
         this.statesAndTerritories.forEach((stateName) => {
             var caseDataInst = this.getCaseDataInst(stateName);
@@ -383,83 +304,6 @@ class CovidMapControl extends React.Component {
                 otherMaxMin['min'] = iMaxMinValues['min'];
             }
         });
-
-        if (numStateWide === 1) {
-            // HACK: Because there's only one state level value,
-            // there's likely no common point of comparison,
-            // so at least tone it down!
-            stateWideMaxMin['max'] *= 4;
-        }
-
-        var enableInsts = (dataSource, insts) => {
-            // Overlay LGA ABS data on LGA stats
-            for (var i = 0; i < insts.length; i++) {
-                insts[i].addFillPoly(
-                    this.absStatsInsts[this.state._underlay],
-                    dataSource,
-                    this.state._underlay ? 0.5 : 0,
-                    !!this.state._underlay,
-                    true
-                );
-                insts[i].addLinePoly(dataSource);
-                insts[i].addHeatMap(dataSource, otherMaxMin);
-            }
-        };
-        var enableNonLGAInst = (dataSource, otherInst, lgaInst) => {
-            // Overlay LGA ABS data underneath non-LGA stats
-            // (e.g. Queensland HHS/ACT SA3)
-            otherInst.addFillPoly(
-                null,
-                dataSource,
-                0,
-                false,
-                true
-            );
-
-            if (this.state._underlay && lgaInst) {
-                lgaInst.addFillPoly(
-                    this.absStatsInsts[this.state._underlay],
-                    null,
-                    this.state._underlay ? 0.5 : 0,
-                    !!this.state._underlay,
-                    false//,
-                    //fillPoly['fillPolyId']
-                );
-                lgaInst.addLinePoly(
-                    this.absStatsInsts[this.state._underlay],
-                    'rgba(0, 0, 0, 0.1)'
-                );
-            }
-
-            otherInst.addLinePoly(dataSource,'rgba(0, 0, 0, 1.0)');
-            otherInst.addHeatMap(dataSource, otherMaxMin);
-        };
-
-        this.statesAndTerritories.forEach((stateName) => {
-            var absStatDataInst = this.absStatsInsts[this.state._underlay],
-                caseDataInst = this.getCaseDataInst(stateName);
-
-            if (!caseDataInst) {
-                return;
-            }
-            var absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, 'lga'),
-                caseGeoBoundariesInst = this.getGeoBoundariesInst(stateName, caseDataInst.schema);
-
-            if (!caseGeoBoundariesInst) {
-                return;
-            }
-            else if (absGeoBoundariesInst === caseGeoBoundariesInst) {
-                enableInsts(caseDataInst, [caseGeoBoundariesInst]); // HACK!
-            }
-            else {
-                enableNonLGAInst(caseDataInst, caseGeoBoundariesInst, absGeoBoundariesInst);
-            }
-        });
-
-        // Make sure the map is fully loaded
-        // before allowing a new change in tabs
-        this._disableControls();
-        this._enableControlsWhenMapReady();
     }
 
     /**
@@ -468,47 +312,6 @@ class CovidMapControl extends React.Component {
      * @private
      */
     _resetMode(prevState) {
-        function disableInsts(insts) {
-            for (var i = 0; i < insts.length; i++) {
-                //console.log(`Disable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
 
-                insts[i].removeHeatMap();
-                insts[i].removeLinePoly();
-                insts[i].removeFillPoly();
-            }
-        }
-        function disableNonLGAInst(otherInst, lgaInst) {
-            //console.log(`Disable non-lga inst: ${otherInst.schema}:${otherInst.stateName} ${lgaInst}`);
-
-            otherInst.removeHeatMap();
-            otherInst.removeLinePoly();
-            otherInst.removeFillPoly();
-
-            if (prevState._underlay && lgaInst) {
-                lgaInst.removeLinePoly();
-                lgaInst.removeFillPoly();
-            }
-        }
-
-        this.statesAndTerritories.forEach((stateName) => {
-            var absStatDataInst = this.absStatsInsts[prevState._underlay],
-                caseDataInst = this.getCaseDataInst(stateName, prevState);
-
-            if (!caseDataInst) {
-                return;
-            }
-            var absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, 'lga'),
-                caseGeoBoundariesInst = this.getGeoBoundariesInst(stateName, caseDataInst.schema);
-
-            if (!caseGeoBoundariesInst) {
-                return;
-            }
-            else if (absGeoBoundariesInst === caseGeoBoundariesInst) {
-                disableInsts([caseGeoBoundariesInst]); // HACK!
-            }
-            else {
-                disableNonLGAInst(caseGeoBoundariesInst, absGeoBoundariesInst);
-            }
-        });
     }
 }

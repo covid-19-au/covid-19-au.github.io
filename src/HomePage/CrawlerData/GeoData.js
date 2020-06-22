@@ -22,10 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import Fns from "../ConfirmedMap/Fns";
-import BigTableOValuesDataSource from "./DEPRECATED/DataABS";
-
-
 class GeoData {
     /**
      * TODO!!!!
@@ -88,20 +84,16 @@ class GeoData {
             "type": "FeatureCollection",
             "features": []
         };
-        var labels = {};
-
-        var assignLabel = (schemaType, regionParent, regionChild) => {
-
-        };
 
         for (let [regionChild, childData] of regionParentGeoData.entries()) {
-            let geodata = childData['geodata'],
-                label = childData['label'];
+            let geodata = childData['geodata'];
             let uniqueId = `${this.regionSchema}||${this.regionParent}||${regionChild}`;
+            let largestItem = 1;
 
             for (let [area, boundingCoords, centerCoords, points] of geodata) {
                 var properties = {
                     "area": area,
+                    "largestItem": largestItem,
                     "boundingCoords": boundingCoords,
                     "centerCoords": centerCoords,
                     "regionSchema": this.regionSchema,
@@ -110,7 +102,7 @@ class GeoData {
                     "uniqueid": uniqueId,
                     "label": this.getLabel(regionChild, this.iso639code)
                 };
-                outlines.push({
+                outlines['features'].push({
                     "type": "Feature",
                     "geometry": {
                         "type": "Polygon",
@@ -118,7 +110,7 @@ class GeoData {
                         "properties": properties
                     }
                 });
-                points.push({
+                points['features'].push({
                     "type": "Feature",
                     "geometry": {
                         "type": "Point",
@@ -126,12 +118,12 @@ class GeoData {
                         "properties": properties
                     }
                 });
+                largestItem = 0;
             }
         }
 
         this.outlines = outlines;
         this.points = points;
-        this.labels = labels;
     }
 
     /*******************************************************************
@@ -185,13 +177,12 @@ class GeoData {
      *******************************************************************/
 
     /**
-     * Get the central x,y point of a child region
+     * Get the central x,y points of child regions
      *
-     * @param regionChild
      * @param noCopy
      */
-    getCentralPoint(regionChild, noCopy) {
-        var r = this.points[regionChild];
+    getCentralPoints(noCopy) {
+        var r = this.points;
         if (!noCopy) {
             r = JSON.parse(JSON.stringify(r));
         }
@@ -199,13 +190,12 @@ class GeoData {
     }
 
     /**
-     * Get the polygon outline for a child region
+     * Get the polygon outlines for child regions
      *
-     * @param regionChild
      * @param noCopy
      */
-    getPolygonOutline(regionChild, noCopy) {
-        var r = this.outlines[regionChild];
+    getPolygonOutlines(noCopy) {
+        var r = this.outlines;
         if (!noCopy) {
             r = JSON.parse(JSON.stringify(r));
         }

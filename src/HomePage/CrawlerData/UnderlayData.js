@@ -165,13 +165,13 @@ class UnderlayData {
     /**
      * Assign statistics data from an UnderlayData instance
      *
-     * @param geoJSONData
+     * @param features
      * @param dateType
      */
-    assignStatInfoToGeoJSON(geoJSONData, dateType) {
+    assignStatInfoToGeoJSON(features, dateType) {
         dateType = dateType || DateType.today();
 
-        for (let feature of geoJSONData.features) {
+        for (let feature of features) {
             let properties = feature.properties;
             let regionType = new RegionType(
                 properties['regionSchema'],
@@ -188,7 +188,7 @@ class UnderlayData {
             properties['statDate'] = statInfo.getUpdatedDate().toString();
         }
 
-        return geoJSONData;
+        return features;
     }
 
     /********************************************************************

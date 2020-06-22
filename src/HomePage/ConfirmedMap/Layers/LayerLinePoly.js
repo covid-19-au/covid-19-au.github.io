@@ -2,17 +2,15 @@ class LinePolyLayer {
     /**
      *
      * @param map
-     * @param dataSource
      * @param uniqueId
      * @param color
-     * @param fillSourceId
+     * @param mapBoxSource
      */
-    constructor(map, dataSource, uniqueId, color, fillSourceId) {
+    constructor(map, uniqueId, color, mapBoxSource) {
         this.map = map;
-        this.dataSource = dataSource;
         this.uniqueId = uniqueId;
         this.color = color;
-        this.fillSourceId = fillSourceId;
+        this.mapBoxSource = mapBoxSource;
 
         this._addLinePoly();
     }
@@ -47,11 +45,11 @@ class LinePolyLayer {
             id: this.getLinePolyId(),
             minzoom: 2,
             type: 'line',
-            source: this.fillSourceId,
+            source: this.mapBoxSource.getSourceId(),
             paint: {
                 'line-color': this.color || '#000',
                 'line-opacity': 1,
-                'line-width': this.uniqueId.indexOf('postcode') !== -1 ? 0.5 : 1.0,
+                'line-width': this.uniqueId.indexOf('postcode') !== -1 ? 0.5 : 1.0 // FIXME!!!
             },
             filter: ['==', '$type', 'Polygon']
         }, lastLineLayer);

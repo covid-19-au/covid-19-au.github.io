@@ -22,9 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import ConfirmedMapFns from "../Fns";
 import React from "react";
-import SchemaTypeSelect from "./SchemaTypeSelect";
+import schemaTypes from "../../../data/caseData/schema_types.json"
 
 
 class SchemaTypeUnderlaySelect extends React.Component {
@@ -35,32 +34,10 @@ class SchemaTypeUnderlaySelect extends React.Component {
             _underlay: null
         };
 
-        this.otherStatsSelect = React.createRef();
+        this.underlayCategorySelect = React.createRef();
+        this.underlayCategoryBGCont = React.createRef();
+        this.underlaySelect = React.createRef();
         this.underlayBGCont = React.createRef();
-    }
-
-    _getSelectHTML() {
-        function outputSelects(heading) {
-            return absStats[heading]['sub_headers'].map((key) => {
-                return '<option value="' + key + '">' + key + '</option>'
-            }).join('\n')
-        }
-        return (
-            '<optgroup label="Quick Selections">' +
-                '<option value="">(None)</option>' +
-                '<option value="Population density (persons/km2)">Population density (persons/km2)</option>' +
-                '<option value="Index of Relative Socio-economic Advantage and Disadvantage (%)">Socioeconomic Advantage and Disadvantage (%)</option>' +
-                '<option value="Persons - 65 years and over (%)">65 years and over (%)</option>' +
-            '</optgroup>'+
-
-            ConfirmedMapFns.sortedKeys(absStats).map((heading) => {
-                return (
-                    '<optgroup label=' + heading + '>' +
-                        outputSelects(heading) +
-                    '</optgroup>'
-                );
-            }).join('\n')
-        );
     }
 
     componentDidMount() {
@@ -70,14 +47,35 @@ class SchemaTypeUnderlaySelect extends React.Component {
     }
 
     render() {
+        var getSelectOptions = () => {
+            // TODO: Filter to
+            var out = [];
+            for (let [optGroupLabel, options] of schemaTypes.underlays) {
+                out.push(`<optgroup label="${optGroupLabel}">`);
+                for (let [optionLabel, optionValue] of options) {
+                    // Option value is the underlay filename
+                    out.push(`<option value="${optionValue}">${optionLabel}</option>`);
+                }
+                out.push(`</optgroup>`);
+            }
+            return out.join('\n');
+        };
+
         return (
-            <div ref={this.underlayBGCont}
-                className="key"
-                style={{ marginBottom: "8px" }}>
-                <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Underlay</div>
-                    <select ref={this.otherStatsSelect}
+            <div>
+                <div ref={this.underlayCategoryBGCont} className="key" style={{ marginBottom: "8px" }}>
+                    <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Underlay</div>
+                    <select ref={this.underlayCategorySelect}
+                        style={{ "width": "100%" }}>
+                        { getSelectOptions() }
+                    </select>
+                </div>
+
+                <div ref={this.underlayBGCont} className="key" style={{ marginBottom: "8px" }}>
+                    <select ref={this.underlaySelect}
                         style={{ "width": "100%" }}>
                     </select>
+                </div>
             </div>
         );
     }

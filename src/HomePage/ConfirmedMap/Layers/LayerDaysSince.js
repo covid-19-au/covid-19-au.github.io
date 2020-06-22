@@ -28,15 +28,13 @@ class DaysSinceLayer {
     /**
      *
      * @param map
-     * @param dataSource
      * @param uniqueId
-     * @param daysSinceSourceId
+     * @param mapBoxSource
      */
-    constructor(map, dataSource, uniqueId, daysSinceSourceId) {
+    constructor(map, uniqueId, mapBoxSource) {
         this.map = map;
-        this.dataSource = dataSource;
         this.uniqueId = uniqueId;
-        this.daysSinceSourceId = daysSinceSourceId;
+        this.mapBoxSource = mapBoxSource;
         this._addDaysSince()
     }
 
@@ -60,7 +58,7 @@ class DaysSinceLayer {
             {
                 id: this.getDaysSinceId(),
                 type: 'circle',
-                source: this.daysSinceSourceId,
+                source: this.mapBoxSource.getSourceId(),
                 filter: ['has', 'dayssince'],
                 paint: {
                     // Size circle radius by value
@@ -88,7 +86,7 @@ class DaysSinceLayer {
             var daysSinceLabels = map.addLayer({
                 id: this.getDaysSinceId() + 'label' + i,
                 type: 'symbol',
-                source: this.daysSinceSourceId,
+                source: this.mapBoxSource.getSourceId(),
                 filter: [(i === MAX_VAL-1) ? '>=' : '==', ["get", "dayssince"], i],
                 layout: {
                     'text-field': '{dayssince}',

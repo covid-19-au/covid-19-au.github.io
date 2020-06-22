@@ -6,29 +6,19 @@ class FillPolyLayer {
     /**
      *
      * @param map
-     * @param absDataSource
-     * @param caseDataSource
      * @param opacity
-     * @param addLegend
      * @param addPopupOnClick
-     * @param stateName
-     * @param maxMinStatVal
      * @param addUnderLayerId
      * @param uniqueId
-     * @param fillSourceId
+     * @param casesMapBoxSource
      */
     constructor(
         map,
-        absDataSource, // the ABS underlay source (if any)
-        caseDataSource, // the case source for popups (if any)
         opacity,
-        addLegend,
         addPopupOnClick,
-        stateName,
-        maxMinStatVal,
         addUnderLayerId,
         uniqueId,
-        fillSourceId,
+        casesMapBoxSource,
     ) {
 
         if (opacity == null) {
@@ -36,18 +26,21 @@ class FillPolyLayer {
         }
 
         this.map = map;
-        this.absDataSource = absDataSource;
-        this.caseDataSource = caseDataSource;
         this.opacity = opacity;
-        this.addLegend = addLegend;
         this.addPopupOnClick = addPopupOnClick;
-        this.stateName = stateName;
-        this.maxMinStatVal = maxMinStatVal;
         this.addUnderLayerId = addUnderLayerId;
         this.uniqueId = uniqueId;
-        this.fillSourceId = fillSourceId;
+        this.casesMapBoxSource = casesMapBoxSource;
 
         this._addFillPoly();
+    }
+
+    /**
+     * TODO!!!
+     * @param maxMinStatVal
+     */
+    setMaxMinStatVal(maxMinStatVal) {
+        this.maxMinStatVal = maxMinStatVal;
     }
 
     /**
@@ -128,7 +121,7 @@ class FillPolyLayer {
                 id: this.getFillPolyId(),
                 type: 'fill',
                 minzoom: 2,
-                source: this.fillSourceId,
+                source: this.casesMapBoxSource.getSourceId(),
                 paint: {
                     'fill-color': [
                         'interpolate',
@@ -176,79 +169,6 @@ class FillPolyLayer {
         this._removeLegend();
     }
 
-    /*******************************************************************
-     * Map legends
-     *******************************************************************/
-
-    /**
-     *
-     * @param dataSource
-     * @param labels
-     * @param colors
-     * @private
-     */
-    _addLegend(dataSource, labels, colors) {
-        this._removeLegend();
-
-        var legend = this.legend = document.createElement('div');
-        legend.style.position = 'absolute';
-        legend.style.bottom = '40px';
-        legend.style.left = '10px';
-        legend.style.width = '10%';
-        legend.style.minWidth = '75px';
-        legend.style.background = 'rgba(255,255,255, 0.35)';
-        legend.style.padding = '3px';
-        legend.style.boxShadow = '0px 1px 5px 0px rgba(0,0,0,0.05)';
-        legend.style.borderRadius = "2px";
-        this.map.getCanvasContainer().appendChild(legend);
-
-        var allBetween0_10 = true,
-            sameConsecutive = false,
-            lastNum = null;
-
-        for (let i = 0; i < labels.length; i++) {
-            if (!(labels[i] > -10.0 && labels[i] < 10.0)) {
-                allBetween0_10 = false;
-            }
-            if (lastNum === parseInt(labels[i])) {
-                sameConsecutive = true;
-                break;
-            }
-            lastNum = parseInt(labels[i]);
-        }
-
-        for (let i = 0; i < labels.length; i++) {
-            var label = labels[i],
-                color = colors[i];
-
-            var item = document.createElement('div');
-            var key = document.createElement('span');
-            key.className = 'legend-key';
-            key.style.backgroundColor = color;
-            key.style.display = 'inline-block';
-            key.style.borderRadius = '20%';
-            key.style.width = '10px';
-            key.style.height = '10px';
-
-            var value = document.createElement('span');
-            value.innerHTML = this._getABSValue(dataSource, label, allBetween0_10, sameConsecutive);
-            item.appendChild(key);
-            item.appendChild(value);
-            legend.appendChild(item);
-        }
-    }
-
-    /**
-     *
-     * @private
-     */
-    _removeLegend() {
-        if (this.legend) {
-            this.legend.parentNode.removeChild(this.legend);
-            this.legend = null;
-        }
-    }
-
     /**
      *
      * @param dataSource
@@ -258,7 +178,7 @@ class FillPolyLayer {
      * @returns {string}
      * @private
      */
-    _getABSValue(dataSource, label, allBetween0_10, sameConsecutive) {
+    _getUnderlayValue(dataSource, label, allBetween0_10, sameConsecutive) {
         var isPercent = dataSource.getSourceName().indexOf('(%)') !== -1;
         return (
             ((allBetween0_10 || sameConsecutive) && label <= 15) ? label.toFixed(1) : parseInt(label)
@@ -309,16 +229,20 @@ class FillPolyLayer {
             }
 
             var absInfo;
-            if (this.absDataSource) {
+            let underlayDataSource = this.__getUnderlayDataSource(FIXME);
+            if (underlayDataSource) {
                 // TODO: Store on mouseover, so as to allow combining different schemas?
-                absInfo = this.absDataSource.getCaseInfoForCity(
-                    this.stateName, cityName
+                absInfo = underlayDataSource.getOnOrBeforeDate(
+                    new RegionType(FIXME),
+                    DateType.today()
                 );
             }
 
-            if (this.caseDataSource.getCaseNumberTimeSeries) {
-                var timeSeries = this.caseDataSource.getCaseNumberTimeSeries(
-                    cityName, null
+            let caseDataSource = this.__getCaseDataSource(FIXME); // TODO: MANY METHODS+ATTRIBUTES HAVE CHANGED!!! ===========
+            if (caseDataSource.getCaseNumberTimeSeries) {
+                var timeSeries = caseDataSource.getCaseNumberTimeSeries(
+                    new RegionType(FIXME),
+                    null
                 );
 
                 popup = new mapboxgl.Popup({
@@ -327,11 +251,10 @@ class FillPolyLayer {
                 })
                     .setLngLat(e.lngLat)
                     .setHTML(
-                        `${cityLabel} (${this.caseDataSource.schema in {'statewide':0, 'postcode':0} ? 
-                            this.caseDataSource.schema.toLowerCase() : this.caseDataSource.schema.toUpperCase()}${cityName !== cityLabel ? ' '+cityName : ''})` +
+                        `${cityLabel} (${caseDataSource.regionSchema}${cityName !== cityLabel ? ' '+cityName : ''})` +
                         '<br/>Cases: ' + caseInfo['numCases'] +
                         '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo['updatedDate'] +
-                        (absInfo ? ('<br>ABS Underlay: '+this._getABSValue(this.absDataSource, absInfo['numCases'], true)) : '') +
+                        (absInfo ? ('<br>ABS Underlay: '+this._getUnderlayValue(underlayDataSource, absInfo['numCases'], true)) : '') +
                         '<div id="chartContainer" ' +
                         'style="width: 200px; min-height: 60px; height: 13vh;"></div>'
                     )
@@ -392,6 +315,30 @@ class FillPolyLayer {
             }
             currentFeature = null;
         }
+    }
+
+    /**
+     *
+     * @param dataSources
+     */
+    setDataSources(dataSources) {
+        this.__dataSources = dataSources;
+    }
+
+    /**
+     *
+     * @private
+     */
+    __getUnderlayDataSource() {
+        // TODO!
+    }
+
+    /**
+     *
+     * @private
+     */
+    __getCaseDataSource() {
+        // TODO!
     }
 
     /**

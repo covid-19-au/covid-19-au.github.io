@@ -111,6 +111,9 @@ class DataDownloader {
      * The iso 3166-2 codes are only provided when data files are split
      * to make downloads more manageable
      *
+     * Note that only the highest priority values are kept for a given
+     * parent schema/parent ISO code combination
+     *
      * @param mode
      * @param zoomLevel
      * @param lngLatBounds

@@ -119,12 +119,18 @@ class CasesData {
     /**
      * Assign cases time series data from a CasesData instance
      *
-     * @param geoJSONData
+     * @param features
      * @param ageRange
      */
-    assignCaseInfoToGeoJSON(geoJSONData, ageRange) {
-        for (let feature of geoJSONData) {
+    assignCaseInfoToGeoJSON(features, ageRange) {
+        for (let feature of features) {
             let properties = feature.properties;
+
+            if (!parseInt(properties.largestItem)) {
+                // Ignore smaller islands etc, only add each region once!
+                continue;
+            }
+
             let regionType = new RegionType(
                 properties['regionSchema'],
                 properties['regionParent'],
@@ -149,7 +155,7 @@ class CasesData {
             properties['casesFmt'] = Fns.numberFormat(timeSeriesItem.getValue(), 1);
             properties['casesSz'] = this._getCasesSize(feature);
         }
-        return geoJSONData;
+        return features;
     }
 
     /**

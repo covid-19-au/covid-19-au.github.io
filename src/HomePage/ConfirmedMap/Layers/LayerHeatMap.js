@@ -27,16 +27,14 @@ class HeatMapLayer {
     /**
      *
      * @param map
-     * @param dataSource
      * @param uniqueId
      * @param maxMinValues
-     * @param heatMapSourceId
+     * @param clusteredCaseSources
      */
-    constructor(map, dataSource, uniqueId, maxMinValues, heatMapSourceId) {
+    constructor(map, uniqueId, maxMinValues, clusteredCaseSources) {
         this.map = map;
-        this.dataSource = dataSource;
         this.uniqueId = uniqueId;
-        this.heatMapSourceId = heatMapSourceId;
+        this.clusteredCaseSources = clusteredCaseSources;
         this.maxMinValues = maxMinValues;
         this._addHeatMap()
     }
@@ -55,6 +53,8 @@ class HeatMapLayer {
     _addHeatMap() {
         const map = this.map;
         const maxMin = this.maxMinValues;
+        let minZoom = this.clusteredCaseSources.getMinZoom(),
+            maxZoom = this.clusteredCaseSources.getMaxZoom();
 
         var divBy = parseFloat(maxMin['max']);
         var radiusDivBy = divBy / 40;
@@ -94,9 +94,9 @@ class HeatMapLayer {
             }
         }
 
-        for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
+        for (let zoomLevel=minZoom; zoomLevel<maxZoom; zoomLevel++) {
             var opacity;
-            if (zoomLevel === 2) {
+            if (zoomLevel === minZoom) {
                 opacity = [
                     'interpolate',
                     ['linear'],
@@ -122,7 +122,7 @@ class HeatMapLayer {
                 {
                     'id': this.getHeatPointId()+zoomLevel,
                     'type': 'circle',
-                    'source': this.heatMapSourceId+zoomLevel,
+                    'source': this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
                     'minzoom': zoomLevel-1,
                     'maxzoom': zoomLevel+2,
                     'paint': {
@@ -152,7 +152,7 @@ class HeatMapLayer {
             var heatLabels = map.addLayer({
                 id: this.getHeatPointId()+'label'+zoomLevel,
                 type: 'symbol',
-                source: this.heatMapSourceId+zoomLevel,
+                source: this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
                 minzoom: zoomLevel-1,
                 maxzoom: zoomLevel+2,
                 filter: ['all',
@@ -182,7 +182,7 @@ class HeatMapLayer {
             {
                 id: this.getHeatPointId(),
                 type: 'circle',
-                source: this.heatMapSourceId,
+                source: this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
                 minzoom: 6,
                 paint: {
                     // Size circle radius by value
@@ -218,7 +218,7 @@ class HeatMapLayer {
             'id': this.getHeatPointId()+'citylabel',
             'type': 'symbol',
             'minzoom': 6,
-            'source': this.heatMapSourceId,
+            'source': this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
             'filter': ['all',
                 ['!=', 'cases', 0],
                 ['has', 'cases']
@@ -245,7 +245,7 @@ class HeatMapLayer {
         var heatLabels = map.addLayer({
             id: this.getHeatPointId()+'label',
             type: 'symbol',
-            source: this.heatMapSourceId,
+            source: this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
             minzoom: 6,
             filter: ['all',
                 ['!=', 'cases', 0],
@@ -282,12 +282,15 @@ class HeatMapLayer {
     }
 
     remove() {
+        let minZoom = this.clusteredCaseSources.getMinZoom(),
+            maxZoom = this.clusteredCaseSources.getMaxZoom();
+
         const map = this.map;
         map.removeLayer(this.getHeatPointId());
         map.removeLayer(this.getHeatPointId()+'label');
         map.removeLayer(this.getHeatPointId()+'citylabel');
 
-        for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
+        for (let zoomLevel=minZoom; zoomLevel<maxZoom; zoomLevel++) {
             map.removeLayer(this.getHeatPointId()+'label'+zoomLevel);
             map.removeLayer(this.getHeatPointId()+zoomLevel);
         }
