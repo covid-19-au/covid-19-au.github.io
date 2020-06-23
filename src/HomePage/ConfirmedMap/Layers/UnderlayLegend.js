@@ -22,9 +22,67 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+
 class UnderlayLegend {
-    constructor() {
-        // TODO!
+    /**
+     * A legend control for the underlay
+     *
+     * Works together with the underlay fill
+     * poly layer, synchronizing the color key
+     *
+     * @param map a MapBox GL instance
+     * @param maxMinStatVal
+     */
+    constructor(map, isPercent, maxMinStatVal) {
+        this.map = map;
+        this.isPercent = isPercent;
+        var min, max, median;
+
+        min = maxMinStatVal['min'];
+        max = maxMinStatVal['max']; // HACK!
+        // HACK - weight the median so we don't
+        // get the same values more than once!
+        median = (maxMinStatVal['median'] * 0.7) + ((min + (max - min)) * 0.3);
+
+        this.__labels = [
+            min,
+            min + (median - min) * 0.25,
+            min + (median - min) * 0.5,
+            min + (median - min) * 0.75,
+            median,
+            median + (max - median) * 0.25,
+            median + (max - median) * 0.5,
+            median + (max - median) * 0.75,
+            max
+        ];
+        this.__colors = [
+            //'#ffffff',
+            '#f0f5ff',
+            '#dcf0ff',
+            //'#c8ebff',
+            '#bae1ff',
+            '#9ed0fb',
+            '#83bff8',
+            //'#68adf4',
+            '#4f9bef',
+            '#3689e9',
+            '#1e76e3',
+            //'#0463da',
+            '#004fd0'
+        ];
+    }
+
+    /**
+     * Get the labels (values)/colors for the underlay fill layer
+     * @returns {[]}
+     */
+    getLabelsColors() {
+        var r = []
+        for (let i=0; i<this.__labels.length; i++) {
+            r.push(this.__labels[i]);
+            r.push(this.__colors[i]);
+        }
+        return r;
     }
 
     /*******************************************************************
@@ -32,14 +90,10 @@ class UnderlayLegend {
      *******************************************************************/
 
     /**
-     *
-     * @param dataSource
-     * @param labels
-     * @param colors
-     * @private
+     * Show the map legend
      */
-    _addLegend(dataSource, labels, colors) {
-        this._removeLegend();
+    show() {
+        this.hide();
 
         var legend = this.legend = document.createElement('div');
         legend.style.position = 'absolute';
@@ -55,7 +109,9 @@ class UnderlayLegend {
 
         var allBetween0_10 = true,
             sameConsecutive = false,
-            lastNum = null;
+            lastNum = null,
+            labels = this.__labels,
+            colors = this.__colors;
 
         for (let i = 0; i < labels.length; i++) {
             if (!(labels[i] > -10.0 && labels[i] < 10.0)) {
@@ -82,7 +138,7 @@ class UnderlayLegend {
             key.style.height = '10px';
 
             var value = document.createElement('span');
-            value.innerHTML = this._getABSValue(dataSource, label, allBetween0_10, sameConsecutive);
+            value.innerHTML = this._getABSValue(label, allBetween0_10, sameConsecutive);
             item.appendChild(key);
             item.appendChild(value);
             legend.appendChild(item);
@@ -90,13 +146,33 @@ class UnderlayLegend {
     }
 
     /**
-     *
-     * @private
+     * Hide the map legend
      */
-    _removeLegend() {
+    hide() {
         if (this.legend) {
             this.legend.parentNode.removeChild(this.legend);
             this.legend = null;
         }
+    }
+
+    /*******************************************************************
+     * Miscellaneous
+     *******************************************************************/
+
+    /**
+     * Get a prettified value, adding a percent or trimming
+     * floating point decimals to an appropriate precision
+     *
+     * @param label the raw value
+     * @param allBetween0_10
+     * @param sameConsecutive
+     * @returns {string}
+     */
+    _getPrettifiedValue(label, allBetween0_10, sameConsecutive) {
+        return (
+            ((allBetween0_10 || sameConsecutive) && label <= 15) ? label.toFixed(1) : parseInt(label)
+        ) + (
+            this.isPercent ? '%' : ''
+        );
     }
 }

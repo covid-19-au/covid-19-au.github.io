@@ -23,7 +23,7 @@ SOFTWARE.
  */
 
 
-class HeatMapLayer {
+class CaseCirclesLayer {
     /**
      *
      * @param map
@@ -36,7 +36,7 @@ class HeatMapLayer {
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
         this.maxMinValues = maxMinValues;
-        this._addHeatMap()
+        this.addLayer()
     }
 
     getHeatMapId() {
@@ -50,7 +50,10 @@ class HeatMapLayer {
      * Heat maps
      *******************************************************************/
 
-    _addHeatMap() {
+    /**
+     * Add the case circles layer
+     */
+    addLayer() {
         const map = this.map;
         const maxMin = this.maxMinValues;
         let minZoom = this.clusteredCaseSources.getMinZoom(),
@@ -118,7 +121,7 @@ class HeatMapLayer {
                 ];
             }
 
-            var heatCirclesLayer = map.addLayer(
+            map.addLayer(
                 {
                     'id': this.getHeatPointId()+zoomLevel,
                     'type': 'circle',
@@ -149,7 +152,7 @@ class HeatMapLayer {
                 }, lastCircleLayer
             );
 
-            var heatLabels = map.addLayer({
+            map.addLayer({
                 id: this.getHeatPointId()+'label'+zoomLevel,
                 type: 'symbol',
                 source: this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
@@ -178,7 +181,7 @@ class HeatMapLayer {
             }, lastSymbolLayer);
         }
 
-        var heatCirclesLayer = map.addLayer(
+        map.addLayer(
             {
                 id: this.getHeatPointId(),
                 type: 'circle',
@@ -242,7 +245,7 @@ class HeatMapLayer {
             }
         }, lastSymbolLayer);
 
-        var heatLabels = map.addLayer({
+        map.addLayer({
             id: this.getHeatPointId()+'label',
             type: 'symbol',
             source: this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
@@ -274,14 +277,12 @@ class HeatMapLayer {
                 ]
             }
         }, lastSymbolLayer);
-
-        return {
-            heatCirclesLayer: heatCirclesLayer,
-            heatLabels: heatLabels
-        };
     }
 
-    remove() {
+    /**
+     * Remove the cases layer
+     */
+    removeLayer() {
         let minZoom = this.clusteredCaseSources.getMinZoom(),
             maxZoom = this.clusteredCaseSources.getMaxZoom();
 
@@ -297,4 +298,4 @@ class HeatMapLayer {
     }
 }
 
-export default HeatMapLayer;
+export default CaseCirclesLayer;

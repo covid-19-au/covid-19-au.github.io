@@ -28,10 +28,10 @@ import mapboxgl from "mapbox-gl";
 import CovidMapControls from "./MapControls/CovidMapControls";
 import DataDownloader from "../CrawlerData/DataDownloader";
 
-import LayerDaysSince from "./Layers/LayerDaysSince";
-import LayerFillPoly from "./Layers/LayerFillPoly";
-import LayerHeatMap from "./Layers/LayerHeatMap";
-import LayerLinePoly from "./Layers/LayerLinePoly";
+import LayerDaysSince from "./Layers/DaysSinceLayer";
+import LayerFillPoly from "./Layers/CasesFillPolyLayer";
+import LayerHeatMap from "./Layers/CaseCirclesLayer";
+import LayerLinePoly from "./Layers/LinePolyLayer";
 
 import MapBoxSource from "./Sources/MapBoxSource";
 import ClusteredCaseSources from "./Sources/ClusteredCaseSources";

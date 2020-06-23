@@ -64,6 +64,18 @@ var fns = {
                 return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
             }
         );
+    },
+
+    /**
+     *
+     * @param numSteps
+     * @param rgba1
+     * @param rgba2
+     */
+    colorStep: function(numSteps, rgba1, rgba2) {
+        for (let i=0; i<numSteps; i++) {
+
+        }
     }
 };
 

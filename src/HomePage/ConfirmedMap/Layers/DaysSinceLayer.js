@@ -24,39 +24,39 @@ SOFTWARE.
 
 var MAX_VAL = 40;
 
+
 class DaysSinceLayer {
     /**
+     * Create a "days since" layer than starts from red
+     * (for 0/1 etc days since last case) moving towards
+     * blue around 20 and above
      *
-     * @param map
-     * @param uniqueId
-     * @param mapBoxSource
+     * @param map a MapBox GL instance
+     * @param uniqueId a unique identifier for the MapBox source IDs
+     * @param mapBoxSource a MapBoxSource instance
      */
     constructor(map, uniqueId, mapBoxSource) {
         this.map = map;
         this.uniqueId = uniqueId;
         this.mapBoxSource = mapBoxSource;
-        this._addDaysSince()
-    }
-
-    getDaysSinceId() {
-        return this.uniqueId+'dayssince';
+        this.showLayer()
     }
 
     /*******************************************************************
-     * Heat maps
+     * Show/hide "days since" indicators
      *******************************************************************/
 
     /**
-     *
-     * @returns {{daysSinceCircles: *, daysSinceLabels: *}}
-     * @private
+     * Create the layer, destroying previous indicators if they exist
      */
-    _addDaysSince() {
+    showLayer() {
+        this.hide();
         const map = this.map;
+        this.__shown = true;
 
-        var heatCirclesLayer = map.addLayer(
+        map.addLayer(
             {
-                id: this.getDaysSinceId(),
+                id: this.uniqueId,
                 type: 'circle',
                 source: this.mapBoxSource.getSourceId(),
                 filter: ['has', 'dayssince'],
@@ -83,8 +83,8 @@ class DaysSinceLayer {
         );
 
         for (var i=MAX_VAL; i>-1; i--) {
-            var daysSinceLabels = map.addLayer({
-                id: this.getDaysSinceId() + 'label' + i,
+            map.addLayer({
+                id: `${this.uniqueId}label${i}`,
                 type: 'symbol',
                 source: this.mapBoxSource.getSourceId(),
                 filter: [(i === MAX_VAL-1) ? '>=' : '==', ["get", "dayssince"], i],
@@ -102,23 +102,22 @@ class DaysSinceLayer {
                 }
             });
         }
-
-        return {
-            daysSinceCircles: heatCirclesLayer,
-            daysSinceLabels: daysSinceLabels
-        };
     }
 
     /**
-     * 
+     * Remove the layers
      */
-    remove() {
+    hideLayer() {
+        if (this.__shown) {
+            return;
+        }
         const map = this.map;
-        map.removeLayer(this.getDaysSinceId());
+        map.removeLayer(this.uniqueId);
 
         for (var i=MAX_VAL; i>-1; i--) {
-            map.removeLayer(this.getDaysSinceId() + 'label' + i);
+            map.removeLayer(`${this.uniqueId}label${i}`);
         }
+        this.__shown = false;
     }
 }
 
