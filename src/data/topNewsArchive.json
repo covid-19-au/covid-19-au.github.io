@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-15/coronavirus-cases-at-melbourne-pakenham-springs-primary-school/12354622 ",
+            "title": "12 New Cases in Victoria including 7 from a family outbreak in Coburg, and 1 BLM protest attendee",
+            "source": "ABCNews",
+            "date": "15 June 2020",
+            "time": "20:10",
+            "summary": "The 7 new cases bring the total number of cases from the Coburg cluster to 11. A second person who attended Melbourne's Black Lives Matter protest has also tested positive for COVID-19. Victoria's Chief Health Officer Brett Sutton said the Black Lives Matter protester was a young woman who attended the demonstration in Melbourne on June 6, but was very unlikely to have acquired the virus there. Professor Sutton said the woman wore personal protective equipment (PPE) at the protest and was unlikely to have transmitted the virus to other attendees because she had been minimally symptomatic at the time. The individual is also unlikely to have acquired the virus at the protest, having taken great care to socially distance from others."
+        },
+        {
+            "link": "https://www.brisbanetimes.com.au/national/queensland/more-people-allowed-at-queensland-funerals-from-tuesday-20200615-p552m0.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
+            "title": "More people allowed at Queensland funerals from Tuesday",
+            "source": "BrisbaneTimes",
+            "date": "15 June 2020",
+            "time": "10:09",
+            "summary": "One hundred people will be allowed to attend Queensland funerals from Tuesday after the state recorded no new cases of COVID-19 overnight. Premier Annastacia Palaszczuk and her deputy Steven Miles announced the relaxation on Monday morning. Chief Health Officer Dr Jeannette Young said funeral organisers would have to keep a list of attendees for eight weeks. The easing of funeral restrictions comes as the state recorded no new cases of COVID-19 on Monday, keeping the state's total steady at 1065."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-14/victorian-coronavirus-restrictions-will-ease-from-june-22/12353530",
             "title": "Victorian coronavirus restrictions will be eased again on June 22, Premier confirms",
             "source": "ABCNews",
