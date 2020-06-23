@@ -27,6 +27,10 @@ import schemaTypes from "../../../data/caseData/schema_types.json"
 
 
 class SchemaTypeUnderlaySelect extends React.Component {
+    /**
+     *
+     * @param props
+     */
     constructor(props) {
         super(props);
 

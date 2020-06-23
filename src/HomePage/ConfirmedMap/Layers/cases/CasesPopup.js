@@ -23,9 +23,8 @@ SOFTWARE.
  */
 
 import mapboxgl from "mapbox-gl";
-import CanvasJS from "../../../assets/canvasjs.min";
-import RegionType from "../../CrawlerDataTypes/RegionType";
-import DateType from "../../CrawlerDataTypes/DateType";
+import CanvasJS from "../../../../assets/canvasjs.min";
+import RegionType from "../../../CrawlerDataTypes/RegionType";
 
 
 class CasesPopup {
@@ -37,10 +36,14 @@ class CasesPopup {
      *
      * @param map a MapBox GL instance
      * @param useID the MapBox GL source layer ID
+     * @param geoDataInst
+     * @param caseDataSource
      */
-    constructor(map, useID) {
+    constructor(map, useID, geoDataInst, caseDataSource) {
         // FIXME!
         this.map = map;
+        this.geoDataInst = geoDataInst;
+        this.caseDataSource = caseDataSource;
         this.useID = useID;
         this.enablePopups();
     }
@@ -55,20 +58,8 @@ class CasesPopup {
     enablePopups() {
         this.disablePopups();
         const map = this.map;
-        var popup;
-        var currentFeature = null;
-
-        var click = (e) => {
-
-        };
         map.on('click', this.useID, this._click);
-
         map.on('mouseenter', this.useID, this._mouseEnter);
-
-        // Change it back to a pointer when it leaves.
-        var mouseLeave = () => {
-
-        };
         map.on('mouseleave', this.useID, this._mouseLeave);
     }
 
@@ -76,9 +67,9 @@ class CasesPopup {
      * Remove the popup events
      */
     disablePopups() {
-        this.map.off('click', this.useID, click);
-        this.map.off('mouseenter', this.useID, mouseEnter);
-        this.map.off('mouseleave', this.useID, mouseLeave);
+        this.map.off('click', this.useID, this._onClick);
+        this.map.off('mouseenter', this.useID, this._onMouseEnter);
+        this.map.off('mouseleave', this.useID, this._onMouseLeave);
 
         if (this.__popup) {
             this.__popup.remove();
@@ -91,63 +82,99 @@ class CasesPopup {
      * Map events
      *******************************************************************/
 
+    /**
+     *
+     * @param e
+     * @private
+     */
     _onClick(e) {
         if (!e.features.length) {
-            if (popup) {
-                popup.remove();
+            if (this.__popup) {
+                this.__popup.remove();
             }
-            currentFeature = null;
+            this.__currentFeature = null;
             return;
         }
-        else if (e.features[0] == currentFeature) {
+        else if (e.features[0] === this.__currentFeature) {
             return;
         }
-        currentFeature = e.features[0];
+        let feature = this.__currentFeature = e.features[0];
 
-        if (popup) {
-            popup.remove();
+        if (this.__popup) {
+            this.__popup.remove();
         }
 
-        var cityName = e.features[0].properties.city,
-            cityLabel = e.features[0].properties.cityLabel;
-        var caseInfo = this.caseDataSource.getCaseNumber(cityName, null);
+        // Get info about the region
+        let regionType = new RegionType(
+            this.geoDataInst,
+            feature['regionSchema'],
+            feature['regionParent'],
+            feature['regionChild']
+        );
 
-        if (!caseInfo || caseInfo['numCases'] == null || caseInfo['updatedDate'] == null) {
+        // Get the most recent case number and case time series
+        let caseInfo = this.caseDataSource.getCaseNumber(regionType, null),
+            timeSeries = this.caseDataSource.getCaseNumberTimeSeries(regionType, null);
+
+        if (!caseInfo) {
             // no data?
             return;
         }
 
-        var absInfo;
-        let underlayDataSource = this.__getUnderlayDataSource(FIXME);
-        if (underlayDataSource) {
-            // TODO: Store on mouseover, so as to allow combining different schemas?
-            absInfo = underlayDataSource.getOnOrBeforeDate(
-                new RegionType(FIXME),
-                DateType.today()
-            );
-        }
-
-        let caseDataSource = this.__getCaseDataSource(FIXME); // TODO: MANY METHODS+ATTRIBUTES HAVE CHANGED!!! ===========
-
-        var timeSeries = caseDataSource.getCaseNumberTimeSeries(
-            new RegionType(FIXME),
-            null
+        // Show the popup
+        this.__showPopup(
+            e.lngLat, regionType, caseInfo, timeSeries
         );
+    }
 
-        popup = new mapboxgl.Popup({
+    /**
+     *
+     * @private
+     */
+    _onMouseEnter() {
+        this.map.getCanvas().style.cursor = 'pointer';
+    }
+
+    /**
+     *
+     * @private
+     */
+    _onMouseLeave() {
+        // Change it back to a pointer when it leaves.
+        this.map.getCanvas().style.cursor = '';
+    }
+
+    /*******************************************************************
+     * Show popup
+     *******************************************************************/
+
+    /**
+     * Show a popup for real
+     *
+     * @param lngLat
+     * @param regionType
+     * @param caseInfo
+     * @param timeSeries
+     * @private
+     */
+    __showPopup(lngLat, regionType, caseInfo, timeSeries) {
+        let popup = this.__popup = new mapboxgl.Popup({
             closeButton: true,
             closeOnClick: true
-        })
-            .setLngLat(e.lngLat)
-            .setHTML(
-                `${cityLabel} (${caseDataSource.regionSchema}${cityName !== cityLabel ? ' '+cityName : ''})` +
-                '<br/>Cases: ' + caseInfo['numCases'] +
-                '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo['updatedDate'] +
-                (absInfo ? ('<br>ABS Underlay: '+this._getUnderlayValue(underlayDataSource, absInfo['numCases'], true)) : '') +
-                '<div id="chartContainer" ' +
-                'style="width: 200px; min-height: 60px; height: 13vh;"></div>'
-            )
-            .addTo(map);
+        });
+        let regionLabel = regionType.getLabel(),
+            regionChild = regionType.getRegionChild(),
+            regionSchema = regionType.getRegionSchema();
+
+        popup.setHTML(
+            `${regionLabel} (${regionSchema}${regionChild !== regionLabel ? ' '+regionChild : ''})` +
+            '<br/>Cases: ' + caseInfo.getValue() +
+            '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo.getUpdatedDate().getPrettifiedValue() +
+            '<div id="chartContainer" style="width: 200px; min-height: 60px; height: 13vh;"></div>'
+        );
+
+        popup.setLngLat(lngLat);
+        popup.addTo(this.map);
 
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: false,
@@ -165,14 +192,6 @@ class CasesPopup {
         chart.render();
 
         document.getElementById('chartContainer').id = '';
-    }
-
-    _onMouseEnter() {
-        map.getCanvas().style.cursor = 'pointer';
-    }
-
-    _onMouseLeave() {
-        map.getCanvas().style.cursor = '';
     }
 }
 

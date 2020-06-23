@@ -22,23 +22,47 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import CasesPopup from "./CasesPopup";
+import UnderlayLegend from "./UnderlayLegend"
 
 
-class CasesFillPolyLayer {
+class UnderlayFillPolyLayer {
     /**
-     * A transparent fill poly layer for
-     * cases to allow for popup on click events
+     * A filled color polygon layer for use with
+     * underlay data, such as ABS statistics
      *
      * @param map a MapBox GL instance
-     * @param uniqueId a unique ID for the MapBox GL layer
-     * @param mapBoxSource a MapBoxSource instance
+     * @param opacity a floating point number 0.0 to 1.0
+     * @param uniqueId a unique identifier for the MapBox layer
      */
-    constructor(map, uniqueId, mapBoxSource) {
+    constructor(map, opacity, uniqueId) {
         this.map = map;
+        this.opacity = opacity;
         this.uniqueId = uniqueId;
-        this.mapBoxSource = mapBoxSource;
         this.addLayer();
+    }
+
+    /**
+     * TODO!!!
+     * @param maxMinStatVal
+     */
+    setMaxMinStatVal(maxMinStatVal) {
+        this.__maxMinStatVal = maxMinStatVal;
+    }
+
+    /**
+     *
+     * @param underlayData
+     */
+    setUnderlayData(underlayData) {
+        this.__underlayData = underlayData;
+    }
+
+    /**
+     *
+     * @returns {string}
+     */
+    getFillPolyId() {
+        return this.uniqueId+'fillpoly';
     }
 
     /*******************************************************************
@@ -46,10 +70,12 @@ class CasesFillPolyLayer {
      *******************************************************************/
 
     /**
-     * Add the (transparent) fill poly layer for
-     * cases to allow for popup on click events
+     * Add the colored underlay fill layer
      */
     addLayer() {
+        // Remove any existing legends etc
+        this.removeLayer();
+
         // Add the colored fill area
         const map = this.map;
 
@@ -66,31 +92,40 @@ class CasesFillPolyLayer {
 
         map.addLayer(
             {
-                id: this.uniqueId+'fillpoly',
+                id: this.getFillPolyId(),
                 type: 'fill',
-                source: this.mapBoxSource.getSourceId(),
+                source: this.underlayMapBoxSource.getSourceId(),
                 paint: {
-                    'fill-opacity': 0.0
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'stat'],
+                        ...this.__underlayLegend.getLabelsColors()
+                    ],
+                    'fill-opacity': this.opacity
                 }
             },
             lastFillLayer
         );
 
-        this.__casesPopup = new CasesPopup(this.getFillPolyId());
+        // Add legend/popup event as specified
+        //let isPercent = this.dataSource.getSourceName().indexOf('(%)') !== -1;
+        this.__underlayLegend = new UnderlayLegend(
+            map, isPercent, this.__maxMinStatVal
+        );
     }
 
     /**
-     * Remove the fill poly layer
+     * Remove the colored underlay fill layer
      */
     removeLayer() {
         const map = this.map;
-        map.removeLayer(this.uniqueId+'fillpoly');
+        map.removeLayer(this.getFillPolyId());
 
-        if (this.__casesPopup) {
-            this.__casesPopup.disablePopups();
-            this.__casesPopup = null;
+        if (this.__underlayLegend) {
+            this.__underlayLegend.FIXME();
         }
     }
 }
 
-export default CasesFillPolyLayer;
+export default UnderlayFillPolyLayer;

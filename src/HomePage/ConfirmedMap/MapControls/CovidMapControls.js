@@ -28,6 +28,10 @@ import SchemaTypeUnderlaySelect from "./SchemaTypeUnderlaySelect";
 
 
 class CovidMapControls extends React.Component {
+    /**
+     *
+     * @param props
+     */
     constructor(props) {
         super(props);
         this.mapContControls = React.createRef();
@@ -59,6 +63,11 @@ class CovidMapControls extends React.Component {
      * Events
      *******************************************************************/
 
+    /**
+     *
+     * @param type
+     * @param timePeriod
+     */
     onChangeType(type, timePeriod) {
         this.setState({
             type: type,
@@ -66,6 +75,10 @@ class CovidMapControls extends React.Component {
         });
     }
 
+    /**
+     *
+     * @param underlay
+     */
     onChangeUnderlay(underlay) {
         this.setState({
             underlay: underlay
@@ -76,16 +89,20 @@ class CovidMapControls extends React.Component {
      * Intialization after load
      *******************************************************************/
 
-    componentDidMount() {
+    componentDidMount() {}
 
-    }
-
+    /**
+     *
+     */
     disable() {
         this.setState({
             disabled: true
         });
     }
 
+    /**
+     *
+     */
     enable() {
         this.setState({
             disabled: false

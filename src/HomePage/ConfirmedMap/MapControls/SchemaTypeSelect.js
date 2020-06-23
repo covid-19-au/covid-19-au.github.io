@@ -29,6 +29,10 @@ import schemaTypes from "../../../data/caseData/schema_types.json"
 
 
 class SchemaTypeSelect extends React.Component {
+    /**
+     *
+     * @param props
+     */
     constructor(props) {
         super(props);
 
@@ -113,12 +117,20 @@ class SchemaTypeSelect extends React.Component {
         );
     }
 
+    /**
+     *
+     * @param dataType
+     */
     onMarkersChange(dataType) {
         this.setState({
             _dataType: dataType
         });
     }
 
+    /**
+     *
+     * @param timePeriod
+     */
     onTimePeriodChange(timePeriod) {
         this.setState({
             _timePeriod: timePeriod
@@ -129,24 +141,33 @@ class SchemaTypeSelect extends React.Component {
      * Intialization after load
      *******************************************************************/
 
-    componentDidMount() {
+    componentDidMount() {}
 
-    }
+    /*******************************************************************
+     * Enable/disable
+     *******************************************************************/
 
+    /**
+     *
+     */
     disable() {
         this.setState({
             _enabled: false
         });
     }
+
+    /**
+     *
+     */
     enable() {
         this.setState({
             _enabled: true
         });
     }
 
-    //========================================================//
-    //                   Get Select Options                   //
-    //========================================================//
+    /*******************************************************************
+     * Get Select Options
+     *******************************************************************/
 
     /**
      *

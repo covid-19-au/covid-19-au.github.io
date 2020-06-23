@@ -53,6 +53,8 @@ class LinePolyLayer {
      * Show the polygon outlines
      */
     showLayer() {
+        this.hideLayer();
+
         // Add the line outline
         const map = this.map;
 
@@ -80,14 +82,18 @@ class LinePolyLayer {
                 'line-width': this.lineWidth || 1.0
             }
         }, lastLineLayer);
+        this.__shown = true;
     }
 
     /**
      * Hide the polygon outlines
      */
-    hide() {
-        const map = this.map;
-        map.removeLayer(this.uniqueId);
+    hideLayer() {
+        if (this.__shown) {
+            const map = this.map;
+            map.removeLayer(this.uniqueId);
+            this.__shown = false;
+        }
     }
 }
 

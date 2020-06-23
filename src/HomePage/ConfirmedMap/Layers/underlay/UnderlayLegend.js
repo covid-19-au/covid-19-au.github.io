@@ -31,6 +31,7 @@ class UnderlayLegend {
      * poly layer, synchronizing the color key
      *
      * @param map a MapBox GL instance
+     * @param isPercent
      * @param maxMinStatVal
      */
     constructor(map, isPercent, maxMinStatVal) {

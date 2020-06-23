@@ -48,6 +48,8 @@ class ClusteredCaseSources {
     }
 
     /**
+     * Get the minimum zoom level at which
+     * this set of sources is displayed
      *
      * @returns {number}
      */
@@ -56,6 +58,8 @@ class ClusteredCaseSources {
     }
 
     /**
+     * Get the maximum zoom level at which
+     * this set of sources is displayed
      *
      * @returns {number}
      */
@@ -64,6 +68,7 @@ class ClusteredCaseSources {
     }
 
     /**
+     * Get the MapBox source layer ID for a given zoom level
      *
      * @param zoomLevel
      * @returns {string}
@@ -73,6 +78,7 @@ class ClusteredCaseSources {
     }
 
     /**
+     * Get the MapBox source layer instance for a given zoom level
      *
      * @param zoomLevel
      */

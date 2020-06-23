@@ -25,10 +25,13 @@ SOFTWARE.
 
 class CaseCirclesLayer {
     /**
+     * MapBox GL layers which show case numbers in red circles
      *
-     * @param map
-     * @param uniqueId
-     * @param maxMinValues
+     * Also has a layer showing the region labels underneath
+     *
+     * @param map a MapBox GL instance
+     * @param uniqueId a unique id for the MapBox GL layer
+     * @param maxMinValues FIXME!!! ======================================================================================
      * @param clusteredCaseSources
      */
     constructor(map, uniqueId, maxMinValues, clusteredCaseSources) {
@@ -54,6 +57,8 @@ class CaseCirclesLayer {
      * Add the case circles layer
      */
     addLayer() {
+        this.removeLayer();
+
         const map = this.map;
         const maxMin = this.maxMinValues;
         let minZoom = this.clusteredCaseSources.getMinZoom(),
@@ -277,23 +282,28 @@ class CaseCirclesLayer {
                 ]
             }
         }, lastSymbolLayer);
+
+        this.__shown = true;
     }
 
     /**
      * Remove the cases layer
      */
     removeLayer() {
-        let minZoom = this.clusteredCaseSources.getMinZoom(),
-            maxZoom = this.clusteredCaseSources.getMaxZoom();
+        if (this.__shown) {
+            let minZoom = this.clusteredCaseSources.getMinZoom(),
+                maxZoom = this.clusteredCaseSources.getMaxZoom();
 
-        const map = this.map;
-        map.removeLayer(this.getHeatPointId());
-        map.removeLayer(this.getHeatPointId()+'label');
-        map.removeLayer(this.getHeatPointId()+'citylabel');
+            const map = this.map;
+            map.removeLayer(this.getHeatPointId());
+            map.removeLayer(this.getHeatPointId() + 'label');
+            map.removeLayer(this.getHeatPointId() + 'citylabel');
 
-        for (let zoomLevel=minZoom; zoomLevel<maxZoom; zoomLevel++) {
-            map.removeLayer(this.getHeatPointId()+'label'+zoomLevel);
-            map.removeLayer(this.getHeatPointId()+zoomLevel);
+            for (let zoomLevel = minZoom; zoomLevel < maxZoom; zoomLevel++) {
+                map.removeLayer(this.getHeatPointId() + 'label' + zoomLevel);
+                map.removeLayer(this.getHeatPointId() + zoomLevel);
+            }
+            this.__shown = false;
         }
     }
 }

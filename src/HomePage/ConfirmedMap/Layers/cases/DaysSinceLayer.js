@@ -39,7 +39,7 @@ class DaysSinceLayer {
         this.map = map;
         this.uniqueId = uniqueId;
         this.mapBoxSource = mapBoxSource;
-        this.showLayer()
+        this.addLayer()
     }
 
     /*******************************************************************
@@ -49,8 +49,8 @@ class DaysSinceLayer {
     /**
      * Create the layer, destroying previous indicators if they exist
      */
-    showLayer() {
-        this.hide();
+    addLayer() {
+        this.removeLayer();
         const map = this.map;
         this.__shown = true;
 
@@ -107,17 +107,16 @@ class DaysSinceLayer {
     /**
      * Remove the layers
      */
-    hideLayer() {
+    removeLayer() {
         if (this.__shown) {
-            return;
-        }
-        const map = this.map;
-        map.removeLayer(this.uniqueId);
+            const map = this.map;
+            map.removeLayer(this.uniqueId);
 
-        for (var i=MAX_VAL; i>-1; i--) {
-            map.removeLayer(`${this.uniqueId}label${i}`);
+            for (var i=MAX_VAL; i>-1; i--) {
+                map.removeLayer(`${this.uniqueId}label${i}`);
+            }
+            this.__shown = false;
         }
-        this.__shown = false;
     }
 }
 
