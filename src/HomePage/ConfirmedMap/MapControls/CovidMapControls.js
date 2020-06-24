@@ -23,12 +23,13 @@ SOFTWARE.
  */
 
 import React from "react"
-import SchemaTypeSelect from "./SchemaTypeSelect";
-import SchemaTypeUnderlaySelect from "./SchemaTypeUnderlaySelect";
+import DataTypeSelect from "./DataTypeSelect";
+import UnderlaySelect from "./UnderlaySelect";
 
 
 class CovidMapControls extends React.Component {
     /**
+     * A control that allows selecting the datatype and underlay
      *
      * @param props
      */
@@ -45,8 +46,8 @@ class CovidMapControls extends React.Component {
         return (
             <div className="map-cont-controls" ref={this.mapContControls}
                  style={{ pointerEvents: this.disabled ? 'none' : 'all '}}>
-                <SchemaTypeSelect onchange={this.onChangeType} />
-                <SchemaTypeUnderlaySelect onchange={this.onChangeUnderlay}/>
+                <DataTypeSelect onchange={this._onChangeType} />
+                <UnderlaySelect onchange={this._onChangeUnderlay}/>
             </div>
         );
     }
@@ -60,15 +61,23 @@ class CovidMapControls extends React.Component {
     }
 
     /*******************************************************************
+     * Intialization after load
+     *******************************************************************/
+
+    componentDidMount() {}
+
+    /*******************************************************************
      * Events
      *******************************************************************/
 
     /**
+     * Called when the DataTypeSelect changes
      *
-     * @param type
-     * @param timePeriod
+     * @param type the new datatype
+     * @param timePeriod the time period as an integer (or null)
+     * @private
      */
-    onChangeType(type, timePeriod) {
+    _onChangeType(type, timePeriod) {
         this.setState({
             type: type,
             timePeriod: timePeriod
@@ -76,36 +85,36 @@ class CovidMapControls extends React.Component {
     }
 
     /**
+     * Called when the underlay select changes
      *
-     * @param underlay
+     * @param underlay the underlay
+     * @private
      */
-    onChangeUnderlay(underlay) {
+    _onChangeUnderlay(underlay) {
         this.setState({
             underlay: underlay
         });
     }
 
     /*******************************************************************
-     * Intialization after load
+     * Enable/disable
      *******************************************************************/
 
-    componentDidMount() {}
-
     /**
-     *
-     */
-    disable() {
-        this.setState({
-            disabled: true
-        });
-    }
-
-    /**
-     *
+     * Enable all covid map controls
      */
     enable() {
         this.setState({
             disabled: false
+        });
+    }
+
+    /**
+     * Disable all covid map controls
+     */
+    disable() {
+        this.setState({
+            disabled: true
         });
     }
 }

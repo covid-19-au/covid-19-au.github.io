@@ -75,10 +75,11 @@ class UnderlayLegend {
 
     /**
      * Get the labels (values)/colors for the underlay fill layer
+     *
      * @returns {[]}
      */
     getLabelsColors() {
-        var r = []
+        var r = [];
         for (let i=0; i<this.__labels.length; i++) {
             r.push(this.__labels[i]);
             r.push(this.__colors[i]);
@@ -139,7 +140,7 @@ class UnderlayLegend {
             key.style.height = '10px';
 
             var value = document.createElement('span');
-            value.innerHTML = this._getABSValue(label, allBetween0_10, sameConsecutive);
+            value.innerHTML = this._getPrettifiedValue(label, allBetween0_10, sameConsecutive);
             item.appendChild(key);
             item.appendChild(value);
             legend.appendChild(item);

@@ -35,7 +35,7 @@ class ClusteredCaseSources {
      * a single one, clustering/merging case numbers which overlap
      * so as to be able to get a zoomed out overview
      *
-     * @param map
+     * @param map a MapBox GL instance
      */
     constructor(map) {
         this.__sources = {};
@@ -141,34 +141,16 @@ class ClusteredCaseSources {
     getPointDataByZoomLevel(pointGeoJSONData) {
         let byZoom = {};
 
+        byZoom[9] = pointGeoJSONData;
         byZoom[8] = this.__getModifiedGeoJSONWithPointsJoined(
             pointGeoJSONData, 8
         );
-        byZoom[7] = this.__getModifiedGeoJSONWithPointsJoined(
-            byZoom[8], 7
-        );
-        byZoom[6] = this.__getModifiedGeoJSONWithPointsJoined(
-            byZoom[7], 6
-        );
-        byZoom[5] = this.__getModifiedGeoJSONWithPointsJoined(
-            byZoom[6], 5
-        );
-        byZoom[4] = this.__getModifiedGeoJSONWithPointsJoined(
-            byZoom[5], 4
-        );
-        byZoom[3] = this.__getModifiedGeoJSONWithPointsJoined(
-            byZoom[4], 3
-        );
-        byZoom[2] = this.__getModifiedGeoJSONWithPointsJoined(
-            byZoom[3], 2
-        );
-        byZoom[1] = this.__getModifiedGeoJSONWithPointsJoined(
-            byZoom[2], 1
-        );
-        byZoom[0] = this.__getModifiedGeoJSONWithPointsJoined(
-            byZoom[1], 0
-        );
 
+        for (let i=UNCLUSTERED_ZOOM-1; i>-1; i++) {
+            byZoom[i-1] = this.__getModifiedGeoJSONWithPointsJoined(
+                byZoom[i], i-1
+            );
+        }
         return byZoom;
     }
 

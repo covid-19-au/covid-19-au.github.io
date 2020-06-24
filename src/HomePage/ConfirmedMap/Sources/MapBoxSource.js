@@ -34,7 +34,7 @@ class MapBoxSource {
      * @param map a MapBox GL instance
      * @param minZoom the minimum zoom (or null)
      * @param maxZoom the maximum zoom (or null)
-     * @param data
+     * @param data the GeoJSON data (or null)
      */
     constructor(map, minZoom, maxZoom, data) {
         this.map = map;
@@ -139,8 +139,8 @@ class MapBoxSource {
     /**
      * Get whether set dk1 is equal to set dk2
      *
-     * @param dk1
-     * @param dk2
+     * @param dk1 Set object #1
+     * @param dk2 Set object #2
      * @returns {boolean}
      * @private
      */

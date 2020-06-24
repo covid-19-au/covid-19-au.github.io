@@ -36,8 +36,8 @@ class CasesPopup {
      *
      * @param map a MapBox GL instance
      * @param useID the MapBox GL source layer ID
-     * @param geoDataInst
-     * @param caseDataSource
+     * @param geoDataInst the GeoData instance for cases
+     * @param caseDataSource the CaseData instance
      */
     constructor(map, useID, geoDataInst, caseDataSource) {
         // FIXME!
@@ -83,8 +83,9 @@ class CasesPopup {
      *******************************************************************/
 
     /**
+     * Called when clicking cases layers
      *
-     * @param e
+     * @param e the MapBox event object
      * @private
      */
     _onClick(e) {
@@ -128,6 +129,7 @@ class CasesPopup {
     }
 
     /**
+     * Called when entering cases layers
      *
      * @private
      */
@@ -136,6 +138,7 @@ class CasesPopup {
     }
 
     /**
+     * Called when leaving cases layers
      *
      * @private
      */
@@ -151,10 +154,10 @@ class CasesPopup {
     /**
      * Show a popup for real
      *
-     * @param lngLat
-     * @param regionType
-     * @param caseInfo
-     * @param timeSeries
+     * @param lngLat a MapBox Longitude/Latitude instance
+     * @param regionType a RegionType instance for cases
+     * @param caseInfo the latest case info data
+     * @param timeSeries case info time series
      * @private
      */
     __showPopup(lngLat, regionType, caseInfo, timeSeries) {

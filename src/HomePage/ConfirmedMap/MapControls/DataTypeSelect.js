@@ -28,8 +28,9 @@ import React from "react";
 import schemaTypes from "../../../data/caseData/schema_types.json"
 
 
-class SchemaTypeSelect extends React.Component {
+class DataTypeSelect extends React.Component {
     /**
+     * A control that allows selecting the datatype and time period
      *
      * @param props
      */
@@ -37,9 +38,9 @@ class SchemaTypeSelect extends React.Component {
         super(props);
 
         this.state = {
-            _timeperiod: null,
-            _markers: 'total',
-            _enabled: true
+            timeperiod: null,
+            markers: 'total',
+            enabled: true
         };
 
         this.markersBGGroup = React.createRef();
@@ -47,6 +48,10 @@ class SchemaTypeSelect extends React.Component {
         this.markersButtonGroup = React.createRef();
         this.schemaTypeCont = React.createRef();
     }
+
+    /*******************************************************************
+     * HTML Template
+     *******************************************************************/
 
     render() {
         const padding = '6px';
@@ -86,7 +91,7 @@ class SchemaTypeSelect extends React.Component {
 
         return (
             <div ref={this.schemaTypeCont}
-                 style={{ pointerEvents: this._enabled ? 'all' : 'none' }}>
+                 style={{ pointerEvents: this.state.enabled ? 'all' : 'none' }}>
 
                 <div ref={this.markersBGGroup}
                     style={{ marginBottom: "8px" }}>
@@ -97,19 +102,19 @@ class SchemaTypeSelect extends React.Component {
                     </select>
                 </div>
 
-                <div style={{ display: schemaTypes.constants[this._dataType].timeperiods ? 'block' : 'none' }}>
+                <div style={{ display: schemaTypes.constants[this.state.dataType].timeperiods ? 'block' : 'none' }}>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "5px" }}>
                         <ButtonGroup ref={this.markersButtonGroup}
                             size="small"
                             aria-label="small outlined button group">
-                            <Button style={this.state._timeperiod === 'alltime' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setTimePeriod(null)}>All</Button>
-                            <Button style={this.state._timeperiod === '7days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setTimePeriod(7)}>7 Days</Button>
-                            <Button style={this.state._timeperiod === '14days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setTimePeriod(14)}>14 Days</Button>
-                            <Button style={this.state._timeperiod === '21days' ? activeStyles : inactiveStyles}
-                                onClick={() => this.setTimePeriod(21)}>21 Days</Button>
+                            <Button style={this.state.timeperiod === 'alltime' ? activeStyles : inactiveStyles}
+                                onClick={() => this._onTimePeriodChange(null)}>All</Button>
+                            <Button style={this.state.timeperiod === '7days' ? activeStyles : inactiveStyles}
+                                onClick={() => this._onTimePeriodChange(7)}>7 Days</Button>
+                            <Button style={this.state.timeperiod === '14days' ? activeStyles : inactiveStyles}
+                                onClick={() => this._onTimePeriodChange(14)}>14 Days</Button>
+                            <Button style={this.state.timeperiod === '21days' ? activeStyles : inactiveStyles}
+                                onClick={() => this._onTimePeriodChange(21)}>21 Days</Button>
                         </ButtonGroup>
                     </span>
                 </div>
@@ -118,50 +123,64 @@ class SchemaTypeSelect extends React.Component {
     }
 
     /**
+     * Called when the datatype <select> is changed
      *
      * @param dataType
+     * @private
      */
-    onMarkersChange(dataType) {
+    _onMarkersChange(dataType) {
         this.setState({
-            _dataType: dataType
+            dataType: dataType
         });
     }
 
     /**
+     * Called when the time period changes
      *
-     * @param timePeriod
+     * @param timePeriod null or an integer
+     * @private
      */
-    onTimePeriodChange(timePeriod) {
+    _onTimePeriodChange(timePeriod) {
         this.setState({
-            _timePeriod: timePeriod
+            timePeriod: timePeriod
         });
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.props.onchange({
+
+        })
     }
 
     /*******************************************************************
      * Intialization after load
      *******************************************************************/
 
-    componentDidMount() {}
+    componentDidMount() {
+        this.markersSelect.current.onchange = () => {
+            this._onMarkersChange(this.markersSelect.current.value);
+        }
+    }
 
     /*******************************************************************
      * Enable/disable
      *******************************************************************/
 
     /**
-     *
+     * Enable the time period/datatype select controls
      */
-    disable() {
+    enable() {
         this.setState({
-            _enabled: false
+            enabled: true
         });
     }
 
     /**
-     *
+     * Disable the time period/datatype select controls
      */
-    enable() {
+    disable() {
         this.setState({
-            _enabled: true
+            enabled: false
         });
     }
 
@@ -206,4 +225,4 @@ class SchemaTypeSelect extends React.Component {
     }
 }
 
-export default SchemaTypeSelect;
+export default DataTypeSelect;

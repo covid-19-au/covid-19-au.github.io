@@ -42,7 +42,6 @@ class LinePolyLayer {
         this.color = color;
         this.lineWidth = lineWidth;
         this.mapBoxSource = mapBoxSource;
-        this.showLayer();
     }
 
     /*******************************************************************

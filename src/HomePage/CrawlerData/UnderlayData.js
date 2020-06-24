@@ -27,15 +27,14 @@ import TimeSeriesItem from "../CrawlerDataTypes/TimeSeriesItem"
 import RegionType from "../CrawlerDataTypes/RegionType"
 import DateType from "../CrawlerDataTypes/DateType"
 
-import getNumberByType from "../CrawlerDataTypes/NumberTypes/getNumberByType"
-
 
 class UnderlayData {
     /**
      *
      * @param data
+     * @param key
      */
-    constructor(data) {
+    constructor(data, key) {
         /*
         data -> {
             "region_ids": {}, // for schema/parent/child together
@@ -51,9 +50,11 @@ class UnderlayData {
                 ...
             },
             "data": {
-                "region_schema": {
-                    "region_parent": {
-                        "region_child": [YYYY_MM_DD, value, YYYY_MM_DD, value, ...]
+                "key": {
+                    "region_schema": {
+                        "region_parent": {
+                            "region_child": [YYYY_MM_DD, value, YYYY_MM_DD, value, ...]
+                        }
                     }
                 }
             }
@@ -64,6 +65,16 @@ class UnderlayData {
         this.metaData = data.metadata;
         this.keyGroups = data.key_groups;
         this.data = data.data;
+        this.key = key;
+    }
+
+    /**
+     * Get whether the value is a percentile
+     *
+     * @returns {boolean}
+     */
+    getIsPercent() {
+        return this.key.indexOf('(%)') !== -1;
     }
 
     /********************************************************************
@@ -81,8 +92,8 @@ class UnderlayData {
         if (args[0] instanceof RegionType) {
             return [
                 this.regionIDs[args[0].getRegionSchema()],
-                this.regionIDs[args[1].getRegionParent()],
-                this.regionIDs[args[2].getRegionChild()]
+                this.regionIDs[args[0].getRegionParent()],
+                this.regionIDs[args[0].getRegionChild()]
             ];
         }
         return args.map((s) => this.regionIDs[s]);
@@ -96,7 +107,8 @@ class UnderlayData {
      */
     _getValuesByRID(regionType) {
         var [regionSchemaID, regionParentID, regionChildID] = this._rid(regionType);
-        return this.data[regionSchemaID][regionParentID][regionChildID];
+        var keyId = this._rid(this.key);
+        return this.data[regionSchemaID][regionParentID][regionChildID][keyId];
     }
 
     /**
@@ -147,12 +159,13 @@ class UnderlayData {
     /**
      * Get possible child regions of a given schema/region parent
      *
-     * @param regionType
+     * @param regionSchema
+     * @param regionParent
      * @returns {[]}
      */
-    getRegionChildren(regionType) {
+    getRegionChildren(regionSchema, regionParent) {
         var r = [];
-        for (var k in this.data[regionType.getRegionSchema()][regionType.getRegionParent()]) {
+        for (var k in this.data[regionSchema][regionParent]) {
             r.push(this._rid(k)[0])
         }
         return r;
@@ -282,6 +295,52 @@ class UnderlayData {
                 r.push(timeSeriesItem);
             }
         }
+        return r;
+    }
+
+    /********************************************************************
+     * Get max/min/median values
+     ********************************************************************/
+
+    /**
+     * Get the maximum, minimum and median values
+     *
+     * @returns {{min: number, median: *, max: number}}
+     */
+    getMaxMinValues() {
+        if (this.__maxMinStatVal) {
+            // Cache values to improve performance
+            return this.__maxMinStatVal;
+        }
+
+        var min = 99999999999,
+            max = -99999999999,
+            allVals = [];
+
+        for (let schema of this.getRegionSchemas()) {
+            for (let regionParent of this.getRegionParents()) {
+                for (let regionChild of this.getRegionChildren()) {
+                    var values = this.data[schema][regionParent][regionChild];
+
+                    for (let i=0; i<values.length; i+=2) {
+                        let value = values[i+1];
+                        if (value === '') continue;
+                        if (value > max) max = value;
+                        if (value < min) min = value;
+                        allVals.push(value);
+                    }
+                }
+            }
+        }
+
+        allVals.sort();
+
+        let r = {
+            'max': max,
+            'min': min,
+            'median': allVals[Math.round(allVals.length / 2.0)]
+        };
+        this.__maxMinStatVal = r;
         return r;
     }
 }

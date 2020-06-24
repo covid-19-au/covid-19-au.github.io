@@ -38,31 +38,6 @@ class UnderlayFillPolyLayer {
         this.map = map;
         this.opacity = opacity;
         this.uniqueId = uniqueId;
-        this.addLayer();
-    }
-
-    /**
-     * TODO!!!
-     * @param maxMinStatVal
-     */
-    setMaxMinStatVal(maxMinStatVal) {
-        this.__maxMinStatVal = maxMinStatVal;
-    }
-
-    /**
-     *
-     * @param underlayData
-     */
-    setUnderlayData(underlayData) {
-        this.__underlayData = underlayData;
-    }
-
-    /**
-     *
-     * @returns {string}
-     */
-    getFillPolyId() {
-        return this.uniqueId+'fillpoly';
     }
 
     /*******************************************************************
@@ -72,9 +47,13 @@ class UnderlayFillPolyLayer {
     /**
      * Add the colored underlay fill layer
      */
-    addLayer() {
+    addLayerUsingUnderlayData(underlayData) {
         // Remove any existing legends etc
         this.removeLayer();
+
+        // Assign the underlay data/maximum+minimum values
+        this.__underlayData = underlayData;
+        this.__maxMinStatVal = this.__underlayData.getMaxMinValues();
 
         // Add the colored fill area
         const map = this.map;
@@ -92,7 +71,7 @@ class UnderlayFillPolyLayer {
 
         map.addLayer(
             {
-                id: this.getFillPolyId(),
+                id: this.uniqueId,
                 type: 'fill',
                 source: this.underlayMapBoxSource.getSourceId(),
                 paint: {
@@ -109,21 +88,25 @@ class UnderlayFillPolyLayer {
         );
 
         // Add legend/popup event as specified
-        //let isPercent = this.dataSource.getSourceName().indexOf('(%)') !== -1;
+        //
         this.__underlayLegend = new UnderlayLegend(
-            map, isPercent, this.__maxMinStatVal
+            map, this.__underlayData.getIsPercent(), this.__maxMinStatVal
         );
+        this.__shown = true;
     }
 
     /**
      * Remove the colored underlay fill layer
      */
     removeLayer() {
-        const map = this.map;
-        map.removeLayer(this.getFillPolyId());
+        if (this.__shown) {
+            const map = this.map;
+            map.removeLayer(this.uniqueId);
 
-        if (this.__underlayLegend) {
-            this.__underlayLegend.FIXME();
+            if (this.__underlayLegend) {
+                this.__underlayLegend.hide();
+            }
+            this.__shown = false;
         }
     }
 }

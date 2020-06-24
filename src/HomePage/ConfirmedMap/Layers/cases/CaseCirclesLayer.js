@@ -31,22 +31,12 @@ class CaseCirclesLayer {
      *
      * @param map a MapBox GL instance
      * @param uniqueId a unique id for the MapBox GL layer
-     * @param maxMinValues FIXME!!! ======================================================================================
      * @param clusteredCaseSources
      */
-    constructor(map, uniqueId, maxMinValues, clusteredCaseSources) {
+    constructor(map, uniqueId, clusteredCaseSources) {
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
-        this.maxMinValues = maxMinValues;
-        this.addLayer()
-    }
-
-    getHeatMapId() {
-        return this.uniqueId+'heatmap';
-    }
-    getHeatPointId() {
-        return this.uniqueId+'heatpoint';
     }
 
     /*******************************************************************
@@ -59,13 +49,9 @@ class CaseCirclesLayer {
     addLayer() {
         this.removeLayer();
 
-        const map = this.map;
-        const maxMin = this.maxMinValues;
-        let minZoom = this.clusteredCaseSources.getMinZoom(),
+        let map = this.map,
+            minZoom = this.clusteredCaseSources.getMinZoom(),
             maxZoom = this.clusteredCaseSources.getMaxZoom();
-
-        var divBy = parseFloat(maxMin['max']);
-        var radiusDivBy = divBy / 40;
 
         var circleColor = [
             'interpolate',
@@ -128,7 +114,7 @@ class CaseCirclesLayer {
 
             map.addLayer(
                 {
-                    'id': this.getHeatPointId()+zoomLevel,
+                    'id': this.uniqueId+zoomLevel,
                     'type': 'circle',
                     'source': this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
                     'minzoom': zoomLevel-1,
@@ -158,7 +144,7 @@ class CaseCirclesLayer {
             );
 
             map.addLayer({
-                id: this.getHeatPointId()+'label'+zoomLevel,
+                id: this.uniqueId+'label'+zoomLevel,
                 type: 'symbol',
                 source: this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
                 minzoom: zoomLevel-1,
@@ -188,7 +174,7 @@ class CaseCirclesLayer {
 
         map.addLayer(
             {
-                id: this.getHeatPointId(),
+                id: this.uniqueId,
                 type: 'circle',
                 source: this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
                 minzoom: 6,
@@ -223,7 +209,7 @@ class CaseCirclesLayer {
         );
 
         map.addLayer({
-            'id': this.getHeatPointId()+'citylabel',
+            'id': this.uniqueId+'citylabel',
             'type': 'symbol',
             'minzoom': 6,
             'source': this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
@@ -251,7 +237,7 @@ class CaseCirclesLayer {
         }, lastSymbolLayer);
 
         map.addLayer({
-            id: this.getHeatPointId()+'label',
+            id: this.uniqueId+'label',
             type: 'symbol',
             source: this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
             minzoom: 6,
@@ -296,12 +282,12 @@ class CaseCirclesLayer {
 
             const map = this.map;
             map.removeLayer(this.getHeatPointId());
-            map.removeLayer(this.getHeatPointId() + 'label');
-            map.removeLayer(this.getHeatPointId() + 'citylabel');
+            map.removeLayer(this.uniqueId + 'label');
+            map.removeLayer(this.uniqueId + 'citylabel');
 
             for (let zoomLevel = minZoom; zoomLevel < maxZoom; zoomLevel++) {
-                map.removeLayer(this.getHeatPointId() + 'label' + zoomLevel);
-                map.removeLayer(this.getHeatPointId() + zoomLevel);
+                map.removeLayer(this.uniqueId + 'label' + zoomLevel);
+                map.removeLayer(this.uniqueId + zoomLevel);
             }
             this.__shown = false;
         }

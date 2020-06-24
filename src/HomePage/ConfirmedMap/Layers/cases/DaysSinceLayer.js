@@ -39,7 +39,6 @@ class DaysSinceLayer {
         this.map = map;
         this.uniqueId = uniqueId;
         this.mapBoxSource = mapBoxSource;
-        this.addLayer()
     }
 
     /*******************************************************************

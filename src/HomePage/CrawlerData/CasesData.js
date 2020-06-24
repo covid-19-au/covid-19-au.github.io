@@ -220,7 +220,7 @@ class CasesData {
      * @returns {{numCases: number, updatedDate: *}|{numCases, updatedDate}|{numCases: number, updatedDate}}
      */
     getCaseNumber(regionType, ageRange) {
-        if (this.schema === 'statewide') {
+        if (this.schema === 'statewide') { // FIXME!!!! =====================================================================
             var n = getFromTodaysStateCaseData(this.stateName, this.dataType);
             if (n != null) {
                 return new TimeSeriesItem(new DateType(n[1]), parseInt(n[0]));
@@ -275,7 +275,8 @@ class CasesData {
 
                     if (iValue != null && iValue !== '') {
                         oldest = new TimeSeriesItem(
-                            latest['updatedDate'], latest['numCases'] - parseInt(iValue)
+                            latest.getUpdatedDate(),
+                            latest.getValue() - parseInt(iValue)
                         );
 
                         if (dateUpdated.numDaysSince() > numDays) {
@@ -289,7 +290,7 @@ class CasesData {
         // Can't do much if data doesn't go back
         // that far other than show oldest we can
         return oldest || new TimeSeriesItem(
-            latest['updatedDate'], 0
+            latest.getUpdatedDate(), 0
         );
     }
 
@@ -376,7 +377,7 @@ class CasesData {
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
             // PERFORMANCE WARNING!
-            var value = this.getCaseNumber(iRegion, iAgeRange)['numCases'];
+            var value = this.getCaseNumber(iRegion, iAgeRange).getValue();  // TODO: Is it necessary to call getCaseNumber??
 
             if (value === '' || value == null) {
                 continue;

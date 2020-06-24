@@ -24,6 +24,7 @@ class MarkerHospital {
         this.el.style.display = 'block';
         this._addMarker(this.el);
     }
+
     hide() {
         this.el.style.display = 'none';
         if (!this._marker)
@@ -42,6 +43,7 @@ class MarkerHospital {
         el.style.borderRadius = '50%';
         el.style.cursor = 'pointer';
     }
+
     _addMarker(el) {
         let coor = [
             this.item['coor'][1],

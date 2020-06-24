@@ -32,6 +32,7 @@ class MarkerConfirmed {
         this.el.style.display = 'block';
         this._addMarker(this.el);
     }
+
     hide() {
         this.el.style.display = 'none';
         if (!this._marker)
@@ -54,6 +55,7 @@ class MarkerConfirmed {
         el.style.borderRadius = '50%';
         el.style.cursor = 'pointer';
     }
+
     _isOld(date) {
         // Check if a date was more than two weeks ago
         // Working with raw data, so try-catch just in case
@@ -76,15 +78,12 @@ class MarkerConfirmed {
             caseDate.setDate(caseDate.getDate() + MarkerConfirmed.oldCaseDays);
 
             // True iff the original date was more than two weeks old
-            if (today > caseDate) {
-                return true;
-            } else {
-                return false;
-            }
+            return today > caseDate;
         } catch {
             return true;
         }
     }
+
     _addMarker() {
         const map = this.map;
         let coor = [
