@@ -1,6 +1,46 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/south-australia-is-opening-its-borders-to-tasmania-wa-and-the-nt",
+            "title": "South Australia is opening its borders to Tasmania, WA and the NT",
+            "source": "SBSNews",
+            "date": "16 June 2020",
+            "time": "15:00",
+            "summary": "South Australia is lifting some COVID-19 border restrictions allowing people to travel from Western Australia, the Northern Territory and Tasmania from midnight on Tuesday. Premier Steven Marshall says the change means people from those states will no longer be required to stay in quarantine for 14 days when they arrive in SA. He says people who recently arrived from those states and are in isolation, are also free to move into the wider community. At this stage border restrictions related to NSW, Queensland and Victoria will be lifted on July 20."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-15/coronavirus-cases-at-melbourne-pakenham-springs-primary-school/12354622 ",
+            "title": "12 New Cases in Victoria including 7 from a family outbreak in Coburg, and 1 BLM protest attendee",
+            "source": "ABCNews",
+            "date": "15 June 2020",
+            "time": "20:10",
+            "summary": "The 7 new cases bring the total number of cases from the Coburg cluster to 11. A second person who attended Melbourne's Black Lives Matter protest has also tested positive for COVID-19. Victoria's Chief Health Officer Brett Sutton said the Black Lives Matter protester was a young woman who attended the demonstration in Melbourne on June 6, but was very unlikely to have acquired the virus there. Professor Sutton said the woman wore personal protective equipment (PPE) at the protest and was unlikely to have transmitted the virus to other attendees because she had been minimally symptomatic at the time. The individual is also unlikely to have acquired the virus at the protest, having taken great care to socially distance from others."
+        },
+        {
+            "link": "https://www.brisbanetimes.com.au/national/queensland/more-people-allowed-at-queensland-funerals-from-tuesday-20200615-p552m0.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
+            "title": "More people allowed at Queensland funerals from Tuesday",
+            "source": "BrisbaneTimes",
+            "date": "15 June 2020",
+            "time": "10:09",
+            "summary": "One hundred people will be allowed to attend Queensland funerals from Tuesday after the state recorded no new cases of COVID-19 overnight. Premier Annastacia Palaszczuk and her deputy Steven Miles announced the relaxation on Monday morning. Chief Health Officer Dr Jeannette Young said funeral organisers would have to keep a list of attendees for eight weeks. The easing of funeral restrictions comes as the state recorded no new cases of COVID-19 on Monday, keeping the state's total steady at 1065."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-14/victorian-coronavirus-restrictions-will-ease-from-june-22/12353530",
+            "title": "Victorian coronavirus restrictions will be eased again on June 22, Premier confirms",
+            "source": "ABCNews",
+            "date": "14 June 2020",
+            "time": "12:00",
+            "summary": "Victorian Premier Daniel Andrews has confirmed the state will further ease coronavirus restrictions on June 22, allowing cinemas and theatres to reopen and boosting customer capacity for hospitality venues. From June 22, up to 50 people will be allowed inside a range of venues including cinemas, theatres and cafes and people will be able to buy a drink at a pub or restaurant without ordering a meal. However, a density rule of 4 square metres per customer will remain."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-14/nsw-announces-easing-coronavirus-restrictions-pubs-july1/12352204",
+            "title": "NSW eases coronavirus restrictions further by dropping 50-person limit on indoor venues",
+            "source": "ABCNews",
+            "date": "14 June 2020",
+            "time": "19:43",
+            "summary": "The NSW Government has announced another tranche of downgraded coronavirus restrictions, with the 50-person limit on pubs and restaurants to be lifted next month. From July 1, venues will be able to operate without capacity limits other than accommodating one person per four square metres. Outdoor venues with a capacity of up to 40,000 people can seat a quarter of that, a move to free restrictions on concerts and sporting events flagged by Scott Morrison after Friday's National Cabinet meeting."
+        },
+        {
             "link": "https://www.9news.com.au/national/coronavirus-covid19-second-australia-wave-could-cost-country-80-billion/5343670d-d4dd-4810-aaa3-7e39143d936e",
             "title": "Second coronavirus wave may cost Australia $80 billion",
             "source": "9News",

@@ -1,6 +1,54 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/as-victoria-s-coronavirus-restrictions-tighten-here-s-what-you-can-and-can-t-do-across-australia",
+            "title": "As Victoria's coronavirus restrictions tighten, here's what you can and can't do across Australia",
+            "source": "SBSNews",
+            "date": "24 June 2020",
+            "time": "21:04",
+            "summary": "As Australia's coronavirus recovery continues, different circumstances in each state and territory mean the country is no longer opening up in unison. On Tuesday, Victoria recorded double-digit growth in new cases for the seventh day in a row. While in South Australia, which has gone several weeks without a new case, authorities are preparing to move to the next stage of easing restrictions. So what's happening in each state and territory? Based on information from 23 June, this is the state of play."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/man-dies-from-coronavirus-in-victoria-as-state-records-20-new-cases",
+            "title": "Man dies from coronavirus in Victoria as state records 20 new cases",
+            "source": "SBSNews",
+            "date": "24 June 2020",
+            "time": "13:00",
+            "summary": "A man in his 80s has died of coronavirus in Victoria, as the state records 20 new cases. The man is the 20th person to succumb to the virus in the state and the first death in Australia in a month, taking the national toll to 103. The steady increase in new cases prompted the state government to pause easing of restrictions and to name six local government areas as coronavirus hotspots: Brimbank, Casey, Cardinia, Darebin, Hume and Moreland."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-23/coronavirus-cases-victoria-rise-as-schools-close-in-hotspots/12383106",
+            "title": "Victoria's coronavirus cases rise by 17 as two schools in Melbourne's hotspots close",
+            "source": "ABCNews",
+            "date": "23 June 2020",
+            "time": "18:50",
+            "summary": "Victoria has recorded its seventh consecutive day of double-digit increases in coronavirus cases, and two primary schools in COVID-19 hotspots have been closed following student infections. Students from Brunswick East Primary School and Keilor Views Primary School are among the latest cases. Premier Daniel Andrews said \"very deep engagement with multicultural communities\" began yesterday to make sure people in six COVID-19 hotspots knew the current health advice. Mr Andrews also said testing may be offered to people without symptoms in the areas with the highest levels of virus transmission"
+        },
+        {
+            "link": "https://www.watoday.com.au/national/nsw/turn-away-people-from-covid-19-hotspots-nsw-premier-tells-businesses-20200623-p555cz.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Turn away people from COVID-19 hotspots, NSW Premier tells businesses",
+            "source": "WAToday",
+            "date": "23 June 2020",
+            "time": "13:55",
+            "summary": "NSW Premier Gladys Berejiklian is calling on tourism operators and other businesses to shun customers from Melbourne’s coronavirus hotspots as the number of active cases in Victoria continues to rise. However, Ms Berejiklian refused to bow to growing calls to close the southern border, particularly in the lead-up to the school holidays. On Monday, NSW Deputy Premier John Barilaro said ski resorts would want border closures ahead of the school holidays in order to prevent outbreaks in the state. But Ms Berejiklian, who has been consistently opposed to border closures, instead called on businesses to shun customers from Melbourne."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jun/23/melbourne-covid-19-test-victoria-coronavirus-testing-wait-times-northland-shopping-centre-darebin",
+            "title": "Anxious Melbourne residents forced to drive in circles as they wait for Covid-19 test ",
+            "source": "TheGuardian",
+            "date": "23 June 2020",
+            "time": "16:17",
+            "summary": "Many Melbournians attempting to get tested for Covid-19 have faced another day of long waits, with some forced to drive in loops for up to an hour while awaiting treatment. Victoria is expanding its Covid-19 response in six local government areas with high levels of community transmission, urging all residents with even mild symptoms to present for testing. On Tuesday the premier, Daniel Andrews, said the recent cases were “certain” to result in further community transmission. On Tuesday lines of cars stretched down the street at some locations as people responded to the call to get tested. On Monday callers to talkback radio reported three-hour waits at drive-through clinics around the city, suggesting the Northland shopping centre clinic even had to turn people away."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-22/coronavirus-wa-restrictions-phase-four-explainer/12373260",
+            "title": "WA's coronavirus restrictions are being significantly eased under phase four. Here's what it means for you",
+            "source": "ABCNews",
+            "date": "22 June 2020",
+            "time": "20:30",
+            "summary": "Crowds of 30,000 at football games and drinking beers standing up are among the freedoms West Australians can enjoy from this Saturday, when the state enters Phase 4 of eased coronavirus restrictions. From 11:59pm on June 26, WA will do away with its limits on public gatherings, which are currently capped at up to 300 people, depending on the setting. The limit on people allowed into venues will now be dictated by the state's unique two-square-metre rule, requiring at least two square metres of floor space be afforded per patron. More details on the specific restrictions lifted can be found in the article below."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-21/victoria-coronavirus-numbers-rise-by-19-state-of-emergency/12377472",
             "title": "Coronavirus cases in Victoria rise by 19 as state of emergency extended for a further four weeks",
             "source": "ABCNews",
@@ -87,46 +135,6 @@
             "date": "17 June 2020",
             "time": "12:00",
             "summary": "Returned travellers in hotel quarantine have given Victoria its biggest spike in daily coronavirus cases in more than a month. Health Minister Jenny Mikakos on Wednesday announced the state's infection tally had increased to 1762 after 21 new cases were recorded. The last time a bigger increase was recorded was on May 4, when 22 cases were identified amid the Cedar Meats outbreak crisis."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/south-australia-is-opening-its-borders-to-tasmania-wa-and-the-nt",
-            "title": "South Australia is opening its borders to Tasmania, WA and the NT",
-            "source": "SBSNews",
-            "date": "16 June 2020",
-            "time": "15:00",
-            "summary": "South Australia is lifting some COVID-19 border restrictions allowing people to travel from Western Australia, the Northern Territory and Tasmania from midnight on Tuesday. Premier Steven Marshall says the change means people from those states will no longer be required to stay in quarantine for 14 days when they arrive in SA. He says people who recently arrived from those states and are in isolation, are also free to move into the wider community. At this stage border restrictions related to NSW, Queensland and Victoria will be lifted on July 20."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-15/coronavirus-cases-at-melbourne-pakenham-springs-primary-school/12354622 ",
-            "title": "12 New Cases in Victoria including 7 from a family outbreak in Coburg, and 1 BLM protest attendee",
-            "source": "ABCNews",
-            "date": "15 June 2020",
-            "time": "20:10",
-            "summary": "The 7 new cases bring the total number of cases from the Coburg cluster to 11. A second person who attended Melbourne's Black Lives Matter protest has also tested positive for COVID-19. Victoria's Chief Health Officer Brett Sutton said the Black Lives Matter protester was a young woman who attended the demonstration in Melbourne on June 6, but was very unlikely to have acquired the virus there. Professor Sutton said the woman wore personal protective equipment (PPE) at the protest and was unlikely to have transmitted the virus to other attendees because she had been minimally symptomatic at the time. The individual is also unlikely to have acquired the virus at the protest, having taken great care to socially distance from others."
-        },
-        {
-            "link": "https://www.brisbanetimes.com.au/national/queensland/more-people-allowed-at-queensland-funerals-from-tuesday-20200615-p552m0.html?ref=rss&utm_medium=rss&utm_source=rss_national_queensland",
-            "title": "More people allowed at Queensland funerals from Tuesday",
-            "source": "BrisbaneTimes",
-            "date": "15 June 2020",
-            "time": "10:09",
-            "summary": "One hundred people will be allowed to attend Queensland funerals from Tuesday after the state recorded no new cases of COVID-19 overnight. Premier Annastacia Palaszczuk and her deputy Steven Miles announced the relaxation on Monday morning. Chief Health Officer Dr Jeannette Young said funeral organisers would have to keep a list of attendees for eight weeks. The easing of funeral restrictions comes as the state recorded no new cases of COVID-19 on Monday, keeping the state's total steady at 1065."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-14/victorian-coronavirus-restrictions-will-ease-from-june-22/12353530",
-            "title": "Victorian coronavirus restrictions will be eased again on June 22, Premier confirms",
-            "source": "ABCNews",
-            "date": "14 June 2020",
-            "time": "12:00",
-            "summary": "Victorian Premier Daniel Andrews has confirmed the state will further ease coronavirus restrictions on June 22, allowing cinemas and theatres to reopen and boosting customer capacity for hospitality venues. From June 22, up to 50 people will be allowed inside a range of venues including cinemas, theatres and cafes and people will be able to buy a drink at a pub or restaurant without ordering a meal. However, a density rule of 4 square metres per customer will remain."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-14/nsw-announces-easing-coronavirus-restrictions-pubs-july1/12352204",
-            "title": "NSW eases coronavirus restrictions further by dropping 50-person limit on indoor venues",
-            "source": "ABCNews",
-            "date": "14 June 2020",
-            "time": "19:43",
-            "summary": "The NSW Government has announced another tranche of downgraded coronavirus restrictions, with the 50-person limit on pubs and restaurants to be lifted next month. From July 1, venues will be able to operate without capacity limits other than accommodating one person per four square metres. Outdoor venues with a capacity of up to 40,000 people can seat a quarter of that, a move to free restrictions on concerts and sporting events flagged by Scott Morrison after Friday's National Cabinet meeting."
         }
     ]
 }
