@@ -1,49 +1,21 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import mapboxgl from 'mapbox-gl'
-import ButtonGroup from '@material-ui/core/ButtonGroup'
-import Button from '@material-ui/core/Button'
-//import Tooltip from '@material-ui/core/Tooltip'
-//import ReactCountryFlag from "react-country-flag"
 
-import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import Acknowledgement from "../Acknowledgment"
-import absStatsData from "../data/absStats";
-
-import ConfirmedMapFns from "./ConfirmedMap/Fns"
-import TimeSeriesDataSource from "./CrawlerData/CasesData"
-import TimeSeriesDataSourceForPeriod from "./CrawlerData/CasesDataPeriod"
-import ConfirmedMapShipsData from "./CrawlerData/DEPRECATED/DataShips"
-import BigTableOValuesDataSource from "./CrawlerData/DEPRECATED/DataABS"
-import GeoBoundaries from "./ConfirmedMap/GeoBoundaries/GeoBoundaries" // FIXME!
-import DaysSinceMap from "./DaysSinceMap"
-
-
-const absStats = absStatsData['data'];
-const regionsTimeSeries = regionsData['time_series_data'],
-      regionsDateIDs = regionsData['date_ids'],
-      regionsUpdatedDates = regionsData['updated_dates'];
+import CovidMapControl from "./ConfirmedMap/CovidMapControl"
 
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
 mapboxgl.accessToken = token;
 
 
-class MbMap extends React.Component {
+class ConfirmedMap extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            lng: 133.751567,
-            lat: -26.344589,
-            zoom: 2
-        };
-        this._firstTime = true;
-        this.stateUpdatedDates = [];
-        this.geoBoundaries = new GeoBoundaries();
-
+        this.stateUpdatedDates = []; // FIXME!!!
         this.accuracyWarning = React.createRef();
     }
 
@@ -73,11 +45,8 @@ class MbMap extends React.Component {
                         </div></h2>
 
                 <div style={{position: 'relative'}}>
-                    <CovidMapBoxControl ref={el => this.covidMapBoxControl = el} >
-                    </CovidMapBoxControl>
-
-                    <div ref={el => this.dsMapContainer = el} style={{display: 'none'}}>
-                    </div>
+                    <CovidMapControl ref={el => this.covidMapControl = el} >
+                    </CovidMapControl>
                 </div>
 
                 <span className="due">
@@ -97,29 +66,6 @@ class MbMap extends React.Component {
         );
     }
 
-    onCovidMapBoxControlLoad() {
-        if (!this.otherStatsSelect) {
-            // Control probably destroyed before loaded!
-            return;
-        }
-
-        // Create map data instances
-        var geoBoundaryInsts = this.geoBoundaryInsts = {};
-        for (var key of this.geoBoundaries.getAvailableGeoBoundaries()) {
-            geoBoundaryInsts[key] = this.geoBoundaries.getGeoBoundary(
-                map, key.split(":")[1], key.split(":")[0]
-            );
-        }
-
-
-        this.markersSelect.current.onchange = () => {
-            this.setMarkers();
-        };
-
-        this._updateMode();
-        this.forceUpdate();
-    }
-
     /*******************************************************************
      * Intialization after load
      *******************************************************************/
@@ -131,4 +77,5 @@ class MbMap extends React.Component {
     }
 }
 
-export default MbMap
+export default ConfirmedMap;
+

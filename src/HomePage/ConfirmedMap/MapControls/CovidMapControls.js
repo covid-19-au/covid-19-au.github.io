@@ -73,13 +73,13 @@ class CovidMapControls extends React.Component {
     /**
      * Called when the DataTypeSelect changes
      *
-     * @param type the new datatype
+     * @param dataType the new datatype
      * @param timePeriod the time period as an integer (or null)
      * @private
      */
-    _onChangeType(type, timePeriod) {
+    _onChangeType(dataType, timePeriod) {
         this.setState({
-            type: type,
+            dataType: dataType,
             timePeriod: timePeriod
         });
     }
@@ -87,11 +87,13 @@ class CovidMapControls extends React.Component {
     /**
      * Called when the underlay select changes
      *
+     * @param underlayCategory the underlay category
      * @param underlay the underlay
      * @private
      */
-    _onChangeUnderlay(underlay) {
+    _onChangeUnderlay(underlayCategory, underlay) {
         this.setState({
+            underlayCategory: underlayCategory,
             underlay: underlay
         });
     }
@@ -118,3 +120,5 @@ class CovidMapControls extends React.Component {
         });
     }
 }
+
+export default CovidMapControls;

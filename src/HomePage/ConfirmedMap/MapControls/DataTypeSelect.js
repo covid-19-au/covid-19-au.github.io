@@ -146,10 +146,15 @@ class DataTypeSelect extends React.Component {
         });
     }
 
+    /**
+     * Update state of covid map controls on change
+     *
+     * @param prevProps
+     * @param prevState
+     * @param snapshot
+     */
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this.props.onchange({
-
-        })
+        this.props.onchange(this.state.dataType, this.state.timePeriod);
     }
 
     /*******************************************************************

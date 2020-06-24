@@ -62,7 +62,7 @@ class UnderlaySelect extends React.Component {
 
                 <div ref={this.underlayBGCont} className="key" style={{
                     marginBottom: "8px",
-                    display: this.__underlayCategory == null ? 'none' : 'block'
+                    display: this.state.underlayCategory == null ? 'none' : 'block'
                 }}>
                     <select ref={this.underlaySelect}
                         style={{ "width": "100%" }}>
@@ -74,6 +74,7 @@ class UnderlaySelect extends React.Component {
     }
 
     /**
+     * Get <select> options for the underlay categories
      *
      * @returns {string}
      * @private
@@ -81,13 +82,13 @@ class UnderlaySelect extends React.Component {
     __getUnderlayCategoryOptions() {
         // TODO: Filter to only schemas in view!
         let out = [];
-        for (let [optGroupLabel, options] of schemaTypes.underlay_categories) { // RENAME ME!!
+        for (let [optGroupLabel, options] of schemaTypes.underlay_categories) {
             out.push(`<optgroup label="${optGroupLabel}">`);
             for (let [optionLabel, optionValue] of options) {
                 // Option value is the underlay filename
                 if (
-                    (optionValue === 'None' && this.state.FIXME == null) ||
-                    (optionValue === this.state.FIXME)
+                    (optionValue === 'None' && this.state.underlayCategory == null) ||
+                    (optionValue === this.state.underlayCategory)
                 ) {
                     out.push(`<option value="${optionValue}" selected>${optionLabel}</option>`);
                 }
@@ -101,17 +102,23 @@ class UnderlaySelect extends React.Component {
     }
 
     /**
+     * Get <select> options for the underlays
      *
      * @returns {string}
      * @private
      */
     __getUnderlaySelectOptions() {
+        if (!this.state.underlayCategory) {
+            // No category selected - return nothing
+            return '';
+        }
+
         let out = [];
-        for (let [optGroupLabel, options] of schemaTypes.underlays[FIXME]) { // RENAME ME!!
+        for (let [optGroupLabel, options] of schemaTypes.underlays[this.state.underlayCategory]) {
             out.push(`<optgroup label="${optGroupLabel}">`);
             for (let [optionLabel, optionValue] of options) {
                 // Option value is the underlay filename
-                if (optionValue === this.state.FIXME) {
+                if (optionValue === this.state.underlay) {
                     out.push(`<option value="${optionValue}" selected>${optionLabel}</option>`);
                 }
                 else {
@@ -140,30 +147,43 @@ class UnderlaySelect extends React.Component {
      * <select> events
      *******************************************************************/
 
+    /**
+     * Update state of covid map controls on change
+     *
+     * @param prevProps
+     * @param prevState
+     * @param snapshot
+     */
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this.props.onchange({
-
-        });
+        this.props.onchange(
+            this.state.underlayCategory,
+            this.state.underlay
+        );
     }
 
     /**
+     * Underlay category changed event
      *
-     * @param category
+     * @param underlayCategory
      * @private
      */
-    _onUnderlayCategorySelect(category) {
+    _onUnderlayCategorySelect(underlayCategory) {
         this.setState({
-            underlayCategory: category === 'None' ? null : category
+            underlayCategory:
+                underlayCategory === 'None' ? null : underlayCategory
         });
     }
 
     /**
+     * Underlay changed event
      *
      * @param underlay
      * @private
      */
     _onUnderlaySelect(underlay) {
-
+        this.setState({
+            underlay: underlay
+        });
     }
 }
 

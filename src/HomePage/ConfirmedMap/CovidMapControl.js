@@ -28,10 +28,11 @@ import mapboxgl from "mapbox-gl";
 import CovidMapControls from "./MapControls/CovidMapControls";
 import DataDownloader from "../CrawlerData/DataDownloader";
 
-import LayerDaysSince from "./Layers/cases/DaysSinceLayer";
-import LayerFillPoly from "./Layers/cases/CasesFillPolyLayer";
-import LayerHeatMap from "./Layers/cases/CaseCirclesLayer";
-import LayerLinePoly from "./Layers/LinePolyLayer";
+import DaysSinceLayer from "./Layers/cases/DaysSinceLayer";
+import CasesFillPolyLayer from "./Layers/cases/CasesFillPolyLayer";
+import UnderlayFillPolyLayer from "./Layers/underlay/UnderlayFillPolyLayer";
+import CaseCirclesLayer from "./Layers/cases/CaseCirclesLayer";
+import LinePolyLayer from "./Layers/LinePolyLayer";
 
 import MapBoxSource from "./Sources/MapBoxSource";
 import ClusteredCaseSources from "./Sources/ClusteredCaseSources";
@@ -44,47 +45,7 @@ class CovidMapControl extends React.Component {
      */
     constructor(props) {
         super(props);
-
-        this.schemas = FXIME;
         this.dataDownloader = new DataDownloader();
-
-        let casesSource = this.casesSource = new MapBoxSource(
-
-        );
-        let clusteredCaseSources = this.clusteredCaseSources = new ClusteredCaseSources(
-
-        );
-
-        this.layerDaysSince = new LayerDaysSince(
-            this.map, 'daysSince', casesSource
-        );
-        /*
-        map,
-        opacity,
-        addLegend,
-        addPopupOnClick,
-        maxMinStatVal,
-        addUnderLayerId,
-        uniqueId,
-        casesMapBoxSource
-         */
-        this.underlayFillPoly = new LayerFillPoly(
-            this.map, 0.0, true,
-            null, 'underlayFillPoly', casesSource
-        );
-        this.underlayLinePoly = new LayerLinePoly(
-            this.map, 'underlayLinePoly', 'rgba(0,0,0,0.3)', casesSource
-        );
-        this.casesFillPoly = new LayerFillPoly(
-            this.map, 0.7, true,
-            null, 'casesFillPoly', casesSource
-        );
-        this.casesLinePoly = new LayerLinePoly(
-            this.map, 'casesLinePoly', 'gray', casesSource
-        );
-        this.casesHeatMap = new LayerHeatMap(
-            this.map, 'heatMap', maxMinValues, clusteredCaseSources
-        );
     }
 
     /*******************************************************************
@@ -94,8 +55,8 @@ class CovidMapControl extends React.Component {
     render() {
         return (
             <div>
-                <CovidMapControls onchange={this.onControlsChange} />
-
+                <CovidMapControls ref={el => this.covidMapControls = el}
+                                  onchange={this.onControlsChange} />
                 <div ref={el => this.mapContainer = el} >
                 </div>
             </div>
@@ -107,24 +68,12 @@ class CovidMapControl extends React.Component {
      *******************************************************************/
 
     componentDidMount() {
-        const lng = this.state['lng'],
-              lat = this.state['lat'],
-              zoom = this.state['zoom'];
-        this._firstTime = true;
-
-        var australiaBounds = [
-            [101.6015625, -49.83798245308484], // Southwest coordinates
-            [166.2890625, 0.8788717828324276] // Northeast coordinates
-        ];
-
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [lng, lat],
-            zoom: zoom,
-            maxZoom: 9.5,
-            minZoom: 1,
-            //maxBounds: australiaBounds, // Sets bounds as max
+            zoom: 1,
+            maxZoom: 10,
+            minZoom: 0,
             transition: {
                 duration: 0,
                 delay: 0
@@ -163,6 +112,33 @@ class CovidMapControl extends React.Component {
         map.on('zoomend', () => {
             this.onMapMoveChange();
         });
+
+        // Create the MapBox sources
+        let underlaySource = this.underlaySource = new MapBoxSource(map);
+        let casesSource = this.casesSource = new MapBoxSource(map);
+        let clusteredCaseSources = this.clusteredCaseSources = new ClusteredCaseSources(map);
+
+        // Add layers for the underlay
+        this.underlayFillPoly = new UnderlayFillPolyLayer(
+            map, 'underlayFillPoly', underlaySource
+        );
+        this.underlayLinePoly = new LinePolyLayer(
+            map, 'underlayLinePoly', 'rgba(0,0,0,0.3)', 1.0, underlaySource
+        );
+
+        // Add layers for cases
+        this.daysSinceLayer = new DaysSinceLayer(
+            map, 'daysSinceLayer', casesSource
+        );
+        this.casesFillPolyLayer = new CasesFillPolyLayer(
+            map, 'casesFillPolyLayer', casesSource
+        );
+        this.casesLinePolyLayer = new LinePolyLayer(
+            map, 'casesLinePolyLayer', 'gray', 1.0, casesSource
+        );
+        this.caseCirclesLayer = new CaseCirclesLayer(
+            map, 'heatMap', clusteredCaseSources
+        );
     }
 
     /*******************************************************************
@@ -179,11 +155,17 @@ class CovidMapControl extends React.Component {
         let schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
             zoomLevel, lngLatBounds
         );
-
-
         this._onMapMoveChange(zoomLevel, lngLatBounds, schemasForCases);
     }
 
+    /**
+     *
+     * @param zoomLevel
+     * @param lngLatBounds
+     * @param schemasForCases
+     * @returns {Promise<void>}
+     * @private
+     */
     async _onMapMoveChange(zoomLevel, lngLatBounds, schemasForCases) {
         var promises = [];
 
@@ -210,6 +192,9 @@ class CovidMapControl extends React.Component {
         let points = [],
             polygons = [];
 
+        let geoDataInsts = this.geoDataInsts = [];
+        let caseDataInsts = this.caseDataInsts = [];
+
         for (let [geoDataPromise, caseDataPromise] of promises) {
             let geoData = await geoDataPromise,
                 caseData = await caseDataPromise;
@@ -222,41 +207,32 @@ class CovidMapControl extends React.Component {
 
             points['features'].push(...iPoints['features']);
             polygons['features'].push(...iPolygons['features']);
+
+            geoDataInsts.push(geoData);
+            caseDataInsts.push(caseData);
         }
 
         this.clusteredCaseSources.setData(points);
-        this.caseSource.setData(polygons);
+        this.casesSource.setData(polygons);
+        this._updateMode();
     }
 
     /*******************************************************************
-     * Enable/Disable Map+Controls
+     * Disable controls while loading
      *******************************************************************/
 
     /**
-     *
-     * @private
-     */
-    disable() {
-        this.covidMapControls.disable()
-    }
-
-    /**
-     *
-     * @private
-     */
-    enable() {
-        this.covidMapControls.enable()
-    }
-
-    /**
+     * Wait for the map to fully load before enabling the controls
      *
      * @private
      */
     enableControlsWhenMapReady() {
-        var _enableControlsWhenMapReady = () => {
+        this.covidMapControls.disable();
+
+        let _enableControlsWhenMapReady = () => {
             if (this.map.loaded()) {
                 this._enableControlsJob = null;
-                this.enable();
+                this.covidMapControls.enable();
             }
             else {
                 this._enableControlsJob = setTimeout(
@@ -287,11 +263,7 @@ class CovidMapControl extends React.Component {
         // country
         var otherMaxMin = null;
 
-        this.statesAndTerritories.forEach((stateName) => {
-            var caseDataInst = this.getCaseDataInst(stateName);
-            if (!caseDataInst) {
-                return;
-            }
+        this.caseDataInsts.forEach((caseDataInst) => {
             var iMaxMinValues = caseDataInst.getMaxMinValues();
 
             if (!otherMaxMin) {
@@ -304,14 +276,11 @@ class CovidMapControl extends React.Component {
                 otherMaxMin['min'] = iMaxMinValues['min'];
             }
         });
-    }
 
-    /**
-     *
-     * @param prevState
-     * @private
-     */
-    _resetMode(prevState) {
-
+        this.casesFillPolyLayer.addLayer();
+        this.casesLinePolyLayer.addLayer();
+        this.caseCirclesLayer.addLayer();
     }
 }
+
+export default CovidMapControl;

@@ -49,7 +49,11 @@ class DataDownloader {
         this._geoDataPending = {};
 
         this.schemas = schemaTypes['schemas'];
-        this.adminBounds = this._getAdminBounds(schemaTypes['admin_bounds'])
+        this.adminBounds = this._getAdminBounds(schemaTypes['admin_bounds']);
+
+        this.caseDataListing = new Set(schemaTypes.listings.case_data_listing);
+        this.geoJSONDataListing = new Set(schemaTypes.listings.geo_json_data_listing);
+        this.underlayDataListing = new Set(schemaTypes.listings.underlay_data_listing);
     }
 
     /**************************************************************************
@@ -304,7 +308,7 @@ class DataDownloader {
                     for (var regionSchema of geodata) {
                         for (var regionParent of geodata[regionSchema]) {
                             let geoData = this._geoDataInsts[regionSchema][regionParent] = new GeoData(
-                                geodata[regionSchema][regionParent]
+                                regionSchema, regionParent, geodata[regionSchema][regionParent]
                             );
                             for (let iResolve of this._geoDataPending[fileNames.geoDataFilename]) {
                                 iResolve(geoData);
@@ -325,7 +329,8 @@ class DataDownloader {
      * @param regionParent
      * @returns {Promise<unknown>}
      */
-    getUnderlayData(schemaType, regionParent) {
+    /*
+    getUnderlayData(underlayId) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
 
         return new Promise(resolve => {
@@ -342,21 +347,19 @@ class DataDownloader {
 
                 import(`../data/mapUnderlayData/${fileNames.underlayDataFilename}`).then((module) => {  // FIXME!!
                     var underlayData = module['underlay_data'];
-                    for (var regionSchema of underlayData) {
-                        for (var regionParent of underlayData[regionSchema]) {
-                            let underlayDataInst = this._underlayDataInsts[regionSchema][regionParent] = new UnderlayData(
-                                underlayData[regionSchema][regionParent]
-                            );
-                            for (let iResolve of this._underlayDataPending[fileNames.underlayDataFilename]) {
-                                iResolve(underlayDataInst);
-                            }
-                            delete this._underlayDataPending[fileNames.underlayDataFilename];
-                        }
+
+                    let underlayDataInst = this._underlayDataInsts[regionSchema][regionParent] = new UnderlayData(
+                        underlayData[regionSchema][regionParent]
+                    );
+                    for (let iResolve of this._underlayDataPending[fileNames.underlayDataFilename]) {
+                        iResolve(underlayDataInst);
                     }
+                    delete this._underlayDataPending[fileNames.underlayDataFilename];
                 });
             }
         });
     }
+    */
 
     /**
      * Download often-changing case data
@@ -381,16 +384,20 @@ class DataDownloader {
                 this._caseDataPending[fileNames.caseDataFilename] = [resolve];
 
                 import(`../data/mapCaseData/${fileNames.caseDataFilename}`).then((module) => {  // FIXME!!
-                    var caseData = module['case_data'];
-                    for (var schema of caseData) {
-                        for (var regionParent of caseData[schema]) {
-                            let caseDataInst = this._caseDataInsts[schema][regionParent] = new CasesData(  // TODO: Create a new one for each datatype!!
-                                caseData[schema][regionParent]
-                            );
-                            for (let iResolve of this._caseDataPending[fileNames.caseDataFilename]) {
-                                iResolve(caseDataInst);
+                    var caseData = module['time_series_data'];
+                    for (var regionSchema of caseData) {
+                        for (var regionParent of caseData[regionSchema]) {
+                            for (var dataType of caseData[regionSchema][regionParent]['sub_headers']) {
+                                let caseDataInst = this._caseDataInsts[regionSchema][regionParent] = new CasesData(
+                                    caseData[regionSchema][regionParent], module['date_ids'],
+                                    dataType, module['updated_dates'][regionSchema][regionParent],
+                                    regionSchema, regionParent
+                                );
+                                for (let iResolve of this._caseDataPending[fileNames.caseDataFilename]) {
+                                    iResolve(caseDataInst);
+                                }
+                                delete this._caseDataPending[fileNames.caseDataFilename];
                             }
-                            delete this._caseDataPending[fileNames.caseDataFilename];
                         }
                     }
                 });
@@ -422,12 +429,12 @@ class DataDownloader {
             if (regionParent == null) {
                 throw `schemaType ${schemaType} is split by parent region but parent not provided`;
             }
-            geoJSONFilename = `${schemaType}_${regionParent}.json`;
+            geoJSONFilename = `${schemaType}_${regionParent}.geojson`;
             underlayDataFilename = `${schemaType}_${regionParent}.json`;
             caseDataFilename = `${schemaType}_${regionParent}.json`;
         }
         else {
-            geoJSONFilename = `${schemaType}.json`;
+            geoJSONFilename = `${schemaType}.geojson`;
             underlayDataFilename = `${schemaType}.json`;
             caseDataFilename = `${schemaType}.json`;
         }
@@ -449,7 +456,7 @@ class DataDownloader {
      */
     __fileInCaseData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return fileNames.caseDataFilename in this.caseDataListing;
+        return this.caseDataListing.has(fileNames.caseDataFilename);
     }
 
     /**
@@ -462,7 +469,7 @@ class DataDownloader {
      */
     __fileInGeoJSONData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return fileNames.geoJSONFilename in this.geoJSONDataListing;
+        return this.geoJSONDataListing.has(fileNames.geoJSONFilename);
     }
 
     /**
@@ -475,7 +482,7 @@ class DataDownloader {
      */
     __fileInUnderlayData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return fileNames.underlayFilename in this.underlayDataListing;
+        return this.underlayDataListing.has(fileNames.underlayDataFilename);
     }
 
     /**************************************************************************

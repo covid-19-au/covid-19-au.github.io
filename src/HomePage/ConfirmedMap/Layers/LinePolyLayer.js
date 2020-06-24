@@ -51,7 +51,7 @@ class LinePolyLayer {
     /**
      * Show the polygon outlines
      */
-    showLayer() {
+    addLayer() {
         this.hideLayer();
 
         // Add the line outline
@@ -87,7 +87,7 @@ class LinePolyLayer {
     /**
      * Hide the polygon outlines
      */
-    hideLayer() {
+    removeLayer() {
         if (this.__shown) {
             const map = this.map;
             map.removeLayer(this.uniqueId);

@@ -268,3 +268,4 @@ class GeoData {
         return inside;
     }
 }
+export default GeoData;

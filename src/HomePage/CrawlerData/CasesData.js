@@ -64,7 +64,6 @@ class CasesData {
                 dataType, updatedDate,
                 regionSchema, regionParent) {
 
-        this.uniqueId = uniqueId;
         this.casesData = casesData;
         this.regionsDateIds = this._getRegionsDateIds(regionsDateIds);
 
@@ -92,15 +91,6 @@ class CasesData {
             r[key] = new DateType(value);
         }
         return r;
-    }
-
-    /**
-     * Get a unique ID that can be used for mapbox gl source IDs etc
-     *
-     * @returns {*}
-     */
-    getUniqueId() {
-        return this.uniqueId;
     }
 
     /**
