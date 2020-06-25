@@ -39,7 +39,7 @@ class DataTypeSelect extends React.Component {
 
         this.state = {
             timeperiod: null,
-            markers: 'total',
+            dataType: 'total',
             enabled: true
         };
 
@@ -97,9 +97,8 @@ class DataTypeSelect extends React.Component {
                     style={{ marginBottom: "8px" }}>
                     <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Markers</div>
                     <select ref={this.markersSelect}
-                        style={{ "width": "100%" }}>
-                        { getSelectOptions() }
-                    </select>
+                        style={{ "width": "100%" }}
+                        dangerouslySetInnerHTML={ {__html: getSelectOptions()} } />
                 </div>
 
                 <div style={{ display: schemaTypes.constants[this.state.dataType].timeperiods ? 'block' : 'none' }}>

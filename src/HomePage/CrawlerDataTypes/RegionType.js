@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+let __labels = {};
 
 class RegionType {
     /**
@@ -33,17 +34,30 @@ class RegionType {
      * regionChild "AU-VIC" refers to Victoria, Australia
      * using the admin1 (ISO 3166-2) system
      *
-     * @param geoDataInst the GeoData instance which has localization info
-     *        etc for this schema/parent/child combination
      * @param regionParent the region parent
      * @param regionSchema the region schema
      * @param regionChild the region child
      */
-    constructor(geoDataInst, regionSchema, regionParent, regionChild) {
-        this.geoDataInst = geoDataInst;
+    constructor(regionSchema, regionParent, regionChild) {
         this.regionSchema = regionSchema;
         this.regionParent = this._prepareForComparison(regionParent);
         this.regionChild = this._prepareForComparison(regionChild);
+    }
+
+    /**
+     * Internal use: assign localized labels for
+     * regions once the GeoData has been downloaded
+     *
+     * @param regionSchema
+     * @param regionParent
+     * @param labels
+     * @private
+     */
+    static __assignLabels(regionSchema, regionParent, labels) {
+        if (!__labels[regionSchema]) {
+            __labels[regionSchema] = {};
+        }
+        __labels[regionSchema][regionParent] = labels;
     }
 
     /**
@@ -161,7 +175,24 @@ class RegionType {
      * @returns {*}
      */
     getLocalized(regionChild, langCode) {
-        return this.geoDataInst.getLabel(regionChild, langCode);
+        let hasLabels = (
+            __labels[this.regionSchema] &&
+            __labels[this.regionSchema][this.regionParent] &&
+            __labels[this.regionSchema][this.regionParent][regionChild]
+        );
+
+        if (hasLabels && __labels[this.regionSchema][this.regionParent][regionChild][langCode]) {
+            // Have a direct localization
+            return __labels[this.regionSchema][this.regionParent][regionChild][langCode];
+        }
+        else if (hasLabels && __labels[this.regionSchema][this.regionParent][regionChild]['en']) {
+            // Fall back to English if one not available
+            return __labels[this.regionSchema][this.regionParent][regionChild]['en'];
+        }
+        else {
+            // Give up and use region child code
+            return regionChild;
+        }
     }
 
     /********************************************************************

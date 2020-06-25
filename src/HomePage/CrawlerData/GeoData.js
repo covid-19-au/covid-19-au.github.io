@@ -22,6 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+import RegionType from "../CrawlerDataTypes/RegionType";
+
+
 class GeoData {
     /**
      * TODO!!!!
@@ -85,12 +88,12 @@ class GeoData {
             "features": []
         };
 
-        for (let [regionChild, childData] of regionParentGeoData.entries()) {
+        for (let [regionChild, childData] of Object.entries(regionParentGeoData)) {
             let geodata = childData['geodata'];
             let uniqueId = `${this.regionSchema}||${this.regionParent}||${regionChild}`;
             let largestItem = 1;
 
-            for (let [area, boundingCoords, centerCoords, points] of geodata) {
+            for (let [area, boundingCoords, centerCoords, iPoints] of geodata) {
                 var properties = {
                     "area": area,
                     "largestItem": largestItem,
@@ -106,21 +109,28 @@ class GeoData {
                     "type": "Feature",
                     "geometry": {
                         "type": "Polygon",
-                        "coordinates": points,
-                        "properties": properties
-                    }
+                        "coordinates": iPoints
+                    },
+                    "properties": properties
                 });
                 points['features'].push({
                     "type": "Feature",
                     "geometry": {
                         "type": "Point",
-                        "coordinates": centerCoords,
-                        "properties": properties
-                    }
+                        "coordinates": centerCoords
+                    },
+                    "properties": properties
                 });
                 largestItem = 0;
             }
         }
+
+        // Assign localized names so that the RegionType can use them
+        let labels = {};
+        for (let regionChild in this.regionParentGeoData) {
+            labels[regionChild] = this.regionParentGeoData[regionChild]['label'];
+        }
+        RegionType.__assignLabels(this.regionSchema, this.regionParent, labels);
 
         this.outlines = outlines;
         this.points = points;
@@ -167,8 +177,8 @@ class GeoData {
      */
     getLabel(regionChild, iso_639) {
         return (
-            this.regionParentGeoData[regionChild]['labels'][iso_639] ||
-            this.regionParentGeoData[regionChild]['labels']['en']
+            this.regionParentGeoData[regionChild]['label'][iso_639] ||
+            this.regionParentGeoData[regionChild]['label']['en']
         )
     }
 

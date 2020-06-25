@@ -68,7 +68,7 @@ class DateType extends Date {
                 years = parseInt(s);
             }
         }
-        else if (typeof arguments[0].getMonth === 'function') {
+        else if (typeof (arguments[0].getMonth) === 'function') {
             // Passed a date, so use the
             // supplied years/months/days
             years = arguments[0].getYear();

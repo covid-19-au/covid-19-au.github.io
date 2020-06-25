@@ -94,7 +94,7 @@ class ClusteredCaseSources {
      * Reset the GeoJSON data when changing modes etc
      */
     clearData() {
-        for (let [key, source] of this.__sources.entries()) {
+        for (let [key, source] of Object.entries(this.__sources)) {
             source.clearData();
         }
     }
@@ -123,7 +123,7 @@ class ClusteredCaseSources {
      * Remove the sources
      */
     remove() {
-        for (let [key, source] of this.__sources.entries()) {
+        for (let [key, source] of Object.entries(this.__sources)) {
             source.remove();
         }
     }
@@ -275,7 +275,7 @@ class ClusteredCaseSources {
                 });
 
                 properties['cases'] = cases;
-                properties['casesFmt'] = Fns.numberFormat(cases, 1);
+                properties['casesFmt'] = Fns.getCompactNumberRepresentation(cases, 1);
                 properties['casesSz'] = properties['casesFmt'].length;
                 geometry.coordinates = [x/n, y/n];
                 newFeatures.push(feature);

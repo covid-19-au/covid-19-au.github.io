@@ -55,9 +55,8 @@ class UnderlaySelect extends React.Component {
                 <div ref={this.underlayCategoryBGCont} className="key" style={{ marginBottom: "8px" }}>
                     <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Underlay</div>
                     <select ref={this.underlayCategorySelect}
-                        style={{ "width": "100%" }}>
-                        { this.__getUnderlayCategoryOptions() }
-                    </select>
+                        style={{ "width": "100%" }}
+                        dangerouslySetInnerHTML={ {__html: this.__getUnderlayCategoryOptions()} } />
                 </div>
 
                 <div ref={this.underlayBGCont} className="key" style={{
@@ -65,9 +64,8 @@ class UnderlaySelect extends React.Component {
                     display: this.state.underlayCategory == null ? 'none' : 'block'
                 }}>
                     <select ref={this.underlaySelect}
-                        style={{ "width": "100%" }}>
-                        { this.__getUnderlaySelectOptions() }
-                    </select>
+                        style={{ "width": "100%" }}
+                        dangerouslySetInnerHTML={ {__html: this.__getUnderlayCategoryOptions()} } />
                 </div>
             </div>
         );

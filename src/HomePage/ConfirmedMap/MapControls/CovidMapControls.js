@@ -36,6 +36,7 @@ class CovidMapControls extends React.Component {
     constructor(props) {
         super(props);
         this.mapContControls = React.createRef();
+        this.state = {};
     }
 
     /*******************************************************************
@@ -45,7 +46,7 @@ class CovidMapControls extends React.Component {
     render() {
         return (
             <div className="map-cont-controls" ref={this.mapContControls}
-                 style={{ pointerEvents: this.disabled ? 'none' : 'all '}}>
+                 style={{ pointerEvents: this.state.disabled ? 'none' : 'all '}}>
                 <DataTypeSelect onchange={this._onChangeType} />
                 <UnderlaySelect onchange={this._onChangeUnderlay}/>
             </div>
@@ -96,6 +97,34 @@ class CovidMapControls extends React.Component {
             underlayCategory: underlayCategory,
             underlay: underlay
         });
+    }
+
+    /*******************************************************************
+     * Get value
+     *******************************************************************/
+
+    /**
+     *
+     * @returns {*}
+     */
+    getDataType() {
+        return this.state.dataType;
+    }
+
+    /**
+     *
+     * @returns {null|UnderlaySelect._onUnderlaySelect.props}
+     */
+    getUnderlay() {
+        return this.state.underlay;
+    }
+
+    /**
+     *
+     * @returns {DataTypeSelect._onTimePeriodChange.props}
+     */
+    getTimePeriod() {
+        return this.state.timePeriod;
     }
 
     /*******************************************************************

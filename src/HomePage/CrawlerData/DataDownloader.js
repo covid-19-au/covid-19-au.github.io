@@ -49,7 +49,7 @@ class DataDownloader {
         this._geoDataPending = {};
 
         this.schemas = schemaTypes['schemas'];
-        this.adminBounds = this._getAdminBounds(schemaTypes['admin_bounds']);
+        this.adminBounds = this._getAdminBounds(schemaTypes['boundaries']);
 
         this.caseDataListing = new Set(schemaTypes.listings.case_data_listing);
         this.geoJSONDataListing = new Set(schemaTypes.listings.geo_json_data_listing);
@@ -128,7 +128,7 @@ class DataDownloader {
         var r = new Map();
         var iso3166WithinView = this._getISO3166WithinView(lngLatBounds);
 
-        for (let [schema, schemaObj] of this.schemas.entries()) {
+        for (let [schema, schemaObj] of Object.entries(this.schemas)) {
             var parentSchema = this.__getParentSchema(schema, schemaObj['iso_3166']),
                 parentISO = schemaObj['iso_3166'], // TODO: What about admin0/1??
                 minZoom = schemaObj['min_zoom'],
@@ -253,7 +253,7 @@ class DataDownloader {
     _getISO3166WithinView(lngLatBounds) {
         var r = new Set();
 
-        for (var [iso_3166, iLngLatBounds] of this.adminBounds.entries()) { // region parent, region child??? ==========
+        for (var [iso_3166, iLngLatBounds] of Object.entries(this.adminBounds)) { // region parent, region child??? ==========
             if (
                 lngLatBounds.contains(iLngLatBounds.getSouthWest()) ||
                 lngLatBounds.contains(iLngLatBounds.getNorthEast()) ||
@@ -291,31 +291,49 @@ class DataDownloader {
         var fileNames = this.__getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
+            if (!this._geoDataInsts[regionSchema]) {
+                this._geoDataInsts[regionSchema] = {};
+            }
+
             if (this._geoDataInsts[regionSchema][regionParent]) {
                 // Data already downloaded+instance created
+                console.log(`Case data cached: ${regionSchema}->${regionParent}`);
                 return resolve(this._geoDataInsts[regionSchema][regionParent]);
             }
             else if (this._geoDataPending[fileNames.geoDataFilename]) {
                 // Request already pending!
-                this._geoDataPending[fileNames.geoDataFilename].push(resolve);
+                console.log(`Case data pending: ${regionSchema}->${regionParent}`);
+                this._geoDataPending[fileNames.geoJSONFilename].push([resolve, regionSchema, regionParent]);
             }
             else {
                 // Otherwise send a new request
-                this._geoDataPending[fileNames.geoDataFilename] = [resolve];
+                console.log(`Case data fetching: ${regionSchema}->${regionParent}`);
+                this._geoDataPending[fileNames.geoJSONFilename] = [];
 
-                import(`../data/mapGeoData/${fileNames.geoDataFilename}`).then((module) => {  // FIXME!!
-                    var geodata = module['geodata'];
-                    for (var regionSchema of geodata) {
-                        for (var regionParent of geodata[regionSchema]) {
-                            let geoData = this._geoDataInsts[regionSchema][regionParent] = new GeoData(
-                                regionSchema, regionParent, geodata[regionSchema][regionParent]
+                import(`../../data/geoJSONData/${fileNames.geoJSONFilename}.geojson`).then((module) => {  // FIXME!!
+                    var geodata = module.default;
+                    for (var iRegionSchema in geodata) {
+                        for (var iRegionParent in geodata[iRegionSchema]) {
+                            this._geoDataInsts[iRegionSchema][iRegionParent] = new GeoData(
+                                iRegionSchema, iRegionParent, geodata[iRegionSchema][iRegionParent]
                             );
-                            for (let iResolve of this._geoDataPending[fileNames.geoDataFilename]) {
-                                iResolve(geoData);
-                            }
-                            delete this._geoDataPending[fileNames.geoDataFilename];
                         }
                     }
+
+                    // Resolve any other requests which want the
+                    // instance as well as the first promise
+                    for (let [iResolve, iRegionSchema, iRegionParent] of (this._geoDataPending[fileNames.geoJSONFilename]||[])) {
+                        iResolve(iRegionParent == null ?
+                            this._geoDataInsts[iRegionSchema] :
+                            this._geoDataInsts[iRegionSchema][iRegionParent]
+                        );
+                    }
+                    delete this._geoDataPending[fileNames.geoJSONFilename];
+
+                    resolve(regionParent == null ?
+                        this._geoDataInsts[regionSchema] :
+                        this._geoDataInsts[regionSchema][regionParent]
+                    );
                 });
             }
         });
@@ -325,17 +343,21 @@ class DataDownloader {
      * Download underlay (e.g. ABS statistics) data
      * and create instances as needed.
      *
-     * @param schemaType
+     * @param regionSchema
      * @param regionParent
      * @returns {Promise<unknown>}
      */
     /*
     getUnderlayData(underlayId) {
-        var fileNames = this.__getFileNames(schemaType, regionParent);
+        var fileNames = this.__getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
-            if (this._underlayDataInsts[schemaType][regionParent]) {
-                return resolve(this._underlayDataInsts[schemaType][regionParent]);
+            if (!this._underlayDataInsts[regionSchema]) {
+                this._underlayDataInsts[regionSchema] = {};
+            }
+
+            if (this._underlayDataInsts[regionSchema][regionParent]) {
+                return resolve(this._underlayDataInsts[regionSchema][regionParent]);
             }
             else if (this._underlayDataPending[fileNames.underlayDataFilename]) {
                 // Request already pending!
@@ -364,42 +386,71 @@ class DataDownloader {
     /**
      * Download often-changing case data
      *
-     * @param schemaType
+     * @param dataType
+     * @param regionSchema
      * @param regionParent
      * @returns {Promise<unknown>}
      */
-    getCaseData(schemaType, regionParent) {
-        var fileNames = this.__getFileNames(schemaType, regionParent);
+    getCaseData(dataType, regionSchema, regionParent) {
+        var fileNames = this.__getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
-            if (this._caseDataInsts[schemaType][regionParent]) {
-                return resolve(this._caseDataInsts[schemaType][regionParent]);
+            if (!this._caseDataInsts[dataType]) {
+                this._caseDataInsts[dataType] = {};
+            }
+            if (!this._caseDataInsts[dataType][regionSchema]) {
+                this._caseDataInsts[dataType][regionSchema] = {};
+            }
+
+            if (this._caseDataInsts[dataType][regionSchema][regionParent]) {
+                console.log(`Case data cached: ${regionSchema}->${regionParent}`);
+                return resolve(this._caseDataInsts[regionSchema][regionParent]);
             }
             else if (this._caseDataPending[fileNames.caseDataFilename]) {
                 // Request already pending!
-                this._caseDataPending[fileNames.caseDataFilename].push(resolve);
+                console.log(`Case data pending: ${regionSchema}->${regionParent}`);
+                this._caseDataPending[fileNames.caseDataFilename].push([resolve, dataType, regionSchema, regionParent]);
             }
             else {
                 // Otherwise send a new request
-                this._caseDataPending[fileNames.caseDataFilename] = [resolve];
+                console.log(`Case data fetching: ${regionSchema}->${regionParent}`);
+                this._caseDataPending[fileNames.caseDataFilename] = [];
 
-                import(`../data/mapCaseData/${fileNames.caseDataFilename}`).then((module) => {  // FIXME!!
-                    var caseData = module['time_series_data'];
-                    for (var regionSchema of caseData) {
-                        for (var regionParent of caseData[regionSchema]) {
-                            for (var dataType of caseData[regionSchema][regionParent]['sub_headers']) {
-                                let caseDataInst = this._caseDataInsts[regionSchema][regionParent] = new CasesData(
-                                    caseData[regionSchema][regionParent], module['date_ids'],
-                                    dataType, module['updated_dates'][regionSchema][regionParent],
-                                    regionSchema, regionParent
-                                );
-                                for (let iResolve of this._caseDataPending[fileNames.caseDataFilename]) {
-                                    iResolve(caseDataInst);
+                import(`../../data/caseData/${fileNames.caseDataFilename}.json`).then((module) => {  // FIXME!!
+                    var caseData = module.default['time_series_data'];
+                    for (var iRegionSchema in caseData) {
+                        for (var iRegionParent in caseData[iRegionSchema]) {
+                            for (var iDataType of caseData[iRegionSchema][iRegionParent]['sub_headers']) {
+                                if (!this._caseDataInsts[iDataType]) {
+                                    this._caseDataInsts[iDataType] = {};
                                 }
-                                delete this._caseDataPending[fileNames.caseDataFilename];
+                                if (!this._caseDataInsts[iDataType][iRegionSchema]) {
+                                    this._caseDataInsts[iDataType][iRegionSchema] = {};
+                                }
+
+                                this._caseDataInsts[iDataType][iRegionSchema][iRegionParent] = new CasesData(
+                                    caseData[iRegionSchema][iRegionParent], module.default['date_ids'],
+                                    iDataType, module.default['updated_dates'][iRegionSchema][iRegionParent],
+                                    iRegionSchema, iRegionParent
+                                );
                             }
                         }
                     }
+
+                    // Resolve any other requests which want the
+                    // instance as well as the first promise
+                    for (let [iResolve, iDataType, iRegionSchema, iRegionParent] of (this._caseDataPending[fileNames.caseDataFilename]||[])) {
+                        iResolve(iRegionParent == null ?
+                            this._caseDataInsts[iDataType][iRegionSchema] :
+                            this._caseDataInsts[iDataType][iRegionSchema][iRegionParent]
+                        );
+                    }
+                    delete this._caseDataPending[fileNames.caseDataFilename];
+
+                    resolve(regionParent == null ?
+                        this._caseDataInsts[dataType][regionSchema] :
+                        this._caseDataInsts[dataType][regionSchema][regionParent]
+                    );
                 });
             }
         });
@@ -429,14 +480,14 @@ class DataDownloader {
             if (regionParent == null) {
                 throw `schemaType ${schemaType} is split by parent region but parent not provided`;
             }
-            geoJSONFilename = `${schemaType}_${regionParent}.geojson`;
-            underlayDataFilename = `${schemaType}_${regionParent}.json`;
-            caseDataFilename = `${schemaType}_${regionParent}.json`;
+            geoJSONFilename = `${schemaType}_${regionParent}`;
+            underlayDataFilename = `${schemaType}_${regionParent}`;
+            caseDataFilename = `${schemaType}_${regionParent}`;
         }
         else {
-            geoJSONFilename = `${schemaType}.geojson`;
-            underlayDataFilename = `${schemaType}.json`;
-            caseDataFilename = `${schemaType}.json`;
+            geoJSONFilename = `${schemaType}`;
+            underlayDataFilename = `${schemaType}`;
+            caseDataFilename = `${schemaType}`;
         }
 
         return {
@@ -456,7 +507,7 @@ class DataDownloader {
      */
     __fileInCaseData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.caseDataListing.has(fileNames.caseDataFilename);
+        return this.caseDataListing.has(fileNames.caseDataFilename+'.json');
     }
 
     /**
@@ -469,7 +520,7 @@ class DataDownloader {
      */
     __fileInGeoJSONData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.geoJSONDataListing.has(fileNames.geoJSONFilename);
+        return this.geoJSONDataListing.has(fileNames.geoJSONFilename+'.geojson');
     }
 
     /**
@@ -482,7 +533,7 @@ class DataDownloader {
      */
     __fileInUnderlayData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.underlayDataListing.has(fileNames.underlayDataFilename);
+        return this.underlayDataListing.has(fileNames.underlayDataFilename+'.json');
     }
 
     /**************************************************************************
@@ -509,7 +560,7 @@ class DataDownloader {
             // Replaces all admin0 (states/territories)
             parentSchema = 'admin0';
         }
-        else if (parentISO.indexOf('_') !== -1) {
+        else if (parentISO && parentISO.indexOf('_') !== -1) {
             // e.g. AU-VIC: replaces only a single admin1 region
             parentSchema = 'admin1';
         }

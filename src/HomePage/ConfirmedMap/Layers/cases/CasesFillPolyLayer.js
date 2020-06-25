@@ -77,7 +77,7 @@ class CasesFillPolyLayer {
             lastFillLayer
         );
 
-        this.__casesPopup = new CasesPopup(this.getFillPolyId());
+        this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', null, null); // FIXME!!!! ==================================================
         this.__shown = true;
     }
 

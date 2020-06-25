@@ -117,7 +117,7 @@ class CaseCirclesLayer {
                     'id': this.uniqueId+zoomLevel,
                     'type': 'circle',
                     'source': this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
-                    'minzoom': zoomLevel-1,
+                    'minzoom': (zoomLevel-1 < 0) ? 0 : zoomLevel-1,
                     'maxzoom': zoomLevel+2,
                     'paint': {
                         // Size circle radius by value
@@ -147,7 +147,7 @@ class CaseCirclesLayer {
                 id: this.uniqueId+'label'+zoomLevel,
                 type: 'symbol',
                 source: this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
-                minzoom: zoomLevel-1,
+                minzoom: (zoomLevel-1 < 0) ? 0 : zoomLevel-1,
                 maxzoom: zoomLevel+2,
                 filter: ['all',
                     ['!=', 'cases', 0],
@@ -281,7 +281,7 @@ class CaseCirclesLayer {
                 maxZoom = this.clusteredCaseSources.getMaxZoom();
 
             const map = this.map;
-            map.removeLayer(this.getHeatPointId());
+            map.removeLayer(this.uniqueId);
             map.removeLayer(this.uniqueId + 'label');
             map.removeLayer(this.uniqueId + 'citylabel');
 

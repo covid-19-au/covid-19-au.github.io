@@ -23,7 +23,6 @@ SOFTWARE.
  */
 
 import React from "react"
-import "./schema_types";
 import mapboxgl from "mapbox-gl";
 import CovidMapControls from "./MapControls/CovidMapControls";
 import DataDownloader from "../CrawlerData/DataDownloader";
@@ -36,6 +35,8 @@ import LinePolyLayer from "./Layers/LinePolyLayer";
 
 import MapBoxSource from "./Sources/MapBoxSource";
 import ClusteredCaseSources from "./Sources/ClusteredCaseSources";
+import GeoData from "../CrawlerData/GeoData"
+import CasesData from "../CrawlerData/CasesData"
 
 
 class CovidMapControl extends React.Component {
@@ -56,7 +57,7 @@ class CovidMapControl extends React.Component {
         return (
             <div>
                 <CovidMapControls ref={el => this.covidMapControls = el}
-                                  onchange={this.onControlsChange} />
+                                  onchange={this._onControlsChange} />
                 <div ref={el => this.mapContainer = el} >
                 </div>
             </div>
@@ -81,10 +82,6 @@ class CovidMapControl extends React.Component {
             fadeDuration: 0
         });
 
-        // Set the HTML *once only*!
-        this.otherStatsSelect.current.innerHTML =
-            this._getSelectHTML();
-
         // Disable map rotation
         map.dragRotate.disable();
         map.touchZoomRotate.disableRotation();
@@ -104,41 +101,46 @@ class CovidMapControl extends React.Component {
         map.addControl(new mapboxgl.FullscreenControl());
 
         map.on('load', () => {
-            this.props.onload(this, map);
-        });
-        map.on('moveend', () => {
-            this.onMapMoveChange();
-        });
-        map.on('zoomend', () => {
-            this.onMapMoveChange();
+            // Create the MapBox sources
+            let underlaySource = this.underlaySource = new MapBoxSource(map);
+            let casesSource = this.casesSource = new MapBoxSource(map);
+            let clusteredCaseSources = this.clusteredCaseSources = new ClusteredCaseSources(map);
+
+            // Add layers for the underlay
+            this.underlayFillPoly = new UnderlayFillPolyLayer(
+                map, 'underlayFillPoly', underlaySource
+            );
+            this.underlayLinePoly = new LinePolyLayer(
+                map, 'underlayLinePoly', 'rgba(0,0,0,0.3)', 1.0, underlaySource
+            );
+
+            // Add layers for cases
+            this.daysSinceLayer = new DaysSinceLayer(
+                map, 'daysSinceLayer', casesSource
+            );
+            this.casesFillPolyLayer = new CasesFillPolyLayer(
+                map, 'casesFillPolyLayer', casesSource
+            );
+            this.casesLinePolyLayer = new LinePolyLayer(
+                map, 'casesLinePolyLayer', 'gray', 1.0, casesSource
+            );
+            this.caseCirclesLayer = new CaseCirclesLayer(
+                map, 'heatMap', clusteredCaseSources
+            );
+
+            // Bind events for loading data
+            map.on('moveend', () => {
+                this.onMapMoveChange();
+            });
+            map.on('zoomend', () => {
+                this.onMapMoveChange();
+            });
+
+            if (this.props.onload) {
+                this.props.onload(this, map);
+            }
         });
 
-        // Create the MapBox sources
-        let underlaySource = this.underlaySource = new MapBoxSource(map);
-        let casesSource = this.casesSource = new MapBoxSource(map);
-        let clusteredCaseSources = this.clusteredCaseSources = new ClusteredCaseSources(map);
-
-        // Add layers for the underlay
-        this.underlayFillPoly = new UnderlayFillPolyLayer(
-            map, 'underlayFillPoly', underlaySource
-        );
-        this.underlayLinePoly = new LinePolyLayer(
-            map, 'underlayLinePoly', 'rgba(0,0,0,0.3)', 1.0, underlaySource
-        );
-
-        // Add layers for cases
-        this.daysSinceLayer = new DaysSinceLayer(
-            map, 'daysSinceLayer', casesSource
-        );
-        this.casesFillPolyLayer = new CasesFillPolyLayer(
-            map, 'casesFillPolyLayer', casesSource
-        );
-        this.casesLinePolyLayer = new LinePolyLayer(
-            map, 'casesLinePolyLayer', 'gray', 1.0, casesSource
-        );
-        this.caseCirclesLayer = new CaseCirclesLayer(
-            map, 'heatMap', clusteredCaseSources
-        );
     }
 
     /*******************************************************************
@@ -151,7 +153,7 @@ class CovidMapControl extends React.Component {
      */
     onMapMoveChange() {
         let zoomLevel = this.map.getZoom(),
-            lngLatBounds = this.map.getBoundingRect(); // CHECK ME!!
+            lngLatBounds = this.map.getBounds(); // CHECK ME!!
         let schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
             zoomLevel, lngLatBounds
         );
@@ -168,37 +170,41 @@ class CovidMapControl extends React.Component {
      */
     async _onMapMoveChange(zoomLevel, lngLatBounds, schemasForCases) {
         var promises = [];
+        let dataType = this.covidMapControls.getDataType();
 
-        for (let [parentSchema, parentISO] of schemasForCases.keys()) {
-            let [priority, regionSchema, iso3166Codes] = schemasForCases.get(
-                [parentSchema, parentISO]
-            );
+        for (let key of schemasForCases.keys()) {
+            let [parentSchema, parentISO] = key;
+            console.log(`${parentSchema}, ${parentISO}`)
+            let [priority, regionSchema, iso3166Codes] = schemasForCases.get(key);
+
             if (iso3166Codes) {
                 for (let iso3166 of iso3166Codes) {
                     promises.push([
                         this.dataDownloader.getGeoData(regionSchema, iso3166),
-                        this.dataDownloader.getCaseData(regionSchema, iso3166)
+                        this.dataDownloader.getCaseData(dataType, regionSchema, iso3166)
                     ]);
                 }
             }
             else {
                 promises.push([
                     this.dataDownloader.getGeoData(regionSchema, null),
-                    this.dataDownloader.getCaseData(regionSchema, null)
+                    this.dataDownloader.getCaseData(dataType, regionSchema, null)
                 ]);
             }
         }
 
-        let points = [],
-            polygons = [];
+        let points = {
+            "type": "FeatureCollection",
+            "features": []
+        },  polygons = {
+            "type": "FeatureCollection",
+            "features": []
+        };
 
         let geoDataInsts = this.geoDataInsts = [];
         let caseDataInsts = this.caseDataInsts = [];
 
-        for (let [geoDataPromise, caseDataPromise] of promises) {
-            let geoData = await geoDataPromise,
-                caseData = await caseDataPromise;
-
+        let assign = (geoData, caseData) => {
             let iPoints = geoData.getCentralPoints(),
                 iPolygons = geoData.getPolygonOutlines();
 
@@ -210,6 +216,22 @@ class CovidMapControl extends React.Component {
 
             geoDataInsts.push(geoData);
             caseDataInsts.push(caseData);
+        };
+
+        for (let [geoDataPromise, caseDataPromise] of promises) {
+            let geoData = await geoDataPromise,
+                caseData = await caseDataPromise;
+
+            if (geoData instanceof GeoData) {
+                assign(geoData, caseData);
+            }
+            else {
+                for (let k in geoData) {
+                    console.log(`ASSIGNING: ${k} ${geoData[k] instanceof GeoData} ${caseData[k] instanceof CasesData} ${caseData instanceof CasesData}`);
+                    if (!caseData[k]) continue;
+                    assign(geoData[k], caseData[k]);
+                }
+            }
         }
 
         this.clusteredCaseSources.setData(points);
@@ -252,6 +274,14 @@ class CovidMapControl extends React.Component {
     /*******************************************************************
      * Mode update
      *******************************************************************/
+
+    /**
+     *
+     * @private
+     */
+    _onControlsChange() {
+        this._updateMode();
+    }
 
     /**
      *

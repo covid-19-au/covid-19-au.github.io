@@ -52,7 +52,7 @@ class LinePolyLayer {
      * Show the polygon outlines
      */
     addLayer() {
-        this.hideLayer();
+        this.removeLayer();
 
         // Add the line outline
         const map = this.map;

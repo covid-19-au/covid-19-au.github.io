@@ -107,7 +107,6 @@ class CasesPopup {
 
         // Get info about the region
         let regionType = new RegionType(
-            this.geoDataInst,
             feature['regionSchema'],
             feature['regionParent'],
             feature['regionChild']

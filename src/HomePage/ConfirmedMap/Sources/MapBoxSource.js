@@ -42,11 +42,13 @@ class MapBoxSource {
 
         map.addSource(`mapboxSource${id}`, {
             "type": "geojson",
-            "data": [],
-            "minzoom": minZoom,
-            "maxzoom": maxZoom
+            "data": {
+                "type": "FeatureCollection",
+                'features': []
+            },
+            //"minzoom": minZoom,
+            //"maxzoom": maxZoom
         });
-        this.__source = map.getSource(`mapboxSource${id}`);
 
         if (data) {
             this.setData(data);
@@ -62,6 +64,14 @@ class MapBoxSource {
         return `mapboxSource${this.__id}`;
     }
 
+    /**
+     *
+     * @returns {*}
+     */
+    getSourceInst() {
+        return this.map.getSource(this.getSourceId());
+    }
+
     /**************************************************************************
      * Update data/features
      **************************************************************************/
@@ -74,7 +84,10 @@ class MapBoxSource {
      * not the case values (or any other values)
      */
     clearData() {
-        this.__source.setData([]);
+        if (!this.getSourceInst()) {
+            return;
+        }
+        this.getSourceInst().setData([]);
         delete this.__dataKeys;
     }
 
@@ -93,10 +106,15 @@ class MapBoxSource {
      */
     setData(data) {
         var dataKeys = this.__getDataKeys(data);
-        if (!this.__dataKeys && !this.__setsEqual(this.__dataKeys, dataKeys)) {
+        if (this.__dataKeys && this.__setsEqual(this.__dataKeys, dataKeys)) {
             return false;
         }
-        this.__source.setData(data);
+        else if (!this.getSourceInst()) {
+            setTimeout(this.setData.bind(this), 50, data);
+            return true;
+        }
+
+        this.getSourceInst().setData(data);
         this.__dataKeys = dataKeys;
         return true;
     }
@@ -126,7 +144,7 @@ class MapBoxSource {
      */
     __getDataKeys(data) {
         let dataKeys = new Set();
-        for (let feature of data['features']) {
+        for (let feature of (data['features']||[])) {
             let properties = feature.properties;
             if (properties.uniqueid == null) {
                 throw "the unique ID can't be null!"

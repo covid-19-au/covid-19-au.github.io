@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import Fns from "../Fns";
+import Fns from "../ConfirmedMap/Fns";
 
 import DateRangeType from "../CrawlerDataTypes/DateRangeType"
 import DateType from "../CrawlerDataTypes/DateType"
@@ -51,7 +51,6 @@ class CasesData {
      * This is way too resource-intensive to run otherwise!
      *
      * @param casesData the base data downloaded from JSON
-     * @param uniqueId
      * @param regionSchema
      * @param regionParent
      * @param dataType the key, e.g. "new", "total", "status_active" etc
@@ -60,7 +59,7 @@ class CasesData {
               as otherwise the data will be a lot larger!
      * @param updatedDate
      */
-    constructor(uniqueId, casesData, regionsDateIds,
+    constructor(casesData, regionsDateIds,
                 dataType, updatedDate,
                 regionSchema, regionParent) {
 
@@ -87,7 +86,7 @@ class CasesData {
      */
     _getRegionsDateIds(regionsDateIds) {
         let r = {};
-        for (let [key, value] of regionsDateIds.entries()) {
+        for (let [key, value] of Object.entries(regionsDateIds)) {
             r[key] = new DateType(value);
         }
         return r;
@@ -142,7 +141,7 @@ class CasesData {
 
             properties['cases'] = timeSeriesItem.getValue();
             properties['negcases'] = -timeSeriesItem.getValue();
-            properties['casesFmt'] = Fns.numberFormat(timeSeriesItem.getValue(), 1);
+            properties['casesFmt'] = Fns.getCompactNumberRepresentation(timeSeriesItem.getValue(), 1);
             properties['casesSz'] = this._getCasesSize(feature);
         }
         return features;
@@ -366,8 +365,8 @@ class CasesData {
             allVals = [];
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
-            // PERFORMANCE WARNING!
-            var value = this.getCaseNumber(iRegion, iAgeRange).getValue();  // TODO: Is it necessary to call getCaseNumber??
+            let iRegionType = new RegionType(this.regionSchema, this.regionParent, iRegion);
+            var value = this.getCaseNumber(iRegionType, iAgeRange).getValue();  // TODO: Is this call necessary?? ===============
 
             if (value === '' || value == null) {
                 continue;
