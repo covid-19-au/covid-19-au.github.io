@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victoria-records-33-new-coronavirus-cases-daniel-andrews-declares-testing-blitz",
+            "title": "Victoria records 33 new coronavirus cases, Daniel Andrews declares 'testing blitz'",
+            "source": "SBSNews",
+            "date": "25 June 2020",
+            "time": "12:00",
+            "summary": "Victoria has recorded another 33 coronavirus cases, as the defence force is brought in to bolster efforts to stop the spread of COVID-19. The premier announced a 'testing blitz' in Melbourne's suburbs with the highest number of community transmission cases, Keilor Downs and Broadmeadows, with the blitz to then extend to other suburbs Maidstone, Albanvale, Sunshine West, Hallam, Brunswick West, Fawkner, Reservoir, and Pakenham. NSW Health Minister Brad Hazzard on Thursday called on Melbourne residents from the COVID hot spots to refrain from attending major events in NSW including AFL and NRL games until the recent spike in COVID-19 cases ends."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/qantas-to-cut-6-000-jobs-slash-costs-as-part-of-coronavirus-recovery-plan",
+            "title": "Qantas to cut 6,000 jobs, slash costs as part of coronavirus recovery plan",
+            "source": "SBSNews",
+            "date": "25 June 2020",
+            "time": "15:01",
+            "summary": "Qantas says it will cut at least 6,000 jobs across all parts of the business and continue to stand down 15,000 employees as part of its plan to recover from the impact of the COVID pandemic. Australia's flag carrier also said it will ground at least 100 aircraft for up to 12 months and reduce $15 billion in costs over the next three years. Qantas' domestic capacity is currently running at about 15 per cent of its pre-coronavirus levels, following an easing in social and travel restrictions. The majority of staff stood down are associated with the airline’s international services. CEO Alan Joyce estimates close to $600 million will be spent on redundancies. "
+        },
+        {
             "link": "https://www.sbs.com.au/news/as-victoria-s-coronavirus-restrictions-tighten-here-s-what-you-can-and-can-t-do-across-australia",
             "title": "As Victoria's coronavirus restrictions tighten, here's what you can and can't do across Australia",
             "source": "SBSNews",
@@ -119,22 +135,6 @@
             "date": "18 June 2020",
             "time": "16:12",
             "summary": "The expenditure review committee of cabinet is expected to sign off on a support package for the struggling arts and entertainment industry on Thursday night after talks between Scott Morrison and representatives from the entertainment sector. The support under consideration includes assistance with startup costs to help artists resume touring as public health restrictions ease, and a dedicated grants fund to help entertainment businesses replenish their capital after the economic devastation created by Covid-19."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/jun/17/covid-safe-app-australia-covidsafe-contact-tracing-australian-government-covid19-tracking-problems-working",
-            "title": "Australia's Covidsafe coronavirus tracing app works as few as one in four times for some devices ",
-            "source": "TheGuardian",
-            "date": "17 June 2020",
-            "time": "15:50",
-            "summary": "The federal government’s Covidsafe contact tracing app works as few as one in every four times for some devices, documents tabled in the Senate have revealed. The evidence for the first time shows the true state of the operation of the app, despite continuous claims from the government services minister, Stuart Robert, and the Digital Transformation Agency over the past two months that the app \"works\"."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-records-21-new-coronavirus-cases-in-the-biggest-spike-since-early-may",
-            "title": "Victoria records 21 new coronavirus cases in the biggest spike since early May",
-            "source": "SBSNews",
-            "date": "17 June 2020",
-            "time": "12:00",
-            "summary": "Returned travellers in hotel quarantine have given Victoria its biggest spike in daily coronavirus cases in more than a month. Health Minister Jenny Mikakos on Wednesday announced the state's infection tally had increased to 1762 after 21 new cases were recorded. The last time a bigger increase was recorded was on May 4, when 22 cases were identified amid the Cedar Meats outbreak crisis."
         }
     ]
 }
