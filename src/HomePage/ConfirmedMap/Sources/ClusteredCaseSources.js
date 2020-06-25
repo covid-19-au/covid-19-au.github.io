@@ -142,9 +142,6 @@ class ClusteredCaseSources {
         let byZoom = {};
 
         byZoom[9] = pointGeoJSONData;
-        byZoom[8] = this.__getModifiedGeoJSONWithPointsJoined(
-            pointGeoJSONData, 8
-        );
 
         for (let i=UNCLUSTERED_ZOOM; i>0; i--) {
             byZoom[i-1] = this.__getModifiedGeoJSONWithPointsJoined(

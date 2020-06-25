@@ -47,17 +47,19 @@ class CovidMapControls extends React.Component {
         return (
             <div className="map-cont-controls" ref={this.mapContControls}
                  style={{ pointerEvents: this.state.disabled ? 'none' : 'all '}}>
-                <DataTypeSelect ref={(el) => this.__dataTypeSelect = el} onchange={this._onChangeType} />
-                <UnderlaySelect ref={(el) => this.__underlaySelect = el} onchange={this._onChangeUnderlay}/>
+                <DataTypeSelect ref={(el) => this.__dataTypeSelect = el}
+                                onchange={(dataType, timePeriod) => this._onChangeType(dataType, timePeriod)} />
+                <UnderlaySelect ref={(el) => this.__underlaySelect = el}
+                                onchange={(underlayCategory, underlay) => this._onChangeUnderlay(underlayCategory, underlay)}/>
             </div>
         );
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         this.props.onchange({
-            dataType: this.state.type,
-            timePeriod: this.state.timePeriod,
-            underlay: this.state.underlay
+            dataType: this.getDataType(),
+            timePeriod: this.getTimePeriod(),
+            underlay: this.getUnderlay()
         })
     }
 
@@ -79,6 +81,8 @@ class CovidMapControls extends React.Component {
      * @private
      */
     _onChangeType(dataType, timePeriod) {
+        return this.componentDidUpdate();
+
         this.setState({
             dataType: dataType,
             timePeriod: timePeriod
@@ -93,6 +97,8 @@ class CovidMapControls extends React.Component {
      * @private
      */
     _onChangeUnderlay(underlayCategory, underlay) {
+        return this.componentDidUpdate();
+
         this.setState({
             underlayCategory: underlayCategory,
             underlay: underlay
@@ -131,22 +137,32 @@ class CovidMapControls extends React.Component {
      * Enable/disable
      *******************************************************************/
 
+    getDisabled() {
+        return this.state.disabled;
+    }
+
     /**
      * Enable all covid map controls
      */
     enable() {
-        this.setState({
-            disabled: false
-        });
+        this.mapContControls.current.style.pointerEvents = 'all';
+        this.state.disabled = false;
+
+        //this.setState({
+        //    disabled: false
+        //});
     }
 
     /**
      * Disable all covid map controls
      */
     disable() {
-        this.setState({
-            disabled: true
-        });
+        this.mapContControls.current.style.pointerEvents = 'none';
+        this.state.disabled = true;
+
+        //this.setState({
+        //    disabled: true
+        //});
     }
 }
 

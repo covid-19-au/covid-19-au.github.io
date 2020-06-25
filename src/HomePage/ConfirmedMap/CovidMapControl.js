@@ -57,7 +57,7 @@ class CovidMapControl extends React.Component {
         return (
             <div>
                 <CovidMapControls ref={el => this.covidMapControls = el}
-                                  onchange={this._onControlsChange} />
+                                  onchange={(e) => this._onControlsChange(e)} />
                 <div ref={el => this.mapContainer = el} >
                 </div>
             </div>
@@ -73,7 +73,7 @@ class CovidMapControl extends React.Component {
             container: this.mapContainer,
             style: 'mapbox://styles/mapbox/streets-v11',
             zoom: 1,
-            maxZoom: 10,
+            maxZoom: 12,
             minZoom: 0,
             transition: {
                 duration: 0,
@@ -151,91 +151,22 @@ class CovidMapControl extends React.Component {
      * Download any static/case data based on the
      * countries/regions in view, and hide/show as needed!
      */
-    onMapMoveChange() {
+    async onMapMoveChange() {
+        if (this.covidMapControls.getDisabled()) {
+            return;
+        }
+
         let zoomLevel = this.map.getZoom(),
             lngLatBounds = this.map.getBounds(); // CHECK ME!!
-        let schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
-            zoomLevel, lngLatBounds
+
+        this.enableControlsWhenMapReady();
+        let geoData = await this.dataDownloader.getCaseDataForZoomAndCoords(
+            zoomLevel, lngLatBounds, this.covidMapControls.getDataType()
         );
-        this._onMapMoveChange(zoomLevel, lngLatBounds, schemasForCases);
-    }
-
-    /**
-     *
-     * @param zoomLevel
-     * @param lngLatBounds
-     * @param schemasForCases
-     * @returns {Promise<void>}
-     * @private
-     */
-    async _onMapMoveChange(zoomLevel, lngLatBounds, schemasForCases) {
-        var promises = [];
-        let dataType = this.covidMapControls.getDataType();
-
-        for (let key of schemasForCases.keys()) {
-            let [parentSchema, parentISO] = key;
-            console.log(`${parentSchema}, ${parentISO}`)
-            let [priority, regionSchema, iso3166Codes] = schemasForCases.get(key);
-
-            if (iso3166Codes) {
-                for (let iso3166 of iso3166Codes) {
-                    promises.push([
-                        this.dataDownloader.getGeoData(regionSchema, iso3166),
-                        this.dataDownloader.getCaseData(dataType, regionSchema, iso3166)
-                    ]);
-                }
-            }
-            else {
-                promises.push([
-                    this.dataDownloader.getGeoData(regionSchema, null),
-                    this.dataDownloader.getCaseData(dataType, regionSchema, null)
-                ]);
-            }
-        }
-
-        let points = {
-            "type": "FeatureCollection",
-            "features": []
-        },  polygons = {
-            "type": "FeatureCollection",
-            "features": []
-        };
-
-        let geoDataInsts = this.geoDataInsts = [];
-        let caseDataInsts = this.caseDataInsts = [];
-
-        let assign = (geoData, caseData) => {
-            let iPoints = geoData.getCentralPoints(),
-                iPolygons = geoData.getPolygonOutlines();
-
-            iPoints['features'] = caseData.assignCaseInfoToGeoJSON(iPoints['features'], null);
-            iPolygons['features'] = caseData.assignCaseInfoToGeoJSON(iPolygons['features'], null);
-
-            points['features'].push(...iPoints['features']);
-            polygons['features'].push(...iPolygons['features']);
-
-            geoDataInsts.push(geoData);
-            caseDataInsts.push(caseData);
-        };
-
-        for (let [geoDataPromise, caseDataPromise] of promises) {
-            let geoData = await geoDataPromise,
-                caseData = await caseDataPromise;
-
-            if (geoData instanceof GeoData) {
-                assign(geoData, caseData);
-            }
-            else {
-                for (let k in geoData) {
-                    console.log(`ASSIGNING: ${k} ${geoData[k] instanceof GeoData} ${caseData[k] instanceof CasesData} ${caseData instanceof CasesData}`);
-                    if (!caseData[k]) continue;
-                    assign(geoData[k], caseData[k]);
-                }
-            }
-        }
-
-        this.clusteredCaseSources.setData(points);
-        this.casesSource.setData(polygons);
+        this.clusteredCaseSources.setData(geoData.points);
+        this.casesSource.setData(geoData.polygons);
+        this.geoDataInsts = geoData.geoDataInsts;
+        this.caseDataInsts = geoData.caseDataInsts;
         this._updateMode();
     }
 
@@ -280,7 +211,17 @@ class CovidMapControl extends React.Component {
      * @private
      */
     _onControlsChange() {
-        this._updateMode();
+        let points = {
+            "type": "FeatureCollection",
+            "features": []
+        },  polygons = {
+            "type": "FeatureCollection",
+            "features": []
+        };
+
+        this.clusteredCaseSources.setData(points);
+        this.casesSource.setData(polygons);
+        this.onMapMoveChange();
     }
 
     /**

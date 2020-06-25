@@ -119,6 +119,10 @@ class CaseCirclesLayer {
                     'source': this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
                     'minzoom': (zoomLevel-1 < 0) ? 0 : zoomLevel-1,
                     'maxzoom': zoomLevel+2,
+                    filter: ['all',
+                        ['!=', 'cases', 0],
+                        ['has', 'cases']
+                    ],
                     'paint': {
                         // Size circle radius by value
                         'circle-radius': [
@@ -178,6 +182,10 @@ class CaseCirclesLayer {
                 type: 'circle',
                 source: this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
                 minzoom: 6,
+                filter: ['all',
+                    ['!=', 'cases', 0],
+                    ['has', 'cases']
+                ],
                 paint: {
                     // Size circle radius by value
                     'circle-radius': [

@@ -46,6 +46,19 @@ var fns = {
         return r
     },
 
+    /**
+     *
+     * @param obj
+     * @returns {boolean}
+     */
+    isArrayEmpty: function(obj) {
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop))
+                return false;
+        }
+        return true;
+    },
+
     /*******************************************************************
      * String functions
      *******************************************************************/

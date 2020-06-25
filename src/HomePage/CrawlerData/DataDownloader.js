@@ -25,6 +25,7 @@ SOFTWARE.
 import GeoData from "./GeoData.js"
 import CasesData from "./CasesData.js"
 import UnderlayData from "./UnderlayData";
+import Fns from "../ConfirmedMap/Fns"
 
 import schemaTypes from "../../data/caseData/schema_types.json"
 import mapbox from "mapbox-gl";
@@ -33,6 +34,13 @@ import mapbox from "mapbox-gl";
 var MODE_GEOJSON_ONLY = 0,
     MODE_UNDERLAY = 1,
     MODE_CASES = 2;
+
+
+function debug(message) {
+    if (true) {
+        console.log(message);
+    }
+}
 
 
 class DataDownloader {
@@ -54,6 +62,95 @@ class DataDownloader {
         this.caseDataListing = new Set(schemaTypes.listings.case_data_listing);
         this.geoJSONDataListing = new Set(schemaTypes.listings.geo_json_data_listing);
         this.underlayDataListing = new Set(schemaTypes.listings.underlay_data_listing);
+    }
+
+    /**************************************************************************
+     * Download data based on coordinates
+     **************************************************************************/
+
+    /**
+     *
+     * @param zoomLevel
+     * @param lngLatBounds
+     * @param dataType
+     * @returns {Promise<void>}
+     * @private
+     */
+    async getCaseDataForZoomAndCoords(zoomLevel, lngLatBounds, dataType) {
+        let schemasForCases = this.getPossibleSchemasForCases(
+            zoomLevel, lngLatBounds
+        );
+
+        var promises = [];
+
+        for (let key of schemasForCases.keys()) {
+            let [parentSchema, parentISO] = key;
+            //console.log(`${parentSchema}, ${parentISO}`)
+            let [priority, regionSchema, iso3166Codes] = schemasForCases.get(key);
+
+            if (iso3166Codes) {
+                for (let iso3166 of iso3166Codes) {
+                    promises.push([
+                        this.getGeoData(regionSchema, iso3166),
+                        this.getCaseData(dataType, regionSchema, iso3166)
+                    ]);
+                }
+            }
+            else {
+                promises.push([
+                    this.getGeoData(regionSchema, null),
+                    this.getCaseData(dataType, regionSchema, null)
+                ]);
+            }
+        }
+
+        let points = {
+            "type": "FeatureCollection",
+            "features": []
+        },  polygons = {
+            "type": "FeatureCollection",
+            "features": []
+        };
+
+        let geoDataInsts = [];
+        let caseDataInsts = [];
+
+        let assign = (geoData, caseData) => {
+            let iPoints = geoData.getCentralPoints(),
+                iPolygons = geoData.getPolygonOutlines();
+
+            iPoints['features'] = caseData.assignCaseInfoToGeoJSON(iPoints['features'], null);
+            iPolygons['features'] = caseData.assignCaseInfoToGeoJSON(iPolygons['features'], null);
+
+            points['features'].push(...iPoints['features']);
+            polygons['features'].push(...iPolygons['features']);
+
+            geoDataInsts.push(geoData);
+            caseDataInsts.push(caseData);
+        };
+
+        for (let [geoDataPromise, caseDataPromise] of promises) {
+            let geoData = await geoDataPromise,
+                caseData = await caseDataPromise;
+
+            if (geoData instanceof GeoData) {
+                assign(geoData, caseData);
+            }
+            else {
+                for (let k in geoData) {
+                    //console.log(`ASSIGNING: ${k} ${geoData[k] instanceof GeoData} ${caseData[k] instanceof CasesData} ${caseData instanceof CasesData}`);
+                    if (!caseData[k]) continue;
+                    assign(geoData[k], caseData[k]);
+                }
+            }
+        }
+
+        return {
+            points: points,
+            polygons: polygons,
+            geoDataInsts: geoDataInsts,
+            caseDataInsts: caseDataInsts
+        }
     }
 
     /**************************************************************************
@@ -127,7 +224,7 @@ class DataDownloader {
     __getPossibleSchemas(mode, zoomLevel, lngLatBounds) {
         var r = new Map();
         var iso3166WithinView = this._getISO3166WithinView(lngLatBounds);
-        console.log(`ISO 3166 within view: ${Array.from(iso3166WithinView)}`);
+        debug(`ISO 3166 within view: ${Array.from(iso3166WithinView)}`);
 
         for (let [schema, schemaObj] of Object.entries(this.schemas)) {
             var iso_3166 = schemaObj['iso_3166'] ? schemaObj['iso_3166'].toLowerCase() : schemaObj['iso_3166'],  // HACK!!! =========================
@@ -140,38 +237,41 @@ class DataDownloader {
 
             if (mode === MODE_CASES) {
                 if (minZoom != null && zoomLevel < minZoom) {
+                    debug(`ignoring due to minzoom: ${zoomLevel}<${minZoom} ${schema} (parent schema->${parentSchema}; parent iso->${parentISO})`);
                     continue;
                 } else if (maxZoom != null && zoomLevel > maxZoom) {
+                    debug(`ignoring due to maxzoom: ${zoomLevel}>${maxZoom} ${schema} (parent schema->${parentSchema}; parent iso->${parentISO})`);
                     continue;
                 } else if (
                     priority != null &&
                     r.has([parentSchema, parentISO]) &&
                     r.get([parentSchema, parentISO])[0] >= priority
                 ) {
+                    debug(`split geojson not found: ${schema} (parent schema->${parentSchema}; parent iso->${parentISO})`);
                     continue;
                 }
             }
 
-            if (splitByParentRegion && parentSchema === 'admin_0') {
+            if (splitByParentRegion && parentSchema === 'admin_0') { // Child of admin_0 is admin_1 or a custom schema
                 // Split into different files by parent region
                 // e.g. admin_1 has no parent (signifying for all admin_0's),
                 //          but is split into e.g. AU-VIC etc
                 //      jp_city has a parent of JP (signifying for all Japan)
                 let iso3166Codes = [];
-                for (let iso3166 of iso3166WithinView) {
-                    if (iso3166.indexOf('_') === -1) {
-                        // Splitting is only supported at an admin_1 level
+                for (let iso3166 of Array.from(iso3166WithinView)) {
+                    if (iso3166.indexOf('-') !== -1) {
+                        // Splitting is only supported at an admin_0 level
                         continue;
-                    } else if (!this.__fileInGeoJSONData(schema, iso3166)) {
-                        console.log(`split geojson not found: ${schema} ${iso3166}`);
+                    } else if (!this.__fileInGeoJSONData(schema, iso3166.split('-')[0])) {
+                        debug(`split geojson not found: ${schema} ${iso3166}`);
                         continue;
-                    } else if (mode === MODE_CASES && !this.__fileInCaseData(schema, iso3166)){
+                    } else if (mode === MODE_CASES && !this.__fileInCaseData(schema, iso3166.split('-')[0])){
                         // Cases data not in listing
-                        console.log(`split cases not found: ${schema} ${iso3166}`);
+                        debug(`split cases not found: ${schema} ${iso3166}`);
                         continue;
-                    } else if (mode === MODE_UNDERLAY && !this.__fileInUnderlayData(schema, iso3166)){
+                    } else if (mode === MODE_UNDERLAY && !this.__fileInUnderlayData(schema, iso3166.split('-')[0])){
                         // Underlay data not in listing
-                        console.log(`split underlay not found: ${schema} ${iso3166}`);
+                        debug(`split underlay not found: ${schema} ${iso3166}`);
                         continue;
                     }
                     iso3166Codes.push(iso3166);
@@ -179,27 +279,29 @@ class DataDownloader {
 
                 // Data is split into multiple files to save downloads -
                 // only get files which are in view!
+                debug(`adding with iso3166 codes: ${parentSchema} ${parentISO} ${priority} ${schema} ${iso3166Codes}`);
                 r.set([parentSchema, parentISO], [priority, schema, iso3166Codes]);
 
             } else if (!splitByParentRegion) {
-                if (!iso3166WithinView.has(parentISO)) {
+                if (parentISO && !iso3166WithinView.has(parentISO)) {
                     // The parent isn't in view, so isn't possible!
-                    console.log(`non-split not in view: ${schema} ${parentSchema} ${parentISO}`);
+                    debug(`non-split not in view: ${schema} ${parentSchema} ${parentISO}`);
                     continue;
                 } else if (!this.__fileInGeoJSONData(schema, null)) {
-                    console.log(`non-split geojson not found: ${schema}`);
+                    debug(`non-split geojson not found: ${schema}`);
                     continue;
                 } else if (mode === MODE_CASES && !this.__fileInCaseData(schema, null)){
                     // Cases data not in listing
-                    console.log(`non-split cases not found: ${schema}`);
+                    debug(`non-split cases not found: ${schema}`);
                     continue;
                 } else if (mode === MODE_UNDERLAY && !this.__fileInUnderlayData(schema, null)){
                     // Underlay data not in listing
-                    console.log(`non-split underlay not found: ${schema}`);
+                    debug(`non-split underlay not found: ${schema}`);
                     continue;
                 }
 
                 // All data is in one file, so assign for all
+                debug(`adding without iso3166 codes: ${parentSchema} ${parentISO} ${priority} ${schema}`);
                 r.set([parentSchema, parentISO], [priority, schema]);
 
             } else {
@@ -215,10 +317,12 @@ class DataDownloader {
 
                 if ((parentSchema === 'admin_0' || parentSchema === 'admin_1') && r.has([null, admin_0])) {
                     // schemas which attach off admin 0 take priority over admin 0
+                    debug(`removing key due to taking priority over admin 1: ${r.get([null, admin_0])} ${admin_0} ${parentSchema} ${parentISO}`);
                     r.delete([null, admin_0]);
                 }
                 if (parentSchema === 'admin_1' && r.has(['admin_0', admin_0])) {
                     // schemas which attach off admin 1 take priority over admin 1
+                    debug(`removing key due to taking priority over admin 1: ${r.get(['admin_0', admin_0])} ${admin_0} ${parentSchema} ${parentISO}`);
                     r.delete(['admin_0', admin_0]);
                 }
             }
@@ -305,19 +409,24 @@ class DataDownloader {
                 this._geoDataInsts[regionSchema] = {};
             }
 
-            if (this._geoDataInsts[regionSchema][regionParent]) {
+            if (regionParent != null && this._geoDataInsts[regionSchema][regionParent]) {
                 // Data already downloaded+instance created
-                console.log(`Case data cached: ${regionSchema}->${regionParent}`);
+                debug(`Geodata instance cached: ${regionSchema}->${regionParent}`);
                 return resolve(this._geoDataInsts[regionSchema][regionParent]);
+            }
+            else if (regionParent == null && !Fns.isArrayEmpty(this._geoDataInsts[regionSchema])) {
+                // Data for multiple instances already downloaded+instance created
+                debug(`Geodata instances cached: ${regionSchema}->${regionParent}`);
+                return resolve(this._geoDataInsts[regionSchema]);
             }
             else if (this._geoDataPending[fileNames.geoDataFilename]) {
                 // Request already pending!
-                console.log(`Case data pending: ${regionSchema}->${regionParent}`);
+                debug(`Geodata pending: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename].push([resolve, regionSchema, regionParent]);
             }
             else {
                 // Otherwise send a new request
-                console.log(`Case data fetching: ${regionSchema}->${regionParent}`);
+                debug(`Geodata fetching: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename] = [];
 
                 import(`../../data/geoJSONData/${fileNames.geoJSONFilename}.geojson`).then((module) => {  // FIXME!!
@@ -412,18 +521,22 @@ class DataDownloader {
                 this._caseDataInsts[dataType][regionSchema] = {};
             }
 
-            if (this._caseDataInsts[dataType][regionSchema][regionParent]) {
-                console.log(`Case data cached: ${regionSchema}->${regionParent}`);
-                return resolve(this._caseDataInsts[regionSchema][regionParent]);
+            if (regionParent != null && this._caseDataInsts[dataType][regionSchema][regionParent]) {
+                debug(`Case data instance cached: ${regionSchema}->${regionParent}`);
+                return resolve(this._caseDataInsts[dataType][regionSchema][regionParent]);
+            }
+            else if (regionParent == null && !Fns.isArrayEmpty(this._caseDataInsts[dataType][regionSchema])) {
+                debug(`Case data instances cached: ${regionSchema}->${regionParent}`);
+                return resolve(this._caseDataInsts[dataType][regionSchema]);
             }
             else if (this._caseDataPending[fileNames.caseDataFilename]) {
                 // Request already pending!
-                console.log(`Case data pending: ${regionSchema}->${regionParent}`);
+                debug(`Case data pending: ${regionSchema}->${regionParent}`);
                 this._caseDataPending[fileNames.caseDataFilename].push([resolve, dataType, regionSchema, regionParent]);
             }
             else {
                 // Otherwise send a new request
-                console.log(`Case data fetching: ${regionSchema}->${regionParent}`);
+                debug(`Case data fetching: ${regionSchema}->${regionParent}`);
                 this._caseDataPending[fileNames.caseDataFilename] = [];
 
                 import(`../../data/caseData/${fileNames.caseDataFilename}.json`).then((module) => {  // FIXME!!
