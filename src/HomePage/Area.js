@@ -97,7 +97,7 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="activeCase">
-          {<strong> {numberWithCommas(x[CONFIRMED] - x[DEATH] - x[CURED])} </strong>}&nbsp;
+          {<strong> {numberWithCommas((x[CONFIRMED] - x[DEATH] - x[CURED])>0?x[CONFIRMED] - x[DEATH] - x[CURED]:0)} </strong>}&nbsp;
               <div className="dailyIncrease">
                   {(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1]) > 0
                       ? `(+${(x[CONFIRMED]-x[DEATH]-x[CURED]) - (lastTotal[x[0]][0]-lastTotal[x[0]][2]-lastTotal[x[0]][1])})`
