@@ -105,7 +105,7 @@ class ClusteredCaseSources {
      * @param data
      */
     setData(data) {
-        if (this.__sources[UNCLUSTERED_ZOOM].setData[data]) {
+        if (this.__sources[UNCLUSTERED_ZOOM].setData(data)) {
             var byZoom = this.getPointDataByZoomLevel(data);
 
             for (let i=0; i<UNCLUSTERED_ZOOM; i++) {
@@ -146,7 +146,7 @@ class ClusteredCaseSources {
             pointGeoJSONData, 8
         );
 
-        for (let i=UNCLUSTERED_ZOOM-1; i>-1; i++) {
+        for (let i=UNCLUSTERED_ZOOM; i>0; i--) {
             byZoom[i-1] = this.__getModifiedGeoJSONWithPointsJoined(
                 byZoom[i], i-1
             );
@@ -173,7 +173,11 @@ class ClusteredCaseSources {
             5: 0.35,
             6: 0.25,
             7: 0.2,
-            8: 0.15
+            8: 0.15,
+            9: 0.10,
+            10: 0.6,
+            11: 0.4,
+            12: 0.2
         };
 
         var mergeSmallerThan = zoomMap[zoomLevel];

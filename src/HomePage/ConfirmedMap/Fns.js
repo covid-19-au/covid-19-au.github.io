@@ -82,7 +82,7 @@ var fns = {
      * String functions
      *******************************************************************/
 
-    getCompactNumberRepresentation: function(digits) {
+    getCompactNumberRepresentation: function(num, digits) {
         // https://stackoverflow.com/questions/9461621/format-a-number-as-2-5k-if-a-thousand-or-more-otherwise-900
         var si = [
             {value: 1, symbol: ""},
@@ -97,11 +97,11 @@ var fns = {
         var i;
 
         for (i = si.length - 1; i > 0; i--) {
-            if (this >= si[i].value) {
+            if (num >= si[i].value) {
                 break;
             }
         }
-        return (this / si[i].value)
+        return (num / si[i].value)
                .toFixed(digits)
                .replace(rx, "$1") + si[i].symbol;
     }

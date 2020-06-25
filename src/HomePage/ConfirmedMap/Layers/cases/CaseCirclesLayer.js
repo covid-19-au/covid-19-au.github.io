@@ -220,7 +220,7 @@ class CaseCirclesLayer {
             'layout': {
                 'text-field': [
                     'format',
-                    ['get', 'cityLabel'],
+                    ['get', 'label'],
                     { 'font-scale': 0.7 },
                 ],
                 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],

@@ -37,7 +37,9 @@ class TimeSeriesItem extends Array {
         if (!(dateType instanceof DateType)) {
             dateType = new DateType(dateType);
         }
-        super([dateType, numberType]);
+        super();
+        this[0] = dateType;
+        this[1] = numberType;
     }
 
     /**

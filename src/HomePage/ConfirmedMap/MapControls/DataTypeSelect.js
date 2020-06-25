@@ -163,7 +163,7 @@ class DataTypeSelect extends React.Component {
     componentDidMount() {
         this.markersSelect.current.onchange = () => {
             this._onMarkersChange(this.markersSelect.current.value);
-        }
+        };
     }
 
     /*******************************************************************
@@ -186,6 +186,26 @@ class DataTypeSelect extends React.Component {
         this.setState({
             enabled: false
         });
+    }
+
+    /*******************************************************************
+     * Get value
+     *******************************************************************/
+
+    /**
+     *
+     * @returns {*}
+     */
+    getDataType() {
+        return this.state.dataType;
+    }
+
+    /**
+     *
+     * @returns {DataTypeSelect._onTimePeriodChange.props}
+     */
+    getTimePeriod() {
+        return this.state.timePeriod;
     }
 
     /*******************************************************************

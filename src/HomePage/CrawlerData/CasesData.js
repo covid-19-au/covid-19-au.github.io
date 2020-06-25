@@ -128,8 +128,10 @@ class CasesData {
 
             var timeSeriesItem = this.getCaseNumber(regionType, ageRange);
             if (!timeSeriesItem) {
+                //console.log(`No data for ${regionType.prettified()} (${regionType.getRegionChild()})`);
                 continue;
             }
+            //console.log(`Data found for ${regionType.prettified()} (${regionType.getRegionChild()})`);
 
             if (timeSeriesItem.getDaysSince) {
                 var dayssince = this.getDaysSince(regionType, ageRange);
@@ -144,6 +146,7 @@ class CasesData {
             properties['casesFmt'] = Fns.getCompactNumberRepresentation(timeSeriesItem.getValue(), 1);
             properties['casesSz'] = this._getCasesSize(feature);
         }
+        //console.log(JSON.stringify(features));
         return features;
     }
 
@@ -230,7 +233,7 @@ class CasesData {
                 }
             }
         }
-        return new TimeSeriesItem(dateUpdated, 0);
+        return null;
     }
 
     /**
@@ -366,7 +369,11 @@ class CasesData {
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
             let iRegionType = new RegionType(this.regionSchema, this.regionParent, iRegion);
-            var value = this.getCaseNumber(iRegionType, iAgeRange).getValue();  // TODO: Is this call necessary?? ===============
+            var value = this.getCaseNumber(iRegionType, iAgeRange);  // TODO: Is this call necessary?? ===============
+            if (!value) {
+                continue;
+            }
+            value = value.getValue();
 
             if (value === '' || value == null) {
                 continue;

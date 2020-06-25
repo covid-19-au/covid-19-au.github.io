@@ -166,6 +166,13 @@ class RegionType {
     }
 
     /**
+     *
+     */
+    toString() {
+        return this.prettified('en');
+    }
+
+    /**
      * Get the localized name of a child region.
      * If langCode isn't supplied, it will default to English.
      *

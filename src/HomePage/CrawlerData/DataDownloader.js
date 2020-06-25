@@ -127,10 +127,12 @@ class DataDownloader {
     __getPossibleSchemas(mode, zoomLevel, lngLatBounds) {
         var r = new Map();
         var iso3166WithinView = this._getISO3166WithinView(lngLatBounds);
+        console.log(`ISO 3166 within view: ${Array.from(iso3166WithinView)}`);
 
         for (let [schema, schemaObj] of Object.entries(this.schemas)) {
-            var parentSchema = this.__getParentSchema(schema, schemaObj['iso_3166']),
-                parentISO = schemaObj['iso_3166'], // TODO: What about admin0/1??
+            var iso_3166 = schemaObj['iso_3166'] ? schemaObj['iso_3166'].toLowerCase() : schemaObj['iso_3166'],  // HACK!!! =========================
+                parentSchema = this.__getParentSchema(schema, iso_3166),
+                parentISO = iso_3166, // TODO: What about admin_0/1??
                 minZoom = schemaObj['min_zoom'],
                 maxZoom = schemaObj['max_zoom'],
                 priority = schemaObj['priority'],
@@ -150,24 +152,26 @@ class DataDownloader {
                 }
             }
 
-            if (splitByParentRegion && parentSchema === 'admin0') {
+            if (splitByParentRegion && parentSchema === 'admin_0') {
                 // Split into different files by parent region
-                // e.g. admin1 has no parent (signifying for all admin0's),
+                // e.g. admin_1 has no parent (signifying for all admin_0's),
                 //          but is split into e.g. AU-VIC etc
                 //      jp_city has a parent of JP (signifying for all Japan)
                 let iso3166Codes = [];
                 for (let iso3166 of iso3166WithinView) {
                     if (iso3166.indexOf('_') === -1) {
-                        // Splitting is only supported at an admin1 level
+                        // Splitting is only supported at an admin_1 level
                         continue;
-
                     } else if (!this.__fileInGeoJSONData(schema, iso3166)) {
+                        console.log(`split geojson not found: ${schema} ${iso3166}`);
                         continue;
                     } else if (mode === MODE_CASES && !this.__fileInCaseData(schema, iso3166)){
                         // Cases data not in listing
+                        console.log(`split cases not found: ${schema} ${iso3166}`);
                         continue;
                     } else if (mode === MODE_UNDERLAY && !this.__fileInUnderlayData(schema, iso3166)){
-                        // Cases data not in listing
+                        // Underlay data not in listing
+                        console.log(`split underlay not found: ${schema} ${iso3166}`);
                         continue;
                     }
                     iso3166Codes.push(iso3166);
@@ -180,14 +184,18 @@ class DataDownloader {
             } else if (!splitByParentRegion) {
                 if (!iso3166WithinView.has(parentISO)) {
                     // The parent isn't in view, so isn't possible!
+                    console.log(`non-split not in view: ${schema} ${parentSchema} ${parentISO}`);
                     continue;
                 } else if (!this.__fileInGeoJSONData(schema, null)) {
+                    console.log(`non-split geojson not found: ${schema}`);
                     continue;
                 } else if (mode === MODE_CASES && !this.__fileInCaseData(schema, null)){
                     // Cases data not in listing
+                    console.log(`non-split cases not found: ${schema}`);
                     continue;
                 } else if (mode === MODE_UNDERLAY && !this.__fileInUnderlayData(schema, null)){
-                    // Cases data not in listing
+                    // Underlay data not in listing
+                    console.log(`non-split underlay not found: ${schema}`);
                     continue;
                 }
 
@@ -195,21 +203,23 @@ class DataDownloader {
                 r.set([parentSchema, parentISO], [priority, schema]);
 
             } else {
-                throw "Parent schema must be admin0 to allow splitting files!";
+                throw "Parent schema must be admin_0 to allow splitting files!";
             }
         }
 
         if (mode === MODE_CASES) {
             for (let [parentSchema, parentISO] of r.keys()) {
                 // e.g. if LGA is displayed for AU-VIC, don't
-                // display either AU-VIC (admin1) or AU (admin0)
-                var admin0 = parentISO ? parentISO.split('_')[0] : null;
+                // display either AU-VIC (admin_1) or AU (admin_0)
+                var admin_0 = parentISO ? parentISO.split('_')[0] : null;
 
-                if ((parentSchema === 'admin0' || parentSchema === 'admin1') && r.has([null, admin0])) {
-                    r.delete([null, admin0]);
+                if ((parentSchema === 'admin_0' || parentSchema === 'admin_1') && r.has([null, admin_0])) {
+                    // schemas which attach off admin 0 take priority over admin 0
+                    r.delete([null, admin_0]);
                 }
-                if (parentSchema === 'admin1' && r.has(['admin0', admin0])) {
-                    r.delete(['admin0', admin0]);
+                if (parentSchema === 'admin_1' && r.has(['admin_0', admin_0])) {
+                    // schemas which attach off admin 1 take priority over admin 1
+                    r.delete(['admin_0', admin_0]);
                 }
             }
         }
@@ -221,9 +231,9 @@ class DataDownloader {
      **************************************************************************/
 
     /**
-     * Get each ISO 3166-a2 (admin0) and ISO 3166-2 (admin1) code mapped
+     * Get each ISO 3166-a2 (admin_0) and ISO 3166-2 (admin_1) code mapped
      * to a boundary area (a mapbox LngLatBounds instance), so that we
-     * can know when a given admin0/1 area is in view and download as
+     * can know when a given admin_0/1 area is in view and download as
      * necessary
      *
      * @param adminBounds
@@ -243,7 +253,7 @@ class DataDownloader {
     }
 
     /**
-     * Get which ISO 3166-a2 (admin0) and ISO 3166-2 (admin1) codes
+     * Get which ISO 3166-a2 (admin_0) and ISO 3166-2 (admin_1) codes
      * are within view as a set
      *
      * @param lngLatBounds a mapbox LngLatBounds instance
@@ -550,23 +560,23 @@ class DataDownloader {
      */
     __getParentSchema(schema, parentISO) {
         var parentSchema;
-        if (schema === 'admin0') {
+        if (schema === 'admin_0') {
             // Countries: has no parent
             // (may change this to make "world" or
             // regions like West Europe parents later)
             parentSchema = null;
         }
-        else if (schema === 'admin1') {
-            // Replaces all admin0 (states/territories)
-            parentSchema = 'admin0';
+        else if (schema === 'admin_1') {
+            // Replaces all admin_0 (states/territories)
+            parentSchema = 'admin_0';
         }
         else if (parentISO && parentISO.indexOf('_') !== -1) {
-            // e.g. AU-VIC: replaces only a single admin1 region
-            parentSchema = 'admin1';
+            // e.g. AU-VIC: replaces only a single admin_1 region
+            parentSchema = 'admin_1';
         }
         else {
-            // e.g. AU: replaces entire admin0 (country)
-            parentSchema = 'admin0';
+            // e.g. AU: replaces entire admin_0 (country)
+            parentSchema = 'admin_0';
         }
         return parentSchema;
     }
