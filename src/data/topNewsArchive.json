@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-18/coronavirus-cases-in-victoria-climb-blm-protester-positive/12368000",
+            "title": "Coronavirus cases in Victoria rise by 18",
+            "source": "ABCNews",
+            "date": "18 June 2020",
+            "time": "00:00",
+            "summary": "Victorian Premier Daniel Andrews says the state will press on with its plans to further ease coronavirus restrictions next week, despite an apparent increase in community transmission of COVID-19. The state has recorded a further 18 new cases, including a third Black Lives Matter protester and a \"very young child\" who attended a childcare centre while infectious. Mr Andrews said health officials believed the state could continue to \"slowly, cautiously, safely\" reopen, but reminded people to adhere to social distancing measures."
+        },
+        {
+            "link": "https://www.9news.com.au/national/coronavirus-health-minister-greg-hunt-australia-island-sanctuary-international-travel-ruled-out/12bf4920-d444-4152-a7c6-2698dba8dc22",
+            "title": "Coronavirus: Greg Hunt says Australia is an island sanctuary as global pandemic grows and international travel ruled out",
+            "source": "9News",
+            "date": "18 June 2020",
+            "time": "9:29",
+            "summary": "Health Minister Greg Hunt has stressed international travel probably won't resume until next year as the global COVID-19 pandemic continues but says Australia is an \"island sanctuary\". Mr Hunt told Today global infections are growing at a concerning rate and this rules out overseas travel for Australians. The only possibility of overseas travel for Australians now rests on bilateral agreements or a COVID-19 vaccine."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jun/18/australian-arts-support-package-expected-after-talks-with-scott-morrison",
+            "title": "Australian arts support package expected after talks with Scott Morrison ",
+            "source": "TheGuardian",
+            "date": "18 June 2020",
+            "time": "16:12",
+            "summary": "The expenditure review committee of cabinet is expected to sign off on a support package for the struggling arts and entertainment industry on Thursday night after talks between Scott Morrison and representatives from the entertainment sector. The support under consideration includes assistance with startup costs to help artists resume touring as public health restrictions ease, and a dedicated grants fund to help entertainment businesses replenish their capital after the economic devastation created by Covid-19."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/jun/17/covid-safe-app-australia-covidsafe-contact-tracing-australian-government-covid19-tracking-problems-working",
             "title": "Australia's Covidsafe coronavirus tracing app works as few as one in four times for some devices ",
             "source": "TheGuardian",
