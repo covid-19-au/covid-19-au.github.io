@@ -45,27 +45,50 @@ class CaseCirclesLayer {
 
     /**
      * Add the case circles layer
+     *
+     * @param caseVals
      */
-    addLayer() {
+    addLayer(caseVals) {
         this.removeLayer();
 
         let map = this.map,
             minZoom = this.clusteredCaseSources.getMinZoom(),
-            maxZoom = this.clusteredCaseSources.getMaxZoom();
+            maxZoom = this.clusteredCaseSources.getMaxZoom(),
+            circleColor;
 
-        var circleColor = [
-            'interpolate',
-            ['linear'],
-            ['get', 'cases'],
-            -1, 'rgba(0,80,0,0.8)',
-            0, 'rgba(0,0,80,0.0)',
-            1, '#ff9f85',
-            5, '#ff9f85',
-            10, '#fc653d',
-            50, '#ff5c30',
-            100, '#ff4817',
-            300, '#e73210'
-        ];
+        if (caseVals[caseVals.length-1] <= 4) {
+            circleColor = [
+                'step',
+                ['get', 'cases'],
+                'rgba(0,80,0,0.8)',
+                0, 'rgba(0,0,80,0.0)',
+                1, '#ff9f85',
+                5, '#ff9f85',
+                50, '#ff5c30',
+                100, '#ff4817',
+                300, '#e73210'
+            ];
+        } else {
+            let clipVal = (i, gt) => {
+                // mapbox needs ints in ascending order,
+                // so make sure each is higher than the last
+                i = parseInt(i);
+                return i > gt ? i : gt+1;
+            };
+
+            circleColor = [
+                'step',
+                ['get', 'cases'],
+                'rgba(0,80,0,0.8)',
+                0, 'rgba(0,0,80,0.0)',
+                1, '#ff9f85',
+                5, '#ff9f85',
+                clipVal(caseVals[parseInt(caseVals.length*0.5)], 5), '#ff5c30',
+                clipVal(caseVals[parseInt(caseVals.length*0.7)], 6), '#ff4817',
+                clipVal(caseVals[parseInt(caseVals.length*0.9)], 7), '#e73210',
+                clipVal(caseVals[caseVals.length-1], 8), '#e73210'
+            ];
+        }
 
         // Make it so that symbol/circle layers are given different priorities
         // This is essentially a hack to make it so Canberra is situated above

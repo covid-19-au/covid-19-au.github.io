@@ -23,6 +23,17 @@ SOFTWARE.
  */
 
 var fns = {
+    /**
+     *
+     * @param features
+     */
+    geoJSONFromFeatures: function(features) {
+        return {
+            "type": "FeatureCollection",
+            "features": features
+        };
+    },
+
     /*******************************************************************
      * Array helper functions
      *******************************************************************/

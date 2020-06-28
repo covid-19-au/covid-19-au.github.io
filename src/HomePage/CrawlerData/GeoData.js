@@ -23,6 +23,8 @@ SOFTWARE.
  */
 
 import RegionType from "../CrawlerDataTypes/RegionType";
+import Fns from "../ConfirmedMap/Fns"
+import mapbox from "mapbox-gl";
 
 
 class GeoData {
@@ -37,11 +39,24 @@ class GeoData {
      *
      * @param regionSchema
      * @param regionParent
+     * @param schemaRegionSchema
+     * @param schemaRegionParent
      * @param regionParentGeoData
      */
-    constructor(regionSchema, regionParent, regionParentGeoData) {
+    constructor(regionSchema, regionParent,
+                schemaRegionSchema, schemaRegionParent,
+                regionParentGeoData) {
+
         this.regionSchema = regionSchema;
         this.regionParent = regionParent;
+
+        // The schema has parents itself, for instance
+        // admin1 AU-VIC's parent is admin0 AU
+        //
+        // Registered here because, if admin1 AU-* is
+        // displayed, admin0 AU shouldn't be
+        this.schemaRegionSchema = schemaRegionSchema;
+        this.schemaRegionParent = schemaRegionParent;
 
         this.regionParentGeoData = regionParentGeoData;
         this.iso639code = 'en'; // HACK: Please add localization support later!!! ======================================
@@ -87,11 +102,17 @@ class GeoData {
             "type": "FeatureCollection",
             "features": []
         };
+        let bounds = {};
 
         for (let [regionChild, childData] of Object.entries(regionParentGeoData)) {
             let geodata = childData['geodata'];
             let uniqueId = `${this.regionSchema}||${this.regionParent}||${regionChild}`;
             let largestItem = 1;
+
+            let min_lng = 9999999999999999;
+            let min_lat = 9999999999999999;
+            let max_lng = -99999999999999999;
+            let max_lat = -99999999999999999;
 
             for (let [area, boundingCoords, centerCoords, iPoints] of geodata) {
                 var properties = {
@@ -122,7 +143,26 @@ class GeoData {
                     "properties": properties
                 });
                 largestItem = 0;
+
+                let [lng1, lat1, lng2, lat2] = boundingCoords;
+
+                if (lng1 < min_lng) min_lng = lng1;
+                if (lng2 < min_lng) min_lng = lng2;
+
+                if (lat1 < min_lat) min_lat = lat1;
+                if (lat2 < min_lat) min_lat = lat2;
+
+                if (lng1 > max_lng) max_lng = lng1;
+                if (lng2 > max_lng) max_lng = lng2;
+
+                if (lat1 > max_lat) max_lat = lat1;
+                if (lat2 > max_lat) max_lat = lat2;
             }
+
+            bounds[uniqueId] = new mapbox.LngLatBounds(
+                new mapbox.LngLat(min_lng, min_lat),
+                new mapbox.LngLat(max_lng, max_lat)
+            );
         }
 
         // Assign localized names so that the RegionType can use them
@@ -134,6 +174,7 @@ class GeoData {
 
         this.outlines = outlines;
         this.points = points;
+        this.bounds = bounds;
     }
 
     /*******************************************************************
@@ -182,6 +223,22 @@ class GeoData {
         )
     }
 
+    /**
+     *
+     * @returns {*}
+     */
+    getSchemaRegionSchema() {
+       return this.schemaRegionSchema;
+    }
+
+    /**
+     *
+     * @returns {*}
+     */
+    getSchemaRegionParent() {
+        return this.schemaRegionParent;
+    }
+
     /*******************************************************************
      * Get central points/polygon outlines of children
      *******************************************************************/
@@ -189,12 +246,15 @@ class GeoData {
     /**
      * Get the central x,y points of child regions
      *
-     * @param noCopy
+     * @param copy
      */
-    getCentralPoints(noCopy) {
+    getCentralPoints(copy, lngLatBounds) {
         var r = this.points;
-        if (!noCopy) {
+        if (copy) {
             r = JSON.parse(JSON.stringify(r));
+        }
+        if (lngLatBounds) {
+            r = this.__filteredToLngLatBounds(r, lngLatBounds);
         }
         return r;
     }
@@ -202,13 +262,45 @@ class GeoData {
     /**
      * Get the polygon outlines for child regions
      *
-     * @param noCopy
+     * @param copy
      */
-    getPolygonOutlines(noCopy) {
+    getPolygonOutlines(copy, lngLatBounds) {
         var r = this.outlines;
-        if (!noCopy) {
+        if (copy) {
             r = JSON.parse(JSON.stringify(r));
         }
+        if (lngLatBounds) {
+            r = this.__filteredToLngLatBounds(r, lngLatBounds);
+        }
+        return r;
+    }
+
+    /**
+     *
+     * @param geoJSON
+     * @private
+     */
+    __filteredToLngLatBounds(geoJSON, lngLatBounds) {
+        let features = [];
+
+        for (let feature of geoJSON['features']) {
+            let iLngLatBounds = this.bounds[feature.properties['uniqueid']];
+
+            if (
+                lngLatBounds.contains(iLngLatBounds.getSouthWest()) ||
+                lngLatBounds.contains(iLngLatBounds.getNorthEast()) ||
+                lngLatBounds.contains(iLngLatBounds.getNorthWest()) ||
+                lngLatBounds.contains(iLngLatBounds.getSouthEast()) ||
+                iLngLatBounds.contains(lngLatBounds.getSouthWest()) ||
+                iLngLatBounds.contains(lngLatBounds.getNorthEast()) ||
+                iLngLatBounds.contains(lngLatBounds.getNorthWest()) ||
+                iLngLatBounds.contains(lngLatBounds.getSouthEast())
+            ) {
+                features.push(feature);
+            }
+        }
+
+        let r = Fns.geoJSONFromFeatures(features);
         return r;
     }
 

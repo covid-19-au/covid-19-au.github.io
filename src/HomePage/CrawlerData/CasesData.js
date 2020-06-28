@@ -111,12 +111,36 @@ class CasesData {
      * @param features
      * @param ageRange
      */
-    assignCaseInfoToGeoJSON(features, ageRange) {
-        for (let feature of features) {
+    getCaseInfoGeoJSON(inputGeoJSON, ageRange, ignoreChildren, iso3166WithinView) {
+        ignoreChildren = ignoreChildren || new Set();
+        let max = -9999999999999,
+            min = 9999999999999;
+
+        let out = [];
+
+        for (let feature of inputGeoJSON.features) {
             let properties = feature.properties;
 
-            if (!parseInt(properties.largestItem)) {
+            if (
+                (properties['regionSchema'] === 'admin_0' || properties['regionSchema'] === 'admin_1') &&
+                !iso3166WithinView.has(properties['regionChild'])
+            ) {
+                console.log(`Ignoring child due to not in view: ${properties['regionSchema']}->${properties['regionChild']}`);
+                continue;
+            }
+            else if (
+                ignoreChildren.has(`${properties['regionSchema']}||${properties['regionChild']}`) || (
+                    properties['regionSchema'] === 'admin_1' &&
+                    ignoreChildren.has(`${properties['regionSchema']}||${properties['regionChild'].split('-')[0]}`)
+                )
+            ) {
+                // Make it so children such as AU-TAS will replace AU
+                console.log(`Ignoring child: ${properties['regionSchema']}->${properties['regionChild']}`);
+                continue;
+            }
+            else if (!parseInt(properties.largestItem)) {
                 // Ignore smaller islands etc, only add each region once!
+                out.push(feature);
                 continue;
             }
 
@@ -129,6 +153,7 @@ class CasesData {
             var timeSeriesItem = this.getCaseNumber(regionType, ageRange);
             if (!timeSeriesItem) {
                 //console.log(`No data for ${regionType.prettified()} (${regionType.getRegionChild()})`);
+                out.push(feature);
                 continue;
             }
             //console.log(`Data found for ${regionType.prettified()} (${regionType.getRegionChild()})`);
@@ -145,9 +170,18 @@ class CasesData {
             properties['negcases'] = -timeSeriesItem.getValue();
             properties['casesFmt'] = Fns.getCompactNumberRepresentation(timeSeriesItem.getValue(), 1);
             properties['casesSz'] = this._getCasesSize(feature);
+
+            if (properties.cases && properties.cases < min) min = properties.cases;
+            if (properties.cases && properties.cases > max) max = properties.cases;
+
+            out.push(feature);
         }
+
         //console.log(JSON.stringify(features));
-        return features;
+        let r = Fns.geoJSONFromFeatures(out);
+        r.max = out.length ? max : 0;
+        r.min = out.length ? min : 0;
+        return r;
     }
 
     /**

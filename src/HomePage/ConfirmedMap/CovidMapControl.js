@@ -140,7 +140,6 @@ class CovidMapControl extends React.Component {
                 this.props.onload(this, map);
             }
         });
-
     }
 
     /*******************************************************************
@@ -157,17 +156,60 @@ class CovidMapControl extends React.Component {
         }
 
         let zoomLevel = this.map.getZoom(),
-            lngLatBounds = this.map.getBounds(); // CHECK ME!!
+            lngLatBounds = this.map.getBounds(),
+            iso3166WithinView = this.dataDownloader.getISO3166WithinView(lngLatBounds),
+            schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
+                zoomLevel, iso3166WithinView
+            ),
+            dataType = this.covidMapControls.getDataType();
 
+        if (this.prevSchemasForCases) {
+            let changed = this.dataDownloader.caseDataForZoomAndCoordsChanged(
+                zoomLevel,
+                this.prevDataType, this.prevSchemasForCases,
+                dataType, schemasForCases
+            );
+            if (!changed) {
+                return;
+            }
+        }
+
+        // Prevent interacting with map while it's not ready
         this.enableControlsWhenMapReady();
+
         let geoData = await this.dataDownloader.getCaseDataForZoomAndCoords(
-            zoomLevel, lngLatBounds, this.covidMapControls.getDataType()
+            zoomLevel, lngLatBounds, dataType, schemasForCases, iso3166WithinView
         );
         this.clusteredCaseSources.setData(geoData.points);
         this.casesSource.setData(geoData.polygons);
         this.geoDataInsts = geoData.geoDataInsts;
         this.caseDataInsts = geoData.caseDataInsts;
-        this._updateMode();
+
+        this.prevSchemasForCases = geoData.schemasForCases;
+        this.prevDataType = dataType;
+
+        // Get the absolute max/min values among all the datasources
+        // so that we can scale heatmap values for the entire of the
+        // country
+        /*var otherMaxMin = null;
+
+        this.caseDataInsts.forEach((caseDataInst) => {
+            var iMaxMinValues = caseDataInst.getMaxMinValues();
+
+            if (!otherMaxMin) {
+                otherMaxMin = iMaxMinValues
+            }
+            if (iMaxMinValues['max'] > otherMaxMin['max']) {
+                otherMaxMin['max'] = iMaxMinValues['max'];
+            }
+            if (iMaxMinValues['min'] < otherMaxMin['min']) {
+                otherMaxMin['min'] = iMaxMinValues['min'];
+            }
+        });*/
+
+        this.casesFillPolyLayer.addLayer();
+        this.casesLinePolyLayer.addLayer();
+        this.caseCirclesLayer.addLayer(geoData.points.caseVals);
     }
 
     /*******************************************************************
@@ -222,35 +264,6 @@ class CovidMapControl extends React.Component {
         this.clusteredCaseSources.setData(points);
         this.casesSource.setData(polygons);
         this.onMapMoveChange();
-    }
-
-    /**
-     *
-     * @private
-     */
-    _updateMode() {
-        // Get the absolute max/min values among all the datasources
-        // so that we can scale heatmap values for the entire of the
-        // country
-        var otherMaxMin = null;
-
-        this.caseDataInsts.forEach((caseDataInst) => {
-            var iMaxMinValues = caseDataInst.getMaxMinValues();
-
-            if (!otherMaxMin) {
-                otherMaxMin = iMaxMinValues
-            }
-            if (iMaxMinValues['max'] > otherMaxMin['max']) {
-                otherMaxMin['max'] = iMaxMinValues['max'];
-            }
-            if (iMaxMinValues['min'] < otherMaxMin['min']) {
-                otherMaxMin['min'] = iMaxMinValues['min'];
-            }
-        });
-
-        this.casesFillPolyLayer.addLayer();
-        this.casesLinePolyLayer.addLayer();
-        this.caseCirclesLayer.addLayer();
     }
 }
 

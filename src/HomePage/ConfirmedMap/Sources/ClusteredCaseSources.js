@@ -186,37 +186,43 @@ class ClusteredCaseSources {
         geoJSONData = JSON.parse(JSON.stringify(geoJSONData));
 
         // Look for all distances
-        geoJSONData['features'].forEach((feature1, index1) => {
-            var coords1 = feature1['geometry']['coordinates'];
+        let index1 = -1;
+        for (let feature1 of geoJSONData['features']) {
+            index1++;
 
+            var coords1 = feature1['geometry']['coordinates'];
             if (!feature1.properties['cases']) { //  || feature1.properties['cases'] < 0
                 // Only add if cases has been added to!
-                return;
+                continue;
             }
 
-            geoJSONData['features'].forEach((feature2, index2) => {
-                var coords2 = feature2['geometry']['coordinates'];
+            let index2 = -1;
+            for (let feature2 of geoJSONData['features']) {
+                index2++;
 
+                var coords2 = feature2['geometry']['coordinates'];
                 if (index1 === index2) {
-                    return;
-                }
-                else if (!feature2.properties['cases']) { //  || feature2.properties['cases'] < 0
+                    continue;
+                } else if (!feature2.properties['cases']) { //  || feature2.properties['cases'] < 0
                     // Only add if cases has been added to!
-                    return;
+                    continue;
                 }
 
                 var a = coords1[0] - coords2[0],
                     b = coords1[1] - coords2[1],
-                    c = Math.sqrt(a*a + b*b);
+                    c = Math.sqrt(a * a + b * b);
 
-                distances.push([c, index1, index2]);
-            });
-        });
+                if (c < mergeSmallerThan) {
+                    // Only add if less than threshold!
+                    distances.push([c, index1, index2]);
+                }
+            }
+        }
 
         distances.sort((a, b) => a[0] - b[0]);
 
         for (var i=0; i<distances.length; i++) {
-            var distance = distances[i][0],
+            let distance = distances[i][0],
                 index1 = distances[i][1],
                 index2 = distances[i][2];
 
@@ -239,8 +245,12 @@ class ClusteredCaseSources {
             }
         }
 
-        var newFeatures = [];
-        geoJSONData['features'].forEach((feature, index) => {
+        let newFeatures = [],
+            index = -1;
+
+        for (let feature of geoJSONData['features']) {
+            index++;
+
             var properties = feature.properties,
                 geometry = feature.geometry;
 
@@ -255,7 +265,7 @@ class ClusteredCaseSources {
                     n = 1,
                     highestCases = cases;
 
-                mergedMap.get(index).forEach(function(otherIndex) {
+                for (let otherIndex of mergedMap.get(index)) {
                     var otherFeature =  geoJSONData['features'][otherIndex],
                         otherProperties = otherFeature.properties,
                         otherGeometry = otherFeature.geometry;
@@ -273,7 +283,7 @@ class ClusteredCaseSources {
                     }
 
                     n = n + 1;
-                });
+                }
 
                 properties['cases'] = cases;
                 properties['casesFmt'] = Fns.getCompactNumberRepresentation(cases, 1);
@@ -284,7 +294,7 @@ class ClusteredCaseSources {
             else {
                 newFeatures.push(feature);
             }
-        });
+        }
         geoJSONData['features'] = newFeatures;
 
         return geoJSONData;
