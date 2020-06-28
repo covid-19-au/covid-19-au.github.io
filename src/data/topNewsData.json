@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victoria-introduces-mandatory-coronavirus-testing-for-travellers-flags-melbourne-lockdowns-after-recording-49-new-cases",
+            "title": "Victoria introduces mandatory coronavirus testing for travellers, flags Melbourne lockdowns after recording 49 new cases",
+            "source": "SBSNews",
+            "date": "28 June 2020",
+            "time": "14:45",
+            "summary": "Victoria, which has recorded new coronavirus cases in the double-digits for 12 days in a row, announced 49 new infections on Sunday. Victoria's fight against COVID-19 has intensified with the decision to implement mandatory testing for returned travellers before they are allowed out of quarantine in hotels. The government says people in quarantine will be tested twice - first on day three of the 14-day quarantine period and then again on day 11. Premier Daniel Andrews also said the state will consider potential stay-at-home orders and suburban lockdowns to keep on top of clusters in Melbourne, after 49 cases new cases were confirmed on Sunday."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-28/reports-coronavirus-jobseeker-increase-factually-incorrect/12400860 ",
+            "title": "Reports JobSeeker will rise by $75 a week 'factually incorrect', Social Services Minister says",
+            "source": "ABCNews",
+            "date": "28 June 2020",
+            "time": "15:44",
+            "summary": "Reports that the JobSeeker unemployment payment will rise by $75 a week after September are \"factually incorrect\", Social Services Minister Anne Ruston says. As part of its coronavirus assistance the Government temporarily increased the payment — formerly known as Newstart — to $1,100 a fortnight. It is due to revert back to $565 at the end of September, when the JobKeeper payments also end. But News Corp is reporting the payment will be permanently boosted to $715 a fortnight and that the $75 a week increase was the preferred option of some cabinet ministers. Senator Ruston said the report was \"factually incorrect\"."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/jun/27/coronavirus-australia-victoria-reports-jump-of-41-cases-and-sends-emergency-alerts-to-hotspots",
             "title": "Coronavirus Australia: Victoria reports jump of 41 cases and sends emergency alerts to hotspots ",
             "source": "TheGuardian",
@@ -119,22 +135,6 @@
             "date": "21 June 2020",
             "time": "15:00",
             "summary": "The cheering in Queensland stadiums will be a little louder from next weekend, as the State Government further loosens coronavirus restrictions. Speaking on the pitch at Lang Park, Health Minister Steven Miles said up to 10,000 fans would be allowed in time for Saturday's clash between the Brisbane Broncos and the Gold Coast Titans. \"Beginning next weekend, our stadiums will be allowed to have up to 25 per cent of their usual crowd capacity, up to that cap of 10,000 that was set by the Prime Minister and National Cabinet,\" Mr Miles said."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-20/victoria-coronavirus-numbers-increase-again-with-more-new-cases/12376316",
-            "title": "Victorian coronavirus restrictions tightening as cases continue to increase",
-            "source": "ABCNews",
-            "date": "20 June 2020",
-            "time": "20:30",
-            "summary": "Victoria will bring back tougher coronavirus restrictions, limiting gatherings in homes to five people from Monday, in a bid to address a recent increase in case numbers. Premier Daniel Andrews said today's case numbers were the highest they had been in two months, with 25 new cases identified overnight. Of those, just one was a returned traveller in hotel quarantine, while 14 were linked to existing outbreaks, six were discovered in routine testing and four are under investigation."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-06-20/plans-to-reopen-south-australian-borders-could-be-pushed-back/12376956",
-            "title": "Plans to lift South Australia's remaining coronavirus border restrictions could be pushed back after spike in Victoria",
-            "source": "ABCNews",
-            "date": "20 June 2020",
-            "time": "19:41",
-            "summary": "Plans to lift South Australia's remaining border restrictions by July 20 could be pushed back, after Victoria reported its highest number of coronavirus cases in two months. Health Minister Stephen Wade said the health and wellbeing of South Australians was the State Government's priority in setting a timeline to reopen the state. His comments came after Victoria announced 25 new cases overnight, including 14 linked to existing outbreaks and one returned traveller in hotel quarantine."
         }
     ]
 }
