@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-20/victoria-coronavirus-numbers-increase-again-with-more-new-cases/12376316",
+            "title": "Victorian coronavirus restrictions tightening as cases continue to increase",
+            "source": "ABCNews",
+            "date": "20 June 2020",
+            "time": "20:30",
+            "summary": "Victoria will bring back tougher coronavirus restrictions, limiting gatherings in homes to five people from Monday, in a bid to address a recent increase in case numbers. Premier Daniel Andrews said today's case numbers were the highest they had been in two months, with 25 new cases identified overnight. Of those, just one was a returned traveller in hotel quarantine, while 14 were linked to existing outbreaks, six were discovered in routine testing and four are under investigation."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-06-20/plans-to-reopen-south-australian-borders-could-be-pushed-back/12376956",
+            "title": "Plans to lift South Australia's remaining coronavirus border restrictions could be pushed back after spike in Victoria",
+            "source": "ABCNews",
+            "date": "20 June 2020",
+            "time": "19:41",
+            "summary": "Plans to lift South Australia's remaining border restrictions by July 20 could be pushed back, after Victoria reported its highest number of coronavirus cases in two months. Health Minister Stephen Wade said the health and wellbeing of South Australians was the State Government's priority in setting a timeline to reopen the state. His comments came after Victoria announced 25 new cases overnight, including 14 linked to existing outbreaks and one returned traveller in hotel quarantine."
+        },
+        {
             "link": "https://www.watoday.com.au/national/victoria/coronavirus-restrictions-to-ease-despite-new-lift-in-cases-deputy-health-chief-20200619-p554bu.html?ref=rss&utm_medium=rss&utm_source=rss_national",
             "title": "Coronavirus restrictions to ease despite fears of second wave 'tipping point'",
             "source": "WAToday",
