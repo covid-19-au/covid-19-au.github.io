@@ -63,10 +63,10 @@ function getStateGeneralData(dateList, state) {
       // when only confirmed data available
       generalData["death"].push(tempData[1]);
       generalData["recovered"].push(tempData[2]);
-      generalData["active"].push(tempData[0] - tempData[1] - tempData[2]);
+      generalData["active"].push(tempData[4]);
       generalData["tested"].push(tempData[3]);
-      generalData["inHospital"].push(tempData[4]);
-      generalData["icu"].push(tempData[5]);
+      generalData["inHospital"].push(tempData[5]);
+      generalData["icu"].push(tempData[6]);
     } else {
       generalData["death"].push(0);
       generalData["recovered"].push(0);
