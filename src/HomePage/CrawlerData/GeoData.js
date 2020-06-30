@@ -23,6 +23,7 @@ SOFTWARE.
  */
 
 import RegionType from "../CrawlerDataTypes/RegionType";
+import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 import Fns from "../ConfirmedMap/Fns"
 import mapbox from "mapbox-gl";
 
@@ -159,9 +160,8 @@ class GeoData {
                 if (lat2 > max_lat) max_lat = lat2;
             }
 
-            bounds[uniqueId] = new mapbox.LngLatBounds(
-                new mapbox.LngLat(min_lng, min_lat),
-                new mapbox.LngLat(max_lng, max_lat)
+            bounds[uniqueId] = new LngLatBounds(
+                min_lng, min_lat, max_lng, max_lat
             );
         }
 
@@ -286,16 +286,7 @@ class GeoData {
         for (let feature of geoJSON['features']) {
             let iLngLatBounds = this.bounds[feature.properties['uniqueid']];
 
-            if (
-                lngLatBounds.contains(iLngLatBounds.getSouthWest()) ||
-                lngLatBounds.contains(iLngLatBounds.getNorthEast()) ||
-                lngLatBounds.contains(iLngLatBounds.getNorthWest()) ||
-                lngLatBounds.contains(iLngLatBounds.getSouthEast()) ||
-                iLngLatBounds.contains(lngLatBounds.getSouthWest()) ||
-                iLngLatBounds.contains(lngLatBounds.getNorthEast()) ||
-                iLngLatBounds.contains(lngLatBounds.getNorthWest()) ||
-                iLngLatBounds.contains(lngLatBounds.getSouthEast())
-            ) {
+            if (lngLatBounds.intersects(iLngLatBounds)) {
                 features.push(feature);
             }
         }

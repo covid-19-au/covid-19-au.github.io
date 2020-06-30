@@ -94,8 +94,8 @@ class DataTypeSelect extends React.Component {
                  style={{ pointerEvents: this.state.enabled ? 'all' : 'none' }}>
 
                 <div ref={this.markersBGGroup}
-                    style={{ marginBottom: "8px" }}>
-                    <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px' }}>Markers</div>
+                    style={{ marginBottom: "8px", marginTop: '3px' }}>
+                    <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px', display: 'none' }}>Markers</div>
                     <select ref={this.markersSelect}
                         style={{ "width": "100%" }}
                         dangerouslySetInnerHTML={ {__html: getSelectOptions()} } />
@@ -106,13 +106,13 @@ class DataTypeSelect extends React.Component {
                         <ButtonGroup ref={this.markersButtonGroup}
                             size="small"
                             aria-label="small outlined button group">
-                            <Button style={this.state.timeperiod === 'alltime' ? activeStyles : inactiveStyles}
+                            <Button style={this.state.timeperiod == null ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(null)}>All</Button>
-                            <Button style={this.state.timeperiod === '7days' ? activeStyles : inactiveStyles}
+                            <Button style={this.state.timeperiod === 7 ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(7)}>7 Days</Button>
-                            <Button style={this.state.timeperiod === '14days' ? activeStyles : inactiveStyles}
+                            <Button style={this.state.timeperiod === 14 ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(14)}>14 Days</Button>
-                            <Button style={this.state.timeperiod === '21days' ? activeStyles : inactiveStyles}
+                            <Button style={this.state.timeperiod === 21 ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(21)}>21 Days</Button>
                         </ButtonGroup>
                     </span>

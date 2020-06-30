@@ -23,7 +23,7 @@ SOFTWARE.
  */
 
 import CasesData from "../CrawlerData/CasesData"
-import RegionType from "../CrawlerDataTypes/DateType"
+import RegionType from "../CrawlerDataTypes/RegionType"
 import UnderlayData from "../CrawlerDataTypes/TimeSeriesItem"
 
 
@@ -199,12 +199,14 @@ class TimeSeriesItems extends Array {
      * @returns {{x: *, y: *}[]}
      */
     getCanvasJSData() {
-        return this.items.map((item) => {
-            return {
-                x: item[0],
-                y: item[1]
-            }
-        });
+        let r = [];
+        for (let item of this) {
+            r.push({
+                x: item.getDateType(),
+                y: item.getValue()
+            });
+        }
+        return r;
     }
 }
 

@@ -38,6 +38,8 @@ class CasesFillPolyLayer {
         this.map = map;
         this.uniqueId = uniqueId;
         this.mapBoxSource = mapBoxSource;
+
+        this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', this.mapBoxSource);
     }
 
     /*******************************************************************
@@ -77,7 +79,16 @@ class CasesFillPolyLayer {
             lastFillLayer
         );
 
-        this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', null, null); // FIXME!!!! ==================================================
+        //this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', this.mapBoxSource);
+        let callLater = () => {
+            // HACK: Only enable after the map is ready, as it seems exceptions occur in mapbox otherwise
+            if (this.map.loaded())
+                this.__casesPopup.enablePopups();
+            else
+                setTimeout(callLater, 0);
+        };
+        callLater();
+
         this.__shown = true;
     }
 
@@ -86,13 +97,15 @@ class CasesFillPolyLayer {
      */
     removeLayer() {
         if (this.__shown) {
+            this.__casesPopup.disablePopups();
+
             const map = this.map;
             map.removeLayer(this.uniqueId + 'fillpoly');
 
-            if (this.__casesPopup) {
+            /*if (this.__casesPopup) {
                 this.__casesPopup.disablePopups();
                 this.__casesPopup = null;
-            }
+            }*/
             this.__shown = false;
         }
     }

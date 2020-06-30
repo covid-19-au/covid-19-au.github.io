@@ -46,11 +46,17 @@ class CovidMapControls extends React.Component {
     render() {
         return (
             <div className="map-cont-controls" ref={this.mapContControls}
-                 style={{ pointerEvents: this.state.disabled ? 'none' : 'all '}}>
+                 style={{
+                     pointerEvents: this.state.disabled ? 'none' : 'all ',
+                     fontSize: '1.2em',
+                     maxWidth: '14em'
+                 }}>
                 <DataTypeSelect ref={(el) => this.__dataTypeSelect = el}
                                 onchange={(dataType, timePeriod) => this._onChangeType(dataType, timePeriod)} />
-                <UnderlaySelect ref={(el) => this.__underlaySelect = el}
-                                onchange={(underlayCategory, underlay) => this._onChangeUnderlay(underlayCategory, underlay)}/>
+                <div style={{display: 'none'}}>
+                    <UnderlaySelect ref={(el) => this.__underlaySelect = el}
+                                    onchange={(underlayCategory, underlay) => this._onChangeUnderlay(underlayCategory, underlay)}/>
+                </div>
             </div>
         );
     }

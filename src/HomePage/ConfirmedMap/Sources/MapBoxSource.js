@@ -104,21 +104,77 @@ class MapBoxSource {
      * Returns true if really updated, otherwise false
      *
      * @param data
+     * @param geoDataInsts
+     * @param caseDataInsts
      * @returns {boolean}
      */
-    setData(data) {
+    setData(data, geoDataInsts, caseDataInsts) {
         var dataKeys = this.__getDataKeys(data);
         if (this.__dataKeys && this.__setsEqual(this.__dataKeys, dataKeys)) {
             return false;
         }
-        else if (!this.getSourceInst()) {
-            setTimeout(this.setData.bind(this), 50, data);
+        else if (!this.getSourceInst()) { // WARNING: This could have consequences for the order of async jobs!!! ======================================
+            setTimeout(this.setData.bind(this), 0, data);
             return true;
         }
 
         this.getSourceInst().setData(data);
         this.__dataKeys = dataKeys;
+        if (caseDataInsts) {
+            this.__assignCaseDataInsts(caseDataInsts);
+        }
+        if (geoDataInsts) {
+            this.__assignGeoDataInsts(geoDataInsts);
+        }
         return true;
+    }
+
+    /**************************************************************************
+     * GeoData/CaseData instance management
+     **************************************************************************/
+
+    /**
+     *
+     * @param regionSchema
+     * @param regionParent
+     */
+    getGeoDataInst(regionSchema, regionParent) {
+        return this.__geoDataInsts[`${regionSchema}||${regionParent}`];
+    }
+
+    /**
+     *
+     * @param regionSchema
+     * @param regionParent
+     */
+    getCaseDataInst(regionSchema, regionParent) {
+        return this.__caseDataInsts[`${regionSchema}||${regionParent}`];
+    }
+
+    /**
+     *
+     * @param geoDataInsts
+     * @private
+     */
+    __assignGeoDataInsts(geoDataInsts) {
+        let r = {};
+        for (let geoDataInst of geoDataInsts) {
+            r[`${geoDataInst.regionSchema}||${geoDataInst.regionParent}`] = geoDataInst;
+        }
+        this.__geoDataInsts = r;
+    }
+
+    /**
+     *
+     * @param caseDataInsts
+     * @private
+     */
+    __assignCaseDataInsts(caseDataInsts) {
+        let r = {};
+        for (let caseDataInst of caseDataInsts) {
+            r[`${caseDataInst.regionSchema}||${caseDataInst.regionParent}`] = caseDataInst;
+        }
+        this.__caseDataInsts = r;
     }
 
     /**************************************************************************

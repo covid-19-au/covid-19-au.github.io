@@ -26,9 +26,9 @@ import GeoData from "./GeoData.js"
 import CasesData from "./CasesData.js"
 import UnderlayData from "./UnderlayData";
 import Fns from "../ConfirmedMap/Fns"
+import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 
 import schemaTypes from "../../data/caseData/schema_types.json"
-import mapbox from "mapbox-gl";
 
 
 var MODE_GEOJSON_ONLY = 0,
@@ -445,10 +445,7 @@ class DataDownloader {
         var r = {};
         for (var key in adminBounds) {
             let [lng1, lat1, lng2, lat2] = adminBounds[key];
-            r[key] = new mapbox.LngLatBounds(
-                new mapbox.LngLat(lng1, lat1),
-                new mapbox.LngLat(lng2, lat2)
-            );
+            r[key] = new LngLatBounds(lng1, lat1, lng2, lat2);
         }
         return r
     }
@@ -465,16 +462,7 @@ class DataDownloader {
         var r = new Set();
 
         for (var [iso_3166, iLngLatBounds] of Object.entries(this.adminBounds)) { // region parent, region child??? ==========
-            if (
-                lngLatBounds.contains(iLngLatBounds.getSouthWest()) ||
-                lngLatBounds.contains(iLngLatBounds.getNorthEast()) ||
-                lngLatBounds.contains(iLngLatBounds.getNorthWest()) ||
-                lngLatBounds.contains(iLngLatBounds.getSouthEast()) ||
-                iLngLatBounds.contains(lngLatBounds.getSouthWest()) ||
-                iLngLatBounds.contains(lngLatBounds.getNorthEast()) ||
-                iLngLatBounds.contains(lngLatBounds.getNorthWest()) ||
-                iLngLatBounds.contains(lngLatBounds.getSouthEast())
-            ) {
+            if (lngLatBounds.intersects(iLngLatBounds)) {
                 r.add(iso_3166);
 
                 // If ISO 3166 2 is in view, assume ISO 3166 a2 is in view too

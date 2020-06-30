@@ -29,22 +29,19 @@ import MapBoxSource from "./MapBoxSource"
 var UNCLUSTERED_ZOOM = 9;
 
 
-class ClusteredCaseSources {
+class ClusteredCaseSource extends MapBoxSource {
     /**
      * A collection of mapbox sources which largely functions like
      * a single one, clustering/merging case numbers which overlap
      * so as to be able to get a zoomed out overview
      *
      * @param map a MapBox GL instance
+     * @param minZoom
+     * @param maxZoom
+     * @param data
      */
-    constructor(map) {
-        this.__sources = {};
-
-        for (var i=0; i<UNCLUSTERED_ZOOM+1; i++) {
-            this.__sources[i] = new MapBoxSource(
-                map, i, UNCLUSTERED_ZOOM === i ? null : i+1
-            );
-        }
+    constructor(map, minZoom, maxZoom, data) {
+        super(map, minZoom, maxZoom, data);
     }
 
     /**
@@ -67,89 +64,57 @@ class ClusteredCaseSources {
         return UNCLUSTERED_ZOOM;
     }
 
-    /**
-     * Get the MapBox source layer ID for a given zoom level
-     *
-     * @param zoomLevel
-     * @returns {string}
-     */
-    getSourceIdByZoom(zoomLevel) {
-        return this.__sources[zoomLevel].getSourceId();
-    }
-
-    /**
-     * Get the MapBox source layer instance for a given zoom level
-     *
-     * @param zoomLevel
-     */
-    getSourceInstByZoom(zoomLevel) {
-        return this.__sources[zoomLevel];
-    }
-
     /**************************************************************************
      * Update data/features
      **************************************************************************/
 
     /**
-     * Reset the GeoJSON data when changing modes etc
-     */
-    clearData() {
-        for (let [key, source] of Object.entries(this.__sources)) {
-            source.clearData();
-        }
-    }
-
-    /**
      * Update the GeoJSON data if regions changed
      *
      * @param data
+     * @param geoDataInsts
+     * @param caseDataInsts
      */
-    setData(data) {
-        if (this.__sources[UNCLUSTERED_ZOOM].setData(data)) {
-            var byZoom = this.getPointDataByZoomLevel(data);
+    setData(data, geoDataInsts, caseDataInsts) {
+        var currentZoom = parseInt(this.map.getZoom());
+        //console.log(`current zoom: ${currentZoom}`);
+        let modifiedData = this.__getModifiedGeoJSONWithPointsJoined(data, currentZoom);
+        this.__clusteringBeingUsed = modifiedData.features.length !== data.features.length;
 
-            for (let i=0; i<UNCLUSTERED_ZOOM; i++) {
-                if (!byZoom[i]) throw "Shouldn't get here!";
-                this.__sources[i].setData(byZoom[i]);
-            }
+        let pointsAllVals = [];
+        for (let feature of modifiedData['features']) {
+            if (feature.properties['cases'])
+                pointsAllVals.push(feature.properties['cases']);
         }
+        pointsAllVals.sort((a, b) => {return a-b});
+        this.__pointsAllVals = pointsAllVals;
+
+        return super.setData(modifiedData, geoDataInsts, caseDataInsts);
     }
 
-    /**************************************************************************
-     * Remove source
-     **************************************************************************/
+    /*******************************************************************
+     * Miscellaneous
+     *******************************************************************/
 
     /**
-     * Remove the sources
+     *
+     * @returns {[]|*[]}
      */
-    remove() {
-        for (let [key, source] of Object.entries(this.__sources)) {
-            source.remove();
-        }
+    getPointsAllVals() {
+        return this.__pointsAllVals;
+    }
+
+    /**
+     *
+     * @returns {boolean}
+     */
+    clusteringBeingUsed() {
+        return this.__clusteringBeingUsed;
     }
 
     /*******************************************************************
      * Data processing: combine very close points at different zoom levels
      *******************************************************************/
-
-    /**
-     * Cluster points for cases, so as to be able
-     * to get a zoomed-out general overview of an area
-     *
-     * @param pointGeoJSONData
-     */
-    getPointDataByZoomLevel(pointGeoJSONData) {
-        let byZoom = {};
-
-        byZoom[9] = pointGeoJSONData;
-
-        for (let i=UNCLUSTERED_ZOOM; i>0; i--) {
-            byZoom[i-1] = this.__getModifiedGeoJSONWithPointsJoined(
-                byZoom[i], i-1
-            );
-        }
-        return byZoom;
-    }
 
     /**
      * Values which are below the specified amount will be merged
@@ -162,19 +127,20 @@ class ClusteredCaseSources {
     __getModifiedGeoJSONWithPointsJoined(geoJSONData, zoomLevel) {
         var zoomMap = {
             // I have no idea if these are right...
-            0: 20.0,
-            1: 10.0,
-            2: 5.0,
-            3: 2.2, // around 2.0 seems a good value - don't touch!
-            4: 0.7,
-            5: 0.35,
-            6: 0.25,
+            // There will be less circles with higher numbers
+            0: 20,
+            1: 12,
+            2: 6,
+            3: 3.5,
+            4: 1.5,
+            5: 0.8,
+            6: 0.4,
             7: 0.2,
-            8: 0.15,
-            9: 0.10,
-            10: 0.6,
-            11: 0.4,
-            12: 0.2
+            8: 0.05,
+            9: 0.025,
+            10: 0.0007,
+            11: 0.00035,
+            12: 0.00010
         };
 
         var mergeSmallerThan = zoomMap[zoomLevel];
@@ -279,10 +245,17 @@ class ClusteredCaseSources {
                         // Make it so city names/labels with the
                         // largest number of cases take precedence!
                         highestCases = otherProperties['cases'];
-                        properties['city'] = otherProperties['city'];
+                        //properties['label'] = otherProperties['label'];
+                        properties = feature.properties = otherProperties;
                     }
 
                     n = n + 1;
+                }
+
+                if (properties.label && properties.label.indexOf(', ...') === -1) {
+                    // HACK: Give an indicator that there's actually multiple region at this point
+                    // This should be implemented in a way which allows adding unified popups, etc with fill area charts
+                    properties.label = `${properties.label}, ...`;
                 }
 
                 properties['cases'] = cases;
@@ -301,4 +274,4 @@ class ClusteredCaseSources {
     }
 }
 
-export default ClusteredCaseSources;
+export default ClusteredCaseSource;

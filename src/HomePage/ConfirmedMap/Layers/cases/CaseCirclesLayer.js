@@ -48,12 +48,11 @@ class CaseCirclesLayer {
      *
      * @param caseVals
      */
-    addLayer(caseVals) {
+    addLayer() {
         this.removeLayer();
 
         let map = this.map,
-            minZoom = this.clusteredCaseSources.getMinZoom(),
-            maxZoom = this.clusteredCaseSources.getMaxZoom(),
+            caseVals = this.clusteredCaseSources.getPointsAllVals(),
             circleColor;
 
         if (caseVals[caseVals.length-1] <= 4) {
@@ -69,12 +68,20 @@ class CaseCirclesLayer {
                 300, '#e73210'
             ];
         } else {
-            let clipVal = (i, gt) => {
-                // mapbox needs ints in ascending order,
-                // so make sure each is higher than the last
-                i = parseInt(i);
-                return i > gt ? i : gt+1;
-            };
+            let vals = [
+                5,
+                caseVals[Math.round(caseVals.length*0.25)],
+                caseVals[Math.round(caseVals.length*0.5)],
+                caseVals[Math.round(caseVals.length*0.75)],
+                caseVals[caseVals.length-1]
+            ];
+
+            // mapbox needs ints in ascending order,
+            // so make sure each is higher than the last
+            for (let i=1; i<vals.length; i++) {
+                while (vals[i] <= vals[i-1])
+                    vals[i]++;
+            }
 
             circleColor = [
                 'step',
@@ -83,10 +90,10 @@ class CaseCirclesLayer {
                 0, 'rgba(0,0,80,0.0)',
                 1, '#ff9f85',
                 5, '#ff9f85',
-                clipVal(caseVals[parseInt(caseVals.length*0.5)], 5), '#ff5c30',
-                clipVal(caseVals[parseInt(caseVals.length*0.7)], 6), '#ff4817',
-                clipVal(caseVals[parseInt(caseVals.length*0.9)], 7), '#e73210',
-                clipVal(caseVals[caseVals.length-1], 8), '#e73210'
+                vals[1], '#ff5c30',
+                vals[2], '#ff4817',
+                vals[3], '#e73210',
+                vals[4], '#e73210'
             ];
         }
 
@@ -111,130 +118,75 @@ class CaseCirclesLayer {
             }
         }
 
-        for (let zoomLevel=minZoom; zoomLevel<maxZoom; zoomLevel++) {
-            var opacity;
-            if (zoomLevel === minZoom) {
-                opacity = [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    0, 1,
-                    zoomLevel + 0.9999999999999, 1,
-                    zoomLevel + 1, 0,
-                ];
-            }
-            else {
-                opacity = [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    zoomLevel - 0.0000000000001, 0,
-                    zoomLevel, 1,
-                    zoomLevel + 0.9999999999999, 1,
-                    zoomLevel + 1, 0
-                ];
+        let circleRadius;
+        if (this.clusteredCaseSources.clusteringBeingUsed()) {
+            circleRadius = [
+                'interpolate',
+                ['linear'],
+                ['get', 'casesSz'],
+                -4, 20,
+                -3, 14,
+                -2, 10,
+                -1, 9,
+                0, 0,
+                1, 9,
+                2, 13,
+                3, 16,
+                4, 20
+            ];
+        } else {
+            // Scale circle radius by relative values
+            let posTimes = 1.0,
+                negTimes = 1.0,
+                lowest = caseVals[0],
+                highest = caseVals[caseVals.length-1];
+
+            if (highest <= 9) {
+                posTimes *= 1.5;
+            } else if (highest <= 99) {
+                posTimes *= 1.3;
+            } else if (highest <= 999) {
+                posTimes *= 1.1;
             }
 
-            map.addLayer(
-                {
-                    'id': this.uniqueId+zoomLevel,
-                    'type': 'circle',
-                    'source': this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
-                    'minzoom': (zoomLevel-1 < 0) ? 0 : zoomLevel-1,
-                    'maxzoom': zoomLevel+2,
-                    filter: ['all',
-                        ['!=', 'cases', 0],
-                        ['has', 'cases']
-                    ],
-                    'paint': {
-                        // Size circle radius by value
-                        'circle-radius': [
-                            'interpolate',
-                            ['linear'],
-                            ['get', 'casesSz'],
-                            -4, 20,
-                            -3, 14,
-                            -2, 10,
-                            -1, 9,
-                            0, 0,
-                            1, 9,
-                            2, 13,
-                            3, 16,
-                            4, 20
-                        ],
-                        // Color circle by value
-                        'circle-color': circleColor,
-                        // Transition by zoom level
-                        'circle-opacity': opacity
-                    }
-                }, lastCircleLayer
-            );
+            if (lowest >= 0) {
+                negTimes *= 1.5;
+            } else if (highest >= -1) {
+                negTimes *= 1.3;
+            } else if (highest >= -10) {
+                negTimes *= 1.1;
+            }
 
-            map.addLayer({
-                id: this.uniqueId+'label'+zoomLevel,
-                type: 'symbol',
-                source: this.clusteredCaseSources.getSourceIdByZoom(zoomLevel),
-                minzoom: (zoomLevel-1 < 0) ? 0 : zoomLevel-1,
-                maxzoom: zoomLevel+2,
-                filter: ['all',
-                    ['!=', 'cases', 0],
-                    ['has', 'cases']
-                ],
-                layout: {
-                    'text-field': '{casesFmt}',
-                    'text-font': [
-                        'Arial Unicode MS Bold',
-                        'Open Sans Bold',
-                        'DIN Offc Pro Medium'
-                    ],
-                    'text-size': 13,
-                    'text-allow-overlap': true,
-                    'symbol-sort-key': ["to-number", ["get", "cases"], 1]
-                },
-                paint: {
-                    "text-color": "rgba(255, 255, 255, 1.0)",
-                    // Transition by zoom level
-                    'text-opacity': opacity
-                }
-            }, lastSymbolLayer);
+            circleRadius = [
+                'interpolate',
+                ['linear'],
+                ['get', 'casesSz'],
+                -4, 20*negTimes,
+                -3, 14*negTimes,
+                -2, 10*negTimes,
+                -1, 9*negTimes,
+                0, 0,
+                1, 9*posTimes,
+                2, 15*posTimes,
+                3, 22*posTimes,
+                4, 30*posTimes
+            ];
         }
 
         map.addLayer(
             {
-                id: this.uniqueId,
-                type: 'circle',
-                source: this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
-                minzoom: 6,
+                'id': this.uniqueId,
+                'type': 'circle',
+                'source': this.clusteredCaseSources.getSourceId(),
                 filter: ['all',
                     ['!=', 'cases', 0],
                     ['has', 'cases']
                 ],
-                paint: {
+                'paint': {
                     // Size circle radius by value
-                    'circle-radius': [
-                        'interpolate',
-                        ['linear'],
-                        ['get', 'casesSz'],
-                        -4, 20,
-                        -3, 14,
-                        -2, 10,
-                        -1, 9,
-                        0, 0,
-                        1, 9,
-                        2, 15,
-                        3, 22,
-                        4, 30
-                    ],
+                    'circle-radius': circleRadius,
                     // Color circle by value
-                    'circle-color': circleColor,
-                    // Transition by zoom level
-                    'circle-opacity': [
-                        'interpolate',
-                        ['linear'],
-                        ['zoom'],
-                        6.99999999999, 0,
-                        7.00000000001, 1
-                    ]
+                    'circle-color': circleColor
                 }
             }, lastCircleLayer
         );
@@ -242,8 +194,7 @@ class CaseCirclesLayer {
         map.addLayer({
             'id': this.uniqueId+'citylabel',
             'type': 'symbol',
-            'minzoom': 6,
-            'source': this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
+            'source': this.clusteredCaseSources.getSourceId(),
             'filter': ['all',
                 ['!=', 'cases', 0],
                 ['has', 'cases']
@@ -270,8 +221,7 @@ class CaseCirclesLayer {
         map.addLayer({
             id: this.uniqueId+'label',
             type: 'symbol',
-            source: this.clusteredCaseSources.getSourceIdByZoom(maxZoom),
-            minzoom: 6,
+            source: this.clusteredCaseSources.getSourceId(),
             filter: ['all',
                 ['!=', 'cases', 0],
                 ['has', 'cases']
@@ -285,18 +235,10 @@ class CaseCirclesLayer {
                 ],
                 'text-size': 13,
                 'text-allow-overlap': true,
-                'symbol-sort-key': ["to-number", ["get", "negcases"], 1]
+                'symbol-sort-key': ["to-number", ["get", "cases"], 1]
             },
             paint: {
-                "text-color": "rgba(255, 255, 255, 1.0)",
-                // Transition by zoom level
-                'text-opacity': [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    6.99999999999, 0,
-                    7.00000000001, 1
-                ]
+                "text-color": "rgba(255, 255, 255, 1.0)"
             }
         }, lastSymbolLayer);
 
@@ -308,18 +250,10 @@ class CaseCirclesLayer {
      */
     removeLayer() {
         if (this.__shown) {
-            let minZoom = this.clusteredCaseSources.getMinZoom(),
-                maxZoom = this.clusteredCaseSources.getMaxZoom();
-
             const map = this.map;
             map.removeLayer(this.uniqueId);
             map.removeLayer(this.uniqueId + 'label');
             map.removeLayer(this.uniqueId + 'citylabel');
-
-            for (let zoomLevel = minZoom; zoomLevel < maxZoom; zoomLevel++) {
-                map.removeLayer(this.uniqueId + 'label' + zoomLevel);
-                map.removeLayer(this.uniqueId + zoomLevel);
-            }
             this.__shown = false;
         }
     }

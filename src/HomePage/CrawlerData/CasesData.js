@@ -152,7 +152,7 @@ class CasesData {
 
             var timeSeriesItem = this.getCaseNumber(regionType, ageRange);
             if (!timeSeriesItem) {
-                //console.log(`No data for ${regionType.prettified()} (${regionType.getRegionChild()})`);
+                console.log(`No data for ${regionType.prettified()} (${regionType.getRegionChild()})`);
                 out.push(feature);
                 continue;
             }
@@ -325,7 +325,7 @@ class CasesData {
      *******************************************************************/
 
     /**
-     * Get the case numbers as a TimeSeriesItems array
+     * Get the case numbers as a TimeSeriesItems array (or null if no data)
      *
      * @param regionType
      * @param ageRange
@@ -346,7 +346,7 @@ class CasesData {
         ageRange = ageRange || '';
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
-            if (iRegion === regionType.getChildRegion() && iAgeRange === ageRange) {
+            if (iRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
                 for (var j = 0; j < iValues.length; j++) {
                     var dateUpdated = this.regionsDateIds[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
@@ -359,8 +359,11 @@ class CasesData {
             }
         }
 
+        if (!r.length) {
+            return null;
+        }
         r.sort((x, y) => x.getDateType() - y.getDateType());
-        dateRangeType.setDateRange(r[0].getUpdatedDate(), r[r.length-1].getUpdatedDate());
+        dateRangeType.setDateRange(r[0].getDateType(), r[r.length-1].getDateType());
         return r;
     }
 

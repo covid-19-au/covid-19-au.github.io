@@ -36,16 +36,19 @@ class CasesPopup {
      *
      * @param map a MapBox GL instance
      * @param useID the MapBox GL source layer ID
-     * @param geoDataInst the GeoData instance for cases
-     * @param caseDataSource the CaseData instance
+     * @param mapBoxSource the MapBoxSource/ClusteredCaseSource instance
      */
-    constructor(map, useID, geoDataInst, caseDataSource) {
+    constructor(map, useID, mapBoxSource) {
         // FIXME!
         this.map = map;
-        this.geoDataInst = geoDataInst;
-        this.caseDataSource = caseDataSource;
+        this.mapBoxSource = mapBoxSource;
         this.useID = useID;
-        this.enablePopups();
+
+        this._onClick = this._onClick.bind(this);
+        this._onMouseEnter = this._onMouseEnter.bind(this);
+        this._onMouseLeave = this._onMouseLeave.bind(this);
+
+        //this.enablePopups();
     }
 
     /*******************************************************************
@@ -58,15 +61,22 @@ class CasesPopup {
     enablePopups() {
         this.disablePopups();
         const map = this.map;
-        map.on('click', this.useID, this._click);
-        map.on('mouseenter', this.useID, this._mouseEnter);
-        map.on('mouseleave', this.useID, this._mouseLeave);
+        map.on('click', this.useID, this._onClick);
+        map.on('mouseenter', this.useID, this._onMouseEnter);
+        map.on('mouseleave', this.useID, this._onMouseLeave);
+        this.__popupsEnabled = true;
     }
 
     /**
      * Remove the popup events
      */
     disablePopups() {
+        if (!this.__popupsEnabled) {
+            return;
+        } else if (!this.useID) {
+            throw "useID invalid!"
+        }
+
         this.map.off('click', this.useID, this._onClick);
         this.map.off('mouseenter', this.useID, this._onMouseEnter);
         this.map.off('mouseleave', this.useID, this._onMouseLeave);
@@ -76,6 +86,7 @@ class CasesPopup {
             this.__popup = null;
         }
         this.__currentFeature = null;
+        this.__popupsEnabled = false;
     }
 
     /*******************************************************************
@@ -107,24 +118,25 @@ class CasesPopup {
 
         // Get info about the region
         let regionType = new RegionType(
-            feature['regionSchema'],
-            feature['regionParent'],
-            feature['regionChild']
+            feature.properties['regionSchema'],
+            feature.properties['regionParent'],
+            feature.properties['regionChild']
         );
 
         // Get the most recent case number and case time series
-        let caseInfo = this.caseDataSource.getCaseNumber(regionType, null),
-            timeSeries = this.caseDataSource.getCaseNumberTimeSeries(regionType, null);
+        let caseDataInst = this.mapBoxSource.getCaseDataInst(
+                regionType.getRegionSchema(), regionType.getRegionParent()
+            ),
+            caseInfo = caseDataInst.getCaseNumber(regionType, null),
+            timeSeries = caseDataInst.getCaseNumberTimeSeries(regionType, null);
 
-        if (!caseInfo) {
+        if (!caseInfo || !timeSeries) {
             // no data?
             return;
         }
 
         // Show the popup
-        this.__showPopup(
-            e.lngLat, regionType, caseInfo, timeSeries
-        );
+        this.__showPopup(e.lngLat, regionType, caseInfo, timeSeries);
     }
 
     /**
@@ -164,14 +176,14 @@ class CasesPopup {
             closeButton: true,
             closeOnClick: true
         });
-        let regionLabel = regionType.getLabel(),
+        let regionLabel = regionType.prettified(),
             regionChild = regionType.getRegionChild(),
             regionSchema = regionType.getRegionSchema();
 
         popup.setHTML(
             `${regionLabel} (${regionSchema}${regionChild !== regionLabel ? ' '+regionChild : ''})` +
             '<br/>Cases: ' + caseInfo.getValue() +
-            '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo.getUpdatedDate().getPrettifiedValue() +
+            '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo.getDateType().prettified() +
             '<div id="chartContainer" style="width: 200px; min-height: 60px; height: 13vh;"></div>'
         );
 
@@ -188,7 +200,7 @@ class CasesPopup {
             },
             data: [{
                 type: "line",
-                dataPoints: timeSeries
+                dataPoints: timeSeries.getCanvasJSData()
             }]
         });
         chart.render();
