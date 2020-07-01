@@ -594,9 +594,9 @@ export default function Stat({
     deadCountIncrease = deadCount - lastTotal[2];
     curedCountIncrease = curedCount - lastTotal[1];
     testedCountIncrease = testedCount - lastTotal[4];
-    activeCountIncrease = activeCount - lastTotal[5];
-    hospitalCountIncrease = hospitalCount - lastTotal[6];
-    icuCountIncrease = icuCount - lastTotal[7];
+    activeCountIncrease = activeCount - lastTotal[3];
+    hospitalCountIncrease = hospitalCount - lastTotal[5];
+    icuCountIncrease = icuCount - lastTotal[6];
   } else {
     confirmedCount = 0;
     deadCount = 0;
