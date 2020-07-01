@@ -57,8 +57,13 @@ function renderStatus(state) {
 
   return (
     <div>
-      <Grid container spacing={1} justify="center" wrap="wrap" style={{ padding: "5px" }}>
-
+      <Grid
+        container
+        spacing={1}
+        justify="center"
+        wrap="wrap"
+        style={{ padding: "5px" }}
+      >
         <Grid item xs={6} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[0])}
@@ -74,8 +79,7 @@ function renderStatus(state) {
               title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>"
             >
               Confirmed
-          </button>
-
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={6} sm={4} lg={3}>
@@ -93,7 +97,7 @@ function renderStatus(state) {
               title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>"
             >
               Deaths
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={6} sm={4} lg={3}>
@@ -111,7 +115,7 @@ function renderStatus(state) {
               title="<em>Number of people that have recovered from COVID-19.</em>"
             >
               Recovered
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={6} sm={4} lg={3}>
@@ -129,14 +133,14 @@ function renderStatus(state) {
               title="<em>Number of people that have been tested for COVID-19.</em>"
             >
               Tested
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={4} sm={4} lg={3}>
           <Tag
-            number={numberWithCommas(latestData[0] - latestData[1] - latestData[2])}
+            number={numberWithCommas(latestData[4])}
             fColor={"#f75c8d"}
-            increased={latestData[0] - latestData[1] - latestData[2] - lastData[0] + lastData[1] + lastData[2]}
+            increased={latestData[4] - lastData[4]}
             typeOfCases={"Active"}
           >
             <button
@@ -147,14 +151,14 @@ function renderStatus(state) {
               title="<em>Existing confirmed cases that have not yet recovered.</em>"
             >
               Active
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={4} sm={4} lg={3}>
           <Tag
-            number={numberWithCommas(latestData[4])}
+            number={numberWithCommas(latestData[5])}
             fColor={"#9d71ea"}
-            increased={latestData[4] - lastData[4]}
+            increased={latestData[5] - lastData[5]}
             typeOfCases={"In Hospital"}
           >
             <button
@@ -165,14 +169,14 @@ function renderStatus(state) {
               title="<em>Number of people in hospital with COVID-19.</em>"
             >
               in Hospital
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={4} sm={4} lg={3}>
           <Tag
-            number={numberWithCommas(latestData[5])}
+            number={numberWithCommas(latestData[6])}
             fColor={"#00aac1"}
-            increased={latestData[5] - lastData[5]}
+            increased={latestData[6] - lastData[6]}
             typeOfCases={"ICU"}
           >
             <button
@@ -183,7 +187,7 @@ function renderStatus(state) {
               title="<em>Number of people with COVID-19 in intensive care.</em>"
             >
               in ICU
-          </button>
+            </button>
           </Tag>
         </Grid>
       </Grid>
@@ -220,25 +224,25 @@ function StateChart({ state }) {
           <AgeChart state={state} />
         </Fragment>
       ) : (
-          <Grid item xs={11} sm={11} md={5}>
-            <h2 style={{ textAlign: "center" }}>
-              We are working on acquiring detailed age group and gender data for{" "}
-              {stateNameMapping[state]}!
+        <Grid item xs={11} sm={11} md={5}>
+          <h2 style={{ textAlign: "center" }}>
+            We are working on acquiring detailed age group and gender data for{" "}
+            {stateNameMapping[state]}!
           </h2>
-            <br />
-            <h5 style={{ textAlign: "center" }}>
-              If you have reliable source for such data, please let us know
+          <br />
+          <h5 style={{ textAlign: "center" }}>
+            If you have reliable source for such data, please let us know
             through{" "}
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
-                style={{ color: "blue", textDecoration: "underline" }}
-              >
-                this
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
+              style={{ color: "blue", textDecoration: "underline" }}
+            >
+              this
             </a>{" "}
             form.
           </h5>
-          </Grid>
-        )}
+        </Grid>
+      )}
     </Grid>
   );
 }
