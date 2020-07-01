@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-06-23/coronavirus-cases-victoria-rise-as-schools-close-in-hotspots/12383106",
+            "title": "Victoria's coronavirus cases rise by 17 as two schools in Melbourne's hotspots close",
+            "source": "ABCNews",
+            "date": "23 June 2020",
+            "time": "18:50",
+            "summary": "Victoria has recorded its seventh consecutive day of double-digit increases in coronavirus cases, and two primary schools in COVID-19 hotspots have been closed following student infections. Students from Brunswick East Primary School and Keilor Views Primary School are among the latest cases. Premier Daniel Andrews said \"very deep engagement with multicultural communities\" began yesterday to make sure people in six COVID-19 hotspots knew the current health advice. Mr Andrews also said testing may be offered to people without symptoms in the areas with the highest levels of virus transmission"
+        },
+        {
+            "link": "https://www.watoday.com.au/national/nsw/turn-away-people-from-covid-19-hotspots-nsw-premier-tells-businesses-20200623-p555cz.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Turn away people from COVID-19 hotspots, NSW Premier tells businesses",
+            "source": "WAToday",
+            "date": "23 June 2020",
+            "time": "13:55",
+            "summary": "NSW Premier Gladys Berejiklian is calling on tourism operators and other businesses to shun customers from Melbourne’s coronavirus hotspots as the number of active cases in Victoria continues to rise. However, Ms Berejiklian refused to bow to growing calls to close the southern border, particularly in the lead-up to the school holidays. On Monday, NSW Deputy Premier John Barilaro said ski resorts would want border closures ahead of the school holidays in order to prevent outbreaks in the state. But Ms Berejiklian, who has been consistently opposed to border closures, instead called on businesses to shun customers from Melbourne."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jun/23/melbourne-covid-19-test-victoria-coronavirus-testing-wait-times-northland-shopping-centre-darebin",
+            "title": "Anxious Melbourne residents forced to drive in circles as they wait for Covid-19 test ",
+            "source": "TheGuardian",
+            "date": "23 June 2020",
+            "time": "16:17",
+            "summary": "Many Melbournians attempting to get tested for Covid-19 have faced another day of long waits, with some forced to drive in loops for up to an hour while awaiting treatment. Victoria is expanding its Covid-19 response in six local government areas with high levels of community transmission, urging all residents with even mild symptoms to present for testing. On Tuesday the premier, Daniel Andrews, said the recent cases were “certain” to result in further community transmission. On Tuesday lines of cars stretched down the street at some locations as people responded to the call to get tested. On Monday callers to talkback radio reported three-hour waits at drive-through clinics around the city, suggesting the Northland shopping centre clinic even had to turn people away."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-06-22/coronavirus-wa-restrictions-phase-four-explainer/12373260",
             "title": "WA's coronavirus restrictions are being significantly eased under phase four. Here's what it means for you",
             "source": "ABCNews",
