@@ -110,10 +110,10 @@ export default function Area({ area, onChange, data }) {
         <div className="activeCase">
           {<strong> {numberWithCommas(x[ACTIVE])} </strong>}&nbsp;
           <div className="dailyIncrease">
-            {x[ACTIVE] - lastTotal[4] > 0
-              ? `(+${x[ACTIVE] - lastTotal[4]})`
-              : x[ACTIVE] - lastTotal[4] < 0
-              ? `(-${lastTotal[4] - x[ACTIVE]})`
+            {x[ACTIVE] - lastTotal[x[0]][4] > 0
+              ? `(+${x[ACTIVE] - lastTotal[x[0]][4]})`
+              : x[ACTIVE] - lastTotal[x[0]][4] < 0
+              ? `(-${lastTotal[x[0]][4] - x[ACTIVE]})`
               : null}
           </div>
         </div>
