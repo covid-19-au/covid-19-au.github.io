@@ -115,7 +115,6 @@ export default function Area({ area, onChange, data }) {
               : x[ACTIVE] - lastTotal[x[0]][4] < 0
               ? `(-${lastTotal[x[0]][4] - x[ACTIVE]})`
               : null}
-            {console.log(x[ACTIVE], lastTotal[x[0]][4])}
           </div>
         </div>
         <div className="tested">{numberWithCommas(x[TESTED])}</div>
