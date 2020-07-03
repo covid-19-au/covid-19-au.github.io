@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.9news.com.au/national/victorians-refusing-coronavirus-tests-covid19-outbreak-melbourne-postcode-hotspots/97a7b862-e82e-488c-86ec-013e481c440b",
+            "title": "More than 10,000 Victorians refused coronavirus tests",
+            "source": "9News",
+            "date": "3 July 2020",
+            "time": "12:24",
+            "summary": "More than 10,000 people have refused to be tested for coronavirus in Melbourne's hotspot suburbs as 66 new cases across the state were confirmed. Health Minister Jenny Mikakos labelled the refusal as \"disappointing\" and urged residents to get tested as she speculated the mass coronavirus outbreak in Victoria could be linked to a \"super spreader\". \"There seems to be a single source of infection for many of the cases that have gone across the northern and western suburbs of Melbourne,\" Ms Mikakos said. The health minister said the government is investigating the reasons behind the mass refusal of testing, but reassured the community that 24,000 tests had been undertaken yesterday."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-02/victorias-coronavirus-case-numbers-increase-lockdown-begins/12409436",
             "title": "Victoria records 77 new coronavirus cases and jump in community transmission of COVID-19",
             "source": "ABCNews",
@@ -127,22 +135,6 @@
             "date": "26 June 2020",
             "time": "18:00",
             "summary": "An outbreak of fresh cases of COVID-19 across Victoria has triggered a resumption of panic buying, with some supermarket shelves again cleared of toilet paper, pasta and milk. Coles and Woolworths have reintroduced nationwide buying limits on toilet paper and paper towel in a bid to ward off a resurgence of coronavirus-related panic buying. The supermarket giants had already placed restrictions on buying from its Victorian stores as the state battles a fresh outbreak of COVID-19. On Friday, Coles announced customers across Australia would only be able to buy one pack of toilet paper and paper towels per shopper, and two packs of flour, sugar, pasta and rice."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-records-33-new-coronavirus-cases-daniel-andrews-declares-testing-blitz",
-            "title": "Victoria records 33 new coronavirus cases, Daniel Andrews declares 'testing blitz'",
-            "source": "SBSNews",
-            "date": "25 June 2020",
-            "time": "12:00",
-            "summary": "Victoria has recorded another 33 coronavirus cases, as the defence force is brought in to bolster efforts to stop the spread of COVID-19. The premier announced a 'testing blitz' in Melbourne's suburbs with the highest number of community transmission cases, Keilor Downs and Broadmeadows, with the blitz to then extend to other suburbs Maidstone, Albanvale, Sunshine West, Hallam, Brunswick West, Fawkner, Reservoir, and Pakenham. NSW Health Minister Brad Hazzard on Thursday called on Melbourne residents from the COVID hot spots to refrain from attending major events in NSW including AFL and NRL games until the recent spike in COVID-19 cases ends."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/qantas-to-cut-6-000-jobs-slash-costs-as-part-of-coronavirus-recovery-plan",
-            "title": "Qantas to cut 6,000 jobs, slash costs as part of coronavirus recovery plan",
-            "source": "SBSNews",
-            "date": "25 June 2020",
-            "time": "15:01",
-            "summary": "Qantas says it will cut at least 6,000 jobs across all parts of the business and continue to stand down 15,000 employees as part of its plan to recover from the impact of the COVID pandemic. Australia's flag carrier also said it will ground at least 100 aircraft for up to 12 months and reduce $15 billion in costs over the next three years. Qantas' domestic capacity is currently running at about 15 per cent of its pre-coronavirus levels, following an easing in social and travel restrictions. The majority of staff stood down are associated with the airline’s international services. CEO Alan Joyce estimates close to $600 million will be spent on redundancies. "
         }
     ]
 }
