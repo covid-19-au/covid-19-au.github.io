@@ -171,7 +171,10 @@ export default function Area({ area, onChange, data }) {
       </div>
       {renderArea()}
       <Total data={data} />
-
+        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+        <sup>&#x5e;</sup> NSW active cases are locally acquired COVID-19 cases with onset in the last four weeks.
+      </span>
+        <br />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         <sup>&#x5e;</sup> Two Queensland residents that passed away in NSW are
         included in the Queensland figure.
