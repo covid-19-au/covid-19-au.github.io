@@ -47,7 +47,7 @@ class MapBoxSource {
                 'features': []
             },
             "buffer": 32, // default 128
-            "tolerance": 0.5 // default 0.375; higher will make vectors lower quality but faster
+            "tolerance": 1 // default 0.375; higher will make vectors lower quality but faster
             //"minzoom": minZoom,
             //"maxzoom": maxZoom
         });

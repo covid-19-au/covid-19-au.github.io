@@ -41,6 +41,30 @@ import DateRangeType from "../CrawlerDataTypes/DateRangeType";
 import DateType from "../CrawlerDataTypes/DateType";
 
 
+// A "blank" style to allow for using vector data
+// without downloading from MapBox servers
+// TODO: Also don't download glyphs from mapbox?
+let style = {
+    "version": 8,
+    "name": "Empty",
+    "metadata": {
+        "mapbox:autocomposite": true,
+        "mapbox:type": "template"
+    },
+    "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+    "sources": {},
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "rgba(0,0,0,0)"
+            }
+        }
+    ]
+};
+
+
 class CovidMapControl extends React.Component {
     /**
      *
@@ -71,15 +95,15 @@ class CovidMapControl extends React.Component {
     componentDidMount() {
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
-            style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
+            style: style,
             zoom: 1,
             maxZoom: 12,
             //minZoom: 1,
             transition: {
-                duration: 50,
+                duration: 0,
                 delay: 0
             },
-            fadeDuration: 50
+            fadeDuration: 0
         });
 
         // Add the map controls to the map container element so that
@@ -196,7 +220,7 @@ class CovidMapControl extends React.Component {
         this.enableControlsWhenMapReady();
 
         if (this.__mapMovePending) {
-            setTimeout(this.onMapMoveChange.bind(this), 250);
+            setTimeout(this.onMapMoveChange.bind(this), 50);
             return;
         }
         // Enter critical section
@@ -225,7 +249,7 @@ class CovidMapControl extends React.Component {
                 return;
             } else if (!this.map.loaded()) {
                 // Don't display until map ready!
-                setTimeout(callMe, 150);
+                setTimeout(callMe, 25);
             } else {
                 // Update the sources
                 this.clusteredCaseSource.setData(
