@@ -24,8 +24,6 @@ class ConfirmedMap extends React.Component {
      *******************************************************************/
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this._resetMode(prevState);
-        this._updateMode();
     }
 
     render() {
