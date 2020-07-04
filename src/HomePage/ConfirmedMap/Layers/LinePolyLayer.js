@@ -44,16 +44,7 @@ class LinePolyLayer {
         this.mapBoxSource = mapBoxSource;
     }
 
-    /*******************************************************************
-     * Line poly
-     *******************************************************************/
-
-    /**
-     * Show the polygon outlines
-     */
-    addLayer() {
-        this.removeLayer();
-
+    __addLayer() {
         // Add the line outline
         const map = this.map;
 
@@ -81,6 +72,23 @@ class LinePolyLayer {
                 'line-width': this.lineWidth || 1.0
             }
         }, lastLineLayer);
+
+        this.__layerAdded = true;
+    }
+
+    /*******************************************************************
+     * Line poly
+     *******************************************************************/
+
+    /**
+     * Show the polygon outlines
+     */
+    updateLayer() {
+        if (!this.__layerAdded) {
+            this.__addLayer();
+        }
+
+        //this.removeLayer();
         this.__shown = true;
     }
 

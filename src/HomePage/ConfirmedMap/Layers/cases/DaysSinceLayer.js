@@ -41,6 +41,10 @@ class DaysSinceLayer {
         this.mapBoxSource = mapBoxSource;
     }
 
+    __addLayer() {
+
+    }
+
     /*******************************************************************
      * Show/hide "days since" indicators
      *******************************************************************/
@@ -48,8 +52,8 @@ class DaysSinceLayer {
     /**
      * Create the layer, destroying previous indicators if they exist
      */
-    addLayer() {
-        this.removeLayer();
+    updateLayer() {
+        //this.removeLayer();
         const map = this.map;
         this.__shown = true;
 
@@ -107,6 +111,8 @@ class DaysSinceLayer {
      * Remove the layers
      */
     removeLayer() {
+        return; // HACK!
+
         if (this.__shown) {
             const map = this.map;
             map.removeLayer(this.uniqueId);

@@ -41,18 +41,11 @@ class CasesFillPolyLayer {
         this.mapBoxSource = mapBoxSource;
 
         this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', this.mapBoxSource);
+        this.__addLayer();
     }
 
-    /*******************************************************************
-     * Fill poly
-     *******************************************************************/
-
-    /**
-     * Add the (transparent) fill poly layer for
-     * cases to allow for popup on click events
-     */
-    addLayer() {
-        this.removeLayer();
+    __addLayer() {
+        //this.removeLayer();
 
         // Add the colored fill area
         const map = this.map;
@@ -68,6 +61,26 @@ class CasesFillPolyLayer {
             }
         }
 
+
+        map.addLayer(
+            {
+                id: this.uniqueId+'fillpoly',
+                type: 'fill',
+                source: this.mapBoxSource.getSourceId()
+            },
+            lastFillLayer
+        );
+    }
+
+    /*******************************************************************
+     * Fill poly
+     *******************************************************************/
+
+    /**
+     * Add the (transparent) fill poly layer for
+     * cases to allow for popup on click events
+     */
+    updateLayer() {
         let colors = [
             'rgba(0,80,0,0.8)',
             'rgba(0,0,80,0.0)',
@@ -82,18 +95,16 @@ class CasesFillPolyLayer {
         let caseVals = this.mapBoxSource.getPointsAllVals(),
             circleColor = getMapBoxCaseColors(caseVals, colors);
 
-        map.addLayer(
-            {
-                id: this.uniqueId+'fillpoly',
-                type: 'fill',
-                source: this.mapBoxSource.getSourceId(),
-                paint: {
-                    'fill-opacity': 0.3,
-                    'fill-color': circleColor
-                }
-            },
-            lastFillLayer
+        this.map.setPaintProperty(
+            this.uniqueId + 'fillpoly', 'fill-opacity', 0.3
         );
+        this.map.setPaintProperty(
+            this.uniqueId + 'fillpoly', 'fill-color', circleColor
+        );
+
+        /*if (this.__shown) {
+            this.__casesPopup.disablePopups();
+        }
 
         //this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', this.mapBoxSource);
         let callLater = () => {
@@ -105,7 +116,7 @@ class CasesFillPolyLayer {
                 setTimeout(callLater, 150);
             }
         };
-        callLater();
+        callLater();*/
 
         this.__shown = true;
     }

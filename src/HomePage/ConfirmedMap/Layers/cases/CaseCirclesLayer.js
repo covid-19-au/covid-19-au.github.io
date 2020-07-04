@@ -41,32 +41,8 @@ class CaseCirclesLayer {
         this.clusteredCaseSources = clusteredCaseSources;
     }
 
-    /*******************************************************************
-     * Heat maps
-     *******************************************************************/
-
-    /**
-     * Add the case circles layer
-     *
-     * @param caseVals
-     */
-    addLayer() {
-        this.removeLayer();
-
-        let colors = [
-            'rgba(0,80,0,0.8)',
-            'rgba(0,0,80,0.0)',
-            '#ff9f85',
-            '#ff9f85',
-            '#ff5c30',
-            '#ff4817',
-            '#e73210',
-            '#e73210'
-        ];
-
-        let map = this.map,
-            caseVals = this.clusteredCaseSources.getPointsAllVals(),
-            circleColor = getMapBoxCaseColors(caseVals, colors);
+    __addLayer() {
+        let map = this.map;
 
         // Make it so that symbol/circle layers are given different priorities
         // This is essentially a hack to make it so Canberra is situated above
@@ -88,6 +64,100 @@ class CaseCirclesLayer {
                 lastSymbolLayer = lastCircleLayer = null;
             }
         }
+
+        map.addLayer(
+            {
+                'id': this.uniqueId,
+                'type': 'circle',
+                'source': this.clusteredCaseSources.getSourceId(),
+                filter: ['all',
+                    ['!=', 'cases', 0],
+                    ['has', 'cases']
+                ]
+            }, lastCircleLayer
+        );
+
+        map.addLayer({
+            'id': this.uniqueId+'citylabel',
+            'type': 'symbol',
+            'source': this.clusteredCaseSources.getSourceId(),
+            'filter': ['all',
+                ['!=', 'cases', 0],
+                ['has', 'cases']
+            ],
+            'layout': {
+                'text-field': [
+                    'format',
+                    ['get', 'label'],
+                    { 'font-scale': 0.7 },
+                ],
+                'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                'text-offset': [0, 0.8],
+                'text-anchor': 'top',
+                'symbol-sort-key': ['get', 'negcases']
+            },
+            'paint': {
+                'text-color': 'rgba(0, 0, 0, 0.8)',
+                'text-halo-color': 'rgba(255, 255, 255, 0.8)',
+                'text-halo-width': 3,
+                'text-halo-blur': 2
+            }
+        }, lastSymbolLayer);
+
+        map.addLayer({
+            id: this.uniqueId+'label',
+            type: 'symbol',
+            source: this.clusteredCaseSources.getSourceId(),
+            filter: ['all',
+                ['!=', 'cases', 0],
+                ['has', 'cases']
+            ],
+            layout: {
+                'text-field': '{casesFmt}',
+                'text-font': [
+                    'Arial Unicode MS Bold',
+                    'Open Sans Bold',
+                    'DIN Offc Pro Medium'
+                ],
+                'text-size': 13,
+                'text-allow-overlap': true,
+                'symbol-sort-key': ["to-number", ["get", "cases"], 1]
+            },
+            paint: {
+                "text-color": "rgba(255, 255, 255, 1.0)"
+            }
+        }, lastSymbolLayer);
+
+        this.__layerAdded = true;
+    }
+
+    /*******************************************************************
+     * Heat maps
+     *******************************************************************/
+
+    /**
+     * Add the case circles layer
+     *
+     * @param caseVals
+     */
+    updateLayer() {
+        if (!this.__layerAdded) {
+            this.__addLayer();
+        }
+
+        let colors = [
+            'rgba(0,80,0,0.8)',
+            'rgba(0,0,80,0.0)',
+            '#ff9f85',
+            '#ff9f85',
+            '#ff5c30',
+            '#ff4817',
+            '#e73210',
+            '#e73210'
+        ];
+        let map = this.map,
+            caseVals = this.clusteredCaseSources.getPointsAllVals(),
+            circleColor = getMapBoxCaseColors(caseVals, colors);
 
         let circleRadius;
         if (this.clusteredCaseSources.clusteringBeingUsed()) {
@@ -144,74 +214,14 @@ class CaseCirclesLayer {
             ];
         }
 
-        map.addLayer(
-            {
-                'id': this.uniqueId,
-                'type': 'circle',
-                'source': this.clusteredCaseSources.getSourceId(),
-                filter: ['all',
-                    ['!=', 'cases', 0],
-                    ['has', 'cases']
-                ],
-                'paint': {
-                    // Size circle radius by value
-                    'circle-radius': circleRadius,
-                    // Color circle by value
-                    'circle-color': circleColor
-                }
-            }, lastCircleLayer
+        map.setPaintProperty(
+            // Size circle radius by value
+            this.uniqueId, 'circle-radius', circleRadius
         );
-
-        map.addLayer({
-            'id': this.uniqueId+'citylabel',
-            'type': 'symbol',
-            'source': this.clusteredCaseSources.getSourceId(),
-            'filter': ['all',
-                ['!=', 'cases', 0],
-                ['has', 'cases']
-            ],
-            'layout': {
-                'text-field': [
-                    'format',
-                    ['get', 'label'],
-                    { 'font-scale': 0.7 },
-                ],
-                'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                'text-offset': [0, 0.8],
-                'text-anchor': 'top',
-                'symbol-sort-key': ['get', 'negcases']
-            },
-            'paint': {
-                'text-color': 'rgba(0, 0, 0, 0.8)',
-                'text-halo-color': 'rgba(255, 255, 255, 0.8)',
-                'text-halo-width': 3,
-                'text-halo-blur': 2
-            }
-        }, lastSymbolLayer);
-
-        map.addLayer({
-            id: this.uniqueId+'label',
-            type: 'symbol',
-            source: this.clusteredCaseSources.getSourceId(),
-            filter: ['all',
-                ['!=', 'cases', 0],
-                ['has', 'cases']
-            ],
-            layout: {
-                'text-field': '{casesFmt}',
-                'text-font': [
-                    'Arial Unicode MS Bold',
-                    'Open Sans Bold',
-                    'DIN Offc Pro Medium'
-                ],
-                'text-size': 13,
-                'text-allow-overlap': true,
-                'symbol-sort-key': ["to-number", ["get", "cases"], 1]
-            },
-            paint: {
-                "text-color": "rgba(255, 255, 255, 1.0)"
-            }
-        }, lastSymbolLayer);
+        map.setPaintProperty(
+            // Color circle by value
+            this.uniqueId, 'circle-color', circleColor
+        );
 
         this.__shown = true;
     }

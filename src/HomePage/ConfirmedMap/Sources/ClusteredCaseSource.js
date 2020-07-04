@@ -152,7 +152,7 @@ class ClusteredCaseSource extends MapBoxSource {
             let index1 = byCaseCount[i][1],
                 coords1 = geoJSONData['features'][index1]['geometry']['coordinates'];
 
-            for (let j=byCaseCount.length-1; j>-1; j--) {
+            for (let j=byCaseCount.length-1; j>i; j--) {
                 if (i === j) {
                     continue;
                 }

@@ -227,13 +227,7 @@ class CovidMapControl extends React.Component {
                 // Don't display until map ready!
                 setTimeout(callMe, 150);
             } else {
-                // First, remove the layers
-                // This needs to be done to prevent this.paint is null exceptions
-                this.casesFillPolyLayer.removeLayer();
-                this.casesLinePolyLayer.removeLayer();
-                this.caseCirclesLayer.removeLayer();
-
-                // Next, update the sources
+                // Update the sources
                 this.clusteredCaseSource.setData(
                     geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
                 );
@@ -247,10 +241,10 @@ class CovidMapControl extends React.Component {
                 this.prevDataType = dataType;
                 this.prevZoomLevel = zoomLevel;
 
-                // Now add the layers again
-                this.casesFillPolyLayer.addLayer();
-                this.casesLinePolyLayer.addLayer();
-                this.caseCirclesLayer.addLayer();
+                // Now add the layers
+                this.casesFillPolyLayer.updateLayer();
+                this.casesLinePolyLayer.updateLayer();
+                this.caseCirclesLayer.updateLayer();
 
                 this.__mapMovePending = false;
             }
