@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-04/nsw-coronavirus-cap-on-arrivals-to-ease-quarantine-pressure/12422504",
+            "title": "Cap on international arrivals introduced at Sydney Airport to ease coronavirus quarantine demands",
+            "source": "ABCNews",
+            "date": "4 July 2020",
+            "time": "19:40",
+            "summary": "The Department of Foreign Affairs and Trade has warned that international flights to Sydney over the coming weeks will be subject to a cap on arrivals and flights could be cancelled. At the request of the NSW Government, new Federal Government limits will be introduced from midnight tonight. NSW Health said overseas arrivals will be capped at 450 passengers a day, with a maximum of 50 passengers allowed per incoming flight. The move is aimed at easing pressure on hotel quarantine capacity."
+        },
+        {
+            "link": "https://www.watoday.com.au/national/victoria/more-suburbs-in-lockdown-as-victoria-records-108-new-coronavirus-cases-20200704-p558zp.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "More suburbs in lockdown as Victoria records 108 new coronavirus cases",
+            "source": "WAToday",
+            "date": "4 July 2020",
+            "time": "16:33",
+            "summary": "More suburbs in Melbourne's inner-north will be placed in lockdown and thousands of residents in nine public housing towers will be confined to their homes after Victoria recorded 108 new coronavirus cases. The suburbs of Kensington, Flemington and North Melbourne, in postcodes 3031 and 3051, will join 36 others where stage three coronavirus restrictions apply, meaning residents can only leave their homes for four reasons: food or essential supplies; medical care or care giving; exercise; or for work or education. The lockdown will take effect from 11.59pm on Saturday. A large coronavirus cluster has emerged in the Flemington and North Melbourne public housing estates where residents will be placed in a \"hard lockdown\" for at least five days, \"effective immediately\"."
+        },
+        {
             "link": "https://www.9news.com.au/national/victorians-refusing-coronavirus-tests-covid19-outbreak-melbourne-postcode-hotspots/97a7b862-e82e-488c-86ec-013e481c440b",
             "title": "More than 10,000 Victorians refused coronavirus tests",
             "source": "9News",
@@ -111,30 +127,6 @@
             "date": "27 June 2020",
             "time": "13:56",
             "summary": "Western Australia's Premier Mark McGowan has praised local residents for their behaviour as the state entered phase four easing of restrictions early this morning. Mr McGowan said WA was \"very fortunate\" to be leading the nation – and the world – in reopening its economy thanks to a low rate of infection and a hard border closure. The premier said many businesses in WA can get back to a \"virtual normal\" of operating, saving thousands of jobs in the process."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/scott-morrison-says-not-unreasonable-for-australia-s-borders-to-remain-shut-until-mid-next-year",
-            "title": "Scott Morrison says 'not unreasonable' for Australia’s borders to remain shut until mid-next year",
-            "source": "SBSNews",
-            "date": "26 June 2020",
-            "time": "17:00",
-            "summary": "Prime Minister Scott Morrison has added to a growing belief that Australia’s borders won’t reopen this year, saying it was “not unreasonable” to believe international travel will not resume until mid-to-late 2021 at the earliest. Aside from a potential travel bubble with New Zealand, Australia is widely expected to keep its borders shut from the rest of the world - potentially until a vaccine or treatment to the coronavirus is found. On Thursday, Qantas CEO Alan Joyce expressed doubts international flights with his airline would be able to restart prior to July next year, as he announced 6,000 jobs will be axed as a result of a major downturn due to the virus."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/all-travellers-returning-to-australia-will-be-tested-for-coronavirus-before-and-after-quarantine",
-            "title": "All travellers returning to Australia will be tested for coronavirus before and after quarantine ",
-            "source": "SBSNews",
-            "date": "26 June 2020",
-            "time": "18:00",
-            "summary": "Chief Medical Officer Brendan Murphy announced Australia's new testing regime following a national cabinet meeting on Friday. All travellers returning to Australia will be tested for coronavirus as they enter quarantine and before they're allowed to leave, as the government beefs up measures to prevent further outbreaks. Chief Medical Officer Brendan Murphy announced Australia's new testing regime following a national cabinet meeting on Friday."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/nationwide-toilet-paper-limits-introduced-as-new-coronavirus-outbreaks-spark-panic-buying",
-            "title": "Nationwide toilet paper limits introduced as new coronavirus outbreaks spark panic-buying",
-            "source": "SBSNews",
-            "date": "26 June 2020",
-            "time": "18:00",
-            "summary": "An outbreak of fresh cases of COVID-19 across Victoria has triggered a resumption of panic buying, with some supermarket shelves again cleared of toilet paper, pasta and milk. Coles and Woolworths have reintroduced nationwide buying limits on toilet paper and paper towel in a bid to ward off a resurgence of coronavirus-related panic buying. The supermarket giants had already placed restrictions on buying from its Victorian stores as the state battles a fresh outbreak of COVID-19. On Friday, Coles announced customers across Australia would only be able to buy one pack of toilet paper and paper towels per shopper, and two packs of flour, sugar, pasta and rice."
         }
     ]
 }
