@@ -129,123 +129,98 @@ class ClusteredCaseSource extends MapBoxSource {
         var mergeSmallerThan = zoomMap[zoomLevel];
         var eliminatedMap = new Map();
         var mergedMap = new Map();
-        var distances = [];
+        var byCaseCount = [];
 
         // Fast deep copy
         geoJSONData = JSON.parse(JSON.stringify(geoJSONData));
 
         // Look for all distances
-        let index1 = -1;
-        for (let feature1 of geoJSONData['features']) {
-            index1++;
-
-            var coords1 = feature1['geometry']['coordinates'];
-            if (!feature1.properties['cases']) { //  || feature1.properties['cases'] < 0
+        let index = -1;
+        for (let feature of geoJSONData['features']) {
+            index++;
+            if (!feature.properties['cases']) { //  || feature1.properties['cases'] < 0
                 // Only add if cases has been added to!
                 continue;
             }
+            byCaseCount.push([feature.properties['cases'], index]);
+        }
 
-            let index2 = -1;
-            for (let feature2 of geoJSONData['features']) {
-                index2++;
+        // Sort so that areas with highest cases eliminate those with the lowest
+        byCaseCount.sort((a, b) => b[0] - a[0]);
 
-                var coords2 = feature2['geometry']['coordinates'];
-                if (index1 === index2) {
+        for (let i=0; i<byCaseCount.length; i++) {
+            let index1 = byCaseCount[i][1],
+                coords1 = geoJSONData['features'][index1]['geometry']['coordinates'];
+
+            for (let j=byCaseCount.length-1; j>-1; j--) {
+                if (i === j) {
                     continue;
-                } else if (!feature2.properties['cases']) { //  || feature2.properties['cases'] < 0
-                    // Only add if cases has been added to!
+                }
+
+                let index2 = byCaseCount[j][1],
+                    coords2 = geoJSONData['features'][index2]['geometry']['coordinates'];
+
+                if (eliminatedMap.has(index2) || eliminatedMap.has(index1)) {
+                    // Can't eliminate if already eliminated!
                     continue;
                 }
 
                 var a = coords1[0] - coords2[0],
                     b = coords1[1] - coords2[1],
-                    c = Math.sqrt(a * a + b * b);
+                    distance = Math.sqrt(a * a + b * b);
 
-                if (c < mergeSmallerThan) {
-                    // Only add if less than threshold!
-                    distances.push([c, index1, index2]);
+                if (distance < mergeSmallerThan) {
+                    // Eliminate only one of two of them,
+                    // merging any previously merged
+                    var merged = mergedMap.get(index1) || [];
+                    merged.push(index2);
+                    mergedMap.set(index1, merged);
+                    eliminatedMap.set(index2, null);
+
+                    /*
+                    if (mergedMap.has(index2)) {
+                        merged = merged.concat(mergedMap.get(index2));
+                        mergedMap.delete(index2);
+                    }
+                    mergedMap.set(index1, merged);
+                    eliminatedMap.set(index2, null);
+                    */
                 }
             }
         }
-        // TODO: Sort so that areas with highest cases eliminate those with the lowest!!
 
-        distances.sort((a, b) => a[0] - b[0]);
-
-        for (var i=0; i<distances.length; i++) {
-            let distance = distances[i][0],
-                index1 = distances[i][1],
-                index2 = distances[i][2];
-
-            if (eliminatedMap.has(index2) || eliminatedMap.has(index1)) {
-                // Can't eliminate if already eliminated!
-                continue;
-            }
-
-            if (distance < mergeSmallerThan) {
-                // Eliminate only one of two of them,
-                // merging any previously merged
-                var merged = mergedMap.get(index1) || [];
-                merged.push(index2);
-                if (mergedMap.has(index2)) {
-                    merged = merged.concat(mergedMap.get(index2));
-                    mergedMap.delete(index2);
-                }
-                mergedMap.set(index1, merged);
-                eliminatedMap.set(index2, null);
-            }
-        }
-
-        let newFeatures = [],
-            index = -1;
+        let newFeatures = [];
+        index = -1;
 
         for (let feature of geoJSONData['features']) {
             index++;
 
-            var properties = feature.properties,
-                geometry = feature.geometry;
+            var properties = feature.properties;
 
             if (eliminatedMap.has(index)) {
                 //feature.properties['cases'] = 0;
                 //newFeatures.push(feature);
             }
             else if (mergedMap.has(index)) {
-                var cases = properties['cases'],
-                    x = geometry.coordinates[0],
-                    y = geometry.coordinates[1],
-                    n = 1,
-                    highestCases = cases;
+                var cases = properties['cases'];
 
                 for (let otherIndex of mergedMap.get(index)) {
+                    // TODO: Add info about which features were merged(?)
                     var otherFeature =  geoJSONData['features'][otherIndex],
-                        otherProperties = otherFeature.properties,
-                        otherGeometry = otherFeature.geometry;
-
-                    x = x + otherGeometry.coordinates[0];
-                    y = y + otherGeometry.coordinates[1];
+                        otherProperties = otherFeature.properties;
 
                     cases = cases + otherProperties['cases'];
-
-                    if (otherProperties['cases'] > highestCases) {
-                        // Make it so city names/labels with the
-                        // largest number of cases take precedence!
-                        highestCases = otherProperties['cases'];
-                        //properties['label'] = otherProperties['label'];
-                        properties = feature.properties = otherProperties;
-                    }
-
-                    n = n + 1;
                 }
 
-                if (properties.label && properties.label.indexOf(', ...') === -1) {
+                if (properties.label ) {
                     // HACK: Give an indicator that there's actually multiple region at this point
                     // This should be implemented in a way which allows adding unified popups, etc with fill area charts
-                    properties.label = `${properties.label}, ...`;
+                    properties.label = `${properties.label} (+${mergedMap.get(index).length} more)`;
                 }
 
                 properties['cases'] = cases;
                 properties['casesFmt'] = Fns.getCompactNumberRepresentation(cases, 1);
                 properties['casesSz'] = properties['casesFmt'].length;
-                geometry.coordinates = [x/n, y/n];
                 newFeatures.push(feature);
             }
             else {
