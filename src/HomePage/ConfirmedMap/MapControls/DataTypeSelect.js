@@ -38,7 +38,7 @@ class DataTypeSelect extends React.Component {
         super(props);
 
         this.state = {
-            timeperiod: null,
+            timePeriod: null,
             dataType: 'total',
             enabled: true
         };
@@ -106,13 +106,13 @@ class DataTypeSelect extends React.Component {
                         <ButtonGroup ref={this.markersButtonGroup}
                             size="small"
                             aria-label="small outlined button group">
-                            <Button style={this.state.timeperiod == null ? activeStyles : inactiveStyles}
+                            <Button style={this.state.timePeriod == null ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(null)}>All</Button>
-                            <Button style={this.state.timeperiod === 7 ? activeStyles : inactiveStyles}
+                            <Button style={this.state.timePeriod === 7 ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(7)}>7 Days</Button>
-                            <Button style={this.state.timeperiod === 14 ? activeStyles : inactiveStyles}
+                            <Button style={this.state.timePeriod === 14 ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(14)}>14 Days</Button>
-                            <Button style={this.state.timeperiod === 21 ? activeStyles : inactiveStyles}
+                            <Button style={this.state.timePeriod === 21 ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(21)}>21 Days</Button>
                         </ButtonGroup>
                     </span>

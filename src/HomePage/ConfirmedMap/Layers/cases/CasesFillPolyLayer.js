@@ -23,6 +23,7 @@ SOFTWARE.
  */
 
 import CasesPopup from "./CasesPopup";
+import getMapBoxCaseColors from "./getMapBoxCaseColors";
 
 
 class CasesFillPolyLayer {
@@ -67,13 +68,28 @@ class CasesFillPolyLayer {
             }
         }
 
+        let colors = [
+            'rgba(0,80,0,0.8)',
+            'rgba(0,0,80,0.0)',
+            'rgba(231,50,16,0.05)',
+            'rgba(231,50,16,0.1)',
+            'rgba(231,50,16,0.2)',
+            'rgba(231,50,16,0.4)',
+            'rgba(231,50,16,0.8)',
+            '#e73210'
+        ];
+
+        let caseVals = this.mapBoxSource.getPointsAllVals(),
+            circleColor = getMapBoxCaseColors(caseVals, colors);
+
         map.addLayer(
             {
                 id: this.uniqueId+'fillpoly',
                 type: 'fill',
                 source: this.mapBoxSource.getSourceId(),
                 paint: {
-                    'fill-opacity': 0.0
+                    'fill-opacity': 0.3,
+                    'fill-color': circleColor
                 }
             },
             lastFillLayer
@@ -82,10 +98,12 @@ class CasesFillPolyLayer {
         //this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', this.mapBoxSource);
         let callLater = () => {
             // HACK: Only enable after the map is ready, as it seems exceptions occur in mapbox otherwise
-            if (this.map.loaded())
+            if (this.map.loaded()) {
                 this.__casesPopup.enablePopups();
-            else
-                setTimeout(callLater, 0);
+            }
+            else {
+                setTimeout(callLater, 150);
+            }
         };
         callLater();
 

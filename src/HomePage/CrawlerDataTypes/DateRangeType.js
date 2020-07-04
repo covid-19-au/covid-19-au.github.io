@@ -87,7 +87,7 @@ class DateRangeType {
      * @returns {number}
      */
     getDifferenceInDays() {
-        return this.toDate-this.fromDate;
+        return (this.toDate.getTime()-this.fromDate.getTime()) / 86400000;
     }
 
     /**

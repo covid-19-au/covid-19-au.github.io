@@ -37,6 +37,8 @@ import LinePolyLayer from "./Layers/LinePolyLayer";
 
 import MapBoxSource from "./Sources/MapBoxSource";
 import ClusteredCaseSource from "./Sources/ClusteredCaseSource";
+import DateRangeType from "../CrawlerDataTypes/DateRangeType";
+import DateType from "../CrawlerDataTypes/DateType";
 
 
 class CovidMapControl extends React.Component {
@@ -200,8 +202,17 @@ class CovidMapControl extends React.Component {
         // Enter critical section
         this.__mapMovePending = true;
 
+        // Get the date range
+        let dateRangeType = null;
+        if (this.covidMapControls.getTimePeriod()) {
+            dateRangeType = new DateRangeType(
+                DateType.today().daysSubtracted(this.covidMapControls.getTimePeriod()), DateType.today()
+            )
+        }
+
         let geoData = await this.dataDownloader.getCaseDataForZoomAndCoords(
-            zoomLevel, lngLatBounds, dataType, schemasForCases, iso3166WithinView
+            zoomLevel, lngLatBounds, dataType, dateRangeType,
+            schemasForCases, iso3166WithinView
         );
 
         this.__onMapMoveChange(geoData, dataType, zoomLevel)
@@ -209,12 +220,12 @@ class CovidMapControl extends React.Component {
 
     __onMapMoveChange(geoData, dataType, zoomLevel) {
         var callMe = () => {
-            if (!this.covidMapControls || !this.map) {
+            if (!this.map) {
                 // React JS likely destroyed the elements in the interim
                 return;
-            } else if (this.covidMapControls.getDisabled() || !this.map.loaded()) {
+            } else if (!this.map.loaded()) {
                 // Don't display until map ready!
-                setTimeout(callMe, 50);
+                setTimeout(callMe, 150);
             } else {
                 // First, remove the layers
                 // This needs to be done to prevent this.paint is null exceptions

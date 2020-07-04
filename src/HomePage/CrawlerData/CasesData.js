@@ -111,7 +111,9 @@ class CasesData {
      * @param features
      * @param ageRange
      */
-    getCaseInfoGeoJSON(inputGeoJSON, ageRange, ignoreChildren, iso3166WithinView) {
+    getCaseInfoGeoJSON(inputGeoJSON, ageRange, dateRangeType,
+                       ignoreChildren, iso3166WithinView) {
+
         ignoreChildren = ignoreChildren || new Set();
         let max = -9999999999999,
             min = 9999999999999;
@@ -150,7 +152,15 @@ class CasesData {
                 properties['regionChild']
             );
 
-            var timeSeriesItem = this.getCaseNumber(regionType, ageRange);
+            let timeSeriesItem;
+            if (!dateRangeType) {
+                timeSeriesItem = this.getCaseNumber(regionType, ageRange);
+            }
+            else {
+                // This method really should accept a specific time period!
+                timeSeriesItem = this.getCaseNumberOverNumDays(regionType, ageRange, dateRangeType.getDifferenceInDays());   // HACK!!!! ===================================
+            }
+
             if (!timeSeriesItem) {
                 console.log(`No data for ${regionType.prettified()} (${regionType.getRegionChild()})`);
                 out.push(feature);
@@ -301,7 +311,7 @@ class CasesData {
 
                     if (iValue != null && iValue !== '') {
                         oldest = new TimeSeriesItem(
-                            latest.getUpdatedDate(),
+                            latest.getDateType(),
                             latest.getValue() - parseInt(iValue)
                         );
 
@@ -316,7 +326,7 @@ class CasesData {
         // Can't do much if data doesn't go back
         // that far other than show oldest we can
         return oldest || new TimeSeriesItem(
-            latest.getUpdatedDate(), 0
+            latest.getDateType(), 0
         );
     }
 

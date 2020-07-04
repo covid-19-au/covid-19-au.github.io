@@ -22,6 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+import getMapBoxCaseColors from "./getMapBoxCaseColors";
+
 
 class CaseCirclesLayer {
     /**
@@ -51,51 +53,20 @@ class CaseCirclesLayer {
     addLayer() {
         this.removeLayer();
 
+        let colors = [
+            'rgba(0,80,0,0.8)',
+            'rgba(0,0,80,0.0)',
+            '#ff9f85',
+            '#ff9f85',
+            '#ff5c30',
+            '#ff4817',
+            '#e73210',
+            '#e73210'
+        ];
+
         let map = this.map,
             caseVals = this.clusteredCaseSources.getPointsAllVals(),
-            circleColor;
-
-        if (caseVals[caseVals.length-1] <= 4) {
-            circleColor = [
-                'step',
-                ['get', 'cases'],
-                'rgba(0,80,0,0.8)',
-                0, 'rgba(0,0,80,0.0)',
-                1, '#ff9f85',
-                5, '#ff9f85',
-                50, '#ff5c30',
-                100, '#ff4817',
-                300, '#e73210'
-            ];
-        } else {
-            let vals = [
-                5,
-                caseVals[Math.round(caseVals.length*0.25)],
-                caseVals[Math.round(caseVals.length*0.5)],
-                caseVals[Math.round(caseVals.length*0.75)],
-                caseVals[caseVals.length-1]
-            ];
-
-            // mapbox needs ints in ascending order,
-            // so make sure each is higher than the last
-            for (let i=1; i<vals.length; i++) {
-                while (vals[i] <= vals[i-1])
-                    vals[i]++;
-            }
-
-            circleColor = [
-                'step',
-                ['get', 'cases'],
-                'rgba(0,80,0,0.8)',
-                0, 'rgba(0,0,80,0.0)',
-                1, '#ff9f85',
-                5, '#ff9f85',
-                vals[1], '#ff5c30',
-                vals[2], '#ff4817',
-                vals[3], '#e73210',
-                vals[4], '#e73210'
-            ];
-        }
+            circleColor = getMapBoxCaseColors(caseVals, colors);
 
         // Make it so that symbol/circle layers are given different priorities
         // This is essentially a hack to make it so Canberra is situated above

@@ -80,29 +80,12 @@ class ClusteredCaseSource extends MapBoxSource {
         //console.log(`current zoom: ${currentZoom}`);
         let modifiedData = this.__getModifiedGeoJSONWithPointsJoined(data, currentZoom);
         this.__clusteringBeingUsed = modifiedData.features.length !== data.features.length;
-
-        let pointsAllVals = [];
-        for (let feature of modifiedData['features']) {
-            if (feature.properties['cases'])
-                pointsAllVals.push(feature.properties['cases']);
-        }
-        pointsAllVals.sort((a, b) => {return a-b});
-        this.__pointsAllVals = pointsAllVals;
-
         return super.setData(modifiedData, geoDataInsts, caseDataInsts);
     }
 
     /*******************************************************************
      * Miscellaneous
      *******************************************************************/
-
-    /**
-     *
-     * @returns {[]|*[]}
-     */
-    getPointsAllVals() {
-        return this.__pointsAllVals;
-    }
 
     /**
      *
@@ -184,6 +167,7 @@ class ClusteredCaseSource extends MapBoxSource {
                 }
             }
         }
+        // TODO: Sort so that areas with highest cases eliminate those with the lowest!!
 
         distances.sort((a, b) => a[0] - b[0]);
 

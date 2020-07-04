@@ -71,9 +71,9 @@ class DateType extends Date {
         else if (typeof (arguments[0].getMonth) === 'function') {
             // Passed a date, so use the
             // supplied years/months/days
-            years = arguments[0].getYear();
+            years = arguments[0].getFullYear();
             months = arguments[0].getMonth()+1;
-            days = arguments[0].getDay();
+            days = arguments[0].getDate();
         }
         else {
             // Use supplied years/months/days
@@ -82,12 +82,11 @@ class DateType extends Date {
             days = arguments[2];
         }
 
-        super(
-            years,
-            months == null ? 0 : months-1,
-            days == null ? 0 : days
-        );
+        super();
         this.setHours(0, 0, 0, 0);
+        this.setFullYear(years);
+        this.setMonth(months == null ? 0 : months-1);
+        this.setDate(days == null ? 0 : days);
 
         this.years = years;
         this.months = months;
@@ -144,7 +143,7 @@ class DateType extends Date {
         // NOTE: returns a *positive* number if
         // `dateString` is in the past
         var today = DateType.today();
-        return this.dateDiff(this, today); // CHECK ME!!! ================================================
+        return this.dateDiff(today);
     }
 
     /**
@@ -157,7 +156,10 @@ class DateType extends Date {
     dateDiff(otherDateType) {
         // Get the difference in days between
         // the first and second `Date` instances
-        return Math.round((otherDateType - this) / (1000 * 60 * 60 * 24));
+        return Math.round(
+            (otherDateType.getTime() - this.getTime()) /
+            (1000 * 60 * 60 * 24)
+        );
     }
 
     /********************************************************************
@@ -174,7 +176,9 @@ class DateType extends Date {
         if (this.months == null || this.days == null) {
             throw "Can't add days if days weren't specified in constructor!";
         }
-        return new DateType(this + days);
+        let d = new Date();
+        d.setTime(this.getTime() + days*(1000 * 60 * 60 * 24));
+        return new DateType(d);
     }
 
     /**
@@ -185,9 +189,11 @@ class DateType extends Date {
      */
     daysSubtracted(days) {
         if (this.months == null || this.days == null) {
-            throw "Can't add days if days weren't specified in constructor!";
+            throw "Can't subtract days if days weren't specified in constructor!";
         }
-        return new DateType(this - days);
+        let d = new Date();
+        d.setTime(this.getTime() - days*(1000 * 60 * 60 * 24));
+        return new DateType(d);
     }
 
     /********************************************************************

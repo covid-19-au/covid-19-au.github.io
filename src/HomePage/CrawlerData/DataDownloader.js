@@ -37,7 +37,7 @@ var MODE_GEOJSON_ONLY = 0,
 
 
 function debug(message) {
-    if (true) {
+    if (false) {
         console.log(message);
     }
 }
@@ -107,7 +107,8 @@ class DataDownloader {
      * @returns {Promise<void>}
      * @private
      */
-    async getCaseDataForZoomAndCoords(zoomLevel, lngLatBounds, dataType, schemasForCases, iso3166WithinView) {
+    async getCaseDataForZoomAndCoords(zoomLevel, lngLatBounds, dataType, dateRangeType,
+                                      schemasForCases, iso3166WithinView) {
         var promises = [];
 
         for (let key of schemasForCases.keys()) {
@@ -187,7 +188,7 @@ class DataDownloader {
                 }
             }
         }
-        console.log(`Ignoring parent schemas: ${Array.from(parents)}`);
+        debug(`Ignoring parent schemas: ${Array.from(parents)}`);
 
         let geoDataInsts = [];
         let caseDataInsts = [];
@@ -200,10 +201,10 @@ class DataDownloader {
 
             if (caseData) {
                 iPoints = caseData.getCaseInfoGeoJSON(
-                    iPoints, null, parents, iso3166WithinView
+                    iPoints, null, dateRangeType, parents, iso3166WithinView
                 );
                 iPolygons = caseData.getCaseInfoGeoJSON(
-                    iPolygons, null, parents, iso3166WithinView
+                    iPolygons, null, dateRangeType, parents, iso3166WithinView
                 );
 
                 for (let feature of iPoints['features']) {

@@ -114,7 +114,7 @@ class MapBoxSource {
             return false;
         }
         else if (!this.getSourceInst()) { // WARNING: This could have consequences for the order of async jobs!!! ======================================
-            setTimeout(this.setData.bind(this), 0, data);
+            setTimeout(this.setData.bind(this), 150, data);
             return true;
         }
 
@@ -126,7 +126,28 @@ class MapBoxSource {
         if (geoDataInsts) {
             this.__assignGeoDataInsts(geoDataInsts);
         }
+
+        let pointsAllVals = [];
+        for (let feature of data['features']) {
+            if (feature.properties['cases'])
+                pointsAllVals.push(feature.properties['cases']);
+        }
+        pointsAllVals.sort((a, b) => {return a-b});
+        this.__pointsAllVals = pointsAllVals;
+
         return true;
+    }
+
+    /*******************************************************************
+     * Miscellaneous
+     *******************************************************************/
+
+    /**
+     *
+     * @returns {[]|*[]}
+     */
+    getPointsAllVals() {
+        return this.__pointsAllVals;
     }
 
     /**************************************************************************
