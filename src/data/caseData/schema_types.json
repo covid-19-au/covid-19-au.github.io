@@ -1208,12 +1208,6 @@
             "line_width": 0.5,
             "split_by_parent_region": true
         },
-        "lk_district": {
-            "iso_3166": "lk",
-            "min_zoom": 6,
-            "priority": 5,
-            "split_by_parent_region": false
-        },
         "my_district": {
             "iso_3166": "my",
             "min_zoom": 4,
@@ -1235,7 +1229,7 @@
         },
         "uk_area": {
             "iso_3166": "gb",
-            "min_zoom": 4,
+            "min_zoom": 2,
             "priority": 5,
             "split_by_parent_region": false
         },
