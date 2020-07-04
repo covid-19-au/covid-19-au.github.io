@@ -17,6 +17,7 @@
             "br_city_br-ap.json",
             "jp_city_jp-45.json",
             "admin_1_cf.json",
+            "admin_1_lk.json",
             "admin_1_cabo verde.json",
             "jp_city_jp-44.json",
             "admin_1_gn.json",
@@ -106,6 +107,7 @@
             "jp_city_フランス.json",
             "in_district_in-kl.json",
             "admin_1_ng.json",
+            "lk_district.json",
             "us_county_us-pa.json",
             "admin_1_hk.json",
             "admin_1_ua.json",
@@ -727,6 +729,7 @@
             "in_district_in-ch.geojson",
             "admin_1_ki.geojson",
             "jp_city_jp-46.geojson",
+            "lk_district.geojson",
             "de_ags_de-bb.geojson",
             "admin_1_om.geojson",
             "admin_1_ua.geojson",
@@ -1147,7 +1150,7 @@
         },
         "ca_health_region": {
             "iso_3166": "ca",
-            "min_zoom": 4,
+            "min_zoom": 3,
             "priority": 5,
             "split_by_parent_region": false
         },
@@ -1204,6 +1207,12 @@
             "priority": 5,
             "line_width": 0.5,
             "split_by_parent_region": true
+        },
+        "lk_district": {
+            "iso_3166": "lk",
+            "min_zoom": 6,
+            "priority": 5,
+            "split_by_parent_region": false
         },
         "my_district": {
             "iso_3166": "my",
