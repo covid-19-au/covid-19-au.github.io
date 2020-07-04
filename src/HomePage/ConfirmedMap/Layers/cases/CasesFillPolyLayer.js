@@ -45,8 +45,6 @@ class CasesFillPolyLayer {
     }
 
     __addLayer() {
-        //this.removeLayer();
-
         // Add the colored fill area
         const map = this.map;
 
@@ -61,7 +59,6 @@ class CasesFillPolyLayer {
             }
         }
 
-
         map.addLayer(
             {
                 id: this.uniqueId+'fillpoly',
@@ -70,6 +67,8 @@ class CasesFillPolyLayer {
             },
             lastFillLayer
         );
+
+        this.__casesPopup.enablePopups();
     }
 
     /*******************************************************************
