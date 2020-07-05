@@ -93,6 +93,7 @@
             "admin_1_sierra leone.json",
             "bd_district.json",
             "us_county_us-ma.json",
+            "jp_city_アフガニスタン.json",
             "admin_1_cd.json",
             "jp_city_france.json",
             "admin_1_st.json",
@@ -113,6 +114,7 @@
             "admin_1_ua.json",
             "br_city_br-mt.json",
             "admin_1_macao sar.json",
+            "admin_1_mm.json",
             "admin_1_iq.json",
             "lhd.json",
             "in_district_in-jk.json",
@@ -169,6 +171,7 @@
             "br_city_br-rs.json",
             "admin_1_liechtenstein.json",
             "jp_city_jp-20.json",
+            "es_autonomous_community.json",
             "us_county_us-mi.json",
             "us_county_us-fl.json",
             "jp_city_jp-04.json",
@@ -448,6 +451,7 @@
             "admin_1_zm.geojson",
             "admin_1_gy.geojson",
             "admin_1_pa.geojson",
+            "es_autonomous_community.geojson",
             "admin_1_bw.geojson",
             "admin_1_ne.geojson",
             "in_district_in-ar.geojson",
@@ -1143,7 +1147,7 @@
         },
         "br_city": {
             "iso_3166": "br",
-            "min_zoom": 5,
+            "min_zoom": 4,
             "priority": 5,
             "line_width": 0.5,
             "split_by_parent_region": true
@@ -1180,11 +1184,10 @@
             "line_width": 0.5,
             "split_by_parent_region": true
         },
-        "es_madrid_municipality": {
-            "iso_3166": "es-m",
-            "min_zoom": 5,
+        "es_autonomous_community": {
+            "iso_3166": "es",
+            "min_zoom": 2,
             "priority": 5,
-            "line_width": 0.5,
             "split_by_parent_region": false
         },
         "in_district": {
@@ -1235,7 +1238,7 @@
         },
         "us_county": {
             "iso_3166": "us",
-            "min_zoom": 5,
+            "min_zoom": 4,
             "priority": 5,
             "line_width": 0.5,
             "split_by_parent_region": true
