@@ -42,6 +42,16 @@ export default function Navbar({ setNav, nav }) {
         >
           <strong>{i18next.t("nav:home")}</strong>
         </A>
+
+        <A
+                    className={`navItems ${
+                        window.location.pathname === "/world" && !isSticky ? "navCurrentPage " : ""
+                        } ${window.location.pathname === "/world" && isSticky ? "navCurrentPageSticky" : ""} `}
+                    onClick={onClick} href="/world"
+                >
+          <strong>World</strong>
+        </A>
+
                 <A
                     className={`navItems ${
                         window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""
@@ -58,6 +68,7 @@ export default function Navbar({ setNav, nav }) {
                 >
           <strong>{i18next.t("nav:news")}</strong>
         </A>
+
         <A
             className={`navItems ${
                 window.location.pathname.includes("/blog") && !isSticky ? "navCurrentPage " : ""
