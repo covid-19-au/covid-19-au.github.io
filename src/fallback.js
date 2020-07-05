@@ -239,17 +239,12 @@ function Fallback(props) {
             clipRule="evenodd"
           />
         </svg>
-        <a
-          href="https://www.webfreecounter.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="https://www.webfreecounter.com/hit.php?id=gevkadfx&nd=9&style=1"
-            border="0"
-            alt="hit counter"
-          />
-        </a>
+
+
+          <a class="hitCounter" href="https://visitorshitcounter.com/" target="_blank" title="Hit counter" data-name="5efe8f6c5768d0e82d88c0cd80c61a59|9|page|9168392|#ffffff|#959191|small|s-hit">Hit Counter</a>
+
+
+
       </div>
     </div>
   );
