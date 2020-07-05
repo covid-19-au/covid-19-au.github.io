@@ -95,7 +95,7 @@ class CasesFillPolyLayer {
             circleColor = getMapBoxCaseColors(caseVals, colors);
 
         this.map.setPaintProperty(
-            this.uniqueId + 'fillpoly', 'fill-opacity', 0.3
+            this.uniqueId + 'fillpoly', 'fill-opacity', 0.5
         );
         this.map.setPaintProperty(
             this.uniqueId + 'fillpoly', 'fill-color', circleColor

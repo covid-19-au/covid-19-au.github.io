@@ -156,7 +156,7 @@ class CovidMapControl extends React.Component {
                 map, 'casesFillPolyLayer', casesSource
             );
             this.casesLinePolyLayer = new LinePolyLayer(
-                map, 'casesLinePolyLayer', 'gray', 1.0, casesSource
+                map, 'casesLinePolyLayer', 'gray', null, casesSource
             );
             this.caseCirclesLayer = new CaseCirclesLayer(
                 map, 'heatMap', clusteredCaseSource
@@ -183,6 +183,10 @@ class CovidMapControl extends React.Component {
 
             this.onMapMoveChange();
         });
+    }
+
+    addToMapContainer(elm) {
+        this.mapContainer.appendChild(elm);
     }
 
     /*******************************************************************

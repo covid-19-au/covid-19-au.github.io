@@ -69,7 +69,7 @@ class LinePolyLayer {
             paint: {
                 'line-color': this.color || '#000',
                 'line-opacity': 1,
-                'line-width': this.lineWidth || 1.0
+                'line-width': this.lineWidth || 0.5
             }
         }, lastLineLayer);
 
