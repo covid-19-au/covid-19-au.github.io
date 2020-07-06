@@ -241,8 +241,9 @@ function Fallback(props) {
         </svg>
 
 
-          <a class="hitCounter" href="https://visitorshitcounter.com/" target="_blank" title="Hit counter" data-name="5efe8f6c5768d0e82d88c0cd80c61a59|9|page|9168392|#ffffff|#959191|small|s-hit">Hit Counter</a>
-
+          <div id="sfcly4m9kmug45da8x8ba6fchlharqeeqm1"></div>
+          <script type="text/javascript" src="https://counter3.stat.ovh/private/counter.js?c=ly4m9kmug45da8x8ba6fchlharqeeqm1&down=async" async></script>
+          <a href="https://www.freecounterstat.com" title="free hit counter"><img src="https://counter3.stat.ovh/private/freecounterstat.php?c=ly4m9kmug45da8x8ba6fchlharqeeqm1" border="0" title="free hit counter" alt="free hit counter"/></a>
 
 
       </div>
