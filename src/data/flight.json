@@ -388,6 +388,33 @@
   },
   {
     "reportState": "WA",
+    "flightNo": "GA724",
+    "airline": "Garuda Indonesia",
+    "path": "Jakarta to Perth",
+    "dateDeparture": "",
+    "dateArrival": "02-07-20",
+    "closeContactRow": "5, 6, 7, 8, 9"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "QR900",
+    "airline": "Qatar",
+    "path": "Doha to Perth",
+    "dateDeparture": "",
+    "dateArrival": "02-07-20",
+    "closeContactRow": "19, 20, 21, 22, 23, 24"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "EK420",
+    "airline": "Emirates",
+    "path": "Dubai to Perth",
+    "dateDeparture": "",
+    "dateArrival": "01-07-20",
+    "closeContactRow": "26, 27, 28, 29, 30, 31"
+  },
+  {
+    "reportState": "WA",
     "flightNo": "QR900",
     "airline": "Qatar",
     "path": "Doha to Perth",
@@ -463,8 +490,8 @@
     "flightNo": "JQ510",
     "airline": "Jetstar",
     "path": "Melbourne to Sydney",
-    "dateDeparture": "26-04-20",
-    "dateArrival": "26-04-20",
+    "dateDeparture": "26-06-20",
+    "dateArrival": "26-06-20",
     "closeContactRow": "1, 2, 3, 4"
   },
   {
@@ -523,11 +550,47 @@
   },
   {
     "reportState": "NSW",
+    "flightNo": "QR908",
+    "airline": "Qatar Airways",
+    "path": "Doha/Sydney",
+    "dateDeparture": "1-07-20",
+    "dateArrival": "2-07-20",
+    "closeContactRow": "29, 30, 31, 32, 33"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK414",
+    "airline": "Emirates",
+    "path": "Kabul/Sydney",
+    "dateDeparture": "28-06-20",
+    "dateArrival": "29-06-20",
+    "closeContactRow": "30, 31, 32, 33, 34"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QR908",
+    "airline": "Qatar Airways",
+    "path": "Doha/Sydney",
+    "dateDeparture": "28-06-20",
+    "dateArrival": "29-06-20",
+    "closeContactRow": "18, 19, 20, 21, 22"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QR908",
+    "airline": "Qatar Airways",
+    "path": "Doha/Sydney",
+    "dateDeparture": "21-06-20",
+    "dateArrival": "22-06-20",
+    "closeContactRow": "31, 32, 33, 34, 35"
+  },
+  {
+    "reportState": "NSW",
     "flightNo": "EK414",
     "airline": "Emirates",
     "path": "Dubai to Sydney",
-    "dateDeparture": "23-04-20",
-    "dateArrival": "24-04-20",
+    "dateDeparture": "23-06-20",
+    "dateArrival": "24-06-20",
     "closeContactRow": "36, 37, 38, 39, 40"
   },
   {
@@ -535,8 +598,8 @@
     "flightNo": "SV3054",
     "airline": "Saudi Airlines",
     "path": "Jeddah to Sydney",
-    "dateDeparture": "22-04-20",
-    "dateArrival": "23-04-20",
+    "dateDeparture": "22-06-20",
+    "dateArrival": "23-06-20",
     "closeContactRow": "53, 54, 55, 56, 57"
   },
   {
@@ -544,8 +607,8 @@
     "flightNo": "QR908",
     "airline": "Qatar Airways",
     "path": "Doha to Sydney",
-    "dateDeparture": "17-04-20",
-    "dateArrival": "18-04-20",
+    "dateDeparture": "17-06-20",
+    "dateArrival": "18-06-20",
     "closeContactRow": "41"
   },
   {
@@ -553,8 +616,8 @@
     "flightNo": "EK414",
     "airline": "Emirates",
     "path": "Dubai to Sydney",
-    "dateDeparture": "16-04-20",
-    "dateArrival": "17-04-20",
+    "dateDeparture": "16-06-20",
+    "dateArrival": "17-06-20",
     "closeContactRow": "45, 46, 47, 48, 49"
   },
   {
@@ -562,8 +625,8 @@
     "flightNo": "QR908",
     "airline": "Qatar Airways",
     "path": "Doha to Sydney",
-    "dateDeparture": "13-04-20",
-    "dateArrival": "14-04-20",
+    "dateDeparture": "13-06-20",
+    "dateArrival": "14-06-20",
     "closeContactRow": "15, 16, 17, 18, 19"
   },
   {
@@ -571,8 +634,8 @@
     "flightNo": "QR908",
     "airline": "Qatar Airways",
     "path": "Doha to Sydney",
-    "dateDeparture": "12-04-20",
-    "dateArrival": "13-04-20",
+    "dateDeparture": "12-06-20",
+    "dateArrival": "13-06-20",
     "closeContactRow": "34, 35, 36, 37, 38"
   },
   {
@@ -580,8 +643,8 @@
     "flightNo": "EK414",
     "airline": "Emirates",
     "path": "Dubai to Sydney",
-    "dateDeparture": "11-04-20",
-    "dateArrival": "12-04-20",
+    "dateDeparture": "11-0620",
+    "dateArrival": "12-06-20",
     "closeContactRow": "15, 16, 17, 18, 19, 20, 21, 22, 23, 24"
   },
   {
@@ -589,8 +652,8 @@
     "flightNo": "QR908",
     "airline": "Qatar Airways",
     "path": "Doha to Sydney ",
-    "dateDeparture": "9-04-20",
-    "dateArrival": "10-04-20",
+    "dateDeparture": "9-06-20",
+    "dateArrival": "10-06-20",
     "closeContactRow": "20, 21, 22, 23, 24"
   },
   {
