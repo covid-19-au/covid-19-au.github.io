@@ -1,6 +1,14 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victoria-records-75-new-coronavirus-cases-as-authorities-warn-it-will-get-worse-before-it-gets-better",
+            "title": "Victoria records 75 new coronavirus cases as authorities warn 'it will get worse before it gets better'",
+            "source": "SBSNews",
+            "date": "29 June 2020",
+            "time": "16:00",
+            "summary": "Victoria has recorded 75 new coronavirus infections, bringing the state's confirmed total to 2099 cases. It is the state's fourth-highest daily total since the start of the pandemic. The state has recorded cases in the double-digits for 13 days in a row. Victorian Chief Medical Officer Brett Sutton called the new numbers \"absolutely concerning\". \"I think it will get worse before it gets better,\" he said on Monday. Mr Sutton left the door open to suburban lockdowns."
+        },
+        {
             "link": "https://www.sbs.com.au/news/victoria-introduces-mandatory-coronavirus-testing-for-travellers-flags-melbourne-lockdowns-after-recording-49-new-cases",
             "title": "Victoria introduces mandatory coronavirus testing for travellers, flags Melbourne lockdowns after recording 49 new cases",
             "source": "SBSNews",
