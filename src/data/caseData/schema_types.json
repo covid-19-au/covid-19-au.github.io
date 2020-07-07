@@ -55,6 +55,7 @@
             "admin_1_fi.json",
             "admin_1_kz.json",
             "admin_1_gh.json",
+            "np_district.json",
             "in_district_in-hr.json",
             "us_county_us-co.json",
             "jp_city_カナダ.json",
@@ -66,6 +67,7 @@
             "us_county_us-pr.json",
             "admin_1_greece.json",
             "jp_city_アイルランド.json",
+            "admin_1_np.json",
             "admin_1_in.json",
             "ca_health_region.json",
             "us_county_us-wy.json",
@@ -88,6 +90,7 @@
             "uk_area.json",
             "admin_1_pt.json",
             "admin_1_il.json",
+            "admin_1_rs.json",
             "br_city_br-ms.json",
             "in_district_in-hp.json",
             "admin_1_sierra leone.json",
@@ -109,6 +112,7 @@
             "in_district_in-kl.json",
             "admin_1_ng.json",
             "lk_district.json",
+            "admin_1_mk.json",
             "us_county_us-pa.json",
             "admin_1_hk.json",
             "admin_1_ua.json",
@@ -410,6 +414,7 @@
             "jp_city_jp-23.geojson",
             "admin_1_xk.geojson",
             "jp_city_jp-20.geojson",
+            "np_district.geojson",
             "admin_1_kz.geojson",
             "admin_1_me.geojson",
             "br_city_br-se.geojson",
@@ -1208,6 +1213,12 @@
             "min_zoom": 4,
             "priority": 5,
             "line_width": 0.5,
+            "split_by_parent_region": false
+        },
+        "np_district": {
+            "iso_3166": "np",
+            "min_zoom": 5,
+            "priority": 5,
             "split_by_parent_region": false
         },
         "nz_dhb": {
@@ -6023,89 +6034,47 @@
             -62.151,
             16.777
         ],
-        "np-ka": [
-            81.268,
-            28.72,
-            83.661,
-            30.414
+        "np-p1": [
+            86.179,
+            26.348,
+            88.201,
+            28.113
         ],
-        "np-ma": [
-            80.034,
-            28.572,
-            81.084,
-            30.21
+        "np-p2": [
+            84.484,
+            26.425,
+            87.013,
+            27.458
         ],
-        "np-se": [
-            80.493,
-            28.389,
-            81.781,
-            30.072
+        "np-p3": [
+            83.92,
+            26.919,
+            86.573,
+            28.386
         ],
-        "np-dh": [
-            82.889,
-            28.004,
-            84.231,
-            29.292
+        "np-p4": [
+            82.879,
+            27.438,
+            85.198,
+            29.331
         ],
-        "np-ga": [
-            83.502,
-            27.758,
-            85.168,
-            28.914
+        "np-p5": [
+            81.059,
+            27.333,
+            84.027,
+            28.869
         ],
-        "np-ba": [
-            84.645,
-            27.356,
-            86.055,
-            28.332
+        "np-p6": [
+            80.982,
+            28.164,
+            83.679,
+            30.445
         ],
-        "np-ja": [
-            85.355,
-            26.572,
-            86.59,
-            28.157
-        ],
-        "np-sa": [
-            86.146,
-            26.415,
-            87.171,
-            28.107
-        ],
-        "np-ko": [
-            86.906,
-            26.346,
-            87.738,
-            27.951
-        ],
-        "np-me": [
-            87.446,
-            26.367,
-            88.169,
-            27.907
-        ],
-        "np-bh": [
-            80.992,
-            27.851,
-            82.568,
-            29.126
-        ],
-        "np-ra": [
-            81.964,
-            27.666,
-            83.148,
-            28.985
-        ],
-        "np-lu": [
-            82.674,
-            27.332,
-            84.426,
-            28.259
-        ],
-        "np-na": [
-            83.922,
-            26.737,
-            85.517,
-            27.881
+        "np-p7": [
+            80.059,
+            28.395,
+            81.808,
+            30.247
         ],
         "gn-fa": [
             -11.449,
