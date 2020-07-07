@@ -172,10 +172,6 @@ export default function Area({ area, onChange, data }) {
       {renderArea()}
       <Total data={data} />
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        <sup>&#x5e;</sup> NSW 7 new cases, 3 previous excluded, VIC 191 new cases, 27 previous reclassified.
-      </span>
-        <br />
-        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         <sup>&#x5e;</sup> NSW active cases are locally acquired COVID-19 cases with onset in the last four weeks.
       </span>
         <br />
