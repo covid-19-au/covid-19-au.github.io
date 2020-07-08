@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/jul/08/josh-frydenberg-says-coalition-may-bring-forward-tax-cuts-and-extend-income-support-past-september",
+            "title": "Josh Frydenberg says Coalition will extend income support and may bring forward tax cuts ",
+            "source": "TheGuardian",
+            "date": "8 July 2020",
+            "time": "15:52",
+            "summary": "The Morrison government is considering bringing forward income tax cuts and will extend income support beyond September, the treasurer, Josh Frydenberg, has said. Frydenberg and the prime minister, Scott Morrison, have been increasingly frank about the need for the extension of economic supports as Victoria re-enters a six-week lockdown to fight the spread of Covid-19. Although the income tax cut proposal is yet to go to cabinet and the government’s decision on extending the $70bn jobkeeper program will not be announced until 23 July, Victorian businesses are requesting an extra two months of wage subsidies citing the new lockdown. It comes as banks have announced they will extend the six-month suspension of loan repayments by a further four months for business loan and mortgage customers who are still experiencing financial hardship."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-08/nsw-coronavirus-breach-as-passengers-from-melbourne-not-screened/12433286",
+            "title": "NSW-Victoria coronavirus breach after Melbourne Jetstar flight lands in Sydney where passengers aren't screened for COVID-19",
+            "source": "ABCNews",
+            "date": "8 July 2020",
+            "time": "19:13",
+            "summary": "Passengers on a flight from Melbourne to Sydney last night disembarked without being screened by NSW Health officials, in a major breach of the state's coronavirus protocols. An email from Sydney Airport leaked to the ABC claims Jetstar breached NSW Government health orders by allowing travellers on flight JQ520, which landed at 6:53pm, to get off without being checked. Federal Health Minister Greg Hunt said his department would seek answers from the Victorian and New South Wales governments."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/australia-set-to-cap-international-flights-to-contain-spike-in-coronavirus-cases",
+            "title": "Australia set to cap international flights to contain spike in coronavirus cases",
+            "source": "SBSNews",
+            "date": "8 July 2020",
+            "time": "17:29",
+            "summary": "Australia will reduce the number of international flights entering the country to ease pressure on hotel quarantine amid Melbourne's coronavirus outbreak. Prime Minister Scott Morrison will unveil a plan to cut the number of international flights at Friday's national cabinet meeting with state premiers. \"In Victoria, we have suspended those flights coming in and that has meant that people have moved on to other flights going into other capitals,\"he told reporters in Canberra on Wednesday."
+        },
+        {
             "link": "https://www.sbs.com.au/news/metropolitan-melbourne-put-into-six-week-lockdown-after-surge-of-191-new-coronavirus-infections",
             "title": "Metropolitan Melbourne put into six-week lockdown after surge of 191 new coronavirus infections",
             "source": "SBSNews",
@@ -111,30 +135,6 @@
             "date": "1 July 2020",
             "time": "12:32",
             "summary": "Melbourne residents of COVID-19 outbreak areas who seek to enter NSW could from Thursday face six months' imprisonment or a fine of $11,000. NSW residents who return from Melbourne hotspot areas, meanwhile, will be required to self-isolate at home for 14 days. People trying to enter NSW stadiums from Wednesday may be required to show their driver's licence to prove they're not from Victoria."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-reimposes-stay-at-home-orders-on-coronavirus-hotspots-for-four-weeks",
-            "title": "Victoria reimposes 'stay-at-home' orders on coronavirus hotspots for four weeks",
-            "source": "SBSNews",
-            "date": "30 June 2020",
-            "time": "17:30",
-            "summary": "Victorians living in suburbs at the centre of fresh coronavirus outbreaks will only be allowed to leave their house for essential activities from Wednesday night. Premier Daniel Andrews on Tuesday announced stay-at-home orders would be reimposed on coronavirus hotspots after a 14th-straight day of double-digit growth in new cases. Under the restrictions, people can only leave their homes for four reasons: to exercise, go to school or work, undertake care responsibilities, and buy food and other essentials. The lockdown applies to 10 postcodes in western and northern Melbourne and could affect more than 300,000 people."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/south-australia-scraps-plan-to-lift-border-restrictions-on-20-july-amid-victoria-coronavirus-spike",
-            "title": "South Australia scraps plan to lift border restrictions on 20 July amid Victoria coronavirus spike",
-            "source": "SBSNews",
-            "date": "30 June 2020",
-            "time": "12:00",
-            "summary": "South Australia has scrapped a plan to lift all its remaining border restrictions next month amid the spike in coronavirus cases in Victoria. Premier Steven Marshall says the 20 July date to lift quarantine measures for Victoria, NSW and the ACT has been abandoned on the latest health advice. He says the state may move separately on NSW and the ACT but can't make any move in relation to Victoria in the current circumstances. "
-        },
-        {
-            "link": "https://www.brisbanetimes.com.au/politics/queensland/queensland-will-reopen-its-borders-on-july-10-but-not-to-victorians-20200630-p557ij.html",
-            "title": "Queensland will reopen its borders on July 10, but not to Victorians",
-            "source": "BrisbaneTimes",
-            "date": "30 June 2020",
-            "time": "14:12",
-            "summary": "Queensland will reopen its borders on July 10, but travel from Victoria will remain restricted. Premier Annastacia Palaszczuk said anyone who had travelled from Victoria, including Queensland residents, would be prevented from entering the state unless they quarantined at a hotel at their own expense.  From midnight on Friday anyone entering Queensland from Victoria will have to pay for their own hotel quarantine. The only people who will be exempt from mandatory quarantine are essential workers, meaning residents who have travelled south for compassionate reasons will have to cough up $200 for each day of their fortnight's stay. "
         }
     ]
 }
