@@ -117,7 +117,10 @@ export default function Area({ area, onChange, data }) {
               : null}
           </div>
         </div>
-        <div className="tested">{numberWithCommas(x[TESTED])}</div>
+        <div className="tested">{
+            x[0] ==="VIC"?(numberWithCommasLarge(x[TESTED])):
+                (numberWithCommas(x[TESTED]))
+        }</div>
       </div>
     ));
   };
@@ -171,6 +174,10 @@ export default function Area({ area, onChange, data }) {
       </div>
       {renderArea()}
       <Total data={data} />
+        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+        <sup>&#x5e;</sup> NSW 8 new cases, 1 previous excluded, VIC 134 new cases, 16 previous excluded.
+      </span>
+        <br />
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         <sup>&#x5e;</sup> NSW active cases are locally acquired COVID-19 cases with onset in the last four weeks.
       </span>
