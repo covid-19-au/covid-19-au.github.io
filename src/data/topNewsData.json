@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/restrictions-to-ease-in-eight-of-melbourne-s-locked-down-public-housing-towers",
+            "title": "Restrictions to ease in eight of Melbourne's locked-down public housing towers",
+            "source": "SBSNews",
+            "date": "9 July 2020",
+            "time": "17:30",
+            "summary": "A hard lockdown is set to end for eight of the public housing estates in Melbourne on Saturday, meaning people will be able to leave for essential purposes. All towers, except the 33 Alfred Street estate, will move to Stage 3 restrictions, in line with the rest of metropolitan Melbourne. This means residents will be able to leave for essential work, study, exercise or care responsibilities. Tenants in the Alfred Street building, where there have been 53 cases of COVID-19, will have to remain inside for another nine days. However, they will be allowed to have supervised exercise outside."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jul/09/nsw-victoria-border-control-to-be-in-place-for-at-least-six-weeks-as-queensland-and-sa-clamp-down",
+            "title": "NSW-Victoria border control to be in place for at least six weeks as Queensland and SA clamp down ",
+            "source": "TheGuardian",
+            "date": "9 July 2020",
+            "time": "17:40",
+            "summary": "Border controls between Victoria and New South Wales will remain in place for at least six weeks, while Queensland will turn Victorians away at the border and South Australia will require those permitted into the state to wear face masks. Meanwhile, Tasmania has extended its state of emergency until 31 August, in response to the Melbourne outbreak, but will consider reopening its borders to other states."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/jul/08/josh-frydenberg-says-coalition-may-bring-forward-tax-cuts-and-extend-income-support-past-september",
             "title": "Josh Frydenberg says Coalition will extend income support and may bring forward tax cuts ",
             "source": "TheGuardian",
@@ -111,30 +127,6 @@
             "date": "2 July 2020",
             "time": "23:00",
             "summary": "A Sydney man who spent two weeks in hotel quarantine in Victoria has tested positive for coronavirus after returning to NSW, sparking a crisis at the Woolworths he worked at. The store in Balmain, in Sydney's inner-west, has told 50 staff to self-isolate, and NSW Health Minister Brad Hazzard warned anyone who had been to the supermarket to be \"alert\". NSW chief health officer Kerry Chant said the man worked in the self-service section of the grocery store and was considered to pose a low level of infection risk. The man had recently returned from Bangladesh and had been quarantining in a Melbourne hotel, where he was deemed not to be infectious despite returning a positive test there. "
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-01/nsw-coronavirus-eased-restrictions-bring-different-winter-break/12401160",
-            "title": "As NSW coronavirus restrictions ease further, here's what has changed from today",
-            "source": "ABCNews",
-            "date": "1 July 2020",
-            "time": "09:00",
-            "summary": "Today brings a raft of eased NSW coronavirus restrictions right in time for school holidays, but the winter break is going to look a little different this year. From today, indoor venues including pubs, cafes and restaurants, as well as functions, can hold any number of people, as long as they remain seated and stick to one person per four square metres. This also includes weddings, which were previously subjected to separate limitations and capped at 20 guests. A maximum of 10,000 fans are allowed to fill stadiums for sporting or cultural events from today, while community sport can resume for kids and adults alike. The State Government has increased the capacity of public transport services from today, allowing 68 passengers on a train and 23 on a bus — double the cap implemented in May."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/people-refusing-to-get-tested-in-melbourne-s-hotspot-suburbs-could-face-fines-scott-morrison-warns",
-            "title": "People refusing to get tested in Melbourne's hotspot suburbs could face fines, Scott Morrison warns",
-            "source": "SBSNews",
-            "date": "1 July 2020",
-            "time": "11:32",
-            "summary": "Prime Minister Scott Morrison has raised the prospect of fines for people refusing to get coronavirus tests as Melbourne grapples with an outbreak, but Premier Daniel Andrews says people will not be forced to take tests. Scott Morrison has thrown his support behind the Victorian government's tough suburban lockdowns designed to save Melbourne from coronavirus. The prime minister has also warned people who refuse to be checked for the disease could face fines as a hotspot testing blitz continues. But Mr Andrews said Victorians will not be forced into taking tests in the lockdown areas because it would be logistically difficult and only possible if police accompanied testing staff door to door."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victorian-hotspot-residents-will-be-banned-from-nsw-and-fined-11-000-if-they-try-to-enter-state",
-            "title": "Victorian hotspot residents will be banned from NSW and fined $11,000 if they try to enter state",
-            "source": "SBSNews",
-            "date": "1 July 2020",
-            "time": "12:32",
-            "summary": "Melbourne residents of COVID-19 outbreak areas who seek to enter NSW could from Thursday face six months' imprisonment or a fine of $11,000. NSW residents who return from Melbourne hotspot areas, meanwhile, will be required to self-isolate at home for 14 days. People trying to enter NSW stadiums from Wednesday may be required to show their driver's licence to prove they're not from Victoria."
         }
     ]
 }

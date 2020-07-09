@@ -12,6 +12,48 @@ const CURED = 3;
 const TESTED = 4;
 const ACTIVE = 5;
 const NONEWCASES = 8;
+const REASSIGNED = 9;
+
+
+function ReassignedCaseDisclaimer({ reassignedData }) {
+  console.log("below this")
+  console.log(reassignedData)
+
+  let displayStates = {}
+
+  for (let state in reassignedData) {
+    if (reassignedData[state][1] > 0) {
+      displayStates[state] = []
+      displayStates[state].push(reassignedData[state][0])
+      displayStates[state].push(reassignedData[state][1])
+    }
+  }
+
+  const display = []
+
+  for (let state in displayStates) {
+    display.push(
+      <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+        *{state} has {displayStates[state][0]} new cases, {displayStates[state][1]} previous cases have been reclassified
+      </span>
+    )
+  }
+  console.log(display)
+
+  return (
+
+    <div>
+      {
+        display.map(item => (
+          <div>{item}</div>
+        )
+        )
+      }
+    </div>
+  )
+
+
+}
 
 export default function Area({ area, onChange, data }) {
   let totalRecovered = 0;
@@ -30,11 +72,21 @@ export default function Area({ area, onChange, data }) {
 
     ${recovered} recovered and ${tested} were tested`;
   };
+  const reassignedCases = {}
+  let i = 0
+  while (i < data.length) {
+    let currentState = data[i][0]
+    reassignedCases[data[i][0]] = []
+    reassignedCases[data[i][0]].push(data[i][CONFIRMED] - lastTotal[currentState][0])
+    reassignedCases[data[i][0]].push(parseInt(data[i][REASSIGNED]))
+    reassignedCases[currentState][0] = reassignedCases[currentState][0] + reassignedCases[currentState][1]
+    i = i + 1
+  }
 
   const renderArea = () => {
     let latest =
       testedCases[
-        Object.keys(testedCases)[Object.keys(testedCases).length - 1]
+      Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
     return data.map((x) => (
       <div
@@ -73,25 +125,25 @@ export default function Area({ area, onChange, data }) {
           </A>
         </div>
         <div className="confirmed">
-          <strong>{numberWithCommas(x[CONFIRMED])}</strong>&nbsp;
+          {reassignedCases[x[0]][1] > 0 ? <strong>{numberWithCommas(x[CONFIRMED])}*</strong> : <strong>{numberWithCommas(x[CONFIRMED])}</strong>}&nbsp;
           {x[NONEWCASES] === "true" ? (
             <div className="dailyIncrease">(+0)</div>
           ) : (
-            <div className="dailyIncrease">
-              {x[CONFIRMED] - lastTotal[x[0]][0] > 0
-                ? `(+${x[1] - lastTotal[x[0]][0]})`
-                : x[CONFIRMED] - lastTotal[x[0]][0] < 0
-                ? `(-${lastTotal[x[0]][0] - x[1]})`
-                : null}
-            </div>
-          )}
+              <div className="dailyIncrease">
+                {x[CONFIRMED] - lastTotal[x[0]][0] > 0
+                  ? `(+${x[1] - lastTotal[x[0]][0]})`
+                  : x[CONFIRMED] - lastTotal[x[0]][0] < 0
+                    ? `(-${lastTotal[x[0]][0] - x[1]})`
+                    : null}
+              </div>
+            )}
         </div>
         <div className="death">
           {x[0] === "NSW" || x[0] === "QLD" ? (
             <strong> {numberWithCommas(x[DEATH])}&#x5e; </strong>
           ) : (
-            <strong> {numberWithCommas(x[DEATH])} </strong>
-          )}
+              <strong> {numberWithCommas(x[DEATH])} </strong>
+            )}
           &nbsp;
           <div className="dailyIncrease">
             {x[DEATH] - lastTotal[x[0]][1] > 0
@@ -113,13 +165,13 @@ export default function Area({ area, onChange, data }) {
             {x[ACTIVE] - lastTotal[x[0]][4] > 0
               ? `(+${x[ACTIVE] - lastTotal[x[0]][4]})`
               : x[ACTIVE] - lastTotal[x[0]][4] < 0
-              ? `(-${lastTotal[x[0]][4] - x[ACTIVE]})`
-              : null}
+                ? `(-${lastTotal[x[0]][4] - x[ACTIVE]})`
+                : null}
           </div>
         </div>
         <div className="tested">{
-            x[0] ==="VIC"?(numberWithCommasLarge(x[TESTED])):
-                (numberWithCommas(x[TESTED]))
+          x[0] === "VIC" ? (numberWithCommasLarge(x[TESTED])) :
+            (numberWithCommas(x[TESTED]))
         }</div>
       </div>
     ));
@@ -174,10 +226,12 @@ export default function Area({ area, onChange, data }) {
       </div>
       {renderArea()}
       <Total data={data} />
-        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+
+      <ReassignedCaseDisclaimer reassignedData={reassignedCases} />
+      <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         <sup>&#x5e;</sup> NSW active cases are locally acquired COVID-19 cases with onset in the last four weeks.
       </span>
-        <br />
+      <br />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         <sup>&#x5e;</sup> Two Queensland residents that passed away in NSW are
         included in the Queensland figure.
