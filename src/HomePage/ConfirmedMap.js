@@ -8,12 +8,12 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import Acknowledgement from "../Acknowledgment"
 import CovidMapControl from "./ConfirmedMap/CovidMapControl"
-import TreeMap from "./CrawlerDataVis/TreeMap"
-import AreaChart from "./CrawlerDataVis/AreaChart";
-import MultiDataTypeAreaChart from "./CrawlerDataVis/MultiDataTypeAreaChart"
+import RegionalCasesTreeMap from "./CrawlerDataVis/RegionalCases/RegionalCasesTreeMap"
+import RegionalCasesBarChart from "./CrawlerDataVis/RegionalCases/RegionalCasesBarChart";
+import MultiDataTypeBarChart from "./CrawlerDataVis/MultiDataTypeBarChart"
 import RegionType from "./CrawlerDataTypes/RegionType";
-import BubbleChart from "./CrawlerDataVis/BubbleChart"
-import PopulationPyramid from "./CrawlerDataVis/PopulationPyramid"
+import BubbleChart from "./CrawlerDataVis/RegionalCases/BubbleChart"
+import PopulationPyramid from "./CrawlerDataVis/AgeCharts/PopulationPyramid"
 
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
@@ -110,11 +110,12 @@ class ConfirmedMap extends React.Component {
                     </Tabs>
                 </Paper>
 
-                <AreaChart ref={(el) => this.areaChart = el} />
-                <MultiDataTypeAreaChart ref={(el) => this.multiDataTypeAreaChart = el} />
+                <RegionalCasesBarChart ref={(el) => this.areaChart = el} />
+                <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart = el} />
+                <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart2 = el} />
                 <BubbleChart ref={(el) => this.bubbleChart = el} />
                 <PopulationPyramid ref={(el) => this.populationPyramid = el} />
-                <TreeMap ref={(el) => this.treeMap = el} />
+                <RegionalCasesTreeMap ref={(el) => this.treeMap = el} />
 
                 <div ref={el => this.explanations = el} style={{
                     width: "100%",
@@ -183,7 +184,7 @@ class ConfirmedMap extends React.Component {
             new RegionType('admin_1', 'au', 'au-vic')
         );
 
-        /*casesInsts = [];
+        casesInsts = [];
         for (let dataType of [
             'status_deaths',
             'status_hospitalized',
@@ -198,10 +199,10 @@ class ConfirmedMap extends React.Component {
             if (i)
                 casesInsts.push(i);
         }
-        this.multiDataTypeAreaChart.setCasesInst(
+        this.multiDataTypeAreaChart2.setCasesInst(
             casesInsts,
             new RegionType('admin_1', 'au', 'au-vic')
-        );*/
+        );
 
         let femaleData = await this.covidMapControl.dataDownloader.getCaseData(
             'total_female', 'admin_1', 'au'
