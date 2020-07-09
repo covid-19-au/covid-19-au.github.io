@@ -1,3 +1,6 @@
+import mapboxgl from "mapbox-gl";
+
+
 class LngLatBounds {
     /**
      * A basic longitude/latitude type, meant to be used mainly for
@@ -35,6 +38,17 @@ class LngLatBounds {
     static fromMapbox(lngLatBounds) {
         let [lngLat1, lngLat2] = lngLatBounds.toArray();
         return new LngLatBounds(...lngLat1, ...lngLat2);
+    }
+
+    /**
+     *
+     * @returns {LngLat.LngLatBounds}
+     */
+    toMapBox() {
+        return new mapboxgl.LngLatBounds(
+            [this.lng1, this.lat1],
+            [this.lng2, this.lat2]
+        );
     }
 
     /**

@@ -102,6 +102,60 @@ class CasesData {
     }
 
     /*******************************************************************
+     * Get possible children
+     *******************************************************************/
+
+    /**
+     * Get all possible region children which
+     * don't have an associated age range
+     *
+     * @returns {*[]}
+     */
+    getRegionChildren() {
+        let r = new Set();
+        for (var [iRegion, iAgeRange, iValues] of this.data) {
+            if (!iAgeRange) {
+                r.add(iRegion)
+            }
+        }
+        return this.__regionChildrenToTypes(Array.from(r).sort());
+    }
+
+    /**
+     * Get all possibile region children which
+     * have an associated age range
+     *
+     * @returns {*[]}
+     */
+    getAgeRanges(regionType) {
+        let r = new Set();
+        for (var [iRegion, iAgeRange, iValues] of this.data) {
+            let iRegionType = new RegionType(
+                this.regionSchema, this.regionParent, iRegion
+            );
+            if (regionType.equalTo(iRegionType) && iAgeRange) {
+                r.add(iAgeRange)
+            }
+        }
+        return Array.from(r).sort();
+    }
+
+    /**
+     * Convert children to RegionType's with region schema/parent
+     *
+     * @param children
+     * @returns {[]}
+     * @private
+     */
+    __regionChildrenToTypes(children) {
+        let r = [];
+        for (let child of children) {
+            r.push(new RegionType(this.regionSchema, this.regionParent, child));
+        }
+        return r;
+    }
+
+    /*******************************************************************
      * Data processing: associate case nums
      *******************************************************************/
 
@@ -124,10 +178,21 @@ class CasesData {
             let properties = feature.properties;
 
             if (
-                (properties['regionSchema'] === 'admin_0' || properties['regionSchema'] === 'admin_1') &&
-                !iso3166WithinView.has(properties['regionChild'])
+                (
+                    properties['regionSchema'] === 'admin_0' ||
+                    properties['regionSchema'] === 'admin_1'
+                )
+                && !iso3166WithinView.has(properties['regionChild'])
             ) {
                 console.log(`Ignoring child due to not in view: ${properties['regionSchema']}->${properties['regionChild']}`);
+                continue;
+            }
+            else if (
+                properties['regionSchema'] !== 'admin_0' &&
+                properties['regionSchema'] !== 'admin_1' &&
+                !iso3166WithinView.has(this.regionParent)
+            ) {
+                console.log(`Ignoring *ALL* parent due to not in view: ${properties['regionSchema']}->${properties['regionChild']}`);
                 continue;
             }
             else if (

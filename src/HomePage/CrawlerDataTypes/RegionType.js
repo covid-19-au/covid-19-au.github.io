@@ -159,7 +159,7 @@ class RegionType {
     prettified(langCode) {
         // TODO: Localize the region parent too!!
         return (
-            `${this.getLocalized(this.regionChild, langCode)}, `+
+            `${this.getLocalized(langCode)}, `+
             `${this.regionParent ? (this.regionParent+' ') : ''}`+
             `(${this.regionSchema})`
         );
@@ -181,24 +181,24 @@ class RegionType {
      *        e.g. "en" or "zh" for Chinese
      * @returns {*}
      */
-    getLocalized(regionChild, langCode) {
+    getLocalized(langCode) {
         let hasLabels = (
             __labels[this.regionSchema] &&
             __labels[this.regionSchema][this.regionParent] &&
-            __labels[this.regionSchema][this.regionParent][regionChild]
+            __labels[this.regionSchema][this.regionParent][this.regionChild]
         );
 
-        if (hasLabels && __labels[this.regionSchema][this.regionParent][regionChild][langCode]) {
+        if (hasLabels && __labels[this.regionSchema][this.regionParent][this.regionChild][langCode]) {
             // Have a direct localization
-            return __labels[this.regionSchema][this.regionParent][regionChild][langCode];
+            return __labels[this.regionSchema][this.regionParent][this.regionChild][langCode];
         }
-        else if (hasLabels && __labels[this.regionSchema][this.regionParent][regionChild]['en']) {
+        else if (hasLabels && __labels[this.regionSchema][this.regionParent][this.regionChild]['en']) {
             // Fall back to English if one not available
-            return __labels[this.regionSchema][this.regionParent][regionChild]['en'];
+            return __labels[this.regionSchema][this.regionParent][this.regionChild]['en'];
         }
         else {
             // Give up and use region child code
-            return regionChild;
+            return this.regionChild;
         }
     }
 

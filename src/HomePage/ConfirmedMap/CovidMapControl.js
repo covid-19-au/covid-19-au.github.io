@@ -75,6 +75,10 @@ class CovidMapControl extends React.Component {
         this.dataDownloader = new DataDownloader();
     }
 
+    getValue() {
+
+    }
+
     /*******************************************************************
      * HTML Template
      *******************************************************************/
@@ -198,9 +202,33 @@ class CovidMapControl extends React.Component {
      * countries/regions in view, and hide/show as needed!
      */
     async onMapMoveChange() {
+        /**
+         *
+         * @param possibleSchemas
+         * @returns {Set<unknown>|*}
+         */
+        let filterToISO3166 = (possibleSchemas) => {
+            if (!this.__onlyShowISO_3166_2) {
+                return possibleSchemas
+            }
+            let r = new Set(),
+                iso_3166_2 = this.__onlyShowISO_3166_2.toLowerCase(),
+                iso_3166_a2 = iso_3166_2.split('-')[0];
+
+            for (let key of possibleSchemas.keys()) {
+                if (key === iso_3166_2 ||
+                    key === iso_3166_a2 ||
+                    key.split('-')[0] === iso_3166_2) {
+                    r.add(key);
+                    console.log("ADDING> "+key)
+                }
+            }
+            return r
+        };
+
         let zoomLevel = parseInt(this.map.getZoom()), // NOTE ME!!
             lngLatBounds = LngLatBounds.fromMapbox(this.map.getBounds()),
-            iso3166WithinView = this.dataDownloader.getISO3166WithinView(lngLatBounds),
+            iso3166WithinView = filterToISO3166(this.dataDownloader.getISO3166WithinView(lngLatBounds)),
             schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
                 zoomLevel, iso3166WithinView
             ),
@@ -328,6 +356,31 @@ class CovidMapControl extends React.Component {
 
     /**
      *
+     * @param iso_3166_2
+     */
+    setBoundsToRegion(iso_3166_2) {
+        let animOptions = {
+            animate: false
+        };
+
+        if (!iso_3166_2) {
+            // no boundary: show whole world
+            this.map.setMaxBounds([[-180, -90], [180, 90]]);
+            this.map.fitBounds([[-180, -90], [180, 90]], animOptions);
+            this.__onlyShowISO_3166_2 = iso_3166_2;
+        } else {
+            // ISO 3166-2
+            iso_3166_2 = iso_3166_2.toLowerCase();
+            let bounds = this.dataDownloader.getAdminBoundsForISO_3166_2(iso_3166_2).toMapBox();
+            this.map.setMaxBounds(bounds);
+            this.map.fitBounds(bounds, animOptions);
+            this.__onlyShowISO_3166_2 = iso_3166_2;
+        }
+        this._onControlsChange();
+    }
+
+    /**
+     *
      * @private
      */
     _onControlsChange() {
@@ -339,9 +392,15 @@ class CovidMapControl extends React.Component {
             "features": []
         };
 
-        this.clusteredCaseSource.setData(points);
-        this.casesSource.setData(polygons);
-        this.onMapMoveChange();
+        if (this.clusteredCaseSource) {
+            this.clusteredCaseSource.setData(points);
+        }
+        if (this.casesSource) {
+            this.casesSource.setData(polygons);
+        }
+        if (this.clusteredCaseSource && this.casesSource) {
+            this.onMapMoveChange();
+        }
     }
 }
 

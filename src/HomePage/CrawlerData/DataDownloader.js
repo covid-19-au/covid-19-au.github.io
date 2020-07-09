@@ -64,6 +64,10 @@ class DataDownloader {
         this.underlayDataListing = new Set(schemaTypes.listings.underlay_data_listing);
     }
 
+    getAdminBoundsForISO_3166_2(iso_3166_2) {
+        return this.adminBounds[iso_3166_2];
+    }
+
     /**************************************************************************
      * Download data based on coordinates
      **************************************************************************/
@@ -104,6 +108,7 @@ class DataDownloader {
      * @param lngLatBounds
      * @param dataType
      * @param schemasForCases
+     * @param onlyShowISO_3166_2 restrict to a given ISO 3166 2 code
      * @returns {Promise<void>}
      * @private
      */
