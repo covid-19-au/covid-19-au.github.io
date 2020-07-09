@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-01/nsw-coronavirus-eased-restrictions-bring-different-winter-break/12401160",
+            "title": "As NSW coronavirus restrictions ease further, here's what has changed from today",
+            "source": "ABCNews",
+            "date": "1 July 2020",
+            "time": "09:00",
+            "summary": "Today brings a raft of eased NSW coronavirus restrictions right in time for school holidays, but the winter break is going to look a little different this year. From today, indoor venues including pubs, cafes and restaurants, as well as functions, can hold any number of people, as long as they remain seated and stick to one person per four square metres. This also includes weddings, which were previously subjected to separate limitations and capped at 20 guests. A maximum of 10,000 fans are allowed to fill stadiums for sporting or cultural events from today, while community sport can resume for kids and adults alike. The State Government has increased the capacity of public transport services from today, allowing 68 passengers on a train and 23 on a bus — double the cap implemented in May."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/people-refusing-to-get-tested-in-melbourne-s-hotspot-suburbs-could-face-fines-scott-morrison-warns",
+            "title": "People refusing to get tested in Melbourne's hotspot suburbs could face fines, Scott Morrison warns",
+            "source": "SBSNews",
+            "date": "1 July 2020",
+            "time": "11:32",
+            "summary": "Prime Minister Scott Morrison has raised the prospect of fines for people refusing to get coronavirus tests as Melbourne grapples with an outbreak, but Premier Daniel Andrews says people will not be forced to take tests. Scott Morrison has thrown his support behind the Victorian government's tough suburban lockdowns designed to save Melbourne from coronavirus. The prime minister has also warned people who refuse to be checked for the disease could face fines as a hotspot testing blitz continues. But Mr Andrews said Victorians will not be forced into taking tests in the lockdown areas because it would be logistically difficult and only possible if police accompanied testing staff door to door."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victorian-hotspot-residents-will-be-banned-from-nsw-and-fined-11-000-if-they-try-to-enter-state",
+            "title": "Victorian hotspot residents will be banned from NSW and fined $11,000 if they try to enter state",
+            "source": "SBSNews",
+            "date": "1 July 2020",
+            "time": "12:32",
+            "summary": "Melbourne residents of COVID-19 outbreak areas who seek to enter NSW could from Thursday face six months' imprisonment or a fine of $11,000. NSW residents who return from Melbourne hotspot areas, meanwhile, will be required to self-isolate at home for 14 days. People trying to enter NSW stadiums from Wednesday may be required to show their driver's licence to prove they're not from Victoria."
+        },
+        {
             "link": "https://www.sbs.com.au/news/victoria-reimposes-stay-at-home-orders-on-coronavirus-hotspots-for-four-weeks",
             "title": "Victoria reimposes 'stay-at-home' orders on coronavirus hotspots for four weeks",
             "source": "SBSNews",
