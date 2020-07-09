@@ -16,8 +16,6 @@ const REASSIGNED = 9;
 
 
 function ReassignedCaseDisclaimer({ reassignedData }) {
-  console.log("below this")
-  console.log(reassignedData)
 
   let displayStates = {}
 
@@ -38,7 +36,6 @@ function ReassignedCaseDisclaimer({ reassignedData }) {
       </span>
     )
   }
-  console.log(display)
 
   return (
 
