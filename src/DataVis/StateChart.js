@@ -1,25 +1,33 @@
 import React, { Fragment } from "react";
 import Grid from "@material-ui/core/Grid";
 import ageGenderData from "../data/ageGender";
-import stateData from "../data/state";
 import ReactGA from "react-ga";
 import latestAusData from "../data/stateCaseData";
-import Tag from "../HomePage/Tag";
 
 import AgeChart from "./AgeChart";
 import GenderChart from "./GenderChart";
 import GeneralBarChart from "./GeneralBarChart";
 import GeneralLineChart from "./GeneralLineChart";
+import renderStatus from "./renderStatus";
+import RegionalCasesBarChart from "../HomePage/CrawlerDataVis/RegionalCases/RegionalCasesBarChart";
+import MultiDataTypeBarChart from "../HomePage/CrawlerDataVis/MultiDataTypeBarChart";
+import BubbleChart from "../HomePage/CrawlerDataVis/RegionalCases/BubbleChart";
+import PopulationPyramid from "../HomePage/CrawlerDataVis/AgeCharts/PopulationPyramid";
+import RegionalCasesTreeMap from "../HomePage/CrawlerDataVis/RegionalCases/RegionalCasesTreeMap";
+import RegionType from "../HomePage/CrawlerDataTypes/RegionType";
+import DataDownloader from "../HomePage/CrawlerData/DataDownloader";
+import ConfirmedMap from "../HomePage/ConfirmedMap"
+import Acknowledgement from "../Acknowledgment";
 
 const stateNameMapping = {
-  VIC: "Victoria",
-  NSW: "New South Wales",
-  QLD: "Queensland",
-  ACT: "Australian Capital Territory",
-  SA: "South Australia",
-  WA: "Western Australia",
-  TAS: "Tasmania",
-  NT: "Northern Territory",
+    VIC: "Victoria",
+    NSW: "New South Wales",
+    QLD: "Queensland",
+    ACT: "Australian Capital Territory",
+    SA: "South Australia",
+    WA: "Western Australia",
+    TAS: "Tasmania",
+    NT: "Northern Territory",
 };
 
 /**
@@ -28,223 +36,204 @@ const stateNameMapping = {
  * @return {Object} object which contains age and gender data for a specific state. Return null if the choosen state data is not available
  */
 function getExpectStateData(state) {
-  return state.toUpperCase() in ageGenderData ? ageGenderData[state] : null;
+    return state.toUpperCase() in ageGenderData ? ageGenderData[state] : null;
 }
 
-/**
- * get latest data for user selected state
- * @param {String} state user selected state
- * @return {Array} latest data of user choosen state
- */
-function getLastData(state) {
-  return stateData[Object.keys(stateData)[Object.keys(stateData).length - 1]][
-    state
-  ];
-}
-
-/**
- * Render the state's status table
- * @param {String} state user selected state
- */
-function renderStatus(state) {
-  let lastData = getLastData(state.toUpperCase());
-  let latestData = latestAusData["values"];
-  for (let i = 0; i < latestData.length; i++) {
-    if (latestData[i][0].toString() === state.toUpperCase()) {
-      latestData = latestData[i].slice(1, latestData.length);
+class StateChart extends React.Component {
+    constructor({ state }) {
+        super();
+        this.stateName = state;
+        this.dataDownloader = new DataDownloader();
     }
-  }
 
-  return (
-    <div>
-      <Grid container spacing={1} justify="center" wrap="wrap" style={{ padding: "5px" }}>
+    render() {
+        const statusUpdateTime = latestAusData["updatedTime"];
 
-        <Grid item xs={6} sm={4} lg={3}>
-          <Tag
-            number={numberWithCommas(latestData[0])}
-            fColor={"#ff603c"}
-            increased={latestData[0] - lastData[0]}
-            typeOfCases={"Confirmed"}
-          >
-            <button
-              className="hoverButton"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>"
-            >
-              Confirmed
-          </button>
+        // get choosen state data
+        const stateAgeGenderData = getExpectStateData(this.stateName);
 
-          </Tag>
-        </Grid>
-        <Grid item xs={6} sm={4} lg={3}>
-          <Tag
-            number={numberWithCommas(latestData[1])}
-            fColor={"#c11700"}
-            increased={latestData[1] - lastData[1]}
-            typeOfCases={"Death"}
-          >
-            <button
-              className="hoverButton"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>"
-            >
-              Deaths
-          </button>
-          </Tag>
-        </Grid>
-        <Grid item xs={6} sm={4} lg={3}>
-          <Tag
-            number={numberWithCommas(latestData[2])}
-            fColor={"#00c177"}
-            increased={latestData[2] - lastData[2]}
-            typeOfCases={"Recovered"}
-          >
-            <button
-              className="hoverButton"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="<em>Number of people that have recovered from COVID-19.</em>"
-            >
-              Recovered
-          </button>
-          </Tag>
-        </Grid>
-        <Grid item xs={6} sm={4} lg={3}>
-          <Tag
-            number={numberWithCommas(latestData[3])}
-            fColor={"#007cf2"}
-            increased={latestData[3] - lastData[3]}
-            typeOfCases={"Tested"}
-          >
-            <button
-              className="hoverButton"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="<em>Number of people that have been tested for COVID-19.</em>"
-            >
-              Tested
-          </button>
-          </Tag>
-        </Grid>
-        <Grid item xs={4} sm={4} lg={3}>
-          <Tag
-            number={numberWithCommas(latestData[0] - latestData[1] - latestData[2])}
-            fColor={"#f75c8d"}
-            increased={latestData[0] - latestData[1] - latestData[2] - lastData[0] + lastData[1] + lastData[2]}
-            typeOfCases={"Active"}
-          >
-            <button
-              className="hoverButton"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="<em>Existing confirmed cases that have not yet recovered.</em>"
-            >
-              Active
-          </button>
-          </Tag>
-        </Grid>
-        <Grid item xs={4} sm={4} lg={3}>
-          <Tag
-            number={numberWithCommas(latestData[4])}
-            fColor={"#9d71ea"}
-            increased={latestData[4] - lastData[4]}
-            typeOfCases={"In Hospital"}
-          >
-            <button
-              className="hoverButton"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="<em>Number of people in hospital with COVID-19.</em>"
-            >
-              in Hospital
-          </button>
-          </Tag>
-        </Grid>
-        <Grid item xs={4} sm={4} lg={3}>
-          <Tag
-            number={numberWithCommas(latestData[5])}
-            fColor={"#00aac1"}
-            increased={latestData[5] - lastData[5]}
-            typeOfCases={"ICU"}
-          >
-            <button
-              className="hoverButton"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="<em>Number of people with COVID-19 in intensive care.</em>"
-            >
-              in ICU
-          </button>
-          </Tag>
-        </Grid>
-      </Grid>
-    </div>
-  );
-}
+        ReactGA.pageview("/state/" + this.stateName);
 
-function StateChart({ state }) {
-  const statusUpdateTime = latestAusData["updatedTime"];
+        return (
+            <Grid container spacing={1} justify="center" wrap="wrap">
+                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                    <div className="card">
+                        <div className="table">
+                            {/* Display some basic current case stats */}
+                            <h2>{stateNameMapping[this.stateName]}</h2>
+                            {renderStatus(this.stateName.toUpperCase())}
 
-  // get choosen state data
-  const stateAgeGenderData = getExpectStateData(state);
+                            {/* Display "Current Statistics" chart */}
+                            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+                                Time in AEST, Last Update: {statusUpdateTime}
+                            </span>
+                        </div>
+                    </div>
 
-  ReactGA.pageview("/state/" + state);
+                    <div className="card">
+                        <h2>Current Statistics</h2>
+                        <GeneralBarChart state={this.stateName} />
+                    </div>
+                </Grid>
 
-  return (
-    <Grid container spacing={1} justify="center" wrap="wrap">
-      <Grid item xs={11} sm={11} md={4}>
-        <div className="card">
-          <div className="table">
-            <h2>{stateNameMapping[state]}</h2>
-            {renderStatus(state.toUpperCase())}
-            <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-              Time in AEST, Last Update: {statusUpdateTime}
-            </span>
-          </div>
-        </div>
-      </Grid>
-      <GeneralBarChart state={state} />
-      <GeneralLineChart state={state} />
-      {stateAgeGenderData !== null ? (
-        <Fragment>
-          <GenderChart state={state} />
-          <AgeChart state={state} />
-        </Fragment>
-      ) : (
-          <Grid item xs={11} sm={11} md={5}>
-            <h2 style={{ textAlign: "center" }}>
-              We are working on acquiring detailed age group and gender data for{" "}
-              {stateNameMapping[state]}!
-          </h2>
-            <br />
-            <h5 style={{ textAlign: "center" }}>
-              If you have reliable source for such data, please let us know
-            through{" "}
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
-                style={{ color: "blue", textDecoration: "underline" }}
-              >
-                this
-            </a>{" "}
-            form.
-          </h5>
-          </Grid>
-        )}
-    </Grid>
-  );
-}
+                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                    <div className="card" style={{
+                        display: 'flex',
+                        flexDirection: 'column'
+                    }}>
+                        <h2 style={{ display: 'flex' }}
+                            aria-label="Casemap">Case Map<div style={{
+                                alignSelf: "flex-end",
+                                marginLeft: "auto",
+                                fontSize: "60%"
+                            }}>
+                                <Acknowledgement>
+                                </Acknowledgement>
+                            </div>
+                        </h2>
+                        <ConfirmedMap stateName={'AU-'+this.stateName} />
+                    </div>
+                </Grid>
 
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                {stateAgeGenderData !== null || this.stateName === 'QLD' ? (
+                    <Fragment>
+                        {/* "Cases by Age Group" chart */}
+                        <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                            <div className="card">
+                                <h2>Gender and Age</h2>
+                                {stateAgeGenderData ? <GenderChart state={this.stateName} /> : ''}
+                                <PopulationPyramid ref={(el) => this.populationPyramid = el} />
+                            </div>
+                        </Grid>
+                    </Fragment>
+                ) : (
+                    <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                        <h2 style={{ textAlign: "center" }}>
+                            We are working on acquiring detailed age group and gender data for{" "}
+                            {stateNameMapping[this.stateName]}!
+                        </h2>
+                        <br />
+                        <h5 style={{ textAlign: "center" }}>
+                            If you have reliable source for such data, please let us know
+                            through{" "}
+                            <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
+                                style={{ color: "blue", textDecoration: "underline" }}
+                            >
+                                this
+                            </a>{" "}
+                            form.
+                        </h5>
+                    </Grid>
+                )}
+
+                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                    <div className="card">
+                        <h2>Historical Data</h2>
+                        {/* Display "Historical Statistics" chart */}
+                        <GeneralLineChart state={this.stateName} />
+                    </div>
+
+                    <div className="card">
+                        <h2>Infection Sources</h2>
+                        <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart = el} />
+                    </div>
+                </Grid>
+                {/*<Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                    <div className="card">
+                        <h2>Patient Status</h2>
+                        <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart2 = el} />
+                    </div>
+                </Grid>*/}
+                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                    <div className="card">
+                        <h2>Regional Heatmap</h2>
+                        <BubbleChart ref={(el) => this.bubbleChart = el} />
+                    </div>
+                </Grid>
+                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                    <div className="card">
+                        <h2>Regional Cases</h2>
+                        <RegionalCasesBarChart ref={(el) => this.areaChart = el} />
+                    </div>
+                    <div className="card">
+                        <h2>Regional Tree Map</h2>
+                        <RegionalCasesTreeMap ref={(el) => this.treeMap = el} />
+                    </div>
+                </Grid>
+            </Grid>
+        );
+    }
+
+    componentDidMount() {
+        this.__initPlotlyJSCharts();
+    }
+
+    async __initPlotlyJSCharts() {
+        // TODO: FIX NT!!!! ===========================================================================================
+
+        let regionParent = 'au-'+this.stateName.toLowerCase();
+
+        let totalCaseData = await this.dataDownloader.getCaseData(
+            'total', 'lga', regionParent
+        );
+        this.treeMap.setCasesInst(totalCaseData, 21);
+
+        let newCaseData = await this.dataDownloader.getCaseData(
+            'status_active', 'lga', regionParent
+        );
+        this.areaChart.setCasesInst(newCaseData);
+        this.bubbleChart.setCasesInst(newCaseData);
+
+        let casesInsts = [];
+        for (let dataType of [
+            'source_confirmed',
+            'source_community',
+            'source_under_investigation',
+            'source_overseas'
+        ]) {
+            casesInsts.push(await this.dataDownloader.getCaseData(
+                dataType, 'admin_1', 'au'
+            ));
+        }
+        this.multiDataTypeAreaChart.setCasesInst(
+            casesInsts,
+            new RegionType('admin_1', 'au', regionParent)
+        );
+
+        /*casesInsts = [];
+        for (let dataType of [
+            'status_deaths',
+            'status_hospitalized',
+            'status_icu',
+            'status_active',
+            //'status_recovered',
+            'status_unknown'
+        ]) {
+            let i = await this.dataDownloader.getCaseData(
+                dataType, 'admin_1', 'au'
+            );
+            if (i)
+                casesInsts.push(i);
+        }
+        this.multiDataTypeAreaChart2.setCasesInst(
+            casesInsts,
+            new RegionType('admin_1', 'au', regionParent)
+        );*/
+
+        if (this.populationPyramid) {
+            let femaleData = await this.dataDownloader.getCaseData(
+                'total_female', 'admin_1', 'au'
+            );
+            let maleData = await this.dataDownloader.getCaseData(
+                'total_male', 'admin_1', 'au'
+            );
+            this.populationPyramid.setCasesInst(
+                maleData, femaleData,
+                new RegionType('admin_1', 'au', regionParent)
+            );
+        }
+    }
 }
 
 export default StateChart;

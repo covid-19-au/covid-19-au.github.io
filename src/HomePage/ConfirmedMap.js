@@ -21,9 +21,11 @@ mapboxgl.accessToken = token;
 
 
 class ConfirmedMap extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor({ stateName }) {
+        super({ stateName });
         this.state = {};
+        this.showStateTabs = !stateName;
+        this.stateName = stateName || 'AU';
 
         this.stateUpdatedDates = []; // FIXME!!!
         this.accuracyWarning = React.createRef();
@@ -54,20 +56,7 @@ class ConfirmedMap extends React.Component {
         };
 
         return (
-            <div className="card" style={{
-                display: 'flex',
-                flexDirection: 'column'
-            }}>
-                <h2 style={{ display: 'flex' }}
-                    aria-label="Casemap">Case Map<div style={{
-                        alignSelf: "flex-end",
-                        marginLeft: "auto",
-                        fontSize: "60%"
-                    }}>
-                        <Acknowledgement>
-                        </Acknowledgement>
-                        </div></h2>
-
+            <div>
                 <Paper>
                     <Tabs
                     value={this.state ? this.state.iso_3166_2_tabs : 'AU'}
@@ -75,7 +64,9 @@ class ConfirmedMap extends React.Component {
                     textColor="primary"
                     onChange={(e, newValue) => this.__restrictToISO_3166_2(newValue)}
                     ref={(el) => this.iso_3166_2_tabs = el}
-                    >
+                    style={{
+                        display: this.showStateTabs ? 'block' : 'none'
+                    }}>
                         <Tab style={this.state.iso_3166_2_tabs === 'all' ? tabActiveStyle : tabStyle} label="World" value="all" />
                         <Tab style={this.state.iso_3166_2_tabs === 'AU' ? tabActiveStyle : tabStyle} label="Australia" value="AU" />
                         <Tab style={this.state.iso_3166_2_tabs === 'AU-VIC' ? tabActiveStyle : tabStyle} label="Vic" value="AU-VIC" />
@@ -92,30 +83,6 @@ class ConfirmedMap extends React.Component {
                     <CovidMapControl ref={el => this.covidMapControl = el} >
                     </CovidMapControl>
                 </div>
-
-                <Paper>
-                    <Tabs
-                    value={'treemap'}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    onChange={(e, newValue) => this.FIXME(newValue)}
-                    ref={(el) => this.visTabs = el}
-                    centered
-                    >
-                        <Tab style={tabStyle} label="Tree map" value="treemap" />
-                        <Tab style={tabStyle} label="Bar graph" value="bargraph" />
-                        <Tab style={tabStyle} label="Heat map" value="heatmap" />
-                        <Tab style={tabStyle} label="Area graph" value="areagraph" />
-                        <Tab style={tabStyle} label="Values Table" value="valuestable" />
-                    </Tabs>
-                </Paper>
-
-                <RegionalCasesBarChart ref={(el) => this.areaChart = el} />
-                <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart = el} />
-                <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart2 = el} />
-                <BubbleChart ref={(el) => this.bubbleChart = el} />
-                <PopulationPyramid ref={(el) => this.populationPyramid = el} />
-                <RegionalCasesTreeMap ref={(el) => this.treeMap = el} />
 
                 <div ref={el => this.explanations = el} style={{
                     width: "100%",
@@ -149,71 +116,10 @@ class ConfirmedMap extends React.Component {
     componentDidMount() {
         //this.explanations.parentNode.removeChild(this.explanations);
         //this.covidMapControl.addToMapContainer(this.explanations);
-        this.__restrictToISO_3166_2('AU');
-        this.__setToVicHack();
+        this.__restrictToISO_3166_2(this.stateName);
     }
 
     componentWillUnmount() {
-    }
-
-    async __setToVicHack() {
-        let totalCaseData = await this.covidMapControl.dataDownloader.getCaseData(
-            'total', 'lga', 'au-vic'
-        );
-        this.treeMap.setCasesInst(totalCaseData, 21);
-
-        let newCaseData = await this.covidMapControl.dataDownloader.getCaseData(
-            'status_active', 'lga', 'au-vic'
-        );
-        this.areaChart.setCasesInst(newCaseData);
-        this.bubbleChart.setCasesInst(newCaseData);
-
-        let casesInsts = [];
-        for (let dataType of [
-            'source_confirmed',
-            'source_community',
-            'source_under_investigation',
-            'source_overseas'
-        ]) {
-            casesInsts.push(await this.covidMapControl.dataDownloader.getCaseData(
-                dataType, 'admin_1', 'au'
-            ));
-        }
-        this.multiDataTypeAreaChart.setCasesInst(
-            casesInsts,
-            new RegionType('admin_1', 'au', 'au-vic')
-        );
-
-        casesInsts = [];
-        for (let dataType of [
-            'status_deaths',
-            'status_hospitalized',
-            'status_icu',
-            'status_active',
-            //'status_recovered',
-            'status_unknown'
-        ]) {
-            let i = await this.covidMapControl.dataDownloader.getCaseData(
-                dataType, 'admin_1', 'au'
-            );
-            if (i)
-                casesInsts.push(i);
-        }
-        this.multiDataTypeAreaChart2.setCasesInst(
-            casesInsts,
-            new RegionType('admin_1', 'au', 'au-vic')
-        );
-
-        let femaleData = await this.covidMapControl.dataDownloader.getCaseData(
-            'total_female', 'admin_1', 'au'
-        );
-        let maleData = await this.covidMapControl.dataDownloader.getCaseData(
-            'total_male', 'admin_1', 'au'
-        );
-        this.populationPyramid.setCasesInst(
-            maleData, femaleData,
-            new RegionType('admin_1', 'au', 'au-vic')
-        );
     }
 
     /*******************************************************************
