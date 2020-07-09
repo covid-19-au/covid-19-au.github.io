@@ -5,11 +5,8 @@ import ausPop from '../data/ausPop'
 import Acknowledgement from "../Acknowledgment"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import Radio from '@material-ui/core/Radio';
 import Tooltip from '@material-ui/core/Tooltip';
-import RadioGroup from '@material-ui/core/RadioGroup';
 
-import { Chart } from "react-google-charts";
 // import i18n bundle
 import i18next from '../i18n';
 
@@ -134,25 +131,6 @@ function GoogleMap({ province, newData }) {
     }, [province, mapType]);
 
 
-    const getOption = () => {
-        return {
-            region: 'AU', // ISO 3166-1 alpha-2 code for Australia
-            colorAxis: { colors: mapGradient },
-            backgroundColor: 'white',
-            datalessRegionColor: 'rgb(216,221,224)',
-            defaultColor: '#f5f5f5',
-            resolution: 'provinces'
-        }
-    };
-
-    // const toggleData = (value) => {
-    //     setMapType(value);
-    //     ReactGA.event({ category: 'casesMap', action: value});
-    //
-    // }
-
-
-
     const activeStyles = {
         color: 'black',
         borderColor: '#8ccfff',
@@ -198,21 +176,9 @@ function GoogleMap({ province, newData }) {
         marginBottom: "1rem"
     };
 
-
-    const handleChange = (mapType) => {
-        setMapType(mapType.target.value);
-    };
-
     return (
         loading ? <div className="loading">{i18next.t("homePage:misc.loadingText")}</div> :
             <div className="stateMap">
-                <h2 style={{ display: "flex" }} aria-label="Cases of COVID 19 by state">{i18next.t("homePage:caseByState.title")}{province ? `· ${province.name}` : false}
-                    <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
-                        <Acknowledgement>
-                        </Acknowledgement></div>
-
-                </h2>
-
                 {i18next.t("homePage:caseByState.buttonPrompt")}&nbsp;
                 <ButtonGroup aria-label="small outlined button group">
                     <Tooltip title="Confirmed cases so far" arrow>
@@ -231,21 +197,6 @@ function GoogleMap({ province, newData }) {
                         <Button style={mapType === "test-strike" ? activeStyles : inactiveStyles} value="test-strike" onClick={() => setMapType("test-strike")}>{i18next.t("homePage:status.positiveP")}</Button>
                     </Tooltip>
                 </ButtonGroup>
-
-
-                <Chart
-                    width={window.innerWidth < 960 ? '100%' : 'auto'}
-                    left="auto"
-                    align="right"
-                    top="40%"
-                    chartType="GeoChart"
-                    data={myData}
-                    options={getOption()}
-                    // Note: you will need to get a mapsApiKey for your project.
-                    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-                    mapsApiKey="YOUR_KEY_HERE"
-                    rootProps={{ 'data-testid': '3' }}
-                />
             </div>
     )
 }

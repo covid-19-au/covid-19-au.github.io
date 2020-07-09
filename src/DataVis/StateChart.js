@@ -18,6 +18,7 @@ import RegionType from "../HomePage/CrawlerDataTypes/RegionType";
 import DataDownloader from "../HomePage/CrawlerData/DataDownloader";
 import ConfirmedMap from "../HomePage/ConfirmedMap"
 import Acknowledgement from "../Acknowledgment";
+import AgeBarChart from "../HomePage/CrawlerDataVis/AgeCharts/AgeBarChart";
 
 const stateNameMapping = {
     VIC: "Victoria",
@@ -103,6 +104,7 @@ class StateChart extends React.Component {
                                 <h2>Gender and Age</h2>
                                 {stateAgeGenderData ? <GenderChart state={this.stateName} /> : ''}
                                 <PopulationPyramid ref={(el) => this.populationPyramid = el} />
+                                <AgeBarChart ref={(el) => this.ageBarChart = el} />
                             </div>
                         </Grid>
                     </Fragment>
@@ -232,6 +234,16 @@ class StateChart extends React.Component {
                 maleData, femaleData,
                 new RegionType('admin_1', 'au', regionParent)
             );
+        }
+
+        if (this.ageBarChart) {
+            let totalCaseData = await this.dataDownloader.getCaseData(
+                'total', 'admin_1', 'au'
+            );
+            this.ageBarChart.setCasesInst(
+                totalCaseData,
+                new RegionType('admin_1', 'au', regionParent)
+            )
         }
     }
 }

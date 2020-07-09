@@ -59,7 +59,7 @@ class ConfirmedMap extends React.Component {
             <div>
                 <Paper>
                     <Tabs
-                    value={this.state ? this.state.iso_3166_2_tabs : 'AU'}
+                    value={(this.state && this.state.iso_3166_2_tabs) ? this.state.iso_3166_2_tabs : 'AU'}
                     indicatorColor="primary"
                     textColor="primary"
                     onChange={(e, newValue) => this.__restrictToISO_3166_2(newValue)}

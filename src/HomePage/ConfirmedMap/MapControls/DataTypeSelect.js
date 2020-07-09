@@ -39,7 +39,7 @@ class DataTypeSelect extends React.Component {
 
         this.state = {
             timePeriod: null,
-            dataType: 'total',
+            dataType: 'status_active',
             enabled: true
         };
 
@@ -82,7 +82,11 @@ class DataTypeSelect extends React.Component {
             for (let [optGroupLabel, options] of schemaTypes.constant_select) {
                 out.push(`<optgroup label="${optGroupLabel}">`);
                 for (let [optionLabel, optionValue] of options) {
-                    out.push(`<option value="${optionValue}">${optionLabel}</option>`);
+                    if (optionValue === this.state.dataType) {
+                        out.push(`<option value="${optionValue}" selected>${optionLabel}</option>`);
+                    } else {
+                        out.push(`<option value="${optionValue}">${optionLabel}</option>`);
+                    }
                 }
                 out.push(`</optgroup>`);
             }
@@ -205,7 +209,11 @@ class DataTypeSelect extends React.Component {
      * @returns {DataTypeSelect._onTimePeriodChange.props}
      */
     getTimePeriod() {
-        return this.state.timePeriod;
+        if (schemaTypes.constants[this.state.dataType].timeperiods) {
+            return this.state.timePeriod;
+        } else {
+            return null;
+        }
     }
 
     /*******************************************************************

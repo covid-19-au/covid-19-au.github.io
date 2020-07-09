@@ -527,15 +527,7 @@ export default function Stat({
     }
 
     return (
-        <div className="card">
-
-            <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">{i18next.t("homePage:status.title")}{name ? `· ${name}` : false}
-                <div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
-                    <Acknowledgement>
-                    </Acknowledgement></div>
-
-            </h2>
-
+        <div>
             <Grid container spacing={1} justify="center" wrap="wrap" style={{ padding: "5px" }}>
 
                 <Grid item xs={6} sm={3} lg={3} xl={3}>
@@ -644,17 +636,7 @@ export default function Stat({
                 aria-label={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}
                 aria-describedby={getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
                 {i18next.t("homePage:status.note")}{stateCaseData.updatedTime}
-
-
             </span>
-
-
-            {/*<div>*/}
-            {/*<img width="100%" src={quanguoTrendChart[0].imgUrl} alt="" />*/}
-            {/*</div>*/}
-            {/*<div>*/}
-            {/*<img width="100%" src={hbFeiHbTrendChart[0].imgUrl} alt="" />*/}
-            {/*</div>*/}
         </div>
 
     );
