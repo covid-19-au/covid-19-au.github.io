@@ -72,7 +72,7 @@ class RegionalCasesBarChart extends React.Component {
                     data={this.state.data||[]}
                     layout={{
                         //width: '100%',
-                        height: 500,
+                        height: 50 + (30*(this.state.data ? this.state.data[0].x.length : 0)),
                         margin: {
                             l: 40,
                             r: 10,
@@ -80,11 +80,12 @@ class RegionalCasesBarChart extends React.Component {
                             t: 10,
                             pad: 0
                         },
+                        autosize: true,
                         barmode: 'stack',
                         xaxis: {
                             showgrid: true,
                             gridcolor: '#ddd',
-                            tickangle: 45
+                            //tickangle: 45
                         },
                         yaxis: {
                             showgrid: true,
@@ -96,7 +97,7 @@ class RegionalCasesBarChart extends React.Component {
                         responsive: true
                     }}
                     style={{
-                        'font-size': '15px'
+                        width: '100%'
                     }}
                 />
             </div>
@@ -124,12 +125,16 @@ class RegionalCasesBarChart extends React.Component {
                 yVals[yVals.length-1],
                 {
                     name: regionType.getLocalized(),
-                    type: 'bar',
+                    //type: 'bar',
                     stackgroup: 'one',
-                    x: xVals,
-                    y: yVals
+                    x: yVals,
+                    y: xVals,
+                    orientation: 'h',
+                    groupnorm: 'percent'
                 }
             ]);
+            // iData['groupnorm'] = 'percent';
+            //                 delete iData['type'];
         }
         data.sort((a, b) => a[0] - b[0]);
 

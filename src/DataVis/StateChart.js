@@ -100,6 +100,13 @@ class StateChart extends React.Component {
                     </div>
 
                     <div className="card">
+                        <h2>Gender Balance</h2>
+                        {stateAgeGenderData ? <GenderChart state={this.stateName} /> : ''}
+                    </div>
+                </Grid>
+
+                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                    <div className="card">
                         <h2>Infection Sources</h2>
                         <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart = el} />
                     </div>
@@ -110,9 +117,13 @@ class StateChart extends React.Component {
                         {/* "Cases by Age Group" chart */}
                         <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                             <div className="card">
-                                <h2>Gender and Age</h2>
-                                {stateAgeGenderData ? <GenderChart state={this.stateName} /> : ''}
+                                <h2>Age Distribution</h2>
                                 <PopulationPyramid ref={(el) => this.populationPyramid = el} />
+                            </div>
+                        </Grid>
+                        <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                            <div className="card">
+                                <h2>Age Distribution Over Time</h2>
                                 <AgeBarChart ref={(el) => this.ageBarChart = el} />
                             </div>
                         </Grid>
@@ -146,15 +157,15 @@ class StateChart extends React.Component {
                 </Grid>*/}
                 <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card">
-                        <h2>Regional Heatmap</h2>
+                        <h2>Most Active 10 Regions</h2>
                         <RegionalCasesHeatMap ref={(el) => this.bubbleChart = el} />
                     </div>
-                </Grid>
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card">
                         <h2>Regional Cases</h2>
                         <RegionalCasesBarChart ref={(el) => this.areaChart = el} />
                     </div>
+                </Grid>
+                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card">
                         <h2>Regional Tree Map</h2>
                         <RegionalCasesTreeMap ref={(el) => this.treeMap = el} />

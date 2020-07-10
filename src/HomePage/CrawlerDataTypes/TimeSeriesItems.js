@@ -24,7 +24,9 @@ SOFTWARE.
 
 import CasesData from "../CrawlerData/CasesData"
 import RegionType from "../CrawlerDataTypes/RegionType"
-import UnderlayData from "../CrawlerDataTypes/TimeSeriesItem"
+import UnderlayData from "../CrawlerData/UnderlayData"
+import TimeSeriesItem from "./TimeSeriesItem";
+import DateRangeType from "./DateRangeType";
 
 
 class TimeSeriesItems extends Array {
@@ -168,12 +170,61 @@ class TimeSeriesItems extends Array {
     }
 
     /**
+     * Assuming these values are totals, add samples subtracting from the previous sample.
+     *
+     * Note this is different to "new" or other "*_new" datatypes, which only adds new
+     * values when there are 2 consecutive days of samples. This therefore is suitable
+     * for day averages, but not other purposes.
+     */
+    getNewValuesFromTotals() {
+        let r = [];
+
+        for (let i=0; i<this.length-1; i++) {
+            let timeSeriesItem = this[i],
+                prevTimeSeriesItem = this[i+1];
+
+            r.push(new TimeSeriesItem(
+                timeSeriesItem.getDateType(),
+                prevTimeSeriesItem.getValue()-timeSeriesItem.getValue()
+            ));
+        }
+
+        let dateRangeType = new DateRangeType(
+            r[0].getDateType(), r[r.length-1].getDateType()
+        );
+        return new TimeSeriesItems(
+            this.dataSource, this.regionType, dateRangeType, this.ageRange, r
+        );
+    }
+
+    /**
      * Get the rolling average over a provided number of days
      *
      * @param overNumDays the number of days to average over
      */
     getDayAverage(overNumDays) {
+        // TODO: MAKE THIS OVER *DAYS* NOT *SAMPLES*!!! ==========================================
+        let r = [];
 
+        for (let i=0; i<this.length; i++) {
+            let totalVal = 0,
+                numVals = 0,
+                highestDate = this[i].getDateType();
+
+            for (let j=i; j<this.length && j<i+overNumDays; j++) {
+                totalVal += this[j].getValue();
+                numVals++;
+            }
+
+            r.push(new TimeSeriesItem(highestDate, totalVal/numVals));
+        }
+
+        let dateRangeType = new DateRangeType(
+            r[0].getDateType(), r[r.length-1].getDateType()
+        );
+        return new TimeSeriesItems(
+            this.dataSource, this.regionType, dateRangeType, this.ageRange, r
+        );
     }
 
     /**

@@ -128,9 +128,16 @@ class MultiDataTypeBarChart extends React.Component {
             let xVals = [],
                 yVals = [];
 
-            for (let timeSeriesItem of casesInst.getCaseNumberTimeSeries(regionType, null)||[]) {
+            let caseNumberTimeSeries = casesInst.getCaseNumberTimeSeries(regionType, null);
+            if (caseNumberTimeSeries) {
+                caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals().getDayAverage(7);
+            } else {
+                caseNumberTimeSeries = [];
+            }
+
+            for (let timeSeriesItem of caseNumberTimeSeries) {
                 xVals.push(timeSeriesItem.getDateType());
-                yVals.push(timeSeriesItem.getValue());
+                yVals.push((timeSeriesItem.getValue() >= 0) ? timeSeriesItem.getValue() : 0); // NOTE ME!!! ==========
             }
             if (!yVals.length) {
                 continue;

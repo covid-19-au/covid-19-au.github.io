@@ -41,7 +41,7 @@ class RegionalCasesHeatMap extends React.Component {
     render() {
         return (
             <div>
-                <Paper>
+                {/*<Paper>
                     <Tabs
                     value={'active'}
                     indicatorColor="primary"
@@ -53,12 +53,7 @@ class RegionalCasesHeatMap extends React.Component {
                         <Tab label="Active" value="active" />
                         <Tab label="New" value="new" />
                     </Tabs>
-                </Paper>
-
-                <RadioGroup aria-label="gender" name="gender1" value={"numcases"} style={{ display: 'block', textAlign: 'center', marginTop: '10px' }} onChange={() => {}}>
-                    <FormControlLabel value="numcases" control={<Radio />} label="Sort By # Cases" style={{ display: 'inline-block', width: '170px' }} />
-                    <FormControlLabel value="alphabetical" control={<Radio />} label="Sort Alphabetically" style={{ display: 'inline-block', width: '170px' }} />
-                </RadioGroup>
+                </Paper>*/}
 
                 <Plot
                     data={this.state.data||[]}
@@ -137,7 +132,7 @@ class RegionalCasesHeatMap extends React.Component {
         data.sort((a, b) => a[0] - b[0]);
 
         this.setState({
-            data: data.map(a => a[1])
+            data: data.map(a => a[1]).slice(-10)
         });
     }
 }

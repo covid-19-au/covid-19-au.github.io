@@ -22,30 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-/**
-This file is licensed under the MIT license
-
-Copyright (c) 2020 David Morrissey
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
- */
-
 import React from 'react';
 import Plot from 'react-plotly.js';
 import Tabs from "@material-ui/core/Tabs";
@@ -65,7 +41,7 @@ class AgeBarChart extends React.Component {
     constructor() {
         super();
         this.state = {
-            mode: 'total'
+            mode: 'percentiles'
         };
     }
 
@@ -100,14 +76,9 @@ class AgeBarChart extends React.Component {
                      centered
                     >
                         <Tab label="Total" value="total" />
-                        <Tab label="New" value="new" />
+                        <Tab label="% Percentiles" value="percentiles" />
                     </Tabs>
                 </Paper>
-
-                <RadioGroup aria-label="gender" name="gender1" value={"numcases"} style={{ display: 'block', textAlign: 'center', marginTop: '10px' }} onChange={() => {}}>
-                    <FormControlLabel value="numcases" control={<Radio />} label="Absolute Numbers" style={{ display: 'inline-block', width: '170px' }} />
-                    <FormControlLabel value="percent" control={<Radio />} label="% Percentiles" style={{ display: 'inline-block', width: '170px' }} />
-                </RadioGroup>
 
                 <Plot
                     data={this.state.data||[]}
@@ -122,6 +93,13 @@ class AgeBarChart extends React.Component {
                             pad: 0
                         },
                         barmode: 'stack',
+                        legend: {
+                            x: 0,
+                            //xanchor: 'right',
+                            y: 0.95,
+                            yanchor: 'bottom',
+                            orientation: 'h'
+                        },
                         xaxis: {
                             showgrid: true,
                             gridcolor: '#ddd',
@@ -159,9 +137,16 @@ class AgeBarChart extends React.Component {
             xVals[ageRange] = [];
             yVals[ageRange] = [];
 
-            for (let timeSeriesItem of casesData.getCaseNumberTimeSeries(regionType, ageRange)) {
+            let caseNumberTimeSeries = casesData.getCaseNumberTimeSeries(regionType, ageRange);
+            if (caseNumberTimeSeries) {
+                caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals().getDayAverage(7);
+            } else {
+                caseNumberTimeSeries = [];
+            }
+
+            for (let timeSeriesItem of caseNumberTimeSeries) {
                 xVals[ageRange].push(timeSeriesItem.getDateType());
-                yVals[ageRange].push(timeSeriesItem.getValue());
+                yVals[ageRange].push((timeSeriesItem.getValue() >= 0) ? timeSeriesItem.getValue() : 0); // NOTE ME!!! ==========
             }
 
             data.push({
