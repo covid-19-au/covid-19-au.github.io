@@ -167,7 +167,7 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="tested">{
-          x[0] === "VIC" ? (numberWithCommasLarge(x[TESTED])) :
+          x[0] === "VIC" || x[0] === 'NSW' ? (numberWithCommasLarge(x[TESTED])) :
             (numberWithCommas(x[TESTED]))
         }</div>
       </div>
