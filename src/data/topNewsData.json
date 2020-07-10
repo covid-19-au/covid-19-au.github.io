@@ -1,6 +1,38 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-10/victoria-coronavirus-case-lockdown-update-premier-daniel-andrews/12441792",
+            "title": "Melburnians urged to wear masks as Victoria records 288 new coronavirus cases",
+            "source": "ABCNews",
+            "date": "10 July 2020",
+            "time": "18:44",
+            "summary": "Victorians have been urged to wear masks when they leave their homes after the state recorded 288 COVID-19 cases in 24 hours, the largest daily increase of the pandemic so far. Premier Daniel Andrews said masks were not being made mandatory, but people in lockdown areas should wear masks in situations where they cannot maintain physical distancing. He said the Government would order 2 million reusable masks for community distribution, and boost local manufacturing capabilities."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-10/coronavirus-lockdown-melbourne-financial-support-businesses/12441634",
+            "title": "Victorian Government announces $534 million support package for businesses hit by coronavirus lockdown",
+            "source": "ABCNews",
+            "date": "10 July 2020",
+            "time": "13:43",
+            "summary": "The Victorian Government has announced a $534 million support package for businesses impacted by the coronavirus lockdown. The package includes: a $30 million fund for hospitality businesses; a $26 million mental health support package for small business; a $40 million fund to help regional tourism businesses to cover refunds and marketing; $20 million for small businesses in Melbourne's CBD; and $5,000 grants to be made available for 80,000 eligible businesses in metropolitan Melbourne and the Mitchell Shire. Treasurer Tim Pallas said the state's unemployment rate could peak at 11 per cent and gross state product could decline by about 14 per cent relative to pre-pandemic forecasts."
+        },
+        {
+            "link": "https://www.watoday.com.au/national/victoria/record-calls-to-mental-health-services-during-second-lockdown-20200710-p55asg.html?ref=rss&utm_medium=rss&utm_source=rss_national",
+            "title": "Record calls to mental health services during second lockdown",
+            "source": "WAToday",
+            "date": "10 July 2020",
+            "time": "14:00",
+            "summary": "Victorians are reaching out to mental health services for support in record numbers as Melbourne enters a second coronavirus lockdown. Lifeline is reporting a 22 per cent surge in calls in Victoria since Sunday compared with the same time last year, while calls from Victoria to Beyond Blue’s support services have doubled in the past fortnight. Lifeline Australia chairman John Brogden said the service had received almost 90,000 calls a month since March, which amounted to a call every 30 seconds. This was a sign the strict lockdown measures were taking a toll on the mental health of Victorians, he said."
+        },
+        {
+            "link": "https://thewest.com.au/news/coronavirus/coronavirus-crisis-mcgowan-announces-phase-five-start-pushed-back-from-july-18-to-august-1-ng-b881604644z",
+            "title": "Coronavirus crisis: WA Premier Mark McGowan announces phase five start pushed back from July 18 to August 1",
+            "source": "TheWestAustralian",
+            "date": "10 July 2020",
+            "time": "14:35",
+            "summary": "Mark McGowan says WA’s hard border with the rest of the nation will be up for “as long as it takes” amid news phase five of WA’s COVID-19 restrictions will be delayed until August 1. The Premier said border measures between WA and Victoria could be tightened even further yet and WA Police Commissioner Chris Dawson flagged stopping all planes from Victoria from coming into WA as being an option to keep COVID-19 out of the state. It comes amid news from the Premier that the start of WA’s next phase of restrictions had been pushed back two weeks. The Premier said WA had decided to be extra cautious in delaying restriction relaxations because of the situation in Victoria."
+        },
+        {
             "link": "https://www.sbs.com.au/news/restrictions-to-ease-in-eight-of-melbourne-s-locked-down-public-housing-towers",
             "title": "Restrictions to ease in eight of Melbourne's locked-down public housing towers",
             "source": "SBSNews",
@@ -111,22 +143,6 @@
             "date": "3 July 2020",
             "time": "12:24",
             "summary": "More than 10,000 people have refused to be tested for coronavirus in Melbourne's hotspot suburbs as 66 new cases across the state were confirmed. Health Minister Jenny Mikakos labelled the refusal as \"disappointing\" and urged residents to get tested as she speculated the mass coronavirus outbreak in Victoria could be linked to a \"super spreader\". \"There seems to be a single source of infection for many of the cases that have gone across the northern and western suburbs of Melbourne,\" Ms Mikakos said. The health minister said the government is investigating the reasons behind the mass refusal of testing, but reassured the community that 24,000 tests had been undertaken yesterday."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-02/victorias-coronavirus-case-numbers-increase-lockdown-begins/12409436",
-            "title": "Victoria records 77 new coronavirus cases and jump in community transmission of COVID-19",
-            "source": "ABCNews",
-            "date": "2 July 2020",
-            "time": "23:00",
-            "summary": "Another 77 people in Victoria have been diagnosed with coronavirus and the state has recorded its single biggest increase in community transmission to date. Of the 77 new cases, 13 are linked to outbreaks, 37 were discovered through routine testing and 27 are still under investigation. Community transmission cases, where the source of the infection cannot be traced, are up by 31. Chief Health Officer Brett Sutton says \"there is absolutely a possibility, an expectation\" that more people will die. He says there is evidence of student-to-student and teacher-to-teacher transmission in schools, but still expects students will return to classrooms after school holidays."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-02/woolworths-coronavirus-case-after-worker-returned-from-melbourne/12414668",
-            "title": "Melbourne coronavirus scare as NSW man who tested positive returned to work at Sydney Woolworths ",
-            "source": "ABCNews",
-            "date": "2 July 2020",
-            "time": "23:00",
-            "summary": "A Sydney man who spent two weeks in hotel quarantine in Victoria has tested positive for coronavirus after returning to NSW, sparking a crisis at the Woolworths he worked at. The store in Balmain, in Sydney's inner-west, has told 50 staff to self-isolate, and NSW Health Minister Brad Hazzard warned anyone who had been to the supermarket to be \"alert\". NSW chief health officer Kerry Chant said the man worked in the self-service section of the grocery store and was considered to pose a low level of infection risk. The man had recently returned from Bangladesh and had been quarantining in a Melbourne hotel, where he was deemed not to be infectious despite returning a positive test there. "
         }
     ]
 }

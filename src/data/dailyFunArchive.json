@@ -4,6 +4,17 @@
             "image": [],
             "video": [
                 {
+                    "link": "https://www.youtube.com/watch?v=qGZ8eX1oBns",
+                    "description": "One Marvelous Scene - The Farm"
+                }
+            ],
+            "type": "distraction",
+            "date": "10/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
                     "link": "https://www.youtube.com/watch?v=8FYtj96v2CY",
                     "description": "Rewriting Screenslaver - Incredibles 2"
                 }

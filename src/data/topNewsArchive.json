@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-02/victorias-coronavirus-case-numbers-increase-lockdown-begins/12409436",
+            "title": "Victoria records 77 new coronavirus cases and jump in community transmission of COVID-19",
+            "source": "ABCNews",
+            "date": "2 July 2020",
+            "time": "23:00",
+            "summary": "Another 77 people in Victoria have been diagnosed with coronavirus and the state has recorded its single biggest increase in community transmission to date. Of the 77 new cases, 13 are linked to outbreaks, 37 were discovered through routine testing and 27 are still under investigation. Community transmission cases, where the source of the infection cannot be traced, are up by 31. Chief Health Officer Brett Sutton says \"there is absolutely a possibility, an expectation\" that more people will die. He says there is evidence of student-to-student and teacher-to-teacher transmission in schools, but still expects students will return to classrooms after school holidays."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-02/woolworths-coronavirus-case-after-worker-returned-from-melbourne/12414668",
+            "title": "Melbourne coronavirus scare as NSW man who tested positive returned to work at Sydney Woolworths ",
+            "source": "ABCNews",
+            "date": "2 July 2020",
+            "time": "23:00",
+            "summary": "A Sydney man who spent two weeks in hotel quarantine in Victoria has tested positive for coronavirus after returning to NSW, sparking a crisis at the Woolworths he worked at. The store in Balmain, in Sydney's inner-west, has told 50 staff to self-isolate, and NSW Health Minister Brad Hazzard warned anyone who had been to the supermarket to be \"alert\". NSW chief health officer Kerry Chant said the man worked in the self-service section of the grocery store and was considered to pose a low level of infection risk. The man had recently returned from Bangladesh and had been quarantining in a Melbourne hotel, where he was deemed not to be infectious despite returning a positive test there. "
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-01/nsw-coronavirus-eased-restrictions-bring-different-winter-break/12401160",
             "title": "As NSW coronavirus restrictions ease further, here's what has changed from today",
             "source": "ABCNews",
