@@ -12,7 +12,7 @@ import RegionalCasesTreeMap from "./CrawlerDataVis/RegionalCases/RegionalCasesTr
 import RegionalCasesBarChart from "./CrawlerDataVis/RegionalCases/RegionalCasesBarChart";
 import MultiDataTypeBarChart from "./CrawlerDataVis/MultiDataTypeBarChart"
 import RegionType from "./CrawlerDataTypes/RegionType";
-import BubbleChart from "./CrawlerDataVis/RegionalCases/BubbleChart"
+import RegionalCasesHeatMap from "./CrawlerDataVis/RegionalCases/RegionalCasesHeatMap"
 import PopulationPyramid from "./CrawlerDataVis/AgeCharts/PopulationPyramid"
 
 //Fetch Token from env

@@ -24,6 +24,9 @@ SOFTWARE.
 
 import React from 'react';
 import Plot from 'react-plotly.js';
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Paper from "@material-ui/core/Paper";
 
 
 /**
@@ -35,34 +38,61 @@ import Plot from 'react-plotly.js';
 class RegionalCasesTreeMap extends React.Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            mode: 'active'
+        };
     }
 
     render() {
         return (
-            <Plot
-                data={[{
-                    type: 'treemap',
-                    values: this.state.values||[],
-                    labels: this.state.labels||[],
-                    parents: this.state.parents||[],
-                    marker: {colorscale: 'Blues'}
-                }]}
-                layout={ {
-                    //width: '100%',
-                    height: 500,
-                    margin: {
-                        l: 10,
-                        r: 10,
-                        b: 10,
-                        t: 10,
-                        pad: 0
-                    }
-                } }
-                style={{
-                    'font-size': '15px'
-                }}
-            />
+            <div>
+                <Paper>
+                    <Tabs
+                     value={this.state.mode}
+                     indicatorColor="primary"
+                     textColor="primary"
+                     onChange={(e, newValue) => this.setMode(newValue)}
+                     ref={(el) => this.visTabs = el}
+                     centered
+                    >
+                        <Tab label="Active" value="active" />
+                        <Tab label="New" value="new" />
+                        <Tab label="Total" value="total" />
+                    </Tabs>
+                </Paper>
+
+                <Plot
+                    data={[{
+                        type: 'treemap',
+                        textinfo: "label+value+percent parent+percent",
+                        values: this.state.values||[],
+                        labels: this.state.labels||[],
+                        parents: this.state.parents||[],
+                        //marker: {colorscale: 'Blues'}
+                    }]}
+                    layout={{
+                        autosize: true,
+                        margin: {
+                            l: 10,
+                            r: 10,
+                            b: 10,
+                            t: 0,
+                            pad: 0
+                        },
+                        font: {
+                            size: 16
+                        }
+                    }}
+                    config={{
+                        displayModeBar: false,
+                        responsive: true
+                    }}
+                    style={{
+                        width: '100%',
+                        height: '80vh'
+                    }}
+                />
+            </div>
         );
     }
 
@@ -74,13 +104,19 @@ class RegionalCasesTreeMap extends React.Component {
             parents = [];
 
         for (let regionType of casesInst.getRegionChildren()) {
+            let timeSeriesItem;
             labels.push(regionType.prettified());
+
             if (numDays) {
-                values.push(casesInst.getCaseNumberOverNumDays(regionType, null, numDays).getValue());
+                timeSeriesItem = casesInst.getCaseNumberOverNumDays(regionType, null, numDays)
             } else {
-                values.push(casesInst.getCaseNumber(regionType, null).getValue());
+                timeSeriesItem = casesInst.getCaseNumber(regionType, null);
             }
-            parents.push("");
+
+            if (timeSeriesItem) {
+                values.push(timeSeriesItem.getValue());
+                parents.push("");
+            }
         }
 
         this.setState({

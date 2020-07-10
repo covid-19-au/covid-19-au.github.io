@@ -25,6 +25,8 @@ import NewsPage from "./NewsPage";
 import InfoPage from "./InfoPage";
 import Navbar from "./Navbar";
 import HomePage from "./HomePage/HomePage";
+import StatesPage from "./StatesPage";
+import WorldPage from "./WorldPage";
 import BlogPage from "./BlogPage/BlogPage";
 import Blog from "./BlogPage/Blog";
 import AboutUsPage from "./aboutUs/AboutUsPage";
@@ -69,11 +71,6 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
-
-
-
-
-
 
 
 // This is a custom filter UI for selecting
@@ -209,6 +206,8 @@ function App() {
     "/news": () => <NewsPage province={province} gspace={gspace} />,
     "/faq": () => <FAQPage />,
     "/dailyHistory": () => <DailyHistoryPage />,
+    "/world": () => <WorldPage />,
+    "/state": () => <StatesPage />,
     "/state/vic": () => <StateChart state="VIC" />,
     "/state/nsw": () => <StateChart state="NSW" />,
     "/state/qld": () => <StateChart state="QLD" />,

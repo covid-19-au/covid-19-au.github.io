@@ -16,10 +16,6 @@ import all from "./data/overall";
 import './DashboardConfig.css'
 import Header from './Header';
 
-const provincesByName = keyBy(provinces, "name");
-
-const GoogleMap = React.lazy(() => import("./HomePage/GoogleMap"));
-
 // if (window.location.pathname === "/dashboard") {
 //     require('./DashboardConfig.css');
 // }
@@ -38,17 +34,6 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
                     />
                     <div className="card">
                         <Suspense fallback={<div className="loading">Loading...</div>}>
-                            <GoogleMap
-                                province={province}
-                                data={inputData}
-                                onClick={name => {
-                                    const p = provincesByName[name];
-                                    if (p) {
-                                        setProvince(p);
-                                    }
-                                }}
-                                newData={myData}
-                            />
                             <Area area={area} onChange={setProvince} data={myData} />
                         </Suspense>
                     </div>

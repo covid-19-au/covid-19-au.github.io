@@ -45,6 +45,15 @@ export default function Navbar({ setNav, nav }) {
 
         <A
                     className={`navItems ${
+                        window.location.pathname.match(/\/state([/.*])?/) && !isSticky ? "navCurrentPage " : ""
+                        } ${window.location.pathname.match(/\/state([/.*])?/) && isSticky ? "navCurrentPageSticky" : ""} `}
+                    onClick={onClick} href="/state"
+                >
+          <strong>States</strong>
+        </A>
+
+        <A
+                    className={`navItems ${
                         window.location.pathname === "/world" && !isSticky ? "navCurrentPage " : ""
                         } ${window.location.pathname === "/world" && isSticky ? "navCurrentPageSticky" : ""} `}
                     onClick={onClick} href="/world"

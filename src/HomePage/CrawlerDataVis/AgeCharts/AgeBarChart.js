@@ -61,23 +61,43 @@ import Paper from "@material-ui/core/Paper";
 class AgeBarChart extends React.Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            mode: 'totals'
+        };
     }
 
     render() {
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
+        for (let iData of this.state.data||[]) {
+            if (this.state.mode === 'percentiles') {
+                iData['groupnorm'] = 'percent';
+                delete iData['type']; // Percent doesn't work for bar graphs??
+            } else {
+                delete iData['groupnorm'];
+                if (vw < 800) {
+                    // Don't use bar graphs if screen
+                    // width not enough to separate values
+                    delete iData['type'];
+                } else {
+                    iData['type'] = 'bar';
+                }
+            }
+        }
+
         return (
             <div>
                 <Paper>
                     <Tabs
-                    value={'active'}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    onChange={(e, newValue) => this.FIXME(newValue)}
-                    ref={(el) => this.visTabs = el}
-                    centered
+                     value={this.state.mode}
+                     indicatorColor="primary"
+                     textColor="primary"
+                     onChange={(e, newValue) => this.setMode(newValue)}
+                     ref={(el) => this.visTabs = el}
+                     centered
                     >
-                        <Tab label="Default" value="active" />
-                        <Tab label="% Percentiles" value="alpha" />
+                        <Tab label="Totals" value="totals" />
+                        <Tab label="% Percentiles" value="percentiles" />
                     </Tabs>
                 </Paper>
 
@@ -116,6 +136,12 @@ class AgeBarChart extends React.Component {
         );
     }
 
+    setMode(mode) {
+        this.setState({
+            mode: mode
+        });
+    }
+
     setCasesInst(casesData, regionType) {
         let xVals = {},
             yVals = {},
@@ -132,7 +158,6 @@ class AgeBarChart extends React.Component {
 
             data.push({
                 name: ageRange,
-                type: 'bar',
                 stackgroup: 'one',
                 x: xVals[ageRange],
                 y: yVals[ageRange]
