@@ -51,6 +51,9 @@ import Plot from 'react-plotly.js';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
 
 
 /**
@@ -62,7 +65,7 @@ class AgeBarChart extends React.Component {
     constructor() {
         super();
         this.state = {
-            mode: 'totals'
+            mode: 'total'
         };
     }
 
@@ -96,10 +99,15 @@ class AgeBarChart extends React.Component {
                      ref={(el) => this.visTabs = el}
                      centered
                     >
-                        <Tab label="Totals" value="totals" />
-                        <Tab label="% Percentiles" value="percentiles" />
+                        <Tab label="Total" value="total" />
+                        <Tab label="New" value="new" />
                     </Tabs>
                 </Paper>
+
+                <RadioGroup aria-label="gender" name="gender1" value={"numcases"} style={{ display: 'block', textAlign: 'center', marginTop: '10px' }} onChange={() => {}}>
+                    <FormControlLabel value="numcases" control={<Radio />} label="Absolute Numbers" style={{ display: 'inline-block', width: '170px' }} />
+                    <FormControlLabel value="percent" control={<Radio />} label="% Percentiles" style={{ display: 'inline-block', width: '170px' }} />
+                </RadioGroup>
 
                 <Plot
                     data={this.state.data||[]}

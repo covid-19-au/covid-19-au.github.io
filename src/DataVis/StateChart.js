@@ -242,7 +242,7 @@ class StateChart extends React.Component {
 
         if (this.ageBarChart) {
             let totalCaseData = await this.dataDownloader.getCaseData(
-                'new', 'admin_1', 'au'
+                'total', 'admin_1', 'au'
             );
             this.ageBarChart.setCasesInst(
                 totalCaseData,
