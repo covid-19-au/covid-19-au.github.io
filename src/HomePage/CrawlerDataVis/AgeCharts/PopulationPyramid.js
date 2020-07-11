@@ -47,9 +47,9 @@ class PopulationPyramid extends React.Component {
                     },
                     showlegend: true,
                     legend: {
-                        x: 0,
-                        //xanchor: 'right',
-                        y: 0.95,
+                        x: 1.0,
+                        xanchor: 'right',
+                        y: 1.0,
                         yanchor: 'bottom',
                         orientation: 'h'
                     },

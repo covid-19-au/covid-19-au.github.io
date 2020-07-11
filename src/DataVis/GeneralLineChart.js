@@ -130,7 +130,7 @@ function setGeneralLineOption(state, logScale) {
             top: "0%",
             selected: {
                 Confirmed: false,
-                Death: false,
+                Death: true,
                 Recovered: false,
                 Tested: logScale,
             },

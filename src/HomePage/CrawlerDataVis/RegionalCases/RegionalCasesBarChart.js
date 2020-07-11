@@ -41,13 +41,45 @@ class RegionalCasesBarChart extends React.Component {
     constructor() {
         super();
         this.state = {
-            mode: 'active'
+            mode: 'total'
         };
     }
 
     render() {
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
+        for (let iData of this.state.data||[]) {
+            if (this.state.mode === 'percentiles') {
+                iData['groupnorm'] = 'percent';
+                delete iData['type']; // Percent doesn't work for bar graphs??
+            } else {
+                delete iData['groupnorm'];
+                if (vw < 800) {
+                    // Don't use bar graphs if screen
+                    // width not enough to separate values
+                    delete iData['type'];
+                } else {
+                    iData['type'] = 'bar';
+                }
+            }
+        }
+
         return (
             <div>
+                <Paper>
+                    <Tabs
+                     value={this.state.mode}
+                     indicatorColor="primary"
+                     textColor="primary"
+                     onChange={(e, newValue) => this.setMode(newValue)}
+                     ref={(el) => this.visTabs = el}
+                     centered
+                    >
+                        <Tab label="Total" value="total" />
+                        <Tab label="% Percentiles" value="percentiles" />
+                    </Tabs>
+                </Paper>
+
                 <Plot
                     data={this.state.data||[]}
                     layout={{
@@ -80,7 +112,7 @@ class RegionalCasesBarChart extends React.Component {
                         yaxis: {
                             showgrid: true,
                             gridcolor: '#999',
-                            autorange: 'reversed'
+                            //autorange: 'reversed'
                         },
                     }}
                     config = {{
@@ -89,11 +121,17 @@ class RegionalCasesBarChart extends React.Component {
                     }}
                     style={{
                         width: '100%',
-                        height: '55vh'
+                        height: '50vh'
                     }}
                 />
             </div>
         );
+    }
+
+    setMode(mode) {
+        this.setState({
+            mode: mode
+        });
     }
 
     setCasesInst(casesInst, numDays) {
@@ -119,9 +157,9 @@ class RegionalCasesBarChart extends React.Component {
                     name: regionType.getLocalized(),
                     type: 'bar',
                     stackgroup: 'one',
-                    x: yVals,
-                    y: xVals,
-                    orientation: 'h',
+                    x: xVals,
+                    y: yVals,
+                    //orientation: 'h',
                     //groupnorm: 'percent'
                 }
             ]);

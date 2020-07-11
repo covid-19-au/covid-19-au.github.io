@@ -112,7 +112,7 @@ class StateChart extends React.Component {
                     </div>
                 </Grid>
 
-                {stateAgeGenderData !== null || this.stateName === 'QLD' ? (
+                {stateAgeGenderData !== null || this.stateName === 'QLD' || this.stateName === 'WA' ? (
                     <Fragment>
                         {/* "Cases by Age Group" chart */}
                         <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
@@ -236,10 +236,17 @@ class StateChart extends React.Component {
      * @private
      */
     async __initTreeMap(regionSchema, regionParent) {
+        // TODO: Revert to 21 days if "status_active" isn't available!!!! =====================================================
         let totalCaseData = await this.dataDownloader.getCaseData(
             'total', regionSchema, regionParent
         );
-        this.treeMap.setCasesInst(totalCaseData, 21);
+        let activeCaseData = await this.dataDownloader.getCaseData(
+            'status_active', regionSchema, regionParent
+        );
+        let newCaseData = await this.dataDownloader.getCaseData(
+            'new', regionSchema, regionParent
+        );
+        this.treeMap.setCasesInst(activeCaseData, newCaseData, totalCaseData);
     }
 
     /**

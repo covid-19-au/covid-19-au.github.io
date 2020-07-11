@@ -75,7 +75,7 @@ function setGeneralBarOption(state) {
             top: "0%",
             selected: {
                 Confirmed: false,
-                Death: false,
+                //Death: false,
                 Recovered: false,
                 Tested: false,
             },

@@ -54,7 +54,7 @@ class AgeBarChart extends React.Component {
                 delete iData['type']; // Percent doesn't work for bar graphs??
             } else {
                 delete iData['groupnorm'];
-                if (vw < 800 && false) {
+                if (vw < 800) {
                     // Don't use bar graphs if screen
                     // width not enough to separate values
                     delete iData['type'];
@@ -92,13 +92,13 @@ class AgeBarChart extends React.Component {
                             pad: 0
                         },
                         barmode: 'stack',
-                        /*legend: {
+                        legend: {
                             x: 0,
                             //xanchor: 'right',
                             y: 1.0,
-                            yanchor: 'top',
+                            yanchor: 'bottom',
                             orientation: 'h'
-                        },*/
+                        },
                         xaxis: {
                             showgrid: true,
                             gridcolor: '#ddd',

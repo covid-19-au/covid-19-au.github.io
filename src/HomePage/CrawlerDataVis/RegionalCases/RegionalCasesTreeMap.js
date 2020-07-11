@@ -44,6 +44,14 @@ class RegionalCasesTreeMap extends React.Component {
     }
 
     render() {
+        let data;
+
+        if (this.__totalCasesInst) {
+            data = this.__getData();
+        } else {
+            return '';
+        }
+
         return (
             <div>
                 <Paper>
@@ -65,9 +73,9 @@ class RegionalCasesTreeMap extends React.Component {
                     data={[{
                         type: 'treemap',
                         textinfo: "label+value+percent parent+percent",
-                        values: this.state.values||[],
-                        labels: this.state.labels||[],
-                        parents: this.state.parents||[],
+                        values: data.values||[],
+                        labels: data.labels||[],
+                        parents: data.parents||[],
                         //marker: {colorscale: 'Blues'}
                     }]}
                     layout={{
@@ -85,7 +93,7 @@ class RegionalCasesTreeMap extends React.Component {
                     }}
                     config={{
                         displayModeBar: false,
-                        responsive: true
+                        //responsive: true
                     }}
                     style={{
                         width: '100%',
@@ -96,18 +104,45 @@ class RegionalCasesTreeMap extends React.Component {
         );
     }
 
-    setCasesInst(casesInst, numDays) {
-        this.__casesInst = casesInst;
+    setMode(mode) {
+        this.setState({
+            mode: mode
+        });
+    }
 
+    setCasesInst(activeCasesInst, newCasesInst, totalCasesInst) {
+        this.__activeCasesInst = activeCasesInst;
+        this.__newCasesInst = newCasesInst;
+        this.__totalCasesInst = totalCasesInst;
+        this.setState({});
+    }
+
+    __getData() {
         let values = [],
             labels = [],
-            parents = [];
+            parents = [],
+            numDays = 0,
+            casesInst;
+
+        if (this.state.mode === 'active' && this.__activeCasesInst) {
+            casesInst = this.__activeCasesInst;
+        } else if (this.state.mode === 'active') {
+            // Emulate active with 21 day difference if active data not available
+            casesInst = this.__totalCasesInst;
+            numDays = 21;
+        } else if (this.state.mode === 'new') {
+            casesInst = this.__newCasesInst;
+        } else if (this.state.mode === 'total') {
+            casesInst = this.__totalCasesInst;
+        } else {
+            throw "Shouldn't get here";
+        }
 
         for (let regionType of casesInst.getRegionChildren()) {
             let timeSeriesItem;
             labels.push(regionType.getLocalized());
 
-            if (numDays) {
+            if (numDays ) {
                 timeSeriesItem = casesInst.getCaseNumberOverNumDays(regionType, null, numDays)
             } else {
                 timeSeriesItem = casesInst.getCaseNumber(regionType, null);
@@ -119,11 +154,11 @@ class RegionalCasesTreeMap extends React.Component {
             }
         }
 
-        this.setState({
+        return {
             values: values,
             labels: labels,
             parents: parents
-        });
+        };
     }
 }
 
