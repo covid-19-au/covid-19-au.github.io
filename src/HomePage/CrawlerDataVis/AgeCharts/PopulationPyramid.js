@@ -37,7 +37,7 @@ class PopulationPyramid extends React.Component {
             <Plot
                 data={this.state.data||[]}
                 layout={{
-                    height: 500,
+                    autosize: true,
                     margin: {
                         l: 60,
                         r: 10,
@@ -67,15 +67,15 @@ class PopulationPyramid extends React.Component {
                         type: 'category'
                     },
                     bargap: 0.1,
-                    barmode: 'relative',
-                    autosize: true
+                    barmode: 'relative'
                 }}
                 config = {{
                     displayModeBar: false,
                     responsive: true
                 }}
                 style={{
-                    'font-size': '15px'
+                    height: '50vh',
+                    width: '100%'
                 }}
             />
         );

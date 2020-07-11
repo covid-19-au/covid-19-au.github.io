@@ -38,6 +38,7 @@ import Paper from "@material-ui/core/Paper";
 class RegionalCasesTreeMap extends React.Component {
     constructor() {
         super();
+        this.__getData = this.__getData.bind(this);
         this.state = {
             mode: 'active'
         };
@@ -142,7 +143,7 @@ class RegionalCasesTreeMap extends React.Component {
             let timeSeriesItem;
             labels.push(regionType.getLocalized());
 
-            if (numDays ) {
+            if (numDays) {
                 timeSeriesItem = casesInst.getCaseNumberOverNumDays(regionType, null, numDays)
             } else {
                 timeSeriesItem = casesInst.getCaseNumber(regionType, null);

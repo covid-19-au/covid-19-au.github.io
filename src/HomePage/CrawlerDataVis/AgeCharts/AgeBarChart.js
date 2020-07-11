@@ -114,7 +114,7 @@ class AgeBarChart extends React.Component {
                         responsive: true
                     }}
                     style={{
-                        height: '500px',
+                        height: '50vh',
                         width: '100%'
                     }}
                 />

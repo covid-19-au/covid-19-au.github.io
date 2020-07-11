@@ -75,8 +75,7 @@ class MultiDataTypeBarChart extends React.Component {
                 <Plot
                     data={this.state.data||[]}
                     layout={{
-                        //width: '100%',
-                        height: 500,
+                        autosize: true,
                         margin: {
                             l: 30,
                             r: 10,
@@ -89,7 +88,7 @@ class MultiDataTypeBarChart extends React.Component {
                         legend: {
                             x: 0,
                             //xanchor: 'right',
-                            y: 0.95,
+                            y: 1.0,
                             yanchor: 'bottom',
                             orientation: 'h'
                         },
@@ -108,7 +107,8 @@ class MultiDataTypeBarChart extends React.Component {
                         responsive: true
                     }}
                     style={{
-                        'font-size': '15px'
+                        height: '50vh',
+                        width: '100%'
                     }}
                 />
             </div>

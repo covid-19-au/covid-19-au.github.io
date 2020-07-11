@@ -83,8 +83,7 @@ class RegionalCasesBarChart extends React.Component {
                 <Plot
                     data={this.state.data||[]}
                     layout={{
-                        //width: '100%',
-                        //height: 500,
+                        autosize: true,
                         margin: {
                             l: 40,
                             r: 10,
@@ -92,7 +91,6 @@ class RegionalCasesBarChart extends React.Component {
                             t: 10,
                             pad: 0
                         },
-                        autosize: true,
                         barmode: 'stack',
                         legend: {
                             x: 0,
