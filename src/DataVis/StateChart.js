@@ -158,16 +158,13 @@ class StateChart extends React.Component {
                 <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card">
                         <h2>Most Active 10 Regions</h2>
-                        <RegionalCasesHeatMap ref={(el) => this.bubbleChart = el} />
-                    </div>
-                    <div className="card">
-                        <h2>Regional Cases</h2>
                         <RegionalCasesBarChart ref={(el) => this.areaChart = el} />
+                        {/*<RegionalCasesHeatMap ref={(el) => this.bubbleChart = el} />*/}
                     </div>
                 </Grid>
                 <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card">
-                        <h2>Regional Tree Map</h2>
+                        <h2>Cases Shown as Area</h2>
                         <RegionalCasesTreeMap ref={(el) => this.treeMap = el} />
                     </div>
                 </Grid>
@@ -191,17 +188,67 @@ class StateChart extends React.Component {
         else if (regionParent === 'au-act') regionSchema = 'sa3';
         else regionSchema = 'lga';
 
-        let totalCaseData = await this.dataDownloader.getCaseData(
-            'total', regionSchema, regionParent
-        );
-        this.treeMap.setCasesInst(totalCaseData, 21);
+        this.__initTreeMap(regionSchema, regionParent);
+        this.__initAreaChart(regionSchema, regionParent);
+        //this.__initBubbleChart(regionSchema, regionParent);
+        //this.__initPatientStatus(regionParent);
+        this.__initInfectionSource(regionParent);
 
+        if (this.populationPyramid) {
+            this.__initPopulationPyramid(regionParent);
+        }
+
+        if (this.ageBarChart) {
+            this.__initAgeBarChart(regionParent);
+        }
+    }
+
+    /**
+     *
+     * @returns {Promise<void>}
+     * @private
+     */
+    async __initBubbleChart(regionSchema, regionParent) {
+        let newCaseData = await this.dataDownloader.getCaseData(
+            'status_active', regionSchema, regionParent
+        );
+        this.bubbleChart.setCasesInst(newCaseData);
+    }
+
+    /**
+     *
+     * @param regionSchema
+     * @returns {Promise<void>}
+     * @private
+     */
+    async __initAreaChart(regionSchema, regionParent) {
         let newCaseData = await this.dataDownloader.getCaseData(
             'status_active', regionSchema, regionParent
         );
         this.areaChart.setCasesInst(newCaseData);
-        this.bubbleChart.setCasesInst(newCaseData);
+    }
 
+    /**
+     *
+     * @param regionSchema
+     * @param regionParent
+     * @returns {Promise<void>}
+     * @private
+     */
+    async __initTreeMap(regionSchema, regionParent) {
+        let totalCaseData = await this.dataDownloader.getCaseData(
+            'total', regionSchema, regionParent
+        );
+        this.treeMap.setCasesInst(totalCaseData, 21);
+    }
+
+    /**
+     *
+     * @param regionParent
+     * @returns {Promise<void>}
+     * @private
+     */
+    async __initInfectionSource(regionParent) {
         let casesInsts = [];
         for (let dataType of [
             'source_confirmed',
@@ -217,8 +264,17 @@ class StateChart extends React.Component {
             casesInsts,
             new RegionType('admin_1', 'au', regionParent)
         );
+    }
 
-        /*casesInsts = [];
+    /**
+     *
+     * @param regionParent
+     * @returns {Promise<void>}
+     * @private
+     */
+    async __initPatientStatus(regionParent) {
+        let casesInsts = [];
+
         for (let dataType of [
             'status_deaths',
             'status_hospitalized',
@@ -233,33 +289,58 @@ class StateChart extends React.Component {
             if (i)
                 casesInsts.push(i);
         }
+
         this.multiDataTypeAreaChart2.setCasesInst(
             casesInsts,
             new RegionType('admin_1', 'au', regionParent)
-        );*/
+        );
+    }
 
-        if (this.populationPyramid) {
-            let femaleData = await this.dataDownloader.getCaseData(
-                'total_female', 'admin_1', 'au'
-            );
-            let maleData = await this.dataDownloader.getCaseData(
-                'total_male', 'admin_1', 'au'
-            );
+    /**
+     *
+     * @param regionParent
+     * @returns {Promise<void>}
+     * @private
+     */
+    async __initPopulationPyramid(regionParent) {
+        let femaleData = await this.dataDownloader.getCaseData(
+            'total_female', 'admin_1', 'au'
+        );
+        let maleData = await this.dataDownloader.getCaseData(
+            'total_male', 'admin_1', 'au'
+        );
+        let regionType = new RegionType(
+            'admin_1', 'au', regionParent
+        );
+
+        if (maleData.getAgeRanges(regionType).length && femaleData.getAgeRanges(regionType).length) {
             this.populationPyramid.setCasesInst(
-                maleData, femaleData,
-                new RegionType('admin_1', 'au', regionParent)
+                maleData, femaleData, regionType
+            );
+        } else {
+            // TODO: Display age totals if male/female breakdowns not available!
+            this.populationPyramid.setCasesInst(
+                await this.dataDownloader.getCaseData(
+                    'total', 'admin_1', 'au'
+                ), null, regionType
             );
         }
+    }
 
-        if (this.ageBarChart) {
-            let totalCaseData = await this.dataDownloader.getCaseData(
+    /**
+     *
+     * @param regionParent
+     * @returns {Promise<void>}
+     * @private
+     */
+    async __initAgeBarChart(regionParent) {
+        let totalCaseData = await this.dataDownloader.getCaseData(
                 'total', 'admin_1', 'au'
-            );
-            this.ageBarChart.setCasesInst(
-                totalCaseData,
-                new RegionType('admin_1', 'au', regionParent)
-            )
-        }
+        );
+        this.ageBarChart.setCasesInst(
+            totalCaseData,
+            new RegionType('admin_1', 'au', regionParent)
+        )
     }
 }
 

@@ -89,7 +89,7 @@ class RegionalCasesTreeMap extends React.Component {
                     }}
                     style={{
                         width: '100%',
-                        height: '80vh'
+                        height: '50vh'
                     }}
                 />
             </div>
@@ -105,7 +105,7 @@ class RegionalCasesTreeMap extends React.Component {
 
         for (let regionType of casesInst.getRegionChildren()) {
             let timeSeriesItem;
-            labels.push(regionType.prettified());
+            labels.push(regionType.getLocalized());
 
             if (numDays) {
                 timeSeriesItem = casesInst.getCaseNumberOverNumDays(regionType, null, numDays)

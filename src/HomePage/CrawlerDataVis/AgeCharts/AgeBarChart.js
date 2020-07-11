@@ -41,7 +41,7 @@ class AgeBarChart extends React.Component {
     constructor() {
         super();
         this.state = {
-            mode: 'percentiles'
+            mode: 'total'
         };
     }
 
@@ -54,7 +54,7 @@ class AgeBarChart extends React.Component {
                 delete iData['type']; // Percent doesn't work for bar graphs??
             } else {
                 delete iData['groupnorm'];
-                if (vw < 800) {
+                if (vw < 800 && false) {
                     // Don't use bar graphs if screen
                     // width not enough to separate values
                     delete iData['type'];
@@ -83,8 +83,7 @@ class AgeBarChart extends React.Component {
                 <Plot
                     data={this.state.data||[]}
                     layout={{
-                        //width: '100%',
-                        height: 500,
+                        autosize: true,
                         margin: {
                             l: 40,
                             r: 10,
@@ -93,13 +92,13 @@ class AgeBarChart extends React.Component {
                             pad: 0
                         },
                         barmode: 'stack',
-                        legend: {
+                        /*legend: {
                             x: 0,
                             //xanchor: 'right',
-                            y: 0.95,
-                            yanchor: 'bottom',
+                            y: 1.0,
+                            yanchor: 'top',
                             orientation: 'h'
-                        },
+                        },*/
                         xaxis: {
                             showgrid: true,
                             gridcolor: '#ddd',
@@ -115,7 +114,8 @@ class AgeBarChart extends React.Component {
                         responsive: true
                     }}
                     style={{
-                        'font-size': '15px'
+                        height: '500px',
+                        width: '100%'
                     }}
                 />
             </div>

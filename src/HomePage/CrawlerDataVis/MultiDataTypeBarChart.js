@@ -46,7 +46,7 @@ class MultiDataTypeBarChart extends React.Component {
                 delete iData['type']; // Percent doesn't work for bar graphs??
             } else {
                 delete iData['groupnorm'];
-                if (vw < 800) {
+                if (vw < 800 && false) {
                     // Don't use bar graphs if screen
                     // width not enough to separate values
                     delete iData['type'];

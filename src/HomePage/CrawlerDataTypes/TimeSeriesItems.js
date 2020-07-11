@@ -68,6 +68,7 @@ class TimeSeriesItems extends Array {
             throw `RegionType ${regionType} should be an instance of RegionType!`;
         }
 
+        this.dateRangeType = dateRangeType;
         this.dataSource = dataSource;
         this.regionType = regionType;
         this.ageRange = ageRange;
@@ -189,9 +190,13 @@ class TimeSeriesItems extends Array {
             ));
         }
 
-        let dateRangeType = new DateRangeType(
-            r[0].getDateType(), r[r.length-1].getDateType()
-        );
+        let dateRangeType;
+        if (r.length) {
+            dateRangeType = new DateRangeType(
+                r[0].getDateType(), r[r.length-1].getDateType()
+            );
+        }
+
         return new TimeSeriesItems(
             this.dataSource, this.regionType, dateRangeType, this.ageRange, r
         );
@@ -219,9 +224,13 @@ class TimeSeriesItems extends Array {
             r.push(new TimeSeriesItem(highestDate, totalVal/numVals));
         }
 
-        let dateRangeType = new DateRangeType(
-            r[0].getDateType(), r[r.length-1].getDateType()
-        );
+        let dateRangeType;
+        if (r.length) {
+            dateRangeType = new DateRangeType(
+                r[0].getDateType(), r[r.length-1].getDateType()
+            );
+        }
+
         return new TimeSeriesItems(
             this.dataSource, this.regionType, dateRangeType, this.ageRange, r
         );

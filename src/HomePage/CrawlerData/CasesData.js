@@ -133,7 +133,7 @@ class CasesData {
             let iRegionType = new RegionType(
                 this.regionSchema, this.regionParent, iRegion
             );
-            if (regionType.equalTo(iRegionType) && iAgeRange) {
+            if (regionType.equalTo(iRegionType) && iAgeRange && this.getCaseNumber(regionType, iAgeRange)) {
                 r.add(iAgeRange)
             }
         }

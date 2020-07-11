@@ -48,31 +48,11 @@ class RegionalCasesBarChart extends React.Component {
     render() {
         return (
             <div>
-                <Paper>
-                    <Tabs
-                     value={this.state.mode}
-                     indicatorColor="primary"
-                     textColor="primary"
-                     onChange={(e, newValue) => this.setMode(newValue)}
-                     ref={(el) => this.visTabs = el}
-                     centered
-                    >
-                        <Tab label="Active" value="active" />
-                        <Tab label="New" value="new" />
-                        <Tab label="Total" value="total" />
-                    </Tabs>
-                </Paper>
-
-                <RadioGroup aria-label="gender" name="gender1" value={"numcases"} style={{ display: 'block', textAlign: 'center', marginTop: '10px' }} onChange={() => {}}>
-                    <FormControlLabel value="numcases" control={<Radio />} label="Absolute Numbers" style={{ display: 'inline-block', width: '170px' }} />
-                    <FormControlLabel value="percent" control={<Radio />} label="% Percentiles" style={{ display: 'inline-block', width: '170px' }} />
-                </RadioGroup>
-
                 <Plot
                     data={this.state.data||[]}
                     layout={{
                         //width: '100%',
-                        height: 50 + (30*(this.state.data ? this.state.data[0].x.length : 0)),
+                        //height: 500,
                         margin: {
                             l: 40,
                             r: 10,
@@ -82,14 +62,25 @@ class RegionalCasesBarChart extends React.Component {
                         },
                         autosize: true,
                         barmode: 'stack',
+                        legend: {
+                            x: 0,
+                            //xanchor: 'right',
+                            y: 1.0,
+                            yanchor: 'bottom',
+                            orientation: 'h',
+                            font: {
+                                size: 12
+                            }
+                        },
                         xaxis: {
                             showgrid: true,
                             gridcolor: '#ddd',
-                            //tickangle: 45
+                            //tickangle: 45,
                         },
                         yaxis: {
                             showgrid: true,
-                            gridcolor: '#999'
+                            gridcolor: '#999',
+                            autorange: 'reversed'
                         },
                     }}
                     config = {{
@@ -97,7 +88,8 @@ class RegionalCasesBarChart extends React.Component {
                         responsive: true
                     }}
                     style={{
-                        width: '100%'
+                        width: '100%',
+                        height: '55vh'
                     }}
                 />
             </div>
@@ -125,12 +117,12 @@ class RegionalCasesBarChart extends React.Component {
                 yVals[yVals.length-1],
                 {
                     name: regionType.getLocalized(),
-                    //type: 'bar',
+                    type: 'bar',
                     stackgroup: 'one',
                     x: yVals,
                     y: xVals,
                     orientation: 'h',
-                    groupnorm: 'percent'
+                    //groupnorm: 'percent'
                 }
             ]);
             // iData['groupnorm'] = 'percent';
@@ -139,7 +131,7 @@ class RegionalCasesBarChart extends React.Component {
         data.sort((a, b) => a[0] - b[0]);
 
         this.setState({
-            data: data.map(a => a[1])
+            data: data.map(a => a[1]).reverse().slice(0, 10)
         });
     }
 }

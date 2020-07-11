@@ -85,19 +85,15 @@ class PopulationPyramid extends React.Component {
         let maleXVals = [],
             maleYVals = [],
             femaleXVals = [],
-            femaleYVals = [];
+            femaleYVals = [],
+            data = [];
 
         for (let ageRange of maleCasesInst.getAgeRanges(regionType)) {
             maleYVals.push(ageRange);
             maleXVals.push(maleCasesInst.getCaseNumber(regionType, ageRange).getValue());
         }
 
-        for (let ageRange of femaleCasesInst.getAgeRanges(regionType)) {
-            femaleYVals.push(ageRange);
-            femaleXVals.push(femaleCasesInst.getCaseNumber(regionType, ageRange).getValue());
-        }
-
-        let maleData = {
+        data.push({
             meta: {
                 columnNames: {
                     x: 'Men, x',
@@ -114,32 +110,33 @@ class PopulationPyramid extends React.Component {
             text: maleXVals,
             hoverinfo: 'x',
             orientation: 'h'
-        };
+        });
 
-        let femaleData = {
-            meta: {
-                columnNames: {
-                    x: 'Women, x',
-                    y: 'Men, y; Women, y',
-                    text: 'text'
-                }
-            },
-            name: 'Women',
-            type: 'bar',
-            x: femaleXVals.map(i => -i),
-            y: femaleYVals,
-            marker: {
-                color: 'seagreen'
-            },
-            text: femaleXVals,
-            hoverinfo: 'text',
-            orientation: 'h'
-        };
-
-        let data = [
-            maleData,
-            femaleData
-        ];
+        if (femaleCasesInst) {
+            for (let ageRange of femaleCasesInst.getAgeRanges(regionType)) {
+                femaleYVals.push(ageRange);
+                femaleXVals.push(femaleCasesInst.getCaseNumber(regionType, ageRange).getValue());
+            }
+            data.push({
+                meta: {
+                    columnNames: {
+                        x: 'Women, x',
+                        y: 'Men, y; Women, y',
+                        text: 'text'
+                    }
+                },
+                name: 'Women',
+                type: 'bar',
+                x: femaleXVals.map(i => -i),
+                y: femaleYVals,
+                marker: {
+                    color: 'seagreen'
+                },
+                text: femaleXVals,
+                hoverinfo: 'text',
+                orientation: 'h'
+            });
+        }
 
         this.setState({
             data: data

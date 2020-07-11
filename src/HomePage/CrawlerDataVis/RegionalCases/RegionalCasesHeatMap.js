@@ -63,7 +63,7 @@ class RegionalCasesHeatMap extends React.Component {
                         margin: {
                             r: 10,
                             b: 10,
-                            t: 30,
+                            t: 45,
                             pad: 0
                         },
                         showlegend: false,
@@ -72,12 +72,19 @@ class RegionalCasesHeatMap extends React.Component {
                         xaxis: {
                             side: 'top',
                             showgrid: true,
-                            gridcolor: '#ddd'
+                            gridcolor: '#999',
+                            autotick: false,
+                            //ticks: 'outside',
+                            //tick0: 0,
+                            dtick: 86400000.0 * 7,
+                            //ticklen: 200,
+                            //tickwidth: 4,
+                            tickcolor: '#000'
                         },
                         yaxis: {
                             showgrid: true,
-                            gridcolor: '#999',
-                            tickangle: 45
+                            gridcolor: '#777',
+                            tickangle: 45,
                         }
                     }}
                     config={{
