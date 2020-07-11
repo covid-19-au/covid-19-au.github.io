@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-11/victoria-coronavirus-cases-rise-by-216-man-dies-in-hospital/12445756",
+            "title": "Victoria records another 216 coronavirus cases as 'kind soul' dies with COVID-19",
+            "source": "ABCNews",
+            "date": "11 July 2020",
+            "time": "19:00",
+            "summary": "A man remembered by his family as a \"kind soul\" has died with COVID-19 in a Victorian hospital, with the state recording another 216 cases of coronavirus. Only 30 of the new infections were connected to contained outbreaks and 186 were under investigation. Chief Health Officer Brett Sutton said the state had about 100 separate outbreaks for health officials to contend with. There are now at least 1,249 active cases in Victoria."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-10/victoria-coronavirus-case-lockdown-update-premier-daniel-andrews/12441792",
             "title": "Melburnians urged to wear masks as Victoria records 288 new coronavirus cases",
             "source": "ABCNews",
@@ -135,14 +143,6 @@
             "date": "4 July 2020",
             "time": "16:33",
             "summary": "More suburbs in Melbourne's inner-north will be placed in lockdown and thousands of residents in nine public housing towers will be confined to their homes after Victoria recorded 108 new coronavirus cases. The suburbs of Kensington, Flemington and North Melbourne, in postcodes 3031 and 3051, will join 36 others where stage three coronavirus restrictions apply, meaning residents can only leave their homes for four reasons: food or essential supplies; medical care or care giving; exercise; or for work or education. The lockdown will take effect from 11.59pm on Saturday. A large coronavirus cluster has emerged in the Flemington and North Melbourne public housing estates where residents will be placed in a \"hard lockdown\" for at least five days, \"effective immediately\"."
-        },
-        {
-            "link": "https://www.9news.com.au/national/victorians-refusing-coronavirus-tests-covid19-outbreak-melbourne-postcode-hotspots/97a7b862-e82e-488c-86ec-013e481c440b",
-            "title": "More than 10,000 Victorians refused coronavirus tests",
-            "source": "9News",
-            "date": "3 July 2020",
-            "time": "12:24",
-            "summary": "More than 10,000 people have refused to be tested for coronavirus in Melbourne's hotspot suburbs as 66 new cases across the state were confirmed. Health Minister Jenny Mikakos labelled the refusal as \"disappointing\" and urged residents to get tested as she speculated the mass coronavirus outbreak in Victoria could be linked to a \"super spreader\". \"There seems to be a single source of infection for many of the cases that have gone across the northern and western suburbs of Melbourne,\" Ms Mikakos said. The health minister said the government is investigating the reasons behind the mass refusal of testing, but reassured the community that 24,000 tests had been undertaken yesterday."
         }
     ]
 }
