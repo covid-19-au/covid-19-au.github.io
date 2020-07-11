@@ -27,6 +27,7 @@ import Plot from 'react-plotly.js';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
+import getLastDaysRangeOfSample from "./getLastDaysRangeOfSample";
 
 
 class MultiDataTypeBarChart extends React.Component {
@@ -95,7 +96,8 @@ class MultiDataTypeBarChart extends React.Component {
                         xaxis: {
                             showgrid: true,
                             gridcolor: '#999',
-                            tickangle: 45
+                            tickangle: 45,
+                            range: getLastDaysRangeOfSample(this.state.data, 21)
                         },
                         yaxis: {
                             showgrid: true,

@@ -30,6 +30,7 @@ import Paper from "@material-ui/core/Paper";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
+import getLastDaysRangeOfSample from "../getLastDaysRangeOfSample";
 
 
 /**
@@ -102,7 +103,8 @@ class AgeBarChart extends React.Component {
                         xaxis: {
                             showgrid: true,
                             gridcolor: '#ddd',
-                            tickangle: 45
+                            tickangle: 45,
+                            range: getLastDaysRangeOfSample(this.state.data, 21)
                         },
                         yaxis: {
                             showgrid: true,

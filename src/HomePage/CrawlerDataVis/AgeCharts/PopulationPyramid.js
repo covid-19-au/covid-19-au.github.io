@@ -24,6 +24,7 @@ SOFTWARE.
 
 import React from 'react';
 import Plot from 'react-plotly.js';
+import getLastDaysRangeOfSample from "../getLastDaysRangeOfSample";
 
 
 class PopulationPyramid extends React.Component {
@@ -58,7 +59,7 @@ class PopulationPyramid extends React.Component {
                             text: 'Number'
                         },
                         showgrid: true,
-                        gridcolor: '#999',
+                        gridcolor: '#999'
                     },
                     yaxis: {
                         title: {

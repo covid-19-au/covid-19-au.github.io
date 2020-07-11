@@ -30,6 +30,7 @@ import Paper from "@material-ui/core/Paper";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import getLastDaysRangeOfSample from "../getLastDaysRangeOfSample";
 
 
 /**
@@ -106,6 +107,7 @@ class RegionalCasesBarChart extends React.Component {
                             showgrid: true,
                             gridcolor: '#ddd',
                             //tickangle: 45,
+                            range: getLastDaysRangeOfSample(this.state.data, 21)
                         },
                         yaxis: {
                             showgrid: true,
