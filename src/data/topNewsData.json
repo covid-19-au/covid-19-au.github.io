@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/return-to-remote-learning-in-victoria-amid-new-coronavirus-death-and-273-fresh-cases",
+            "title": "Return to remote learning in Victoria amid new coronavirus death and 273 fresh cases",
+            "source": "SBSNews",
+            "date": "12 July 2020",
+            "time": "19:00",
+            "summary": "More than 700,000 students will return to online learning in Victoria after the state reported a week of triple-digit daily increases in cases. Prep to year 10 students in locked-down parts of Victoria will return to online learning for Term 3. Premier Andrews on Sunday confirmed students in metropolitan Melbourne and Mitchell Shire, north of the city, will learn from home from 20 July until at least 19 August. Onsite learning will be available for students whose parents cannot work from home and for students with special needs who attend mainstream schools."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/queensland-covid-19-human-vaccine-trial-very-encouraging",
+            "title": "Queensland COVID-19 human vaccine trial 'very encouraging'",
+            "source": "SBSNews",
+            "date": "12 July 2020",
+            "time": "19:00",
+            "summary": "A COVID-19 vaccine developed by the University of Queensland is now ready to be tested on humans, giving hope of a breakthrough in combating the virus that has caused a worldwide pandemic. The human testing of the \"molecular clamp\" vaccine candidate, to start on Monday, follows encouraging results from animal testing trials conducted in the Netherlands, the Sunday Mail in Brisbane reports. Premier Annastacia Palaszczuk praised UQ for their search for a COVID-19 vaccine and said she expected the university to reveal more on Monday."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-11/victoria-coronavirus-cases-rise-by-216-man-dies-in-hospital/12445756",
             "title": "Victoria records another 216 coronavirus cases as 'kind soul' dies with COVID-19",
             "source": "ABCNews",
@@ -127,22 +143,6 @@
             "date": "5 July 2020",
             "time": "17:00",
             "summary": "Authorities have placed over 3000 residents across nine public housing towers in lockdown. Premier Daniel Andrews has urged residents to to view these measures as protective rather than as a punishment. Many Victorians have rallied behind the affected residents, including a crowdfunding campaign for residents, organised by the Victorian Trades Hall Council, that has raised over $250,000 so far."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-04/nsw-coronavirus-cap-on-arrivals-to-ease-quarantine-pressure/12422504",
-            "title": "Cap on international arrivals introduced at Sydney Airport to ease coronavirus quarantine demands",
-            "source": "ABCNews",
-            "date": "4 July 2020",
-            "time": "19:40",
-            "summary": "The Department of Foreign Affairs and Trade has warned that international flights to Sydney over the coming weeks will be subject to a cap on arrivals and flights could be cancelled. At the request of the NSW Government, new Federal Government limits will be introduced from midnight tonight. NSW Health said overseas arrivals will be capped at 450 passengers a day, with a maximum of 50 passengers allowed per incoming flight. The move is aimed at easing pressure on hotel quarantine capacity."
-        },
-        {
-            "link": "https://www.watoday.com.au/national/victoria/more-suburbs-in-lockdown-as-victoria-records-108-new-coronavirus-cases-20200704-p558zp.html?ref=rss&utm_medium=rss&utm_source=rss_national",
-            "title": "More suburbs in lockdown as Victoria records 108 new coronavirus cases",
-            "source": "WAToday",
-            "date": "4 July 2020",
-            "time": "16:33",
-            "summary": "More suburbs in Melbourne's inner-north will be placed in lockdown and thousands of residents in nine public housing towers will be confined to their homes after Victoria recorded 108 new coronavirus cases. The suburbs of Kensington, Flemington and North Melbourne, in postcodes 3031 and 3051, will join 36 others where stage three coronavirus restrictions apply, meaning residents can only leave their homes for four reasons: food or essential supplies; medical care or care giving; exercise; or for work or education. The lockdown will take effect from 11.59pm on Saturday. A large coronavirus cluster has emerged in the Flemington and North Melbourne public housing estates where residents will be placed in a \"hard lockdown\" for at least five days, \"effective immediately\"."
         }
     ]
 }
