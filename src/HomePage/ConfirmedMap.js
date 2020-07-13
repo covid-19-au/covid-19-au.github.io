@@ -1,19 +1,9 @@
 import React from "react"
 import mapboxgl from 'mapbox-gl'
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
-import Acknowledgement from "../Acknowledgment"
 import CovidMapControl from "./ConfirmedMap/CovidMapControl"
-import RegionalCasesTreeMap from "./CrawlerDataVis/RegionalCases/RegionalCasesTreeMap"
-import RegionalCasesBarChart from "./CrawlerDataVis/RegionalCases/RegionalCasesBarChart";
-import MultiDataTypeBarChart from "./CrawlerDataVis/MultiDataTypeBarChart"
-import RegionType from "./CrawlerDataTypes/RegionType";
-import RegionalCasesHeatMap from "./CrawlerDataVis/RegionalCases/RegionalCasesHeatMap"
-import PopulationPyramid from "./CrawlerDataVis/AgeCharts/PopulationPyramid"
 
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
@@ -24,7 +14,6 @@ class ConfirmedMap extends React.Component {
     constructor({ stateName }) {
         super({ stateName });
         this.state = {};
-        this.showStateTabs = !stateName;
         this.stateName = stateName || 'AU';
 
         this.stateUpdatedDates = []; // FIXME!!!
@@ -39,46 +28,8 @@ class ConfirmedMap extends React.Component {
     }
 
     render() {
-        let tabStyle = {
-            minWidth: '8%',
-            textTransform: 'none',
-            padding: '0 2%',
-            fontSize: 'calc(11px + 4 * ((100vw - 300px) / (1600 - 300)))',
-            color: 'gray'
-        };
-        let tabActiveStyle = {
-            minWidth: '8%',
-            textTransform: 'none',
-            padding: '0 2%',
-            fontSize: 'calc(11px + 4 * ((100vw - 300px) / (1600 - 300)))',
-            color: 'black',
-            background: 'rgb(232, 244, 253)'
-        };
-
         return (
             <div>
-                <Paper>
-                    <Tabs
-                    value={(this.state && this.state.iso_3166_2_tabs) ? this.state.iso_3166_2_tabs : 'AU'}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    onChange={(e, newValue) => this.__restrictToISO_3166_2(newValue)}
-                    ref={(el) => this.iso_3166_2_tabs = el}
-                    style={{
-                        display: this.showStateTabs ? 'block' : 'none'
-                    }}>
-                        <Tab style={this.state.iso_3166_2_tabs === 'all' ? tabActiveStyle : tabStyle} label="World" value="all" />
-                        <Tab style={this.state.iso_3166_2_tabs === 'AU' ? tabActiveStyle : tabStyle} label="Australia" value="AU" />
-                        <Tab style={this.state.iso_3166_2_tabs === 'AU-VIC' ? tabActiveStyle : tabStyle} label="Vic" value="AU-VIC" />
-                        <Tab style={this.state.iso_3166_2_tabs === 'AU-NSW' ? tabActiveStyle : tabStyle} label="NSW" value="AU-NSW" />
-                        <Tab style={this.state.iso_3166_2_tabs === 'AU-TAS' ? tabActiveStyle : tabStyle} label="Tas" value="AU-TAS" />
-                        <Tab style={this.state.iso_3166_2_tabs === 'AU-SA' ? tabActiveStyle : tabStyle} label="SA" value="AU-SA" />
-                        <Tab style={this.state.iso_3166_2_tabs === 'AU-WA' ? tabActiveStyle : tabStyle} label="WA" value="AU-WA" />
-                        <Tab style={this.state.iso_3166_2_tabs === 'AU-ACT' ? tabActiveStyle : tabStyle} label="ACT" value="AU-ACT" />
-                        <Tab style={this.state.iso_3166_2_tabs === 'AU-NT' ? tabActiveStyle : tabStyle} label="NT" value="AU-NT" />
-                    </Tabs>
-                </Paper>
-
                 <div style={{position: 'relative'}}>
                     <CovidMapControl ref={el => this.covidMapControl = el} >
                     </CovidMapControl>

@@ -157,7 +157,10 @@ class CaseCirclesLayer {
         ];
         let map = this.map,
             caseVals = this.clusteredCaseSources.getPointsAllVals(),
-            circleColor = getMapBoxCaseColors(caseVals, colors);
+            circleColor = getMapBoxCaseColors(
+                [255, 222, 207, 0.5], [231, 50, 16, 1.0], 'rgba(0, 0, 0, 0.0)',
+                caseVals, [], [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 1.0], 20
+            );
 
         let circleRadius;
         if (this.clusteredCaseSources.clusteringBeingUsed()) {

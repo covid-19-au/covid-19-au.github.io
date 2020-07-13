@@ -92,7 +92,10 @@ class CasesFillPolyLayer {
         ];
 
         let caseVals = this.mapBoxSource.getPointsAllVals(),
-            circleColor = getMapBoxCaseColors(caseVals, colors);
+            circleColor = getMapBoxCaseColors(
+                [255, 222, 207, 0.0], [231, 50, 16, 1.0], 'rgba(0, 0, 0, 0.0)',
+                caseVals, [], [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 1.0], 20
+            );
 
         this.map.setPaintProperty(
             this.uniqueId + 'fillpoly', 'fill-opacity', 0.5
@@ -100,22 +103,6 @@ class CasesFillPolyLayer {
         this.map.setPaintProperty(
             this.uniqueId + 'fillpoly', 'fill-color', circleColor
         );
-
-        /*if (this.__shown) {
-            this.__casesPopup.disablePopups();
-        }
-
-        //this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', this.mapBoxSource);
-        let callLater = () => {
-            // HACK: Only enable after the map is ready, as it seems exceptions occur in mapbox otherwise
-            if (this.map.loaded()) {
-                this.__casesPopup.enablePopups();
-            }
-            else {
-                setTimeout(callLater, 150);
-            }
-        };
-        callLater();*/
 
         this.__shown = true;
     }
@@ -130,10 +117,6 @@ class CasesFillPolyLayer {
             const map = this.map;
             map.removeLayer(this.uniqueId + 'fillpoly');
 
-            /*if (this.__casesPopup) {
-                this.__casesPopup.disablePopups();
-                this.__casesPopup = null;
-            }*/
             this.__shown = false;
         }
     }
