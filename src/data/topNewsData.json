@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-13/coronavirus-face-masks-when-to-wear-and-how-to-make-one/12446872",
+            "title": "Advice on using face masks during the coronavirus pandemic has changed — here's what you need to know",
+            "source": "ABCNews",
+            "date": "13 July 2020",
+            "time": "15:00",
+            "summary": "Australian health experts have not been recommending healthy people wear face masks and have warned wearing them incorrectly can put us at risk during the pandemic. That messaging changed in Victoria on Saturday when Premier Daniel Andrews said masks would not be made mandatory, but people in his state's locked-down areas should wear them when they could not maintain physical distancing. This article addresses common questions about face masks."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-records-177-new-coronavirus-cases-in-good-sign-melbourne-lockdown-is-working",
+            "title": "Victoria records 177 new coronavirus cases in 'good sign' Melbourne lockdown is working",
+            "source": "SBSNews",
+            "date": "13 July 2020",
+            "time": "13:00",
+            "summary": "The 177 cases confirmed on Monday marks the first time since Thursday the number of new infections has dropped below 200 in Victoria. Chief Health Officer Brett Sutton said Monday's numbers were a \"good sign\" but would like to see a longer trend of decreasing case numbers. \"It's great it's lower than our peak. But it may not be our peak yet,\" he said. Victorian Premier Daniel Andrews said all Victorians need to take COVID-19 seriously. Mr Andrews said it's possible the lockdown could be extended beyond metropolitan Melbourne and Mitchell Shire."
+        },
+        {
             "link": "https://www.sbs.com.au/news/return-to-remote-learning-in-victoria-amid-new-coronavirus-death-and-273-fresh-cases",
             "title": "Return to remote learning in Victoria amid new coronavirus death and 273 fresh cases",
             "source": "SBSNews",
@@ -127,22 +143,6 @@
             "date": "6 July 2020",
             "time": "20:45",
             "summary": "WA Premier Mark McGowan has sought Commonwealth approval to cap the number of international flights landing in Perth. Mr McGowan said he had requested international arrivals be limited to \"something in the vicinity of one flight per three days\". He said WA continued to lead the country as a \"safe haven\" from COVID-19, and the state had not recorded a case of community infection since April 11. Mr McGowan said there had recently been an uptick in domestic and international arrivals at Perth Airport. He said Cabinet had today approved the drafting of legislation to force any returning travellers to pay for a compulsory 14 days of quarantine."
-        },
-        {
-            "link": "https://www.watoday.com.au/national/play-it-safe-ama-calls-for-a-nationwide-freeze-on-lifting-covid-restrictions-20200705-p55982.html?ref=rss&utm_medium=rss&utm_source=rss_national",
-            "title": "'Play it safe': AMA calls for a nationwide freeze on lifting COVID restrictions",
-            "source": "WAToday",
-            "date": "5 July 2020",
-            "time": "20:01",
-            "summary": "The Australian Medical Association's President, Tony Bartone has urged states to temporarily cease the lifting of restrictions. This is in response to 108 new cases in Victoria on Saturday. Dr Bartone said it was disappointing that the problem's in Melbourne's hotspots were linked to failures to follow \"established and successful\" public health guidelines."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/a-group-of-3-000-melburnians-have-been-locked-down-in-public-housing-towers-but-how-will-authorities-manage-it",
-            "title": "A group of 3,000 Melburnians have been locked down in public housing towers. But how will authorities manage it?",
-            "source": "SBSNews",
-            "date": "5 July 2020",
-            "time": "17:00",
-            "summary": "Authorities have placed over 3000 residents across nine public housing towers in lockdown. Premier Daniel Andrews has urged residents to to view these measures as protective rather than as a punishment. Many Victorians have rallied behind the affected residents, including a crowdfunding campaign for residents, organised by the Victorian Trades Hall Council, that has raised over $250,000 so far."
         }
     ]
 }
