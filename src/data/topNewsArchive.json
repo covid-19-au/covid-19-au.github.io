@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victoria-nsw-border-to-close-for-the-first-time-in-100-years-as-melbourne-coronavirus-cases-hit-record-daily-high",
+            "title": "Victoria-NSW border to close for the first time in 100 years as Melbourne coronavirus cases hit record daily high",
+            "source": "SBSNews",
+            "date": "6 July 2020",
+            "time": "20:50",
+            "summary": "The border between New South Wales and Victoria will close at 11:59 on Tuesday night as coronavirus cases continue to surge in Victoria. Victorian Premier Daniel Andrews confirmed the decision on Monday morning as the state recorded another 127 coronavirus cases overnight, a record daily increase for the state. The border closure decision was made in consultation with Prime Minister Scott Morrison and NSW Premier Gladys Berejiklian, Mr Andrews said. The decision marks the first time the Victoria-NSW border has been shut in 100 years - officials last blocked movement between the two states in 1919 during the Spanish flu pandemic."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-06/push-for-coronavirus-related-cap-on-flights-into-perth-airport/12426528 ",
+            "title": "WA pushes for cap on international flights to reduce coronavirus risk",
+            "source": "ABCNews",
+            "date": "6 July 2020",
+            "time": "20:45",
+            "summary": "WA Premier Mark McGowan has sought Commonwealth approval to cap the number of international flights landing in Perth. Mr McGowan said he had requested international arrivals be limited to \"something in the vicinity of one flight per three days\". He said WA continued to lead the country as a \"safe haven\" from COVID-19, and the state had not recorded a case of community infection since April 11. Mr McGowan said there had recently been an uptick in domestic and international arrivals at Perth Airport. He said Cabinet had today approved the drafting of legislation to force any returning travellers to pay for a compulsory 14 days of quarantine."
+        },
+        {
             "link": "https://www.watoday.com.au/national/play-it-safe-ama-calls-for-a-nationwide-freeze-on-lifting-covid-restrictions-20200705-p55982.html?ref=rss&utm_medium=rss&utm_source=rss_national",
             "title": "'Play it safe': AMA calls for a nationwide freeze on lifting COVID restrictions",
             "source": "WAToday",

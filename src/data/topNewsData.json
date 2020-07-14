@@ -1,6 +1,30 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/australia-records-two-new-coronavirus-deaths-as-confirmed-infections-surge-past-10-000",
+            "title": "Australia records two new coronavirus deaths as confirmed infections surge past 10,000 ",
+            "source": "SBSNews",
+            "date": "14 July 2020",
+            "time": "17:00",
+            "summary": "Victoria has recorded another 270 coronavirus cases as the total number of infections recorded within Australia passes the grim milestone of 10,000. Two more people have also died of the virus in Victoria, a man and woman who were both in their 80s, taking the national death toll to 110. The number of new cases in Victoria was a significant increase on the 177 recorded on Monday and is the fourth day in the past five of more than 200 cases. Deputy Chief Medical Officer Michael Kidd on Tuesday said the country had passed \"another national milestone\", with at least 10,251 coronavirus infections recorded in Australia since the pandemic began."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-14/coronavirus-queensland-hotspots-declared-nsw/12445814",
+            "title": "Queensland declares NSW towns of Campbelltown and Liverpool coronavirus hotspots",
+            "source": "ABCNews",
+            "date": "14 July 2020",
+            "time": "15:35",
+            "summary": "Queensland Health has declared coronavirus hotspots in several areas of New South Wales after a cluster of cases in Sydney. Any non-Queensland residents who have visited, or visit, the Campbelltown and Liverpool city areas will not be allowed entry into Queensland from midday today. It follows a cluster of 28 cases connected to the Crossroads Hotel on the Hume Highway in south-west Sydney. Queenslanders who have been to the hotspots, or travel there in the future, will be forced into hotel quarantine when re-entering the state, at their own cost."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/government-faces-tough-questions-over-covidsafe-app-as-outbreaks-emerge-in-victoria-and-nsw",
+            "title": "Government faces tough questions over CovidSafe app as outbreaks emerge in Victoria and NSW",
+            "source": "SBSNews",
+            "date": "14 July 2020",
+            "time": "18:35",
+            "summary": "The CovidSafe contact tracing app was much hyped by the federal government and touted as a crucial tool that would keep Australians safe while coronavirus lockdowns were lifted. Now, with a surge in cases in Victoria leading to the lockdown of millions in metropolitan Melbourne, as well as an uptick in the number of cases in New South Wales, questions are being asked of the app. Labor leader Anthony Albanese on Tuesday labelled the app a \"dud\"."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-13/coronavirus-face-masks-when-to-wear-and-how-to-make-one/12446872",
             "title": "Advice on using face masks during the coronavirus pandemic has changed — here's what you need to know",
             "source": "ABCNews",
@@ -127,22 +151,6 @@
             "date": "7 July 2020",
             "time": "13:00",
             "summary": "Queensland and Western Australia have urged the federal government to cap international flights arriving in Australia to ease pressure on hotel quarantine. State premiers have raised concerns with Prime Minister Scott Morrison as Victoria struggles with a concerning coronavirus infection spike. Queensland Premier Annastacia Palaszczuk said extreme caution should be applied when dealing with arrivals from overseas. WA Premier Mark McGowan wants a cap of about one international flight every three days landing in Perth."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-nsw-border-to-close-for-the-first-time-in-100-years-as-melbourne-coronavirus-cases-hit-record-daily-high",
-            "title": "Victoria-NSW border to close for the first time in 100 years as Melbourne coronavirus cases hit record daily high",
-            "source": "SBSNews",
-            "date": "6 July 2020",
-            "time": "20:50",
-            "summary": "The border between New South Wales and Victoria will close at 11:59 on Tuesday night as coronavirus cases continue to surge in Victoria. Victorian Premier Daniel Andrews confirmed the decision on Monday morning as the state recorded another 127 coronavirus cases overnight, a record daily increase for the state. The border closure decision was made in consultation with Prime Minister Scott Morrison and NSW Premier Gladys Berejiklian, Mr Andrews said. The decision marks the first time the Victoria-NSW border has been shut in 100 years - officials last blocked movement between the two states in 1919 during the Spanish flu pandemic."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-06/push-for-coronavirus-related-cap-on-flights-into-perth-airport/12426528 ",
-            "title": "WA pushes for cap on international flights to reduce coronavirus risk",
-            "source": "ABCNews",
-            "date": "6 July 2020",
-            "time": "20:45",
-            "summary": "WA Premier Mark McGowan has sought Commonwealth approval to cap the number of international flights landing in Perth. Mr McGowan said he had requested international arrivals be limited to \"something in the vicinity of one flight per three days\". He said WA continued to lead the country as a \"safe haven\" from COVID-19, and the state had not recorded a case of community infection since April 11. Mr McGowan said there had recently been an uptick in domestic and international arrivals at Perth Airport. He said Cabinet had today approved the drafting of legislation to force any returning travellers to pay for a compulsory 14 days of quarantine."
         }
     ]
 }
