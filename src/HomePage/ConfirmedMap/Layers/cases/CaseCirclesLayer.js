@@ -94,6 +94,7 @@ class CaseCirclesLayer {
                 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
                 'text-offset': [0, 0.8],
                 'text-anchor': 'top',
+                //'text-allow-overlap': true,
                 'symbol-sort-key': ['get', 'negcases']
             },
             'paint': {
@@ -145,7 +146,7 @@ class CaseCirclesLayer {
             this.__addLayer();
         }
 
-        let colors = [
+        /*let colors = [
             'rgba(0,80,0,0.8)',
             'rgba(0,0,80,0.0)',
             '#ff9f85',
@@ -154,12 +155,14 @@ class CaseCirclesLayer {
             '#ff4817',
             '#e73210',
             '#e73210'
-        ];
+        ];*/
         let map = this.map,
             caseVals = this.clusteredCaseSources.getPointsAllVals(),
             circleColor = getMapBoxCaseColors(
-                [255, 222, 207, 0.5], [231, 50, 16, 1.0], 'rgba(0, 0, 0, 0.0)',
-                caseVals, [], [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 1.0], 20
+                [255, 222, 207, 0.5], [231, 50, 16, 1.0],
+                'rgba(0, 0, 0, 0.0)',
+                [0,80,0,1.0], [0,80,0,0.4],
+                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 1.0], 20
             );
 
         let circleRadius;

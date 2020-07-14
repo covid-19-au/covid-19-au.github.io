@@ -80,7 +80,7 @@ class CasesFillPolyLayer {
      * cases to allow for popup on click events
      */
     updateLayer() {
-        let colors = [
+        /*let colors = [
             'rgba(0,80,0,0.8)',
             'rgba(0,0,80,0.0)',
             'rgba(231,50,16,0.05)',
@@ -89,12 +89,14 @@ class CasesFillPolyLayer {
             'rgba(231,50,16,0.4)',
             'rgba(231,50,16,0.8)',
             '#e73210'
-        ];
+        ];*/
 
         let caseVals = this.mapBoxSource.getPointsAllVals(),
             circleColor = getMapBoxCaseColors(
-                [255, 222, 207, 0.0], [231, 50, 16, 1.0], 'rgba(0, 0, 0, 0.0)',
-                caseVals, [], [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 1.0], 20
+                [255, 222, 207, 0.0], [231, 50, 16, 1.0],
+                'rgba(0, 0, 0, 0.0)',
+                [0,80,0,1.0], [0,80,0,0.4],
+                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 1.0], 20
             );
 
         this.map.setPaintProperty(
