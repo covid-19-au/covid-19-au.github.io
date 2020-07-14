@@ -388,6 +388,15 @@
   },
   {
     "reportState": "WA",
+    "flightNo": "QR900",
+    "airline": "Qatar",
+    "path": "Doha to Perth",
+    "dateDeparture": "",
+    "dateArrival": "05-07-20",
+    "closeContactRow": "27, 28, 29, 30, 31"
+  },
+  {
+    "reportState": "WA",
     "flightNo": "GA724",
     "airline": "Garuda Indonesia",
     "path": "Jakarta to Perth",
