@@ -31,7 +31,8 @@ class ConfirmedMap extends React.Component {
         return (
             <div>
                 <div style={{position: 'relative'}}>
-                    <CovidMapControl ref={el => this.covidMapControl = el} >
+                    <CovidMapControl ref={el => this.covidMapControl = el}
+                                     onGeoDataChanged={this.__onGeoDataChanged.bind(this)}>
                     </CovidMapControl>
                 </div>
 
@@ -46,18 +47,44 @@ class ConfirmedMap extends React.Component {
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>Regional Case Map may not be up-to-date. Refer to state totals in Cases by State table for current statistics.</li>
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>Displayed cases identify regions only, not specific addresses.</li>
-                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>Zoom in for regional numbers. Click regions for history over time.</li>
-                            <li style={{color: '#555'}}><div style={{color: '#777', fontSize: '0.9em'}}>Regional data updated: {
-                                this.stateUpdatedDates.length ? this.stateUpdatedDates.map((item, index) => {
-                                    return <span style={{margin:0, padding: 0}}>{item[0]}&nbsp;({item[1]}):&nbsp;{item[2]}{index === this.stateUpdatedDates.length-1 ? '' : ';'} </span>
-                                }) : 'loading, please wait...'
-                            }</div>
+                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}><span style={{fontWeight: 'bold'}}>🔍 Zoom in</span> for regional numbers. Click regions for history over time.</li>
+                            <li style={{color: '#555'}}><div style={{color: '#777', fontSize: '0.9em'}}>Regional data updated: <span ref={
+                                (el) => this.__updatedSpan = el
+                            }>{
+                                this.__getUpdatedDates()
+                            }</span></div>
                             </li>
                         </ul>
                     </span>
                 </div>
             </div>
         );
+    }
+
+    /**
+     *
+     * @param geoDataInsts
+     * @param caseDataInsts
+     * @private
+     */
+    __onGeoDataChanged(geoDataInsts, caseDataInsts) {
+        this.__geoDataInsts = geoDataInsts;
+        this.__caseDataInsts = caseDataInsts;
+        this.__updatedSpan.innerHTML = this.__getUpdatedDates();
+    }
+
+    __getUpdatedDates() {
+        let stateUpdatedDates = (this.__caseDataInsts||[]).map((caseDataInst) => {
+            return [
+                caseDataInst.getRegionSchema(),
+                caseDataInst.getRegionParent(),
+                caseDataInst.getUpdatedDate()
+            ];
+        });
+
+        return stateUpdatedDates.length ? stateUpdatedDates.map((item, index) => {
+            return `<span style="margin:0; padding: 0">${item[0]}&nbsp;(${item[1]}):&nbsp;${item[2]}${index === stateUpdatedDates-1 ? '' : ';'} </span>`
+        }).join('') : 'loading, please wait...'
     }
 
     /*******************************************************************

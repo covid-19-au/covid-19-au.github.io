@@ -80,3 +80,11 @@ div.map-cont-controls {
         box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
     }
 /*}*/
+
+.rainbow-text {
+    /* https://w3bits.com/rainbow-text/ */
+    /* rgb(157, 113, 234), #00c177, #ff603c, #c11700  */
+    background-image: linear-gradient(to left, #bd7171, #0075bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

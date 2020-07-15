@@ -12,16 +12,15 @@
  * @returns {(string|(string|string[])[]|(string|string[]|number)[]|*)[]}
  */
 function getMapBoxCaseColors(
-    fromColor, toColor, nullColor,
+    fromColor, toColor,
+    nullColor, maxColor,
     fromNegColor, toNegColor,
     caseVals, quantiles,
     minRange
 ) {
     // Make sure we're using only positive values for relative comparisons
     // to make sure we don't have -1 being as bright as +1000 etc
-    let newCaseVals = [];
-    caseVals.forEach(i => i >= 0 ? newCaseVals.push(i) : '');
-    caseVals = newCaseVals;
+    caseVals = caseVals.filter(i => i >= 0);
 
     if (minRange > caseVals[caseVals.length-1]) {
         caseVals = [];
@@ -33,8 +32,13 @@ function getMapBoxCaseColors(
     let r = ['case'],
         totalCases = (quantiles.length - 1) || 1;
 
+    // Special case for null values
     r.push(['==', ['get', 'cases'], null]);
     r.push(nullColor);
+
+    // Emphasize the highest case value
+    r.push(['==', ['get', 'cases'], caseVals[caseVals.length-1]]);
+    r.push(maxColor);
 
     __extendForColorRange(
         r, quantiles, totalCases, caseVals, fromNegColor, toNegColor, true

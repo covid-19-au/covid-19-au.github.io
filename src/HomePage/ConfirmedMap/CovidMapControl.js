@@ -161,7 +161,7 @@ class CovidMapControl extends React.Component {
                 map, 'casesFillPolyLayer', casesSource
             );
             this.casesLinePolyLayer = new LinePolyLayer(
-                map, 'casesLinePolyLayer', 'gray', null, casesSource
+                map, 'casesLinePolyLayer', 'rgba(202, 210, 211, 1.0)', null, casesSource
             );
             this.caseCirclesLayer = new CaseCirclesLayer(
                 map, 'heatMap', clusteredCaseSource
@@ -304,6 +304,12 @@ class CovidMapControl extends React.Component {
                 this.caseCirclesLayer.updateLayer();
 
                 this.__mapMovePending = false;
+            }
+
+            if (this.props.onGeoDataChanged) {
+                // Send an event to allow for "data updated on xx date"
+                // etc displays outside the control
+                this.props.onGeoDataChanged(geoData.geoDataInsts, geoData.caseDataInsts);
             }
         };
         callMe();

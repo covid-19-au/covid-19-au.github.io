@@ -23,6 +23,8 @@ SOFTWARE.
  */
 
 import getMapBoxCaseColors from "./getMapBoxCaseColors";
+import Fns from "../../Fns"
+import MapBoxSource from "../../Sources/MapBoxSource";
 
 
 class CaseCirclesLayer {
@@ -39,6 +41,15 @@ class CaseCirclesLayer {
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
+        this.rectangleSource = new MapBoxSource(map, null, null, null);
+
+        // Bind events for loading data
+        map.on('moveend', () => {
+            this.updateLayer(this.__caseVals);
+        });
+        map.on('zoomend', () => {
+            this.updateLayer(this.__caseVals);
+        });
     }
 
     __addLayer() {
@@ -67,14 +78,14 @@ class CaseCirclesLayer {
 
         map.addLayer(
             {
-                'id': this.uniqueId,
-                'type': 'circle',
-                'source': this.clusteredCaseSources.getSourceId(),
+                'id': this.uniqueId+'rectangle',
+                'type': 'fill',
+                'source': this.rectangleSource.getSourceId(),
                 filter: ['all',
                     ['!=', 'cases', 0],
                     ['has', 'cases']
                 ]
-            }, lastCircleLayer
+            } //, lastCircleLayer
         );
 
         map.addLayer({
@@ -92,18 +103,19 @@ class CaseCirclesLayer {
                     { 'font-scale': 0.7 },
                 ],
                 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                'text-offset': [0, 0.8],
+                'text-offset': [0, 0.75],
                 'text-anchor': 'top',
                 //'text-allow-overlap': true,
                 'symbol-sort-key': ['get', 'negcases']
             },
             'paint': {
-                'text-color': 'rgba(0, 0, 0, 0.8)',
-                'text-halo-color': 'rgba(255, 255, 255, 0.8)',
+                'text-color': 'rgb(255, 255, 255)',
+                'text-halo-color': 'rgb(0, 0, 0)',
                 'text-halo-width': 3,
                 'text-halo-blur': 2
             }
-        }, lastSymbolLayer);
+        }//, lastSymbolLayer
+        );
 
         map.addLayer({
             id: this.uniqueId+'label',
@@ -127,7 +139,8 @@ class CaseCirclesLayer {
             paint: {
                 "text-color": "rgba(255, 255, 255, 1.0)"
             }
-        }, lastSymbolLayer);
+        }//, lastSymbolLayer
+        );
 
         this.__layerAdded = true;
     }
@@ -141,12 +154,12 @@ class CaseCirclesLayer {
      *
      * @param caseVals
      */
-    updateLayer() {
+    updateLayer(caseVals) {
         if (!this.__layerAdded) {
             this.__addLayer();
         }
 
-        /*let colors = [
+        let colors = [
             'rgba(0,80,0,0.8)',
             'rgba(0,0,80,0.0)',
             '#ff9f85',
@@ -155,32 +168,36 @@ class CaseCirclesLayer {
             '#ff4817',
             '#e73210',
             '#e73210'
-        ];*/
+        ];
+
+        caseVals = caseVals||this.clusteredCaseSources.getPointsAllVals();
+        this.__caseVals = caseVals;
+
         let map = this.map,
-            caseVals = this.clusteredCaseSources.getPointsAllVals(),
-            circleColor = getMapBoxCaseColors(
+            rectangleColor = getMapBoxCaseColors(
                 [255, 222, 207, 0.5], [231, 50, 16, 1.0],
-                'rgba(0, 0, 0, 0.0)',
+                'rgba(0, 0, 0, 0.0)', 'rgb(182,45,16)',
                 [0,80,0,1.0], [0,80,0,0.4],
-                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 1.0], 20
+                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 20
             );
 
-        let circleRadius;
+        let rectangleWidths;
         if (this.clusteredCaseSources.clusteringBeingUsed()) {
-            circleRadius = [
-                'interpolate',
-                ['linear'],
-                ['get', 'casesSz'],
-                -4, 20,
-                -3, 14,
-                -2, 10,
-                -1, 9,
-                0, 0,
-                1, 9,
-                2, 13,
-                3, 16,
-                4, 20
-            ];
+            rectangleWidths = {
+                '-6': 30,
+                '-5': 25,
+                '-4': 20,
+                '-3': 14,
+                '-2': 10,
+                '-1': 9,
+                '0': 0,
+                '1': 9,
+                '2': 13,
+                '3': 16,
+                '4': 20,
+                '5': 25,
+                '6': 30,
+            };
         } else {
             // Scale circle radius by relative values
             let posTimes = 1.0,
@@ -204,32 +221,74 @@ class CaseCirclesLayer {
                 negTimes *= 1.1;
             }
 
-            circleRadius = [
-                'interpolate',
-                ['linear'],
-                ['get', 'casesSz'],
-                -4, 20*negTimes,
-                -3, 14*negTimes,
-                -2, 10*negTimes,
-                -1, 9*negTimes,
-                0, 0,
-                1, 9*posTimes,
-                2, 15*posTimes,
-                3, 22*posTimes,
-                4, 30*posTimes
-            ];
+            rectangleWidths = {
+                '-6': 30 * negTimes,
+                '-5': 25 * negTimes,
+                '-4': 20 * negTimes,
+                '-3': 14 * negTimes,
+                '-2': 10 * negTimes,
+                '-1': 9 * negTimes,
+                '0': 0,
+                '1': 9 * posTimes,
+                '2': 15 * posTimes,
+                '3': 22 * posTimes,
+                '4': 30 * posTimes,
+                '5': 35 * posTimes,
+                '6': 40 * posTimes
+            };
         }
 
         map.setPaintProperty(
-            // Size circle radius by value
-            this.uniqueId, 'circle-radius', circleRadius
+            // Color circle by value
+            this.uniqueId+'rectangle', 'fill-color', rectangleColor
         );
         map.setPaintProperty(
-            // Color circle by value
-            this.uniqueId, 'circle-color', circleColor
+            this.uniqueId+'citylabel', 'text-halo-color', rectangleColor
         );
 
+        this.__updateRectangleWidth(rectangleWidths);
         this.__shown = true;
+    }
+
+    __updateRectangleWidth(rectangleWidths) {
+        let data = this.clusteredCaseSources.getData(),
+            features = data['features'];
+
+        for (let feature of features) {
+            let [lng, lat] = feature['geometry']['coordinates'],
+                pxPoint = this.map.project([lng, lat]),
+                casesSz = parseInt(feature['properties']['casesSz']),
+                leftOver = Math.abs(feature['properties']['casesSz']-casesSz);
+
+            if (!casesSz) continue;
+            if (casesSz < -4) casesSz = -4;
+            if (casesSz > 4) casesSz = 4;
+
+            let pxLng = pxPoint.x;
+            let pxLat = pxPoint.y;
+            let rectangleWidth = rectangleWidths[casesSz];
+
+            rectangleWidth += (
+                rectangleWidths[
+                    casesSz < 0 ? casesSz-1 : casesSz+1
+                ] - rectangleWidth
+            ) * leftOver;
+
+            //console.log(`${casesSz} ${rectangleWidth} ${pxLng} ${pxLat}`);
+
+            let pt1 = this.map.unproject([pxLng-rectangleWidth, pxLat-10]),
+                pt2 = this.map.unproject([pxLng+rectangleWidth, pxLat-10]),
+                pt3 = this.map.unproject([pxLng+rectangleWidth, pxLat+10]),
+                pt4 = this.map.unproject([pxLng-rectangleWidth, pxLat+10]);
+
+            feature['geometry']['type'] = 'Polygon';
+            feature['geometry']['coordinates'] = [[
+                pt1.toArray(), pt2.toArray(),
+                pt3.toArray(), pt4.toArray(),
+            ]];
+        }
+
+        this.rectangleSource.setData(data);
     }
 
     /**

@@ -101,6 +101,22 @@ class CasesData {
         return this.updatedDate;
     }
 
+    /**
+     *
+     * @returns {*}
+     */
+    getRegionSchema() {
+        return this.regionSchema;
+    }
+
+    /**
+     *
+     * @returns {*}
+     */
+    getRegionParent() {
+        return this.regionParent;
+    }
+
     /*******************************************************************
      * Get possible children
      *******************************************************************/

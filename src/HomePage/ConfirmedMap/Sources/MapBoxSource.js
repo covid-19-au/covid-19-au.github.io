@@ -120,6 +120,7 @@ class MapBoxSource {
 
         this.getSourceInst().setData(data);
         this.__dataKeys = dataKeys;
+        this.__data = data;
         if (caseDataInsts) {
             this.__assignCaseDataInsts(caseDataInsts);
         }
@@ -136,6 +137,13 @@ class MapBoxSource {
         this.__pointsAllVals = pointsAllVals;
 
         return true;
+    }
+
+    /**
+     *
+     */
+    getData() {
+        return JSON.parse(JSON.stringify(this.__data));
     }
 
     /*******************************************************************

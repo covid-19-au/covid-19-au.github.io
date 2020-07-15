@@ -125,9 +125,15 @@ var fns = {
                 break;
             }
         }
-        return (num / si[i].value)
-               .toFixed(digits)
-               .replace(rx, "$1") + si[i].symbol;
+
+        let r = (num / si[i].value)
+                .toFixed(digits)
+                .replace(rx, "$1");
+
+        if (Math.abs(num) >= 1000 && r.indexOf('.') === -1) {
+            r += '.0';
+        }
+        return r+si[i].symbol;
     }
 };
 
