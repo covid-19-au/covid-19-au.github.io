@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/metropolitan-melbourne-put-into-six-week-lockdown-after-surge-of-191-new-coronavirus-infections",
+            "title": "Metropolitan Melbourne put into six-week lockdown after surge of 191 new coronavirus infections",
+            "source": "SBSNews",
+            "date": "7 July 2020",
+            "time": "16:00",
+            "summary": "Victorian Premier Daniel Andrews says metropolitan Melbourne will be put into a six-week lockdown after recording 191 new coronavirus infections on Tuesday. The lockdown, which will also apply to the Mitchell Shire north of the city, will take effect from 11.59pm on Wednesday. Mr Andrews told reporters on Tuesday new infections would quickly spiral out of control if drastic suppression measures weren't put in place."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/queensland-joins-wa-in-push-for-international-flight-cap-amid-melbourne-virus-spike",
+            "title": "Queensland joins WA in push for international flight cap amid Melbourne virus spike",
+            "source": "SBSNews",
+            "date": "7 July 2020",
+            "time": "13:00",
+            "summary": "Queensland and Western Australia have urged the federal government to cap international flights arriving in Australia to ease pressure on hotel quarantine. State premiers have raised concerns with Prime Minister Scott Morrison as Victoria struggles with a concerning coronavirus infection spike. Queensland Premier Annastacia Palaszczuk said extreme caution should be applied when dealing with arrivals from overseas. WA Premier Mark McGowan wants a cap of about one international flight every three days landing in Perth."
+        },
+        {
             "link": "https://www.sbs.com.au/news/victoria-nsw-border-to-close-for-the-first-time-in-100-years-as-melbourne-coronavirus-cases-hit-record-daily-high",
             "title": "Victoria-NSW border to close for the first time in 100 years as Melbourne coronavirus cases hit record daily high",
             "source": "SBSNews",
