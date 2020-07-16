@@ -11,10 +11,10 @@ mapboxgl.accessToken = token;
 
 
 class ConfirmedMap extends React.Component {
-    constructor({ stateName }) {
-        super({ stateName });
+    constructor(props) {
+        super(props);
         this.state = {};
-        this.stateName = stateName || 'AU';
+        this.stateName = props.stateName || 'AU';
 
         this.stateUpdatedDates = []; // FIXME!!!
         this.accuracyWarning = React.createRef();
@@ -32,7 +32,9 @@ class ConfirmedMap extends React.Component {
             <div>
                 <div style={{position: 'relative'}}>
                     <CovidMapControl ref={el => this.covidMapControl = el}
-                                     onGeoDataChanged={this.__onGeoDataChanged.bind(this)}>
+                                     onGeoDataChanged={this.__onGeoDataChanged.bind(this)}
+                                     dataType={this.props.dataType}
+                                     timePeriod={this.props.timePeriod}>
                     </CovidMapControl>
                 </div>
 
@@ -70,7 +72,10 @@ class ConfirmedMap extends React.Component {
     __onGeoDataChanged(geoDataInsts, caseDataInsts) {
         this.__geoDataInsts = geoDataInsts;
         this.__caseDataInsts = caseDataInsts;
-        this.__updatedSpan.innerHTML = this.__getUpdatedDates();
+
+        if (this.__updatedSpan) {
+            this.__updatedSpan.innerHTML = this.__getUpdatedDates();
+        }
     }
 
     __getUpdatedDates() {

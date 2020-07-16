@@ -38,8 +38,8 @@ class DataTypeSelect extends React.Component {
         super(props);
 
         this.state = {
-            timePeriod: null,
-            dataType: 'status_active',
+            timePeriod: props.timePeriod,
+            dataType: props.dataType||'status_active',
             enabled: true
         };
 

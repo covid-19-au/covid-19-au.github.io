@@ -30,7 +30,9 @@ class WorldPage extends React.Component {
                 <Grid container justify="center" wrap="wrap" style={{width: '100%'}}>
                     <Grid style={{minWidth: '95%'}} item xs={11} sm={11} md={10} lg={5}>
                         <div className="card">
-                            <ConfirmedMap stateName={"all"} />
+                            <ConfirmedMap stateName={"all"}
+                                          dataType={"total"}
+                                          timePeriod={14} />
                         </div>
                     </Grid>
                 </Grid>

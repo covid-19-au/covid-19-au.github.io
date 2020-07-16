@@ -101,6 +101,7 @@ class CovidMapControl extends React.Component {
             container: this.mapContainer,
             //style: style,
             style: 'mapbox://styles/mapbox/light-v10',
+            //style: 'mapbox://styles/mapbox/satellite-v9',
             zoom: 1,
             maxZoom: 12,
             //minZoom: 1,
@@ -117,7 +118,9 @@ class CovidMapControl extends React.Component {
         this.mapContainer.appendChild(mapContainerChild);
         ReactDOM.render(
             <CovidMapControls ref={el => this.covidMapControls = el}
-                              onchange={(e) => this._onControlsChange(e)} />,
+                              onchange={(e) => this._onControlsChange(e)}
+                              dataType={this.props.dataType}
+                              timePeriod={this.props.timePeriod} />,
             mapContainerChild
         );
 

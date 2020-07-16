@@ -32,6 +32,12 @@ import TimeSeriesItems from "../CrawlerDataTypes/TimeSeriesItems"
 
 import getFromTodaysStateCaseData from "./getFromTodaysStateCaseData"
 
+function debug(message) {
+    if (false) {
+        console.log(message);
+    }
+}
+
 
 class CasesData {
     /**
@@ -200,15 +206,17 @@ class CasesData {
                 )
                 && !iso3166WithinView.has(properties['regionChild'])
             ) {
-                console.log(`Ignoring child due to not in view: ${properties['regionSchema']}->${properties['regionChild']}`);
+                debug(`Ignoring child due to not in view: ${properties['regionSchema']}->${properties['regionChild']}`);
                 continue;
             }
             else if (
                 properties['regionSchema'] !== 'admin_0' &&
                 properties['regionSchema'] !== 'admin_1' &&
-                !iso3166WithinView.has(this.regionParent)
+                this.regionParent &&
+                !iso3166WithinView.has(this.regionParent) &&
+                !iso3166WithinView.has(this.regionParent.split('-')[0])
             ) {
-                console.log(`Ignoring *ALL* parent due to not in view: ${properties['regionSchema']}->${properties['regionChild']}`);
+                debug(`Ignoring *ALL* parent due to not in view: ${properties['regionSchema']}->${properties['regionChild']}`);
                 continue;
             }
             else if (
@@ -218,7 +226,7 @@ class CasesData {
                 )
             ) {
                 // Make it so children such as AU-TAS will replace AU
-                console.log(`Ignoring child: ${properties['regionSchema']}->${properties['regionChild']}`);
+                debug(`Ignoring child: ${properties['regionSchema']}->${properties['regionChild']}`);
                 continue;
             }
             else if (!parseInt(properties.largestItem)) {
@@ -243,11 +251,11 @@ class CasesData {
             }
 
             if (!timeSeriesItem) {
-                console.log(`No data for ${regionType.prettified()} (${regionType.getRegionChild()})`);
+                debug(`No data for ${regionType.prettified()} (${regionType.getRegionChild()})`);
                 out.push(feature);
                 continue;
             }
-            //console.log(`Data found for ${regionType.prettified()} (${regionType.getRegionChild()})`);
+            //debug(`Data found for ${regionType.prettified()} (${regionType.getRegionChild()})`);
 
             if (timeSeriesItem.getDaysSince) {
                 var dayssince = this.getDaysSince(regionType, ageRange);
@@ -268,7 +276,7 @@ class CasesData {
             out.push(feature);
         }
 
-        //console.log(JSON.stringify(features));
+        //debug(JSON.stringify(features));
         let r = Fns.geoJSONFromFeatures(out);
         r.max = out.length ? max : 0;
         r.min = out.length ? min : 0;

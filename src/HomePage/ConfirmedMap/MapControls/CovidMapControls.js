@@ -52,7 +52,9 @@ class CovidMapControls extends React.Component {
                      maxWidth: '14em'
                  }}>
                 <DataTypeSelect ref={(el) => this.__dataTypeSelect = el}
-                                onchange={(dataType, timePeriod) => this._onChangeType(dataType, timePeriod)} />
+                                onchange={(dataType, timePeriod) => this._onChangeType(dataType, timePeriod)}
+                                dataType={this.props.dataType}
+                                timePeriod={this.props.timePeriod}/>
                 <div style={{display: 'none'}}>
                     <UnderlaySelect ref={(el) => this.__underlaySelect = el}
                                     onchange={(underlayCategory, underlay) => this._onChangeUnderlay(underlayCategory, underlay)}/>

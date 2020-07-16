@@ -176,7 +176,7 @@ class CaseCirclesLayer {
         let map = this.map,
             rectangleColor = getMapBoxCaseColors(
                 [255, 222, 207, 0.5], [231, 50, 16, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(182,45,16)',
+                'rgba(0, 0, 0, 0.0)', 'rgb(182,14,28)',
                 [0,80,0,1.0], [0,80,0,0.4],
                 caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 20
             );
