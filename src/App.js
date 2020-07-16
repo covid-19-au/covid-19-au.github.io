@@ -219,8 +219,8 @@ function App() {
     "/state/tas": () => <StateChart state="TAS" />,
     "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={overall} inputData={data} setProvince={setProvince} area={area} />,
     "/blog": () => <Blog />,
-    "/blog/:id": ({id}) => <Blog id={id}/>,
-    "/blog/post/:id": ({id}) => <BlogPage id={id} />,
+    "/blog/:id": ({ id }) => <Blog id={id} />,
+    "/blog/post/:id": ({ id }) => <BlogPage id={id} />,
     "/about-us": () => <AboutUsPage />
   };
   //
@@ -279,41 +279,41 @@ function App() {
             <Grid item xs={12} className="removePadding">
               <Header province={province} />
             </Grid>
-              {window.location.href==="http://localhost:3008/"||window.location.href==="http://covid-19-au.com/"||window.location.href==="https://covid-19-au.com/"?
-                  <Alert style={{width:'100%'}} severity="info">
-                      {/*<AlertTitle><strong>Important!!</strong></AlertTitle>*/}
-                      {window.innerWidth>'576'?
-                          <p style={{fontSize: "0.85rem"}} className="card-text">To improve our site, we are working
-                              with researchers from Monash University and Rochester Institute of Technology, to
-                              investigate how our users seek information about COVID-19. We would be very grateful, if
+            {window.location.href === "http://localhost:3008/" || window.location.href === "http://covid-19-au.com/" || window.location.href === "https://covid-19-au.com/" ?
+              <Alert style={{ width: '100%' }} severity="info">
+                {/*<AlertTitle><strong>Important!!</strong></AlertTitle>*/}
+                {window.innerWidth > '576' ?
+                  <p style={{ fontSize: "0.85rem" }} className="card-text">To improve our site, we are working
+                  with researchers from Monash University and Rochester Institute of Technology, to
+                  investigate how our users seek information about COVID-19. We would be very grateful, if
                               you could fill in this&nbsp;<a target="_blank" rel="noopener noreferrer"
-                                                             href="https://docs.google.com/forms/d/e/1FAIpQLSdPMLY_4M6HVBCGbFqDVbfcoKcuM5fUeDpPR77Xc_nhBp9vZA/viewform?usp=sf_link"
-                                                             onClick={() => ReactGA.event({
-                                                                 category: 'infoBar',
-                                                                 action: "survey"
-                                                             })}><u><strong>10-min survey</strong></u></a>. <br/>The
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSdPMLY_4M6HVBCGbFqDVbfcoKcuM5fUeDpPR77Xc_nhBp9vZA/viewform?usp=sf_link"
+                      onClick={() => ReactGA.event({
+                        category: 'infoBar',
+                        action: "survey"
+                      })}><u><strong>10-min survey</strong></u></a>. <br />The
                               survey results will eventually be released at <a target="_blank" rel="noopener noreferrer"
-                                                                               href="https://covid19onlinesurvey.org"
-                                                                               onClick={() => ReactGA.event({
-                                                                                   category: 'infoBar',
-                                                                                   action: "visitSite"
-                                                                               })}><u>https://covid19onlinesurvey.org</u></a>
-                          </p>:<p style={{fontSize: "0.85rem"}} className="card-text">How do you seek COVID-19 information?
+                      href="https://covid19onlinesurvey.org"
+                      onClick={() => ReactGA.event({
+                        category: 'infoBar',
+                        action: "visitSite"
+                      })}><u>https://covid19onlinesurvey.org</u></a>
+                  </p> : <p style={{ fontSize: "0.85rem" }} className="card-text">How do you seek COVID-19 information?
                               Please fill in this&nbsp;<a target="_blank" rel="noopener noreferrer"
-                                                             href="https://docs.google.com/forms/d/e/1FAIpQLSdPMLY_4M6HVBCGbFqDVbfcoKcuM5fUeDpPR77Xc_nhBp9vZA/viewform?usp=sf_link"
-                                                             onClick={() => ReactGA.event({
-                                                                 category: 'infoBar',
-                                                                 action: "survey"
-                                                             })}><u><strong>10-min survey</strong></u></a>&nbsp;to help us improve this site. More details can be seen at <a target="_blank" rel="noopener noreferrer"
-                                                                               href="https://covid19onlinesurvey.org"
-                                                                               onClick={() => ReactGA.event({
-                                                                                   category: 'infoBar',
-                                                                                   action: "visitSite"
-                                                                               })}><u>covid19onlinesurvey.org</u>.</a>
-                          </p>
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSdPMLY_4M6HVBCGbFqDVbfcoKcuM5fUeDpPR77Xc_nhBp9vZA/viewform?usp=sf_link"
+                      onClick={() => ReactGA.event({
+                        category: 'infoBar',
+                        action: "survey"
+                      })}><u><strong>10-min survey</strong></u></a>&nbsp;to help us improve this site. More details can be seen at <a target="_blank" rel="noopener noreferrer"
+                        href="https://covid19onlinesurvey.org"
+                        onClick={() => ReactGA.event({
+                          category: 'infoBar',
+                          action: "visitSite"
+                        })}><u>covid19onlinesurvey.org</u>.</a>
+                  </p>
 
-                      }
-                  </Alert>:<div />}
+                }
+              </Alert> : <div />}
             <Grid item xs={12} className="removePadding">
               <Navbar setNav={setNav} nav={nav} />
               {/*<Navbar  province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} columns={columns}/>*/}
@@ -337,7 +337,7 @@ function App() {
             {/*)} exact/>*/}
             {/*<Route path="/faq" component={FAQPage} exact/>*/}
             {/*</Switch>*/}
-            <Grid item xs={11}>
+            <Grid item xs={12}>
               <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
             </Grid>
           </Grid>

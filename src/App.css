@@ -207,9 +207,10 @@ header i {
 
 .fallback {
   padding: 0 1rem 1rem;
-  color: #999;
+  color: black;
   text-align: center;
   font-size: 70%;
+  background-color: #bae1ff;
 }
 
 a {
