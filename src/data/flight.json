@@ -898,5 +898,14 @@
     "dateDeparture": "01-04-20",
     "dateArrival": "03-04-20",
     "closeContactRow": "14, 15, 16, 17, 18"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "JQ466",
+    "airline": "Jetstar",
+    "path": "Melboune to Ballina",
+    "dateDeparture": "",
+    "dateArrival": "12-07-20",
+    "closeContactRow": "Unsure"
   }
 ]
