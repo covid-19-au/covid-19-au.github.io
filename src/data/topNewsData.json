@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-17/victoria-coronavirus-cases-update-record-covid19-daily-increase/12465632",
+            "title": "Victoria records another 428 coronavirus cases and three more COVID-19 deaths",
+            "source": "ABCNews",
+            "date": "17 July 2020",
+            "time": "18:00",
+            "summary": "The 428 new cases today represent the highest daily increase since the start of the pandemic, and three more people have died from the virus, taking the death toll in the state to 32. They were a man in his 70s, a man in his 80s and a woman in her 80s. Victorian Premier, Daniel Andrews has said that  the likelihood of a longer lockdown or heightened enforcement was \"all in the hands\" of every Victorian. \"If we get a sense, and if the data continues to tell us … that the strategy is not being as effective as quickly as we would like, we may have to go to new rules,\" he said."
+        },
+        {
+            "link": "https://www.theguardian.com/media/2020/jul/17/black-lives-matter-protests-a-covid-19-outbreak-and-the-link-that-didnt-exist",
+            "title": "Black Lives Matter protests, a Covid-19 outbreak and the 'link' that didn't exist ",
+            "source": "TheGuardian",
+            "date": "17 July 2020",
+            "time": "20:11",
+            "summary": "A number of news outlets had previously reported that authorities had confirmed a link between last month’s Melbourne Black Lives Matter protest and the Covid-19 breakout in public housing towers. The Victorian Department of Health and Human Services have now knocked down these claims. They said, \"We are aware of six confirmed cases who attended the Black Lives Matter protest,\" adding \"Currently there is no evidence to suggest they acquired the virus from the protest, and \"None of these cases are known to reside at a major public housing complex. Currently no known nor suspected episodes of transmission occurred at the protest itself.\""
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-16/new-coronavirus-case-confirmed-in-sa-as-tougher-fines-introduced/12461044",
             "title": "New coronavirus case confirmed as SA announces fines for travellers who refuse tests",
             "source": "ABCNews",
@@ -135,22 +151,6 @@
             "date": "10 July 2020",
             "time": "14:35",
             "summary": "Mark McGowan says WA’s hard border with the rest of the nation will be up for “as long as it takes” amid news phase five of WA’s COVID-19 restrictions will be delayed until August 1. The Premier said border measures between WA and Victoria could be tightened even further yet and WA Police Commissioner Chris Dawson flagged stopping all planes from Victoria from coming into WA as being an option to keep COVID-19 out of the state. It comes amid news from the Premier that the start of WA’s next phase of restrictions had been pushed back two weeks. The Premier said WA had decided to be extra cautious in delaying restriction relaxations because of the situation in Victoria."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/restrictions-to-ease-in-eight-of-melbourne-s-locked-down-public-housing-towers",
-            "title": "Restrictions to ease in eight of Melbourne's locked-down public housing towers",
-            "source": "SBSNews",
-            "date": "9 July 2020",
-            "time": "17:30",
-            "summary": "A hard lockdown is set to end for eight of the public housing estates in Melbourne on Saturday, meaning people will be able to leave for essential purposes. All towers, except the 33 Alfred Street estate, will move to Stage 3 restrictions, in line with the rest of metropolitan Melbourne. This means residents will be able to leave for essential work, study, exercise or care responsibilities. Tenants in the Alfred Street building, where there have been 53 cases of COVID-19, will have to remain inside for another nine days. However, they will be allowed to have supervised exercise outside."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/jul/09/nsw-victoria-border-control-to-be-in-place-for-at-least-six-weeks-as-queensland-and-sa-clamp-down",
-            "title": "NSW-Victoria border control to be in place for at least six weeks as Queensland and SA clamp down ",
-            "source": "TheGuardian",
-            "date": "9 July 2020",
-            "time": "17:40",
-            "summary": "Border controls between Victoria and New South Wales will remain in place for at least six weeks, while Queensland will turn Victorians away at the border and South Australia will require those permitted into the state to wear face masks. Meanwhile, Tasmania has extended its state of emergency until 31 August, in response to the Melbourne outbreak, but will consider reopening its borders to other states."
         }
     ]
 }
