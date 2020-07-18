@@ -83,6 +83,16 @@ class CasesData {
     }
 
     /**
+     * HACK: Returns if this dataType actually is in the data
+     *       This should be fixed in DataDownloader+the CasesData
+     *       not created if the data doesn't exist, but will
+     *       require more refactoring!
+     */
+    datatypeInData() {
+        return this.subHeaderIndex !== -1;
+    }
+
+    /**
      * Convert YYYY_MM_DD format to DateType objects,
      * so as to reduce comparison times
      * 

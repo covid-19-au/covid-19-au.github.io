@@ -107,32 +107,31 @@ class DataDownloader {
      * @param zoomLevel
      * @param lngLatBounds
      * @param dataType
-     * @param schemasForCases
-     * @param onlyShowISO_3166_2 restrict to a given ISO 3166 2 code
+     * @param dateRangeType
+     * @param possibleSchemasForCases
+     * @param iso3166WithinView restrict to a given ISO 3166 2 code
      * @returns {Promise<void>}
      * @private
      */
     async getCaseDataForZoomAndCoords(zoomLevel, lngLatBounds, dataType, dateRangeType,
-                                      schemasForCases, iso3166WithinView) {
+                                      possibleSchemasForCases, iso3166WithinView) {
         var promises = [];
 
-        for (let key of schemasForCases.keys()) {
-            let [parentSchema, parentISO] = key.split('||');
-            //console.log(`${parentSchema}, ${parentISO}`)
-            let [priority, regionSchema, iso3166Codes] = schemasForCases.get(key);
-
-            if (iso3166Codes) {
-                for (let iso3166 of iso3166Codes) {
+        for (let schemaInfo of possibleSchemasForCases) {
+            if (schemaInfo.iso3166Codes) {
+                for (let iso3166 of schemaInfo.iso3166Codes) {
                     promises.push([
-                        this.getGeoData(regionSchema, iso3166),
-                        this.getCaseData(dataType, regionSchema, iso3166)
+                        schemaInfo,
+                        this.getGeoData(schemaInfo.schema, iso3166),
+                        this.getCaseData(dataType, schemaInfo.schema, iso3166)
                     ]);
                 }
             }
             else {
                 promises.push([
-                    this.getGeoData(regionSchema, null),
-                    this.getCaseData(dataType, regionSchema, null)
+                    schemaInfo,
+                    this.getGeoData(schemaInfo.schema, null),
+                    this.getCaseData(dataType, schemaInfo.schema, null)
                 ]);
             }
         }
@@ -169,7 +168,7 @@ class DataDownloader {
             }
         };
 
-        for (let [geoDataPromise, caseDataPromise] of promises) {
+        for (let [schemaInfo, geoDataPromise, caseDataPromise] of promises) {
             let geoData = await geoDataPromise,
                 caseData = await caseDataPromise;
 
@@ -177,19 +176,23 @@ class DataDownloader {
             // if admin1 AU-VIC is shown by recording
             // what the parent of each schema is
             if (geoData instanceof GeoData) {
+                if (!caseData || !caseData.datatypeInData()) { // datatypeInData HACK!
+                    continue;
+                }
                 addParents(geoData);
-                insts.push([geoData, caseData]);
+                insts.push([schemaInfo, geoData, caseData]);
             }
             else {
                 for (let k in geoData) {
                     // If no corresponding case data,
                     // don't add the geojson data either!
                     //if (!caseData[k]) continue;
-                    if (!caseData[k]) {
-                        debug(`Warning: Case data not found - ${k}`)
+                    if (!caseData[k] || !caseData[k].datatypeInData()) { // datatypeInData HACK!
+                        debug(`Warning: Case data not found - ${k}`);
+                        continue;
                     }
                     addParents(geoData[k]);
-                    insts.push([geoData[k], caseData[k]]);
+                    insts.push([schemaInfo, geoData[k], caseData[k]]);
                 }
             }
         }
@@ -225,18 +228,31 @@ class DataDownloader {
                 polygons['features'].push(...iPolygons['features']);
 
                 caseDataInsts.push(caseData);
-            }
 
-            geoDataInsts.push(geoData);
-            debug(`assigned ${geoData.getRegionSchema()}->${geoData.getRegionParent()}: lengths ${iPoints.features.length} ${iPolygons.features.length}`);
+                geoDataInsts.push(geoData);
+                debug(`assigned ${geoData.getRegionSchema()}->${geoData.getRegionParent()}: lengths ${iPoints.features.length} ${iPolygons.features.length}`);
+            }
+            else {
+                // ???
+                debug(`UNassigned ${geoData.getRegionSchema()}->${geoData.getRegionParent()}: lengths ${iPoints.features.length} ${iPolygons.features.length}`);
+            }
         };
 
-        for (let [geoData, caseData] of insts) {
+        // Make it so e.g. postcode schema takes priority over LGA
+        let priorities = {};
+        for (let [schemaInfo, geoData, caseData] of insts) {
+            let srp = geoData.getRegionParent();
+            if (!priorities[srp] || priorities[srp][0] < schemaInfo.priority) {
+                priorities[srp] = [schemaInfo.priority, geoData, caseData];
+            }
+        }
+        for (let key in priorities) {
+            let [priority, geoData, caseData] = priorities[key];
             assign(geoData, caseData, parents);
         }
 
-        pointsAllVals.sort((a, b) => {return a-b});
-        polygonsAllVals.sort((a, b) => {return a-b});
+        pointsAllVals.sort((a, b) => a - b);
+        polygonsAllVals.sort((a, b) => a - b);
         points.caseVals = pointsAllVals;
         polygons.caseVals = polygonsAllVals;
 
@@ -261,7 +277,7 @@ class DataDownloader {
      * to make downloads more manageable
      *
      * @param zoomLevel
-     * @param lngLatBounds
+     * @param iso3166WithinView
      * @returns {Map<any, any>}
      */
     getPossibleSchemasForGeoJSON(zoomLevel, iso3166WithinView) {
@@ -277,7 +293,7 @@ class DataDownloader {
      * to make downloads more manageable
      *
      * @param zoomLevel
-     * @param lngLatBounds
+     * @param iso3166WithinView
      * @returns {Map<any, any>}
      */
     getPossibleSchemasForUnderlay(zoomLevel, iso3166WithinView) {
@@ -293,7 +309,7 @@ class DataDownloader {
      * to make downloads more manageable
      *
      * @param zoomLevel
-     * @param lngLatBounds
+     * @param iso3166WithinView
      * @returns {Map<any, any>}
      */
     getPossibleSchemasForCases(zoomLevel, iso3166WithinView) {
@@ -301,8 +317,13 @@ class DataDownloader {
     }
 
     /**
-     * Get a Map with keys of [parent schema, parent iso 3166 code]
-     * and values of [priority, schema, iso 3166-2 codes as an array].
+     * Get a list of objects with keys of {
+     *     parent schema,
+     *     parent iso 3166 code,
+     *     priority,
+     *     schema,
+     *     iso 3166-2 codes as an array
+     * }
      *
      * The iso 3166-2 codes are only provided when data files are split
      * to make downloads more manageable
@@ -312,12 +333,12 @@ class DataDownloader {
      *
      * @param mode
      * @param zoomLevel
-     * @param lngLatBounds
+     * @param iso3166WithinView
      * @returns {Map<any, any>}
      * @private
      */
     __getPossibleSchemas(mode, zoomLevel, iso3166WithinView) {
-        var r = new Map();
+        var r = [];
         debug(`ISO 3166 within view: ${Array.from(iso3166WithinView)}`);
 
         for (let [schema, schemaObj] of Object.entries(this.schemas)) {
@@ -335,12 +356,6 @@ class DataDownloader {
                     continue;
                 } else if (maxZoom != null && zoomLevel > maxZoom) {
                     debug(`ignoring due to maxzoom: ${zoomLevel}>${maxZoom} ${schema} (parent schema->${parentSchema}; parent iso->${parentISO})`);
-                    continue;
-                } else if (
-                    r.has(`${parentSchema}||${parentISO}`) &&
-                    priority < r.get(`${parentSchema}||${parentISO}`)[0]
-                ) {
-                    debug(`higher priority item found - ignoring ${schema} (parent schema->${parentSchema}; parent iso->${parentISO}) in favor of ${r.get(`${parentSchema}||${parentISO}`)}`);
                     continue;
                 }
             }
@@ -378,7 +393,13 @@ class DataDownloader {
                 // Data is split into multiple files to save downloads -
                 // only get files which are in view!
                 debug(`adding with iso3166 codes: ${parentSchema} ${parentISO} ${priority} ${schema} ${iso3166Codes}`);
-                r.set(`${parentSchema}||${parentISO}`, [priority, schema, iso3166Codes]);
+                r.push({
+                    parentSchema: parentSchema,
+                    parentISO: parentISO,
+                    priority: priority,
+                    schema: schema,
+                    iso3166Codes: iso3166Codes
+                });
 
             } else if (!splitByParentRegion) {
                 if (parentISO && !iso3166WithinView.has(parentISO)) {
@@ -400,34 +421,15 @@ class DataDownloader {
 
                 // All data is in one file, so assign for all
                 debug(`adding without iso3166 codes: ${parentSchema} ${parentISO} ${priority} ${schema}`);
-                r.set(`${parentSchema}||${parentISO}`, [priority, schema]);
+                r.push({
+                    parentSchema: parentSchema,
+                    parentISO: parentISO,
+                    priority: priority,
+                    schema: schema
+                });
 
             } else {
                 throw "Parent schema must be admin_0 to allow splitting files!";
-            }
-        }
-
-        if (mode === MODE_CASES) {
-            for (let k of r.keys()) {
-                let [parentSchema, parentISO] = k.split('||');
-
-                /*if (
-                    parentSchema === 'admin_1' && parentISO &&
-                    r.has(`admin_0||${parentISO.split('-')[0]}`) &&
-                    String(parentISO).split('-')[0] !== 'null'
-                ) {
-                    // schemas which attach off admin 0 take priority over admin 0
-                    debug(`removing key "admin_0||${parentISO.split('-')[0]}" (${r.get(`admin_0||${parentISO.split('-')[0]}`)})`);
-                    r.delete(`admin_0||${parentISO.split('-')[0]}`);
-                }
-
-                if (
-                    (parentSchema === 'admin_1' || parentSchema === 'admin_0') && parentISO &&
-                    r.has(`null||${parentISO.split('-')[0]}`) &&
-                    String(parentISO).split('-')[0] !== 'null'
-                ) {
-                    r.delete(`null||${parentISO.split('-')[0]}`);
-                }*/
             }
         }
         return r;

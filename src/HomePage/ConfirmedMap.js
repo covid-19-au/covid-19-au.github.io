@@ -70,6 +70,7 @@ class ConfirmedMap extends React.Component {
      * @private
      */
     __onGeoDataChanged(geoDataInsts, caseDataInsts) {
+
         this.__geoDataInsts = geoDataInsts;
         this.__caseDataInsts = caseDataInsts;
 
@@ -79,6 +80,7 @@ class ConfirmedMap extends React.Component {
     }
 
     __getUpdatedDates() {
+        return '';
         let stateUpdatedDates = (this.__caseDataInsts||[]).map((caseDataInst) => {
             return [
                 caseDataInst.getRegionSchema(),

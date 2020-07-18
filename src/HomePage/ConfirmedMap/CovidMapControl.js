@@ -157,14 +157,14 @@ class CovidMapControl extends React.Component {
             );
 
             // Add layers for cases
+            this.casesLinePolyLayer = new LinePolyLayer(
+                map, 'casesLinePolyLayer', 'rgba(202, 210, 211, 1.0)', null, casesSource
+            );
             this.daysSinceLayer = new DaysSinceLayer(
                 map, 'daysSinceLayer', casesSource
             );
             this.casesFillPolyLayer = new CasesFillPolyLayer(
                 map, 'casesFillPolyLayer', casesSource
-            );
-            this.casesLinePolyLayer = new LinePolyLayer(
-                map, 'casesLinePolyLayer', 'rgba(202, 210, 211, 1.0)', null, casesSource
             );
             this.caseCirclesLayer = new CaseCirclesLayer(
                 map, 'heatMap', clusteredCaseSource
