@@ -221,6 +221,7 @@ class ClusteredCaseSource extends MapBoxSource {
                 properties['cases'] = cases;
                 properties['casesFmt'] = Fns.getCompactNumberRepresentation(cases, 1);
                 properties['casesSz'] = properties['casesFmt'].length;
+                properties['negcases'] = -cases;
                 newFeatures.push(feature);
             }
             else {

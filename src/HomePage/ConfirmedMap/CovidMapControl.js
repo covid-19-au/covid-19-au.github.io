@@ -100,8 +100,8 @@ class CovidMapControl extends React.Component {
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
             //style: style,
-            style: 'mapbox://styles/mapbox/light-v10',
-            //style: 'mapbox://styles/mapbox/satellite-v9',
+            style: 'mapbox://styles/mapbox/light-v10?optimize=true',
+            //style: 'mapbox://styles/mapbox/satellite-v9?optimize=true',
             zoom: 1,
             maxZoom: 12,
             //minZoom: 1,
@@ -407,6 +407,9 @@ class CovidMapControl extends React.Component {
         }
         if (this.casesSource) {
             this.casesSource.setData(polygons);
+        }
+        if (this.caseCirclesLayer) {
+            this.caseCirclesLayer.updateLayer();
         }
         if (this.clusteredCaseSource && this.casesSource) {
             this.onMapMoveChange();

@@ -76,46 +76,53 @@ class CaseCirclesLayer {
             }
         }
 
-        map.addLayer(
-            {
-                'id': this.uniqueId+'rectangle',
-                'type': 'fill',
-                'source': this.rectangleSource.getSourceId(),
-                filter: ['all',
-                    ['!=', 'cases', 0],
-                    ['has', 'cases']
-                ]
-            } //, lastCircleLayer
-        );
+        let addCityLabel = (underneath) => {
+            map.addLayer(
+                {
+                    'id': this.uniqueId + 'citylabel' + (underneath ? 'un' : ''),
+                    'type': 'symbol',
+                    'source': this.clusteredCaseSources.getSourceId(),
+                    'filter': ['all',
+                        ['!=', 'cases', 0],
+                        ['has', 'cases']
+                    ],
+                    'layout': {
+                        'text-field': [
+                            'format',
+                            ['get', 'label'],
+                            {'font-scale': 0.7},
+                        ],
+                        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                        'text-offset': [0, 0.75],
+                        'text-anchor': 'top',
+                        'text-allow-overlap': underneath,
+                        'symbol-sort-key': ["get", "cases"]
+                    },
+                    'paint': {
+                        'text-color': 'rgba(255, 255, 255, 1.0)',
+                        'text-halo-color': 'rgb(0, 0, 0)',
+                        'text-halo-width': 1,
+                        'text-halo-blur': 2
+                    }
+                },
+                underneath ? (this.uniqueId+'rectangle') : null
+            );
+        };
+        addCityLabel(false);
 
         map.addLayer({
-            'id': this.uniqueId+'citylabel',
-            'type': 'symbol',
-            'source': this.clusteredCaseSources.getSourceId(),
-            'filter': ['all',
+            'id': this.uniqueId+'rectangle',
+            'type': 'fill',
+            'source': this.rectangleSource.getSourceId(),
+            filter: ['all',
                 ['!=', 'cases', 0],
                 ['has', 'cases']
-            ],
-            'layout': {
-                'text-field': [
-                    'format',
-                    ['get', 'label'],
-                    { 'font-scale': 0.7 },
-                ],
-                'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                'text-offset': [0, 0.75],
-                'text-anchor': 'top',
-                //'text-allow-overlap': true,
-                'symbol-sort-key': ['get', 'negcases']
-            },
-            'paint': {
-                'text-color': 'rgb(255, 255, 255)',
-                'text-halo-color': 'rgb(0, 0, 0)',
-                'text-halo-width': 3,
-                'text-halo-blur': 2
-            }
-        }//, lastSymbolLayer
-        );
+            ]
+        });
+
+        // Need to add after the rectangle source has been
+        // created to make sure it's directly underneath it!
+        addCityLabel(true);
 
         map.addLayer({
             id: this.uniqueId+'label',
@@ -134,13 +141,12 @@ class CaseCirclesLayer {
                 ],
                 'text-size': 13,
                 'text-allow-overlap': true,
-                'symbol-sort-key': ["to-number", ["get", "cases"], 1]
+                'symbol-sort-key': ["get", "cases"]
             },
             paint: {
                 "text-color": "rgba(255, 255, 255, 1.0)"
             }
-        }//, lastSymbolLayer
-        );
+        });
 
         this.__layerAdded = true;
     }
@@ -245,6 +251,9 @@ class CaseCirclesLayer {
         map.setPaintProperty(
             this.uniqueId+'citylabel', 'text-halo-color', rectangleColor
         );
+        map.setPaintProperty(
+            this.uniqueId+'citylabelun', 'text-halo-color', rectangleColor
+        );
 
         this.__updateRectangleWidth(rectangleWidths);
         this.__shown = true;
@@ -300,6 +309,7 @@ class CaseCirclesLayer {
             map.removeLayer(this.uniqueId);
             map.removeLayer(this.uniqueId + 'label');
             map.removeLayer(this.uniqueId + 'citylabel');
+            map.removeLayer(this.uniqueId + 'citylabelun');
             this.__shown = false;
         }
     }
