@@ -141,7 +141,6 @@ class RegionalCasesTreeMap extends React.Component {
 
         for (let regionType of casesInst.getRegionChildren()) {
             let timeSeriesItem;
-            labels.push(regionType.getLocalized());
 
             if (numDays) {
                 timeSeriesItem = casesInst.getCaseNumberOverNumDays(regionType, null, numDays)
@@ -150,6 +149,7 @@ class RegionalCasesTreeMap extends React.Component {
             }
 
             if (timeSeriesItem) {
+                labels.push(regionType.getLocalized());
                 values.push(timeSeriesItem.getValue());
                 parents.push("");
             }

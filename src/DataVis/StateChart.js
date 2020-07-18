@@ -212,7 +212,9 @@ class StateChart extends React.Component {
         let newCaseData = await this.dataDownloader.getCaseData(
             'status_active', regionSchema, regionParent
         );
-        this.bubbleChart.setCasesInst(newCaseData);
+        if (newCaseData && newCaseData.datatypeInData()) {
+            this.bubbleChart.setCasesInst(newCaseData);
+        }
     }
 
     /**
@@ -225,7 +227,9 @@ class StateChart extends React.Component {
         let newCaseData = await this.dataDownloader.getCaseData(
             'status_active', regionSchema, regionParent
         );
-        this.areaChart.setCasesInst(newCaseData);
+        if (newCaseData && newCaseData.datatypeInData()) {
+            this.areaChart.setCasesInst(newCaseData);
+        }
     }
 
     /**
@@ -236,17 +240,22 @@ class StateChart extends React.Component {
      * @private
      */
     async __initTreeMap(regionSchema, regionParent) {
-        // TODO: Revert to 21 days if "status_active" isn't available!!!! =====================================================
         let totalCaseData = await this.dataDownloader.getCaseData(
             'total', regionSchema, regionParent
-        );
-        let activeCaseData = await this.dataDownloader.getCaseData(
-            'status_active', regionSchema, regionParent
         );
         let newCaseData = await this.dataDownloader.getCaseData(
             'new', regionSchema, regionParent
         );
-        this.treeMap.setCasesInst(activeCaseData, newCaseData, totalCaseData);
+        let activeCaseData = await this.dataDownloader.getCaseData(
+            'status_active', regionSchema, regionParent
+        );
+
+        if (!activeCaseData || !activeCaseData.datatypeInData()) {
+            // Revert to 21 days if "status_active" isn't available
+            this.treeMap.setCasesInst(null, newCaseData, totalCaseData);
+        } else {
+            this.treeMap.setCasesInst(activeCaseData, newCaseData, totalCaseData);
+        }
     }
 
     /**

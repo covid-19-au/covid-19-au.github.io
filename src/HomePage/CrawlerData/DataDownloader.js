@@ -209,10 +209,10 @@ class DataDownloader {
 
             if (caseData) {
                 iPoints = caseData.getCaseInfoGeoJSON(
-                    iPoints, null, dateRangeType, parents, iso3166WithinView
+                    iPoints, null, dateRangeType, parents, iso3166WithinView, true
                 );
                 iPolygons = caseData.getCaseInfoGeoJSON(
-                    iPolygons, null, dateRangeType, parents, iso3166WithinView
+                    iPolygons, null, dateRangeType, parents, iso3166WithinView, false
                 );
 
                 for (let feature of iPoints['features']) {

@@ -36,6 +36,9 @@ function getMapBoxCaseColors(
     r.push(['==', ['get', 'cases'], null]);
     r.push(nullColor);
 
+    r.push(['==', ['get', 'cases'], 0]);
+    r.push(nullColor); // FIXME: Add a special "0" color!!! ==================================================
+
     // Emphasize the highest case value
     r.push(['==', ['get', 'cases'], caseVals[caseVals.length-1]]);
     r.push(maxColor);
@@ -79,7 +82,13 @@ function __extendForColorRange(r, quantiles, totalCases, caseVals, fromColor, to
             val = -val;
         }
 
-        r.push(['<=', ['get', 'cases'], val]);
+        if (negateVals) {
+            // Special case to make sure 0 isn't displayed as negative
+            r.push(['<', ['get', 'cases'], val]);
+        } else {
+            r.push(['<=', ['get', 'cases'], val]);
+        }
+
         r.push(`rgba(
             ${Math.round(fromColor[0]*(1.0-pc)+toColor[0]*pc)}, 
             ${Math.round(fromColor[1]*(1.0-pc)+toColor[1]*pc)}, 

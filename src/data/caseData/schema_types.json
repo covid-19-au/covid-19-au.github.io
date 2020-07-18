@@ -1082,7 +1082,7 @@
         },
         "postcode": {
             "iso_3166": "au-nsw",
-            "min_zoom": 8,
+            "min_zoom": 9,
             "priority": 5,
             "line_width": 0.5,
             "split_by_parent_region": false
@@ -1096,7 +1096,7 @@
         },
         "br_city": {
             "iso_3166": "br",
-            "min_zoom": 4,
+            "min_zoom": 5,
             "priority": 5,
             "line_width": 0.5,
             "split_by_parent_region": true
@@ -1134,7 +1134,7 @@
         },
         "de_kreis": {
             "iso_3166": "de",
-            "min_zoom": 4,
+            "min_zoom": 5,
             "priority": 5,
             "line_width": 0.5,
             "split_by_parent_region": true
@@ -1162,6 +1162,13 @@
         "jp_city": {
             "iso_3166": "jp",
             "min_zoom": 7,
+            "priority": 5,
+            "line_width": 0.5,
+            "split_by_parent_region": true
+        },
+        "lt_municipality": {
+            "iso_3166": "lt",
+            "min_zoom": 5,
             "priority": 5,
             "line_width": 0.5,
             "split_by_parent_region": true

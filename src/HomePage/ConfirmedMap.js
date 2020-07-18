@@ -4,6 +4,8 @@ import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import CovidMapControl from "./ConfirmedMap/CovidMapControl"
+import Fns from "./ConfirmedMap/Fns"
+import RegionType from "./CrawlerDataTypes/RegionType";
 
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
@@ -80,18 +82,50 @@ class ConfirmedMap extends React.Component {
     }
 
     __getUpdatedDates() {
-        return '';
-        let stateUpdatedDates = (this.__caseDataInsts||[]).map((caseDataInst) => {
-            return [
-                caseDataInst.getRegionSchema(),
-                caseDataInst.getRegionParent(),
-                caseDataInst.getUpdatedDate()
-            ];
-        });
+        let bySchemas = {};
+        for (let caseDataInst of this.__caseDataInsts||[]) {
+            let regionSchema = caseDataInst.getRegionSchema(),
+                regionParent = caseDataInst.getRegionParent(),
+                updatedDate = caseDataInst.getUpdatedDate();
 
-        return stateUpdatedDates.length ? stateUpdatedDates.map((item, index) => {
-            return `<span style="margin:0; padding: 0">${item[0]}&nbsp;(${item[1]}):&nbsp;${item[2]}${index === stateUpdatedDates-1 ? '' : ';'} </span>`
-        }).join('') : 'loading, please wait...'
+            if (!(regionSchema in bySchemas)) {
+                bySchemas[regionSchema] = [];
+            }
+            bySchemas[regionSchema].push([regionParent, updatedDate]);
+        }
+
+        let r = [];
+        for (let regionSchema of Fns.sortedKeys(bySchemas)) {
+            let schemaHTML = [];
+
+            for (let [regionParent, updatedDate] of bySchemas[regionSchema]) {
+                let prettifiedRegion;
+
+                if (regionParent && regionParent.indexOf('-') !== -1) {
+                    prettifiedRegion = new RegionType(
+                        'admin_1',
+                        regionParent.split('-')[0],
+                        regionParent
+                    ).getLocalized();
+                } else if (regionParent) {
+                    prettifiedRegion = new RegionType(
+                        'admin_0', '', regionParent
+                    ).getLocalized();
+                } else {
+                    prettifiedRegion = regionParent; // ???
+                }
+
+                schemaHTML.push(
+                    `${prettifiedRegion} ${updatedDate.prettified()}`
+                );
+            }
+
+            schemaHTML.sort();
+            r.push(`${regionSchema.replace('_', ' ')}: ${schemaHTML.join(', ')}`)
+        }
+
+        r.sort();
+        return r.join('; ') || 'loading, please wait...';
     }
 
     /*******************************************************************

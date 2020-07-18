@@ -42,14 +42,6 @@ class CaseCirclesLayer {
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
         this.rectangleSource = new MapBoxSource(map, null, null, null);
-
-        // Bind events for loading data
-        map.on('moveend', () => {
-            this.updateLayer(this.__caseVals);
-        });
-        map.on('zoomend', () => {
-            this.updateLayer(this.__caseVals);
-        });
     }
 
     __addLayer() {
@@ -184,7 +176,7 @@ class CaseCirclesLayer {
                 [255, 222, 207, 0.5], [231, 50, 16, 1.0],
                 'rgba(0, 0, 0, 0.0)', 'rgb(182,14,28)',
                 [0,80,0,1.0], [0,80,0,0.4],
-                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 20
+                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
             );
 
         let rectangleWidths;

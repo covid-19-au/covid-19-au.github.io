@@ -198,7 +198,8 @@ class CasesData {
      * @param ageRange
      */
     getCaseInfoGeoJSON(inputGeoJSON, ageRange, dateRangeType,
-                       ignoreChildren, iso3166WithinView) {
+                       ignoreChildren, iso3166WithinView,
+                       removeLargestItem) {
 
         ignoreChildren = ignoreChildren || new Set();
         let max = -9999999999999,
@@ -239,7 +240,7 @@ class CasesData {
                 debug(`Ignoring child: ${properties['regionSchema']}->${properties['regionChild']}`);
                 continue;
             }
-            else if (!parseInt(properties.largestItem)) {
+            else if (removeLargestItem && !parseInt(properties.largestItem)) {
                 // Ignore smaller islands etc, only add each region once!
                 out.push(feature);
                 continue;
