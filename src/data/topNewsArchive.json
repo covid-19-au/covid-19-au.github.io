@@ -1,6 +1,14 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-11/victoria-coronavirus-cases-rise-by-216-man-dies-in-hospital/12445756",
+            "title": "Victoria records another 216 coronavirus cases as 'kind soul' dies with COVID-19",
+            "source": "ABCNews",
+            "date": "11 July 2020",
+            "time": "19:00",
+            "summary": "A man remembered by his family as a \"kind soul\" has died with COVID-19 in a Victorian hospital, with the state recording another 216 cases of coronavirus. Only 30 of the new infections were connected to contained outbreaks and 186 were under investigation. Chief Health Officer Brett Sutton said the state had about 100 separate outbreaks for health officials to contend with. There are now at least 1,249 active cases in Victoria."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-10/victoria-coronavirus-case-lockdown-update-premier-daniel-andrews/12441792",
             "title": "Melburnians urged to wear masks as Victoria records 288 new coronavirus cases",
             "source": "ABCNews",

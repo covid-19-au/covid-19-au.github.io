@@ -816,22 +816,17 @@
             "name": "Victoria",
             "text": {
                 "text_1": [
-                    "The following areas will move back to Level 3 restrictions from 30th June to 29 July"
+                    "Residents of metropolitan Melbourne and the Mitchell Shire are under Level 3 restrictions from 11:59pm on 8 July for at least 6 weeks",
+                    "There are only four reasons people in the above areas can leave their homes: for work or school, for care or care giving, for daily exercise, and for food and other essentials.",
+                    "From 11.59pm on 22 July, it will be mandatory to wear a mask for people who leave their homes in metropolitan Melbourne and the Mitchell Shire for any of the above four legal reasons",
+                    "If you live in metropolitan Melbourne or the Mitchell Shire, you cannot:"
                 ],
                 "ulist_1": [
-                    "Postcode 3012: Brooklyn, Kingville, Maidstone, Tottenham, West Footscray",
-                    "Postcode 3021: Alban Vale, Kealba, Kings Park, St Albans",
-                    "Postcode 3032: Ascot Vale, High Point City, Maribyrnong, Travancore",
-                    "Postcode 3038: Keilor Downs, Keilor Lodge, Taylors Lakes, Watergardens",
-                    "Postcode 3042: Airport West, Keilor Park, Niddrie",
-                    "Postcode 3046: Glenroy, Hadfield, Oak Park",
-                    "Postcode 3047: Broadmeadows, Dallas, Jacana",
-                    "Postcode 3055: Brunswick South, Brunswick West, Moonee Vale, Moreland West",
-                    "Postcode 3060: Fawkner",
-                    "Postcode 3064: Craigieburn, Donnybrook, Mickleham, Roxburgh Park and Kalkallo"
+                    "Exercise outside the lockdown zone",
+                    "Leave your primary place of residence for a holiday home outside the lockdown zone, you can only travel into these areas for work you have to do in person, or to provide or receive care",
+                    "Have any visitors to your home"
                 ],
                 "text_middle": [
-                    "There are only four reasons people in the above areas can leave their homes: for work or school, for care or care giving, for daily exercise, and for food and other essentials.They cannot leave their postcode except for work. Likewise, they can only travel into these areas for work they have to do in person, or to provide or receive care. Schools will continue to remain open in these areas.",
                     "In the rest of Victoria:"
                 ],
                 "ulist_2": [
@@ -851,12 +846,16 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.sbs.com.au/news/face-masks-will-soon-be-mandatory-in-melbourne-here-s-what-you-need-to-know - SBS News",
+                        "name": "Face masks will soon be mandatory in Melbourne. Here's what you need to know"
+                    },
+                    {
                         "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
                         "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
                     }
                 ]
             },
-            "lastUpdated": "04 July 2020"
+            "lastUpdated": "19 July 2020"
         },
         {
             "name": "Tasmania",
