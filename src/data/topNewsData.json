@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/face-masks-will-soon-be-mandatory-in-melbourne-here-s-what-you-need-to-know",
+            "title": "Face masks will soon be mandatory in Melbourne. Here's what you need to know",
+            "source": "SBSNews",
+            "date": "19 July 2020",
+            "time": "18:00",
+            "summary": "From 11.59pm on Wednesday, masks will be made compulsory for people who leave their homes in metropolitan Melbourne and the Mitchell Shire. Victorian Premier, Daniel Andrews has said that common sense will govern the new rules, advising that the measure must be done whenever it is practical to do so. He also advised that masks need not be hospital-grade masks, emphasizing, \"any face covering is better than no face-covering.\""
+        },
+        {
+            "link": "Jobkeeper expected to be extended beyond September for businesses that ‘genuinely need it’ ",
+            "title": "https://www.theguardian.com/australia-news/2020/jul/19/jobkeeper-expected-to-be-extended-beyond-september-for-businesses-that-genuinely-need-it",
+            "source": "TheGuardian",
+            "date": "19 July 2020",
+            "time": "13:38",
+            "summary": "The finance minister has said that there will be some adjustments to the Jobkeeper scheme. \"The ultimate objective still has to be getting back into a situation where all businesses are in a position to pay for the wages of their employees out of their income,\" he said. The government will release an economic update on Thursday and outline the future of the jobseeker and jobkeeper payments. Until then, it is unclear how long the payments will be extended for."
+        },
+        {
             "link": "https://www.sbs.com.au/news/victoria-records-three-more-coronavirus-deaths-and-217-new-infections",
             "title": "Victoria records three more coronavirus deaths and 217 new infections",
             "source": "SBSNews",
@@ -119,14 +135,6 @@
             "date": "12 July 2020",
             "time": "19:00",
             "summary": "A COVID-19 vaccine developed by the University of Queensland is now ready to be tested on humans, giving hope of a breakthrough in combating the virus that has caused a worldwide pandemic. The human testing of the \"molecular clamp\" vaccine candidate, to start on Monday, follows encouraging results from animal testing trials conducted in the Netherlands, the Sunday Mail in Brisbane reports. Premier Annastacia Palaszczuk praised UQ for their search for a COVID-19 vaccine and said she expected the university to reveal more on Monday."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-11/victoria-coronavirus-cases-rise-by-216-man-dies-in-hospital/12445756",
-            "title": "Victoria records another 216 coronavirus cases as 'kind soul' dies with COVID-19",
-            "source": "ABCNews",
-            "date": "11 July 2020",
-            "time": "19:00",
-            "summary": "A man remembered by his family as a \"kind soul\" has died with COVID-19 in a Victorian hospital, with the state recording another 216 cases of coronavirus. Only 30 of the new infections were connected to contained outbreaks and 186 were under investigation. Chief Health Officer Brett Sutton said the state had about 100 separate outbreaks for health officials to contend with. There are now at least 1,249 active cases in Victoria."
         }
     ]
 }
