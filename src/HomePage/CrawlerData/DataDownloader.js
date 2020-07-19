@@ -351,7 +351,10 @@ class DataDownloader {
                 splitByParentRegion = schemaObj['split_by_parent_region'];
 
             if (mode === MODE_CASES) {
-                if (minZoom != null && zoomLevel < minZoom) {
+                if (schema === 'admin_1') {
+                    // HACK: Allow for specific logic for AU/US which
+                    //       have disproportionately larger states!
+                } else if (minZoom != null && zoomLevel < minZoom) {
                     debug(`ignoring due to minzoom: ${zoomLevel}<${minZoom} ${schema} (parent schema->${parentSchema}; parent iso->${parentISO})`);
                     continue;
                 } else if (maxZoom != null && zoomLevel > maxZoom) {
@@ -366,15 +369,32 @@ class DataDownloader {
                 //          but is split into e.g. AU-VIC etc
                 //      jp_city has a parent of JP (signifying for all Japan)
                 let iso3166Codes = [];
+                let US_AU_REGEX = /^au-*$|^us-*$|^br-*$|^ru-*$|^kz-*$|^se-*$|^no-*$|^in-*$|^sa-*$/,
+                    CN_REGEX = /^cn-*$/;
+
                 for (let iso3166 of Array.from(iso3166WithinView)) {
                     let hasHyphen = iso3166.indexOf('-') !== -1;
 
-                    if (!hasHyphen && schema !== 'admin_1') {
+                    if (schema === 'admin_1' && iso3166.match(US_AU_REGEX) &&
+                        zoomLevel < 3) {
+                        // AUS/USA both have very large states, so need
+                        // specific logic for admin_1 to show from zoom 3
+                        continue;
+                    } else if (schema === 'admin_1' && !iso3166.match(US_AU_REGEX)
+                                                    && !iso3166.match(CN_REGEX) &&
+                               zoomLevel < 4) {
+                        // Otherwise start only from zoom 4 for admin_1,
+                        // unless for China, in which case always use admin_1
+                        // as doesn't have admin_0 for JHU data
+                        continue;
+
+                    } else if (!hasHyphen && schema !== 'admin_1') {
                         // Splitting is done at a ISO 3166-2 level (admin_1) for custom schemas
                         continue;
                     } else if (hasHyphen && schema === 'admin_1') {
                         // Splitting is done at a ISO 3166-a2 level (admin_0) for admin_1
                         continue;
+
                     } else if (!this.__fileInGeoJSONData(schema, iso3166)) {
                         debug(`split geojson not found: ${schema} ${iso3166}`);
                         continue;

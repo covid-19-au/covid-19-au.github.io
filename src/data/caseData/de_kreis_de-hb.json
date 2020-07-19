@@ -1,1 +1,1 @@
-{"date_ids":{"0":"2020_07_17"},"time_series_data":{"de_kreis":{"de-hb":{"sub_headers":["total","status_deaths"],"data":[["bremen","",[[0,1491,49]]],["bremerhaven","",[[0,210,6]]]]}}},"updated_dates":{"de_kreis":{"de-hb":"2020_07_17"}}}
+{"date_ids":{"0":"2020_07_18","1":"2020_07_17"},"time_series_data":{"de_kreis":{"de-hb":{"sub_headers":["new","total","status_deaths","status_deaths_new"],"data":[["bremen","",[[0,3,1494,49,0],[1,"",1491,49]]],["bremerhaven","",[[0,5,215,6,0],[1,"",210,6]]]]}}},"updated_dates":{"de_kreis":{"de-hb":"2020_07_18"}}}

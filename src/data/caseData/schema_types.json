@@ -81,6 +81,7 @@
             "admin_1_pt.json",
             "admin_1_il.json",
             "admin_1_rs.json",
+            "il_municipality.json",
             "br_city_br-ms.json",
             "in_district_in-hp.json",
             "bd_district.json",
@@ -97,6 +98,7 @@
             "admin_1_.json",
             "jp_city_フランス.json",
             "in_district_in-kl.json",
+            "admin_1_lv.json",
             "admin_1_ng.json",
             "admin_1_mk.json",
             "us_county_us-pa.json",
@@ -344,6 +346,7 @@
             "de_kreis_de-he.json",
             "ths.json",
             "it_province.json",
+            "lt_municipality.json",
             "de_kreis_de-hb.json",
             "us_county_us-dc.json"
         ],
@@ -476,6 +479,7 @@
             "admin_1_sg.geojson",
             "co_municipality.geojson",
             "admin_1_ke.geojson",
+            "il_municipality.geojson",
             "admin_1_ir.geojson",
             "admin_1_ge.geojson",
             "admin_1_vn.geojson",
@@ -491,6 +495,7 @@
             "admin_1_ci.geojson",
             "admin_1_gs.geojson",
             "admin_1_sy.geojson",
+            "lt_municipality.geojson",
             "us_county_us-gu.geojson",
             "admin_1_ba.geojson",
             "br_city_br-pa.geojson",
@@ -1044,7 +1049,7 @@
             "#3": "May contain additional 'cutouts' for cities, when",
             "#4": "additional data is provided within an admin_1 area",
             "iso_3166": null,
-            "min_zoom": 2,
+            "min_zoom": 4,
             "priority": 1,
             "split_by_parent_region": true
         },
@@ -1058,13 +1063,13 @@
         },
         "hhs": {
             "iso_3166": "au-qld",
-            "min_zoom": 3,
+            "min_zoom": 4,
             "priority": 4,
             "split_by_parent_region": false
         },
         "lhd": {
             "iso_3166": "au-nsw",
-            "min_zoom": 3,
+            "min_zoom": 4,
             "priority": 2,
             "split_by_parent_region": false
         },
@@ -1076,7 +1081,7 @@
         },
         "ths": {
             "iso_3166": "au-tas",
-            "min_zoom": 2,
+            "min_zoom": 4,
             "priority": 2,
             "split_by_parent_region": false
         },
@@ -1096,14 +1101,14 @@
         },
         "br_city": {
             "iso_3166": "br",
-            "min_zoom": 5,
+            "min_zoom": 6,
             "priority": 5,
             "line_width": 0.5,
             "split_by_parent_region": true
         },
         "ca_health_region": {
             "iso_3166": "ca",
-            "min_zoom": 3,
+            "min_zoom": 4,
             "priority": 5,
             "split_by_parent_region": false
         },
@@ -1122,7 +1127,7 @@
         },
         "cz_okres": {
             "iso_3166": "cz",
-            "min_zoom": 2,
+            "min_zoom": 4,
             "priority": 5,
             "split_by_parent_region": false
         },
@@ -1141,7 +1146,7 @@
         },
         "fi_health_district": {
             "iso_3166": "fi",
-            "min_zoom": 2,
+            "min_zoom": 4,
             "priority": 5,
             "split_by_parent_region": false
         },
@@ -1152,9 +1157,16 @@
             "line_width": 0.5,
             "split_by_parent_region": true
         },
+        "il_municipality": {
+            "iso_3166": "il",
+            "min_zoom": 5,
+            "priority": 5,
+            "line_width": 0.5,
+            "split_by_parent_region": false
+        },
         "it_province": {
             "iso_3166": "it",
-            "min_zoom": 2,
+            "min_zoom": 4,
             "priority": 5,
             "line_width": 0.5,
             "split_by_parent_region": false
@@ -1171,12 +1183,12 @@
             "min_zoom": 5,
             "priority": 5,
             "line_width": 0.5,
-            "split_by_parent_region": true
+            "split_by_parent_region": false
         },
         "my_district": {
             "iso_3166": "my",
-            "min_zoom": 4,
-            "priority": 5,
+            "min_zoom": 50,
+            "priority": -1,
             "line_width": 0.5,
             "split_by_parent_region": false
         },
@@ -1194,25 +1206,25 @@
         },
         "ps_province": {
             "iso_3166": "ps",
-            "min_zoom": 2,
+            "min_zoom": 4,
             "priority": 5,
             "split_by_parent_region": false
         },
         "pt_municipality": {
             "iso_3166": "pt",
-            "min_zoom": 2,
+            "min_zoom": 4,
             "priority": 5,
             "split_by_parent_region": false
         },
         "nuts_1": {
             "iso_3166": "tr",
-            "min_zoom": 2,
+            "min_zoom": 4,
             "priority": 5,
             "split_by_parent_region": false
         },
         "uk_area": {
             "iso_3166": "gb",
-            "min_zoom": 2,
+            "min_zoom": 4,
             "priority": 5,
             "split_by_parent_region": false
         },

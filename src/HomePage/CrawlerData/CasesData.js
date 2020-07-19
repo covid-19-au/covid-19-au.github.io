@@ -80,6 +80,13 @@ class CasesData {
 
         this.subHeaderIndex = casesData['sub_headers'].indexOf(dataType);
         this.data = casesData['data'];
+
+        this.getCaseNumber = Fns.regionFnCached(this.getCaseNumber, this);
+        this.getCaseNumberOverNumDays = Fns.regionFnCached(this.getCaseNumberOverNumDays, this);
+        this.getMaxMinValues = Fns.fnCached(this.getMaxMinValues, this);
+        this.getDaysSince = Fns.regionFnCached(this.getDaysSince, this);
+        this.getCaseNumberTimeSeries = Fns.regionFnCached(this.getCaseNumberTimeSeries, this);
+        //this.getCaseNumberTimeSeriesOverNumDays = Fns.regionFnCached(this.getCaseNumberTimeSeriesOverNumDays, this);
     }
 
     /**
@@ -194,8 +201,12 @@ class CasesData {
     /**
      * Assign cases time series data from a CasesData instance
      *
-     * @param features
+     * @param inputGeoJSON
      * @param ageRange
+     * @param dateRangeType
+     * @param ignoreChildren
+     * @param iso3166WithinView
+     * @param removeLargestItem
      */
     getCaseInfoGeoJSON(inputGeoJSON, ageRange, dateRangeType,
                        ignoreChildren, iso3166WithinView,

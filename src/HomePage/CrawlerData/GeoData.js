@@ -141,7 +141,9 @@ class GeoData {
                         "type": "Point",
                         "coordinates": centerCoords
                     },
-                    "properties": properties
+                    // Make sure it's a different object so that modifying properties for
+                    // the points won't modify the polygon properties and vice versa
+                    "properties": JSON.parse(JSON.stringify(properties))
                 });
                 largestItem = 0;
 

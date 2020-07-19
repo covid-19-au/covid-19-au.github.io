@@ -224,7 +224,7 @@ class CovidMapControl extends React.Component {
                     key === iso_3166_a2 ||
                     key.split('-')[0] === iso_3166_2) {
                     r.add(key);
-                    console.log("ADDING> "+key)
+                    //console.log("ADDING> "+key)
                 }
             }
             return r
@@ -256,7 +256,7 @@ class CovidMapControl extends React.Component {
         this.enableControlsWhenMapReady();
 
         if (this.__mapMovePending) {
-            setTimeout(this.onMapMoveChange.bind(this), 50);
+            //setTimeout(this.onMapMoveChange.bind(this), 50);
             return;
         }
         // Enter critical section

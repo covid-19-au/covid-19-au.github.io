@@ -134,6 +134,36 @@ var fns = {
             r += '.0';
         }
         return r+si[i].symbol;
+    },
+
+    /*******************************************************************
+     * Function caching/memoizing
+     *******************************************************************/
+
+    fnCached: function(fn, that) {
+        let cache = new Map();
+        return (...args) => {
+            let key = JSON.stringify(args);
+            if (cache.has(key)) {
+                return cache.get(key);
+            }
+            let r = fn.apply(that, args);
+            cache.set(key, r);
+            return r;
+        }
+    },
+
+    regionFnCached: function(fn, that) {
+        let cache = new Map();
+        return (regionChild, ...args) => {
+            let key = JSON.stringify([regionChild].concat(args));
+            if (cache.has(key)) {
+                return cache.get(key);
+            }
+            let r = fn.apply(that, [regionChild].concat(args));
+            cache.set(key, r);
+            return r;
+        }
     }
 };
 
