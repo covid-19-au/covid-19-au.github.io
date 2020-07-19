@@ -178,6 +178,12 @@ class DataDownloader {
             if (geoData instanceof GeoData) {
                 if (!caseData || !caseData.datatypeInData()) { // datatypeInData HACK!
                     continue;
+                } else if (geoData.getSchemaRegionParent() &&
+                           geoData.getSchemaRegionParent().indexOf('-') === -1 &&
+                           !iso3166WithinView.has(geoData.getRegionParent())) {
+                    // Don't display if not in view!
+                    debug(`Schema region parent not in view single - ignoring - ${geoData.getRegionSchema()}`);
+                    continue;
                 }
                 addParents(geoData);
                 insts.push([schemaInfo, geoData, caseData]);
@@ -189,6 +195,12 @@ class DataDownloader {
                     //if (!caseData[k]) continue;
                     if (!caseData[k] || !caseData[k].datatypeInData()) { // datatypeInData HACK!
                         debug(`Warning: Case data not found - ${k}`);
+                        continue;
+                    } else if (geoData[k].getSchemaRegionParent() &&
+                               geoData[k].getSchemaRegionParent().indexOf('-') === -1 &&
+                               !iso3166WithinView.has(geoData[k].getRegionParent())) {
+                        // Don't display if not in view!
+                        debug(`Schema region parent not in view multi - ignoring - ${geoData[k].getRegionSchema()}`);
                         continue;
                     }
                     addParents(geoData[k]);
@@ -471,9 +483,21 @@ class DataDownloader {
      */
     _getAdminBounds(adminBounds) {
         var r = {};
+
+        // HACK!
+        adminBounds['au'] = [
+            101.6015, -49.8379,
+            166.2890, 0.8788
+        ];
+
         for (var key in adminBounds) {
             let [lng1, lat1, lng2, lat2] = adminBounds[key];
             r[key] = new LngLatBounds(lng1, lat1, lng2, lat2);
+
+            if (key === 'au') {
+                // HACK!
+                r[key] = r[key].enlarged(-0.12);
+            }
         }
         return r
     }

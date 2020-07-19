@@ -52,6 +52,24 @@ class LngLatBounds {
     }
 
     /**
+     * Add a percentage number between 0.0 and 1.0 to the boundary
+     *
+     * @param percent a floating point number between 0.0 and 1.0
+     */
+    enlarged(percent) {
+        // TODO: Make sure between -90/+90 and -180/+180!!! ================================================================
+        let width = this.lng2 - this.lng1,
+            height = this.lat2 - this.lat1;
+
+        return new LngLatBounds(
+            this.lng1 - percent*width,
+            this.lat1 - percent*height,
+            this.lng2 + percent*width,
+            this.lat2 + percent*height
+        )
+    }
+
+    /**
      * Get whether one LngLatBounds overlaps another
      *
      * @param lngLat

@@ -153,12 +153,14 @@ class CovidMapControl extends React.Component {
                 map, 'underlayFillPoly', underlaySource
             );
             this.underlayLinePoly = new LinePolyLayer(
-                map, 'underlayLinePoly', 'rgba(0,0,0,0.3)', 1.0, underlaySource
+                map, 'underlayLinePoly',
+                'rgba(0,0,0,0.3)', 1.0, underlaySource
             );
 
             // Add layers for cases
             this.casesLinePolyLayer = new LinePolyLayer(
-                map, 'casesLinePolyLayer', 'rgba(202, 210, 211, 1.0)', null, casesSource
+                map, 'casesLinePolyLayer',
+                'rgba(202, 210, 211, 1.0)', null, casesSource
             );
             this.daysSinceLayer = new DaysSinceLayer(
                 map, 'daysSinceLayer', casesSource
@@ -181,13 +183,6 @@ class CovidMapControl extends React.Component {
             if (this.props.onload) {
                 this.props.onload(this, map);
             }
-
-            /*setInterval(() => {
-                // HACK: zoom events don't always fire, so keep polling!
-                if (this.prevZoomLevel !== parseInt(this.map.getZoom())) {
-                    this.onMapMoveChange();
-                }
-            }, 50);*/
 
             this.onMapMoveChange();
         });
@@ -381,7 +376,7 @@ class CovidMapControl extends React.Component {
         } else {
             // ISO 3166-2
             iso_3166_2 = iso_3166_2.toLowerCase();
-            let bounds = this.dataDownloader.getAdminBoundsForISO_3166_2(iso_3166_2).toMapBox();
+            let bounds = this.dataDownloader.getAdminBoundsForISO_3166_2(iso_3166_2).enlarged(0.15).toMapBox();
             this.map.setMaxBounds(bounds);
             this.map.fitBounds(bounds, animOptions);
             this.__onlyShowISO_3166_2 = iso_3166_2;

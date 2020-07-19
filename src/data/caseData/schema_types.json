@@ -1082,7 +1082,7 @@
         "ths": {
             "iso_3166": "au-tas",
             "min_zoom": 4,
-            "priority": 2,
+            "priority": 5,
             "split_by_parent_region": false
         },
         "postcode": {

@@ -41,9 +41,9 @@ function getExpectStateData(state) {
 }
 
 class StateChart extends React.Component {
-    constructor({ state }) {
-        super();
-        this.stateName = state;
+    constructor(props) {
+        // Params for props: state/dataType/timePeriod
+        super(props);
         this.dataDownloader = new DataDownloader();
     }
 
@@ -51,9 +51,9 @@ class StateChart extends React.Component {
         const statusUpdateTime = latestAusData["updatedTime"];
 
         // get choosen state data
-        const stateAgeGenderData = getExpectStateData(this.stateName);
+        const stateAgeGenderData = getExpectStateData(this.props.state);
 
-        ReactGA.pageview("/state/" + this.stateName);
+        ReactGA.pageview("/state/" + this.props.state);
 
         return (
             <Grid container spacing={1} justify="center" wrap="wrap">
@@ -61,14 +61,14 @@ class StateChart extends React.Component {
                     <div className="card">
                         <div className="table">
                             {/* Display some basic current case stats */}
-                            <h2>{stateNameMapping[this.stateName]}</h2>
-                            {renderStatus(this.stateName.toUpperCase())}
+                            <h2>{stateNameMapping[this.props.state]}</h2>
+                            {renderStatus(this.props.state.toUpperCase())}
                         </div>
 
                         <hr />
 
                         <div style={{marginTop: '20px'}}>
-                            <GeneralBarChart state={this.stateName} />
+                            <GeneralBarChart state={this.props.state} />
                         </div>
                     </div>
                 </Grid>
@@ -88,7 +88,9 @@ class StateChart extends React.Component {
                                 </Acknowledgement>
                             </div>
                         </h2>
-                        <ConfirmedMap stateName={'AU-'+this.stateName} />
+                        <ConfirmedMap stateName={'AU-'+this.props.state}
+                                      dataType={this.props.dataType}
+                                      timePeriod={this.props.timePeriod}/>
                     </div>
                 </Grid>
 
@@ -96,12 +98,12 @@ class StateChart extends React.Component {
                     <div className="card">
                         <h2>Historical Data</h2>
                         {/* Display "Historical Statistics" chart */}
-                        <GeneralLineChart state={this.stateName} />
+                        <GeneralLineChart state={this.props.state} />
                     </div>
 
                     <div className="card">
                         <h2>Gender Balance</h2>
-                        {stateAgeGenderData ? <GenderChart state={this.stateName} /> : ''}
+                        {stateAgeGenderData ? <GenderChart state={this.props.state} /> : ''}
                     </div>
                 </Grid>
 
@@ -112,7 +114,7 @@ class StateChart extends React.Component {
                     </div>
                 </Grid>
 
-                {stateAgeGenderData !== null || this.stateName === 'QLD' || this.stateName === 'WA' ? (
+                {stateAgeGenderData !== null || this.props.state === 'QLD' || this.props.state === 'WA' ? (
                     <Fragment>
                         {/* "Cases by Age Group" chart */}
                         <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
@@ -132,7 +134,7 @@ class StateChart extends React.Component {
                     <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                         <h2 style={{ textAlign: "center" }}>
                             We are working on acquiring detailed age group and gender data for{" "}
-                            {stateNameMapping[this.stateName]}!
+                            {stateNameMapping[this.props.state]}!
                         </h2>
                         <br />
                         <h5 style={{ textAlign: "center" }}>
@@ -179,7 +181,7 @@ class StateChart extends React.Component {
     async __initPlotlyJSCharts() {
         // TODO: FIX NT!!!! ===========================================================================================
 
-        let regionParent = 'au-'+this.stateName.toLowerCase(),
+        let regionParent = 'au-'+this.props.state.toLowerCase(),
             regionSchema;
 
         if (regionParent === 'au-qld') regionSchema = 'hhs';
