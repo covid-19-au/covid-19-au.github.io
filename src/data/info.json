@@ -816,13 +816,19 @@
             "name": "Victoria",
             "text": {
                 "text_1": [
-                    "Residents of metropolitan Melbourne and the Mitchell Shire are under Level 3 restrictions from 11:59pm on 8 July",
+                    "Residents of metropolitan Melbourne and the Mitchell Shire are under Level 3 restrictions from 11:59pm on 8 July for at least 6 weeks",
                     "There are only four reasons people in the above areas can leave their homes: for work or school, for care or care giving, for daily exercise, and for food and other essentials.",
                     "From 11.59pm on 22 July, it will be mandatory to wear a mask for people who leave their homes in metropolitan Melbourne and the Mitchell Shire for any of the above four legal reasons",
+                    "If you live in metropolitan Melbourne or the Mitchell Shire, you cannot:"
+                ],
+                "ulist_1": [
+                    "Exercise outside the lockdown zone",
+                    "Leave your primary place of residence for a holiday home outside the lockdown zone, you can only travel into these areas for work you have to do in person, or to provide or receive care",
+                    "Have any visitors to your home"
+                ],
+                "text_middle": [
                     "In the rest of Victoria:"
                 ],
-                "ulist_1": [],
-                "text_middle": [],
                 "ulist_2": [
                     "You can have up to five guests in your home, reduced to a total in-home gathering size of 20. The Victorian health department says you can have more than one set of visitors over per day, but that you should \"be considered and use common sense\". You are allowed to have people stay over at your home",
                     "Up to 10 people can gather outside for recreational purposes, or to engage in activities like hiking, jogging and other non-contact sport.",
