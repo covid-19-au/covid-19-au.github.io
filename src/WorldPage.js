@@ -1,8 +1,6 @@
-import EChartGlobalLog from "./HomePage/EChartGlobalLog";
 import Grid from "@material-ui/core/Grid";
 import React from "react";
 import ConfirmedMap from "./HomePage/ConfirmedMap";
-import Acknowledgement from "./Acknowledgment";
 
 class WorldPage extends React.Component {
     constructor() {

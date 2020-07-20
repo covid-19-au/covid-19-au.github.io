@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Tag from "./Tag";
-import stateCaseData from "../data/stateCaseData";
+//import stateCaseData from "../data/stateCaseData";
 
-import Acknowledgement from "../Acknowledgment";
+//import Acknowledgement from "../Acknowledgment";
 import todayData from "../data/stateCaseData.json";
 import previousData from "../data/state.json";
 import ButtonGroup from '@material-ui/core/ButtonGroup';

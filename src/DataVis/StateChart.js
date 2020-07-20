@@ -4,14 +4,12 @@ import ageGenderData from "../data/ageGender";
 import ReactGA from "react-ga";
 import latestAusData from "../data/stateCaseData";
 
-import AgeChart from "./AgeChart";
 import GenderChart from "./GenderChart";
 import GeneralBarChart from "./GeneralBarChart";
 import GeneralLineChart from "./GeneralLineChart";
 import renderStatus from "./renderStatus";
 import RegionalCasesBarChart from "../HomePage/CrawlerDataVis/RegionalCases/RegionalCasesBarChart";
 import MultiDataTypeBarChart from "../HomePage/CrawlerDataVis/MultiDataTypeBarChart";
-import RegionalCasesHeatMap from "../HomePage/CrawlerDataVis/RegionalCases/RegionalCasesHeatMap";
 import PopulationPyramid from "../HomePage/CrawlerDataVis/AgeCharts/PopulationPyramid";
 import RegionalCasesTreeMap from "../HomePage/CrawlerDataVis/RegionalCases/RegionalCasesTreeMap";
 import RegionType from "../HomePage/CrawlerDataTypes/RegionType";

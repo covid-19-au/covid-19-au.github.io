@@ -1,20 +1,11 @@
 
 
 import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
-import React, {
-    useState,
-    Suspense,
-    useEffect,
-    useRef
-} from "react";
+import React, { useState } from "react";
 import ReactGA from "react-ga";
 import i18next from "./i18n";
 import LanguageIcon from '@material-ui/icons/Language';
 import Button from '@material-ui/core/Button';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import TranslateIcon from '@material-ui/icons/Translate';
-import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 

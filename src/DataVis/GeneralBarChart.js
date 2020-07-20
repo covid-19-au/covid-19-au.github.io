@@ -1,5 +1,4 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
 import ReactEcharts from "echarts-for-react";

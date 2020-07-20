@@ -23,14 +23,16 @@ SOFTWARE.
  */
 
 import React from 'react';
-import Plot from 'react-plotly.js';
+//import Plot from 'react-plotly.js';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
 import getLastDaysRangeOfSample from "../getLastDaysRangeOfSample";
+
+// Get minimized plotly
+import createPlotlyComponent from 'react-plotly.js/factory';
+import Plotly from 'plotly.js-dist-min';
+const Plot = createPlotlyComponent(Plotly);
 
 
 /**

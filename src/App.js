@@ -1,8 +1,6 @@
 import React, {
   useState,
-  Suspense,
   useEffect,
-  useRef
 } from "react";
 
 import keyBy from "lodash.keyby";
@@ -13,8 +11,6 @@ import relativeTime from "dayjs/plugin/relativeTime";
 
 import all from "./data/overall";
 import provinces from "./data/area";
-import information from "./data/info";
-import mapDataHos from "./data/mapdataHos";
 
 
 import Fallback from "./fallback"
@@ -34,31 +30,18 @@ import AboutUsPage from "./aboutUs/AboutUsPage";
 import StateChart from "./DataVis/StateChart";
 
 import "./App.css";
-import uuid from "react-uuid";
-import ReactPlayer from "react-player";
 
 import DashboardConfig from "./DashboardConfig"
 
 // routes
-import { useRoutes, A, usePath } from 'hookrouter';
-// import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import { useRoutes, usePath } from 'hookrouter';
 
 import ReactGA from "react-ga";
-// import i18n bundle
-import i18next from './i18n';
-
-import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
-import NewsTimeline from "./NewsTimeline";
-import { useTable, useFilters, useGlobalFilter, usePagination } from 'react-table'
 
 import stateCaseData from "./data/stateCaseData";
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Alert, AlertTitle } from '@material-ui/lab';
+import { Alert } from '@material-ui/lab';
 import Header from './Header';
 import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
 

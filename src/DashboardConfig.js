@@ -1,16 +1,10 @@
 import React, { useState, Suspense, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
-import keyBy from "lodash.keyby";
 import Area from "./HomePage/Area";
 import Stat from "./HomePage/Stat"
 import EChartGlobalLog from "./HomePage/EChartGlobalLog";
-import uuid from "react-uuid";
-import provinces from "./data/area";
-import stateData from "./data/state";
-import flights from "./data/flight";
 import country from "./data/country";
 import OverallTrend from "./HomePage/OverallTrend";
-import StateComparisonChart from "./HomePage/StateComparisonChart";
 import Carousel from 'react-material-ui-carousel';
 import all from "./data/overall";
 import './DashboardConfig.css'

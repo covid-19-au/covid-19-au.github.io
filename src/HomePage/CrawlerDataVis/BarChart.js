@@ -23,7 +23,12 @@ SOFTWARE.
  */
 
 import React from 'react';
-import Plot from 'react-plotly.js';
+//import Plot from 'react-plotly.js';
+
+// Get minimized plotly
+import createPlotlyComponent from 'react-plotly.js/factory';
+import Plotly from 'plotly.js-dist-min';
+const Plot = createPlotlyComponent(Plotly);
 
 
 class TreeMap extends React.Component {
