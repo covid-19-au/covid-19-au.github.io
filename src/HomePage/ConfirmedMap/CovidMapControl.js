@@ -227,7 +227,9 @@ class CovidMapControl extends React.Component {
 
         let zoomLevel = parseInt(this.map.getZoom()), // NOTE ME!!
             lngLatBounds = LngLatBounds.fromMapbox(this.map.getBounds()),
-            iso3166WithinView = filterToISO3166(this.dataDownloader.getISO3166WithinView(lngLatBounds)),
+            iso3166WithinView = filterToISO3166(
+                this.dataDownloader.getISO3166WithinView(lngLatBounds)
+            ),
             schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
                 zoomLevel, iso3166WithinView
             ),
@@ -261,7 +263,10 @@ class CovidMapControl extends React.Component {
         let dateRangeType = null;
         if (this.covidMapControls.getTimePeriod()) {
             dateRangeType = new DateRangeType(
-                DateType.today().daysSubtracted(this.covidMapControls.getTimePeriod()), DateType.today()
+                DateType.today().daysSubtracted(
+                    this.covidMapControls.getTimePeriod()
+                ),
+                DateType.today()
             )
         }
 
@@ -376,7 +381,9 @@ class CovidMapControl extends React.Component {
         } else {
             // ISO 3166-2
             iso_3166_2 = iso_3166_2.toLowerCase();
-            let bounds = this.dataDownloader.getAdminBoundsForISO_3166_2(iso_3166_2).enlarged(0.15).toMapBox();
+            let bounds = this.dataDownloader.getAdminBoundsForISO_3166_2(iso_3166_2)
+                                            .enlarged(0.15)
+                                            .toMapBox();
             this.map.setMaxBounds(bounds);
             this.map.fitBounds(bounds, animOptions);
             this.__onlyShowISO_3166_2 = iso_3166_2;

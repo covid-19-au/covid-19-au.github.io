@@ -381,7 +381,7 @@ class DataDownloader {
                 //          but is split into e.g. AU-VIC etc
                 //      jp_city has a parent of JP (signifying for all Japan)
                 let iso3166Codes = [];
-                let US_AU_REGEX = /^au-*$|^us-*$|^br-*$|^ru-*$|^kz-*$|^se-*$|^no-*$|^in-*$|^sa-*$/,
+                let US_AU_REGEX = /^(au|us|br|ru|kz|se|no|in|sa|za|bw|na|ng|cd|dz|ml|ne|et|mz|zw|zm|sd|ao|tz|cl|ma|mr)-*$/,
                     CN_REGEX = /^cn-*$/;
 
                 for (let iso3166 of Array.from(iso3166WithinView)) {
@@ -566,7 +566,7 @@ class DataDownloader {
                 debug(`Geodata fetching: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename] = [];
 
-                import(`../../data/geoJSONData/${fileNames.geoJSONFilename}.geojson`).then((module) => {  // FIXME!!
+                import(`../../data/geoJSONData/${fileNames.geoJSONFilename}.json`).then((module) => {  // FIXME!!
                     var geodata = module.default;
                     for (var iRegionSchema in geodata) {
                         for (var iRegionParent in geodata[iRegionSchema]) {
@@ -785,7 +785,7 @@ class DataDownloader {
      */
     __fileInGeoJSONData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.geoJSONDataListing.has(fileNames.geoJSONFilename+'.geojson');
+        return this.geoJSONDataListing.has(fileNames.geoJSONFilename+'.json');
     }
 
     /**
