@@ -178,3 +178,5 @@ class UnderlayLegend {
         );
     }
 }
+
+export default UnderlayLegend;

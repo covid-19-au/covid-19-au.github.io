@@ -22,7 +22,7 @@ function getMapBoxCaseColors(
     // to make sure we don't have -1 being as bright as +1000 etc
     caseVals = caseVals.filter(i => i >= 0);
 
-    if (minRange > caseVals[caseVals.length-1]) {
+    if (!caseVals.length || minRange > caseVals[caseVals.length-1]) {
         caseVals = [];
         for (let i=0; i<minRange; i++) {
             caseVals.push((i/minRange)*minRange);

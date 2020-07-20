@@ -50,9 +50,9 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 // Enable brotli with gzip fallback to reduce file size
-//const zlib = require('zlib');
-//const CompressionPlugin = require('compression-webpack-plugin');
-//const BrotliPlugin = require('brotli-webpack-plugin');
+const zlib = require('zlib');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -701,7 +701,7 @@ module.exports = function(webpackEnv) {
             }),
             process.env.ANALYZE && new BundleAnalyzerPlugin(),
 
-            /*new CompressionPlugin({
+            new CompressionPlugin({
                 filename: '[path].gz[query]',
                 algorithm: 'gzip',
                 test: /\.js$|\.css$|\.html$|\.json$/,
@@ -717,7 +717,7 @@ module.exports = function(webpackEnv) {
                 },
                 threshold: 10240,
                 minRatio: 0.8,
-            })*/
+            })
         ].filter(Boolean),
 
         // Some libraries import Node modules but don't use them in the browser.

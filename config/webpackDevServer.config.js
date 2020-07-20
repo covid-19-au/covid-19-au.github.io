@@ -1,6 +1,6 @@
 'use strict';
 
-//const expressStaticGzip = require("express-static-gzip");
+const expressStaticGzip = require("express-static-gzip");
 
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
@@ -33,7 +33,7 @@ module.exports = function(proxy, allowedHost) {
         disableHostCheck:
             !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true',
         // Enable gzip compression of generated files.
-        compress: true,
+        compress: false,
         // Silence WebpackDevServer's own logs since they're generally not useful.
         // It will still show compile warnings and errors with this setting.
         clientLogLevel: 'none',
@@ -107,14 +107,6 @@ module.exports = function(proxy, allowedHost) {
             // it used the same host and port.
             // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
             app.use(noopServiceWorkerMiddleware());
-
-            /*app.use(expressStaticGzip('src/data', {
-                enableBrotli: true,
-                orderPreference: ['br', 'gz'],
-                setHeaders: function (res, path) {
-                    res.setHeader("Cache-Control", "public, max-age=31536000");
-                }
-            }));*/
         },
     };
 };
