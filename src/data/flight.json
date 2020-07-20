@@ -508,8 +508,8 @@
     "flightNo": "QF470",
     "airline": "Qantas",
     "path": "Melbourne to Sydney",
-    "dateDeparture": "9-04-20",
-    "dateArrival": "9-04-20",
+    "dateDeparture": "09-04-20",
+    "dateArrival": "09-04-20",
     "closeContactRow": "7, 8, 9, 10, 11"
   },
   {
@@ -553,8 +553,8 @@
     "flightNo": "QR908",
     "airline": "Qatar Airways",
     "path": "Doha to Sydney",
-    "dateDeparture": "1-07-20",
-    "dateArrival": "2-07-20",
+    "dateDeparture": "01-07-20",
+    "dateArrival": "02-07-20",
     "closeContactRow": "29, 30, 31, 32, 33"
   },
   {
@@ -769,8 +769,8 @@
     "flightNo": "QR908",
     "airline": "Qatar Airways",
     "path": "Doha to Sydney",
-    "dateDeparture": "8-05-20",
-    "dateArrival": "9-05-20",
+    "dateDeparture": "08-05-20",
+    "dateArrival": "09-05-20",
     "closeContactRow": "42, 43, 44, 45, 46"
   },
   {
@@ -778,8 +778,8 @@
     "flightNo": "QR908",
     "airline": "Qatar Airways",
     "path": "Doha to Sydney",
-    "dateDeparture": "7-05-20",
-    "dateArrival": "8-05-20",
+    "dateDeparture": "07-05-20",
+    "dateArrival": "08-05-20",
     "closeContactRow": "26, 27, 28, 29, 30"
   },
   {
@@ -922,7 +922,7 @@
     "flightNo": "DL41",
     "airline": "Delta",
     "path": "Los Angeles to Sydney",
-    "dateDeparture": "8-07-20",
+    "dateDeparture": "08-07-20",
     "dateArrival": "10 July 2020",
     "closeContactRow": "51, 52, 53, 54, 55"
   },
@@ -932,7 +932,7 @@
     "airline": "United Airlines",
     "path": "San Francisco to Sydney",
     "dateDeparture": "",
-    "dateArrival": "8 July 2020",
+    "dateArrival": "08-07-20",
     "closeContactRow": "Unsure"
   }
 ]
