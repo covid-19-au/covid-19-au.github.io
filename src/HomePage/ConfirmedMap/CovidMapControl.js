@@ -185,6 +185,10 @@ class CovidMapControl extends React.Component {
             }
 
             this.onMapMoveChange();
+
+            setTimeout(this.onMapMoveChange.bind(this), 750);
+            setTimeout(this.onMapMoveChange.bind(this), 1500);
+            setTimeout(this.onMapMoveChange.bind(this), 3000);
         });
     }
 
