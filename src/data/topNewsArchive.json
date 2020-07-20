@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/return-to-remote-learning-in-victoria-amid-new-coronavirus-death-and-273-fresh-cases",
+            "title": "Return to remote learning in Victoria amid new coronavirus death and 273 fresh cases",
+            "source": "SBSNews",
+            "date": "12 July 2020",
+            "time": "19:00",
+            "summary": "More than 700,000 students will return to online learning in Victoria after the state reported a week of triple-digit daily increases in cases. Prep to year 10 students in locked-down parts of Victoria will return to online learning for Term 3. Premier Andrews on Sunday confirmed students in metropolitan Melbourne and Mitchell Shire, north of the city, will learn from home from 20 July until at least 19 August. Onsite learning will be available for students whose parents cannot work from home and for students with special needs who attend mainstream schools."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/queensland-covid-19-human-vaccine-trial-very-encouraging",
+            "title": "Queensland COVID-19 human vaccine trial 'very encouraging'",
+            "source": "SBSNews",
+            "date": "12 July 2020",
+            "time": "19:00",
+            "summary": "A COVID-19 vaccine developed by the University of Queensland is now ready to be tested on humans, giving hope of a breakthrough in combating the virus that has caused a worldwide pandemic. The human testing of the \"molecular clamp\" vaccine candidate, to start on Monday, follows encouraging results from animal testing trials conducted in the Netherlands, the Sunday Mail in Brisbane reports. Premier Annastacia Palaszczuk praised UQ for their search for a COVID-19 vaccine and said she expected the university to reveal more on Monday."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-11/victoria-coronavirus-cases-rise-by-216-man-dies-in-hospital/12445756",
             "title": "Victoria records another 216 coronavirus cases as 'kind soul' dies with COVID-19",
             "source": "ABCNews",
