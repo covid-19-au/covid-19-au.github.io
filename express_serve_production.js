@@ -2,7 +2,9 @@ const path = require('path');
 const express = require("express");
 const expressStaticGzip = require("express-static-gzip");
 
-var app = express();
+const port = 80;
+const host = '0.0.0.0';
+const app = express();
 
 app.use(expressStaticGzip('./build', {
     enableBrotli: true,
@@ -12,5 +14,7 @@ app.use(expressStaticGzip('./build', {
     }
 }));
 
-const port = 8888;
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+app.listen(
+    port, host,
+    () => console.log(`Example app listening at http://${host}:${port}`)
+);
