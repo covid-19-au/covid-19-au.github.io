@@ -1,9 +1,17 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/business/2020/jul/21/jobkeeper-jobseeker-payment-coronavirus-covid-19-update-changes-recipients",
+            "title": "Jobkeeper and jobseeker payment: what do the changes mean for recipients? ",
+            "source": "TheGuardian",
+            "date": "21 July 2020",
+            "time": "15:12",
+            "summary": "Jobkeeper has now been extended to 28 March 2021. The Jobkeeper rate will change after 27 Septmeber. It is currently at $1500 per employee per fortnight, but after 27 September, employees who ordinarily worked fewer than 20 hours a week will have reduced payments. Jobkeeper is also set to reduce payments over time. The coronavirus supplement for recipients of Jobseeker, will be cut from $550 per fortnight, to $250 per fortnight from 25 September onwards. The supplement will remain in place until 31 December."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-20/tasmania-new-coronavirus-case-woman-returning-from-vic/12473222",
             "title": "New Tasmanian coronavirus case confirmed as young woman returning from Victoria",
-            "source": "ABCNEws",
+            "source": "ABCNews",
             "date": "20 July 2020",
             "time": "18:50",
             "summary": "Tasmania has recorded its first coronavirus cases in over 2 months. Before this, the state had recorded no active cases as of June 12th. The new case is a person that is currently in hotel quarantince since returning to Tasmania from Victoria. Tasmania Premier, Peter Gutwein has said that there were about 600 people in hotel quarantine in the state, and a further 1,000 in home quarantine."
@@ -111,22 +119,6 @@
             "date": "14 July 2020",
             "time": "18:35",
             "summary": "The CovidSafe contact tracing app was much hyped by the federal government and touted as a crucial tool that would keep Australians safe while coronavirus lockdowns were lifted. Now, with a surge in cases in Victoria leading to the lockdown of millions in metropolitan Melbourne, as well as an uptick in the number of cases in New South Wales, questions are being asked of the app. Labor leader Anthony Albanese on Tuesday labelled the app a \"dud\"."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-13/coronavirus-face-masks-when-to-wear-and-how-to-make-one/12446872",
-            "title": "Advice on using face masks during the coronavirus pandemic has changed — here's what you need to know",
-            "source": "ABCNews",
-            "date": "13 July 2020",
-            "time": "15:00",
-            "summary": "Australian health experts have not been recommending healthy people wear face masks and have warned wearing them incorrectly can put us at risk during the pandemic. That messaging changed in Victoria on Saturday when Premier Daniel Andrews said masks would not be made mandatory, but people in his state's locked-down areas should wear them when they could not maintain physical distancing. This article addresses common questions about face masks."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-records-177-new-coronavirus-cases-in-good-sign-melbourne-lockdown-is-working",
-            "title": "Victoria records 177 new coronavirus cases in 'good sign' Melbourne lockdown is working",
-            "source": "SBSNews",
-            "date": "13 July 2020",
-            "time": "13:00",
-            "summary": "The 177 cases confirmed on Monday marks the first time since Thursday the number of new infections has dropped below 200 in Victoria. Chief Health Officer Brett Sutton said Monday's numbers were a \"good sign\" but would like to see a longer trend of decreasing case numbers. \"It's great it's lower than our peak. But it may not be our peak yet,\" he said. Victorian Premier Daniel Andrews said all Victorians need to take COVID-19 seriously. Mr Andrews said it's possible the lockdown could be extended beyond metropolitan Melbourne and Mitchell Shire."
         }
     ]
 }
