@@ -124,8 +124,6 @@ def newscrawler(hour_offset, filter_by, file_to_write, output_type="json"):
         
         for entry in d.entries:
             
-            print(author)
-            print(entry.keys())
             # filter by date
             article_date = dateparser.parse(entry.updated).astimezone(
                 tz.gettz("Australia/Melbourne")
