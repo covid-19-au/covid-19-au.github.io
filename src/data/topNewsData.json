@@ -1,148 +1,132 @@
 {
     "weeklyTopNews": [
         {
-            "link": "https://www.sbs.com.au/news/return-to-remote-learning-in-victoria-amid-new-coronavirus-death-and-273-fresh-cases",
-            "title": "Return to remote learning in Victoria amid new coronavirus death and 273 fresh cases",
+            "link": "https://www.abc.net.au/news/2020-07-20/tasmania-new-coronavirus-case-woman-returning-from-vic/12473222",
+            "title": "New Tasmanian coronavirus case confirmed as young woman returning from Victoria",
+            "source": "ABCNEws",
+            "date": "20 July 2020",
+            "time": "18:50",
+            "summary": "Tasmania has recorded its first coronavirus cases in over 2 months. Before this, the state had recorded no active cases as of June 12th. The new case is a person that is currently in hotel quarantince since returning to Tasmania from Victoria. Tasmania Premier, Peter Gutwein has said that there were about 600 people in hotel quarantine in the state, and a further 1,000 in home quarantine."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/face-masks-will-soon-be-mandatory-in-melbourne-here-s-what-you-need-to-know",
+            "title": "Face masks will soon be mandatory in Melbourne. Here's what you need to know",
             "source": "SBSNews",
-            "date": "12 July 2020",
-            "time": "19:00",
-            "summary": "More than 700,000 students will return to online learning in Victoria after the state reported a week of triple-digit daily increases in cases. Prep to year 10 students in locked-down parts of Victoria will return to online learning for Term 3. Premier Andrews on Sunday confirmed students in metropolitan Melbourne and Mitchell Shire, north of the city, will learn from home from 20 July until at least 19 August. Onsite learning will be available for students whose parents cannot work from home and for students with special needs who attend mainstream schools."
+            "date": "19 July 2020",
+            "time": "18:00",
+            "summary": "From 11.59pm on Wednesday, masks will be made compulsory for people who leave their homes in metropolitan Melbourne and the Mitchell Shire. Victorian Premier, Daniel Andrews has said that common sense will govern the new rules, advising that the measure must be done whenever it is practical to do so. He also advised that masks need not be hospital-grade masks, emphasizing, \"any face covering is better than no face-covering.\""
         },
         {
-            "link": "https://www.sbs.com.au/news/queensland-covid-19-human-vaccine-trial-very-encouraging",
-            "title": "Queensland COVID-19 human vaccine trial 'very encouraging'",
-            "source": "SBSNews",
-            "date": "12 July 2020",
-            "time": "19:00",
-            "summary": "A COVID-19 vaccine developed by the University of Queensland is now ready to be tested on humans, giving hope of a breakthrough in combating the virus that has caused a worldwide pandemic. The human testing of the \"molecular clamp\" vaccine candidate, to start on Monday, follows encouraging results from animal testing trials conducted in the Netherlands, the Sunday Mail in Brisbane reports. Premier Annastacia Palaszczuk praised UQ for their search for a COVID-19 vaccine and said she expected the university to reveal more on Monday."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-11/victoria-coronavirus-cases-rise-by-216-man-dies-in-hospital/12445756",
-            "title": "Victoria records another 216 coronavirus cases as 'kind soul' dies with COVID-19",
-            "source": "ABCNews",
-            "date": "11 July 2020",
-            "time": "19:00",
-            "summary": "A man remembered by his family as a \"kind soul\" has died with COVID-19 in a Victorian hospital, with the state recording another 216 cases of coronavirus. Only 30 of the new infections were connected to contained outbreaks and 186 were under investigation. Chief Health Officer Brett Sutton said the state had about 100 separate outbreaks for health officials to contend with. There are now at least 1,249 active cases in Victoria."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-10/victoria-coronavirus-case-lockdown-update-premier-daniel-andrews/12441792",
-            "title": "Melburnians urged to wear masks as Victoria records 288 new coronavirus cases",
-            "source": "ABCNews",
-            "date": "10 July 2020",
-            "time": "18:44",
-            "summary": "Victorians have been urged to wear masks when they leave their homes after the state recorded 288 COVID-19 cases in 24 hours, the largest daily increase of the pandemic so far. Premier Daniel Andrews said masks were not being made mandatory, but people in lockdown areas should wear masks in situations where they cannot maintain physical distancing. He said the Government would order 2 million reusable masks for community distribution, and boost local manufacturing capabilities."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-10/coronavirus-lockdown-melbourne-financial-support-businesses/12441634",
-            "title": "Victorian Government announces $534 million support package for businesses hit by coronavirus lockdown",
-            "source": "ABCNews",
-            "date": "10 July 2020",
-            "time": "13:43",
-            "summary": "The Victorian Government has announced a $534 million support package for businesses impacted by the coronavirus lockdown. The package includes: a $30 million fund for hospitality businesses; a $26 million mental health support package for small business; a $40 million fund to help regional tourism businesses to cover refunds and marketing; $20 million for small businesses in Melbourne's CBD; and $5,000 grants to be made available for 80,000 eligible businesses in metropolitan Melbourne and the Mitchell Shire. Treasurer Tim Pallas said the state's unemployment rate could peak at 11 per cent and gross state product could decline by about 14 per cent relative to pre-pandemic forecasts."
-        },
-        {
-            "link": "https://www.watoday.com.au/national/victoria/record-calls-to-mental-health-services-during-second-lockdown-20200710-p55asg.html?ref=rss&utm_medium=rss&utm_source=rss_national",
-            "title": "Record calls to mental health services during second lockdown",
-            "source": "WAToday",
-            "date": "10 July 2020",
-            "time": "14:00",
-            "summary": "Victorians are reaching out to mental health services for support in record numbers as Melbourne enters a second coronavirus lockdown. Lifeline is reporting a 22 per cent surge in calls in Victoria since Sunday compared with the same time last year, while calls from Victoria to Beyond Blue’s support services have doubled in the past fortnight. Lifeline Australia chairman John Brogden said the service had received almost 90,000 calls a month since March, which amounted to a call every 30 seconds. This was a sign the strict lockdown measures were taking a toll on the mental health of Victorians, he said."
-        },
-        {
-            "link": "https://thewest.com.au/news/coronavirus/coronavirus-crisis-mcgowan-announces-phase-five-start-pushed-back-from-july-18-to-august-1-ng-b881604644z",
-            "title": "Coronavirus crisis: WA Premier Mark McGowan announces phase five start pushed back from July 18 to August 1",
-            "source": "TheWestAustralian",
-            "date": "10 July 2020",
-            "time": "14:35",
-            "summary": "Mark McGowan says WA’s hard border with the rest of the nation will be up for “as long as it takes” amid news phase five of WA’s COVID-19 restrictions will be delayed until August 1. The Premier said border measures between WA and Victoria could be tightened even further yet and WA Police Commissioner Chris Dawson flagged stopping all planes from Victoria from coming into WA as being an option to keep COVID-19 out of the state. It comes amid news from the Premier that the start of WA’s next phase of restrictions had been pushed back two weeks. The Premier said WA had decided to be extra cautious in delaying restriction relaxations because of the situation in Victoria."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/restrictions-to-ease-in-eight-of-melbourne-s-locked-down-public-housing-towers",
-            "title": "Restrictions to ease in eight of Melbourne's locked-down public housing towers",
-            "source": "SBSNews",
-            "date": "9 July 2020",
-            "time": "17:30",
-            "summary": "A hard lockdown is set to end for eight of the public housing estates in Melbourne on Saturday, meaning people will be able to leave for essential purposes. All towers, except the 33 Alfred Street estate, will move to Stage 3 restrictions, in line with the rest of metropolitan Melbourne. This means residents will be able to leave for essential work, study, exercise or care responsibilities. Tenants in the Alfred Street building, where there have been 53 cases of COVID-19, will have to remain inside for another nine days. However, they will be allowed to have supervised exercise outside."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/jul/09/nsw-victoria-border-control-to-be-in-place-for-at-least-six-weeks-as-queensland-and-sa-clamp-down",
-            "title": "NSW-Victoria border control to be in place for at least six weeks as Queensland and SA clamp down ",
+            "link": "Jobkeeper expected to be extended beyond September for businesses that ‘genuinely need it’ ",
+            "title": "https://www.theguardian.com/australia-news/2020/jul/19/jobkeeper-expected-to-be-extended-beyond-september-for-businesses-that-genuinely-need-it",
             "source": "TheGuardian",
-            "date": "9 July 2020",
-            "time": "17:40",
-            "summary": "Border controls between Victoria and New South Wales will remain in place for at least six weeks, while Queensland will turn Victorians away at the border and South Australia will require those permitted into the state to wear face masks. Meanwhile, Tasmania has extended its state of emergency until 31 August, in response to the Melbourne outbreak, but will consider reopening its borders to other states."
+            "date": "19 July 2020",
+            "time": "13:38",
+            "summary": "The finance minister has said that there will be some adjustments to the Jobkeeper scheme. \"The ultimate objective still has to be getting back into a situation where all businesses are in a position to pay for the wages of their employees out of their income,\" he said. The government will release an economic update on Thursday and outline the future of the jobseeker and jobkeeper payments. Until then, it is unclear how long the payments will be extended for."
         },
         {
-            "link": "https://www.theguardian.com/australia-news/2020/jul/08/josh-frydenberg-says-coalition-may-bring-forward-tax-cuts-and-extend-income-support-past-september",
-            "title": "Josh Frydenberg says Coalition will extend income support and may bring forward tax cuts ",
+            "link": "https://www.sbs.com.au/news/victoria-records-three-more-coronavirus-deaths-and-217-new-infections",
+            "title": "Victoria records three more coronavirus deaths and 217 new infections",
+            "source": "SBSNews",
+            "date": "18 July 2020",
+            "time": "18:00",
+            "summary": "Mr Andrews said of the additional cases, 11 of them were linked to known outbreaks, and 205 of them are under investigation. 217 is a significant drop from the 428 cases registered on the previous day. The state's Chief Medical Officer, Dr Sutton said he was happy that case numbers had dropped, but also warned Victorians against complacency.\"It is a number that would have shocked us all a month ago, we need to remember it is still a high number,\" he said."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-17/victoria-coronavirus-cases-update-record-covid19-daily-increase/12465632",
+            "title": "Victoria records another 428 coronavirus cases and three more COVID-19 deaths",
+            "source": "ABCNews",
+            "date": "17 July 2020",
+            "time": "18:00",
+            "summary": "The 428 new cases today represent the highest daily increase since the start of the pandemic, and three more people have died from the virus, taking the death toll in the state to 32. They were a man in his 70s, a man in his 80s and a woman in her 80s. Victorian Premier, Daniel Andrews has said that  the likelihood of a longer lockdown or heightened enforcement was \"all in the hands\" of every Victorian. \"If we get a sense, and if the data continues to tell us … that the strategy is not being as effective as quickly as we would like, we may have to go to new rules,\" he said."
+        },
+        {
+            "link": "https://www.theguardian.com/media/2020/jul/17/black-lives-matter-protests-a-covid-19-outbreak-and-the-link-that-didnt-exist",
+            "title": "Black Lives Matter protests, a Covid-19 outbreak and the 'link' that didn't exist ",
             "source": "TheGuardian",
-            "date": "8 July 2020",
-            "time": "15:52",
-            "summary": "The Morrison government is considering bringing forward income tax cuts and will extend income support beyond September, the treasurer, Josh Frydenberg, has said. Frydenberg and the prime minister, Scott Morrison, have been increasingly frank about the need for the extension of economic supports as Victoria re-enters a six-week lockdown to fight the spread of Covid-19. Although the income tax cut proposal is yet to go to cabinet and the government’s decision on extending the $70bn jobkeeper program will not be announced until 23 July, Victorian businesses are requesting an extra two months of wage subsidies citing the new lockdown. It comes as banks have announced they will extend the six-month suspension of loan repayments by a further four months for business loan and mortgage customers who are still experiencing financial hardship."
+            "date": "17 July 2020",
+            "time": "20:11",
+            "summary": "A number of news outlets had previously reported that authorities had confirmed a link between last month’s Melbourne Black Lives Matter protest and the Covid-19 breakout in public housing towers. The Victorian Department of Health and Human Services have now knocked down these claims. They said, \"We are aware of six confirmed cases who attended the Black Lives Matter protest,\" adding \"Currently there is no evidence to suggest they acquired the virus from the protest, and \"None of these cases are known to reside at a major public housing complex. Currently no known nor suspected episodes of transmission occurred at the protest itself.\""
         },
         {
-            "link": "https://www.abc.net.au/news/2020-07-08/nsw-coronavirus-breach-as-passengers-from-melbourne-not-screened/12433286",
-            "title": "NSW-Victoria coronavirus breach after Melbourne Jetstar flight lands in Sydney where passengers aren't screened for COVID-19",
+            "link": "https://www.abc.net.au/news/2020-07-16/new-coronavirus-case-confirmed-in-sa-as-tougher-fines-introduced/12461044",
+            "title": "New coronavirus case confirmed as SA announces fines for travellers who refuse tests",
             "source": "ABCNews",
-            "date": "8 July 2020",
-            "time": "19:13",
-            "summary": "Passengers on a flight from Melbourne to Sydney last night disembarked without being screened by NSW Health officials, in a major breach of the state's coronavirus protocols. An email from Sydney Airport leaked to the ABC claims Jetstar breached NSW Government health orders by allowing travellers on flight JQ520, which landed at 6:53pm, to get off without being checked. Federal Health Minister Greg Hunt said his department would seek answers from the Victorian and New South Wales governments."
+            "date": "16 July 2020",
+            "time": "16:13",
+            "summary": "The South Australian Government has announced fines of $1,000 for travellers from Victoria who refuse a coronavirus test on arrival in SA, as the state confirms its first COVID-19 case in more than two weeks. Mr Marshall last week announced coronavirus testing for everyone crossing the border from Victoria within 24 hours of their arrival, and again on day 12 of their quarantine. But today he said the tests would be mandatory, and that anyone who did not comply with that requirement would be subject to a $1,000 on-the-spot fine."
         },
         {
-            "link": "https://www.sbs.com.au/news/australia-set-to-cap-international-flights-to-contain-spike-in-coronavirus-cases",
-            "title": "Australia set to cap international flights to contain spike in coronavirus cases",
-            "source": "SBSNews",
-            "date": "8 July 2020",
-            "time": "17:29",
-            "summary": "Australia will reduce the number of international flights entering the country to ease pressure on hotel quarantine amid Melbourne's coronavirus outbreak. Prime Minister Scott Morrison will unveil a plan to cut the number of international flights at Friday's national cabinet meeting with state premiers. \"In Victoria, we have suspended those flights coming in and that has meant that people have moved on to other flights going into other capitals,\"he told reporters in Canberra on Wednesday."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/metropolitan-melbourne-put-into-six-week-lockdown-after-surge-of-191-new-coronavirus-infections",
-            "title": "Metropolitan Melbourne put into six-week lockdown after surge of 191 new coronavirus infections",
-            "source": "SBSNews",
-            "date": "7 July 2020",
-            "time": "16:00",
-            "summary": "Victorian Premier Daniel Andrews says metropolitan Melbourne will be put into a six-week lockdown after recording 191 new coronavirus infections on Tuesday. The lockdown, which will also apply to the Mitchell Shire north of the city, will take effect from 11.59pm on Wednesday. Mr Andrews told reporters on Tuesday new infections would quickly spiral out of control if drastic suppression measures weren't put in place."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/queensland-joins-wa-in-push-for-international-flight-cap-amid-melbourne-virus-spike",
-            "title": "Queensland joins WA in push for international flight cap amid Melbourne virus spike",
-            "source": "SBSNews",
-            "date": "7 July 2020",
-            "time": "13:00",
-            "summary": "Queensland and Western Australia have urged the federal government to cap international flights arriving in Australia to ease pressure on hotel quarantine. State premiers have raised concerns with Prime Minister Scott Morrison as Victoria struggles with a concerning coronavirus infection spike. Queensland Premier Annastacia Palaszczuk said extreme caution should be applied when dealing with arrivals from overseas. WA Premier Mark McGowan wants a cap of about one international flight every three days landing in Perth."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-nsw-border-to-close-for-the-first-time-in-100-years-as-melbourne-coronavirus-cases-hit-record-daily-high",
-            "title": "Victoria-NSW border to close for the first time in 100 years as Melbourne coronavirus cases hit record daily high",
-            "source": "SBSNews",
-            "date": "6 July 2020",
-            "time": "20:50",
-            "summary": "The border between New South Wales and Victoria will close at 11:59 on Tuesday night as coronavirus cases continue to surge in Victoria. Victorian Premier Daniel Andrews confirmed the decision on Monday morning as the state recorded another 127 coronavirus cases overnight, a record daily increase for the state. The border closure decision was made in consultation with Prime Minister Scott Morrison and NSW Premier Gladys Berejiklian, Mr Andrews said. The decision marks the first time the Victoria-NSW border has been shut in 100 years - officials last blocked movement between the two states in 1919 during the Spanish flu pandemic."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-06/push-for-coronavirus-related-cap-on-flights-into-perth-airport/12426528 ",
-            "title": "WA pushes for cap on international flights to reduce coronavirus risk",
+            "link": "https://www.abc.net.au/news/2020-07-16/victoria-coronavirus-cases-rise-by-317-with-two-more-deaths/12460318",
+            "title": "Victorian coronavirus case increase hits record high with two new deaths, but no stage four restrictions yet",
             "source": "ABCNews",
-            "date": "6 July 2020",
-            "time": "20:45",
-            "summary": "WA Premier Mark McGowan has sought Commonwealth approval to cap the number of international flights landing in Perth. Mr McGowan said he had requested international arrivals be limited to \"something in the vicinity of one flight per three days\". He said WA continued to lead the country as a \"safe haven\" from COVID-19, and the state had not recorded a case of community infection since April 11. Mr McGowan said there had recently been an uptick in domestic and international arrivals at Perth Airport. He said Cabinet had today approved the drafting of legislation to force any returning travellers to pay for a compulsory 14 days of quarantine."
-        },
-        {
-            "link": "https://www.watoday.com.au/national/play-it-safe-ama-calls-for-a-nationwide-freeze-on-lifting-covid-restrictions-20200705-p55982.html?ref=rss&utm_medium=rss&utm_source=rss_national",
-            "title": "'Play it safe': AMA calls for a nationwide freeze on lifting COVID restrictions",
-            "source": "WAToday",
-            "date": "5 July 2020",
-            "time": "20:01",
-            "summary": "The Australian Medical Association's President, Tony Bartone has urged states to temporarily cease the lifting of restrictions. This is in response to 108 new cases in Victoria on Saturday. Dr Bartone said it was disappointing that the problem's in Melbourne's hotspots were linked to failures to follow \"established and successful\" public health guidelines."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/a-group-of-3-000-melburnians-have-been-locked-down-in-public-housing-towers-but-how-will-authorities-manage-it",
-            "title": "A group of 3,000 Melburnians have been locked down in public housing towers. But how will authorities manage it?",
-            "source": "SBSNews",
-            "date": "5 July 2020",
+            "date": "16 July 2020",
             "time": "17:00",
-            "summary": "Authorities have placed over 3000 residents across nine public housing towers in lockdown. Premier Daniel Andrews has urged residents to to view these measures as protective rather than as a punishment. Many Victorians have rallied behind the affected residents, including a crowdfunding campaign for residents, organised by the Victorian Trades Hall Council, that has raised over $250,000 so far."
+            "summary": "Victoria has recorded 317 new coronavirus cases overnight, the biggest daily increase since the pandemic began, and another two men in their 80s have died from the virus. In announcing the figures, Premier Daniel Andrews said it was \"way too early\" for the state to be moving to a new stage of restrictions. Chief Health Officer Brett Sutton said Victoria may not yet have hit the peak of its latest surge in cases. Professor Sutton said the virus had an average incubation period of about five or six days, which meant case numbers would not start to plateau for another few days."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jul/15/scott-morrison-says-we-cant-shut-down-australia-to-contain-second-wave-of-covid-19",
+            "title": "Scott Morrison says Australia cannot shut down to contain second wave of Covid-19 ",
+            "source": "TheGuardian",
+            "date": "15 July 2020",
+            "time": "13:00",
+            "summary": "Scott Morrison says the response to a second wave of Covid-19 infections cannot be shutting the country down to try to eliminate the virus, and he’s moved to reassure people his government will not be withdrawing income support \"for those in need\". With renewed debate around whether Australia should respond to the latest outbreak and a spike in community transmission with more forceful lockdowns, Morrison said on Wednesday elimination was impractical, but Victoria’s chief health officer Brett Sutton told reporters it was an idea \"worthy of consideration\". With Victoria reporting another 238 cases of the illness, and another fatality, Sutton said he would \"love\" elimination, but now wasn’t the time to make \"a detailed examination about its feasibility\". He said any shift in the public health strategy would require consideration by chief medical officers and leaders through the national cabinet."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-records-238-new-coronavirus-cases-as-daniel-andrews-warns-of-more-restrictions",
+            "title": "Victoria records 238 new coronavirus cases as Daniel Andrews warns of more restrictions",
+            "source": "SBSNews",
+            "date": "15 July 2020",
+            "time": "12:00",
+            "summary": "Victoria announced one new coronavirus death and 238 fresh cases on Wednesday, the fifth day in a row of more than 200 new infections. Premier Daniel Andrews confirmed on Wednesday morning a woman in her 90s had died overnight, bringing the total number of deaths in the state to 27. Of the new cases, Mr Andrews said 29 were related to known outbreaks and 209 were under investigation. Amid speculation the government is considering a move to a 'Stage 4' lockdown, Mr Andrews warned that if the current rules are not followed \"we will have to move to additional restrictions\"."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-15/wa-records-eight-new-coronavirus-cases-travel-restrictions/12456900",
+            "title": "WA records eight new coronavirus cases amid calls for restrictions on interstate travellers ",
+            "source": "ABCNews",
+            "date": "15 July 2020",
+            "time": "19:00",
+            "summary": "WA recorded eight new cases of coronavirus overnight — the largest daily increase since May 29 when the state was dealing with an outbreak on the Al Kuwait live export ship. All of the new cases are overseas travellers who are in hotel quarantine, bringing the state's total to 644, with 29 active cases. It comes as the WA Government faces growing pressure to further lock down its border and tighten restrictions on people wanting to enter the state, as airline passengers from Victoria face the first day of mandatory COVID tests on arrival at Perth Airport. WA Cabinet minister Simone McGurk said the Government was continuing to monitor the coronavirus situation in New South Wales and was considering whether to impose similar measures on travellers from that state."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/australia-records-two-new-coronavirus-deaths-as-confirmed-infections-surge-past-10-000",
+            "title": "Australia records two new coronavirus deaths as confirmed infections surge past 10,000 ",
+            "source": "SBSNews",
+            "date": "14 July 2020",
+            "time": "17:00",
+            "summary": "Victoria has recorded another 270 coronavirus cases as the total number of infections recorded within Australia passes the grim milestone of 10,000. Two more people have also died of the virus in Victoria, a man and woman who were both in their 80s, taking the national death toll to 110. The number of new cases in Victoria was a significant increase on the 177 recorded on Monday and is the fourth day in the past five of more than 200 cases. Deputy Chief Medical Officer Michael Kidd on Tuesday said the country had passed \"another national milestone\", with at least 10,251 coronavirus infections recorded in Australia since the pandemic began."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-14/coronavirus-queensland-hotspots-declared-nsw/12445814",
+            "title": "Queensland declares NSW towns of Campbelltown and Liverpool coronavirus hotspots",
+            "source": "ABCNews",
+            "date": "14 July 2020",
+            "time": "15:35",
+            "summary": "Queensland Health has declared coronavirus hotspots in several areas of New South Wales after a cluster of cases in Sydney. Any non-Queensland residents who have visited, or visit, the Campbelltown and Liverpool city areas will not be allowed entry into Queensland from midday today. It follows a cluster of 28 cases connected to the Crossroads Hotel on the Hume Highway in south-west Sydney. Queenslanders who have been to the hotspots, or travel there in the future, will be forced into hotel quarantine when re-entering the state, at their own cost."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/government-faces-tough-questions-over-covidsafe-app-as-outbreaks-emerge-in-victoria-and-nsw",
+            "title": "Government faces tough questions over CovidSafe app as outbreaks emerge in Victoria and NSW",
+            "source": "SBSNews",
+            "date": "14 July 2020",
+            "time": "18:35",
+            "summary": "The CovidSafe contact tracing app was much hyped by the federal government and touted as a crucial tool that would keep Australians safe while coronavirus lockdowns were lifted. Now, with a surge in cases in Victoria leading to the lockdown of millions in metropolitan Melbourne, as well as an uptick in the number of cases in New South Wales, questions are being asked of the app. Labor leader Anthony Albanese on Tuesday labelled the app a \"dud\"."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-13/coronavirus-face-masks-when-to-wear-and-how-to-make-one/12446872",
+            "title": "Advice on using face masks during the coronavirus pandemic has changed — here's what you need to know",
+            "source": "ABCNews",
+            "date": "13 July 2020",
+            "time": "15:00",
+            "summary": "Australian health experts have not been recommending healthy people wear face masks and have warned wearing them incorrectly can put us at risk during the pandemic. That messaging changed in Victoria on Saturday when Premier Daniel Andrews said masks would not be made mandatory, but people in his state's locked-down areas should wear them when they could not maintain physical distancing. This article addresses common questions about face masks."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-records-177-new-coronavirus-cases-in-good-sign-melbourne-lockdown-is-working",
+            "title": "Victoria records 177 new coronavirus cases in 'good sign' Melbourne lockdown is working",
+            "source": "SBSNews",
+            "date": "13 July 2020",
+            "time": "13:00",
+            "summary": "The 177 cases confirmed on Monday marks the first time since Thursday the number of new infections has dropped below 200 in Victoria. Chief Health Officer Brett Sutton said Monday's numbers were a \"good sign\" but would like to see a longer trend of decreasing case numbers. \"It's great it's lower than our peak. But it may not be our peak yet,\" he said. Victorian Premier Daniel Andrews said all Victorians need to take COVID-19 seriously. Mr Andrews said it's possible the lockdown could be extended beyond metropolitan Melbourne and Mitchell Shire."
         }
     ]
 }

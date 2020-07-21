@@ -4,6 +4,94 @@
             "image": [],
             "video": [
                 {
+                    "link": "https://www.youtube.com/watch?v=PUP7U5vTMM0",
+                    "description": "Gordon Ramsay's Scrambled Eggs"
+                }
+            ],
+            "type": "distraction",
+            "date": "20/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=fM57RNUpd10",
+                    "description": "Mochi Ice Cream | Basics with Babish"
+                }
+            ],
+            "type": "distraction",
+            "date": "19/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=RJyGlWsswW0&list=WL&index=3&t=0s",
+                    "description": "Microwave Sugar Cookie | Em’s Kitchen"
+                }
+            ],
+            "type": "distraction",
+            "date": "18/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=YCJXS4hvOsU",
+                    "description": "Why are Films Shot in Two Colors?"
+                }
+            ],
+            "type": "distraction",
+            "date": "17/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=E39GIysMevQ",
+                    "description": "What's the Deepest Hole We Can Possibly Dig?"
+                }
+            ],
+            "type": "distraction",
+            "date": "16/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=sQxn1Pykbyg",
+                    "description": "Gordon Ramsay Shows How To Make A Lamb Chop Dish At Home | Ramsay in 10"
+                }
+            ],
+            "type": "distraction",
+            "date": "15/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=kl39KHS07Xc&t=1s",
+                    "description": "Universal Basic Income Explained – Free Money for Everybody?"
+                }
+            ],
+            "type": "distraction",
+            "date": "14/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=ck4RGeoHFko",
+                    "description": "What Is Intelligence? Where Does it Begin?"
+                }
+            ],
+            "type": "distraction",
+            "date": "13/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
                     "link": "https://www.youtube.com/watch?v=8qRZcXIODNU",
                     "description": "The French Revolution - OverSimplified (Part 1)"
                 }
