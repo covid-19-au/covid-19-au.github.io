@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-13/coronavirus-face-masks-when-to-wear-and-how-to-make-one/12446872",
+            "title": "Advice on using face masks during the coronavirus pandemic has changed — here's what you need to know",
+            "source": "ABCNews",
+            "date": "13 July 2020",
+            "time": "15:00",
+            "summary": "Australian health experts have not been recommending healthy people wear face masks and have warned wearing them incorrectly can put us at risk during the pandemic. That messaging changed in Victoria on Saturday when Premier Daniel Andrews said masks would not be made mandatory, but people in his state's locked-down areas should wear them when they could not maintain physical distancing. This article addresses common questions about face masks."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-records-177-new-coronavirus-cases-in-good-sign-melbourne-lockdown-is-working",
+            "title": "Victoria records 177 new coronavirus cases in 'good sign' Melbourne lockdown is working",
+            "source": "SBSNews",
+            "date": "13 July 2020",
+            "time": "13:00",
+            "summary": "The 177 cases confirmed on Monday marks the first time since Thursday the number of new infections has dropped below 200 in Victoria. Chief Health Officer Brett Sutton said Monday's numbers were a \"good sign\" but would like to see a longer trend of decreasing case numbers. \"It's great it's lower than our peak. But it may not be our peak yet,\" he said. Victorian Premier Daniel Andrews said all Victorians need to take COVID-19 seriously. Mr Andrews said it's possible the lockdown could be extended beyond metropolitan Melbourne and Mitchell Shire."
+        },
+        {
             "link": "https://www.sbs.com.au/news/return-to-remote-learning-in-victoria-amid-new-coronavirus-death-and-273-fresh-cases",
             "title": "Return to remote learning in Victoria amid new coronavirus death and 273 fresh cases",
             "source": "SBSNews",
