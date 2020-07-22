@@ -5,7 +5,7 @@ export default function dvAna(record) {
   const token = process.env.REACT_APP_MAP_API;
   axios({
     method: "post",
-    url: `http://149.28.31.208:2046/records/`,
+    url: `https://dvana.ellieben.com:2046/records/`,
     data: qs.stringify(record),
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
