@@ -1015,5 +1015,32 @@
     "dateDeparture": "02-07-20",
     "dateArrival": "02-07-20",
     "closeContactRow": "19, 20, 21, 22, 23, 24, 25"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "JQ506",
+    "airline": "Jetstar",
+    "path": "Melbourne to Sydney",
+    "dateDeparture": "17-07-20",
+    "dateArrival": "17-07-20",
+    "closeContactRow": "17, 18, 19, 20, 21"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QR908",
+    "airline": "Qatar Airways",
+    "path": "Doha to Sydney",
+    "dateDeparture": "14-07-20",
+    "dateArrival": "14-07-20",
+    "closeContactRow": "30, 31, 32, 33, 34"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "MK125",
+    "airline": "Malaysian",
+    "path": "Kuala Lumpur to Perth",
+    "dateDeparture": "",
+    "dateArrival": "12-07-20",
+    "closeContactRow": "14, 15, 16, 17, 18, 19, 20, 21, 22"
   }
 ]
