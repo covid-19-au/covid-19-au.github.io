@@ -20,7 +20,8 @@ import BigTableOValuesDataSource from "./ConfirmedMap/DataABS";
 import GeoBoundaries from "./ConfirmedMap/GeoBoundaries"; // FIXME!
 import DaysSinceMap from "./DaysSinceMap";
 
-import ImportCDNJS from "import-cdn-js";
+// import ImportCDNJS from "import-cdn-js";
+import dvAna from "../dvAna";
 
 const absStats = absStatsData["data"];
 const regionsTimeSeries = regionsData["time_series_data"],
@@ -67,6 +68,10 @@ class MbMap extends React.Component {
       "qld",
       "sa",
     ];
+  }
+
+  getState() {
+    return this.state;
   }
 
   /*******************************************************************
@@ -392,80 +397,126 @@ class MbMap extends React.Component {
       [166.2890625, 0.8788717828324276], // Northeast coordinates
     ];
 
-    window.mapboxgl = mapboxgl;
+    // window.mapboxgl = mapboxgl;
 
-    ImportCDNJS("//cdn.maptiks.com/maptiks-mapbox-gl.min.js", "maptiks")
-      .then(
-        (maptiks) =>
-          (maptiks.trackcode = "3e1711d4-2508-4a05-8f18-4eef755ab26f")
-      )
-      .then(() => {
-        const map = (this.map = new mapboxgl.Map({
-          container: this.mapContainer,
-          // https://docs.mapbox.com/api/maps/#styles
-          //style: 'mapbox://styles/mapbox/bright-v8',
-          //style: 'mapbox://styles/mapbox/satellite-streets-v11',
-          style: "mapbox://styles/mapbox/streets-v11",
-          //style: 'mapbox://styles/mapbox/light-v10',
-          //style: 'mapbox://styles/mapbox/dark-v10',
-          //style: 'mapbox://styles/mapbox/outdoors-v11',
-          center: [lng, lat],
-          zoom: zoom,
-          maptiks_id: "case",
-          maxZoom: 9.5,
-          maxBounds: bounds, // Sets bounds as max
-          transition: {
-            duration: 0,
-            delay: 0,
-          },
-          fadeDuration: 0,
-        }));
-        // Disable map rotation
-        map.dragRotate.disable();
-        map.touchZoomRotate.disableRotation();
+    // ImportCDNJS("//cdn.maptiks.com/maptiks-mapbox-gl.min.js", "maptiks")
+    //   .then(
+    //     (maptiks) =>
+    //       (maptiks.trackcode = "3e1711d4-2508-4a05-8f18-4eef755ab26f")
+    //   )
+    //   .then(() => {
+    const map = (this.map = new mapboxgl.Map({
+      container: this.mapContainer,
+      // https://docs.mapbox.com/api/maps/#styles
+      //style: 'mapbox://styles/mapbox/bright-v8',
+      //style: 'mapbox://styles/mapbox/satellite-streets-v11',
+      style: "mapbox://styles/mapbox/streets-v11",
+      //style: 'mapbox://styles/mapbox/light-v10',
+      //style: 'mapbox://styles/mapbox/dark-v10',
+      //style: 'mapbox://styles/mapbox/outdoors-v11',
+      center: [lng, lat],
+      zoom: zoom,
+      maptiks_id: "case",
+      maxZoom: 9.5,
+      maxBounds: bounds, // Sets bounds as max
+      transition: {
+        duration: 0,
+        delay: 0,
+      },
+      fadeDuration: 0,
+    }));
+    // Disable map rotation
+    map.dragRotate.disable();
+    map.touchZoomRotate.disableRotation();
 
-        // Add geolocate control to the map.
-        map.addControl(
-          new mapboxgl.GeolocateControl({
-            positionOptions: {
-              enableHighAccuracy: true,
-            },
-            trackUserLocation: true,
-          })
-        );
-
-        //Add zoom+fullscreen controls
-        map.addControl(new mapboxgl.NavigationControl());
-        map.addControl(new mapboxgl.FullscreenControl());
-
-        map.on("load", () => {
-          if (!this.otherStatsSelect) {
-            // Control probably destroyed before loaded!
-            return;
-          }
-
-          // Create map data instances
-          var geoBoundaryInsts = (this.geoBoundaryInsts = {});
-          for (var key of this.geoBoundaries.getAvailableGeoBoundaries()) {
-            geoBoundaryInsts[key] = this.geoBoundaries.getGeoBoundary(
-              map,
-              key.split(":")[1],
-              key.split(":")[0]
-            );
-          }
-
-          this.otherStatsSelect.current.onchange = () => {
-            this.setUnderlay();
-          };
-          this.markersSelect.current.onchange = () => {
-            this.setMarkers();
-          };
-
-          this.mapLoaded = true;
-          this._updateMode();
-          this.forceUpdate();
+    //dvAna functions
+    var my = this;
+    map.on("dragend", async (e) => {
+      try {
+        dvAna({
+          type: "Pan",
+          marker: my.state._markers.toString(),
+          period: my.state._timeperiod.toString(),
+          underlay:
+            my.state._underlay === null
+              ? "no underlay"
+              : my.state._underlay.toString(),
+          zoomLevel: map.getZoom(),
+          endLngLat: map.getCenter().toString(),
         });
-      });
+      } catch (e) {
+        return null;
+      }
+    });
+
+    map.on("zoomend", async (e) => {
+      try {
+        dvAna({
+          type: "Zoom",
+          marker: my.state._markers.toString(),
+          period: my.state._timeperiod.toString(),
+          underlay:
+            my.state._underlay === null
+              ? "no underlay"
+              : my.state._underlay.toString(),
+          zoomLevel: map.getZoom(),
+          endLngLat: map.getCenter().toString(),
+        });
+      } catch (e) {
+        return null;
+      }
+    });
+
+    map.on("click", function (e) {
+      try {
+        map.dvAnaClickContext = my.state;
+      } catch (e) {
+        return null;
+      }
+    });
+
+    // Add geolocate control to the map.
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true,
+        },
+        trackUserLocation: true,
+      })
+    );
+
+    //Add zoom+fullscreen controls
+    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.FullscreenControl());
+
+    map.on("load", () => {
+      if (!this.otherStatsSelect) {
+        // Control probably destroyed before loaded!
+        return;
+      }
+
+      // Create map data instances
+      var geoBoundaryInsts = (this.geoBoundaryInsts = {});
+      for (var key of this.geoBoundaries.getAvailableGeoBoundaries()) {
+        geoBoundaryInsts[key] = this.geoBoundaries.getGeoBoundary(
+          map,
+          key.split(":")[1],
+          key.split(":")[0]
+        );
+      }
+
+      this.otherStatsSelect.current.onchange = () => {
+        this.setUnderlay();
+      };
+      this.markersSelect.current.onchange = () => {
+        this.setMarkers();
+      };
+
+      this.mapLoaded = true;
+      this._updateMode();
+      this.forceUpdate();
+    });
+    // });
 
     // Set the HTML *once only*!
     this.otherStatsSelect.current.innerHTML = this._getSelectHTML();
