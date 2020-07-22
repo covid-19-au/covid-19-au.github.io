@@ -1,8 +1,7 @@
 import mapboxgl from "mapbox-gl";
 import CanvasJS from "../../assets/canvasjs.min";
 import { areIntervalsOverlappingWithOptions } from "date-fns/esm/fp";
-const axios = require("axios");
-const qs = require("querystring");
+import dvAna from "../../dvAna";
 
 class FillPolyLayer {
   constructor(
@@ -353,25 +352,28 @@ class FillPolyLayer {
           .addTo(map);
       }
 
-      //for mapAna
-      console.log(cityName);
-      axios({
-        method: "post",
-        url: `http://149.28.31.208:2046/records/`,
-        data: qs.stringify({
-          cityName: cityName,
-        }),
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      // for dvAna
+
+      (async () => {
+        try {
+          dvAna({
+            type: "ClickPopUp",
+            marker: map.dvAnaClickContext._markers.toString(),
+            period: map.dvAnaClickContext._timeperiod.toString(),
+            underlay:
+              map.dvAnaClickContext._underlay === null
+                ? "no underlay"
+                : map.dvAnaClickContext._underlay.toString(),
+            zoomLevel: map.getZoom(),
+            clickCity: cityName,
+            lngLat: e.lngLat.toString(),
+          });
+        } catch (e) {
+          return null;
+        }
+      })();
     };
+
     map.on("click", useID, click);
 
     var mouseEnter = () => {
