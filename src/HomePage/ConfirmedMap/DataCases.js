@@ -1,37 +1,50 @@
 import ConfirmedMapFns from "./Fns";
-import StateLatestNums from "../../data/stateCaseData.json"
+import stateNums from "../../data/state.json"
 
 
-function getFromStateCaseData(stateName, subHeader) {
-    var dateUpdated = StateLatestNums.updatedTime.split(' ')[1].replace(/[-]/g, '/');
+let stateCaseDataTypes = new Set([
+    'total',
+    'status_deaths',
+    'status_recovered',
+    'tests_total',
+    'status_icu',
+    'status_active',
+    'status_hospitalized'
+]);
 
-    for (var [
-        iStateName, iConfirmed, iDeaths, iRecovered,
-        iTested, iInHospital, iInICU, iUnknown
-    ] of StateLatestNums.values) {
-        if (stateName.toUpperCase() !== iStateName.toUpperCase()) {
-            continue;
-        }
-        else if (subHeader === 'total') {
-            return [iConfirmed, dateUpdated];
-        }
-        else if (subHeader === 'status_deaths') {
-            return [iDeaths, dateUpdated];
-        }
-        else if (subHeader === 'status_recovered') {
-            return [iRecovered, dateUpdated];
-        }
-        else if (subHeader === 'tests_total') { //  CHECK ME!!!
-            return [iTested, dateUpdated];
-        }
-        else if (subHeader === 'status_icu') {
-            return [iInICU, dateUpdated];
-        }
-        else if (subHeader === 'status_hospitalized') {
-            return [iInHospital, dateUpdated];
+
+function getFromStateCaseData(stateName, dataType) {
+    let dates = ConfirmedMapFns.sortedKeys(stateNums).reverse();
+    stateName = stateName.toUpperCase();
+
+    let r = [];
+    for (let sortableDate of dates) {
+        let [
+            confirmed, deaths, recovered,
+            tested, active, inHospital, inICU
+        ] = stateNums[sortableDate][stateName];
+
+        let map = {
+            'total': confirmed,
+            'status_deaths': deaths,
+            'status_recovered': recovered,
+            'tests_total': tested,
+            'status_icu': inICU,
+            'status_active': active,
+            'status_hospitalized': inHospital
+        };
+        let [yyyy, mm, dd] = sortableDate.split('-');
+        let printableDate = `${dd}/${mm}/${yyyy}`;
+
+        if (map[dataType] != null) {
+            r.push({
+                sortableDate: sortableDate,
+                printableDate: printableDate,
+                numCases: map[dataType]
+            });
         }
     }
-    return null;
+    return r;
 }
 
 
@@ -85,22 +98,22 @@ class TimeSeriesDataSource extends DataSourceBase {
         }
         var updatedDates = [];
 
-        if (this.schema === 'statewide') {
-            var n = getFromStateCaseData(this.stateName, this.subHeader);
-            if (n != null) {
-                var d = n[1].split('/');
-                updatedDates.push([d[2]+d[1]+d[0], d.join('/')]);
+        if (this.schema === 'statewide' && stateCaseDataTypes.has(this.subHeader)) {
+            let n = getFromStateCaseData(this.stateName, this.subHeader);
+            for (let [sortableDate, printableDate, value] of n) {
+                updatedDates.push([sortableDate, printableDate]);
             }
         }
+        else {
+            for (var i = 0; i < this.data.length; i++) {
+                var iData = this.data[i],
+                    iValues = iData[2];
 
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iValues = iData[2];
-
-            for (var j = 0; j < iValues.length; j++) {
-                var dateUpdated = this.regionsDateIDs[iValues[j][0]];
-                var d = dateUpdated.split('/');
-                updatedDates.push([d[2] + d[1] + d[0], d.join('/')]);
+                for (var j = 0; j < iValues.length; j++) {
+                    var dateUpdated = this.regionsDateIDs[iValues[j][0]];
+                    var d = dateUpdated.split('/');
+                    updatedDates.push([d[2] + d[1] + d[0], d.join('/')]);
+                }
             }
         }
         updatedDates.sort();
@@ -117,124 +130,129 @@ class TimeSeriesDataSource extends DataSourceBase {
     __getCaseNumber(region, ageRange) {
         // Return only the latest value
 
-        if (this.schema === 'statewide') {
-            var n = getFromStateCaseData(this.stateName, this.subHeader);
-            if (n != null) {
-                return {
-                    'numCases': parseInt(n[0]),
-                    'updatedDate': n[1]
-                }
+        if (this.schema === 'statewide' && !ageRange && stateCaseDataTypes.has(this.subHeader)) {
+            let n = getFromStateCaseData(this.stateName, this.subHeader);
+            return {
+                'updatedDate': n[0].printableDate,
+                'numCases': parseInt(n[0].numCases)
             }
         }
+        else {
+            region = ConfirmedMapFns.prepareForComparison(region || '');
+            ageRange = ageRange || '';
 
-        region = ConfirmedMapFns.prepareForComparison(region || '');
-        ageRange = ageRange || '';
+            for (var i = 0; i < this.data.length; i++) {
+                var iData = this.data[i],
+                    iRegion = iData[0],
+                    iAgeRange = iData[1],
+                    iValues = iData[2];
 
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iRegion = iData[0],
-                iAgeRange = iData[1],
-                iValues = iData[2];
+                if (
+                    (this.schema === 'statewide' || iRegion === region) &&
+                    iAgeRange === ageRange
+                ) {
+                    for (var j = 0; j < iValues.length; j++) {
+                        var dateUpdated = this.regionsDateIDs[iValues[j][0]],
+                            iValue = iValues[j][this.subHeaderIndex + 1];
 
-            if (
-                (this.schema === 'statewide' || iRegion === region) &&
-                iAgeRange === ageRange
-            ) {
-                for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = this.regionsDateIDs[iValues[j][0]],
-                        iValue = iValues[j][this.subHeaderIndex + 1];
-
-                    if (iValue != null && iValue !== '') {
-                        return {
-                            'numCases': parseInt(iValue),
-                            'updatedDate': dateUpdated
+                        if (iValue != null && iValue !== '') {
+                            return {
+                                'numCases': parseInt(iValue),
+                                'updatedDate': dateUpdated
+                            }
                         }
                     }
                 }
             }
+            return {
+                'numCases': 0,
+                'updatedDate': dateUpdated
+            };
         }
-        return {
-            'numCases': 0,
-            'updatedDate': dateUpdated
-        };
     }
 
     getDaysSince(region, ageRange) {
         // Return only the latest value
 
-        region = ConfirmedMapFns.prepareForComparison(region || '');
-        ageRange = ageRange || '';
-        var firstVal = null;
+        if (this.schema === 'statewide' && !ageRange && stateCaseDataTypes.has(this.subHeader)) {
+            return ConfirmedMapFns.dateDiffFromToday(
+                getFromStateCaseData(this.stateName, this.subHeader)[0].printableDate
+            );
+        } else {
+            region = ConfirmedMapFns.prepareForComparison(region || '');
+            ageRange = ageRange || '';
+            var firstVal = null;
 
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iRegion = iData[0],
-                iAgeRange = iData[1],
-                iValues = iData[2];
+            for (var i = 0; i < this.data.length; i++) {
+                var iData = this.data[i],
+                    iRegion = iData[0],
+                    iAgeRange = iData[1],
+                    iValues = iData[2];
 
-            if (
-                (this.schema === 'statewide' || iRegion === region) &&
-                iAgeRange === ageRange
-            ) {
-                for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = this.regionsDateIDs[iValues[j][0]],
-                        iValue = iValues[j][this.subHeaderIndex + 1];
+                if (
+                    (this.schema === 'statewide' || iRegion === region) &&
+                    iAgeRange === ageRange
+                ) {
+                    for (var j = 0; j < iValues.length; j++) {
+                        var dateUpdated = this.regionsDateIDs[iValues[j][0]],
+                            iValue = iValues[j][this.subHeaderIndex + 1];
 
-                    if (iValue == null || iValue === '') {
-                        continue;
-                    }
+                        if (iValue == null || iValue === '') {
+                            continue;
+                        }
 
-                    if (firstVal == null) {
-                        firstVal = iValue;
-                    }
-                    else if (firstVal > iValue) {
-                        //console.log(dateUpdated+' '+ConfirmedMapFns.dateDiffFromToday(dateUpdated));
-                        return ConfirmedMapFns.dateDiffFromToday(dateUpdated)
+                        if (firstVal == null) {
+                            firstVal = iValue;
+                        } else if (firstVal > iValue) {
+                            //console.log(dateUpdated+' '+ConfirmedMapFns.dateDiffFromToday(dateUpdated));
+                            return ConfirmedMapFns.dateDiffFromToday(dateUpdated)
+                        }
                     }
                 }
             }
+            return null;
         }
-        return null;
     }
 
     getCaseNumberTimeSeries(region, ageRange) {
         var r = [];
-        var latest = this.__getCaseNumber(region, ageRange);
-        if (latest && latest.numCases) {
-            // Make sure we use the manually entered values first!
-            r.push({
-                x: ConfirmedMapFns.parseDate(latest.updatedDate),
-                y: parseInt(latest.numCases)
-            });
-        }
+        if (this.schema === 'statewide' && !ageRange && stateCaseDataTypes.has(this.subHeader)) {
+            for (let item of getFromStateCaseData(this.stateName, this.subHeader)) {
+                r.push({
+                    x: ConfirmedMapFns.parseDate(item.printableDate),
+                    y: parseInt(item.numCases)
+                });
+            }
+        } else {
+            region = ConfirmedMapFns.prepareForComparison(region || '');
+            ageRange = ageRange || '';
 
-        region = ConfirmedMapFns.prepareForComparison(region || '');
-        ageRange = ageRange || '';
+            for (var i = 0; i < this.data.length; i++) {
+                var iData = this.data[i],
+                    iRegion = iData[0],
+                    iAgeRange = iData[1],
+                    iValues = iData[2];
 
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iRegion = iData[0],
-                iAgeRange = iData[1],
-                iValues = iData[2];
+                if (
+                    (this.schema === 'statewide' || iRegion === region) &&
+                    iAgeRange === ageRange
+                ) {
+                    for (var j = 0; j < iValues.length; j++) {
+                        var dateUpdated = this.regionsDateIDs[iValues[j][0]],
+                            iValue = iValues[j][this.subHeaderIndex + 1];
 
-            if (
-                (this.schema === 'statewide' || iRegion === region) &&
-                iAgeRange === ageRange
-            ) {
-                for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = this.regionsDateIDs[iValues[j][0]],
-                        iValue = iValues[j][this.subHeaderIndex + 1];
-
-                    if (iValue != null && iValue !== '') {
-                        // May as well use CanvasJS format
-                        r.push({
-                            x: ConfirmedMapFns.parseDate(dateUpdated),
-                            y: parseInt(iValue)
-                        });
+                        if (iValue != null && iValue !== '') {
+                            // May as well use CanvasJS format
+                            r.push({
+                                x: ConfirmedMapFns.parseDate(dateUpdated),
+                                y: parseInt(iValue)
+                            });
+                        }
                     }
                 }
             }
         }
+
         r.sort((x, y) => x.x - y.x);
         return r;
     }
