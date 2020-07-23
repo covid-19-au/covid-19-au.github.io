@@ -1,6 +1,30 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/jul/15/scott-morrison-says-we-cant-shut-down-australia-to-contain-second-wave-of-covid-19",
+            "title": "Scott Morrison says Australia cannot shut down to contain second wave of Covid-19 ",
+            "source": "TheGuardian",
+            "date": "15 July 2020",
+            "time": "13:00",
+            "summary": "Scott Morrison says the response to a second wave of Covid-19 infections cannot be shutting the country down to try to eliminate the virus, and he’s moved to reassure people his government will not be withdrawing income support \"for those in need\". With renewed debate around whether Australia should respond to the latest outbreak and a spike in community transmission with more forceful lockdowns, Morrison said on Wednesday elimination was impractical, but Victoria’s chief health officer Brett Sutton told reporters it was an idea \"worthy of consideration\". With Victoria reporting another 238 cases of the illness, and another fatality, Sutton said he would \"love\" elimination, but now wasn’t the time to make \"a detailed examination about its feasibility\". He said any shift in the public health strategy would require consideration by chief medical officers and leaders through the national cabinet."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-records-238-new-coronavirus-cases-as-daniel-andrews-warns-of-more-restrictions",
+            "title": "Victoria records 238 new coronavirus cases as Daniel Andrews warns of more restrictions",
+            "source": "SBSNews",
+            "date": "15 July 2020",
+            "time": "12:00",
+            "summary": "Victoria announced one new coronavirus death and 238 fresh cases on Wednesday, the fifth day in a row of more than 200 new infections. Premier Daniel Andrews confirmed on Wednesday morning a woman in her 90s had died overnight, bringing the total number of deaths in the state to 27. Of the new cases, Mr Andrews said 29 were related to known outbreaks and 209 were under investigation. Amid speculation the government is considering a move to a 'Stage 4' lockdown, Mr Andrews warned that if the current rules are not followed \"we will have to move to additional restrictions\"."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-15/wa-records-eight-new-coronavirus-cases-travel-restrictions/12456900",
+            "title": "WA records eight new coronavirus cases amid calls for restrictions on interstate travellers ",
+            "source": "ABCNews",
+            "date": "15 July 2020",
+            "time": "19:00",
+            "summary": "WA recorded eight new cases of coronavirus overnight — the largest daily increase since May 29 when the state was dealing with an outbreak on the Al Kuwait live export ship. All of the new cases are overseas travellers who are in hotel quarantine, bringing the state's total to 644, with 29 active cases. It comes as the WA Government faces growing pressure to further lock down its border and tighten restrictions on people wanting to enter the state, as airline passengers from Victoria face the first day of mandatory COVID tests on arrival at Perth Airport. WA Cabinet minister Simone McGurk said the Government was continuing to monitor the coronavirus situation in New South Wales and was considering whether to impose similar measures on travellers from that state."
+        },
+        {
             "link": "https://www.sbs.com.au/news/australia-records-two-new-coronavirus-deaths-as-confirmed-infections-surge-past-10-000",
             "title": "Australia records two new coronavirus deaths as confirmed infections surge past 10,000 ",
             "source": "SBSNews",
