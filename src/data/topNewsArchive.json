@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-16/new-coronavirus-case-confirmed-in-sa-as-tougher-fines-introduced/12461044",
+            "title": "New coronavirus case confirmed as SA announces fines for travellers who refuse tests",
+            "source": "ABCNews",
+            "date": "16 July 2020",
+            "time": "16:13",
+            "summary": "The South Australian Government has announced fines of $1,000 for travellers from Victoria who refuse a coronavirus test on arrival in SA, as the state confirms its first COVID-19 case in more than two weeks. Mr Marshall last week announced coronavirus testing for everyone crossing the border from Victoria within 24 hours of their arrival, and again on day 12 of their quarantine. But today he said the tests would be mandatory, and that anyone who did not comply with that requirement would be subject to a $1,000 on-the-spot fine."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-16/victoria-coronavirus-cases-rise-by-317-with-two-more-deaths/12460318",
+            "title": "Victorian coronavirus case increase hits record high with two new deaths, but no stage four restrictions yet",
+            "source": "ABCNews",
+            "date": "16 July 2020",
+            "time": "17:00",
+            "summary": "Victoria has recorded 317 new coronavirus cases overnight, the biggest daily increase since the pandemic began, and another two men in their 80s have died from the virus. In announcing the figures, Premier Daniel Andrews said it was \"way too early\" for the state to be moving to a new stage of restrictions. Chief Health Officer Brett Sutton said Victoria may not yet have hit the peak of its latest surge in cases. Professor Sutton said the virus had an average incubation period of about five or six days, which meant case numbers would not start to plateau for another few days."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/jul/15/scott-morrison-says-we-cant-shut-down-australia-to-contain-second-wave-of-covid-19",
             "title": "Scott Morrison says Australia cannot shut down to contain second wave of Covid-19 ",
             "source": "TheGuardian",
