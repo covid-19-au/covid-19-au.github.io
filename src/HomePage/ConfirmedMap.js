@@ -13,10 +13,9 @@ import Acknowledgement from "../Acknowledgment";
 import absStatsData from "../data/absStats";
 
 import ConfirmedMapFns from "./ConfirmedMap/Fns";
-import TimeSeriesDataSource from "./ConfirmedMap/DataCases";
-import TimeSeriesDataSourceForPeriod from "./ConfirmedMap/DataCasesPeriod";
-import ConfirmedMapShipsData from "./ConfirmedMap/DataShips";
-import BigTableOValuesDataSource from "./ConfirmedMap/DataABS";
+import TimeSeriesDataSource from "./ConfirmedMap/data_sources/DataCases";
+import TimeSeriesDataSourceForPeriod from "./ConfirmedMap/data_sources/DataCasesPeriod";
+import BigTableOValuesDataSource from "./ConfirmedMap/data_sources/DataABS";
 import GeoBoundaries from "./ConfirmedMap/GeoBoundaries"; // FIXME!
 import DaysSinceMap from "./DaysSinceMap";
 
@@ -43,6 +42,7 @@ class MbMap extends React.Component {
             _timeperiod: "alltime",
             _markers: "status_active",
             _underlay: null,
+            maxDate: ConfirmedMapFns.getToday()
         };
         this._firstTime = true;
         this.stateUpdatedDates = [];
@@ -136,32 +136,6 @@ class MbMap extends React.Component {
             textTransform: "none",
         };
 
-        const activeFBStyles = {
-            color: "black",
-            borderColor: "#8ccfff",
-            padding: fbPadding,
-            //padding: "0px 5px",
-            zIndex: 10,
-            outline: "none",
-            textTransform: "none",
-            minWidth: 0,
-            minHeight: 0,
-        };
-        const inactiveFBStyles = {
-            color: "grey",
-            borderColor: "#e3f3ff",
-            padding: fbPadding,
-            //padding: "0px 5px",
-            outline: "none",
-            textTransform: "none",
-            minWidth: 0,
-            minHeight: 0,
-            opacity: 0.8,
-            filter: "grayscale(50%)",
-        };
-
-        var countrySize = "1.32em";
-
         return (
             <div
                 className="card"
@@ -226,21 +200,6 @@ class MbMap extends React.Component {
                                         Under Investigation
                                     </option>
                                 </optgroup>
-                                {/*<optgroup label="Cruise Ship Numbers">*/}
-                                {/*<option value="RUBY PRINCESS">Ruby Princess</option>*/}
-                                {/*<option value="OVATION OF THE SEAS">Ovation of the Seas</option>*/}
-                                {/*<option value="GREG MORTIMER">Greg Mortimer</option>*/}
-                                {/*<option value="ARTANIA">Artania</option>*/}
-                                {/*<option value="VOYAGERS OF THE SEA">Voyagers of the sea</option>*/}
-                                {/*<option value="CELEBRITY SOLSTICE">Celebrity Solstice</option>*/}
-                                {/*<option value="COSTA VICTORIA">Costa Victoria</option>*/}
-                                {/*<option value="DIAMOND PRINCESS">Diamond Princess</option>*/}
-                                {/*<option value="COSTA LUMINOSA">Contracted Costa Luminosa</option>*/}
-                                {/*<option value="SUN PRINCESS">Sun Princess</option>*/}
-                                {/*<option value="CELEBRITY APEX">Celebrity Apex</option>*/}
-                                {/*<option value="MSC FANTASIA">MSC Fantasia</option>*/}
-                                {/*<option value="UNKNOWN">Unknown Ship</option>*/}
-                                {/*</optgroup>*/}
                             </select>
                         </div>
 
@@ -326,6 +285,23 @@ class MbMap extends React.Component {
                     ></div>
                 </div>
 
+                <form className="map-slider-container"
+                      ref={el => this.mapSliderCont = el}>
+                    <label className="map-slider-item"
+                           style={{width: "6em", textAlign: "center"}}>Time&nbsp;slider:</label>
+                    <input className="map-slider-item"
+                           ref={el => {this.mapSlider = el}}
+                           style={{flexGrow: "1"}}
+                           onChange={() => this._onMapTimeSlider()}
+                           type="range" min="0" max="30" step="1" defaultValue="60" />
+                    <label className="map-slider-item"
+                           ref={el => {this.mapSliderLabel = el}}
+                           style={{width: "3em", textAlign: "center"}}>{
+                               new Date(this.state.maxDate||ConfirmedMapFns.getToday()).getDate()+'/'+
+                               (new Date(this.state.maxDate||ConfirmedMapFns.getToday()).getMonth()+1)
+                           }</label>
+                </form>
+
                 <span className="due">
           <ul
               ref={this.accuracyWarning}
@@ -380,6 +356,21 @@ class MbMap extends React.Component {
         </span>
             </div>
         );
+    }
+
+    _onMapTimeSlider() {
+        if (!this.mapSlider) {
+            return;
+        }
+        let daysAgo = parseInt(this.mapSlider.max)-parseInt(this.mapSlider.value);
+        let daysInMilliseconds = (24*60*60*1000);
+        let maxDate = ConfirmedMapFns.getToday() - (daysInMilliseconds * daysAgo);
+
+        if (!this.state.maxDate || this.state.maxDate !== maxDate) {
+            this.setState({
+                maxDate: maxDate
+            });
+        }
     }
 
     /*******************************************************************
@@ -512,9 +503,16 @@ class MbMap extends React.Component {
                 this.setMarkers();
             };
 
-            this.mapLoaded = true;
-            this._updateMode();
-            this.forceUpdate();
+            let callLater = () => {
+                if (this.map.loaded()) {
+                    this.mapLoaded = true;
+                    this._updateMode();
+                    this.forceUpdate();
+                } else {
+                    setTimeout(callLater, 50);
+                }
+            };
+            callLater();
         });
         // });
 
@@ -593,22 +591,6 @@ class MbMap extends React.Component {
         }
         this.stateUpdatedDates.sort();
 
-        // Add cruise ship data
-        for (let shipName of ConfirmedMapShipsData.getPossibleShips()) {
-            for (let stateName of this.statesAndTerritories) {
-                var key = `${stateName}:statewide|${shipName}|alltime`;
-                caseDataInsts[key] = new ConfirmedMapShipsData.ConfirmedMapShipsData(
-                    key,
-                    stateName,
-                    shipName
-                );
-                if (!caseDataInsts[key].getCaseNumber()) {
-                    // Only add if there's data for this ship+state combination!
-                    delete caseDataInsts[key];
-                }
-            }
-        }
-
         // Create ABS stat instances
         var absStatsInsts = (this.absStatsInsts = {});
         for (var heading in absStats) {
@@ -630,6 +612,7 @@ class MbMap extends React.Component {
     componentWillUnmount() {
         this.map.remove();
         this.geoBoundaries.clearGeoBoundaryCache();
+        this.geoBoundaryInsts = null;
     }
 
     /*******************************************************************
@@ -681,12 +664,8 @@ class MbMap extends React.Component {
         if (
             val === "status_active" ||
             val === "status_icu" ||
-            val === "status_hospitalized" ||
-            (val && val.toUpperCase() === val)
+            val === "status_hospitalized"
         ) {
-            // Ships data doesn't have histories currently,
-            // and it doesn't make sense to have
-            // e.g. a 7-day difference for active cases
             this.setState({
                 _timeperiod: "alltime",
                 _markers: val,
@@ -705,6 +684,15 @@ class MbMap extends React.Component {
     }
 
     _updateMode() {
+        if (!this.geoBoundaryInsts) {
+            return;
+        }
+
+        for (let k in this.geoBoundaryInsts) {
+            let inst = this.geoBoundaryInsts[k];
+            inst.setMaxDate(new Date(this.state.maxDate));
+        }
+
         if (this.state._markers === "days_since") {
             if (!this.dsMap) {
                 ReactDOM.render(
@@ -721,6 +709,7 @@ class MbMap extends React.Component {
                 this.dsMapContainer.style.display = "block";
                 this.markersButtonGroup.current.parentNode.style.display = "none";
                 this.underlayBGCont.current.style.display = "none";
+                this.mapSliderCont.style.display = 'none';
                 this.dsMap.map.setZoom(this.map.getZoom());
                 this.dsMap.map.setCenter(this.map.getCenter());
                 this.dsMap.map.resize();
@@ -774,56 +763,6 @@ class MbMap extends React.Component {
             stateWideMaxMin["max"] *= 4;
         }
 
-        var enableInsts = (dataSource, insts) => {
-            // Overlay LGA ABS data on LGA stats
-            for (var i = 0; i < insts.length; i++) {
-                //console.log(`Enable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
-
-                insts[i].addFillPoly(
-                    this.absStatsInsts[this.state._underlay],
-                    dataSource,
-                    this.state._underlay ? 0.5 : 0,
-                    !!this.state._underlay,
-                    true
-                );
-                insts[i].addLinePoly(dataSource);
-
-                insts[i].addHeatMap(
-                    dataSource,
-                    dataSource.schema === "statewide" ? stateWideMaxMin : otherMaxMin
-                );
-            }
-        };
-        var enableNonLGAInst = (dataSource, otherInst, lgaInst) => {
-            // Overlay LGA ABS data underneath non-LGA stats
-            // (e.g. Queensland HHS/ACT SA3)
-            //console.log(`Enable non-lga inst: dataSource->${dataSource.schema}:${dataSource.stateName} otherInst->${otherInst.schema}:${otherInst.stateName} ${otherInst} ${lgaInst}`);
-
-            otherInst.addFillPoly(null, dataSource, 0, false, true);
-
-            if (this.state._underlay && lgaInst) {
-                lgaInst.addFillPoly(
-                    this.absStatsInsts[this.state._underlay],
-                    null,
-                    this.state._underlay ? 0.5 : 0,
-                    !!this.state._underlay,
-                    false //,
-                    //fillPoly['fillPolyId']
-                );
-                lgaInst.addLinePoly(
-                    this.absStatsInsts[this.state._underlay],
-                    "rgba(0, 0, 0, 0.1)"
-                );
-            }
-
-            otherInst.addLinePoly(dataSource, "rgba(0, 0, 0, 1.0)");
-
-            otherInst.addHeatMap(
-                dataSource,
-                dataSource.schema === "statewide" ? stateWideMaxMin : otherMaxMin
-            );
-        };
-
         if (
             this.state._markers === "status_active" ||
             this.state._markers === "status_icu" ||
@@ -836,29 +775,23 @@ class MbMap extends React.Component {
         this.accuracyWarning.current.style.display = "block";
 
         this.statesAndTerritories.forEach((stateName) => {
-            var absStatDataInst = this.absStatsInsts[this.state._underlay],
-                caseDataInst = this.getCaseDataInst(stateName);
+            let absDataSource = this.absStatsInsts[this.state._underlay],
+                casesDataSource = this.getCaseDataInst(stateName);
 
-            if (!caseDataInst) {
+            if (!casesDataSource) {
                 return;
             }
-            var absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, "lga"),
-                caseGeoBoundariesInst = this.getGeoBoundariesInst(
-                    stateName,
-                    caseDataInst.schema
-                );
 
-            if (!caseGeoBoundariesInst) {
-                return;
-            } else if (absGeoBoundariesInst === caseGeoBoundariesInst) {
-                enableInsts(caseDataInst, [caseGeoBoundariesInst]); // HACK!
-            } else {
-                enableNonLGAInst(
-                    caseDataInst,
-                    caseGeoBoundariesInst,
-                    absGeoBoundariesInst
-                );
-            }
+            let absGeoBoundariesInst = absDataSource ? this.getGeoBoundariesInst(stateName, "lga") : null,
+                caseGeoBoundariesInst = this.getGeoBoundariesInst(stateName, casesDataSource.schema);
+
+            if (caseGeoBoundariesInst) caseGeoBoundariesInst.addCasesFillPoly(casesDataSource);
+            if (absGeoBoundariesInst) absGeoBoundariesInst.addABSStatsFillPoly(absDataSource, otherMaxMin);
+
+            if (caseGeoBoundariesInst) caseGeoBoundariesInst.addLinePoly(casesDataSource, "rgba(0, 0, 0, 1.0)");
+            if (absGeoBoundariesInst) absGeoBoundariesInst.addLinePoly(absDataSource, "rgba(0, 0, 0, 0.1)");
+
+            if (caseGeoBoundariesInst) caseGeoBoundariesInst.addHeatMap(casesDataSource);
         });
 
         // Make sure the map is fully loaded
@@ -891,70 +824,46 @@ class MbMap extends React.Component {
     }
 
     _resetMode(prevState) {
-        if (prevState._markers === "days_since") {
+        if (!this.geoBoundaryInsts) {
+            return;
+        } else if (prevState._markers === "days_since") {
             this.mapContainer.style.display = "block";
             this.dsMapContainer.style.display = "none";
             this.markersButtonGroup.current.parentNode.style.display = "block";
             this.underlayBGCont.current.style.display = "block";
+            this.mapSliderCont.style.display = 'flex';
             this.map.setZoom(this.dsMap.map.getZoom());
             this.map.setCenter(this.dsMap.map.getCenter());
             this.map.resize();
             return;
         }
 
-        function disableInsts(insts) {
-            for (var i = 0; i < insts.length; i++) {
-                //console.log(`Disable lga inst: ${insts[i].schema}:${insts[i].stateName}`);
-
-                insts[i].removeHeatMap();
-                insts[i].removeLinePoly();
-                insts[i].removeFillPoly();
-            }
-        }
-        function disableNonLGAInst(otherInst, lgaInst) {
-            //console.log(`Disable non-lga inst: ${otherInst.schema}:${otherInst.stateName} ${lgaInst}`);
-
-            otherInst.removeHeatMap();
-            otherInst.removeLinePoly();
-            otherInst.removeFillPoly();
-
-            if (prevState._underlay && lgaInst) {
-                lgaInst.removeLinePoly();
-                lgaInst.removeFillPoly();
-            }
-        }
-
         if (
             prevState._markers === "status_active" ||
             prevState._markers === "status_icu" ||
-            prevState._markers === "status_hospitalized" ||
-            (prevState._markers &&
-                prevState._markers.toUpperCase() === prevState._markers)
+            prevState._markers === "status_hospitalized"
         ) {
             this.markersButtonGroup.current.parentNode.style.display = "block";
         }
         //this.accuracyWarning.current.style.display = 'none';
 
         this.statesAndTerritories.forEach((stateName) => {
-            var absStatDataInst = this.absStatsInsts[prevState._underlay],
-                caseDataInst = this.getCaseDataInst(stateName, prevState);
+            var absDataSource = this.absStatsInsts[prevState._underlay],
+                casesDataSource = this.getCaseDataInst(stateName, prevState);
 
-            if (!caseDataInst) {
+            if (!casesDataSource) {
                 return;
             }
-            var absGeoBoundariesInst = this.getGeoBoundariesInst(stateName, "lga"),
-                caseGeoBoundariesInst = this.getGeoBoundariesInst(
-                    stateName,
-                    caseDataInst.schema
-                );
+            var absGeoBoundariesInst = absDataSource ? this.getGeoBoundariesInst(stateName, "lga") : null,
+                caseGeoBoundariesInst = this.getGeoBoundariesInst(stateName, casesDataSource.schema);
 
-            if (!caseGeoBoundariesInst) {
-                return;
-            } else if (absGeoBoundariesInst === caseGeoBoundariesInst) {
-                disableInsts([caseGeoBoundariesInst]); // HACK!
-            } else {
-                disableNonLGAInst(caseGeoBoundariesInst, absGeoBoundariesInst);
-            }
+            if (caseGeoBoundariesInst) caseGeoBoundariesInst.removeCasesFillPoly();
+            if (absGeoBoundariesInst) absGeoBoundariesInst.removeABSStatsFillPoly();
+
+            if (caseGeoBoundariesInst) caseGeoBoundariesInst.removeLinePoly();
+            if (absGeoBoundariesInst) absGeoBoundariesInst.removeLinePoly();
+
+            if (caseGeoBoundariesInst) caseGeoBoundariesInst.removeHeatMap();
         });
     }
 }
