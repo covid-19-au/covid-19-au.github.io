@@ -1,5 +1,5 @@
-import ConfirmedMapFns from "./Fns";
-import shipData from "../../data/ship.json"
+import ConfirmedMapFns from "../Fns";
+import shipData from "../../../data/ship.json"
 
 
 function getPossibleShips() {

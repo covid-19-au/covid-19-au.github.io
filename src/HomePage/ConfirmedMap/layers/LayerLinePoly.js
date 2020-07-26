@@ -1,25 +1,10 @@
+import setLayerSource from "../setLayerSource";
+
+
 class LinePolyLayer {
-    constructor(map, dataSource, uniqueId, color, fillSourceId) {
+    constructor(map, uniqueId) {
         this.map = map;
-        this.dataSource = dataSource;
         this.uniqueId = uniqueId;
-        this.color = color;
-        this.fillSourceId = fillSourceId;
-
-        this._addLinePoly();
-    }
-
-    getLinePolyId() {
-        return this.uniqueId+'linepoly';
-    }
-
-    /*******************************************************************
-     * Line poly
-     *******************************************************************/
-
-    _addLinePoly() {
-        // Add the line outline
-        const map = this.map;
 
         // Make it so that symbol/circle layers are given different priorities
         // This is a temporary fix to make ACT display in the correct priority -
@@ -35,27 +20,40 @@ class LinePolyLayer {
             }
         }
 
-        var linePolyLayer = map.addLayer({
+        // Add the line outline layer
+        map.addLayer({
             id: this.getLinePolyId(),
             minzoom: 2,
             type: 'line',
-            source: this.fillSourceId,
+            source: 'nullsource',
             paint: {
                 'line-color': this.color || '#000',
                 'line-opacity': 1,
                 'line-width': 1,
-            },
-            filter: ['==', '$type', 'Polygon']
+            }
         }, lastLineLayer);
-
-        return {
-            linePolyLayer: linePolyLayer
-        };
     }
 
-    remove() {
-        const map = this.map;
-        map.removeLayer(this.getLinePolyId());
+    getLinePolyId() {
+        return this.uniqueId+'linepoly';
+    }
+
+    /*******************************************************************
+     * Line poly
+     *******************************************************************/
+
+    show(color, fillSourceId) {
+        this.color = color;
+        this.map.setLayoutProperty(this.getLinePolyId(), "visibility", "visible");
+
+        if (this.fillSourceId !== fillSourceId) {
+            this.fillSourceId = fillSourceId;
+            setLayerSource(this.map, this.getLinePolyId(), fillSourceId);
+        }
+    }
+
+    hide() {
+        this.map.setLayoutProperty(this.getLinePolyId(), "visibility", "none");
     }
 }
 

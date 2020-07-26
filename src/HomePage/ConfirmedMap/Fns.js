@@ -114,13 +114,14 @@ var fns = {
         return Math.round((second - first) / (1000 * 60 * 60 * 24));
     },
 
-    dateDiffFromToday: function(dateString) {
+    dateDiffFromToday: function(dateString, today) {
         // Get number of days ago from today and
         // `dateString` in dd/mm/yyyy format
         // NOTE: returns a *positive* number if
         // `dateString` is in the past
-        var today = fns.getToday();
-        var dateUpdatedInst = fns.parseDate(dateString).getTime();
+        today = today||fns.getToday();
+        var dateUpdatedInst = dateString instanceof Date ?
+            dateString : fns.parseDate(dateString).getTime();
         return fns.dateDiff(dateUpdatedInst, today);
     }
 };

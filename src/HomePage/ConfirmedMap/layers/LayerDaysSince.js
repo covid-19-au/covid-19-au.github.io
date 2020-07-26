@@ -1,6 +1,14 @@
 var MAX_VAL = 40;
 
+
 class DaysSinceLayer {
+    /**
+     *
+     * @param map
+     * @param dataSource
+     * @param uniqueId
+     * @param daysSinceSourceId
+     */
     constructor(map, dataSource, uniqueId, daysSinceSourceId) {
         this.map = map;
         this.dataSource = dataSource;

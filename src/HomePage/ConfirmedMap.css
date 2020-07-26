@@ -41,7 +41,7 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    height: 52vh;
+    height: 57vh;
 }
 
 .mapboxgl-popup {
@@ -51,6 +51,19 @@
 
 .mapboxgl-popup-content {
     box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
+}
+
+.map-slider-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch
+}
+.map-slider-item {
+  flex: 0 1 auto;
+  margin: 10px;
 }
 
 div.map-cont-controls {
