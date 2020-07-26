@@ -7,32 +7,19 @@ class DaysSinceLayer {
      * @param map
      * @param dataSource
      * @param uniqueId
-     * @param daysSinceSourceId
+     * @param cachedMapboxSource
      */
-    constructor(map, dataSource, uniqueId, daysSinceSourceId) {
+    constructor(map, dataSource, uniqueId, cachedMapboxSource) {
         this.map = map;
         this.dataSource = dataSource;
         this.uniqueId = uniqueId;
-        this.daysSinceSourceId = daysSinceSourceId;
-        this._addDaysSince()
-    }
+        this.cachedMapboxSource = cachedMapboxSource;
 
-    getDaysSinceId() {
-        return this.uniqueId+'dayssince';
-    }
-
-    /*******************************************************************
-     * Heat maps
-     *******************************************************************/
-
-    _addDaysSince() {
-        const map = this.map;
-
-        var heatCirclesLayer = map.addLayer(
+        map.addLayer(
             {
                 id: this.getDaysSinceId(),
                 type: 'circle',
-                source: this.daysSinceSourceId,
+                source: this.cachedMapboxSource.getSourceId(),
                 filter: ['has', 'dayssince'],
                 paint: {
                     // Size circle radius by value
@@ -57,10 +44,10 @@ class DaysSinceLayer {
         );
 
         for (var i=MAX_VAL; i>-1; i--) {
-            var daysSinceLabels = map.addLayer({
+            map.addLayer({
                 id: this.getDaysSinceId() + 'label' + i,
                 type: 'symbol',
-                source: this.daysSinceSourceId,
+                source: this.cachedMapboxSource.getSourceId(),
                 filter: [(i === MAX_VAL-1) ? '>=' : '==', ["get", "dayssince"], i],
                 layout: {
                     'text-field': '{dayssince}',
@@ -76,11 +63,10 @@ class DaysSinceLayer {
                 }
             });
         }
+    }
 
-        return {
-            daysSinceCircles: heatCirclesLayer,
-            daysSinceLabels: daysSinceLabels
-        };
+    getDaysSinceId() {
+        return this.uniqueId+'dayssince';
     }
 
     remove() {

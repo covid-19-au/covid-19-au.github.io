@@ -5,12 +5,8 @@ import LinePolyLayer from "./layers/LayerLinePoly";
 import HeatMapLayer from "./layers/LayerHeatMap";
 import DaysSinceLayer from "./layers/LayerDaysSince"
 import GeoBoundaryCentralPoints from "./GeoBoundaryCentralPoints"
+import CachedMapboxSource from "./CachedMapboxSource"
 import Fns from "./Fns"
-
-
-// Higher values will result in less accurate lines,
-// but faster performance. Default is 0.375
-const MAPBOX_TOLERANCE = 0.45;
 
 
 class JSONGeoBoundariesBase {
@@ -20,9 +16,6 @@ class JSONGeoBoundariesBase {
         this.stateName = stateName;
         this.uniqueId = uniqueId;
         this.geoJSONData = data;
-
-        this.addedSources = new Set();
-        this.dataBySourceId = {};
 
         try {
             map.addSource("nullsource", {
@@ -39,15 +32,46 @@ class JSONGeoBoundariesBase {
             this.geoJSONData
         );
 
+        // Add the datasources
+        this._absPolygonSource = new CachedMapboxSource(map);
+        this._casePolygonSource = new CachedMapboxSource(map);
+
+        this._casePointSource = new CachedMapboxSource(map);
+        this._casePointSourceZoom2 = new CachedMapboxSource(map);
+        this._casePointSourceZoom3 = new CachedMapboxSource(map);
+        this._casePointSourceZoom4 = new CachedMapboxSource(map);
+        this._casePointSourceZoom5 = new CachedMapboxSource(map);
+        this._casePointSourceZoom6 = new CachedMapboxSource(map);
+
         // Add the line outlines for borders
-        this._linePolyLayer = new LinePolyLayer(map, uniqueId);
+        this._linePolyLayer = new LinePolyLayer(
+            map, uniqueId, this._casePolygonSource
+        );
 
         // Add the fill poly layers for both ABS and case stats
-        this._fillPolyCasesLayer = new FillPolyCasesLayer(map, stateName, uniqueId);
-        this._fillPolyABSLayer = new FillPolyABSLayer(map, stateName, uniqueId);
+        this._fillPolyABSLayer = new FillPolyABSLayer(
+            map, stateName, uniqueId, this._absPolygonSource
+        );
+        this._fillPolyCasesLayer = new FillPolyCasesLayer(
+            map, stateName, uniqueId, this._casePolygonSource
+        );
 
         // Add the heat map
-        this._heatMapLayer = new HeatMapLayer(map, uniqueId);
+        this._heatMapLayer = new HeatMapLayer(
+            map, uniqueId, this._casePointSource, {
+                2: this._casePointSourceZoom2,
+                3: this._casePointSourceZoom3,
+                4: this._casePointSourceZoom4,
+                5: this._casePointSourceZoom5,
+                6: this._casePointSourceZoom6
+            }
+        );
+
+        // Initially hide the layers
+        this.removeABSStatsFillPoly();
+        this.removeDaysSince();
+        this.removeHeatMap();
+        this.removeLinePoly();
     }
 
     /**
@@ -58,77 +82,13 @@ class JSONGeoBoundariesBase {
         this.maxDate = maxDate;
     }
 
-    /**
-     *
-     * @param sourceId
-     */
-    addDataToSourceId(sourceId, data) {
-        if (!this.dataBySourceId[sourceId]) {
-            this.dataBySourceId[sourceId] = {};
-            this.map.addSource(sourceId, {
-                "type": "geojson",
-                "data": {
-                    'type': 'FeatureCollection',
-                    'features': []
-                },
-                "tolerance": MAPBOX_TOLERANCE
-            })
-        }
-
-        if (!this.dataBySourceId[sourceId][this.maxDate]) {
-            this.dataBySourceId[sourceId][this.maxDate] = {
-                'type': 'FeatureCollection'
-            };
-        }
-        this.dataBySourceId[sourceId][this.maxDate].features = data.features;
-    }
-
-    /**
-     *
-     */
-    updateSourceInstsData() {
-        let x = new Set();
-
-        for (let k in this.dataBySourceId) {
-            // Don't update if not changed!
-            x.add(`${k}||${this.maxDate}`);
-            if (this.currentSourceInsts && this.currentSourceInsts.has(`${k}||${this.maxDate}`)) {
-                continue;
-            }
-
-            this.map.getSource(k).setData(this.dataBySourceId[k][this.maxDate]);
-        }
-
-        this.currentSourceInsts = x;
-    }
-
-    /*******************************************************************
-     * Unique IDs for sources and layers
-     *******************************************************************/
-
-    getHeatmapSourceId(dataSource, zoomNum) {
-        // Get a unique ID for sources shared by the
-        // auto-generated central points in the
-        // middle of the polys for the heat maps
-        zoomNum = zoomNum || '';
-        return this.uniqueId+dataSource.getSourceName()+'heatmapsource'+String(zoomNum);
-    }
-
-    getFillSourceId(dataSource) {
-        // Get a unique ID for sources shared by fill/line polys
-        return this.uniqueId+dataSource.getSourceName()+'fillsource';
-    }
-
     /*******************************************************************
      * Cases fill poly-related
      *******************************************************************/
 
     addCasesFillPoly(casesDataSource) {
         this._associateSource(casesDataSource);
-
-        this._fillPolyCasesLayer.show(
-            casesDataSource, this.getFillSourceId(casesDataSource)
-        );
+        this._fillPolyCasesLayer.show(casesDataSource);
     }
 
     removeCasesFillPoly() {
@@ -141,11 +101,7 @@ class JSONGeoBoundariesBase {
 
     addABSStatsFillPoly(absDataSource, maxMinStatVal) {
         this._associateSource(absDataSource);
-
-        this._fillPolyABSLayer.show(
-            absDataSource, this.getFillSourceId(absDataSource),
-            maxMinStatVal
-        );
+        this._fillPolyABSLayer.show(absDataSource, maxMinStatVal);
     }
 
     removeABSStatsFillPoly() {
@@ -160,13 +116,13 @@ class JSONGeoBoundariesBase {
         this._associateSource(dataSource);
 
         this._linePolyLayer.show(
-            color, this.getFillSourceId(dataSource),
-            this.maxDate ? this.maxDate.getTime() : null
+            color, this.maxDate ? this.maxDate.getTime() : null
         );
     }
 
     removeLinePoly() {
         this._linePolyLayer.hide();
+        this.__linePolySourceId = null;
     }
 
     /*******************************************************************
@@ -174,22 +130,16 @@ class JSONGeoBoundariesBase {
      *******************************************************************/
 
     addHeatMap(dataSource) {
-        this.removeHeatMap();
         this._associateSource(dataSource);
 
         this._heatMapLayer.show(
-            dataSource,
-            this.getHeatmapSourceId(dataSource),
-            this.maxDate ? this.maxDate.getTime() : null
+            dataSource, this.maxDate ? this.maxDate.getTime() : null
         );
-        this.heatMapShown = true;
     }
 
     removeHeatMap() {
-        if (this.heatMapShown) {
-            this._heatMapLayer.hide();
-            this.heatMapShown = false;
-        }
+        this._heatMapLayer.hide();
+        this.__heatMapSourceId = false;
     }
 
     /*******************************************************************
@@ -200,8 +150,7 @@ class JSONGeoBoundariesBase {
         this._associateSource(dataSource);
 
         this._daysSinceLayer = new DaysSinceLayer(
-            this.map, dataSource, this.uniqueId,
-            this.getHeatmapSourceId(dataSource)
+            this.map, dataSource, this.uniqueId, this._casePointSource
         );
     }
 
@@ -231,59 +180,46 @@ class JSONGeoBoundariesBase {
      *******************************************************************/
 
     _associateCaseNumsDataSource(dataSource) {
-        let oid = this.getHeatmapSourceId(dataSource),
-            oidMaxDate = `${oid}||${this.maxDate}`;
-
-        if (!this.addedSources.has(oidMaxDate)) {
-            this.addedSources.add(oidMaxDate);
-
-            console.log("ADDING HEATMAP SOURCE:"+oidMaxDate);
-
+        if (!this._casePointSource.hasData(dataSource, this.maxDate)) {
             let pointGeoJSONData = JSON.parse(JSON.stringify(this.pointGeoJSONData));
             this._assignCaseInfoToGeoJSON(pointGeoJSONData, dataSource);
-            this.addDataToSourceId(oid, pointGeoJSONData);
 
-            let pointGeoJSONDataZoom6 = this.geoBoundaryCentralPoints
-                ._getModifiedGeoJSONWithPointsJoined(
-                    pointGeoJSONData, 6
-                );
-            let pointGeoJSONDataZoom5 = this.geoBoundaryCentralPoints
-                ._getModifiedGeoJSONWithPointsJoined(
-                    pointGeoJSONDataZoom6, 5
-                );
-            let pointGeoJSONDataZoom4 = this.geoBoundaryCentralPoints
-                ._getModifiedGeoJSONWithPointsJoined(
-                    pointGeoJSONDataZoom5, 4
-                );
-            let pointGeoJSONDataZoom3 = this.geoBoundaryCentralPoints
-                ._getModifiedGeoJSONWithPointsJoined(
-                    pointGeoJSONDataZoom4, 3
-                );
-            let pointGeoJSONDataZoom2 = this.geoBoundaryCentralPoints
-                ._getModifiedGeoJSONWithPointsJoined(
-                    pointGeoJSONDataZoom3, 2
-                );
+            let pointGeoJSONDataZoom6 = this.geoBoundaryCentralPoints._getModifiedGeoJSONWithPointsJoined(
+                pointGeoJSONData, 6
+            );
+            let pointGeoJSONDataZoom5 = this.geoBoundaryCentralPoints._getModifiedGeoJSONWithPointsJoined(
+                pointGeoJSONDataZoom6, 5
+            );
+            let pointGeoJSONDataZoom4 = this.geoBoundaryCentralPoints._getModifiedGeoJSONWithPointsJoined(
+                pointGeoJSONDataZoom5, 4
+            );
+            let pointGeoJSONDataZoom3 = this.geoBoundaryCentralPoints._getModifiedGeoJSONWithPointsJoined(
+                pointGeoJSONDataZoom4, 3
+            );
+            let pointGeoJSONDataZoom2 = this.geoBoundaryCentralPoints._getModifiedGeoJSONWithPointsJoined(
+                pointGeoJSONDataZoom3, 2
+            );
 
-            this.addDataToSourceId(oid+6, pointGeoJSONDataZoom6);
-            this.addDataToSourceId(oid+5, pointGeoJSONDataZoom5);
-            this.addDataToSourceId(oid+4, pointGeoJSONDataZoom4);
-            this.addDataToSourceId(oid+3, pointGeoJSONDataZoom3);
-            this.addDataToSourceId(oid+2, pointGeoJSONDataZoom2);
+            this._casePointSourceZoom6.addData(dataSource, this.maxDate, pointGeoJSONDataZoom6);
+            this._casePointSourceZoom5.addData(dataSource, this.maxDate, pointGeoJSONDataZoom5);
+            this._casePointSourceZoom4.addData(dataSource, this.maxDate, pointGeoJSONDataZoom4);
+            this._casePointSourceZoom3.addData(dataSource, this.maxDate, pointGeoJSONDataZoom3);
+            this._casePointSourceZoom2.addData(dataSource, this.maxDate, pointGeoJSONDataZoom2);
+            this._casePointSource.addData(dataSource, this.maxDate, pointGeoJSONData);
         }
+        this._casePointSource.setData(dataSource, this.maxDate);
+        this._casePointSourceZoom2.setData(dataSource, this.maxDate);
+        this._casePointSourceZoom3.setData(dataSource, this.maxDate);
+        this._casePointSourceZoom4.setData(dataSource, this.maxDate);
+        this._casePointSourceZoom5.setData(dataSource, this.maxDate);
+        this._casePointSourceZoom6.setData(dataSource, this.maxDate);
 
-        let fid = this.getFillSourceId(dataSource),
-            fidMaxDate = `${fid}||${this.maxDate}`;
-
-        if (!this.addedSources.has(fidMaxDate)) {
-            //console.log("ADDING FILL SOURCE:"+fid);
-            this.addedSources.add(fidMaxDate);
-
+        if (!this._casePolygonSource.hasData(dataSource, this.maxDate)) {
             let geoJSONData = JSON.parse(JSON.stringify(this.geoJSONData));
             this._assignCaseInfoToGeoJSON(geoJSONData, dataSource);
-            this.addDataToSourceId(fid, geoJSONData);
+            this._casePolygonSource.addData(dataSource, this.maxDate, geoJSONData);
         }
-
-        this.updateSourceInstsData();
+        this._casePolygonSource.setData(dataSource, this.maxDate);
     }
 
     _assignCaseInfoToGeoJSON(geoJSONData, dataSource) {
@@ -363,23 +299,12 @@ class JSONGeoBoundariesBase {
      *******************************************************************/
 
     _associateStatSource(dataSource) {
-        if (dataSource.getMaxMinValues) {
-            this.maxMinStatVal = dataSource.getMaxMinValues();
+        if (!this._absPolygonSource.hasData(dataSource, this.maxDate)) {
+            let geoJSONData = JSON.parse(JSON.stringify(this.geoJSONData));
+            this._assignStatInfoToGeoJSON(geoJSONData, dataSource);
+            this._absPolygonSource.addData(dataSource, this.maxDate, geoJSONData);
         }
-
-        let uniqueId = this.getFillSourceId(dataSource),
-            uniqueIdMaxDate = `${uniqueId}||${this.maxDate}`;
-
-        if (this.addedSources.has(uniqueIdMaxDate)) {
-            return this.updateSourceInstsData();
-        }
-        this.addedSources.add(uniqueIdMaxDate);
-
-        let geoJSONData = JSON.parse(JSON.stringify(this.geoJSONData));
-        this._assignStatInfoToGeoJSON(geoJSONData, dataSource);
-        this.addDataToSourceId(uniqueId, geoJSONData);
-
-        this.updateSourceInstsData();
+        this._absPolygonSource.setData(dataSource, this.maxDate);
     }
 
     _assignStatInfoToGeoJSON(geoJSONData, dataSource) {
@@ -393,6 +318,7 @@ class JSONGeoBoundariesBase {
                 //console.log("NOT CITYNAME:", data)
                 continue; // WARNING!!
             }
+
             statInfo = dataSource.getCaseInfoForCity(
                 state, cityName
             );
@@ -400,6 +326,7 @@ class JSONGeoBoundariesBase {
                 //console.log("NOT STAT INFO:", state, cityName);
                 continue;
             }
+
             data.properties['stat'] = statInfo['numCases'];
             data.properties['statCity'] = cityName;
             data.properties['statDate'] = statInfo['updatedDate'];

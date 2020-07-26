@@ -11,10 +11,11 @@ class FillPolyLayerCases {
      * @param stateName
      * @param uniqueId
      */
-    constructor(map, stateName, uniqueId) {
+    constructor(map, stateName, uniqueId, cachedMapboxSource) {
         this.map = map;
         this.stateName = stateName;
         this.uniqueId = uniqueId;
+        this.cachedMapboxSource = cachedMapboxSource;
 
         // Make it so that symbol/circle layers are given different priorities
         // This is a temporary fix to make ACT display in the correct priority -
@@ -36,7 +37,7 @@ class FillPolyLayerCases {
                 id: this.getFillPolyId(),
                 type: "fill",
                 minzoom: 2,
-                source: "nullsource",
+                source: cachedMapboxSource.getSourceId(),
                 paint: {
                     "fill-opacity": 0
                 }
@@ -49,7 +50,7 @@ class FillPolyLayerCases {
         return this.uniqueId + "casesfillpoly";
     }
 
-    show(caseDataSource, fillSourceId) {
+    show(caseDataSource) {
         this.map.setLayoutProperty(this.getFillPolyId(), "visibility", "visible");
 
         // Create a new cases popup events instance,
@@ -60,16 +61,6 @@ class FillPolyLayerCases {
         this.__casesPopup = new CasesPopup(
             this.map, this.getFillPolyId(), caseDataSource
         );
-
-        // Don't update if not changed!
-        if (this.__fillSourceId === fillSourceId && this.__caseDataSource === caseDataSource) {
-            return;
-        }
-        this.__fillSourceId = fillSourceId;
-        this.__caseDataSource = caseDataSource;
-
-        // Update the layer's source id
-        setLayerSource(this.map, this.getFillPolyId(), fillSourceId);
     }
 
     hide() {
@@ -105,25 +96,33 @@ class CasesPopup {
                 }
                 currentFeature = null;
                 return;
-            } else if (e.features[0] == currentFeature) {
-                return;
-            }
-            currentFeature = e.features[0];
-
-            if (popup) {
-                popup.remove();
             }
 
-            let cityName = e.features[0].properties.city;
-            let caseInfo = this.caseDataSource.getCaseNumber(cityName, null);
+            let cityName,
+                caseInfo,
+                feature;
 
-            if (
-                !caseInfo ||
-                caseInfo["numCases"] == null ||
-                caseInfo["updatedDate"] == null
-            ) {
-                // no data?
-                return;
+            for (feature of e.features) {
+                if (feature == currentFeature) {
+                    return;
+                }
+                cityName = feature.properties.city;
+                caseInfo = this.caseDataSource.getCaseNumber(cityName, null);
+
+                if (
+                    !caseInfo ||
+                    caseInfo["numCases"] == null ||
+                    caseInfo["updatedDate"] == null
+                ) {
+                    // no data?
+                    continue;
+                }
+
+                currentFeature = feature;
+                if (popup) {
+                    popup.remove();
+                }
+                break;
             }
 
             /*var absInfo;

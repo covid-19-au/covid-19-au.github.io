@@ -8,10 +8,11 @@ class FillPolyLayerABS {
      * @param stateName
      * @param uniqueId
      */
-    constructor(map, stateName, uniqueId) {
+    constructor(map, stateName, uniqueId, cachedMapboxSource) {
         this.map = map;
         this.stateName = stateName;
         this.uniqueId = uniqueId;
+        this.cachedMapboxSource = cachedMapboxSource;
 
         // Make it so that symbol/circle layers are given different priorities
         // This is a temporary fix to make ACT display in the correct priority -
@@ -32,7 +33,7 @@ class FillPolyLayerABS {
                 id: this.getFillPolyId(),
                 type: "fill",
                 minzoom: 2,
-                source: "nullsource",
+                source: cachedMapboxSource.getSourceId(),
                 paint: {
                     "fill-opacity": 0.7
                 }
@@ -45,14 +46,8 @@ class FillPolyLayerABS {
         return this.uniqueId + "absfillpoly";
     }
 
-    show(absDataSource, fillSourceId, maxMinStatVal) {
+    show(absDataSource, maxMinStatVal) {
         this.map.setLayoutProperty(this.getFillPolyId(), "visibility", "visible");
-
-        if (this.__fillSourceId === fillSourceId) {
-            // Don't update source if not changed!
-            return;
-        }
-        this.__fillSourceId = fillSourceId;
 
         let min, max, median;
 
@@ -128,9 +123,6 @@ class FillPolyLayerABS {
         this.__absStatsLegend = new ABSStatsLegend(
             this.map, absDataSource, labels, colors
         );
-
-        // Update the layer's source id
-        setLayerSource(this.map, this.getFillPolyId(), fillSourceId);
     }
 
     hide() {

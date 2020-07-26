@@ -293,7 +293,7 @@ class MbMap extends React.Component {
                            ref={el => {this.mapSlider = el}}
                            style={{flexGrow: "1"}}
                            onChange={() => this._onMapTimeSlider()}
-                           type="range" min="0" max="30" step="1" defaultValue="60" />
+                           type="range" min="0" max="30" step="1" defaultValue="30" />
                     <label className="map-slider-item"
                            ref={el => {this.mapSliderLabel = el}}
                            style={{width: "3em", textAlign: "center"}}>{
