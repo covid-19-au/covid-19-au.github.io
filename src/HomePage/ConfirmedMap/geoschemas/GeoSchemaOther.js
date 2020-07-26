@@ -1,9 +1,9 @@
-import actSaData from "../../data/sa3_act.geojson";
-import qldHhsData from "../../data/hhs_qld.geojson";
-import nswLhdData from "../../data/lhd_nsw.geojson";
-import tasThsData from "../../data/ths_tas.geojson";
-import ConfirmedMapFns from "./Fns";
-import JSONGeoBoundariesBase from "./GeoBoundariesBase"
+import actSaData from "../../../data/sa3_act.geojson";
+import qldHhsData from "../../../data/hhs_qld.geojson";
+import nswLhdData from "../../../data/lhd_nsw.geojson";
+import tasThsData from "../../../data/ths_tas.geojson";
+import ConfirmedMapFns from "../Fns";
+import JSONGeoBoundariesBase from "../GeoBoundariesBase"
 
 
 /*******************************************************************

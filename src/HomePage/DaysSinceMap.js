@@ -4,7 +4,7 @@ import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import Acknowledgement from "../Acknowledgment"
-import TimeSeriesDataSource from "./ConfirmedMap/DataCases"
+import TimeSeriesDataSource from "./ConfirmedMap/data_sources/DataCases"
 import GeoBoundaries from "./ConfirmedMap/GeoBoundaries" // FIXME!
 
 
@@ -136,13 +136,7 @@ class DaysSinceMap extends React.Component {
                     caseGeoBoundariesInst.addLinePoly(caseDataInst);
 
                     caseGeoBoundariesInst.addDaysSince(caseDataInst);
-                    caseGeoBoundariesInst.addFillPoly(
-                        null,
-                        caseDataInst,
-                        0,
-                        false,
-                        true
-                    );
+                    caseGeoBoundariesInst.addCasesFillPoly(caseDataInst);
                 })
                 }, 500)
 

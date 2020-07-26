@@ -1,30 +1,27 @@
+import setLayerSource from "../setLayerSource";
+
+
 class HeatMapLayer {
-    constructor(map, dataSource, uniqueId, maxMinValues, heatMapSourceId) {
+    constructor(map, uniqueId) {
         this.map = map;
-        this.dataSource = dataSource;
         this.uniqueId = uniqueId;
-        this.heatMapSourceId = heatMapSourceId;
-        this.maxMinValues = maxMinValues;
-        this._addHeatMap()
+
+        this.heatLabelsByZoom = {};
+        this.heatCirclesByZoom = {};
+
+        this.__initLayer()
     }
 
     getHeatMapId() {
         return this.uniqueId+'heatmap';
     }
+    
     getHeatPointId() {
         return this.uniqueId+'heatpoint';
     }
 
-    /*******************************************************************
-     * Heat maps
-     *******************************************************************/
-
-    _addHeatMap() {
+    __initLayer() {
         const map = this.map;
-        const maxMin = this.maxMinValues;
-
-        var divBy = parseFloat(maxMin['max']);
-        var radiusDivBy = divBy / 40;
 
         var circleColor = [
             'interpolate',
@@ -85,11 +82,11 @@ class HeatMapLayer {
                 ];
             }
 
-            var heatCirclesLayer = map.addLayer(
+            map.addLayer(
                 {
                     'id': this.getHeatPointId()+zoomLevel,
                     'type': 'circle',
-                    'source': this.heatMapSourceId+zoomLevel,
+                    'source': 'nullsource',
                     'minzoom': zoomLevel-1,
                     'maxzoom': zoomLevel+2,
                     'paint': {
@@ -116,10 +113,10 @@ class HeatMapLayer {
                 }, lastCircleLayer
             );
 
-            var heatLabels = map.addLayer({
+            map.addLayer({
                 id: this.getHeatPointId()+'label'+zoomLevel,
                 type: 'symbol',
-                source: this.heatMapSourceId+zoomLevel,
+                source: 'nullsource',
                 minzoom: zoomLevel-1,
                 maxzoom: zoomLevel+2,
                 filter: ['all',
@@ -145,11 +142,11 @@ class HeatMapLayer {
             }, lastSymbolLayer);
         }
 
-        var heatCirclesLayer = map.addLayer(
+        map.addLayer(
             {
                 id: this.getHeatPointId(),
                 type: 'circle',
-                source: this.heatMapSourceId,
+                source: 'nullsource',
                 minzoom: 6,
                 paint: {
                     // Size circle radius by value
@@ -185,7 +182,7 @@ class HeatMapLayer {
             'id': this.getHeatPointId()+'citylabel',
             'type': 'symbol',
             'minzoom': 6,
-            'source': this.heatMapSourceId,
+            'source': 'nullsource',
             'filter': ['all',
                 ['!=', 'cases', 0],
                 ['has', 'cases']
@@ -209,10 +206,10 @@ class HeatMapLayer {
             }
         }, lastSymbolLayer);
 
-        var heatLabels = map.addLayer({
+        map.addLayer({
             id: this.getHeatPointId()+'label',
             type: 'symbol',
-            source: this.heatMapSourceId,
+            source: 'nullsource',
             minzoom: 6,
             filter: ['all',
                 ['!=', 'cases', 0],
@@ -241,22 +238,46 @@ class HeatMapLayer {
                 ]
             }
         }, lastSymbolLayer);
-
-        return {
-            heatCirclesLayer: heatCirclesLayer,
-            heatLabels: heatLabels
-        };
     }
 
-    remove() {
-        const map = this.map;
-        map.removeLayer(this.getHeatPointId());
-        map.removeLayer(this.getHeatPointId()+'label');
-        map.removeLayer(this.getHeatPointId()+'citylabel');
+    /*******************************************************************
+     * Heat maps
+     *******************************************************************/
+
+    show(dataSource, heatMapSourceId) {
+        this.dataSource = dataSource;
+
+        this.map.setLayoutProperty(this.getHeatPointId(), "visibility", "visible");
+        this.map.setLayoutProperty(this.getHeatPointId()+'label', "visibility", "visible");
+        this.map.setLayoutProperty(this.getHeatPointId()+'citylabel', "visibility", "visible");
 
         for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
-            map.removeLayer(this.getHeatPointId()+'label'+zoomLevel);
-            map.removeLayer(this.getHeatPointId()+zoomLevel);
+            this.map.setLayoutProperty(this.getHeatPointId()+zoomLevel, "visibility", "visible");
+            this.map.setLayoutProperty(this.getHeatPointId()+'label'+zoomLevel, "visibility", "visible");
+        }
+
+        if (this.heatMapSourceId !== heatMapSourceId) {
+            this.heatMapSourceId = heatMapSourceId;
+
+            setLayerSource(this.map, this.getHeatPointId(), heatMapSourceId);
+            setLayerSource(this.map, this.getHeatPointId() + 'label', heatMapSourceId);
+            setLayerSource(this.map, this.getHeatPointId() + 'citylabel', heatMapSourceId);
+
+            for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
+                setLayerSource(this.map, this.getHeatPointId() + 'label' + zoomLevel, heatMapSourceId + zoomLevel);
+                setLayerSource(this.map, this.getHeatPointId() + zoomLevel, heatMapSourceId + zoomLevel);
+            }
+        }
+    }
+
+    hide() {
+        this.map.setLayoutProperty(this.getHeatPointId(), "visibility", "none");
+        this.map.setLayoutProperty(this.getHeatPointId()+'label', "visibility", "none");
+        this.map.setLayoutProperty(this.getHeatPointId()+'citylabel', "visibility", "none");
+
+        for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
+            this.map.setLayoutProperty(this.getHeatPointId()+zoomLevel, "visibility", "none");
+            this.map.setLayoutProperty(this.getHeatPointId()+'label'+zoomLevel, "visibility", "none");
         }
     }
 }

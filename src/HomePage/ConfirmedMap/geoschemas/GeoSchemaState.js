@@ -1,12 +1,12 @@
-import actOutlineData from "../../data/boundary_act.geojson";
-import nswOutlineData from "../../data/boundary_nsw.geojson";
-import ntOutlineData from "../../data/boundary_nt.geojson";
-import vicOutlineData from "../../data/boundary_vic.geojson";
-import qldOutlineData from "../../data/boundary_qld.geojson";
-import saOutlineData from "../../data/boundary_sa.geojson";
-import tasOutlineData from "../../data/boundary_tas.geojson";
-import waOutlineData from "../../data/boundary_wa.geojson";
-import JSONGeoBoundariesBase from "./GeoBoundariesBase"
+import actOutlineData from "../../../data/boundary_act.geojson";
+import nswOutlineData from "../../../data/boundary_nsw.geojson";
+import ntOutlineData from "../../../data/boundary_nt.geojson";
+import vicOutlineData from "../../../data/boundary_vic.geojson";
+import qldOutlineData from "../../../data/boundary_qld.geojson";
+import saOutlineData from "../../../data/boundary_sa.geojson";
+import tasOutlineData from "../../../data/boundary_tas.geojson";
+import waOutlineData from "../../../data/boundary_wa.geojson";
+import JSONGeoBoundariesBase from "../GeoBoundariesBase"
 
 
 /*******************************************************************

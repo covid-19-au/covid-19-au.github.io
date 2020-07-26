@@ -1,5 +1,5 @@
-import confirmedOldImg from "../../img/icon/confirmed-old.png";
-import confirmedImg from "../../img/icon/confirmed-recent.png";
+import confirmedOldImg from "../../../img/icon/confirmed-old.png";
+import confirmedImg from "../../../img/icon/confirmed-recent.png";
 import mapboxgl from "mapbox-gl";
 
 /*******************************************************************
@@ -32,6 +32,7 @@ class MarkerConfirmed {
         this.el.style.display = 'block';
         this._addMarker(this.el);
     }
+
     hide() {
         this.el.style.display = 'none';
         if (!this._marker)
@@ -85,6 +86,7 @@ class MarkerConfirmed {
             return true;
         }
     }
+
     _addMarker() {
         const map = this.map;
         let coor = [
