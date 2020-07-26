@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga";
 import uuid from "react-uuid";
 import Acknowledgement from "../Acknowledgment"
+// import i18n bundle
+import i18next from '../i18n';
 
 const flightNoRegex = /^[A-Za-z]{2}\d*$/;
 const flightRouteRegex = /^[A-Za-z]*$/;
@@ -147,7 +149,7 @@ function Flights({ flights }) {
   return (
     <div className="card">
 
-      <h2 style={{ display: "flex" }} aria-label="Flights with reported COVID 19 cases">Flights<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
+      <h2 style={{ display: "flex" }} aria-label="Flights with reported COVID 19 cases">{i18next.t("homePage:flights.title")}<div style={{ alignSelf: "flex-end", marginLeft: "auto", fontSize: "60%" }}>
         <Acknowledgement>
         </Acknowledgement></div></h2>
       <div className="centerContent">
@@ -155,23 +157,23 @@ function Flights({ flights }) {
           <div className="searchArea">
             <div className="input-group mb-3">
               <div className="input-group-prepend">
-                <span className="input-group-text">Search</span>
+                <span className="input-group-text">{i18next.t("homePage:flights.searchButton")}</span>
               </div>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter flight number, route, arrival date"
+                placeholder={i18next.t("homePage:flights.searchPlaceholder")}
                 onChange={e => setSearchKey(e.target.value)}
               ></input>
             </div>
           </div>
 
           <div className="flightInfo header">
-            <div className="area header">Flight No</div>
-            <div className="area header">Airline</div>
-            <div className="area header">Route</div>
-            <div className="area header">Arrival</div>
-            <div className="area header">Close Contact Row</div>
+            <div className="area header">{i18next.t("homePage:flights.tableHeader1")}</div>
+            <div className="area header">{i18next.t("homePage:flights.tableHeader2")}</div>
+            <div className="area header">{i18next.t("homePage:flights.tableHeader3")}</div>
+            <div className="area header">{i18next.t("homePage:flights.tableHeader4")}</div>
+            <div className="area header">{i18next.t("homePage:flights.tableHeader5")}</div>
           </div>
           {outputList.length ? (
         outputList.map(flight => (

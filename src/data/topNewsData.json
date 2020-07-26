@@ -1,148 +1,68 @@
 {
     "weeklyTopNews": [
         {
-            "link": "https://www.abc.net.au/news/2020-04-16/coronavirus-what-australia-has-to-do-before-restrictions-lifted/12154692",
-            "title": "Australia's coronavirus restrictions will remain until these three things are established",
-            "source": "ABCNews",
-            "date": "16 April 2020",
-            "time": "19:40",
-            "summary": "Prime Minister Scott Morrison has announced that Australians will have to live with coronavirus restrictions for at least another four weeks. He outlined three things the Government wants to see before parts of the country can start to look normal again. These three things are: a broader testing regime, better contact tracing, and being confident in containing outbreaks."
+            "link": "https://www.theguardian.com/australia-news/2020/jul/24/national-cabinet-commits-to-covid-19-suppression-strategy-to-secure-zero-community-transmissions",
+            "title": "National cabinet commits to Covid-19 suppression strategy to secure zero community transmissions ",
+            "source": "TheGuardian",
+            "date": "24 July 2020",
+            "time": "17:38",
+            "summary": "After a meeting on Friday, the national cabinet has agreed to share more data and COVID-19 testing response times, and have committed to a virus with a goal of having zero community transmissions. There is now acceptance in the national cabinet that all states and territories need to take precautions to avoid community transmission, currently only occurring in Victoria and New South Wales."
         },
         {
-            "link": "https://www.sbs.com.au/news/game-changer-coronavirus-testing-to-be-fast-tracked-in-remote-indigenous-communities",
-            "title": "'Game changer': Coronavirus testing to be fast-tracked in remote Indigenous communities",
+            "link": "https://www.abc.net.au/news/2020-07-23/victoria-records-five-deaths-and-403-new-cases-of-covid-19/12483916?nw=0",
+            "title": "Victoria records five deaths and 403 new cases of coronavirus overnight",
+            "source": "ABCNews",
+            "date": "23 July 2020",
+            "time": "12:00",
+            "summary": "Three of the deaths are connected to aged care facilities. The five deaths bring the state's total death toll to 49."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-22/victoria-coronavirus-update-cases-hit-record-daily-high/12479494",
+            "title": "Victorian coronavirus cases hit new record high with 484 cases, two more deaths",
+            "source": "ABCNews",
+            "date": "22 July 2020",
+            "time": "16:00",
+            "summary": "Victoria have broken a record with 484 new coronavirus cases announced. Victorian Premier, Daniel Andrews has said that he is, \"very unhappy and very sad\", aknowledging a report stating that report that nearly nine in 10 people did not isolate between the time they first felt sick and when they went to get a test. After testing, half of these people did not isolate while waiting for their test results. \"Fifty-three per cent of people continuing to do their shopping, continuing to go to work continuing to do all sorts of things,\" he said. \"Unless people who get tested are staying at home and isolating until they get their test results, then we will not see those numbers come down,\" he said before adding that the six week lockdown might be extended."
+        },
+        {
+            "link": "https://www.theguardian.com/business/2020/jul/21/jobkeeper-jobseeker-payment-coronavirus-covid-19-update-changes-recipients",
+            "title": "Jobkeeper and jobseeker payment: what do the changes mean for recipients? ",
+            "source": "TheGuardian",
+            "date": "21 July 2020",
+            "time": "15:12",
+            "summary": "Jobkeeper has now been extended to 28 March 2021. The Jobkeeper rate will change after 27 Septmeber. It is currently at $1500 per employee per fortnight, but after 27 September, employees who ordinarily worked fewer than 20 hours a week will have reduced payments. Jobkeeper is also set to reduce payments over time. The coronavirus supplement for recipients of Jobseeker, will be cut from $550 per fortnight, to $250 per fortnight from 25 September onwards. The supplement will remain in place until 31 December."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-20/tasmania-new-coronavirus-case-woman-returning-from-vic/12473222",
+            "title": "New Tasmanian coronavirus case confirmed as young woman returning from Victoria",
+            "source": "ABCNews",
+            "date": "20 July 2020",
+            "time": "18:50",
+            "summary": "Tasmania has recorded its first coronavirus cases in over 2 months. Before this, the state had recorded no active cases as of June 12th. The new case is a person that is currently in hotel quarantince since returning to Tasmania from Victoria. Tasmania Premier, Peter Gutwein has said that there were about 600 people in hotel quarantine in the state, and a further 1,000 in home quarantine."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/face-masks-will-soon-be-mandatory-in-melbourne-here-s-what-you-need-to-know",
+            "title": "Face masks will soon be mandatory in Melbourne. Here's what you need to know",
             "source": "SBSNews",
-            "date": "16 April 2020",
-            "time": "19:40",
-            "summary": "83 coronavirus testing sites are set to be set up across remote Indigenous communities to detect the virus more rapidly. Some remote areas have been waiting up to 10 days for results but the new $3.3 million project, part of the wider $2.4 billion COVID-19 National Health Plan, aims to cut waiting times to 45 minutes."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-cure-covid-19-vaccine-testing-in-australia-novavax-nucleus-network/73bb2d7b-f7bf-4f83-8a30-74cd1d6c3bff ",
-            "title": "COVID-19 vaccine testing to begin in Australia in coming weeks",
-            "source": "9News",
-            "date": "15 April 2020",
-            "time": "14:41",
-            "summary": "Phase one testing for a COVID-19 vaccine is set to begin in Australia, in only the third such trial in the world. Australian clinical trials specialist Nucleus Network will partner with US-based biotechnology company Novavax to begin the testing of the NVX-CoV2373 vaccine in the coming weeks. It will be the first COVID-19 vaccine to be tested outside the US. The phase one trial is expected to begin in mid-May, with preliminary results by July."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/apr/14/australian-government-plans-to-bring-in-mobile-phone-app-to-track-people-with-coronavirus",
-            "title": "Australian government plans to bring in mobile phone app to track people with coronavirus ",
-            "source": "TheGuardian",
-            "date": "15 April 2020",
-            "time": "20:13",
-            "summary": "Australia soon will adopt a sophisticated mobile phone app that tracks coronavirus victims and the people they come in contact with. The federal government wants to introduce the app, now being used in Singapore, within a fortnight and will outline the plan to premiers during the next meeting of the national cabinet on Thursday. It will be part of a broader strategy to point to an exit from the tough Covid-19 restrictions which have shut businesses and confined millions to their homes."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-australia-world-health-organisation-lists-criteria-for-removing-restrictions-c-973946",
-            "title": "Coronavirus Australia: World Health Organisation lists criteria for reducing restrictions",
-            "source": "7News",
-            "date": "14 April 2020",
-            "time": "07:46",
-            "summary": "The World Health Organisation (WHO) has released new criteria countries must adhere to before even considering lifting coronavirus restrictions. Six key factors that must be followed were announced on Tuesday morning. It follows countries easing their restrictions and seeing a second wave of outbreaks. The six WHO guidelines are: Transmission of the virus is controlled; Health systems can detect every case; Outbreak risks are minimised; Preventative measures are in place; Importation risks can be managed; and Communities are educated and empowered to adjust to the “new norm”."
-        },
-        {
-            "link": "https://www.theguardian.com/business/2020/apr/14/australia-will-need-to-raise-gst-to-pay-coronavirus-debt-tax-expert-says",
-            "title": "Australia will need to raise GST to pay coronavirus debt, tax expert says ",
-            "source": "TheGuardian",
-            "date": "14 April 2020",
-            "time": "03:30",
-            "summary": "Tax reform including a GST increase and higher land tax will be needed to avoid the debt burden of the $214bn Covid-19 economic response falling on young people, an academic tax expert has warned."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-schools-australia-states-closures-return-dates-term-two-guide/f44a37a7-a261-4c95-85f7-908cf6ed2bca",
-            "title": "School closures and recommencement dates across Australia",
-            "source": "9News",
-            "date": "14 April 2020",
-            "time": "12:18",
-            "summary": "As the Easter holidays come to a close for some states, students and parents are now turning their minds to how Term 2 will look at their schools. Each state and territory is slightly different across Australia. This article outlines the current plan from each State Government going into Term 2."
-        },
-        {
-            "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20",
-            "title": "The eligibility requirements you must meet to be tested for COVID-19 in each state",
-            "source": "9News",
-            "date": "14 April 2020",
-            "time": "13:33",
-            "summary": "With eligibility requirements for testing of COVID-19 changing all the time and with every state requiring different eligibility in order to be tested, it can be difficult to keep track. Here is a state-by-state break down of latest eligibility guidelines for each state and territory."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-13/coronavirus-queensland-schools-announcement-term-two/12141380",
-            "title": "Queensland schools to open for term two for vulnerable students and children of essential workers amid coronavirus",
-            "source": "ABCNews",
-            "date": "13 April 2020",
-            "time": "14:00",
-            "summary": "Queensland schools will open for term two for vulnerable students and the children of essential workers, Premier Annastacia Palaszczuk says. Other students will be taught from home via remote learning online for at least the first five weeks of the term. These rules would be in place until May 22 and reviewed on May 15."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-13/nsw-coronavirus-to-announce-440-million-dollar-rental-assistance/12143646",
-            "title": "NSW Government to announce $440 million coronavirus rental assistance with moratorium on forced evictions",
-            "source": "ABCNews",
-            "date": "13 April 2020",
+            "date": "19 July 2020",
             "time": "18:00",
-            "summary": "The New South Wales State Government has announced $440 million in relief for renters and landlords affected by Government-enforced COVID-19 restrictions. They are allocating $220 million to residential renters and landlords and a further $220 million towards shops, gyms, hairdressers and businesses affected by COVID-19."
+            "summary": "From 11.59pm on Wednesday, masks will be made compulsory for people who leave their homes in metropolitan Melbourne and the Mitchell Shire. Victorian Premier, Daniel Andrews has said that common sense will govern the new rules, advising that the measure must be done whenever it is practical to do so. He also advised that masks need not be hospital-grade masks, emphasizing, \"any face covering is better than no face-covering.\""
         },
         {
-            "link": "https://www.abc.net.au/news/2020-04-12/victoria-coronavirus-state-of-emergency-extended-to-may-11/12143168",
-            "title": "Victorian state of emergency extended for another month as new coronavirus cases decline",
-            "source": "ABCNews",
-            "date": "12 April 2020",
-            "time": "16:47",
-            "summary": "Victorian Premier Daniel Andrews announced the state of emergency imposed in his state will be extended by four weeks to midnight on May 11"
+            "link": "Jobkeeper expected to be extended beyond September for businesses that ‘genuinely need it’ ",
+            "title": "https://www.theguardian.com/australia-news/2020/jul/19/jobkeeper-expected-to-be-extended-beyond-september-for-businesses-that-genuinely-need-it",
+            "source": "TheGuardian",
+            "date": "19 July 2020",
+            "time": "13:38",
+            "summary": "The finance minister has said that there will be some adjustments to the Jobkeeper scheme. \"The ultimate objective still has to be getting back into a situation where all businesses are in a position to pay for the wages of their employees out of their income,\" he said. The government will release an economic update on Thursday and outline the future of the jobseeker and jobkeeper payments. Until then, it is unclear how long the payments will be extended for."
         },
         {
-            "link": "https://www.9news.com.au/world/course-prices-slashed-after-coronavirus-pandemic/a78cc4fb-2f02-4264-a540-d02e1d7eaa1d",
-            "title": "Higher education institutions to offer cut-price courses after coronavirus pandemic",
-            "source": "9News",
-            "date": "12 April 2020",
-            "time": "08:06",
-            "summary": "The federal government has also announced that higher education institutions will be offering cut price courses starting in May to fill skill shortages to assist the economic rebound once the pandemic has run its course. The online courses will run for six months in what are deemed to be \"areas of national priority\", such as in nursing, teaching, counselling, IT and science."
-        },
-        {
-            "link": "https://7news.com.au/lifestyle/health-wellbeing/coronavirus-mercy-flight-with-covid-19-positive-passengers-lands-in-melbourne-c-971434",
-            "title": "Coronavirus ‘mercy’ flight with COVID-19 positive passengers lands in Melbourne",
-            "source": "7News",
-            "date": "12 April 2020",
-            "time": "08:44",
-            "summary": "A ‘mercy flight’ carrying 80 coronavirus-infected Australians has touched down in Melbourne. Emergency services were on standby at Tullamarine airport to meet the plane, which was carrying 112 passengers in total. Those passengers are among 1200 Australian nationals being flown home from overseas by the Commonwealth this weekend, with flights from India and Peru landing on Friday and Saturday."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-04-11/trial-to-test-if-tuberculosis-vaccine-boosts-covid-19-immunity/12142230",
-            "title": "Clinical trial to test if tuberculosis vaccine can be used to boost immunity against COVID-19 ",
-            "source": "ABCNews",
-            "date": "11 April 2020",
-            "time": "23:42",
-            "summary": "Clinical trial for 500 frontline health workers in South Australia will test if the BCG vaccine normally used to combat tuberculosis, can boost immunity against COVID-19."
-        },
-        {
-            "link": "https://www.9news.com.au/world/coronavirus-antibody-test-could-soon-be-available/34216e0a-ceac-492b-953c-32d74cb0f8e2",
-            "title": "Antibody tests for the novel coronavirus could be available within 'a week or so'",
-            "source": "9News",
-            "date": "11 April 2020",
-            "time": "03:23",
-            "summary": "Antibody tests that would verify whether a person recently had the novel coronavirus could be available within a week, according to the America's top infectious disease expert. Having antibodies to the coronavirus could mean someone is protected from getting re-infected, making such tests important for medical workers and others on the frontlines fighting the pandemic."
-        },
-        {
-            "link": "https://www.smh.com.au/national/stop-looking-for-loopholes-what-are-the-new-covid-19-social-rules-20200407-p54hyd.html ",
-            "title": "'Stop looking for loopholes': What are the new COVID-19 social rules?",
-            "source": "TheSydneyMorningHerald",
-            "date": "10 April 2020",
-            "time": "",
-            "summary": "Government urges people to stop looking for loopholes over the Easter weekend, so as not to undo all of the hard work that has been done to stop the spread of COVID-19. This article covers questions such as whether you can have people over, whether you can go away at Easter and whether you can babysit, state-by-state."
-        },
-        {
-            "link": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
-            "title": "Aussie households to be given access to COVID-19 financial stress for bills",
-            "source": "9News",
-            "date": "10 April 2020",
-            "time": "17:52",
-            "summary": "Australian households struggling with financial stress brought on by the coronavirus pandemic will soon have access to hardship provisions for their energy and water bills. Prime Minister Scott Morrison said the new measures would be in line with those across the energy and telecommunications sectors to scale-up hardship support provided by those industries."
-        },
-        {
-            "link": "https://www.9news.com.au/national/covid19-vaccine-researched-at-university-of-queensland-critical-test-on-live-coronavirus-ahead-of-human-trials/a49fe4b6-0ff7-4cbe-ae06-8cb4772e0404",
-            "title": "Coronavirus vaccine research enters new phase as University of Queensland researchers start testing it on the live COVID-19 virus",
-            "source": "9News",
-            "date": "10 April 2020",
-            "time": "19:43",
-            "summary": "The effectiveness of a University of Queensland (UQ) vaccine against the coronavirus is about to be tested in a biosecurity facility in the Netherlands. The vaccine will be used on live coronavirus for the first time to determine how effectively it induces protection against infection. UQ's vaccine program co-leader Dr Keith Chappell says the trial will establish a critical package of data ahead of human clinical trials later this year.Clinical studies will be conducted by Viroclinics Xplore, which offers myriad pre-clinical tests including toxicology of drugs, antibodies, and antivirals targeting viral infectious diseases."
+            "link": "https://www.sbs.com.au/news/victoria-records-three-more-coronavirus-deaths-and-217-new-infections",
+            "title": "Victoria records three more coronavirus deaths and 217 new infections",
+            "source": "SBSNews",
+            "date": "18 July 2020",
+            "time": "18:00",
+            "summary": "Mr Andrews said of the additional cases, 11 of them were linked to known outbreaks, and 205 of them are under investigation. 217 is a significant drop from the 428 cases registered on the previous day. The state's Chief Medical Officer, Dr Sutton said he was happy that case numbers had dropped, but also warned Victorians against complacency.\"It is a number that would have shocked us all a month ago, we need to remember it is still a high number,\" he said."
         }
     ]
 }

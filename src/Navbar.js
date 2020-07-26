@@ -1,6 +1,8 @@
 import ReactGA from "react-ga";
 import React, { useState, useEffect, useRef } from "react";
 import { A } from "hookrouter";
+// import i18n bundle
+import i18next from './i18n';
 
 
 export default function Navbar({ setNav, nav }) {
@@ -31,13 +33,14 @@ export default function Navbar({ setNav, nav }) {
                 className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
                 style={{marginRight:0,marginLeft:0}}
             >
+        
         <A
             className={`navItems ${
                 window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""
                 } ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `}
             onClick={onClick} href="/"
         >
-          <strong>Home</strong>
+          <strong>{i18next.t("nav:home")}</strong>
         </A>
                 <A
                     className={`navItems ${
@@ -45,7 +48,7 @@ export default function Navbar({ setNav, nav }) {
                         } ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `}
                     onClick={onClick} href="/info"
                 >
-          <strong>Info</strong>
+          <strong>{i18next.t("nav:info")}</strong>
         </A>
                 <A
                     className={`navItems ${
@@ -53,7 +56,15 @@ export default function Navbar({ setNav, nav }) {
                         } ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `}
                     onClick={onClick} href="/news"
                 >
-          <strong>News</strong>
+          <strong>{i18next.t("nav:news")}</strong>
+        </A>
+        <A
+            className={`navItems ${
+                window.location.pathname.includes("/blog") && !isSticky ? "navCurrentPage " : ""
+                } ${window.location.pathname.includes("/blog") && isSticky ? "navCurrentPageSticky" : ""} `}
+            onClick={onClick} href="/blog"
+        >
+          <strong>{i18next.t("nav:blog")}</strong>
         </A>
 
             </div>

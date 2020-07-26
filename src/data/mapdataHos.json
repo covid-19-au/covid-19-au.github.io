@@ -1126,5 +1126,53 @@
     "name": "LGH Emergency Department",
     "coor": ["-41.446632", "147.141576"],
     "hospitalType": "COVID19 Mobile Respiratory Clinic"
+  },
+  {
+    "state": "Northern Territory",
+    "address": "36 Knuckey Street, Darwin, NT,0800",
+    "hospitalPhone": "(08)89425303",
+    "name": "Darwin City Respiratory Clinic",
+    "coor": ["-12.460288", "130.8446136"],
+    "hospitalType": "Coronavirus (COVID-19) GP respiratory clinics"
+  },
+  {
+    "state": "Northern Territory",
+    "address": "3 Gurd StreetFarrar, NT 0830",
+    "hospitalPhone": "(08) 8919 8919",
+    "name": "Palmerston GP Super Clinic Respiratory Clinic",
+    "coor": ["-12.4795656", "130.9899208"],
+    "hospitalType": "Coronavirus (COVID-19) GP respiratory clinics"
+  },
+  {
+    "state": "Tasmania",
+    "address": "144 William Street Devonport, TAS 7310",
+    "hospitalPhone": "1300 411 748",
+    "name": "Devonport Respiratory Clinic",
+    "coor": ["-41.176496", "146.351396"],
+    "hospitalType": "COVID19 Respiratory Clinics"
+  },
+  {
+    "state": "Tasmania",
+    "address": "8 Bowen Street, St Helens, TAS 7216",
+    "hospitalPhone": "03 63510007",
+    "name": "St Helens Respiratory Clinic",
+    "coor": ["-41.3224674", "148.2483527"],
+    "hospitalType": "COVID19 Respiratory Clinics"
+  },
+  {
+    "state": "Tasmania",
+    "address": "237 Wellington Street, Launceston, TAS 7250",
+    "hospitalPhone": "03 63108310",
+    "name": "Launceston Respiratory Clinic",
+    "coor": ["-41.4459712", "147.1435118"],
+    "hospitalType": "COVID19 Respiratory Clinics"
+  },
+  {
+    "state": "Tasmania",
+    "address": "247 Wellington Street, Launceston, TAS 7250",
+    "hospitalPhone": "03 63888111",
+    "name": "Launceston Medical Centre",
+    "coor": ["-41.448612", "147.1402331"],
+    "hospitalType": "COVID19 Respiratory Clinics"
   }
 ]

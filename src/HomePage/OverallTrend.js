@@ -5,6 +5,11 @@ import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 
+import stateData from "../data/state.json"
+// import i18n bundle
+import i18next from '../i18n';
+
+
 export default function OverallTrend() {
 
     const [logScale, setLogScale] = useState(false);
@@ -44,40 +49,53 @@ export default function OverallTrend() {
     for (let key in countryData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
-        if (logScale) {
-            //log graph breaks if we include data before March 1st so we exclude that data here
-            if (date.getMonth() >= 2) {
-                let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-                dateData.push(labelName)
+        let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        dateData.push(labelName)
 
-                confirmedData.push(countryData[key][0])
-                deathData.push(countryData[key][2])
-                recoveryData.push(countryData[key][1])
-                activeData.push(countryData[key][3])
+        confirmedData.push(countryData[key][0])
+        deathData.push(countryData[key][2])
+        recoveryData.push(countryData[key][1])
+        activeData.push(countryData[key][3])
 
-                newConfirmed.push(countryData[key][0] - preConfirmed)
-                newDeath.push(countryData[key][2] - preDeath)
+        newConfirmed.push(countryData[key][0] - preConfirmed)
+        newDeath.push(countryData[key][2] - preDeath)
 
-                preConfirmed = countryData[key][0]
-                preDeath = countryData[key][2]
-            }
-        }
-        //if not log scale, we include all data
-        else {
-            let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-            dateData.push(labelName)
+        preConfirmed = countryData[key][0]
+        preDeath = countryData[key][2]
+        // if (logScale) {
+        //     //log graph breaks if we include data before March 1st so we exclude that data here
+        //     if (date.getMonth() >= 2) {
+        //         let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //         dateData.push(labelName)
 
-            confirmedData.push(countryData[key][0])
-            deathData.push(countryData[key][2])
-            recoveryData.push(countryData[key][1])
-            activeData.push(countryData[key][3])
+        //         confirmedData.push(countryData[key][0])
+        //         deathData.push(countryData[key][2])
+        //         recoveryData.push(countryData[key][1])
+        //         activeData.push(countryData[key][3])
 
-            newConfirmed.push(countryData[key][0] - preConfirmed)
-            newDeath.push(countryData[key][2] - preDeath)
+        //         newConfirmed.push(countryData[key][0] - preConfirmed)
+        //         newDeath.push(countryData[key][2] - preDeath)
 
-            preConfirmed = countryData[key][0]
-            preDeath = countryData[key][2]
-        }
+        //         preConfirmed = countryData[key][0]
+        //         preDeath = countryData[key][2]
+        //     }
+        // }
+        // //if not log scale, we include all data
+        // else {
+        //     let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+        //     dateData.push(labelName)
+
+        //     confirmedData.push(countryData[key][0])
+        //     deathData.push(countryData[key][2])
+        //     recoveryData.push(countryData[key][1])
+        //     activeData.push(countryData[key][3])
+
+        //     newConfirmed.push(countryData[key][0] - preConfirmed)
+        //     newDeath.push(countryData[key][2] - preDeath)
+
+        //     preConfirmed = countryData[key][0]
+        //     preDeath = countryData[key][2]
+        // }
 
     }
 
@@ -122,8 +140,8 @@ export default function OverallTrend() {
 
     return (
         <div className="card">
-            <h2>Cases, Deaths and Recoveries</h2>
-            <ReactEcharts style={{ height: "400px" }}
+            <h2>{i18next.t("homePage:overallTrend.title")}</h2>
+            <ReactEcharts style={{ minHeight: "400px" }}
                 option={
                     {
                         grid: {
@@ -155,14 +173,15 @@ export default function OverallTrend() {
                             }
                         },
                         yAxis: [{
-                            name: "Totals",
+                            name: i18next.t("homePage:status.total"),
                             axisLabel: {
                                 show: true
                             },
                             type: yAxisType,
-                            max: maxY
+                            max: maxY,
+                            min: logScale ? 1 : 0
                         }, {
-                            name: "New Cases",
+                            name: i18next.t("homePage:status.newCase"),
                             axisLabel: {
                                 show: true
                             },
@@ -201,52 +220,44 @@ export default function OverallTrend() {
                         series: [
 
                             {
-                                name: 'Confirmed Cases',
+                                name: i18next.t("homePage:status.confirmCase"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#ff603c"
                                 },
                                 data: confirmedData
                             }, {
-                                name: 'Deaths',
+                                name: i18next.t("homePage:status.Deaths"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#c11700"
                                 },
                                 data: deathData
                             }, {
-                                name: 'Recoveries',
+                                name: i18next.t("homePage:status.Recoveries"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
                                     color: "#00c177"
                                 },
                                 data: recoveryData
                             }, {
-                                name: 'Active Cases',
+                                name: i18next.t("homePage:status.activeCase"),
                                 type: 'line',
                                 smooth: true,
-                                symbol: 'circle',
-                                symbolSize: 8,
                                 sampling: 'average',
                                 itemStyle: {
-                                    color: "#ba9bef"
+                                    color: "#f75c8d"
                                 },
                                 data: activeData
                             },
                             {
-                                name: 'New Cases',
+                                name: i18next.t("homePage:status.newCase"),
                                 type: 'bar',
                                 yAxisIndex: '1',
                                 sampling: 'average',
@@ -260,14 +271,14 @@ export default function OverallTrend() {
 
             />
             <span className="due">
-                <span className="key"><p>*Click on legend to add/remove graphs</p></span><br />
-                <span className="key"><p>*Click on points for detailed data</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickLegend")}</p></span><br />
+                <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
 
-                    Logarithmic Scale:&nbsp;
+                    {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                        <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>On</Button>
-                        <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>Off</Button>
+                        <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>{i18next.t("homePage:misc.onButton")}</Button>
+                        <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>{i18next.t("homePage:misc.offButton")}</Button>
                     </ButtonGroup>
                     <a
                         style={{
