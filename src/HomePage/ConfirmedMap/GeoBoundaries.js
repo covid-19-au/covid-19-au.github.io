@@ -1,8 +1,8 @@
 import ConfirmedMapFns from "./Fns"
 
-import lgaGeoSchemas from "./GeoSchemaLGA"
-import otherGeoSchemas from "./GeoSchemaOther"
-import stateGeoSchemas from "./GeoSchemaState"
+import lgaGeoSchemas from "./geoschemas/GeoSchemaLGA"
+import otherGeoSchemas from "./geoschemas/GeoSchemaOther"
+import stateGeoSchemas from "./geoschemas/GeoSchemaState"
 
 class GeoBoundaries {
     constructor() {

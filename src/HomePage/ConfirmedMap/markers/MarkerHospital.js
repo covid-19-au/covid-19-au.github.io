@@ -1,4 +1,4 @@
-import hospitalImg from "../../img/icon/hospital.png";
+import hospitalImg from "../../../img/icon/hospital.png";
 import mapboxgl from "mapbox-gl";
 
 /*******************************************************************
@@ -24,6 +24,7 @@ class MarkerHospital {
         this.el.style.display = 'block';
         this._addMarker(this.el);
     }
+
     hide() {
         this.el.style.display = 'none';
         if (!this._marker)

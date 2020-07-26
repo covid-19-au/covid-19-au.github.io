@@ -2,6 +2,66 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "The Impact of COVID-19 on different industries",
+            "media": "https://i.imgur.com/50wnarf.png",
+            "summary": "In mid-March, it was reported that more than 60% of Australian businesses have been affected by the COVID-19 pandemic. Read today’s blog to find out more about how coronavirus has impacted different industries and the future for these industries post COVID-19.",
+            "date": "30/05/2020", 
+            "text": {
+                "text_1": [
+                    "Multiple industries have been hit especially hard by COVID-19. In mid-March, it was reported that more than 60% of Australian businesses are affected by the coronavirus pandemic. At state level, South Australia, New South Wales and Victoria have been hit the hardest. The Australian Government has already promised more than $20 billion in stimulus to keep the Australian economy moving. However, this figure will need to continuously be raised to truly help the Australian economy recover from this devastating recession.",
+                    "Let’s take a look at how COVID-19 has impacted on the following industries:"
+                ],
+                "ulist_1": [],
+                "olist_1": [
+                    "<strong>Education</strong> - Education is the foundation of many counties, and the spread of the COVID-19 pandemic has had a significant influence on the way children receive their education. Due to the social distancing rules set by the Australian government, most schools were forced to close their campuses and use an online platform to teach students.",
+                    "<strong>Office</strong> - Many Internet companies have chosen to work online to continue most of the company's business. Within ten years, half of the company's 48,000 employees will work from home, Facebook CEO Mark Zuckerberg said, after this extraordinary period, remote work is also expected to show a growth trend.",
+                    "<strong>Restaurant</strong> - In order to protect the health of customers and delivery staff during the pandemic, many restaurants started to offer a 'contactless delivery' option. Delivery staff would pick up the customers’ orders and leave the takeaway at their front doors to effectively avoid face-to-face contact.",
+                    "<strong>Movie/TV</strong> - Recently, Netflix stopped the production of many highly anticipated film and television productions such as the 4th season of Stranger Things. Warner Bros., Disney, and Apple Tv + have also stated that unless the pandemic is effectively controlled, many popular programs will be suspended. However, in contrast, as people spend more time indoors due to reduction in public events and gatherings, many online video platforms such as YouTube have increased popularity significantly.",
+                    "<strong>Retail</strong> - During the spread of COVID-19, a large number of people in the Australian retail industry lost their jobs and consumer confidence dropped sharply. This eventually led to the collapse of many retail stores. However, at the same time, online retailers have seen some development. The number of online purchases increased for people over the age of 35 but there was a reduction in consumption for people under the age of 25. <em>“Online retail will be an indispensable solution for consumers…especially during this special period”</em> says Justin Dery, Doodle CEO Asia-Pacific."
+                ],
+                "text_2": [
+                    "COVID-19 is an unprecedented public health emergency that has undoubtedly impacted many industries. Many will struggle to recover to a normal that is still constantly being redefined as consumer demand patterns will continue to shift. It is vital for companies to continuously adapt to new and uncertain market environments in order to survive."
+                ]
+            }
+        },
+        {
+            "tag": "Informative",
+            "title": "The New Normal",
+            "media": "https://i.imgur.com/PVb4qfj.png",
+            "summary": "With the pandemic dying down, and things slowly returning back to how they were before, there are things that will inevitably be different. Read todays blog to find out more about the new normal post covid-19.",
+            "date": "28/05/2020", 
+            "text": {
+                "text_1": [
+                    "The vaccines are under development and with being in the lockdown for some time, our lifestyle and habit changes. This will continue and we will have to get used to a 'new normal', even if some restrictions are eased. Last week, each state premier of Australia announced new plans to reopen their jurisdiction.",
+                    "The new plans contain further easing of restrictions will come into effect next week and the weeks ahead as the governments are under extreme financial pressure to reopen their economies. In New South Wales, beauty parlors, pubs, cafes, restaurants will be able to reopen and allow to serve up to 50 customers at a time from June 1. At the same time, Victoria will also allow gathering of 20 people in a home and serving up to 20 patrons at one time at beauty salons, restaurants, bars, and cafes. To read the latest restrictions plan in each state and territory, click <a target='_blank' rel='noopener noreferrer' class='citationLink' href='https://www.abc.net.au/news/2020-05-25/coronavirus-restrictions-eased-in-your-state-territory-this-week/12281004?fbclid=IwAR3UyDB7dukIMXZZqBJimdOrQFRGzLxPnPGoCzX3dXRRs7VY1tt4wwtB92M'>here</a>.",
+                    "Nevertheless, a 'new normal' wouldn't be the same as once we called 'normal' with the social distancing measures set to remain place for some time. Your gym experience can't be same as your prior experience. Restaurants will have limited serving capacity and you can only dine-in in a designed seat to ensure the social distancing between guests. It is critical for us to follow the guidelines and adapt to a new normal to avoid a new surge in cases.",
+                    "Whether by circumstances or choice, it would appear that life after lockdown is going to be different as it previously did. This is not all about bad things. This gives us more time to reflect and re-evaluate our lives. This gives an opportunity to reconnect and spend more time with family, friends, and partners. This taught us the value of money with the increment in job losses and more importantly, it taught us how precious and fragile our life is."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
+            "title": "Future of workforce post-COVID-19",
+            "media": "https://i.imgur.com/j8JNSEG.png",
+            "summary": "Whilst the economic impact of covid19 has been astronomical and rightly documented about in media, have you wondered what work could look like post-covid19? If you’re after some insights, check out today’s blog post! 💙",
+            "date": "26/05/2020", 
+            "text": {
+                "text_1": [
+                    "The economic impact of covid19 cannot be understated - it’s a crisis that hasn’t been witnessed since the Great Depression. In April, Australian businesses shed 800,000 jobs, equating to 6% of the total workforce, with industries such as hospitality, travel, retail and accommodation among those taking the biggest hit. Simultaneously, some businesses have adapted in these uncertain times and are in high demand, including food delivery services, health, IT and postal services.",
+                    "With the pandemic forcing many to work from home, the merits of working remotely have been proven to employers - many have found that their work can still be done from home, over the phone or from a computer. This will save employers money on office space going forward and mean that the future of our workforce will have an increased emphasis on flexibility and work-life balance.",
+                    "Another interesting factor to consider is decreased loyalty to an employer - a few decades ago, people used to stay in a job for life, whereas now, the average tenure of an Australian in a job is three years, and this will decrease as time goes by. A key question for many is - how do we ensure we’re available to take on various roles in a shorter period of time? One answer to this is online upskilling - many online courses, diplomas and degrees, have all had their prices slashed by 50% or more, so it’s an opportune time to learn and develop oneself.",
+                    "Some of the sectors that will be looking for work afterwards - health, education, social care - were incidentally the sectors that were hiring pre-covid19, so there has been sustained growth and that growth is certain to continue."
+                ],
+                "ulist_1": [],
+                "olist_1": [],
+                "text_2": []
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "COVID-19 and the environment",
             "media": "https://i.imgur.com/ZUZrEXfg.png",
             "summary": "With the streets empty and cars off the road, it's easy to see the impact of COVID-19 on the environment. Many industries have been hit by the lack of travel, while nature has been flourishing. Check out the blog to learn more about the impacts COVID-19 has had on the environment!",

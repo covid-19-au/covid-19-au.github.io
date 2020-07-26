@@ -66,10 +66,6 @@ def newscrawler(hour_offset, filter_by, file_to_write, output_type="json"):
             "name": "Australian Government Department of Health",
         },
         {
-            "link": "https://www.sbs.com.au/news/topic/australia/feed",
-            "name": "SBS News",
-        },
-        {
             "link": "https://www.health.nsw.gov.au/_layouts/feed.aspx?xsl=1&web=/news&page=4ac47e14-04a9-4016-b501-65a23280e841&wp=baabf81e-a904-44f1-8d59-5f6d56519965&pageurl=/news/Pages/rss-nsw-health.aspx",
             "name": "New South Wales Government - Health",
         },
@@ -106,6 +102,10 @@ def newscrawler(hour_offset, filter_by, file_to_write, output_type="json"):
             "link": "https://www.canberratimes.com.au/rss.xml",
             "name": "The Canberra Times",
         },
+        {
+            "link": "https://www.sbs.com.au/news/topic/australia/feed",
+            "name": "SBS News",
+        }
     ]
 
     now = datetime.now().astimezone(tz.gettz("Australia/Melbourne"))
@@ -121,15 +121,15 @@ def newscrawler(hour_offset, filter_by, file_to_write, output_type="json"):
         d = feedparser.parse(feed["link"])
 
         author = feed["name"]
-
+        
         for entry in d.entries:
+            
             # filter by date
             article_date = dateparser.parse(entry.updated).astimezone(
                 tz.gettz("Australia/Melbourne")
             )
-            if now - timedelta(hours=hour_offset) < article_date:
-
-                # filter by keywords
+            if now - timedelta(hours=hour_offset) < article_date and entry.has_key("summary")  :
+                
                 if any(x in entry.title.lower() for x in filter_by) or any(
                     x in entry.summary.lower() for x in filter_by
                 ):

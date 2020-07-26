@@ -1,4 +1,4 @@
-import ConfirmedMapFns from "./Fns";
+import ConfirmedMapFns from "../Fns";
 import TimeSeriesDataSource from "./DataCases"
 
 class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
@@ -12,13 +12,13 @@ class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
         this.daysAgo = daysAgo;
     }
 
-    getCaseNumber(region, ageRange) {
+    getCaseNumber(region, ageRange, maxDate) {
         // Return the latest value - the value 14 days ago,
         // to get a general idea of how many active cases there
         // still are. This isn't going to be very accurate,
         // but better than nothing.
         var oldest = null;
-        var latest = super.getCaseNumber(region, ageRange);
+        var latest = super.getCaseNumber(region, ageRange, maxDate);
         if (!latest) {
             return null;
         }
@@ -46,7 +46,7 @@ class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
                             'updatedDate': latest['updatedDate']
                         };
 
-                        if (ConfirmedMapFns.dateDiffFromToday(dateUpdated) > this.daysAgo) {
+                        if (ConfirmedMapFns.dateDiffFromToday(dateUpdated, maxDate) > this.daysAgo) {
                             return oldest;
                         }
                     }
@@ -62,15 +62,15 @@ class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
         };
     }
 
-    getCaseNumberTimeSeries(region, ageRange) {
+    getCaseNumberTimeSeries(region, ageRange, maxDate) {
         var r = [];
         var values = super.getCaseNumberTimeSeries(
-            region, ageRange
+            region, ageRange, maxDate
         );
 
         for (var i = 0; i < values.length; i++) {
             var iData = values[i];
-            if (ConfirmedMapFns.dateDiff(iData.x, ConfirmedMapFns.getToday()) > this.daysAgo) {
+            if (ConfirmedMapFns.dateDiffFromToday(iData.x, maxDate) > this.daysAgo) {
                 continue;
             }
             r.push(iData);

@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
+import stateCaseData from "../data/stateCaseData";
 import ReactEcharts from "echarts-for-react";
 
 import { Series, BarSeries } from "./Series";
@@ -22,9 +23,21 @@ const lineBarTooltip = {
  * @return {Array} latest data of user choosen state
  */
 function getLastData(state) {
-  return stateData[Object.keys(stateData)[Object.keys(stateData).length - 1]][
-    state
-  ];
+
+  let requiredState = {}
+  let j = 0
+  while (j < stateCaseData["values"].length) {
+    if (stateCaseData["values"][j][0] == state) {
+      requiredState[state] = []
+      let i = 1
+      while (i < 8) {
+        requiredState[state].push(stateCaseData["values"][j][i])
+        i = i + 1
+      }
+    }
+    j = j + 1
+  }
+  return requiredState[state];
 }
 
 /**
@@ -38,6 +51,7 @@ function setGeneralBarOption(state) {
     "Death",
     "Recovered",
     "Tested",
+    "Active",
     "in Hospital",
     "in ICU",
   ];
@@ -50,15 +64,15 @@ function setGeneralBarOption(state) {
     tempBarSeies.setItemStyle(colorMapping[generalBarLegend[i]]);
     generalBarSeries.addSubSeries(tempBarSeies);
   }
-  // add active case into graph and put it after recovered case
-  let activeData = lastData[0] - lastData[1] - lastData[2];
-  generalBarLegend.splice(3, 0, "Active");
-  let tempBarSeies = new BarSeries(
-    generalBarLegend[3],
-    new Array(activeData.toString())
-  );
-  tempBarSeies.setItemStyle(colorMapping["Active"]);
-  generalBarSeries.addSubSeries(tempBarSeies, 3);
+  // // add active case into graph and put it after recovered case
+  // let activeData = lastData[0] - lastData[1] - lastData[2];
+  // generalBarLegend.splice(3, 0, "Active");
+  // let tempBarSeies = new BarSeries(
+  //   generalBarLegend[3],
+  //   new Array(activeData.toString())
+  // );
+  // tempBarSeies.setItemStyle(colorMapping["Active"]);
+  // generalBarSeries.addSubSeries(tempBarSeies, 3);
 
   let tempOption = {
     grid: {

@@ -1,6 +1,14 @@
 var MAX_VAL = 40;
 
+
 class DaysSinceLayer {
+    /**
+     *
+     * @param map
+     * @param dataSource
+     * @param uniqueId
+     * @param daysSinceSourceId
+     */
     constructor(map, dataSource, uniqueId, daysSinceSourceId) {
         this.map = map;
         this.dataSource = dataSource;
@@ -34,12 +42,12 @@ class DaysSinceLayer {
                         'interpolate',
                         ['linear'],
                         ['get', 'dayssince'],
-                        0, 'rgba(255,0,0,0.9)',
-                        5, 'rgba(200,0,50,0.9)',
-                        10, 'rgba(150,0,100,0.9)',
-                        20, 'rgba(100,0,150,0.9)',
-                        50, 'rgba(50,0,200,0.9)',
-                        100, 'rgba(0,0,255,0.9)'
+                        0, '#e73210',
+                        5, '#ff4817',
+                        10, '#ff5c30',
+                        20, '#fc653d',
+                        50, '#ff9f85',
+                        100, '#ff9f85',
                     ]
                 },
                 layout: {

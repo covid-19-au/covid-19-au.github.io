@@ -59,21 +59,34 @@ function getStateGeneralData(dateList, state) {
   for (let i = 0; i < dateList.length; i++) {
     let tempData = stateData[dateList[i]][state];
     generalData["confirmed"].push(tempData[0]);
-    if (tempData.length !== 1) {
-      // when only confirmed data available
+    if (tempData.length === 1) {
+      generalData["death"].push(0);
+      generalData["recovered"].push(0);
+      generalData["tested"].push(0);
+      generalData["active"].push(0);
+      generalData["inHospital"].push(0);
+      generalData["icu"].push(0);
+    } else if (tempData.length === 4) {
       generalData["death"].push(tempData[1]);
       generalData["recovered"].push(tempData[2]);
-      generalData["active"].push(tempData[0] - tempData[1] - tempData[2]);
       generalData["tested"].push(tempData[3]);
+      generalData["active"].push(tempData[0] - tempData[1] - tempData[2]);
+      generalData["inHospital"].push(0);
+      generalData["icu"].push(0);
+    } else if (tempData.length === 6) {
+      generalData["death"].push(tempData[1]);
+      generalData["recovered"].push(tempData[2]);
+      generalData["tested"].push(tempData[3]);
+      generalData["active"].push(tempData[0] - tempData[1] - tempData[2]);
       generalData["inHospital"].push(tempData[4]);
       generalData["icu"].push(tempData[5]);
     } else {
-      generalData["death"].push(0);
-      generalData["recovered"].push(0);
-      generalData["active"].push(0);
-      generalData["tested"].push(0);
-      generalData["inHospital"].push(0);
-      generalData["icu"].push(0);
+      generalData["death"].push(tempData[1]);
+      generalData["recovered"].push(tempData[2]);
+      generalData["tested"].push(tempData[3]);
+      generalData["active"].push(tempData[4]);
+      generalData["inHospital"].push(tempData[5]);
+      generalData["icu"].push(tempData[6]);
     }
   }
   return generalData;
