@@ -1042,5 +1042,23 @@
     "dateDeparture": "",
     "dateArrival": "12-07-20",
     "closeContactRow": "14, 15, 16, 17, 18, 19, 20, 21, 22"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "​GA712",
+    "airline": "Garuda Airways​",
+    "path": "​Jakarta to Sydney",
+    "dateDeparture": "21-07-20​",
+    "dateArrival": "22-07-20​",
+    "closeContactRow": "​19, 20, 21, 22, 23"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "​JQ506",
+    "airline": "​Jetstar​",
+    "path": "​​​Melbourne to Sydney",
+    "dateDeparture": "25-07-20​​",
+    "dateArrival": "25-07-20​",
+    "closeContactRow": "​10, 11, 12, 13, 14"
   }
 ]
