@@ -1,6 +1,14 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-20/tasmania-new-coronavirus-case-woman-returning-from-vic/12473222",
+            "title": "New Tasmanian coronavirus case confirmed as young woman returning from Victoria",
+            "source": "ABCNews",
+            "date": "20 July 2020",
+            "time": "18:50",
+            "summary": "Tasmania has recorded its first coronavirus cases in over 2 months. Before this, the state had recorded no active cases as of June 12th. The new case is a person that is currently in hotel quarantince since returning to Tasmania from Victoria. Tasmania Premier, Peter Gutwein has said that there were about 600 people in hotel quarantine in the state, and a further 1,000 in home quarantine."
+        },
+        {
             "link": "https://www.sbs.com.au/news/face-masks-will-soon-be-mandatory-in-melbourne-here-s-what-you-need-to-know",
             "title": "Face masks will soon be mandatory in Melbourne. Here's what you need to know",
             "source": "SBSNews",
