@@ -135,6 +135,8 @@ class TimeSeriesDataSource extends DataSourceBase {
     }
 
     __getCaseNumber(region, ageRange, maxDate) {
+        maxDate = maxDate || ConfirmedMapFns.getToday();
+
         // Return only the latest value
         if (this.schema === 'statewide' && !ageRange && stateCaseDataTypes.has(this.subHeader)) {
             let n = getFromStateCaseData(this.stateName, this.subHeader);
@@ -221,6 +223,8 @@ class TimeSeriesDataSource extends DataSourceBase {
     }
 
     getCaseNumberTimeSeries(region, ageRange, maxDate) {
+        maxDate = maxDate || ConfirmedMapFns.getToday();
+
         var r = [];
 
         if (this.schema === 'statewide' && !ageRange && stateCaseDataTypes.has(this.subHeader)) {

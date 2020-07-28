@@ -125,6 +125,7 @@ class MbMap extends React.Component {
             zIndex: 10,
             outline: "none",
             textTransform: "none",
+            flexGrow: 1,
         };
         const inactiveStyles = {
             color: "grey",
@@ -134,6 +135,7 @@ class MbMap extends React.Component {
             //padding: "0px 5px",
             outline: "none",
             textTransform: "none",
+            flexGrow: 1,
         };
 
         return (
@@ -167,7 +169,7 @@ class MbMap extends React.Component {
                                     marginLeft: "3px",
                                 }}
                             >
-                                Markers
+                                Select Indicator <span style={{color: "gray"}}>⇊</span>
                             </div>
                             <select ref={this.markersSelect} style={{ width: "100%" }}>
                                 <optgroup label="Basic Numbers">
@@ -206,12 +208,17 @@ class MbMap extends React.Component {
                         <div>
               <span
                   className="key"
-                  style={{ alignSelf: "flex-end", marginBottom: "5px" }}
+                  style={{
+                      alignSelf: "flex-end",
+                      marginBottom: "5px",
+                      display: "block"
+                  }}
               >
                 <ButtonGroup
                     ref={this.markersButtonGroup}
                     size="small"
                     aria-label="small outlined button group"
+                    style={{ display: "flex" }}
                 >
                   <Button
                       style={
@@ -259,22 +266,43 @@ class MbMap extends React.Component {
 
                         <div
                             ref={this.underlayBGCont}
-                            className="key"
                             style={{ marginBottom: "8px" }}
                         >
-                            <div
-                                style={{
-                                    fontWeight: "bold",
-                                    fontSize: "0.8em",
-                                    marginLeft: "3px",
-                                }}
-                            >
-                                Underlay
+
+                            {/* Hide the underlay controls by default with an "advanced" link */}
+                            <div ref={el => {this.underlayShowDiv = el}}
+                                  style={{ textAlign: "right", marginBottom: "-3px", marginTop: "-3px" }}>
+                                <span
+                                    onClick={() => {
+                                        this.underlayShowDiv.style.display = 'none';
+                                        this.underlayBGContCont.style.display = 'block';
+                                    }}
+                                    style={{
+                                        color: "blue",
+                                        cursor: "pointer",
+                                        textDecoration: "underline",
+                                        fontSize: "0.9em",
+                                        opacity: 0.6,
+                                    }}>advanced ▾</span>
                             </div>
-                            <select
-                                ref={this.otherStatsSelect}
-                                style={{ width: "100%" }}
-                            ></select>
+
+                            <div ref={el => {this.underlayBGContCont = el}}
+                                 style={{ display: "none" }}>
+
+                                <div
+                                    style={{
+                                        fontWeight: "bold",
+                                        fontSize: "0.8em",
+                                        marginLeft: "3px",
+                                    }}
+                                >
+                                    Underlay
+                                </div>
+                                <select
+                                    ref={this.otherStatsSelect}
+                                    style={{ width: "100%" }}
+                                ></select>
+                            </div>
                         </div>
                     </div>
 
@@ -334,6 +362,15 @@ class MbMap extends React.Component {
                 }}
             >
               Zoom in for regional numbers. Click regions for history over time.
+            </li>
+            <li
+                style={{
+                    color: "#555",
+                    marginBottom: "2px",
+                    paddingBottom: "0px",
+                }}
+            >
+              The time slider selects the current day. The "7/14/21 days" controls show the current day's value minus the value that many days ago.
             </li>
             <li style={{ color: "#555" }}>
               <div style={{ color: "#777", fontSize: "0.9em" }}>
@@ -763,17 +800,6 @@ class MbMap extends React.Component {
             stateWideMaxMin["max"] *= 4;
         }
 
-        if (
-            this.state._markers === "status_active" ||
-            this.state._markers === "status_icu" ||
-            this.state._markers === "status_hospitalized" ||
-            (this.state._markers &&
-                this.state._markers.toUpperCase() === this.state._markers)
-        ) {
-            this.markersButtonGroup.current.parentNode.style.display = "none";
-        }
-        this.accuracyWarning.current.style.display = "block";
-
         this.statesAndTerritories.forEach((stateName) => {
             let absDataSource = this.absStatsInsts[this.state._underlay],
                 casesDataSource = this.getCaseDataInst(stateName);
@@ -796,7 +822,7 @@ class MbMap extends React.Component {
 
         // Make sure the map is fully loaded
         // before allowing a new change in tabs
-        this._disableControls();
+        //this._disableControls();
         var enableControlsWhenMapReady = () => {
             if (this.map.loaded()) {
                 this._enableControlsJob = null;
@@ -808,19 +834,7 @@ class MbMap extends React.Component {
         if (this._enableControlsJob != null) {
             clearTimeout(this._enableControlsJob);
         }
-        this._enableControlsJob = setTimeout(enableControlsWhenMapReady, 50);
-    }
-
-    _disableControls() {
-        this.mapContControls.current.style.pointerEvents = "none";
-        this.mapContainer.style.pointerEvents = "none";
-        this.dsMapContainer.style.pointerEvents = "none";
-    }
-
-    _enableControls() {
-        this.mapContControls.current.style.pointerEvents = "all";
-        this.mapContainer.style.pointerEvents = "all";
-        this.dsMapContainer.style.pointerEvents = "all";
+        //this._enableControlsJob = setTimeout(enableControlsWhenMapReady, 50);
     }
 
     _resetMode(prevState) {
@@ -837,15 +851,6 @@ class MbMap extends React.Component {
             this.map.resize();
             return;
         }
-
-        if (
-            prevState._markers === "status_active" ||
-            prevState._markers === "status_icu" ||
-            prevState._markers === "status_hospitalized"
-        ) {
-            this.markersButtonGroup.current.parentNode.style.display = "block";
-        }
-        //this.accuracyWarning.current.style.display = 'none';
 
         this.statesAndTerritories.forEach((stateName) => {
             var absDataSource = this.absStatsInsts[prevState._underlay],

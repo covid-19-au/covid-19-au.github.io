@@ -67,8 +67,6 @@
 }
 
 div.map-cont-controls {
-
-    pointer-events: none;
     white-space: nowrap;
 }
 
@@ -88,7 +86,8 @@ div.map-cont-controls {
         z-index: 500;
         width: 30%;
         min-width: 220px;
-        opacity: 0.9;
+        max-width: 240px;
+        /*opacity: 0.9;*/
         border-radius: 6px;
         box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
     }
