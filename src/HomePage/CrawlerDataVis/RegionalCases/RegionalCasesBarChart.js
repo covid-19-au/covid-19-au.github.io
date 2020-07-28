@@ -23,19 +23,13 @@ SOFTWARE.
  */
 
 import React from 'react';
-//import Plot from 'react-plotly.js';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-//import Radio from '@material-ui/core/Radio';
-//import RadioGroup from '@material-ui/core/RadioGroup';
-//import FormControlLabel from '@material-ui/core/FormControlLabel';
 import getLastDaysRangeOfSample from "../getLastDaysRangeOfSample";
 
-// Get minimized plotly
-import createPlotlyComponent from 'react-plotly.js/factory';
-import Plotly from 'plotly.js-dist-min';
-const Plot = createPlotlyComponent(Plotly);
+import ReactEcharts from "echarts-for-react";
+import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "../eChartsFns";
 
 
 /**
@@ -49,27 +43,18 @@ class RegionalCasesBarChart extends React.Component {
         this.state = {
             mode: 'total'
         };
+        this.__mode = 'total';
     }
 
+    /*******************************************************************
+     * HTML Rendering
+     *******************************************************************/
+
     render() {
-        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-
-        for (let iData of this.state.data||[]) {
-            if (this.state.mode === 'percentiles') {
-                iData['groupnorm'] = 'percent';
-                delete iData['type']; // Percent doesn't work for bar graphs??
-            } else {
-                delete iData['groupnorm'];
-                if (vw < 800 && false) {
-                    // Don't use bar graphs if screen
-                    // width not enough to separate values
-                    delete iData['type'];
-                } else {
-                    iData['type'] = 'bar';
-                }
-            }
+        // xAxis range: getLastDaysRangeOfSample(this.state.data, 21)
+        if (!this.state.option) {
+            return null;
         }
-
         return (
             <div>
                 <Paper>
@@ -86,95 +71,170 @@ class RegionalCasesBarChart extends React.Component {
                     </Tabs>
                 </Paper>
 
-                <Plot
-                    data={this.state.data||[]}
-                    layout={{
-                        autosize: true,
-                        margin: {
-                            l: 40,
-                            r: 10,
-                            b: 50,
-                            t: 10,
-                            pad: 0
-                        },
-                        barmode: 'stack',
-                        legend: {
-                            x: 0,
-                            //xanchor: 'right',
-                            y: 1.0,
-                            yanchor: 'bottom',
-                            orientation: 'h',
-                            font: {
-                                size: 12
-                            }
-                        },
-                        xaxis: {
-                            showgrid: true,
-                            gridcolor: '#ddd',
-                            //tickangle: 45,
-                            range: getLastDaysRangeOfSample(this.state.data, 21)
-                        },
-                        yaxis: {
-                            showgrid: true,
-                            gridcolor: '#999',
-                            //autorange: 'reversed'
-                        },
-                    }}
-                    config = {{
-                        displayModeBar: false,
-                        responsive: true
-                    }}
+                <ReactEcharts
+                    ref={el => {this.reactEChart = el}}
+                    option={this.state.option}
                     style={{
-                        width: '100%',
-                        height: '50vh'
+                        height: "50vh",
+                        marginTop: '25px'
                     }}
                 />
             </div>
         );
     }
 
+    /*******************************************************************
+     * Re-render methods
+     *******************************************************************/
+
     setMode(mode) {
-        this.setState({
-            mode: mode
-        });
+        this.__mode = mode;
+        this.__updateSeriesData()
     }
 
-    setCasesInst(casesInst, numDays) {
+    setCasesInst(casesInst) {
         this.__casesInst = casesInst;
+        this.__updateSeriesData()
+    }
 
-        let data = [];
+    /*******************************************************************
+     * Get chart data
+     *******************************************************************/
 
-        for (let regionType of casesInst.getRegionChildren()) {
-            let xVals = [],
-                yVals = [];
+    __updateSeriesData() {
+        let series = [],
+            allDates = new Set();
 
-            for (let timeSeriesItem of casesInst.getCaseNumberTimeSeries(regionType, null)||[]) {
-                xVals.push(timeSeriesItem.getDateType());
-                yVals.push(timeSeriesItem.getValue());
+        for (let regionType of this.__casesInst.getRegionChildren()) {
+            let caseNumberTimeSeries = this.__casesInst.getCaseNumberTimeSeries(
+                regionType, null
+            ) || [];
+            caseNumberTimeSeries.sort((x, y) => {
+                return x.getDateType().getTime()-y.getDateType().getTime()
+            });
+
+            let data = [];
+            for (let timeSeriesItem of caseNumberTimeSeries) {
+                data.push([
+                    timeSeriesItem.getDateType(),
+                    (timeSeriesItem.getValue() >= 0) ? timeSeriesItem.getValue() : 0
+                ]);
+                allDates.add(timeSeriesItem.getDateType());
             }
-            if (!yVals.length) {
+
+            // Only add if there are samples available for this region
+            if (!data.length) {
                 continue;
             }
 
-            data.push([
-                yVals[yVals.length-1],
-                {
-                    name: regionType.getLocalized(),
-                    type: 'bar',
-                    stackgroup: 'one',
-                    x: xVals,
-                    y: yVals,
-                    //orientation: 'h',
-                    //groupnorm: 'percent'
-                }
-            ]);
-            // iData['groupnorm'] = 'percent';
-            //                 delete iData['type'];
+            series.push({
+                name: regionType.getLocalized(),
+                type: this.__mode === 'percentiles' ? 'line' : 'bar',
+                areaStyle: this.__mode === 'percentiles' ? {} : null,
+                stack: 'mystack',
+                data: data,
+                symbol: 'roundRect',
+                step: true,
+            });
         }
-        data.sort((a, b) => a[0] - b[0]);
+
+        // Limit to just the 6 regions with most cases
+        series.sort((a, b) => a.data[0][1] - b.data[0][1])
+              .reverse();
+        let leftOver = series.slice(5);
+        series = series.slice(0, 5);
+
+        // Merge the other regions into a single "other" category
+        let otherTotals = {},
+            otherOut = [];
+        for (let seriesItem of leftOver) {
+            for (let [dateType, value] of seriesItem.data) {
+                if (!(dateType in otherTotals)) {
+                    otherTotals[dateType] = [dateType, 0]
+                }
+                otherTotals[dateType][1] += value;
+            }
+        }
+        for (let k in otherTotals) {
+            otherOut.push(otherTotals[k]);
+        }
+        series.push({
+            name: 'Other',
+            type: this.__mode === 'percentiles' ? 'line' : 'bar',
+            areaStyle: this.__mode === 'percentiles' ? {} : null,
+            stack: 'mystack',
+            data: otherOut,
+            symbol: 'roundRect',
+            step: true,
+        });
+
+        // Sort so that highest values are on the bottom
+        for (let seriesItem of series) {
+            seriesItem.data.sort((a, b) => a[0].getTime() - b[0].getTime());
+        }
+        series.sort(
+            (a, b) => b.data[b.data.length-1][1] - a.data[a.data.length-1][1]
+        );
+
+        if (this.__mode === 'percentiles') {
+            toPercentiles(series);
+        }
 
         this.setState({
-            data: data.map(a => a[1]).reverse().slice(0, 10)
+            mode: this.__mode,
+            option: {
+                legend: {
+
+                },
+                animationDuration: 200,
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        label: {
+                            backgroundColor: '#6a7985'
+                        }
+                    }
+                },
+                grid: {
+                    top: 50,
+                    left: '3%',
+                    right: '4%',
+                    bottom: 50,
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'time',
+                    boundaryGap: false,
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        formatter: this.__mode === 'percentiles' ? "{value}%" : '{value}'
+                    },
+                    max: this.__mode === 'percentiles' ? 100 : getMaximumCombinedValue(series)
+                },
+                dataZoom: [
+                    {
+                        type: 'slider',
+                        realtime: true,
+                        start: allDates.size*100-28,
+                        end: allDates.size*100,
+                        bottom: 10,
+                        height: 20,
+                        handleIcon: getBarHandleIcon(),
+                        handleSize: '120%'
+                    },
+                    {
+                        type: 'inside',
+                        start: allDates.size*100-28,
+                        end: allDates.size*100,
+                        bottom: 0,
+                        height: 20
+                    }
+                ],
+                series: series
+            }
         });
     }
 }

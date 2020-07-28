@@ -74,6 +74,17 @@ class TimeSeriesItems extends Array {
         this.ageRange = ageRange;
     }
 
+    /**
+     *
+     */
+    clone() {
+        return new TimeSeriesItems(
+            this.dataSource, this.regionType,
+            this.dateRangeType, this.ageRange,
+            this
+        );
+    }
+
     /********************************************************************
      * Get information about the data source etc
      ********************************************************************/
@@ -234,6 +245,38 @@ class TimeSeriesItems extends Array {
         return new TimeSeriesItems(
             this.dataSource, this.regionType, dateRangeType, this.ageRange, r
         );
+    }
+
+    /**
+     *
+     */
+    missingDaysFilledIn(dateRangeType, defaultValue) {
+        dateRangeType = dateRangeType || this.dateRangeType;
+
+        let out = new TimeSeriesItems(
+            this.dataSource, this.regionType,
+            this.dateRangeType, this.ageRange,
+            []
+        );
+
+        let map = {};
+        for (let [x, y] of this) {
+            map[x] = y;
+        }
+
+        // Make sure every date has a datapoint
+        // (otherwise eCharts rendering goes haywire)
+        let curValue = defaultValue;
+        for (let dateType of dateRangeType.toArrayOfDateTypes()) {
+            if (dateType in map) { // WARNING!!!
+                curValue = map[dateType];
+            }
+            out.push([dateType, curValue])
+        }
+
+        // Sort by oldest first
+        out.sort((a, b) => {return b[0] - a[0]});
+        return out;
     }
 
     /**

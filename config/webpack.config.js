@@ -278,6 +278,7 @@ module.exports = function(webpackEnv) {
                     },
                 }),
             ],
+
             // Automatically split vendor and commons
             // https://twitter.com/wSokra/status/969633336732905474
             // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
@@ -296,12 +297,18 @@ module.exports = function(webpackEnv) {
                     }
                 }
             },
+
             // Keep the runtime chunk separated to enable long term caching
             // https://twitter.com/wSokra/status/969679223278505985
             // https://github.com/facebook/create-react-app/issues/5358
             runtimeChunk: {
                 name: entrypoint => `runtime-${entrypoint.name}`,
             },
+
+            // Fix for https://github.com/webpack/webpack/issues/5429
+            //concatenateModules: false,
+            //providedExports: false,
+            //usedExports: false
         },
         resolve: {
             // This allows you to set a fallback for where Webpack should look for modules.
@@ -701,14 +708,14 @@ module.exports = function(webpackEnv) {
             }),
             process.env.ANALYZE && new BundleAnalyzerPlugin(),
 
-            new CompressionPlugin({
+            isEnvProduction && new CompressionPlugin({
                 filename: '[path].gz[query]',
                 algorithm: 'gzip',
                 test: /\.js$|\.css$|\.html$|\.json$/,
                 threshold: 10240,
                 minRatio: 0.8,
             }),
-            new CompressionPlugin({
+            isEnvProduction && new CompressionPlugin({
                 filename: '[path].br[query]',
                 algorithm: 'brotliCompress',
                 test: /\.(js|css|html|svg|json)$/,

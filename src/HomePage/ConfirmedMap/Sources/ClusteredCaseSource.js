@@ -111,7 +111,7 @@ class ClusteredCaseSource extends MapBoxSource {
         var zoomMap = {
             // I have no idea if these are right...
             // There will be less circles with higher numbers
-            0: 20,
+            0: 45,
             1: 12,
             2: 6,
             3: 3.5,

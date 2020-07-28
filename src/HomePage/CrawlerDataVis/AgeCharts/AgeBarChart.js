@@ -23,16 +23,11 @@ SOFTWARE.
  */
 
 import React from 'react';
-//import Plot from 'react-plotly.js';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-import getLastDaysRangeOfSample from "../getLastDaysRangeOfSample";
-
-// Get minimized plotly
-import createPlotlyComponent from 'react-plotly.js/factory';
-import Plotly from 'plotly.js-dist-min';
-const Plot = createPlotlyComponent(Plotly);
+import ReactEcharts from "echarts-for-react";
+import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "../eChartsFns";
 
 
 /**
@@ -44,27 +39,19 @@ class AgeBarChart extends React.Component {
     constructor() {
         super();
         this.state = {
-            mode: 'total'
+            mode: 'total',
+            allDates: []
         };
+        this.__mode = 'total';
     }
 
-    render() {
-        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    /*******************************************************************
+     * HTML Rendering
+     *******************************************************************/
 
-        for (let iData of this.state.data||[]) {
-            if (this.state.mode === 'percentiles') {
-                iData['groupnorm'] = 'percent';
-                delete iData['type']; // Percent doesn't work for bar graphs??
-            } else {
-                delete iData['groupnorm'];
-                if (vw < 800 && false) {
-                    // Don't use bar graphs if screen
-                    // width not enough to separate values
-                    delete iData['type'];
-                } else {
-                    iData['type'] = 'bar';
-                }
-            }
+    render() {
+        if (!this.state.option) {
+            return null;
         }
 
         return (
@@ -83,86 +70,141 @@ class AgeBarChart extends React.Component {
                     </Tabs>
                 </Paper>
 
-                <Plot
-                    data={this.state.data||[]}
-                    layout={{
-                        autosize: true,
-                        margin: {
-                            l: 40,
-                            r: 10,
-                            b: 50,
-                            t: 10,
-                            pad: 0
-                        },
-                        barmode: 'stack',
-                        legend: {
-                            x: 0,
-                            //xanchor: 'right',
-                            y: 1.0,
-                            yanchor: 'bottom',
-                            orientation: 'h'
-                        },
-                        xaxis: {
-                            showgrid: true,
-                            gridcolor: '#ddd',
-                            tickangle: 45,
-                            range: getLastDaysRangeOfSample(this.state.data, 21)
-                        },
-                        yaxis: {
-                            showgrid: true,
-                            gridcolor: '#999'
-                        },
-                    }}
-                    config = {{
-                        displayModeBar: false,
-                        responsive: true
-                    }}
+                <ReactEcharts
+                    ref={el => {this.reactEChart = el}}
+                    option={this.state.option}
                     style={{
-                        height: '50vh',
-                        width: '100%'
+                        height: "50vh",
+                        marginTop: '25px'
                     }}
                 />
             </div>
         );
     }
 
+    /*******************************************************************
+     * Re-render methods
+     *******************************************************************/
+
     setMode(mode) {
-        this.setState({
-            mode: mode
-        });
+        this.__mode = mode;
+        this.__updateSeriesData()
     }
 
     setCasesInst(casesData, regionType) {
-        let xVals = {},
-            yVals = {},
-            data = [];
+        this.__casesData = casesData;
+        this.__regionType = regionType;
+        this.__updateSeriesData()
+    }
 
-        for (let ageRange of casesData.getAgeRanges(regionType)) {
-            xVals[ageRange] = [];
-            yVals[ageRange] = [];
+    /*******************************************************************
+     * Get chart data
+     *******************************************************************/
 
-            let caseNumberTimeSeries = casesData.getCaseNumberTimeSeries(regionType, ageRange);
+    __updateSeriesData() {
+        if (!this.__casesData) {
+            return;
+        }
+
+        let data = {},
+            series = [],
+            allDates = new Set();
+
+        for (let ageRange of this.__casesData.getAgeRanges(this.__regionType)) {
+            data[ageRange] = [];
+
+            let caseNumberTimeSeries = this.__casesData.getCaseNumberTimeSeries(
+                this.__regionType, ageRange
+            );
             if (caseNumberTimeSeries) {
                 caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals().getDayAverage(7);
             } else {
                 caseNumberTimeSeries = [];
             }
 
+            caseNumberTimeSeries.sort((x, y) => {
+                return x.getDateType()-y.getDateType()
+            });
+
             for (let timeSeriesItem of caseNumberTimeSeries) {
-                xVals[ageRange].push(timeSeriesItem.getDateType());
-                yVals[ageRange].push((timeSeriesItem.getValue() >= 0) ? timeSeriesItem.getValue() : 0); // NOTE ME!!! ==========
+                allDates.add(timeSeriesItem.getDateType());
+
+                data[ageRange].push([
+                    timeSeriesItem.getDateType(),
+                    (timeSeriesItem.getValue() >= 0) ? timeSeriesItem.getValue() : 0
+                ]);
             }
 
-            data.push({
+            series.push({
                 name: ageRange,
-                stackgroup: 'one',
-                x: xVals[ageRange],
-                y: yVals[ageRange]
+                type: this.__mode === 'percentiles' ? 'line' : 'bar',
+                areaStyle: this.__mode === 'percentiles' ? {} : null,
+                stack: 'one',
+                data: data[ageRange],
+                symbol: 'roundRect',
+                step: false,
             });
         }
 
+        if (this.__mode === 'percentiles') {
+            toPercentiles(series);
+        }
+
         this.setState({
-            data: data
+            mode: this.__mode,
+            option: {
+                legend: {
+
+                },
+                animationDuration: 200,
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        label: {
+                            backgroundColor: '#6a7985'
+                        }
+                    }
+                },
+                grid: {
+                    top: 50,
+                    left: '3%',
+                    right: '4%',
+                    bottom: 50,
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'time',
+                    boundaryGap: false
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        formatter: this.__mode === 'percentiles' ? "{value}%" : '{value}'
+                    },
+                    max: this.__mode === 'percentiles' ? 100 : getMaximumCombinedValue(series)
+                },
+                dataZoom: [
+                    {
+                        type: 'slider',
+                        realtime: true,
+                        start: allDates.size*100-28,
+                        end: allDates.size*100,
+                        bottom: 10,
+                        height: 20,
+                        handleIcon: getBarHandleIcon(),
+                        handleSize: '120%'
+                    },
+                    {
+                        type: 'inside',
+                        start: allDates.size*100-28,
+                        end: allDates.size*100,
+                        bottom: 0,
+                        height: 20
+                    }
+                ],
+                series: series
+            }
         });
     }
 }

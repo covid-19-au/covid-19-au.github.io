@@ -65,7 +65,7 @@ class CasesData {
               as otherwise the data will be a lot larger!
      * @param updatedDate
      */
-    constructor(casesData, regionsDateIds,
+    constructor(casesData, regionsDateIds, subHeaders,
                 dataType, updatedDate,
                 regionSchema, regionParent) {
 
@@ -78,7 +78,7 @@ class CasesData {
         this.regionSchema = regionSchema;
         this.regionParent = regionParent;
 
-        this.subHeaderIndex = casesData['sub_headers'].indexOf(dataType);
+        this.subHeaderIndex = subHeaders.indexOf(dataType);
         this.data = casesData['data'];
 
         this.getCaseNumber = Fns.regionFnCached(this.getCaseNumber, this);

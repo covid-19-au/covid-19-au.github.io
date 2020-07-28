@@ -23,8 +23,10 @@ SOFTWARE.
  */
 
 import mapboxgl from "mapbox-gl";
-import CanvasJS from "../../../../assets/canvasjs.min";
 import RegionType from "../../../CrawlerDataTypes/RegionType";
+import ReactEcharts from "echarts-for-react";
+import React from "react";
+import ReactDOM from "react-dom";
 
 
 class CasesPopup {
@@ -181,30 +183,67 @@ class CasesPopup {
             regionSchema = regionType.getRegionSchema();
 
         popup.setHTML(
-            `${regionLabel} (${regionSchema}${regionChild !== regionLabel ? ' '+regionChild : ''})` +
-            '<br/>Cases: ' + caseInfo.getValue() +
-            '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo.getDateType().prettified() +
-            '<div id="chartContainer" style="width: 200px; min-height: 60px; height: 13vh;"></div>'
+            `<div style="width: 200px">` +
+                `${regionLabel} (${regionSchema}${regionChild !== regionLabel ? ' '+regionChild : ''})` +
+                '<br/>Cases: ' + caseInfo.getValue() +
+                '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo.getDateType().prettified() +
+                '<div id="chartContainer" style="width: 200px; min-height: 60px; height: 13vh;"></div>' +
+            `</div>`
         );
 
         popup.setLngLat(lngLat);
         popup.addTo(this.map);
 
-        var chart = new CanvasJS.Chart("chartContainer", {
-            animationEnabled: false,
-            //animationDuration: 200,
-            theme: "light2",
-            axisX: {
-                valueFormatString: "D/M",
-                gridThickness: 1
-            },
-            data: [{
-                type: "line",
-                dataPoints: timeSeries.getCanvasJSData()
-            }]
-        });
-        chart.render();
-
+        ReactDOM.render(
+            <ReactEcharts
+                ref={el => {this.reactEChart = el}}
+                option={{
+                    animation: true,
+                    animationDuration: 4000,
+                    xAxis: {
+                        type: 'time',
+                        axisLabel: {
+                            formatter: function(value) {
+                                value = new Date(value);
+                                return value.getDay() + "/" +value.getMonth();
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            show: false
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            //type: 'cross',
+                            label: {
+                                backgroundColor: '#6a7985'
+                            }
+                        }
+                    },
+                    grid: {
+                        left: 15,
+                        top: 15,
+                        right: 8,
+                        bottom: 20
+                    },
+                    series: [{
+                        data: timeSeries,
+                        type: 'line',
+                        symbol: 'none',
+                    }]
+                }}
+                style={{
+                    //width: "200px",
+                    minHeight: "60px",
+                    height: "13vh"
+                }}
+            />,
+            document.getElementById('chartContainer')
+        );
         document.getElementById('chartContainer').id = '';
     }
 }

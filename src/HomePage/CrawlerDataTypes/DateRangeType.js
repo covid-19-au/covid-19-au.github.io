@@ -22,6 +22,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+import DateType from "./DateType";
+
+let DAY_IN_MILLISECONDS = 86400000;
+
+
 class DateRangeType {
     /**
      * A date range with from/to dates, represented by two DateType's
@@ -78,6 +83,57 @@ class DateRangeType {
     }
 
     /********************************************************************
+     * Miscellaneous convenience Fns
+     ********************************************************************/
+
+    /**
+     * Get an array of DateType's which this
+     * date range pertains to (inclusive)
+     *
+     * @returns {*}
+     */
+    toArrayOfDateTypes() {
+        let daysOffsetInMs = 0,
+            r = [];
+
+        while (true) {
+            let iDate = new DateType(this.fromDate+daysOffsetInMs);
+            if (iDate > this.toDate) {
+                break;
+            }
+            r.push(iDate);
+            daysOffsetInMs += DAY_IN_MILLISECONDS;
+        }
+        return r;
+    }
+
+    /**
+     * Expand two date ranges together to include the complete
+     * time range encompassed by both DateRangeType's
+     *
+     * @param otherDateRangeType
+     * @returns {DateRangeType}
+     */
+    addedTo(otherDateRangeType) {
+        let fromDate,
+            toDate;
+
+        if (otherDateRangeType.getFromDate() < this.getFromDate()) {
+            fromDate = otherDateRangeType.getFromDate();
+        } else {
+            fromDate = this.getFromDate();
+        }
+
+        if (otherDateRangeType.getToDate() > this.getFromDate()) {
+            toDate = otherDateRangeType.getToDate();
+        } else {
+            toDate = this.getToDate();
+        }
+
+        return new DateRangeType(fromDate, toDate);
+    }
+
+    /********************************************************************
      * Date queries
      ********************************************************************/
 
@@ -87,7 +143,7 @@ class DateRangeType {
      * @returns {number}
      */
     getDifferenceInDays() {
-        return (this.toDate.getTime()-this.fromDate.getTime()) / 86400000;
+        return (this.toDate.getTime()-this.fromDate.getTime()) / DAY_IN_MILLISECONDS;
     }
 
     /**

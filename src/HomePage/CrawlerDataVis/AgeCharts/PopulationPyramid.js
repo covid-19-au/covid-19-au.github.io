@@ -23,131 +23,122 @@ SOFTWARE.
  */
 
 import React from 'react';
-//import Plot from 'react-plotly.js';
-import getLastDaysRangeOfSample from "../getLastDaysRangeOfSample";
-
-// Get minimized plotly
-import createPlotlyComponent from 'react-plotly.js/factory';
-import Plotly from 'plotly.js-dist-min';
-const Plot = createPlotlyComponent(Plotly);
+import ReactEcharts from "echarts-for-react";
 
 
 class PopulationPyramid extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {};
     }
 
     render() {
+        if (!this.state.option) {
+            return null;
+        }
+
         return (
-            <Plot
-                data={this.state.data||[]}
-                layout={{
-                    autosize: true,
-                    margin: {
-                        l: 60,
-                        r: 10,
-                        b: 50,
-                        t: 10,
-                        pad: 0
-                    },
-                    showlegend: true,
-                    legend: {
-                        x: 1.0,
-                        xanchor: 'right',
-                        y: 1.0,
-                        yanchor: 'bottom',
-                        orientation: 'h'
-                    },
-                    xaxis: {
-                        title: {
-                            text: 'Number'
-                        },
-                        showgrid: true,
-                        gridcolor: '#999'
-                    },
-                    yaxis: {
-                        title: {
-                            text: 'Age'
-                        },
-                        type: 'category'
-                    },
-                    bargap: 0.1,
-                    barmode: 'relative'
-                }}
-                config = {{
-                    displayModeBar: false,
-                    responsive: true
-                }}
-                style={{
-                    height: '50vh',
-                    width: '100%'
-                }}
-            />
+            <div>
+                <ReactEcharts
+                    ref={el => {this.reactEChart = el}}
+                    option={this.state.option}
+                    style={{
+                        height: "50vh",
+                        marginTop: '25px'
+                    }}
+                />
+            </div>
         );
     }
 
     setCasesInst(maleCasesInst, femaleCasesInst, regionType) {
-        let maleXVals = [],
-            maleYVals = [],
-            femaleXVals = [],
-            femaleYVals = [],
-            data = [];
+        let maleVals = [],
+            femaleVals = [],
+            ageRanges = new Set();
 
+        // First get possible age ranges
         for (let ageRange of maleCasesInst.getAgeRanges(regionType)) {
-            maleYVals.push(ageRange);
-            maleXVals.push(maleCasesInst.getCaseNumber(regionType, ageRange).getValue());
+            ageRanges.add(ageRange);
+        }
+        for (let ageRange of femaleCasesInst.getAgeRanges(regionType)) {
+            ageRanges.add(ageRange);
+        }
+        ageRanges = Array.from(ageRanges).sort();
+
+        // Now add the values
+        for (let ageRange of ageRanges) {
+            maleVals.push(
+                maleCasesInst.getCaseNumber(regionType, ageRange).getValue()
+            );
         }
 
-        data.push({
-            meta: {
-                columnNames: {
-                    x: 'Men, x',
-                    y: 'Men, y; Women, y'
-                }
-            },
-            name: 'Men',
-            type: 'bar',
-            x: maleXVals,
-            y: maleYVals,
-            marker: {
-                color: 'powderblue'
-            },
-            text: maleXVals,
-            hoverinfo: 'x',
-            orientation: 'h'
-        });
-
-        if (femaleCasesInst) {
-            for (let ageRange of femaleCasesInst.getAgeRanges(regionType)) {
-                femaleYVals.push(ageRange);
-                femaleXVals.push(femaleCasesInst.getCaseNumber(regionType, ageRange).getValue());
-            }
-            data.push({
-                meta: {
-                    columnNames: {
-                        x: 'Women, x',
-                        y: 'Men, y; Women, y',
-                        text: 'text'
-                    }
-                },
-                name: 'Women',
-                type: 'bar',
-                x: femaleXVals.map(i => -i),
-                y: femaleYVals,
-                marker: {
-                    color: 'seagreen'
-                },
-                text: femaleXVals,
-                hoverinfo: 'text',
-                orientation: 'h'
-            });
+        for (let ageRange of ageRanges) {
+            femaleVals.push(
+                -femaleCasesInst.getCaseNumber(regionType, ageRange).getValue()
+            );
         }
 
         this.setState({
-            data: data
+            option: {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                animationDuration: 200,
+                legend: {
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'value',
+                        axisLabel: {
+                            formatter: o => Math.abs(o)
+                        },
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'category',
+                        axisTick: {
+                            show: false
+                        },
+                        data: ageRanges
+                    }
+                ],
+                series: [
+                    {
+                        name: 'Female',
+                        type: 'bar',
+                        stack: true,
+                        label: {
+                            show: true,
+                            formatter: o => Math.abs(o.value)
+                        },
+                        data: femaleVals
+                    },
+                    {
+                        name: 'Male',
+                        type: 'bar',
+                        stack: true,
+                        label: {
+                            show: true,
+                            formatter: o => Math.abs(o.value)
+                        },
+                        data: maleVals
+                    },
+                ]
+            }
         });
     }
 }
 
 export default PopulationPyramid;
+
+

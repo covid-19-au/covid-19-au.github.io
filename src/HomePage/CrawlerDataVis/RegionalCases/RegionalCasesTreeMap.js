@@ -23,15 +23,10 @@ SOFTWARE.
  */
 
 import React from 'react';
-//import Plot from 'react-plotly.js';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-
-// Get minimized plotly
-import createPlotlyComponent from 'react-plotly.js/factory';
-import Plotly from 'plotly.js-dist-min';
-const Plot = createPlotlyComponent(Plotly);
+import ReactEcharts from "echarts-for-react";
 
 
 /**
@@ -41,23 +36,22 @@ const Plot = createPlotlyComponent(Plotly);
  * hierarchies
  */
 class RegionalCasesTreeMap extends React.Component {
-    constructor() {
-        super();
-        this.__getData = this.__getData.bind(this);
+    constructor(props) {
+        super(props);
         this.state = {
             mode: 'active'
         };
+        this.__mode = 'active';
     }
 
+    /*******************************************************************
+     * HTML Rendering
+     *******************************************************************/
+
     render() {
-        let data;
-
-        if (this.__totalCasesInst) {
-            data = this.__getData();
-        } else {
-            return '';
+        if (!this.state.option) {
+            return null;
         }
-
         return (
             <div>
                 <Paper>
@@ -75,75 +69,58 @@ class RegionalCasesTreeMap extends React.Component {
                     </Tabs>
                 </Paper>
 
-                <Plot
-                    data={[{
-                        type: 'treemap',
-                        textinfo: "label+value+percent parent+percent",
-                        values: data.values||[],
-                        labels: data.labels||[],
-                        parents: data.parents||[],
-                        //marker: {colorscale: 'Blues'}
-                    }]}
-                    layout={{
-                        autosize: true,
-                        margin: {
-                            l: 10,
-                            r: 10,
-                            b: 10,
-                            t: 0,
-                            pad: 0
-                        },
-                        font: {
-                            size: 16
-                        }
-                    }}
-                    config={{
-                        displayModeBar: false,
-                        //responsive: true
-                    }}
+                <ReactEcharts
+                    ref={el => {this.reactEChart = el}}
+                    option={this.state.option}
                     style={{
-                        width: '100%',
-                        height: '50vh'
+                        height: "50vh",
+                        marginTop: '25px'
                     }}
                 />
             </div>
         );
     }
 
+    /*******************************************************************
+     * Re-render methods
+     *******************************************************************/
+
     setMode(mode) {
-        this.setState({
-            mode: mode
-        });
+        this.__mode = mode;
+        this.__updateData();
     }
 
     setCasesInst(activeCasesInst, newCasesInst, totalCasesInst) {
         this.__activeCasesInst = activeCasesInst;
         this.__newCasesInst = newCasesInst;
         this.__totalCasesInst = totalCasesInst;
-        this.setState({});
+
+        this.__updateData();
     }
 
-    __getData() {
-        let values = [],
-            labels = [],
-            parents = [],
-            numDays = 0,
+    /*******************************************************************
+     * Get chart data
+     *******************************************************************/
+
+    __updateData() {
+        let numDays = 0,
             casesInst;
 
-        if (this.state.mode === 'active' && this.__activeCasesInst) {
+        if (this.__mode === 'active' && this.__activeCasesInst) {
             casesInst = this.__activeCasesInst;
-        } else if (this.state.mode === 'active') {
+        } else if (this.__mode === 'active') {
             // Emulate active with 21 day difference if active data not available
             casesInst = this.__totalCasesInst;
             numDays = 21;
-        } else if (this.state.mode === 'new') {
+        } else if (this.__mode === 'new') {
             casesInst = this.__newCasesInst;
-        } else if (this.state.mode === 'total') {
+        } else if (this.__mode === 'total') {
             casesInst = this.__totalCasesInst;
         } else {
             throw "Shouldn't get here";
         }
 
+        let data = [];
         for (let regionType of casesInst.getRegionChildren()) {
             let timeSeriesItem;
 
@@ -154,17 +131,24 @@ class RegionalCasesTreeMap extends React.Component {
             }
 
             if (timeSeriesItem) {
-                labels.push(regionType.getLocalized());
-                values.push(timeSeriesItem.getValue());
-                parents.push("");
+                data.push({
+                    name: regionType.getLocalized(),
+                    value: timeSeriesItem.getValue(),
+                    children: []
+                });
             }
         }
 
-        return {
-            values: values,
-            labels: labels,
-            parents: parents
-        };
+        this.setState({
+            mode: this.__mode,
+            option: {
+                series: [{
+                    animationDuration: 100,
+                    type: 'treemap',
+                    data: data
+                }]
+            }
+        });
     }
 }
 

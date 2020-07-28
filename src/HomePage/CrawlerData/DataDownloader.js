@@ -199,8 +199,9 @@ class DataDownloader {
                     } else if (geoData[k].getSchemaRegionParent() &&
                                geoData[k].getSchemaRegionParent().indexOf('-') === -1 &&
                                !iso3166WithinView.has(geoData[k].getRegionParent())) {
+
                         // Don't display if not in view!
-                        debug(`Schema region parent not in view multi - ignoring - ${geoData[k].getRegionSchema()}`);
+                        debug(`Schema region parent not in view multi - ignoring - ${geoData[k].getRegionSchema()}->${geoData[k].getRegionParent()}`);
                         continue;
                     }
                     addParents(geoData[k]);
@@ -484,21 +485,24 @@ class DataDownloader {
     _getAdminBounds(adminBounds) {
         var r = {};
 
-        // HACK!
-        adminBounds['au'] = [
-            101.6015, -49.8379,
-            166.2890, 0.8788
-        ];
-
         for (var key in adminBounds) {
             let [lng1, lat1, lng2, lat2] = adminBounds[key];
-            r[key] = new LngLatBounds(lng1, lat1, lng2, lat2);
 
-            if (key === 'au') {
-                // HACK!
-                r[key] = r[key].enlarged(-0.12);
-            }
+            // nums are stored as ints * 10 to allow
+            // for saving space with no decimal place
+            lng1 /= 10.0;
+            lat1 /= 10.0;
+            lng2 /= 10.0;
+            lat2 /= 10.0;
+
+            r[key] = new LngLatBounds(lng1, lat1, lng2, lat2);
         }
+
+        // HACK!
+        r['au'] = new LngLatBounds(
+            101.6015, -49.8379,
+            166.2890, 0.8788
+        ).enlarged(-0.12);
         return r
     }
 
@@ -683,22 +687,20 @@ class DataDownloader {
 
                 import(`../../data/caseData/${fileNames.caseDataFilename}.json`).then((module) => {  // FIXME!!
                     var caseData = module.default['time_series_data'];
-                    for (var iRegionSchema in caseData) {
-                        for (var iRegionParent in caseData[iRegionSchema]) {
-                            for (var iDataType of caseData[iRegionSchema][iRegionParent]['sub_headers']) {
-                                if (!this._caseDataInsts[iDataType]) {
-                                    this._caseDataInsts[iDataType] = {};
-                                }
-                                if (!this._caseDataInsts[iDataType][iRegionSchema]) {
-                                    this._caseDataInsts[iDataType][iRegionSchema] = {};
-                                }
-
-                                this._caseDataInsts[iDataType][iRegionSchema][iRegionParent] = new CasesData(
-                                    caseData[iRegionSchema][iRegionParent], module.default['date_ids'],
-                                    iDataType, module.default['updated_dates'][iRegionSchema][iRegionParent],
-                                    iRegionSchema, iRegionParent
-                                );
+                    for (var iRegionParent in caseData) {
+                        for (var iDataType of module.default['sub_headers']) {
+                            if (!this._caseDataInsts[iDataType]) {
+                                this._caseDataInsts[iDataType] = {};
                             }
+                            if (!this._caseDataInsts[iDataType][regionSchema]) {
+                                this._caseDataInsts[iDataType][regionSchema] = {};
+                            }
+
+                            this._caseDataInsts[iDataType][regionSchema][iRegionParent] = new CasesData(
+                                caseData[iRegionParent], module.default['date_ids'], module.default['sub_headers'],
+                                iDataType, module.default['updated_dates'][regionSchema][iRegionParent],
+                                regionSchema, iRegionParent
+                            );
                         }
                     }
 
@@ -772,7 +774,7 @@ class DataDownloader {
      */
     __fileInCaseData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.caseDataListing.has(fileNames.caseDataFilename+'.json');
+        return this.caseDataListing.has(fileNames.caseDataFilename);
     }
 
     /**
@@ -785,7 +787,7 @@ class DataDownloader {
      */
     __fileInGeoJSONData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.geoJSONDataListing.has(fileNames.geoJSONFilename+'.json');
+        return this.geoJSONDataListing.has(fileNames.geoJSONFilename);
     }
 
     /**
@@ -798,7 +800,7 @@ class DataDownloader {
      */
     __fileInUnderlayData(schemaType, regionParent) {
         var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.underlayDataListing.has(fileNames.underlayDataFilename+'.json');
+        return this.underlayDataListing.has(fileNames.underlayDataFilename);
     }
 
     /**************************************************************************
