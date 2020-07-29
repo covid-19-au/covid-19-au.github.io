@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/live/2020/jul/29/coronavirus-australia-victoria-aged-care-outbreak-melbourne-sydney-nsw-qld-andrews-berejiklian-morrison-latest-updates",
+            "title": "Australian states tighten border restrictions as coronavirus community transmissions grow – as it happened",
+            "source": "TheGuardian",
+            "date": "29 July 2020",
+            "time": "20:00",
+            "summary": "Queensland announced today that its border will be closed to greater Sydney from 1am on Saturday. All aged care homes in Queensland are also closed to visitors for 48 hours."
+        },
+        {
             "link": "https://www.sbs.com.au/news/victoria-escalates-response-to-aged-care-crisis-as-state-records-384-new-coronavirus-cases",
             "title": "Victoria escalates response to aged care crisis as state records 384 new coronavirus cases",
             "source": "SBSNews",
@@ -63,14 +71,6 @@
             "date": "22 July 2020",
             "time": "16:00",
             "summary": "Victoria have broken a record with 484 new coronavirus cases announced. Victorian Premier, Daniel Andrews has said that he is, \"very unhappy and very sad\", aknowledging a report stating that report that nearly nine in 10 people did not isolate between the time they first felt sick and when they went to get a test. After testing, half of these people did not isolate while waiting for their test results. \"Fifty-three per cent of people continuing to do their shopping, continuing to go to work continuing to do all sorts of things,\" he said. \"Unless people who get tested are staying at home and isolating until they get their test results, then we will not see those numbers come down,\" he said before adding that the six week lockdown might be extended."
-        },
-        {
-            "link": "https://www.theguardian.com/business/2020/jul/21/jobkeeper-jobseeker-payment-coronavirus-covid-19-update-changes-recipients",
-            "title": "Jobkeeper and jobseeker payment: what do the changes mean for recipients? ",
-            "source": "TheGuardian",
-            "date": "21 July 2020",
-            "time": "15:12",
-            "summary": "Jobkeeper has now been extended to 28 March 2021. The Jobkeeper rate will change after 27 Septmeber. It is currently at $1500 per employee per fortnight, but after 27 September, employees who ordinarily worked fewer than 20 hours a week will have reduced payments. Jobkeeper is also set to reduce payments over time. The coronavirus supplement for recipients of Jobseeker, will be cut from $550 per fortnight, to $250 per fortnight from 25 September onwards. The supplement will remain in place until 31 December."
         }
     ]
 }
