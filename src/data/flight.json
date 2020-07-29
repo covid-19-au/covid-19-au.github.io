@@ -10,7 +10,7 @@
   },
   {
     "reportState": "ACT",
-    "flightNo": "EK5493/QF816",
+    "flightNo": "EK5493 to QF816",
     "airline": "Emirates",
     "path": "Melbourne to Canberra",
     "dateDeparture": "24-03-20",
@@ -82,7 +82,7 @@
   },
   {
     "reportState": "ACT",
-    "flightNo": "EK412/QF8412",
+    "flightNo": "EK412 to QF8412",
     "airline": "Emirates",
     "path": "Dubai to Melbourne",
     "dateDeparture": "21-03-20",
@@ -91,7 +91,7 @@
   },
   {
     "reportState": "ACT",
-    "flightNo": "QF8406/EK406",
+    "flightNo": "QF8406 to EK406",
     "airline": "Emirates",
     "path": "Dubai to Melbourne",
     "dateDeparture": "21-03-20",
@@ -253,7 +253,7 @@
   },
   {
     "reportState": "ACT",
-    "flightNo": "QF8412/EK412",
+    "flightNo": "QF8412 to EK412",
     "airline": "Emirates",
     "path": "Dubai to Sydney",
     "dateDeparture": "17-03-20",
@@ -1045,20 +1045,74 @@
   },
   {
     "reportState": "NSW",
-    "flightNo": "​GA712",
-    "airline": "Garuda Airways​",
-    "path": "​Jakarta to Sydney",
-    "dateDeparture": "21-07-20​",
-    "dateArrival": "22-07-20​",
-    "closeContactRow": "​19, 20, 21, 22, 23"
+    "flightNo": "JQ506",
+    "airline": "Jetstar",
+    "path": "Melbourne to Sydney",
+    "dateDeparture": "25-07-20",
+    "dateArrival": "25-07-20",
+    "closeContactRow": "10, 11, 12, 13, 14"
   },
   {
     "reportState": "NSW",
-    "flightNo": "​JQ506",
-    "airline": "​Jetstar​",
-    "path": "​​​Melbourne to Sydney",
-    "dateDeparture": "25-07-20​​",
-    "dateArrival": "25-07-20​",
-    "closeContactRow": "​10, 11, 12, 13, 14"
+    "flightNo": "GA712",
+    "airline": "Garuda Airways",
+    "path": "Jakarta to Sydney",
+    "dateDeparture": "21-07-20",
+    "dateArrival": "22-07-20",
+    "closeContactRow": "19, 20, 21, 22, 23"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "VA863",
+    "airline": "Virgin",
+    "path": "Melbourne to Sydney",
+    "dateDeparture": "21-07-20",
+    "dateArrival": "21-07-20",
+    "closeContactRow": "16, 17, 18, 19, 20, 21, 22, 23, 24"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "MH141",
+    "airline": "Malaysia Airlines",
+    "path": "Kuala Lumpur to Sydney",
+    "dateDeparture": "24-07-20",
+    "dateArrival": "25-07-20",
+    "closeContactRow": "10, 11, 12, 13, 14"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "GA712",
+    "airline": "Garuda Airways",
+    "path": "Jakarta to Sydney",
+    "dateDeparture": "21-07-20",
+    "dateArrival": "22-07-20",
+    "closeContactRow": "19, 20, 21, 22, 23"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QR908",
+    "airline": "Qatar Airways",
+    "path": "Doha to Sydney",
+    "dateDeparture": "19-07-20",
+    "dateArrival": "20-07-20",
+    "closeContactRow": "Unsure"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "EK414",
+    "airline": "Emirates",
+    "path": "Dubai to Sydney",
+    "dateDeparture": "19-07-20",
+    "dateArrival": "20-07-20",
+    "closeContactRow": "16, 17, 18, 19, 20 (additional TBC)"
+  },
+  {
+    "reportState": "QLD",
+    "flightNo": "VA977",
+    "airline": "Virgin Australia",
+    "path": "Sydney to Brisbane",
+    "dateDeparture": "",
+    "dateArrival": "21-07-20",
+    "closeContactRow": "Unsure"
   }
 ]
