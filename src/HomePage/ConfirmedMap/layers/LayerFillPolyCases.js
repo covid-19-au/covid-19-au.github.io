@@ -90,7 +90,11 @@ class CasesPopup {
         let currentFeature = null;
 
         var click = (e) => {
-            if (!e.features.length) {
+            if (e.originalEvent.defaultPrevented) {
+                // An event from a marker in MarkerConfirmed.js
+                // has already been processed!
+                return;
+            } if (!e.features.length) {
                 if (popup) {
                     popup.remove();
                 }

@@ -11,6 +11,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "./ConfirmedMap.css";
 import Acknowledgement from "../Acknowledgment";
 import absStatsData from "../data/absStats";
+import confirmedData from "../data/mapdataCon";
 
 import ConfirmedMapFns from "./ConfirmedMap/Fns";
 import TimeSeriesDataSource from "./ConfirmedMap/data_sources/DataCases";
@@ -18,6 +19,7 @@ import TimeSeriesDataSourceForPeriod from "./ConfirmedMap/data_sources/DataCases
 import BigTableOValuesDataSource from "./ConfirmedMap/data_sources/DataABS";
 import GeoBoundaries from "./ConfirmedMap/GeoBoundaries"; // FIXME!
 import DaysSinceMap from "./DaysSinceMap";
+import ConfirmedMarker from "./ConfirmedMap/markers/MarkerConfirmed";
 
 // import ImportCDNJS from "import-cdn-js";
 import dvAna from "../dvAna";
@@ -540,6 +542,13 @@ class MbMap extends React.Component {
                 this.setMarkers();
             };
 
+            // Add markers: confirmed cases/hospitals
+            // only for tas/nt at this point
+            this.confirmedMarkers = [];
+            confirmedData.forEach((item) => {
+                this.confirmedMarkers.push(new ConfirmedMarker(map, item));
+            });
+
             let callLater = () => {
                 if (this.map.loaded()) {
                     this.mapLoaded = true;
@@ -721,8 +730,22 @@ class MbMap extends React.Component {
     }
 
     _updateMode() {
-        if (!this.geoBoundaryInsts) {
+        if (!this.geoBoundaryInsts || !this.confirmedMarkers) {
             return;
+        }
+
+        if (new Set(['total', 'status_active']).has(this.state._markers)) {
+            // Show/hide markers depending on whether they are within 3 weeks
+            // if in "total" or "active" mode, otherwise leave all hidden
+            for (let marker of this.confirmedMarkers) {
+                if (marker.getIsActive(
+                    this.state.maxDate ? new Date(this.state.maxDate) : null
+                )) {
+                    marker.show();
+                } else {
+                    marker.hide();
+                }
+            }
         }
 
         for (let k in this.geoBoundaryInsts) {
@@ -838,6 +861,13 @@ class MbMap extends React.Component {
     }
 
     _resetMode(prevState) {
+        if (!this.confirmedMarkers) {
+            return;
+        }
+        for (let marker of this.confirmedMarkers) {
+            marker.hide();
+        }
+
         if (!this.geoBoundaryInsts) {
             return;
         } else if (prevState._markers === "days_since") {
