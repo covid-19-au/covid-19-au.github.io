@@ -1,6 +1,38 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-20/tasmania-new-coronavirus-case-woman-returning-from-vic/12473222",
+            "title": "New Tasmanian coronavirus case confirmed as young woman returning from Victoria",
+            "source": "ABCNews",
+            "date": "20 July 2020",
+            "time": "18:50",
+            "summary": "Tasmania has recorded its first coronavirus cases in over 2 months. Before this, the state had recorded no active cases as of June 12th. The new case is a person that is currently in hotel quarantince since returning to Tasmania from Victoria. Tasmania Premier, Peter Gutwein has said that there were about 600 people in hotel quarantine in the state, and a further 1,000 in home quarantine."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/face-masks-will-soon-be-mandatory-in-melbourne-here-s-what-you-need-to-know",
+            "title": "Face masks will soon be mandatory in Melbourne. Here's what you need to know",
+            "source": "SBSNews",
+            "date": "19 July 2020",
+            "time": "18:00",
+            "summary": "From 11.59pm on Wednesday, masks will be made compulsory for people who leave their homes in metropolitan Melbourne and the Mitchell Shire. Victorian Premier, Daniel Andrews has said that common sense will govern the new rules, advising that the measure must be done whenever it is practical to do so. He also advised that masks need not be hospital-grade masks, emphasizing, \"any face covering is better than no face-covering.\""
+        },
+        {
+            "link": "Jobkeeper expected to be extended beyond September for businesses that ‘genuinely need it’ ",
+            "title": "https://www.theguardian.com/australia-news/2020/jul/19/jobkeeper-expected-to-be-extended-beyond-september-for-businesses-that-genuinely-need-it",
+            "source": "TheGuardian",
+            "date": "19 July 2020",
+            "time": "13:38",
+            "summary": "The finance minister has said that there will be some adjustments to the Jobkeeper scheme. \"The ultimate objective still has to be getting back into a situation where all businesses are in a position to pay for the wages of their employees out of their income,\" he said. The government will release an economic update on Thursday and outline the future of the jobseeker and jobkeeper payments. Until then, it is unclear how long the payments will be extended for."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-records-three-more-coronavirus-deaths-and-217-new-infections",
+            "title": "Victoria records three more coronavirus deaths and 217 new infections",
+            "source": "SBSNews",
+            "date": "18 July 2020",
+            "time": "18:00",
+            "summary": "Mr Andrews said of the additional cases, 11 of them were linked to known outbreaks, and 205 of them are under investigation. 217 is a significant drop from the 428 cases registered on the previous day. The state's Chief Medical Officer, Dr Sutton said he was happy that case numbers had dropped, but also warned Victorians against complacency.\"It is a number that would have shocked us all a month ago, we need to remember it is still a high number,\" he said."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-17/victoria-coronavirus-cases-update-record-covid19-daily-increase/12465632",
             "title": "Victoria records another 428 coronavirus cases and three more COVID-19 deaths",
             "source": "ABCNews",

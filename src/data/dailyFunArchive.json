@@ -4,6 +4,28 @@
             "image": [],
             "video": [
                 {
+                    "link": "https://www.youtube.com/watch?v=KWBfQjuwp4E&list=PLui6Eyny-UzzFFfpiil94CUrWKVMaqmkm",
+                    "description": "Home - Day 0 - Welcome Home | 30 Days of Yoga With Adriene"
+                }
+            ],
+            "type": "distraction",
+            "date": "28/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=VNjrI0YvZYA",
+                    "description": "The Worlds of The Expanse (no spoilers)"
+                }
+            ],
+            "type": "distraction",
+            "date": "27/7/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
                     "link": "https://www.youtube.com/watch?v=_X-Mm8h1AHM",
                     "description": "Cheese Fondue | Basics with Babish"
                 }
