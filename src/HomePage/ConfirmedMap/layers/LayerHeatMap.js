@@ -1,27 +1,9 @@
-import setLayerSource from "../setLayerSource";
-
-
 class HeatMapLayer {
-    constructor(map, uniqueId) {
+    constructor(map, uniqueId, cachedMapboxSource, cachedMapboxSourceByZoom) {
         this.map = map;
         this.uniqueId = uniqueId;
-
-        this.heatLabelsByZoom = {};
-        this.heatCirclesByZoom = {};
-
-        this.__initLayer()
-    }
-
-    getHeatMapId() {
-        return this.uniqueId+'heatmap';
-    }
-    
-    getHeatPointId() {
-        return this.uniqueId+'heatpoint';
-    }
-
-    __initLayer() {
-        const map = this.map;
+        this.cachedMapboxSource = cachedMapboxSource;
+        this.cachedMapboxSourceByZoom = cachedMapboxSourceByZoom;
 
         var circleColor = [
             'interpolate',
@@ -86,7 +68,7 @@ class HeatMapLayer {
                 {
                     'id': this.getHeatPointId()+zoomLevel,
                     'type': 'circle',
-                    'source': 'nullsource',
+                    'source': this.cachedMapboxSourceByZoom[zoomLevel].getSourceId(),
                     'minzoom': zoomLevel-1,
                     'maxzoom': zoomLevel+2,
                     'paint': {
@@ -116,7 +98,7 @@ class HeatMapLayer {
             map.addLayer({
                 id: this.getHeatPointId()+'label'+zoomLevel,
                 type: 'symbol',
-                source: 'nullsource',
+                source: this.cachedMapboxSourceByZoom[zoomLevel].getSourceId(),
                 minzoom: zoomLevel-1,
                 maxzoom: zoomLevel+2,
                 filter: ['all',
@@ -146,7 +128,7 @@ class HeatMapLayer {
             {
                 id: this.getHeatPointId(),
                 type: 'circle',
-                source: 'nullsource',
+                source: this.cachedMapboxSource.getSourceId(),
                 minzoom: 6,
                 paint: {
                     // Size circle radius by value
@@ -182,7 +164,7 @@ class HeatMapLayer {
             'id': this.getHeatPointId()+'citylabel',
             'type': 'symbol',
             'minzoom': 6,
-            'source': 'nullsource',
+            'source': this.cachedMapboxSource.getSourceId(),
             'filter': ['all',
                 ['!=', 'cases', 0],
                 ['has', 'cases']
@@ -209,7 +191,7 @@ class HeatMapLayer {
         map.addLayer({
             id: this.getHeatPointId()+'label',
             type: 'symbol',
-            source: 'nullsource',
+            source: this.cachedMapboxSource.getSourceId(),
             minzoom: 6,
             filter: ['all',
                 ['!=', 'cases', 0],
@@ -240,13 +222,15 @@ class HeatMapLayer {
         }, lastSymbolLayer);
     }
 
+    getHeatPointId() {
+        return this.uniqueId+'heatpoint';
+    }
+
     /*******************************************************************
      * Heat maps
      *******************************************************************/
 
-    show(dataSource, heatMapSourceId) {
-        this.dataSource = dataSource;
-
+    show() {
         this.map.setLayoutProperty(this.getHeatPointId(), "visibility", "visible");
         this.map.setLayoutProperty(this.getHeatPointId()+'label', "visibility", "visible");
         this.map.setLayoutProperty(this.getHeatPointId()+'citylabel', "visibility", "visible");
@@ -254,19 +238,6 @@ class HeatMapLayer {
         for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
             this.map.setLayoutProperty(this.getHeatPointId()+zoomLevel, "visibility", "visible");
             this.map.setLayoutProperty(this.getHeatPointId()+'label'+zoomLevel, "visibility", "visible");
-        }
-
-        if (this.heatMapSourceId !== heatMapSourceId) {
-            this.heatMapSourceId = heatMapSourceId;
-
-            setLayerSource(this.map, this.getHeatPointId(), heatMapSourceId);
-            setLayerSource(this.map, this.getHeatPointId() + 'label', heatMapSourceId);
-            setLayerSource(this.map, this.getHeatPointId() + 'citylabel', heatMapSourceId);
-
-            for (var zoomLevel of [2, 3, 4, 5, 6]) { // Must be kept in sync with GeoBoundariesBase!!!
-                setLayerSource(this.map, this.getHeatPointId() + 'label' + zoomLevel, heatMapSourceId + zoomLevel);
-                setLayerSource(this.map, this.getHeatPointId() + zoomLevel, heatMapSourceId + zoomLevel);
-            }
         }
     }
 

@@ -17,52 +17,30 @@ class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
         // to get a general idea of how many active cases there
         // still are. This isn't going to be very accurate,
         // but better than nothing.
-        var oldest = null;
+        maxDate = maxDate || ConfirmedMapFns.getToday();
+
         var latest = super.getCaseNumber(region, ageRange, maxDate);
         if (!latest) {
             return null;
         }
 
-        region = ConfirmedMapFns.prepareForComparison(region || '');
-        ageRange = ageRange || '';
-
-        for (var i = 0; i < this.data.length; i++) {
-            var iData = this.data[i],
-                iRegion = iData[0],
-                iAgeRange = iData[1],
-                iValues = iData[2];
-
-            if (
-                (this.schema === 'statewide' || iRegion === region) &&
-                iAgeRange === ageRange
-            ) {
-                for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = this.regionsDateIDs[iValues[j][0]],
-                        iValue = iValues[j][this.subHeaderIndex + 1];
-
-                    if (iValue != null && iValue !== '') {
-                        oldest = {
-                            'numCases': latest['numCases'] - parseInt(iValue),
-                            'updatedDate': latest['updatedDate']
-                        };
-
-                        if (ConfirmedMapFns.dateDiffFromToday(dateUpdated, maxDate) > this.daysAgo) {
-                            return oldest;
-                        }
-                    }
-                }
-            }
+        var oldest = super.getCaseNumber(
+            region, ageRange,
+            new Date(maxDate.getTime() - (this.daysAgo * ConfirmedMapFns.DAY_IN_MILLISECONDS))
+        );
+        if (!oldest) {
+            return null;
         }
 
-        // Can't do much if data doesn't go back
-        // that far other than show oldest we can
-        return oldest || {
-            'numCases': 0,
+        return {
+            'numCases': latest['numCases'] - oldest['numCases'],
             'updatedDate': latest['updatedDate']
         };
     }
 
-    getCaseNumberTimeSeries(region, ageRange, maxDate) {
+    /*getCaseNumberTimeSeries(region, ageRange, maxDate) {
+        maxDate = maxDate || ConfirmedMapFns.getToday();
+
         var r = [];
         var values = super.getCaseNumberTimeSeries(
             region, ageRange, maxDate
@@ -76,7 +54,7 @@ class TimeSeriesDataSourceForPeriod extends TimeSeriesDataSource {
             r.push(iData);
         }
         return r;
-    }
+    }*/
 }
 
 export default TimeSeriesDataSourceForPeriod;
