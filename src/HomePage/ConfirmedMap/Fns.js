@@ -92,6 +92,8 @@ var fns = {
      * Date functions
      *******************************************************************/
 
+    DAY_IN_MILLISECONDS: (1000 * 60 * 60 * 24),
+
     getToday: function() {
         // Get today's date, setting the time to
         // midnight to allow for calculations
@@ -111,7 +113,7 @@ var fns = {
     dateDiff: function(first, second) {
         // Get the difference in days between
         // the first and second `Date` instances
-        return Math.round((second - first) / (1000 * 60 * 60 * 24));
+        return Math.round((second - first) / fns.DAY_IN_MILLISECONDS);
     },
 
     dateDiffFromToday: function(dateString, today) {
@@ -120,9 +122,15 @@ var fns = {
         // NOTE: returns a *positive* number if
         // `dateString` is in the past
         today = today||fns.getToday();
-        var dateUpdatedInst = dateString instanceof Date ?
-            dateString : fns.parseDate(dateString).getTime();
-        return fns.dateDiff(dateUpdatedInst, today);
+
+        let dateUpdatedInst;
+        if (dateString instanceof Date) {
+            dateUpdatedInst = dateString.getTime()
+        } else {
+            dateUpdatedInst = fns.parseDate(dateString).getTime();
+        }
+
+        return fns.dateDiff(dateUpdatedInst, today.getTime());
     }
 };
 

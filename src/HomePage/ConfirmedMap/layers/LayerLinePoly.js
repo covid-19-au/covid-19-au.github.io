@@ -1,10 +1,8 @@
-import setLayerSource from "../setLayerSource";
-
-
 class LinePolyLayer {
-    constructor(map, uniqueId) {
+    constructor(map, uniqueId, cachedMapboxSource) {
         this.map = map;
         this.uniqueId = uniqueId;
+        this.cachedMapboxSource = cachedMapboxSource;
 
         // Make it so that symbol/circle layers are given different priorities
         // This is a temporary fix to make ACT display in the correct priority -
@@ -25,9 +23,9 @@ class LinePolyLayer {
             id: this.getLinePolyId(),
             minzoom: 2,
             type: 'line',
-            source: 'nullsource',
+            source: cachedMapboxSource.getSourceId(),
             paint: {
-                'line-color': this.color || '#000',
+                'line-color': '#000',
                 'line-opacity': 1,
                 'line-width': 1,
             }
@@ -42,14 +40,8 @@ class LinePolyLayer {
      * Line poly
      *******************************************************************/
 
-    show(color, fillSourceId) {
-        this.color = color;
+    show() {
         this.map.setLayoutProperty(this.getLinePolyId(), "visibility", "visible");
-
-        if (this.fillSourceId !== fillSourceId) {
-            this.fillSourceId = fillSourceId;
-            setLayerSource(this.map, this.getLinePolyId(), fillSourceId);
-        }
     }
 
     hide() {

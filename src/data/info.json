@@ -752,6 +752,7 @@
             "name": "Queensland",
             "text": {
                 "text_1": [
+                    "From 1am Saturday, August 1st the Queensland will close its borders to all residents from Greater Sydney.",
                     "Restrictions:"
                 ],
                 "ulist_1": [
@@ -773,8 +774,12 @@
                 "text_2": [],
                 "citation": [
                     {
-                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
+                        "link": "https://www.news.com.au/national/queensland/news/disappointing-qld-reports-two-new-virus-cases/news-story/a71c1efc65e261d398fdf83e6cc2697c",
                         "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
+                    },
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
+                        "name": "Qld borders shut to Greater Sydney region amid coronavirus outbreak"
                     }
                 ]
             },
