@@ -1081,15 +1081,6 @@
   },
   {
     "reportState": "NSW",
-    "flightNo": "GA712",
-    "airline": "Garuda Airways",
-    "path": "Jakarta to Sydney",
-    "dateDeparture": "21-07-20",
-    "dateArrival": "22-07-20",
-    "closeContactRow": "19, 20, 21, 22, 23"
-  },
-  {
-    "reportState": "NSW",
     "flightNo": "QR908",
     "airline": "Qatar Airways",
     "path": "Doha to Sydney",
