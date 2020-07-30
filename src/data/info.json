@@ -783,7 +783,7 @@
                     }
                 ]
             },
-            "lastUpdated": "04 July 2020"
+            "lastUpdated": "29 July 2020"
         },
         {
             "name": "New South Wales",
@@ -821,8 +821,9 @@
             "name": "Victoria",
             "text": {
                 "text_1": [
+                    "From 11:59pm on 2 August, every person in regional Victoria will need to wear a mask or face covering when leaving the house. ",
                     "Residents of metropolitan Melbourne and the Mitchell Shire are under Level 3 restrictions from 11:59pm on 8 July for at least 6 weeks",
-                    "There are only four reasons people in the above areas can leave their homes: for work or school, for care or care giving, for daily exercise, and for food and other essentials.",
+                    "There are only four reasons people in metropolitan Melbourne and the Mitchell Shire can leave their homes: for work or school, for care or care giving, for daily exercise, and for food and other essentials.",
                     "From 11.59pm on 22 July, it will be mandatory to wear a mask for people who leave their homes in metropolitan Melbourne and the Mitchell Shire for any of the above four legal reasons",
                     "If you live in metropolitan Melbourne or the Mitchell Shire, you cannot:"
                 ],
@@ -851,8 +852,8 @@
                 "text_2": [],
                 "citation": [
                     {
-                        "link": "https://www.sbs.com.au/news/face-masks-will-soon-be-mandatory-in-melbourne-here-s-what-you-need-to-know - SBS News",
-                        "name": "Face masks will soon be mandatory in Melbourne. Here's what you need to know"
+                        "link": "https://www.sbs.com.au/news/coronavirus-infections-surge-past-700-in-victoria-on-australia-s-deadliest-day-of-pandemic",
+                        "name": "Coronavirus infections surge past 700 in Victoria on Australia's deadliest day of pandemic - SBS News"
                     },
                     {
                         "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
@@ -860,7 +861,7 @@
                     }
                 ]
             },
-            "lastUpdated": "19 July 2020"
+            "lastUpdated": "30 July 2020"
         },
         {
             "name": "Tasmania",
