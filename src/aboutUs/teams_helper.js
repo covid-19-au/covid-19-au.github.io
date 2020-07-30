@@ -338,9 +338,9 @@ const Contributor = {
     members: [
         {
             name: "Matt Lui",
-            linkedin: "",
-            email: "",
-            github: "",
+            linkedin: "https://www.linkedin.com/",
+            email: "me@mattlui.com",
+            github: "https://github.com/gamma032steam",
             website: "",
             fileName: "Matt.png"
         },
