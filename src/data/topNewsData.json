@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/jul/30/morrison-and-andrews-consider-more-restrictions-to-contain-victorias-escalating-covid-19-outbreak",
+            "title": "Morrison and Andrews consider more restrictions to contain Victoria's escalating Covid-19 outbreak ",
+            "source": "TheGuardian",
+            "date": "30 July 2020",
+            "time": "18:42",
+            "summary": "Australian Prime Minister Scott Morrison and Victorian Premier Daniel Andrews are planning to discuss whether further restrictions are necessary to contain the escalating outbreak in Victoria. Victoria recorded 723 new cases today (a record for the state), along with 13 new deaths. Andrews announced today that face coverings would be mandatory in all of Victoria. Previously the rule was restricted to metropolitan Melbourne and the Mitchell Shire."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/live/2020/jul/29/coronavirus-australia-victoria-aged-care-outbreak-melbourne-sydney-nsw-qld-andrews-berejiklian-morrison-latest-updates",
             "title": "Australian states tighten border restrictions as coronavirus community transmissions grow – as it happened",
             "source": "TheGuardian",
@@ -63,14 +71,6 @@
             "date": "23 July 2020",
             "time": "12:00",
             "summary": "Three of the deaths are connected to aged care facilities. The five deaths bring the state's total death toll to 49."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-22/victoria-coronavirus-update-cases-hit-record-daily-high/12479494",
-            "title": "Victorian coronavirus cases hit new record high with 484 cases, two more deaths",
-            "source": "ABCNews",
-            "date": "22 July 2020",
-            "time": "16:00",
-            "summary": "Victoria have broken a record with 484 new coronavirus cases announced. Victorian Premier, Daniel Andrews has said that he is, \"very unhappy and very sad\", aknowledging a report stating that report that nearly nine in 10 people did not isolate between the time they first felt sick and when they went to get a test. After testing, half of these people did not isolate while waiting for their test results. \"Fifty-three per cent of people continuing to do their shopping, continuing to go to work continuing to do all sorts of things,\" he said. \"Unless people who get tested are staying at home and isolating until they get their test results, then we will not see those numbers come down,\" he said before adding that the six week lockdown might be extended."
         }
     ]
 }
