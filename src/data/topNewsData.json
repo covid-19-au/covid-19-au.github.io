@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-31/one-in-four-not-home-covid19-positive-adf-door-knock/12511682",
+            "title": "More than a quarter of Victoria coronavirus patients not at home when doorknocked by ADF",
+            "source": "ABCNews",
+            "date": "31 July 2020",
+            "time": "17:30",
+            "summary": "Door knocks carried out by authorities yesterday at 500 properties found that 1 in 4 coronavirus patients were not at home. Teams of Australian Defence Force (ADF) and Department of Health and Human Services (DHHS) officers have been doorknocking all positive cases of coronavirus as the number of active infections has gone from \"There will be a multitude of reasons for that but what I can confirm is more than 100 cases have been referred to Victoria Police,\" state Premier Daniel Andrews said. "
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/jul/30/morrison-and-andrews-consider-more-restrictions-to-contain-victorias-escalating-covid-19-outbreak",
             "title": "Morrison and Andrews consider more restrictions to contain Victoria's escalating Covid-19 outbreak ",
             "source": "TheGuardian",
@@ -63,14 +71,6 @@
             "date": "24 July 2020",
             "time": "17:38",
             "summary": "After a meeting on Friday, the national cabinet has agreed to share more data and COVID-19 testing response times, and have committed to a virus with a goal of having zero community transmissions. There is now acceptance in the national cabinet that all states and territories need to take precautions to avoid community transmission, currently only occurring in Victoria and New South Wales."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-23/victoria-records-five-deaths-and-403-new-cases-of-covid-19/12483916?nw=0",
-            "title": "Victoria records five deaths and 403 new cases of coronavirus overnight",
-            "source": "ABCNews",
-            "date": "23 July 2020",
-            "time": "12:00",
-            "summary": "Three of the deaths are connected to aged care facilities. The five deaths bring the state's total death toll to 49."
         }
     ]
 }
