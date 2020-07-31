@@ -81,11 +81,12 @@ class CasesData {
         this.subHeaderIndex = subHeaders.indexOf(dataType);
         this.data = casesData['data'];
 
-        this.getCaseNumber = Fns.regionFnCached(this.getCaseNumber, this);
-        this.getCaseNumberOverNumDays = Fns.regionFnCached(this.getCaseNumberOverNumDays, this);
-        this.getMaxMinValues = Fns.fnCached(this.getMaxMinValues, this);
-        this.getDaysSince = Fns.regionFnCached(this.getDaysSince, this);
-        this.getCaseNumberTimeSeries = Fns.regionFnCached(this.getCaseNumberTimeSeries, this);
+        //this.getCaseNumber = Fns.regionFnCached(this.getCaseNumber, this);
+        //this.getCaseNumberOverNumDays = Fns.regionFnCached(this.getCaseNumberOverNumDays, this);
+        //this.getMaxMinValues = Fns.fnCached(this.getMaxMinValues, this);
+        //this.getDaysSince = Fns.regionFnCached(this.getDaysSince, this);
+        //this.getCaseNumberTimeSeries = Fns.regionFnCached(this.getCaseNumberTimeSeries, this);
+
         //this.getCaseNumberTimeSeriesOverNumDays = Fns.regionFnCached(this.getCaseNumberTimeSeriesOverNumDays, this);
     }
 
@@ -111,6 +112,7 @@ class CasesData {
         let r = {};
         for (let [key, value] of Object.entries(regionsDateIds)) {
             r[key] = new DateType(value);
+            //console.log(`${JSON.stringify(value)} ${JSON.stringify(r[key])}`);
         }
         return r;
     }
@@ -125,6 +127,7 @@ class CasesData {
     }
 
     /**
+     * Get the schema of this cases data, for example "admin_1"
      *
      * @returns {*}
      */
@@ -133,6 +136,8 @@ class CasesData {
     }
 
     /**
+     * Get the parent region of this schema. For instance,
+     * the parent of "au-vic" is "au" in the admin_1 schema.
      *
      * @returns {*}
      */
@@ -161,7 +166,7 @@ class CasesData {
     }
 
     /**
-     * Get all possibile region children which
+     * Get all possible region children which
      * have an associated age range
      *
      * @returns {*[]}
@@ -195,167 +200,6 @@ class CasesData {
     }
 
     /*******************************************************************
-     * Data processing: associate case nums
-     *******************************************************************/
-
-    /**
-     * Assign cases time series data from a CasesData instance
-     *
-     * @param inputGeoJSON
-     * @param ageRange
-     * @param dateRangeType
-     * @param ignoreChildren
-     * @param iso3166WithinView
-     * @param removeLargestItem
-     */
-    getCaseInfoGeoJSON(inputGeoJSON, ageRange, dateRangeType,
-                       ignoreChildren, iso3166WithinView,
-                       removeLargestItem) {
-
-        ignoreChildren = ignoreChildren || new Set();
-        let max = -9999999999999,
-            min = 9999999999999;
-
-        let out = [];
-
-        for (let feature of inputGeoJSON.features) {
-            let properties = feature.properties;
-
-            if (
-                (
-                    properties['regionSchema'] === 'admin_0' ||
-                    properties['regionSchema'] === 'admin_1'
-                )
-                && !iso3166WithinView.has(properties['regionChild'])
-            ) {
-                debug(`Ignoring child due to not in view: ${properties['regionSchema']}->${properties['regionChild']}`);
-                continue;
-            }
-            else if (
-                properties['regionSchema'] !== 'admin_0' &&
-                properties['regionSchema'] !== 'admin_1' &&
-                this.regionParent &&
-                !iso3166WithinView.has(this.regionParent) &&
-                !iso3166WithinView.has(this.regionParent.split('-')[0])
-            ) {
-                debug(`Ignoring *ALL* parent due to not in view: ${properties['regionSchema']}->${properties['regionChild']}`);
-                continue;
-            }
-            else if (
-                ignoreChildren.has(`${properties['regionSchema']}||${properties['regionChild']}`) || (
-                    properties['regionSchema'] === 'admin_1' &&
-                    ignoreChildren.has(`${properties['regionSchema']}||${properties['regionChild'].split('-')[0]}`)
-                )
-            ) {
-                // Make it so children such as AU-TAS will replace AU
-                debug(`Ignoring child: ${properties['regionSchema']}->${properties['regionChild']}`);
-                continue;
-            }
-            else if (removeLargestItem && !parseInt(properties.largestItem)) {
-                // Ignore smaller islands etc, only add each region once!
-                out.push(feature);
-                continue;
-            }
-
-            let regionType = new RegionType(
-                properties['regionSchema'],
-                properties['regionParent'],
-                properties['regionChild']
-            );
-
-            let timeSeriesItem;
-            if (!dateRangeType) {
-                timeSeriesItem = this.getCaseNumber(regionType, ageRange);
-            }
-            else {
-                // This method really should accept a specific time period!
-                timeSeriesItem = this.getCaseNumberOverNumDays(regionType, ageRange, dateRangeType.getDifferenceInDays());   // HACK!!!! ===================================
-            }
-
-            if (!timeSeriesItem) {
-                debug(`No data for ${regionType.prettified()} (${regionType.getRegionChild()})`);
-                out.push(feature);
-                continue;
-            }
-            //debug(`Data found for ${regionType.prettified()} (${regionType.getRegionChild()})`);
-
-            if (timeSeriesItem.getDaysSince) {
-                var dayssince = this.getDaysSince(regionType, ageRange);
-                if (dayssince != null) {
-                    properties['dayssince'] = dayssince;
-                    properties['revdayssince'] = 1000000-(dayssince*2);
-                }
-            }
-
-            properties['cases'] = timeSeriesItem.getValue();
-            properties['negcases'] = -timeSeriesItem.getValue();
-            properties['casesFmt'] = Fns.getCompactNumberRepresentation(timeSeriesItem.getValue(), 1);
-            properties['casesSz'] = this._getCasesSize(feature);
-
-            if (properties.cases && properties.cases < min) min = properties.cases;
-            if (properties.cases && properties.cases > max) max = properties.cases;
-
-            out.push(feature);
-        }
-
-        //debug(JSON.stringify(features));
-        let r = Fns.geoJSONFromFeatures(out);
-        r.max = out.length ? max : 0;
-        r.min = out.length ? min : 0;
-        return r;
-    }
-
-    /**
-     * Make it so that there's roughly enough area
-     * within circles to be able to display the text.
-     *
-     * This also makes it so that e.g. 100 is slightly
-     * smaller than 999 etc. It's hard to find a good
-     * balance here, and it may not work well for
-     * millions or above.
-     *
-     * @param feature
-     * @returns {*}
-     * @private
-     */
-    _getCasesSize(feature) {
-        var len = feature.properties['casesFmt'].length,
-            absCases = Math.abs(feature.properties['cases']),
-            isNeg = feature.properties['cases'] < 0.0,
-            r;
-
-        // TODO: Make millions slightly larger than thousands!
-        if (100000000 >= absCases >= 10000000) {
-            r = len+absCases/100000000.0;
-        }
-        else if (absCases >= 1000000) {
-            r = len+absCases/10000000.0;
-        }
-        else if (absCases >= 100000) {
-            r = len+absCases/1000000.0;
-        }
-        else if (absCases >= 10000) {
-            r = len+absCases/100000.0;
-        }
-        else if (absCases >= 1000) {
-            r = len+absCases/10000.0;
-        }
-        else if (absCases >= 100) {
-            r = len+absCases/1000.0;
-        }
-        else if (absCases >= 10) {
-            r = len+absCases/100.0;
-        }
-        else if (absCases >= 1) {
-            r = len+absCases/10.0;
-        }
-        else {
-            r = len;
-        }
-        return isNeg ? -r : r;
-    }
-
-    /*******************************************************************
      * Basic case numbers
      *******************************************************************/
 
@@ -364,17 +208,16 @@ class CasesData {
      *
      * @param regionType
      * @param ageRange
+     * @param maxDateType allows setting the date before which to get the result.
+     *                    For instance, if today is 30th July but this is set to 27th July
+     *                    and there are only values from the 25th, it will return the 25th.
      * @returns {{numCases: number, updatedDate: *}|{numCases, updatedDate}|{numCases: number, updatedDate}}
      */
-    getCaseNumber(regionType, ageRange) {
-        if (this.schema === 'statewide') { // FIXME!!!! =====================================================================
-            var n = getFromTodaysStateCaseData(this.stateName, this.dataType);
-            if (n != null) {
-                return new TimeSeriesItem(new DateType(n[1]), parseInt(n[0]));
-            }
-        }
-
+    getCaseNumber(regionType, ageRange, maxDateType) {
         ageRange = ageRange || '';
+        maxDateType = maxDateType || DateType.today();
+
+        // TODO: FIX FOR MANUALLY ENTERED DATA!!! ===========================================================================
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
             if (iRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
@@ -382,7 +225,9 @@ class CasesData {
                     var dateUpdated = this.regionsDateIds[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
 
-                    if (iValue != null && iValue !== '') {
+                    if (dateUpdated > maxDateType) {
+                        continue;
+                    } if (iValue != null && iValue !== '') {
                         return new TimeSeriesItem(dateUpdated, parseInt(iValue));
                     }
                 }
@@ -404,29 +249,29 @@ class CasesData {
      * @param numDays
      * @returns {{numCases: number, updatedDate: *}|null|{numCases: number, updatedDate: *}}
      */
-    getCaseNumberOverNumDays(regionType, ageRange, numDays) {
-        var oldest = null;
+    getCaseNumberOverNumDays(regionType, ageRange, numDays, maxDateType) {
+        maxDateType = maxDateType || DateType.today();
+        ageRange = ageRange || '';
 
-        var latest = this.getCaseNumber(regionType, ageRange);
+        let latest = this.getCaseNumber(regionType, ageRange, maxDateType);
         if (!latest) {
             return null;
         }
 
-        ageRange = ageRange || '';
-
-        for (var [iRegion, iAgeRange, iValues] of this.data) {
+        let oldest = null;
+        for (let [iRegion, iAgeRange, iValues] of this.data) {
             if (iRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
                 for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = this.regionsDateIds[iValues[j][0]],
+                    let dateUpdated = this.regionsDateIds[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
 
-                    if (iValue != null && iValue !== '') {
+                    if (dateUpdated > maxDateType) {
+                        continue;
+                    } if (iValue != null && iValue !== '') {
                         oldest = new TimeSeriesItem(
-                            latest.getDateType(),
-                            latest.getValue() - parseInt(iValue)
+                            latest.getDateType(), latest.getValue() - parseInt(iValue)
                         );
-
-                        if (dateUpdated.numDaysSince() > numDays) {
+                        if (dateUpdated.numDaysSince(maxDateType) > numDays) {
                             return oldest;
                         }
                     }
@@ -452,17 +297,15 @@ class CasesData {
      * @param ageRange
      * @returns {[]}
      */
-    getCaseNumberTimeSeries(regionType, ageRange) {
-        var dateRangeType = new DateRangeType(DateType.today(), DateType.today());
+    getCaseNumberTimeSeries(regionType, ageRange, maxDateType) {
+        maxDateType = maxDateType || DateType.today();
+
+        var dateRangeType = new DateRangeType(maxDateType, maxDateType);
         var r = new TimeSeriesItems(
             this, regionType, dateRangeType, ageRange
         );
 
-        var latest = this.getCaseNumber(regionType, ageRange);
-        if (latest && latest.numCases) {
-            // Make sure we use the manually entered values first!
-            r.push(new TimeSeriesItem(latest.updatedDate, parseInt(latest.numCases)));
-        }
+        // TODO: FIX FOR MANUALLY ENTERED DATA!!! ===========================================================================
 
         ageRange = ageRange || '';
 
@@ -472,7 +315,9 @@ class CasesData {
                     var dateUpdated = this.regionsDateIds[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
 
-                    if (iValue != null && iValue !== '') {
+                    if (dateUpdated > maxDateType) {
+                        continue;
+                    } if (iValue != null && iValue !== '') {
                         // May as well use CanvasJS format
                         r.push(new TimeSeriesItem(dateUpdated, parseInt(iValue)));
                     }
@@ -497,13 +342,14 @@ class CasesData {
      * @param numDays
      * @returns {[]}
      */
-    getCaseNumberTimeSeriesOverNumDays(regionType, ageRange, numDays) {
-        var r = [];
-        var values = this.getCaseNumberTimeSeries(regionType, ageRange);
+    getCaseNumberTimeSeriesOverNumDays(regionType, ageRange, numDays, maxDateType) {
+        maxDateType = maxDateType || DateType.today();
 
-        for (var i = 0; i < values.length; i++) {
-            var iData = values[i];
-            if (iData.getDateType().numDaysSince() > numDays) {
+        var r = [];
+        var values = this.getCaseNumberTimeSeries(regionType, ageRange, maxDateType);
+
+        for (let iData of values) {
+            if (iData.getDateType().numDaysSince(maxDateType) > numDays) {
                 continue;
             }
             r.push(iData);
@@ -520,14 +366,16 @@ class CasesData {
      *
      * @returns {{min: number, median: *, max: number}}
      */
-    getMaxMinValues() {
+    getMaxMinValues(maxDateType) {
+        maxDateType = maxDateType || DateType.today();
+
         var min = 99999999999,
             max = -99999999999,
             allVals = [];
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
             let iRegionType = new RegionType(this.regionSchema, this.regionParent, iRegion);
-            var value = this.getCaseNumber(iRegionType, iAgeRange);  // TODO: Is this call necessary?? ===============
+            var value = this.getCaseNumber(iRegionType, iAgeRange, maxDateType);  // TODO: Is this call necessary?? ===============
             if (!value) {
                 continue;
             }
@@ -560,8 +408,9 @@ class CasesData {
      * @param ageRange (optional) the age range e.g. "0-9" as a string
      * @returns {null|*}
      */
-    getDaysSince(regionType, ageRange) {
+    getDaysSince(regionType, ageRange, maxDateType) {
         ageRange = ageRange || '';
+        maxDateType = maxDateType || DateType.today();
         var firstVal = null;
 
         for (var [iChildRegion, iAgeRange, iValues] of this.data) {
@@ -570,14 +419,14 @@ class CasesData {
                     var dateUpdated = this.regionsDateIds[iValues[j][0]],
                         iValue = iValues[j][this.subHeaderIndex + 1];
 
-                    if (iValue == null || iValue === '') {
+                    if (dateUpdated > maxDateType) {
                         continue;
-                    }
-                    else if (firstVal == null) {
+                    } if (iValue == null || iValue === '') {
+                        continue;
+                    } else if (firstVal == null) {
                         firstVal = iValue;
-                    }
-                    else if (firstVal > iValue) {
-                        return dateUpdated.numDaysSince();
+                    } else if (firstVal > iValue) {
+                        return dateUpdated.numDaysSince(maxDateType);
                     }
                 }
             }

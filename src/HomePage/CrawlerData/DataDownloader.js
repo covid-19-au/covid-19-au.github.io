@@ -22,13 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import GeoData from "./GeoData.js"
-import CasesData from "./CasesData.js"
+import GeoData from "./GeoData.js";
+import CasesData from "./CasesData.js";
 import UnderlayData from "./UnderlayData";
-import Fns from "../ConfirmedMap/Fns"
-import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
+import Fns from "../ConfirmedMap/Fns";
+import LngLatBounds from "../CrawlerDataTypes/LngLatBounds";
+import GeoDataPropertyAssignment from "./GeoDataPropertyAssignment";
 
-import schemaTypes from "../../data/caseData/schema_types.json"
+import schemaTypes from "../../data/caseData/schema_types.json";
 
 
 var MODE_GEOJSON_ONLY = 0,
@@ -104,17 +105,15 @@ class DataDownloader {
 
     /**
      *
-     * @param zoomLevel
      * @param lngLatBounds
      * @param dataType
-     * @param dateRangeType
      * @param possibleSchemasForCases
      * @param iso3166WithinView restrict to a given ISO 3166 2 code
      * @returns {Promise<void>}
      * @private
      */
-    async getCaseDataForZoomAndCoords(zoomLevel, lngLatBounds, dataType, dateRangeType,
-                                      possibleSchemasForCases, iso3166WithinView) {
+    async getDataCollectionForCoords(lngLatBounds, dataType,
+                                     possibleSchemasForCases, iso3166WithinView) {
         var promises = [];
 
         for (let schemaInfo of possibleSchemasForCases) {
@@ -135,14 +134,6 @@ class DataDownloader {
                 ]);
             }
         }
-
-        let points = {
-            "type": "FeatureCollection",
-            "features": []
-        },  polygons = {
-            "type": "FeatureCollection",
-            "features": []
-        };
 
         let insts = [];
         let parents = new Set();
@@ -211,70 +202,9 @@ class DataDownloader {
         }
         debug(`Ignoring parent schemas: ${Array.from(parents)}`);
 
-        let geoDataInsts = [];
-        let caseDataInsts = [];
-        let pointsAllVals = [],
-            polygonsAllVals = [];
-
-        let assign = (geoData, caseData, parents) => {
-            let iPoints = geoData.getCentralPoints(false, lngLatBounds),
-                iPolygons = geoData.getPolygonOutlines(false, lngLatBounds);
-
-            if (caseData) {
-                iPoints = caseData.getCaseInfoGeoJSON(
-                    iPoints, null, dateRangeType, parents, iso3166WithinView, true
-                );
-                iPolygons = caseData.getCaseInfoGeoJSON(
-                    iPolygons, null, dateRangeType, parents, iso3166WithinView, false
-                );
-
-                for (let feature of iPoints['features']) {
-                    if (feature.properties['cases'])
-                        pointsAllVals.push(feature.properties['cases']);
-                }
-                for (let feature of iPolygons['features']) {
-                    if (feature.properties['cases'])
-                        polygonsAllVals.push(feature.properties['cases']);
-                }
-
-                points['features'].push(...iPoints['features']);
-                polygons['features'].push(...iPolygons['features']);
-
-                caseDataInsts.push(caseData);
-
-                geoDataInsts.push(geoData);
-                debug(`assigned ${geoData.getRegionSchema()}->${geoData.getRegionParent()}: lengths ${iPoints.features.length} ${iPolygons.features.length}`);
-            }
-            else {
-                // ???
-                debug(`UNassigned ${geoData.getRegionSchema()}->${geoData.getRegionParent()}: lengths ${iPoints.features.length} ${iPolygons.features.length}`);
-            }
-        };
-
-        // Make it so e.g. postcode schema takes priority over LGA
-        let priorities = {};
-        for (let [schemaInfo, geoData, caseData] of insts) {
-            let srp = geoData.getRegionParent();
-            if (!priorities[srp] || priorities[srp][0] < schemaInfo.priority) {
-                priorities[srp] = [schemaInfo.priority, geoData, caseData];
-            }
-        }
-        for (let key in priorities) {
-            let [priority, geoData, caseData] = priorities[key];
-            assign(geoData, caseData, parents);
-        }
-
-        pointsAllVals.sort((a, b) => a - b);
-        polygonsAllVals.sort((a, b) => a - b);
-        points.caseVals = pointsAllVals;
-        polygons.caseVals = polygonsAllVals;
-
-        return {
-            points: points,
-            polygons: polygons,
-            geoDataInsts: geoDataInsts,
-            caseDataInsts: caseDataInsts
-        }
+        return new GeoDataPropertyAssignment(
+            insts, dataType, lngLatBounds, iso3166WithinView, parents
+        );
     }
 
     /**************************************************************************

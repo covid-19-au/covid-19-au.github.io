@@ -82,11 +82,12 @@ class DateType extends Date {
             days = arguments[2];
         }
 
-        super();
+        super(
+            years,
+            months == null ? 0 : months-1,
+            days == null ? 0 : days+1
+        );
         this.setHours(0, 0, 0, 0);
-        this.setFullYear(years);
-        this.setMonth(months == null ? 0 : months-1);
-        this.setDate(days == null ? 0 : days);
 
         this.years = years;
         this.months = months;
@@ -137,12 +138,12 @@ class DateType extends Date {
      *
      * @returns {number}
      */
-    numDaysSince() {
+    numDaysSince(dateType) {
         // Get number of days ago from today and
         // `dateString` in dd/mm/yyyy format
         // NOTE: returns a *positive* number if
         // `dateString` is in the past
-        var today = DateType.today();
+        var today = dateType || DateType.today();
         return this.dateDiff(today);
     }
 

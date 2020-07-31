@@ -90,7 +90,7 @@ class MapBoxSource {
             return;
         }
         this.getSourceInst().setData([]);
-        delete this.__dataKeys;
+        //delete this.__dataKeys;
     }
 
     /**
@@ -109,18 +109,14 @@ class MapBoxSource {
      * @returns {boolean}
      */
     setData(data, geoDataInsts, caseDataInsts) {
-        var dataKeys = this.__getDataKeys(data);
-        if (this.__dataKeys && this.__setsEqual(this.__dataKeys, dataKeys)) {
-            return false;
-        }
-        else if (!this.getSourceInst()) { // WARNING: This could have consequences for the order of async jobs!!! ======================================
+        if (!this.getSourceInst()) { // WARNING: This could have consequences for the order of async jobs!!! ======================================
             setTimeout(this.setData.bind(this), 150, data);
             return true;
         }
 
         this.getSourceInst().setData(data);
-        this.__dataKeys = dataKeys;
         this.__data = data;
+
         if (caseDataInsts) {
             this.__assignCaseDataInsts(caseDataInsts);
         }
@@ -130,10 +126,11 @@ class MapBoxSource {
 
         let pointsAllVals = [];
         for (let feature of data['features']) {
-            if (feature.properties['cases'])
+            if (feature.properties['cases']) {
                 pointsAllVals.push(feature.properties['cases']);
+            }
         }
-        pointsAllVals.sort((a, b) => {return a-b});
+        pointsAllVals.sort((a, b) => {return a - b});
         this.__pointsAllVals = pointsAllVals;
 
         return true;

@@ -26,6 +26,7 @@ import React from "react"
 import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
 import CovidMapControls from "./MapControls/CovidMapControls";
+import MapTimeSlider from "./MapControls/MapTimeSlider";
 import DataDownloader from "../CrawlerData/DataDownloader";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 
@@ -75,10 +76,6 @@ class CovidMapControl extends React.Component {
         this.dataDownloader = new DataDownloader();
     }
 
-    getValue() {
-
-    }
-
     /*******************************************************************
      * HTML Template
      *******************************************************************/
@@ -86,8 +83,13 @@ class CovidMapControl extends React.Component {
     render() {
         return (
             <div ref={el => this.absContainer = el}>
-                <div ref={el => this.mapContainer = el} style={{background: 'white'}}>
+                <div ref={el => this.mapContainer = el}
+                     style={{background: 'white'}}>
                 </div>
+
+                <MapTimeSlider ref={el => {this.__mapTimeSlider = el}}
+                               onChange={(newValue) => this._onMapTimeSlider(newValue)}
+                               numDays={45}/>
             </div>
         )
     }
@@ -100,7 +102,8 @@ class CovidMapControl extends React.Component {
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
             //style: style,
-            style: 'mapbox://styles/mapbox/light-v10?optimize=true',
+            //style: 'mapbox://styles/mapbox/light-v10?optimize=true',
+            style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
             //style: 'mapbox://styles/mapbox/satellite-v9?optimize=true',
             zoom: 1,
             maxZoom: 12,
@@ -143,52 +146,32 @@ class CovidMapControl extends React.Component {
         map.addControl(new mapboxgl.FullscreenControl());
 
         map.on('load', () => {
+            const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
+            const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
+
             // Create the MapBox sources
             let underlaySource = this.underlaySource = new MapBoxSource(map);
             let casesSource = this.casesSource = new MapBoxSource(map);
             let clusteredCaseSource = this.clusteredCaseSource = new ClusteredCaseSource(map);
 
             // Add layers for the underlay
-            this.underlayFillPoly = new UnderlayFillPolyLayer(
-                map, 'underlayFillPoly', underlaySource
-            );
-            this.underlayLinePoly = new LinePolyLayer(
-                map, 'underlayLinePoly',
-                'rgba(0,0,0,0.3)', 1.0, underlaySource
-            );
+            this.underlayFillPoly = new UnderlayFillPolyLayer(map, 'underlayFillPoly', underlaySource);
+            this.underlayLinePoly = new LinePolyLayer(map, 'underlayLinePoly', UNDERLAY_LINE_POLY_COLOR, 1.0, underlaySource);
 
             // Add layers for cases
-            this.casesLinePolyLayer = new LinePolyLayer(
-                map, 'casesLinePolyLayer',
-                'rgba(202, 210, 211, 1.0)', null, casesSource
-            );
-            this.daysSinceLayer = new DaysSinceLayer(
-                map, 'daysSinceLayer', casesSource
-            );
-            this.casesFillPolyLayer = new CasesFillPolyLayer(
-                map, 'casesFillPolyLayer', casesSource
-            );
-            this.caseCirclesLayer = new CaseCirclesLayer(
-                map, 'heatMap', clusteredCaseSource
-            );
+            this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
+            this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
+            this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource);
+            this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource);
 
             // Bind events for loading data
-            map.on('moveend', () => {
-                this.onMapMoveChange();
-            });
-            map.on('zoomend', () => {
-                this.onMapMoveChange();
-            });
+            map.on('moveend', () => {this.onMapMoveChange();});
+            map.on('zoomend', () => {this.onMapMoveChange();});
 
             if (this.props.onload) {
                 this.props.onload(this, map);
             }
-
             this.onMapMoveChange();
-
-            setTimeout(this.onMapMoveChange.bind(this), 750);
-            setTimeout(this.onMapMoveChange.bind(this), 1500);
-            setTimeout(this.onMapMoveChange.bind(this), 3000);
         });
     }
 
@@ -197,14 +180,86 @@ class CovidMapControl extends React.Component {
     }
 
     /*******************************************************************
+     * Time Slider Events
+     *******************************************************************/
+
+    /**
+     *
+     * @private
+     */
+    _onMapTimeSlider() {
+        if (!this.__dataCollection || !this.prevDataType || this.prevZoomLevel == null) {
+            return;
+        }
+        this.__onMapTimeSlider();
+    }
+
+    /**
+     *
+     * @private
+     */
+    __onMapTimeSlider() {
+        let poll = () => {
+            if (this.map.loaded()) {
+                this.__pollingTS = false;
+
+                // Get the date range for the 7/14/21 day controls
+                let dateRangeType = null,
+                    currentDateType = this.__mapTimeSlider.getValue();
+
+                if (this.covidMapControls.getTimePeriod()) {
+                    dateRangeType = new DateRangeType(
+                        currentDateType.daysSubtracted(this.covidMapControls.getTimePeriod()),
+                        currentDateType
+                    )
+                }
+
+                this.__onMapMoveChange(
+                    this.__dataCollection.getAssignedData(dateRangeType, currentDateType),
+                    this.prevDataType, this.prevZoomLevel, true
+                );
+            } else {
+                setTimeout(poll, 100);
+            }
+        };
+
+        if (this.__pollingTS) {
+            return;
+        }
+        this.__pollingTS = true;
+        poll();
+    }
+
+    /*******************************************************************
      * MapBox GL Events
      *******************************************************************/
+
+    __pollForMapChange() {
+        let poll = () => {
+            if (this.map.loaded()) {
+                this.__polling = false;
+                this.onMapMoveChange();
+            } else {
+                setTimeout(poll, 100);
+            }
+        };
+
+        if (this.__polling) {
+            return;
+        }
+        this.__polling = true;
+        setTimeout(poll, 100);
+    }
 
     /**
      * Download any static/case data based on the
      * countries/regions in view, and hide/show as needed!
      */
     async onMapMoveChange() {
+        if (!this.__mapTimeSlider || !this.map || !this.map.loaded()) {
+            return this.__pollForMapChange();
+        }
+
         /**
          *
          * @param possibleSchemas
@@ -253,41 +308,39 @@ class CovidMapControl extends React.Component {
             }
         }
 
-        // Prevent interacting with map while it's not ready
-        this.enableControlsWhenMapReady();
+        // Get the date range for the 7/14/21 day controls
+        let dateRangeType = null,
+            currentDateType = this.__mapTimeSlider.getValue();
 
-        if (this.__mapMovePending) {
-            //setTimeout(this.onMapMoveChange.bind(this), 50);
-            return;
-        }
-        // Enter critical section
-        this.__mapMovePending = true;
-
-        // Get the date range
-        let dateRangeType = null;
         if (this.covidMapControls.getTimePeriod()) {
             dateRangeType = new DateRangeType(
-                DateType.today().daysSubtracted(
-                    this.covidMapControls.getTimePeriod()
-                ),
-                DateType.today()
+                currentDateType.daysSubtracted(this.covidMapControls.getTimePeriod()),
+                currentDateType
             )
         }
 
-        let geoData = await this.dataDownloader.getCaseDataForZoomAndCoords(
-            zoomLevel, lngLatBounds, dataType, dateRangeType,
-            schemasForCases, iso3166WithinView
+        let dataCollection = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
+            lngLatBounds, dataType, schemasForCases, iso3166WithinView
         );
-
-        this.__onMapMoveChange(geoData, dataType, zoomLevel)
+        this.__onMapMoveChange(
+            dataCollection.getAssignedData(dateRangeType, currentDateType),
+            dataType, zoomLevel
+        );
     }
 
-    __onMapMoveChange(geoData, dataType, zoomLevel) {
+    /**
+     *
+     * @param geoData
+     * @param dataType
+     * @param zoomLevel
+     * @private
+     */
+    __onMapMoveChange(geoData, dataType, zoomLevel, noUpdateEvent) {
         var callMe = () => {
             if (!this.map) {
                 // React JS likely destroyed the elements in the interim
                 return;
-            } else if (!this.map.loaded()) {
+            } else if (!this.map.loaded() && false) {
                 // Don't display until map ready!
                 setTimeout(callMe, 25);
             } else {
@@ -301,6 +354,8 @@ class CovidMapControl extends React.Component {
                 this.geoDataInsts = geoData.geoDataInsts;
                 this.caseDataInsts = geoData.caseDataInsts;
 
+                // Remember these schemas/datatypes/zoom levels for
+                // later, so as to not need to refresh if not changed
                 this.prevSchemasForCases = geoData.schemasForCases;
                 this.prevDataType = dataType;
                 this.prevZoomLevel = zoomLevel;
@@ -313,7 +368,7 @@ class CovidMapControl extends React.Component {
                 this.__mapMovePending = false;
             }
 
-            if (this.props.onGeoDataChanged) {
+            if (!noUpdateEvent && this.props.onGeoDataChanged) {
                 // Send an event to allow for "data updated on xx date"
                 // etc displays outside the control
                 this.props.onGeoDataChanged(geoData.geoDataInsts, geoData.caseDataInsts);
@@ -323,52 +378,13 @@ class CovidMapControl extends React.Component {
     }
 
     /*******************************************************************
-     * Disable controls while loading
-     *******************************************************************/
-
-    /**
-     * Wait for the map to fully load before enabling the controls
-     *
-     * @private
-     */
-    enableControlsWhenMapReady() {
-        this.covidMapControls.disable();
-        //this.mapContainer.style.pointerEvents = 'none';
-        //let preventDefault = (e) => {e.preventDefault();};
-
-        //window.addEventListener(
-        //    "wheel",
-        //    preventDefault,
-        //    {passive: false}
-        //);
-
-        let _enableControlsWhenMapReady = () => {
-            if (this.map.loaded()) {
-                this._enableControlsJob = null;
-                this.covidMapControls.enable();
-                //this.mapContainer.style.pointerEvents = 'all';
-                //window.removeEventListener("wheel", preventDefault);
-            }
-            else {
-                this._enableControlsJob = setTimeout(
-                    _enableControlsWhenMapReady, 50
-                );
-            }
-        };
-
-        if (this._enableControlsJob != null) {
-            clearTimeout(this._enableControlsJob);
-        }
-        this._enableControlsJob = setTimeout(
-            _enableControlsWhenMapReady, 50
-        );
-    }
-
-    /*******************************************************************
      * Mode update
      *******************************************************************/
 
     /**
+     *
+     * Restrict boundaries and case data to a specific
+     * ISO 3166-2 code, for example "au-vic"
      *
      * @param iso_3166_2
      */
@@ -392,10 +408,13 @@ class CovidMapControl extends React.Component {
             this.map.fitBounds(bounds, animOptions);
             this.__onlyShowISO_3166_2 = iso_3166_2;
         }
+
         this._onControlsChange();
     }
 
     /**
+     * Map controls changed (e.g. the datatype or day period changed)
+     * so invalidate caches and re-render with the new params
      *
      * @private
      */

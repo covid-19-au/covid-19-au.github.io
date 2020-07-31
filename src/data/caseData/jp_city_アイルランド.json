@@ -1,1 +1,1 @@
-{"time_series_data":{"アイルランド":{"data":[["unknown","",[[1,1,2]]],["unknown","30-39",[[0,1]]],["unknown","50-59",[[1,1]]]]}},"date_ids":{"0":"2020_03_19","1":"2020_03_22"},"updated_dates":{"jp_city":{"アイルランド":"2020_03_22"}},"sub_headers":["total_male","total"]}
+{"time_series_data":{"アイルランド":{"data":[["unknown","",[[1,1,2],[0,1,1]]],["unknown","30-39",[[0,1]]],["unknown","50-59",[[1,1]]]]}},"date_ids":{"0":"2020_03_19","1":"2020_03_22"},"updated_dates":{"jp_city":{"アイルランド":"2020_03_22"}},"sub_headers":["total_male","total"]}

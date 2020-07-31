@@ -167,7 +167,7 @@ class DateRangeType {
      *
      * @returns {string}
      */
-    getPrettifiedValue() {
+    prettified() {
         return (
             this.fromDate.prettified() +
             '-' +

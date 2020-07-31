@@ -1,5 +1,3 @@
-
-
 import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
 import React, { useState } from "react";
 import ReactGA from "react-ga";
@@ -8,6 +6,7 @@ import LanguageIcon from '@material-ui/icons/Language';
 import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { A } from "hookrouter";
 
 export default function Header({ province }) {
 
@@ -97,6 +96,7 @@ export default function Header({ province }) {
                 <a style={{ marginLeft: '0.8rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "twitter" }) }} href="https://twitter.com/covid19augithub"><i style={{ fontSize: "2rem" }} className="fab fa-twitter"></i></a>
                 <a style={{ marginLeft: '0.8rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "instagram" }) }} href="https://www.instagram.com/covid19_au/"><i style={{ fontSize: "2rem" }} className="fab fa-instagram"></i></a>
                 <a style={{ marginLeft: '0.8rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }} href="https://www.facebook.com/covid19au.github/"><i style={{ fontSize: "2rem" }} className="fab fa-facebook"></i></a>
+                <A className={window.location.pathname === '/blog' ? 'navCurrentPage' : ''} style={{ marginLeft: '4rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }} href="/blog"><i style={{ fontSize: "2rem" }} className="fas fa-rss"></i><span style={{fontSize: "0.7em", display: "inline-block", verticalAlign: "-4%", paddingLeft: "6px", color: "#EEE"}}>blog</span></A>
                 {/*} <br />
                 <LanguageIcon style={{ fontSize: "2rem", marginRight: "0.5rem", marginLeft: "1rem" }} />
                 <Select

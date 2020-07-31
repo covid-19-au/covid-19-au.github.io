@@ -41,12 +41,8 @@ class CasesFillPolyLayer {
         this.mapBoxSource = mapBoxSource;
 
         this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', this.mapBoxSource);
-        this.__addLayer();
-    }
 
-    __addLayer() {
         // Add the colored fill area
-        const map = this.map;
 
         // Make it so that symbol/circle layers are given different priorities
         // This is a temporary fix to make ACT display in the correct priority -
