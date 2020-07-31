@@ -167,8 +167,8 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="tested">{
-          x[0] === "VIC" || x[0] === 'NSW' ? (numberWithCommasLarge(x[TESTED])) :
-            (numberWithCommas(x[TESTED]))
+          numberWithCommasLarge(x[TESTED])
+
         }</div>
       </div>
     ));
@@ -248,5 +248,12 @@ function numberWithCommas(x) {
 }
 function numberWithCommasLarge(x) {
   let numStr = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return numStr.substring(0, 5).replace(",", ".") + "M";
+  let commaCount = (numStr.match(/,/g) || []).length;
+  if(commaCount === 2 ){
+    return numStr.substring(0, 4).replace(",", ".") + "M";
+  } else if(commaCount === 1) {
+    return numStr.split(",")[0] + "K";
+  } else {
+    return numStr
+  }
 }
