@@ -118,7 +118,7 @@ header i {
 
 .confirmed {
   color: #ff603c;
-  flex: 1.2;
+  flex: 1.4;
 }
 
 .confirmed.header {
@@ -168,6 +168,7 @@ header i {
 
 .tested {
   color: #007cf2;
+  flex: 0.8;
 }
 
 .tested.header {
@@ -207,9 +208,10 @@ header i {
 
 .fallback {
   padding: 0 1rem 1rem;
-  color: #999;
+  color: black;
   text-align: center;
   font-size: 70%;
+  background-color: #bae1ff;
 }
 
 a {
@@ -544,3 +546,4 @@ h2 small {
 .dropdown-item {
   padding-left: 1rem;
 }
+

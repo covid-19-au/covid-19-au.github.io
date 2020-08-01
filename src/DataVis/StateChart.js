@@ -62,12 +62,11 @@ class StateChart extends React.Component {
                             <h2>{stateNameMapping[this.props.state]}</h2>
                             {renderStatus(this.props.state.toUpperCase())}
                         </div>
+                    </div>
 
-                        <hr />
-
-                        <div style={{marginTop: '20px'}}>
-                            <GeneralBarChart state={this.props.state} />
-                        </div>
+                    <div className="card">
+                        <h2>Current Statistics</h2>
+                        <GeneralBarChart state={this.props.state} />
                     </div>
                 </Grid>
 

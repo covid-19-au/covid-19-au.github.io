@@ -1,8 +1,35 @@
-import latestAusData from "../data/stateCaseData";
+import React, { Fragment } from "react";
 import Grid from "@material-ui/core/Grid";
-import Tag from "../HomePage/Tag";
-import React from "react";
+import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
+import ReactGA from "react-ga";
+import latestAusData from "../data/stateCaseData";
+import Tag from "../HomePage/Tag";
+
+import AgeChart from "./AgeChart";
+import GenderChart from "./GenderChart";
+import GeneralBarChart from "./GeneralBarChart";
+import GeneralLineChart from "./GeneralLineChart";
+
+const stateNameMapping = {
+  VIC: "Victoria",
+  NSW: "New South Wales",
+  QLD: "Queensland",
+  ACT: "Australian Capital Territory",
+  SA: "South Australia",
+  WA: "Western Australia",
+  TAS: "Tasmania",
+  NT: "Northern Territory",
+};
+
+/**
+ * get choosen state data
+ * @param {String} state user chosed state
+ * @return {Object} object which contains age and gender data for a specific state. Return null if the choosen state data is not available
+ */
+function getExpectStateData(state) {
+  return state.toUpperCase() in ageGenderData ? ageGenderData[state] : null;
+}
 
 /**
  * get latest data for user selected state
@@ -15,9 +42,11 @@ function getLastData(state) {
   ];
 }
 
+
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 
 /**
  * Render the state's status table
@@ -34,8 +63,13 @@ function renderStatus(state) {
 
   return (
     <div>
-      <Grid container spacing={1} justify="center" wrap="wrap" style={{ padding: "5px" }}>
-
+      <Grid
+        container
+        spacing={1}
+        justify="center"
+        wrap="wrap"
+        style={{ padding: "5px" }}
+      >
         <Grid item xs={6} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[0])}
@@ -51,8 +85,7 @@ function renderStatus(state) {
               title="<em>All confirmed cases of COVID-19 so far, including deaths and recoveries.</em>"
             >
               Confirmed
-          </button>
-
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={6} sm={4} lg={3}>
@@ -70,7 +103,7 @@ function renderStatus(state) {
               title="<em>All confirmed deaths due to COVID-19, including 1 from the Diamond Princess cruise ship.</em>"
             >
               Deaths
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={6} sm={4} lg={3}>
@@ -88,7 +121,7 @@ function renderStatus(state) {
               title="<em>Number of people that have recovered from COVID-19.</em>"
             >
               Recovered
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={6} sm={4} lg={3}>
@@ -106,14 +139,14 @@ function renderStatus(state) {
               title="<em>Number of people that have been tested for COVID-19.</em>"
             >
               Tested
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={4} sm={4} lg={3}>
           <Tag
-            number={numberWithCommas(latestData[0] - latestData[1] - latestData[2])}
+            number={numberWithCommas(latestData[4])}
             fColor={"#f75c8d"}
-            increased={latestData[0] - latestData[1] - latestData[2] - lastData[0] + lastData[1] + lastData[2]}
+            increased={latestData[4] - lastData[4]}
             typeOfCases={"Active"}
           >
             <button
@@ -124,14 +157,14 @@ function renderStatus(state) {
               title="<em>Existing confirmed cases that have not yet recovered.</em>"
             >
               Active
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={4} sm={4} lg={3}>
           <Tag
-            number={numberWithCommas(latestData[4])}
+            number={numberWithCommas(latestData[5])}
             fColor={"#9d71ea"}
-            increased={latestData[4] - lastData[4]}
+            increased={latestData[5] - lastData[5]}
             typeOfCases={"In Hospital"}
           >
             <button
@@ -142,14 +175,14 @@ function renderStatus(state) {
               title="<em>Number of people in hospital with COVID-19.</em>"
             >
               in Hospital
-          </button>
+            </button>
           </Tag>
         </Grid>
         <Grid item xs={4} sm={4} lg={3}>
           <Tag
-            number={numberWithCommas(latestData[5])}
+            number={numberWithCommas(latestData[6])}
             fColor={"#00aac1"}
-            increased={latestData[5] - lastData[5]}
+            increased={latestData[6] - lastData[6]}
             typeOfCases={"ICU"}
           >
             <button
@@ -160,7 +193,7 @@ function renderStatus(state) {
               title="<em>Number of people with COVID-19 in intensive care.</em>"
             >
               in ICU
-          </button>
+            </button>
           </Tag>
         </Grid>
       </Grid>

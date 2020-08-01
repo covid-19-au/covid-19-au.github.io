@@ -90,7 +90,7 @@ function InfoDrawer() {
         { id: "dailyDistractions", title: i18next.t("infoPage:dailyDistraction.title") },
         { id: "media", title: i18next.t("infoPage:informativeMedia.title") },
         { id: "general", title: i18next.t("infoPage:generalInformation.title") },
-        { id: "regulations", title: i18next.t("infoPage:currentRegulation.title") },
+        //  { id: "regulations", title: i18next.t("infoPage:currentRegulation.title") },
         { id: "stateRegulations", title: "State Regulations" },
         { id: "tracingApp", title: "COVIDSafe (Contact Tracing App)" },
         { id: "haveCovid", title: i18next.t("infoPage:selfDiagnosis.title") },
@@ -346,75 +346,7 @@ function Information({ hospitalData, columns, gspace }) {
                         </div>
                     ))
                     }</div>
-                <div className="card" id="regulations">
-                    <h2 className="responsiveH2">{i18next.t("infoPage:currentRegulation:title")}</h2>
-                    {information.regulations.map(info => (
-                        <div key={uuid()}>
-                            <div>
-                                <ExpansionPanel style={{ boxShadow: "none" }} >
 
-                                    {/* Check /data/info.json for the information. Format is: Block of text, Unordered list, Block of text.
-                        This is so that we can reduce code smell while still retaining the ability to format text.
-                        Guide to adding more info points:
-                            - In all arrays under info.text (E.g. text_1, ulist_1), each new element in the array is a new line for text blocks, or a new list item for list blocks.
-                        */}
-                                    < ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        style={{ textAlign: "left", marginLeft: "1em", padding: "0px", marginRight: "1px" }}>
-                                        <h3 className="responsiveH3">{info.name}</h3>
-                                    </ExpansionPanelSummary>
-                                    <ExpansionPanelDetails style={{ textAlign: "left", marginLeft: "1em", padding: "0px" }}>
-                                        <div>
-                                            {/* First block of text */}
-                                            {info.text.text_1.map(t1 => (
-                                                <p key={uuid()}>{t1}</p>
-                                            ))}
-                                            {/* First Unordered List */}
-                                            {info.text.ulist_1 ? (
-                                                <ul>
-                                                    {info.text.ulist_1.map(ul1 => (
-                                                        <li key={uuid()}>{ul1}</li>
-                                                    ))}
-                                                </ul>
-                                            ) : (
-                                                    ""
-                                                )}
-
-                                            {/* Middle Block of text */}
-                                            {info.text.text_middle.map(t2 => (
-                                                <p key={uuid()}>{t2}</p>
-                                            ))}
-
-                                            {/* First Ordered List */}
-                                            {info.text.ulist_2 ? (
-                                                <ul>
-                                                    {info.text.ulist_2.map(ol1 => (
-                                                        <li key={uuid()}>{ol1}</li>
-                                                    ))}
-                                                </ul>
-                                            ) : (
-                                                    ""
-                                                )}
-
-                                            {/* Third Block of text */}
-                                            {info.text.text_2.map(t2 => (
-                                                <p key={uuid()}>{t2}</p>
-                                            ))}
-
-                                            {/* Citation tag */}
-                                            {info.text.citation.map(cit => (<div>
-                                                <small key={uuid()}><a className="citationLink" target="_blank" rel="noopener noreferrer" href={cit.link}>{cit.name}</a></small><br />
-                                            </div>
-                                            ))}
-                                        </div>
-                                    </ExpansionPanelDetails>
-                                </ExpansionPanel>
-                            </div>
-                        </div>
-                    ))
-                    }
-                </div>
                 <div className="card" id="stateRegulations">
                     <h2 className="responsiveH2">State Regulations</h2>
                     {information.stateRegulations.map(info => (

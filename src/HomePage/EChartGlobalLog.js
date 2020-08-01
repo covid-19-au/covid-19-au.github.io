@@ -238,7 +238,13 @@ class EChartglobalLog extends Component {
             }
             this.state.arrMap[key]["dates"] = this.state.arrMap[key]["dates"].slice(i);
             this.state.arrMap[key]["x"] = this.state.arrMap[key]["x"].slice(i);
-            this.state.arrMap[key]["y"] = this.calcWeeklyNewCases(this.state.arrMap[key]["x"]);
+            let updatedCases = this.calcWeeklyNewCases(this.state.arrMap[key]["x"]).map((cases) => {
+                if (cases === 0) {
+                    return 1;
+                }
+                return cases;
+            })
+            this.state.arrMap[key]["y"] = updatedCases;
             this.state.arrMap[key]["x,y"] = this.mergeXY(this.state.arrMap[key]["x"], this.state.arrMap[key]["y"]);
         })
 

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 
+import keyBy from "lodash.keyby";
 import Area from "./Area";
 import Flights from "./Flights";
 import ConfirmedMap from "./ConfirmedMap";
@@ -18,6 +19,11 @@ import Acknowledgement from "../Acknowledgment";
 import i18next from "../i18n";
 import stateCaseData from "../data/stateCaseData";
 import UpdatedDateFns from "./UpdatedDateFns";
+import provinces from "../data/area";
+
+
+const provincesByName = keyBy(provinces, "name");
+const GoogleMap = React.lazy(() => import("./GoogleMap"));
 
 
 export default function HomePage({
@@ -45,14 +51,23 @@ export default function HomePage({
                         data={myData}
                         countryData={country}
                     />
+                </div>
 
+                <div className="card">
+                  <Suspense fallback={<div className="loading">Loading...</div>}>
+                    <GoogleMap
+                      province={province}
+                      data={data}
+                      onClick={(name) => {
+                        const p = provincesByName[name];
+                        if (p) {
+                          setProvince(p);
+                        }
+                      }}
+                      newData={myData}
+                    />
                     <Area area={area} onChange={setProvince} data={myData} />
-
-                    <span className="due" style={{ fontSize: "80%", paddingTop: 0 }}
-                        aria-label={UpdatedDateFns.getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}
-                        aria-describedby={UpdatedDateFns.getAriaLabelForUpdatedTime(stateCaseData.updatedTime)}>
-                        {i18next.t("homePage:status.note")}{stateCaseData.updatedTime}
-                    </span>
+                  </Suspense>
                 </div>
             </Grid>
 
@@ -74,8 +89,7 @@ export default function HomePage({
                     </h2>
                     <ConfirmedMap />
                 </div>
-            </Grid>
-            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+
                 <OverallTrend />
             </Grid>
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
@@ -87,7 +101,7 @@ export default function HomePage({
             </Grid>
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <Flights flights={flights} />
-                <Ships />
+                {/*<Ships />*/}
             </Grid>
         </Grid>
     );

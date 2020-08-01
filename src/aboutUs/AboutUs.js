@@ -12,7 +12,7 @@ const AboutUs = () => {
                 <h1 className="aboutUsHeadings">Who are we?</h1>
                 <Typography variant="body1" gutterBottom>
                     With the Covid-19 crisis rapidly spreading across the globe, Australia found itself unprepared for the outbreak.
-                    Dr. Chunyang Chen of Monash University's Faculty of Technology noticed an inconsistency and lack of accurate reporting in
+                    Dr. Chunyang Chen of Monash University's Faculty of Information Technology noticed an inconsistency and lack of accurate reporting in
                     Australia's confirmed cases, and gathered a small team of students to combat this problem. A few days later, Covid-19-au was live.
                 </Typography>
                 <Typography variant="body1" gutterBottom>

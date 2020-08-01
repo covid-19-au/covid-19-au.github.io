@@ -2,6 +2,30 @@
     "blogPosts": [
         {
             "tag": "Informative",
+            "title": "The Impact of COVID-19 on different industries",
+            "media": "https://i.imgur.com/50wnarf.png",
+            "summary": "In mid-March, it was reported that more than 60% of Australian businesses have been affected by the COVID-19 pandemic. Read today’s blog to find out more about how coronavirus has impacted different industries and the future for these industries post COVID-19.",
+            "date": "30/05/2020", 
+            "text": {
+                "text_1": [
+                    "Multiple industries have been hit especially hard by COVID-19. In mid-March, it was reported that more than 60% of Australian businesses are affected by the coronavirus pandemic. At state level, South Australia, New South Wales and Victoria have been hit the hardest. The Australian Government has already promised more than $20 billion in stimulus to keep the Australian economy moving. However, this figure will need to continuously be raised to truly help the Australian economy recover from this devastating recession.",
+                    "Let’s take a look at how COVID-19 has impacted on the following industries:"
+                ],
+                "ulist_1": [],
+                "olist_1": [
+                    "<strong>Education</strong> - Education is the foundation of many counties, and the spread of the COVID-19 pandemic has had a significant influence on the way children receive their education. Due to the social distancing rules set by the Australian government, most schools were forced to close their campuses and use an online platform to teach students.",
+                    "<strong>Office</strong> - Many Internet companies have chosen to work online to continue most of the company's business. Within ten years, half of the company's 48,000 employees will work from home, Facebook CEO Mark Zuckerberg said, after this extraordinary period, remote work is also expected to show a growth trend.",
+                    "<strong>Restaurant</strong> - In order to protect the health of customers and delivery staff during the pandemic, many restaurants started to offer a 'contactless delivery' option. Delivery staff would pick up the customers’ orders and leave the takeaway at their front doors to effectively avoid face-to-face contact.",
+                    "<strong>Movie/TV</strong> - Recently, Netflix stopped the production of many highly anticipated film and television productions such as the 4th season of Stranger Things. Warner Bros., Disney, and Apple Tv + have also stated that unless the pandemic is effectively controlled, many popular programs will be suspended. However, in contrast, as people spend more time indoors due to reduction in public events and gatherings, many online video platforms such as YouTube have increased popularity significantly.",
+                    "<strong>Retail</strong> - During the spread of COVID-19, a large number of people in the Australian retail industry lost their jobs and consumer confidence dropped sharply. This eventually led to the collapse of many retail stores. However, at the same time, online retailers have seen some development. The number of online purchases increased for people over the age of 35 but there was a reduction in consumption for people under the age of 25. <em>“Online retail will be an indispensable solution for consumers…especially during this special period”</em> says Justin Dery, Doodle CEO Asia-Pacific."
+                ],
+                "text_2": [
+                    "COVID-19 is an unprecedented public health emergency that has undoubtedly impacted many industries. Many will struggle to recover to a normal that is still constantly being redefined as consumer demand patterns will continue to shift. It is vital for companies to continuously adapt to new and uncertain market environments in order to survive."
+                ]
+            }
+        },
+        {
+            "tag": "Informative",
             "title": "The New Normal",
             "media": "https://i.imgur.com/PVb4qfj.png",
             "summary": "With the pandemic dying down, and things slowly returning back to how they were before, there are things that will inevitably be different. Read todays blog to find out more about the new normal post covid-19.",

@@ -65,7 +65,7 @@ class AgeBarChart extends React.Component {
                      ref={(el) => this.visTabs = el}
                      centered
                     >
-                        <Tab label="Total" value="total" />
+                        <Tab label="New" value="total" />
                         <Tab label="% Percentiles" value="percentiles" />
                     </Tabs>
                 </Paper>
