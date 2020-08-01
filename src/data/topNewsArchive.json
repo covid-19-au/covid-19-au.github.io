@@ -1,6 +1,14 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-07-23/victoria-records-five-deaths-and-403-new-cases-of-covid-19/12483916?nw=0",
+            "title": "Victoria records five deaths and 403 new cases of coronavirus overnight",
+            "source": "ABCNews",
+            "date": "23 July 2020",
+            "time": "12:00",
+            "summary": "Three of the deaths are connected to aged care facilities. The five deaths bring the state's total death toll to 49."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-22/victoria-coronavirus-update-cases-hit-record-daily-high/12479494",
             "title": "Victorian coronavirus cases hit new record high with 484 cases, two more deaths",
             "source": "ABCNews",

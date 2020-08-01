@@ -253,9 +253,9 @@ function GoogleMap({ province, newData }) {
                     <Tooltip title="Tests carried out so far" arrow>
                         <Button style={mapType === "tested" ? activeStyles : inactiveStyles} value="tested" onClick={() => setMapType("tested")}>{i18next.t("homePage:status.Tested")}</Button>
                     </Tooltip>
-                    <Tooltip title="Tests carried out per million people" arrow>
+                    {/*  <Tooltip title="Tests carried out per million people" arrow>
                         <Button style={mapType === "relative-tests" ? activeStyles : inactiveStyles} value="relative-tests" onClick={() => setMapType("relative-tests")}>{i18next.t("homePage:status.testPM")}</Button>
-                    </Tooltip>
+                    </Tooltip>*/}
                     <Tooltip title="Percentage of positive test cases" arrow>
                         <Button style={mapType === "test-strike" ? activeStyles : inactiveStyles} value="test-strike" onClick={() => setMapType("test-strike")}>{i18next.t("homePage:status.positiveP")}</Button>
                     </Tooltip>
