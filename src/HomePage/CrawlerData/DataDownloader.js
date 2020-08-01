@@ -312,19 +312,19 @@ class DataDownloader {
                 //          but is split into e.g. AU-VIC etc
                 //      jp_city has a parent of JP (signifying for all Japan)
                 let iso3166Codes = [];
-                let US_AU_REGEX = /^(au|us|br|ru|kz|se|no|in|sa|za|bw|na|ng|cd|dz|ml|ne|et|mz|zw|zm|sd|ao|tz|cl|ma|mr)-*$/,
-                    CN_REGEX = /^cn-*$/;
+                let BIG_COUNTRY_REGEX = /^(br|ru|kz|se|no|in|sa|za|bw|na|ng|cd|dz|ml|ne|et|mz|zw|zm|sd|ao|tz|cl|ma|mr)-*$/,
+                    CN_US_AU_REGEX = /^cn-*|us-*|au-*$/;
 
                 for (let iso3166 of Array.from(iso3166WithinView)) {
                     let hasHyphen = iso3166.indexOf('-') !== -1;
 
-                    if (schema === 'admin_1' && iso3166.match(US_AU_REGEX) &&
+                    if (schema === 'admin_1' && iso3166.match(BIG_COUNTRY_REGEX) &&
                         zoomLevel < 3) {
                         // AUS/USA both have very large states, so need
                         // specific logic for admin_1 to show from zoom 3
                         continue;
-                    } else if (schema === 'admin_1' && !iso3166.match(US_AU_REGEX)
-                                                    && !iso3166.match(CN_REGEX) &&
+                    } else if (schema === 'admin_1' && !iso3166.match(BIG_COUNTRY_REGEX)
+                                                    && !iso3166.match(CN_US_AU_REGEX) &&
                                zoomLevel < 4) {
                         // Otherwise start only from zoom 4 for admin_1,
                         // unless for China, in which case always use admin_1

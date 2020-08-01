@@ -88,7 +88,6 @@ div.map-cont-controls {
         z-index: 500;
         width: 30%;
         min-width: 220px;
-        opacity: 0.9;
         border-radius: 6px;
         box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
     }
@@ -100,4 +99,14 @@ div.map-cont-controls {
     background-image: linear-gradient(to left, #bd7171, #0075bf);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+code {
+    background-color: lightyellow;
+    padding: 2px;
+    color: black;
+    font-size: 1em;
+    font-family: monospace;
+    border: 1px dashed #ddd;
+    white-space: nowrap;
 }

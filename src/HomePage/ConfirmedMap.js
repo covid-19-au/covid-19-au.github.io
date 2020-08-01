@@ -49,14 +49,28 @@ class ConfirmedMap extends React.Component {
                 }}>
                     <span className="due">
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
-                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>Regional Case Map may not be up-to-date. Refer to state totals in Cases by State table for current statistics.</li>
-                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>Displayed cases identify regions only, not specific addresses.</li>
-                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}><span style={{fontWeight: 'bold'}}>🔍 Zoom in</span> for regional numbers. Click regions for history over time.</li>
-                            <li style={{color: '#555'}}><div style={{color: '#777', fontSize: '0.9em'}}>Regional data updated: <span ref={
-                                (el) => this.__updatedSpan = el
-                            }>{
-                                this.__getUpdatedDates()
-                            }</span></div>
+                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
+                                <span style={{fontWeight: 'bold'}}>🔍 Zoom in</span> for regional numbers.
+                                <b>🖱️ Click</b> or <b>👆 tap</b> regions for history over time.</li>
+
+                            <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>
+                                The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>
+                                selects the <i>current day</i>. The <i>n</i> days (7/14/21 days) controls show the <i>current day</i>'s
+                                value minus the value <i>n</i> days before the <i>current day</i>. Negative numbers in this mode mean the
+                                value is that amount less than it was that many days ago.</li>
+
+                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
+                                Regional Case Map may not be up-to-date. Refer to state totals in Cases by State table for
+                                current statistics. Displayed cases identify regions only, not specific addresses.</li>
+
+                            <li style={{color: '#555'}}>
+                                <div style={{color: '#777', fontSize: '0.9em'}}>
+                                    Regional data updated: <span ref={
+                                        (el) => this.__updatedSpan = el
+                                    }>{
+                                        this.__getUpdatedDates()
+                                    }</span>
+                                </div>
                             </li>
                         </ul>
                     </span>

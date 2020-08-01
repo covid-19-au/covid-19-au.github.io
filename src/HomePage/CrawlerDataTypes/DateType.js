@@ -73,7 +73,7 @@ class DateType extends Date {
             // supplied years/months/days
             years = arguments[0].getFullYear();
             months = arguments[0].getMonth()+1;
-            days = arguments[0].getDate();
+            days = arguments[0].getDate()-1;
         }
         else {
             // Use supplied years/months/days
@@ -87,7 +87,7 @@ class DateType extends Date {
             months == null ? 0 : months-1,
             days == null ? 0 : days+1
         );
-        this.setHours(0, 0, 0, 0);
+        //this.setHours(0, 0, 0, 0);
 
         this.years = years;
         this.months = months;
@@ -101,7 +101,7 @@ class DateType extends Date {
     static today() {
         // TODO!
         var today = new Date();
-        today.setHours(0, 0, 0, 0);
+        //today.setHours(0, 0, 0, 0);
         return new DateType(today);
     }
 
@@ -225,10 +225,10 @@ class DateType extends Date {
      */
     toString() {
         if (this.months != null && this.days != null) {
-            return `${this.years}_${this.months}_${this.days}`;
+            return `${this.years}_${("0" + this.months).slice(-2)}_${("0" + this.days).slice(-2)}`;
         }
         else if (this.months != null) {
-            return `${this.years}_${this.months}`;
+            return `${this.years}_${("0" + this.months).slice(-2)}`;
         }
         else {
             return `${this.years}`;

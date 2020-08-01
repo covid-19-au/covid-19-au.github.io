@@ -88,6 +88,8 @@ class CasesData {
         //this.getCaseNumberTimeSeries = Fns.regionFnCached(this.getCaseNumberTimeSeries, this);
 
         //this.getCaseNumberTimeSeriesOverNumDays = Fns.regionFnCached(this.getCaseNumberTimeSeriesOverNumDays, this);
+
+        this.__averagedCache = new Map();
     }
 
     /**
@@ -112,7 +114,7 @@ class CasesData {
         let r = {};
         for (let [key, value] of Object.entries(regionsDateIds)) {
             r[key] = new DateType(value);
-            //console.log(`${JSON.stringify(value)} ${JSON.stringify(r[key])}`);
+            //console.log(`${JSON.stringify(value)} ${JSON.stringify(r[key])} ${r[key].prettified()}`);
         }
         return r;
     }
@@ -143,6 +145,14 @@ class CasesData {
      */
     getRegionParent() {
         return this.regionParent;
+    }
+
+    /**
+     *
+     * @returns {*}
+     */
+    getDataType() {
+        return this.dataType;
     }
 
     /*******************************************************************
@@ -284,6 +294,75 @@ class CasesData {
         return oldest || new TimeSeriesItem(
             latest.getDateType(), 0
         );
+    }
+
+    /*******************************************************************
+     * Averaged (smoothed) case numbers over num days
+     *******************************************************************/
+
+    /**
+     *
+     * @param regionType
+     * @param ageRange
+     * @param maxDateType
+     */
+    getSmoothedCaseNumber(regionType, ageRange, maxDateType) {
+        ageRange = ageRange || '';
+        maxDateType = maxDateType || DateType.today();
+
+        let uniqueKey = `${regionType.getHashKey()}||${ageRange}`;
+        if (!this.__averagedCache.has(uniqueKey)) {
+            let dataPoints = this.getCaseNumberTimeSeries(regionType, ageRange, DateType.today());
+            if (dataPoints) {
+                dataPoints = dataPoints.getDayAverage(7);
+                //console.log(JSON.stringify(dataPoints))
+                //alert("DATAPOINTS: "+uniqueKey)
+            } else {
+                //alert("NOT DATAPOINTS: "+uniqueKey)
+            }
+            this.__averagedCache.set(uniqueKey, dataPoints);
+        }
+
+        let dataPoints = this.__averagedCache.get(uniqueKey);
+        if (!dataPoints) {
+            return null;
+        }
+        else {
+            for (let timeSeriesItem of dataPoints) {
+                //console.log(timeSeriesItem.getDateType().prettified())
+                if (timeSeriesItem.getDateType() <= maxDateType) {
+                    return timeSeriesItem;
+                }
+            }
+            return null;
+        }
+    }
+
+    /**
+     *
+     * @param regionType
+     * @param ageRange
+     * @param numDays
+     * @param maxDateType
+     */
+    getSmoothedCaseNumberOverNumDays(regionType, ageRange, numDays, maxDateType) {
+        ageRange = ageRange || '';
+        maxDateType = maxDateType || DateType.today();
+
+        let latestTimeSeriesItem = this.getSmoothedCaseNumber(
+            regionType, ageRange, maxDateType
+        );
+        let pastTimeSeriesItem = this.getSmoothedCaseNumber(
+            regionType, ageRange, maxDateType.daysSubtracted(numDays)
+        );
+
+        if (latestTimeSeriesItem && pastTimeSeriesItem) {
+            return new TimeSeriesItem(
+                latestTimeSeriesItem.getDateType(),
+                Math.round(latestTimeSeriesItem.getValue() - pastTimeSeriesItem.getValue()) // NOTE ME!!! ============================================
+            )
+        }
+        return null;
     }
 
     /*******************************************************************

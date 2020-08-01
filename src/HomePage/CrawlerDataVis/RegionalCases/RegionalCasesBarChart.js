@@ -26,7 +26,6 @@ import React from 'react';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-import getLastDaysRangeOfSample from "../getLastDaysRangeOfSample";
 
 import ReactEcharts from "echarts-for-react";
 import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "../eChartsFns";
@@ -41,9 +40,9 @@ class RegionalCasesBarChart extends React.Component {
     constructor() {
         super();
         this.state = {
-            mode: 'total'
+            mode: 'active'
         };
-        this.__mode = 'total';
+        this.__mode = 'active';
     }
 
     /*******************************************************************
@@ -66,8 +65,9 @@ class RegionalCasesBarChart extends React.Component {
                      ref={(el) => this.visTabs = el}
                      centered
                     >
-                        <Tab label="Total" value="total" />
-                        <Tab label="% Percentiles" value="percentiles" />
+                        {this.disableTotalMode ? '' : <Tab label="Active" value="active" />}
+                        {this.disableTotalMode ? '' : <Tab label="Active %" value="percentiles" />}
+                        <Tab label="New" value="new" />
                     </Tabs>
                 </Paper>
 
@@ -92,8 +92,15 @@ class RegionalCasesBarChart extends React.Component {
         this.__updateSeriesData()
     }
 
-    setCasesInst(casesInst) {
+    setCasesInsts(casesInst, newCasesInst) {
         this.__casesInst = casesInst;
+        this.__newCasesInst = newCasesInst;
+
+        if (!casesInst) {
+            this.disableTotalMode = true;
+            this.__mode = 'new';
+        }
+
         this.__updateSeriesData()
     }
 
@@ -103,10 +110,12 @@ class RegionalCasesBarChart extends React.Component {
 
     __updateSeriesData() {
         let series = [],
-            allDates = new Set();
+            allDates = new Set(),
+            casesInst = this.__mode === 'new' ?
+                this.__newCasesInst : this.__casesInst;
 
-        for (let regionType of this.__casesInst.getRegionChildren()) {
-            let caseNumberTimeSeries = this.__casesInst.getCaseNumberTimeSeries(
+        for (let regionType of casesInst.getRegionChildren()) {
+            let caseNumberTimeSeries = casesInst.getCaseNumberTimeSeries(
                 regionType, null
             ) || [];
             caseNumberTimeSeries.sort((x, y) => {
@@ -136,6 +145,14 @@ class RegionalCasesBarChart extends React.Component {
                 symbol: 'roundRect',
                 step: true,
             });
+        }
+
+        if (!series.length) {
+            if (this.__mode === 'active' || this.__mode === 'percentiles') {
+                this.disableTotalMode = true;
+                this.__mode = 'new';
+                return this.__updateSeriesData();
+            }
         }
 
         // Limit to just the 6 regions with most cases

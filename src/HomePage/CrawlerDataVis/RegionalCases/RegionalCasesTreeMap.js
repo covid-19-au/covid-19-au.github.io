@@ -28,6 +28,8 @@ import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
 import ReactEcharts from "echarts-for-react";
 
+import RegionType from "../../CrawlerDataTypes/RegionType";
+
 
 /**
  * A tree map which shows boxes corresponding to current number of regional cases.
@@ -63,8 +65,8 @@ class RegionalCasesTreeMap extends React.Component {
                      ref={(el) => this.visTabs = el}
                      centered
                     >
-                        <Tab label="Active" value="active" />
-                        <Tab label="New" value="new" />
+                        {this.disableActiveMode ? '' : <Tab label="Active" value="active" />}
+                        {this.disableNewMode ? '' : <Tab label="New" value="new" />}
                         <Tab label="Total" value="total" />
                     </Tabs>
                 </Paper>
@@ -120,7 +122,8 @@ class RegionalCasesTreeMap extends React.Component {
             throw "Shouldn't get here";
         }
 
-        let data = [];
+        let data = [],
+            foundNonZero = false;
         for (let regionType of casesInst.getRegionChildren()) {
             let timeSeriesItem;
 
@@ -131,6 +134,9 @@ class RegionalCasesTreeMap extends React.Component {
             }
 
             if (timeSeriesItem) {
+                if (timeSeriesItem.getValue() > 0) {
+                    foundNonZero = true;
+                }
                 data.push({
                     name: regionType.getLocalized(),
                     value: timeSeriesItem.getValue(),
@@ -139,10 +145,27 @@ class RegionalCasesTreeMap extends React.Component {
             }
         }
 
+        if (!data.length || !foundNonZero) {
+            if (this.__mode === 'active') {
+                this.disableActiveMode = true;
+                this.__mode = 'new';
+                return this.__updateData();
+            } else if (this.__mode === 'new') {
+                this.disableNewMode = true;
+                this.__mode = 'total';
+                return this.__updateData();
+            }
+        }
+
         this.setState({
             mode: this.__mode,
             option: {
                 series: [{
+                    name: new RegionType(
+                        'admin_1',
+                        casesInst.getRegionParent().split('-')[0],
+                        casesInst.getRegionParent()
+                    ).getLocalized(),
                     animationDuration: 100,
                     type: 'treemap',
                     data: data

@@ -117,7 +117,10 @@ class AgeBarChart extends React.Component {
                 this.__regionType, ageRange
             );
             if (caseNumberTimeSeries) {
-                caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals().getDayAverage(7);
+                caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals();
+                if (this.__mode === 'percentiles') {
+                    caseNumberTimeSeries = caseNumberTimeSeries.getDayAverage(7);
+                }
             } else {
                 caseNumberTimeSeries = [];
             }

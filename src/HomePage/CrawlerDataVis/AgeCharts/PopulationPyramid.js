@@ -60,8 +60,10 @@ class PopulationPyramid extends React.Component {
         for (let ageRange of maleCasesInst.getAgeRanges(regionType)) {
             ageRanges.add(ageRange);
         }
-        for (let ageRange of femaleCasesInst.getAgeRanges(regionType)) {
-            ageRanges.add(ageRange);
+        if (femaleCasesInst) {
+            for (let ageRange of femaleCasesInst.getAgeRanges(regionType)) {
+                ageRanges.add(ageRange);
+            }
         }
         ageRanges = Array.from(ageRanges).sort();
 
@@ -71,11 +73,12 @@ class PopulationPyramid extends React.Component {
                 maleCasesInst.getCaseNumber(regionType, ageRange).getValue()
             );
         }
-
-        for (let ageRange of ageRanges) {
-            femaleVals.push(
-                -femaleCasesInst.getCaseNumber(regionType, ageRange).getValue()
-            );
+        if (femaleCasesInst) {
+            for (let ageRange of ageRanges) {
+                femaleVals.push(
+                    -femaleCasesInst.getCaseNumber(regionType, ageRange).getValue()
+                );
+            }
         }
 
         this.setState({
@@ -112,7 +115,7 @@ class PopulationPyramid extends React.Component {
                         data: ageRanges
                     }
                 ],
-                series: [
+                series: femaleVals.length ? [
                     {
                         name: 'Female',
                         type: 'bar',
@@ -133,6 +136,17 @@ class PopulationPyramid extends React.Component {
                         },
                         data: maleVals
                     },
+                ] : [
+                    {
+                        name: 'Total',
+                        type: 'bar',
+                        stack: true,
+                        label: {
+                            show: true,
+                            formatter: o => Math.abs(o.value)
+                        },
+                        data: maleVals
+                    }
                 ]
             }
         });

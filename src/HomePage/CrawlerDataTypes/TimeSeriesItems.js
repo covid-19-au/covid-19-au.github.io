@@ -85,6 +85,24 @@ class TimeSeriesItems extends Array {
         );
     }
 
+    /**
+     *
+     * @returns {TimeSeriesItems}
+     */
+    sortAscending() {
+        this.sort((a, b) => {return a[0] - b[0]});
+        return this;
+    }
+
+    /**
+     *
+     * @returns {TimeSeriesItems}
+     */
+    sortDescending() {
+        this.sort((a, b) => {return b[0] - a[0]});
+        return this;
+    }
+
     /********************************************************************
      * Get information about the data source etc
      ********************************************************************/
@@ -190,10 +208,12 @@ class TimeSeriesItems extends Array {
      */
     getNewValuesFromTotals() {
         let r = [];
+        let originalArray = this.clone();
+        originalArray.sortAscending();
 
-        for (let i=0; i<this.length-1; i++) {
-            let timeSeriesItem = this[i],
-                prevTimeSeriesItem = this[i+1];
+        for (let i=0; i<originalArray.length-1; i++) {
+            let timeSeriesItem = originalArray[i],
+                prevTimeSeriesItem = originalArray[i+1];
 
             r.push(new TimeSeriesItem(
                 timeSeriesItem.getDateType(),
@@ -210,7 +230,7 @@ class TimeSeriesItems extends Array {
 
         return new TimeSeriesItems(
             this.dataSource, this.regionType, dateRangeType, this.ageRange, r
-        );
+        ).sortDescending();
     }
 
     /**
@@ -220,15 +240,19 @@ class TimeSeriesItems extends Array {
      */
     getDayAverage(overNumDays) {
         // TODO: MAKE THIS OVER *DAYS* NOT *SAMPLES*!!! ==========================================
-        let r = [];
 
-        for (let i=0; i<this.length; i++) {
+        // Make sure newest elements are first
+        let originalArray = this.clone();
+        originalArray.sortDescending();
+
+        let r = [];
+        for (let i=0; i<originalArray.length; i++) {
             let totalVal = 0,
                 numVals = 0,
-                highestDate = this[i].getDateType();
+                highestDate = originalArray[i].getDateType();
 
-            for (let j=i; j<this.length && j<i+overNumDays; j++) {
-                totalVal += this[j].getValue();
+            for (let j=i; j<originalArray.length && j<i+overNumDays; j++) {
+                totalVal += originalArray[j].getValue();
                 numVals++;
             }
 
@@ -238,7 +262,7 @@ class TimeSeriesItems extends Array {
         let dateRangeType;
         if (r.length) {
             dateRangeType = new DateRangeType(
-                r[0].getDateType(), r[r.length-1].getDateType()
+                r[r.length-1].getDateType(), r[0].getDateType()
             );
         }
 
@@ -274,8 +298,8 @@ class TimeSeriesItems extends Array {
             out.push([dateType, curValue])
         }
 
-        // Sort by oldest first
-        out.sort((a, b) => {return b[0] - a[0]});
+        // Sort by newest first
+        out.sortDescending();
         return out;
     }
 

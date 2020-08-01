@@ -224,12 +224,14 @@ class StateChart extends React.Component {
      * @private
      */
     async __initAreaChart(regionSchema, regionParent) {
-        let newCaseData = await this.dataDownloader.getCaseData(
+        let activeCaseData = await this.dataDownloader.getCaseData(
             'status_active', regionSchema, regionParent
         );
-        if (newCaseData && newCaseData.datatypeInData()) {
-            this.areaChart.setCasesInst(newCaseData);
-        }
+        let newCaseData = await this.dataDownloader.getCaseData(
+            'new', regionSchema, regionParent
+        );
+
+        this.areaChart.setCasesInsts(activeCaseData, newCaseData);
     }
 
     /**

@@ -173,6 +173,13 @@ class RegionType {
     }
 
     /**
+     *
+     */
+    getHashKey() {
+        return `${this.getRegionSchema()}||${this.getRegionParent()}||${this.getRegionChild()}`;
+    }
+
+    /**
      * Get the localized name of a child region.
      * If langCode isn't supplied, it will default to English.
      *

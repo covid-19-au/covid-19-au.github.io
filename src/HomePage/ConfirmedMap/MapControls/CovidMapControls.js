@@ -51,6 +51,14 @@ class CovidMapControls extends React.Component {
                      fontSize: '1.2em',
                      maxWidth: '14em'
                  }}>
+                <div style={{
+                    fontWeight: "bold",
+                    fontSize: "0.8em",
+                    marginLeft: "3px",
+                    marginBottom: "-2px"
+                }}>
+                    Select Indicator <span style={{color: "gray"}}>⇊</span>
+                </div>
                 <DataTypeSelect ref={(el) => this.__dataTypeSelect = el}
                                 onchange={(dataType, timePeriod) => this._onChangeType(dataType, timePeriod)}
                                 dataType={this.props.dataType}

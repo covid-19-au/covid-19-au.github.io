@@ -76,7 +76,7 @@ class DateRangeType {
      */
     setDateRange(fromDate, toDate) {
         if (fromDate > toDate) {
-            throw `fromDate ${fromDate} should be greater than or equal to toDate ${toDate}`;
+            throw `fromDate ${fromDate} should be less than or equal to toDate ${toDate}`;
         }
         this.fromDate = fromDate;
         this.toDate = toDate;

@@ -89,7 +89,7 @@ class CovidMapControl extends React.Component {
 
                 <MapTimeSlider ref={el => {this.__mapTimeSlider = el}}
                                onChange={(newValue) => this._onMapTimeSlider(newValue)}
-                               numDays={45}/>
+                               numDays={90}/>
             </div>
         )
     }
@@ -109,10 +109,10 @@ class CovidMapControl extends React.Component {
             maxZoom: 12,
             //minZoom: 1,
             transition: {
-                duration: 0,
-                delay: 0
+                duration: 250,
+                delay: 10
             },
-            fadeDuration: 0
+            fadeDuration: 250
         });
 
         // Add the map controls to the map container element so that
@@ -219,7 +219,7 @@ class CovidMapControl extends React.Component {
                     this.prevDataType, this.prevZoomLevel, true
                 );
             } else {
-                setTimeout(poll, 100);
+                setTimeout(poll, 1);
             }
         };
 
@@ -240,7 +240,7 @@ class CovidMapControl extends React.Component {
                 this.__polling = false;
                 this.onMapMoveChange();
             } else {
-                setTimeout(poll, 100);
+                setTimeout(poll, 1);
             }
         };
 
@@ -248,7 +248,7 @@ class CovidMapControl extends React.Component {
             return;
         }
         this.__polling = true;
-        setTimeout(poll, 100);
+        setTimeout(poll, 1);
     }
 
     /**
@@ -340,9 +340,6 @@ class CovidMapControl extends React.Component {
             if (!this.map) {
                 // React JS likely destroyed the elements in the interim
                 return;
-            } else if (!this.map.loaded() && false) {
-                // Don't display until map ready!
-                setTimeout(callMe, 25);
             } else {
                 // Update the sources
                 this.clusteredCaseSource.setData(

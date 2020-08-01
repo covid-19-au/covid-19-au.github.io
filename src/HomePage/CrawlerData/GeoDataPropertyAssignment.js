@@ -1,3 +1,4 @@
+import schemaTypes from "../../data/caseData/schema_types.json";
 import RegionType from "../CrawlerDataTypes/RegionType";
 import Fns from "../ConfirmedMap/Fns";
 
@@ -18,6 +19,7 @@ class GeoDataPropertyAssignment {
      * @param iso3166WithinView
      */
     constructor(insts, dataType, lngLatBounds, iso3166WithinView, parents) {
+        this.constants = schemaTypes.constants;
         this.insts = insts;
         this.dataType = dataType;
         this.lngLatBounds = lngLatBounds;
@@ -173,15 +175,29 @@ class GeoDataPropertyAssignment {
             let regionType = new RegionType(
                 properties['regionSchema'], properties['regionParent'], properties['regionChild']
             );
-            let timeSeriesItem = (
-                dateRangeType ?
-                    casesInst.getCaseNumberOverNumDays(
-                        regionType, ageRange, dateRangeType.getDifferenceInDays(), maxDateType
-                    ) :
-                    casesInst.getCaseNumber(
-                        regionType, ageRange, maxDateType
-                    )
-            );
+            let timeSeriesItem;
+
+            if (!this.constants[casesInst.getDataType()] || !this.constants[casesInst.getDataType()].averagedata) {
+                timeSeriesItem = (
+                    dateRangeType ?
+                        casesInst.getCaseNumberOverNumDays(
+                            regionType, ageRange, dateRangeType.getDifferenceInDays(), maxDateType
+                        ) :
+                        casesInst.getCaseNumber(
+                            regionType, ageRange, maxDateType
+                        )
+                );
+            } else {
+                timeSeriesItem = (
+                    dateRangeType ?
+                        casesInst.getSmoothedCaseNumberOverNumDays(
+                            regionType, ageRange, dateRangeType.getDifferenceInDays(), maxDateType
+                        ) :
+                        casesInst.getSmoothedCaseNumber(
+                            regionType, ageRange, maxDateType
+                        )
+                );
+            }
 
             if (!timeSeriesItem) {
                 debug(`No data for ${regionType.prettified()} (${regionType.getRegionChild()})`);

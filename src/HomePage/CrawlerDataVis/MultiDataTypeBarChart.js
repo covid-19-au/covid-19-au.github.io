@@ -26,7 +26,6 @@ import React from 'react';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-import getLastDaysRangeOfSample from "./getLastDaysRangeOfSample";
 
 import ReactEcharts from "echarts-for-react";
 import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "./eChartsFns";
@@ -99,7 +98,10 @@ class MultiDataTypeBarChart extends React.Component {
         for (let casesInst of this.__casesInsts) {
             let caseNumberTimeSeries = casesInst.getCaseNumberTimeSeries(this.__regionType, null);
             if (caseNumberTimeSeries) {
-                caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals().getDayAverage(7);
+                caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals();
+                if (this.__mode === 'percentiles') {
+                    caseNumberTimeSeries = caseNumberTimeSeries.getDayAverage(7);
+                }
             } else {
                 caseNumberTimeSeries = [];
             }
