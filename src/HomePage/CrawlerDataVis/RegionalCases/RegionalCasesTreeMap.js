@@ -29,6 +29,8 @@ import Paper from "@material-ui/core/Paper";
 import ReactEcharts from "echarts-for-react";
 
 import RegionType from "../../CrawlerDataTypes/RegionType";
+import MapTimeSlider from "../../ConfirmedMap/MapControls/MapTimeSlider";
+import DateType from "../../CrawlerDataTypes/DateType";
 
 
 /**
@@ -79,8 +81,22 @@ class RegionalCasesTreeMap extends React.Component {
                         marginTop: '25px'
                     }}
                 />
+
+                <MapTimeSlider
+                    onChange={(newValue) => this.__onTimeSliderChange(newValue)}
+                />
             </div>
         );
+    }
+
+    /**
+     *
+     * @param newDateType
+     * @private
+     */
+    __onTimeSliderChange(newDateType) {
+        this.__dateType = newDateType;
+        this.__updateData();
     }
 
     /*******************************************************************
@@ -128,9 +144,13 @@ class RegionalCasesTreeMap extends React.Component {
             let timeSeriesItem;
 
             if (numDays) {
-                timeSeriesItem = casesInst.getCaseNumberOverNumDays(regionType, null, numDays)
+                timeSeriesItem = casesInst.getCaseNumberOverNumDays(
+                    regionType, null, numDays, this.__dateType
+                )
             } else {
-                timeSeriesItem = casesInst.getCaseNumber(regionType, null);
+                timeSeriesItem = casesInst.getCaseNumber(
+                    regionType, null, this.__dateType
+                );
             }
 
             if (timeSeriesItem) {
@@ -145,7 +165,9 @@ class RegionalCasesTreeMap extends React.Component {
             }
         }
 
-        if (!data.length || !foundNonZero) {
+        if ((!data.length || !foundNonZero) &&
+            (!this.__dateType || this.__dateType.equalTo(DateType.today()))) {
+
             if (this.__mode === 'active') {
                 this.disableActiveMode = true;
                 this.__mode = 'new';

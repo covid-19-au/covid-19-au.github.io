@@ -39,10 +39,10 @@ class AgeBarChart extends React.Component {
     constructor() {
         super();
         this.state = {
-            mode: 'total',
+            mode: 'percentiles',
             allDates: []
         };
-        this.__mode = 'total';
+        this.__mode = 'percentiles';
     }
 
     /*******************************************************************
