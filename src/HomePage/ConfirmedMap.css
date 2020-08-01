@@ -9,12 +9,6 @@
 /*.marker{*/
   /*visibility: hidden;*/
 /*}*/
-.marker:hover {
-    opacity: 1.0;
-}
-.marker {
-    opacity: 0.7;
-}
 
 .key{
   margin-left: 0px;
@@ -47,7 +41,7 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    height: 57vh;
+    height: 60vh;
 }
 
 .mapboxgl-popup {
@@ -57,6 +51,12 @@
 
 .mapboxgl-popup-content {
     box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
+}
+
+div.map-cont-controls {
+
+    pointer-events: none;
+    white-space: nowrap;
 }
 
 .map-slider-container {
@@ -72,17 +72,13 @@
   margin: 10px;
 }
 
-div.map-cont-controls {
-    white-space: nowrap;
-}
-
-@media only screen and (max-width: 600px) {
+/*@media only screen and (max-width: 600px) {*/
     div.map-cont-controls {
         padding: 4px 0 4px 0;
     }
-}
+/*}*/
 
-@media only screen and (min-width: 600px) {
+/*@media only screen and (min-width: 600px) {*/
     div.map-cont-controls {
         padding: 4px 6px 0 6px;
         background: white;
@@ -92,9 +88,25 @@ div.map-cont-controls {
         z-index: 500;
         width: 30%;
         min-width: 220px;
-        max-width: 240px;
-        /*opacity: 0.9;*/
         border-radius: 6px;
         box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
     }
+/*}*/
+
+.rainbow-text {
+    /* https://w3bits.com/rainbow-text/ */
+    /* rgb(157, 113, 234), #00c177, #ff603c, #c11700  */
+    background-image: linear-gradient(to left, #bd7171, #0075bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+code {
+    background-color: lightyellow;
+    padding: 2px;
+    color: black;
+    font-size: 1em;
+    font-family: monospace;
+    border: 1px dashed #ddd;
+    white-space: nowrap;
 }

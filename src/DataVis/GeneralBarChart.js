@@ -51,7 +51,6 @@ function setGeneralBarOption(state) {
     "Death",
     "Recovered",
     "Tested",
-    "Active",
     "in Hospital",
     "in ICU",
   ];
@@ -64,15 +63,15 @@ function setGeneralBarOption(state) {
     tempBarSeies.setItemStyle(colorMapping[generalBarLegend[i]]);
     generalBarSeries.addSubSeries(tempBarSeies);
   }
-  // // add active case into graph and put it after recovered case
-  // let activeData = lastData[0] - lastData[1] - lastData[2];
-  // generalBarLegend.splice(3, 0, "Active");
-  // let tempBarSeies = new BarSeries(
-  //   generalBarLegend[3],
-  //   new Array(activeData.toString())
-  // );
-  // tempBarSeies.setItemStyle(colorMapping["Active"]);
-  // generalBarSeries.addSubSeries(tempBarSeies, 3);
+  // add active case into graph and put it after recovered case
+  let activeData = lastData[0] - lastData[1] - lastData[2];
+  generalBarLegend.splice(3, 0, "Active");
+  let tempBarSeies = new BarSeries(
+    generalBarLegend[3],
+    new Array(activeData.toString())
+  );
+  tempBarSeies.setItemStyle(colorMapping["Active"]);
+  generalBarSeries.addSubSeries(tempBarSeies, 3);
 
   let tempOption = {
     grid: {
@@ -114,15 +113,12 @@ function GeneralBarChart({ state }) {
   barOption = setGeneralBarOption(state.toUpperCase());
 
   return (
-    <Grid item xs={11} sm={11} md={4}>
-      <div className="card">
-        <h2>Current Statistics</h2>
-        <ReactEcharts option={barOption} />
-        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-          Time in AEST, Last Update: {ageGenderUpdateTime}
-        </span>
-      </div>
-    </Grid>
+    <div>
+      <ReactEcharts option={barOption} />
+      <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+        Time in AEST, Last Update: {ageGenderUpdateTime}
+      </span>
+    </div>
   );
 }
 

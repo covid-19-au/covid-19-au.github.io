@@ -1,11 +1,51 @@
+/**
+This file is licensed under the MIT license
+
+Copyright (c) 2020 David Morrissey
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+
 var fns = {
+    /**
+     *
+     * @param features
+     */
+    geoJSONFromFeatures: function(features) {
+        return {
+            "type": "FeatureCollection",
+            "features": features
+        };
+    },
+
     /*******************************************************************
      * Array helper functions
      *******************************************************************/
 
+    /**
+     * Return the keys in `o`, sorting (case-sensitive)
+     *
+     * @param o
+     * @returns {[]}
+     */
     sortedKeys: function(o) {
-        // Return the keys in `o`, sorting
-        // (case-sensitive)
+        //
         var r = [];
         for (var k in o) {
             if (!o.hasOwnProperty(k)) {
@@ -17,11 +57,56 @@ var fns = {
         return r
     },
 
+    /**
+     *
+     * @param obj
+     * @returns {boolean}
+     */
+    isArrayEmpty: function(obj) {
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop))
+                return false;
+        }
+        return true;
+    },
+
     /*******************************************************************
-     * Number functions
+     * String functions
      *******************************************************************/
 
-    numberFormat: function(num, digits) {
+    /**
+     * Convert to Title Case
+     *
+     * @param str
+     * @returns {*}
+     */
+    toTitleCase: function(str) {
+        // From https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+        return str.replace(
+            /\w\S*/g,
+            function (txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            }
+        );
+    },
+
+    /**
+     *
+     * @param numSteps
+     * @param rgba1
+     * @param rgba2
+     */
+    colorStep: function(numSteps, rgba1, rgba2) {
+        for (let i=0; i<numSteps; i++) {
+
+        }
+    },
+
+    /*******************************************************************
+     * String functions
+     *******************************************************************/
+
+    getCompactNumberRepresentation: function(num, digits) {
         // https://stackoverflow.com/questions/9461621/format-a-number-as-2-5k-if-a-thousand-or-more-otherwise-900
         var si = [
             {value: 1, symbol: ""},
@@ -40,97 +125,45 @@ var fns = {
                 break;
             }
         }
-        return (num / si[i].value)
-               .toFixed(digits)
-               .replace(rx, "$1") + si[i].symbol;
-    },
 
-    /*******************************************************************
-     * String functions
-     *******************************************************************/
+        let r = (num / si[i].value)
+                .toFixed(digits)
+                .replace(rx, "$1");
 
-    toTitleCase: function(str) {
-        // convert to Title Case
-        // https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
-        return str.replace(
-            /\w\S*/g,
-            function (txt) {
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }
-        );
-    },
-
-    prepareForComparison: function(s) {
-        // Replace different kinds of successive hyphens
-        // and whitespace with only a single hyphen,
-        // then lowercase before comparing to make sure
-        // e.g. "KALGOORLIE-BOULDER" matches against
-        // "Kalgoorlie - Boulder"
-        s = s.replace(/(\s*[-‒–—])\s+/g, '-');
-        s = s.toLowerCase();
-        // Sync me with get_regions_json_data in the web app!!
-        s = s.replace('the corporation of the city of ', '');
-        s = s.replace('the corporation of the town of ', '');
-        s = s.replace('pastoral unincorporated area', 'pua');
-        s = s.replace('district council', '');
-        s = s.replace('regional council', '');
-        s = s.replace('unincorporated sa', 'pua');
-        s = s.replace(' shire', '');
-        s = s.replace(' council', '');
-        s = s.replace(' regional', '');
-        s = s.replace(' rural', '');
-        s = s.replace(' city', '');
-        s = s.replace('the dc of ', '');
-        s = s.replace('town of ', '');
-        s = s.replace('city of ', '');
-        if (s.indexOf('the ') === 0)
-            s = s.slice(4);
-        return s;
-    },
-
-    /*******************************************************************
-     * Date functions
-     *******************************************************************/
-
-    DAY_IN_MILLISECONDS: (1000 * 60 * 60 * 24),
-
-    getToday: function() {
-        // Get today's date, setting the time to
-        // midnight to allow for calculations
-        var today = new Date();
-        today.setHours(0, 0, 0, 0);
-        return today;
-    },
-
-    parseDate: function(str) {
-        // Convert `str` to a `Date` object
-        // dateString must be dd/mm/yyyy format
-        var mdy = str.split('/');
-        // year, month index, day
-        return new Date(mdy[2], mdy[1] - 1, mdy[0]);
-    },
-
-    dateDiff: function(first, second) {
-        // Get the difference in days between
-        // the first and second `Date` instances
-        return Math.round((second - first) / fns.DAY_IN_MILLISECONDS);
-    },
-
-    dateDiffFromToday: function(dateString, today) {
-        // Get number of days ago from today and
-        // `dateString` in dd/mm/yyyy format
-        // NOTE: returns a *positive* number if
-        // `dateString` is in the past
-        today = today||fns.getToday();
-
-        let dateUpdatedInst;
-        if (dateString instanceof Date) {
-            dateUpdatedInst = dateString.getTime()
-        } else {
-            dateUpdatedInst = fns.parseDate(dateString).getTime();
+        if (Math.abs(num) >= 1000 && r.indexOf('.') === -1) {
+            r += '.0';
         }
+        return r+si[i].symbol;
+    },
 
-        return fns.dateDiff(dateUpdatedInst, today.getTime());
+    /*******************************************************************
+     * Function caching/memoizing
+     *******************************************************************/
+
+    fnCached: function(fn, that) {
+        let cache = new Map();
+        return (...args) => {
+            let key = JSON.stringify(args);
+            if (cache.has(key)) {
+                return cache.get(key);
+            }
+            let r = fn.apply(that, args);
+            cache.set(key, r);
+            return r;
+        }
+    },
+
+    regionFnCached: function(fn, that) {
+        let cache = new Map();
+        return (regionChild, ...args) => {
+            let key = JSON.stringify([regionChild].concat(args));
+            if (cache.has(key)) {
+                return cache.get(key);
+            }
+            let r = fn.apply(that, [regionChild].concat(args));
+            cache.set(key, r);
+            return r;
+        }
     }
 };
 
