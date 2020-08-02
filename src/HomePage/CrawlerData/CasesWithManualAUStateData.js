@@ -63,6 +63,7 @@ class CasesWithManualAUStateData extends CasesData {
 
         for (let sortableDate of dates) {
             if (!(stateName in stateNums[sortableDate])) {
+                //console.log(`NOT IN: ${stateName} ${JSON.stringify(stateNums[sortableDate])}`)
                 continue;
             }
             let [
@@ -79,8 +80,13 @@ class CasesWithManualAUStateData extends CasesData {
                 'status_active': active,
                 'status_hospitalized': inHospital
             };
+
             if (map[this.dataType] != null) {
-                r.push(new DataPoint(sortableDate, map[this.dataType]));
+                let [yyyy, mm, dd] = sortableDate.split('-');
+                r.push(new DataPoint(
+                    new DateType(parseInt(yyyy), parseInt(mm), parseInt(dd)),
+                    map[this.dataType]
+                ));
             }
         }
 
@@ -133,10 +139,10 @@ class CasesWithManualAUStateData extends CasesData {
 
         if (this.__useManualStateData && !ageRange) {
             let currentDataPoint = this.getCaseNumber(
-                regionType, maxDateType
+                regionType, ageRange, maxDateType
             );
             let prevDataPoint = this.getCaseNumber(
-                regionType, maxDateType.daysSubtracted(numDays)
+                regionType, ageRange, maxDateType.daysSubtracted(numDays)
             );
             if (currentDataPoint && prevDataPoint) {
                 return new DataPoint(
@@ -163,6 +169,8 @@ class CasesWithManualAUStateData extends CasesData {
      * @param maxDateType
      */
     getCaseNumberTimeSeries(regionType, ageRange, maxDateType) {
+        maxDateType = maxDateType || DateType.today();
+
         if (this.__useManualStateData && !ageRange) {
             let dataPoints = this.__getDataPointsFromStateCaseData(regionType) || [];
             let out = dataPoints.cloneWithoutDatapoints();
@@ -174,7 +182,7 @@ class CasesWithManualAUStateData extends CasesData {
             }
 
             dataPoints.sortDescending();
-            dataPoints.setDateRange(
+            dataPoints.getDateRangeType().setDateRange(
                 dataPoints[dataPoints.length-1].getDateType(),
                 dataPoints[0].getDateType()
             );

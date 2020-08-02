@@ -815,20 +815,8 @@
                     "total"
                 ],
                 [
-                    "Probable Cases",
-                    "probable"
-                ],
-                [
-                    "Confirmed Cases",
-                    "confirmed"
-                ],
-                [
                     "Active Cases",
                     "status_active"
-                ],
-                [
-                    "Days Since Last Case",
-                    "days_since"
                 ],
                 [
                     "New Cases",
@@ -842,9 +830,11 @@
                     "Deaths",
                     "status_deaths"
                 ]
-            ],
+            ]
+        ],
+        [
+            "Hospitalizations",
             [
-                "Hospitalizations",
                 [
                     "Currently in ICU",
                     "status_icu"
@@ -856,18 +846,6 @@
                 [
                     "Currently Hospitalized",
                     "status_hospitalized"
-                ],
-                [
-                    "Total Admitted to ICU",
-                    "status_icu_runningtotal"
-                ],
-                [
-                    "Total Admitted to ICU w/Ventilator",
-                    "status_icu_ventilators_runningtotal"
-                ],
-                [
-                    "Total Admitted to Hospital",
-                    "status_hospitalized_runningtotal"
                 ]
             ]
         ],

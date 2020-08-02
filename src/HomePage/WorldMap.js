@@ -30,12 +30,13 @@ import './ConfirmedMap.css'
 import CovidMapControl from "./ConfirmedMap/CovidMapControl"
 import UpdatedDatesDisplay from "./ConfirmedMap/MapControls/UpdatedDatesDisplay";
 
+
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
 mapboxgl.accessToken = token;
 
 
-class ConfirmedMap extends React.Component {
+class WorldMap extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -74,28 +75,20 @@ class ConfirmedMap extends React.Component {
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
                                 <span style={{fontWeight: 'bold'}}>🔍&nbsp;Zoom in</span> for regional numbers.
-                                Victoria and New South Wales have postcode-level data at higher zoom levels.<br/>
                                 <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
                             </li>
 
                             <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>
                                 The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>&nbsp;
                                 selects the <i>current day</i>. The <i>n</i> days (7/14/21 days) controls show the <i>current day</i>'s
-                                value minus the value <i>n</i> days before the <i>current day</i>. Negative numbers in this mode mean the
-                                value is that amount less than it was that many days ago.
-                            </li>
+                                value minus the value <i>n</i> days before the <i>current day</i>. <br/>
 
-                            <li style={{color: '#777', marginBottom: '2px', paddingBottom: '0px'}}>
-                                Regional Case Map may not be up-to-date. Refer to state totals in Cases by State table for
-                                current statistics. <br/>
-                                Displayed cases identify regions only, not specific addresses.<br />
-                                Postcode-level data for Victoria has only been provided for a short period,
-                                so the time slider won't go far back.
+                                Negative numbers in this mode mean the value is that amount less than it was that many days ago.
                             </li>
 
                             <li style={{color: '#555'}}>
                                 <div style={{color: '#777', fontSize: '0.9em'}}>
-                                    Regional data updated: <span ref={
+                                    World data updated: <span ref={
                                         (el) => this.__updatedSpan = el
                                     }><UpdatedDatesDisplay ref={el => {this.__updatedDatesDisplay = el}}/></span>
                                 </div>
@@ -154,4 +147,4 @@ class ConfirmedMap extends React.Component {
     }
 }
 
-export default ConfirmedMap;
+export default WorldMap;
