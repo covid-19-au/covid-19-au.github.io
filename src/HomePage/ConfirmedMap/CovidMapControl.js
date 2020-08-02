@@ -165,6 +165,8 @@ class CovidMapControl extends React.Component {
             this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource);
 
             // Bind events for loading data
+            map.on('move', () => {this.onMapMoveChange();});
+            map.on('zoom', () => {this.onMapMoveChange();});
             map.on('moveend', () => {this.onMapMoveChange();});
             map.on('zoomend', () => {this.onMapMoveChange();});
 

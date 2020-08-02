@@ -25,11 +25,11 @@ SOFTWARE.
 import CasesData from "../CrawlerData/CasesData"
 import RegionType from "../CrawlerDataTypes/RegionType"
 import UnderlayData from "../CrawlerData/UnderlayData"
-import TimeSeriesItem from "./TimeSeriesItem";
+import DataPoint from "./DataPoint";
 import DateRangeType from "./DateRangeType";
 
 
-class TimeSeriesItems extends Array {
+class DataPoints extends Array {
     /**
      * An array of TimeSeriesItem instances. Inherits from Array,
      * so has all the normal methods like push() etc, but also
@@ -77,8 +77,21 @@ class TimeSeriesItems extends Array {
     /**
      *
      */
+    updateDateRangeType() {
+        // TODO!!!
+    }
+
+    /********************************************************************
+     * Copy/clone array
+     ********************************************************************/
+
+    /**
+     * Return a new copy of these DataPoints
+     *
+     * @returns {DataPoints}
+     */
     clone() {
-        return new TimeSeriesItems(
+        return new DataPoints(
             this.dataSource, this.regionType,
             this.dateRangeType, this.ageRange,
             this
@@ -86,8 +99,27 @@ class TimeSeriesItems extends Array {
     }
 
     /**
+     * Clone without any datapoints
      *
-     * @returns {TimeSeriesItems}
+     * @returns {DataPoints}
+     */
+    cloneWithoutDatapoints() {
+        return new DataPoints(
+            this.dataSource, this.regionType,
+            this.dateRangeType, this.ageRange,
+            []
+        );
+    }
+
+    /********************************************************************
+     * Sort array
+     ********************************************************************/
+
+    /**
+     * Sort so that oldest datapoints come last.
+     * Sorts in-place (returns `this`)
+     *
+     * @returns {DataPoints}
      */
     sortAscending() {
         this.sort((a, b) => {return a[0] - b[0]});
@@ -95,8 +127,10 @@ class TimeSeriesItems extends Array {
     }
 
     /**
+     * Sort so that newest datapoints come first.
+     * Sorts in-place (returns `this`)
      *
-     * @returns {TimeSeriesItems}
+     * @returns {DataPoints}
      */
     sortDescending() {
         this.sort((a, b) => {return b[0] - a[0]});
@@ -140,11 +174,20 @@ class TimeSeriesItems extends Array {
     }
 
     /**
+     * Get the datatype as a string, e.g. "total" or "status_active"
      *
      * @returns {*}
      */
     getDataType() {
         return this.dataType;
+    }
+
+    /**
+     *
+     * @returns {*}
+     */
+    getDateRangeType() {
+        return this.dateRangeType;
     }
 
     /********************************************************************
@@ -188,16 +231,8 @@ class TimeSeriesItems extends Array {
     }
 
     /********************************************************************
-     * TODO!
+     * Get derived values
      ********************************************************************/
-
-    /**
-     *
-     * @param overNumDays
-     */
-    getRateOfChange(overNumDays) {
-
-    }
 
     /**
      * Assuming these values are totals, add samples subtracting from the previous sample.
@@ -215,7 +250,7 @@ class TimeSeriesItems extends Array {
             let timeSeriesItem = originalArray[i],
                 prevTimeSeriesItem = originalArray[i+1];
 
-            r.push(new TimeSeriesItem(
+            r.push(new DataPoint(
                 timeSeriesItem.getDateType(),
                 prevTimeSeriesItem.getValue()-timeSeriesItem.getValue()
             ));
@@ -228,7 +263,7 @@ class TimeSeriesItems extends Array {
             );
         }
 
-        return new TimeSeriesItems(
+        return new DataPoints(
             this.dataSource, this.regionType, dateRangeType, this.ageRange, r
         ).sortDescending();
     }
@@ -256,7 +291,7 @@ class TimeSeriesItems extends Array {
                 numVals++;
             }
 
-            r.push(new TimeSeriesItem(highestDate, totalVal/numVals));
+            r.push(new DataPoint(highestDate, totalVal/numVals));
         }
 
         let dateRangeType;
@@ -266,7 +301,7 @@ class TimeSeriesItems extends Array {
             );
         }
 
-        return new TimeSeriesItems(
+        return new DataPoints(
             this.dataSource, this.regionType, dateRangeType, this.ageRange, r
         );
     }
@@ -277,7 +312,7 @@ class TimeSeriesItems extends Array {
     missingDaysFilledIn(dateRangeType, defaultValue) {
         dateRangeType = dateRangeType || this.dateRangeType;
 
-        let out = new TimeSeriesItems(
+        let out = new DataPoints(
             this.dataSource, this.regionType,
             this.dateRangeType, this.ageRange,
             []
@@ -305,36 +340,25 @@ class TimeSeriesItems extends Array {
 
     /**
      *
+     * @param overNumDays
+     */
+    getRateOfChange(overNumDays) {
+        // TODO!
+    }
+
+    /**
+     *
      */
     getRatePerCapita100k() {
-
+        // TODO!
     }
 
     /**
      *
      */
     getRatePerRegion100k() {
-
-    }
-
-    /********************************************************************
-     * Get data for CanvasJS graphs
-     ********************************************************************/
-
-    /**
-     *
-     * @returns {{x: *, y: *}[]}
-     */
-    getCanvasJSData() {
-        let r = [];
-        for (let item of this) {
-            r.push({
-                x: item.getDateType(),
-                y: item.getValue()
-            });
-        }
-        return r;
+        // TODO!
     }
 }
 
-export default TimeSeriesItems;
+export default DataPoints;

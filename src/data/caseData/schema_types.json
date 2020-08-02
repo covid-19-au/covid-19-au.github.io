@@ -68,6 +68,7 @@
             "jp_city_jp-12",
             "admin_1_sl",
             "us_county_us-ia",
+            "postcode_au-nsw",
             "hk_district",
             "admin_1_it",
             "jp_city_jp-23",
@@ -337,6 +338,7 @@
             "us_county_us-in",
             "jp_city_jp-11",
             "admin_1_mw",
+            "postcode_au-vic",
             "us_county_us-mo",
             "admin_1_cg",
             "in_district_in-tr",
@@ -432,6 +434,7 @@
             "jp_city_jp-12",
             "admin_1_sl",
             "us_county_us-ia",
+            "postcode_au-nsw",
             "hk_district",
             "admin_1_je",
             "admin_1_it",
@@ -778,6 +781,7 @@
             "us_county_us-in",
             "jp_city_jp-11",
             "admin_1_mw",
+            "postcode_au-vic",
             "us_county_us-mo",
             "admin_1_cg",
             "in_district_in-tr",
@@ -1093,11 +1097,11 @@
             "split_by_parent_region": false
         },
         "postcode": {
-            "iso_3166": "au-nsw",
-            "min_zoom": 9,
+            "iso_3166": "au",
+            "min_zoom": 10,
             "priority": 5,
             "line_width": 0.5,
-            "split_by_parent_region": false
+            "split_by_parent_region": true
         },
         "bd_district": {
             "iso_3166": "bd",

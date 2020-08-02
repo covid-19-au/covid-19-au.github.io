@@ -30,6 +30,7 @@ import LngLatBounds from "../CrawlerDataTypes/LngLatBounds";
 import GeoDataPropertyAssignment from "./GeoDataPropertyAssignment";
 
 import schemaTypes from "../../data/caseData/schema_types.json";
+import CasesWithManualAUStateData from "./CasesWithManualAUStateData";
 
 
 var MODE_GEOJSON_ONLY = 0,
@@ -626,7 +627,7 @@ class DataDownloader {
                                 this._caseDataInsts[iDataType][regionSchema] = {};
                             }
 
-                            this._caseDataInsts[iDataType][regionSchema][iRegionParent] = new CasesData(
+                            this._caseDataInsts[iDataType][regionSchema][iRegionParent] = new CasesWithManualAUStateData( //new CasesData(
                                 caseData[iRegionParent], module.default['date_ids'], module.default['sub_headers'],
                                 iDataType, module.default['updated_dates'][regionSchema][iRegionParent],
                                 regionSchema, iRegionParent

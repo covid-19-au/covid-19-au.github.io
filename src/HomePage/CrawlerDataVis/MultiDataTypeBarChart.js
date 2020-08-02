@@ -68,6 +68,8 @@ class MultiDataTypeBarChart extends React.Component {
                         marginTop: '25px'
                     }}
                 />
+
+                {this.__mode === 'percentiles' ? <div style={{color: "gray", marginTop: "10px", textAlign: "center"}}>Note: in percentiles mode, values are averaged over 7 days to reduce noise. Negative values are ignored.</div> : ''}
             </div>
         );
     }
@@ -110,7 +112,7 @@ class MultiDataTypeBarChart extends React.Component {
             for (let timeSeriesItem of caseNumberTimeSeries) {
                 data.push([
                     timeSeriesItem.getDateType(),
-                    (timeSeriesItem.getValue() >= 0) ? timeSeriesItem.getValue() : 0
+                    (timeSeriesItem.getValue() >= 0 || this.__mode !== 'percentiles') ? timeSeriesItem.getValue() : 0
                 ]);
                 allDates.add(timeSeriesItem.getDateType());
             }

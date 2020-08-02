@@ -194,14 +194,30 @@ function App() {
 
     // Remember to update these based on how many
     // cases there currently are in each state/territory!
-    "/state/vic": () => <StateChart state="VIC" dataType={"status_active"} timePeriod={7} />,
-    "/state/nsw": () => <StateChart state="NSW" dataType={"status_active"} timePeriod={7} />,
-    "/state/qld": () => <StateChart state="QLD" dataType={"status_active"} timePeriod={14} />,
-    "/state/act": () => <StateChart state="ACT" dataType={"total"} timePeriod={21} />,
-    "/state/sa": () => <StateChart state="SA"  dataType={"total"} timePeriod={21} />,
-    "/state/wa": () => <StateChart state="WA" dataType={"total"} timePeriod={21} />,
-    "/state/nt": () => <StateChart state="NT" dataType={"total"} timePeriod={21} />,
-    "/state/tas": () => <StateChart state="TAS" dataType={"status_active"} timePeriod={21} />,
+    "/state/vic": () => <StateChart state="VIC"
+                                    dataType={"status_active"}
+                                    timePeriod={null} />,
+    "/state/nsw": () => <StateChart state="NSW"
+                                    dataType={"status_active"}
+                                    timePeriod={null} />,
+    "/state/qld": () => <StateChart state="QLD"
+                                    dataType={"status_active"}
+                                    timePeriod={null} />,
+    "/state/act": () => <StateChart state="ACT"
+                                    dataType={"total"}
+                                    timePeriod={21} />,
+    "/state/sa": () => <StateChart state="SA"
+                                   dataType={"total"}
+                                   timePeriod={21} />,
+    "/state/wa": () => <StateChart state="WA"
+                                   dataType={"total"}
+                                   timePeriod={21} />,
+    "/state/nt": () => <StateChart state="NT"
+                                   dataType={"total"}
+                                   timePeriod={21} />,
+    "/state/tas": () => <StateChart state="TAS"
+                                    dataType={"status_active"}
+                                    timePeriod={null} />,
 
     "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={overall} inputData={data} setProvince={setProvince} area={area} />,
     "/blog": () => <Blog />,
