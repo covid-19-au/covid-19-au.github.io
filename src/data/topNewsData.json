@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victoria-announces-state-of-disaster-as-melbourne-enters-drastic-stage-4-coronavirus-lockdown",
+            "title": "Victoria announces State of Disaster as Melbourne enters drastic Stage 4 coronavirus lockdown",
+            "source": "SBSNews",
+            "date": "2 August 2020",
+            "time": "19:00",
+            "summary": "A State of Disaster has been declared in Melbourne. Authorities have imposed stage 4 lockdown restrictions in metropolitan Melbourne. With 760 mystery cases around the state, state Premier Daniel Andrews has announced that the new restrictions would be in place for 6 weeks. The restrictions include a curfew from 8pm to 5am."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-08-01/sa-potential-coronavirus-vaccine-passes-first-phase/12514988",
             "title": "South Australian coronavirus vaccine candidate shows positive results in phase one human trials",
             "source": "ABCNews",
@@ -63,14 +71,6 @@
             "date": "27 July 2020",
             "time": "17:00",
             "summary": "Victoria Premier Daniel Andrews has revealed that Victorians who go to work while displaying coronavirus symptoms are the \"biggest driver of transmission\" and added that the lockdown will not end until people instead get tested and isolate while waiting for results. Victoria recorded its highest daily increase in cases today with 532 people testing positive. Andrews warned all Victorians, no matter where they work, to \"act on your symptoms, don't ignore them.\" \"These are the facts and unless we see a change, then we're going to continue to see these numbers at unacceptably high levels,\" he added."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-26/key-points-daniel-andrews-coronavirus-victoria-update/12493160",
-            "title": "Victorian Premier Daniel Andrews gave an update on the state's coronavirus crisis. Here are some key takeaways",
-            "source": "ABCNews",
-            "date": "26 July 2020",
-            "time": "15:00",
-            "summary": "10 more individuals have died in Victoria due to the coronavirus and 42 remain in intensive care. The state also recorded 459 new cases overnight. State Premier Daniel Andrews mentioned that he is, \"very proud to see so many people wearing masks right across the city, particularly in regional Victoria, too, where it's not compulsory,\""
         }
     ]
 }
