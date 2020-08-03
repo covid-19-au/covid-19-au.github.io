@@ -1,4 +1,3 @@
-import schemaTypes from "../../data/caseData/schema_types.json";
 import RegionType from "../CrawlerDataTypes/RegionType";
 import Fns from "../ConfirmedMap/Fns";
 
@@ -18,8 +17,8 @@ class GeoDataPropertyAssignment {
      * @param lngLatBounds
      * @param iso3166WithinView
      */
-    constructor(insts, dataType, lngLatBounds, iso3166WithinView, parents) {
-        this.constants = schemaTypes.constants;
+    constructor(constants, insts, dataType, lngLatBounds, iso3166WithinView, parents) {
+        this.constants = constants;
         this.insts = insts;
         this.dataType = dataType;
         this.lngLatBounds = lngLatBounds;

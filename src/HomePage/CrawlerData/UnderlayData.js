@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import TimeSeriesItems from "../CrawlerDataTypes/TimeSeriesItems"
-import TimeSeriesItem from "../CrawlerDataTypes/TimeSeriesItem"
+import DataPoints from "../CrawlerDataTypes/DataPoints"
+import DataPoint from "../CrawlerDataTypes/DataPoint"
 import RegionType from "../CrawlerDataTypes/RegionType"
 import DateType from "../CrawlerDataTypes/DateType"
 
@@ -221,7 +221,7 @@ class UnderlayData {
 
         for (var i=0; i<values.length; i+=2) {
             if (new DateType(values[i]).toString() === dateType.toString()) {
-                return new TimeSeriesItem(
+                return new DataPoint(
                     new DateType(values[i]), values[i+1]
                 );
             }
@@ -243,7 +243,7 @@ class UnderlayData {
 
         for (var i=0; i<values.length; i+=2) {
             if (values[i] <= dateTypeString) {
-                return new TimeSeriesItem(
+                return new DataPoint(
                     new DateType(values[i]), values[i+1]
                 );
             }
@@ -264,7 +264,7 @@ class UnderlayData {
 
         for (var i=values.length-2; i>=0; i-=2) {
             if (values[i] >= dateTypeString) {
-                return new TimeSeriesItem(
+                return new DataPoint(
                     new DateType(values[i]), values[i+1]
                 );
             }
@@ -281,7 +281,7 @@ class UnderlayData {
      * @returns {[]}
      */
     getDateRange(regionType, dateRangeType) {
-        var r = new TimeSeriesItems(this, regionType, dateRangeType);
+        var r = new DataPoints(this, regionType);
         var values = this._getValuesByRID(regionType);
 
         var fromDateString = dateRangeType.getFromDate().toString();
@@ -289,7 +289,7 @@ class UnderlayData {
 
         for (var i=0; i<values.length; i+=2) {
             if (fromDateString <= values[i] <= toDateString) {
-                var timeSeriesItem = new TimeSeriesItem(
+                var timeSeriesItem = new DataPoint(
                     new DateType(values[i]), values[i+1]
                 );
                 r.push(timeSeriesItem);

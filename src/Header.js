@@ -75,6 +75,17 @@ export default function Header({ province }) {
             >
                 COVID-19 in Australia
       </h1>
+            <h1
+                style={{
+                    fontSize: "180%",
+                    color: "white",
+                    textAlign: "center",
+                    fontWeight: "bold"
+                }}
+            >
+                Real-Time Report
+
+      </h1>
 
             <div className="slogan"><i>Stay Calm, Stay Informed</i></div>
 

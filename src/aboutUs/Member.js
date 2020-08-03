@@ -98,7 +98,7 @@ const Member = (props) => {
     const classes = useStyles();
     const { name, linkedin, email, github, website, fileName, items } = props.member;
     return (
-        <Grid item xs={6} sm={4} className={`${classes.root} icon`}>
+        <Grid item xs={15} sm={6} md={4} className={`${classes.root} icon`}>
           {noContact(linkedin, email, github, website)
           ? (
             <a className={`${classes.member} ${classes.disabled}`} href="/" target="_blank" rel="noopener noreferrer">

@@ -23,13 +23,11 @@ SOFTWARE.
  */
 
 import GeoData from "./GeoData.js";
-import CasesData from "./CasesData.js";
-import UnderlayData from "./UnderlayData";
 import Fns from "../ConfirmedMap/Fns";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds";
 import GeoDataPropertyAssignment from "./GeoDataPropertyAssignment";
 
-import schemaTypes from "../../data/caseData/schema_types.json";
+import CasesWithManualAUStateData from "./CasesWithManualAUStateData";
 
 
 var MODE_GEOJSON_ONLY = 0,
@@ -48,7 +46,7 @@ class DataDownloader {
     /**
      *
      */
-    constructor() {
+    constructor(remoteData) {
         this._geoDataInsts = {};
         this._underlayDataInsts = {};
         this._caseDataInsts = {};
@@ -57,12 +55,9 @@ class DataDownloader {
         this._underlayDataPending = {};
         this._geoDataPending = {};
 
-        this.schemas = schemaTypes['schemas'];
-        this.adminBounds = this._getAdminBounds(schemaTypes['boundaries']);
-
-        this.caseDataListing = new Set(schemaTypes.listings.case_data_listing);
-        this.geoJSONDataListing = new Set(schemaTypes.listings.geo_json_data_listing);
-        this.underlayDataListing = new Set(schemaTypes.listings.underlay_data_listing);
+        this.remoteData = remoteData;
+        this.schemas = remoteData.getSchemas();
+        this.adminBounds = this._getAdminBounds(remoteData.getAdminBounds());
     }
 
     getAdminBoundsForISO_3166_2(iso_3166_2) {
@@ -203,6 +198,7 @@ class DataDownloader {
         debug(`Ignoring parent schemas: ${Array.from(parents)}`);
 
         return new GeoDataPropertyAssignment(
+            this.remoteData.getConstants(),
             insts, dataType, lngLatBounds, iso3166WithinView, parents
         );
     }
@@ -338,14 +334,14 @@ class DataDownloader {
                         // Splitting is done at a ISO 3166-a2 level (admin_0) for admin_1
                         continue;
 
-                    } else if (!this.__fileInGeoJSONData(schema, iso3166)) {
+                    } else if (!this.remoteData.fileInGeoJSONData(schema, iso3166)) {
                         debug(`split geojson not found: ${schema} ${iso3166}`);
                         continue;
-                    } else if (mode === MODE_CASES && !this.__fileInCaseData(schema, iso3166)){
+                    } else if (mode === MODE_CASES && !this.remoteData.fileInCaseData(schema, iso3166)){
                         // Cases data not in listing
                         debug(`split cases not found: ${schema} ${iso3166}`);
                         continue;
-                    } else if (mode === MODE_UNDERLAY && !this.__fileInUnderlayData(schema, iso3166)){
+                    } else if (mode === MODE_UNDERLAY && !this.remoteData.fileInUnderlayData(schema, iso3166)){
                         // Underlay data not in listing
                         debug(`split underlay not found: ${schema} ${iso3166}`);
                         continue;
@@ -369,14 +365,14 @@ class DataDownloader {
                     // The parent isn't in view, so isn't possible!
                     debug(`non-split not in view: ${schema} ${parentSchema} ${parentISO}`);
                     continue;
-                } else if (!this.__fileInGeoJSONData(schema, null)) {
+                } else if (!this.remoteData.fileInGeoJSONData(schema, null)) {
                     debug(`non-split geojson not found: ${schema}`);
                     continue;
-                } else if (mode === MODE_CASES && !this.__fileInCaseData(schema, null)){
+                } else if (mode === MODE_CASES && !this.remoteData.fileInCaseData(schema, null)){
                     // Cases data not in listing
                     debug(`non-split cases not found: ${schema}`);
                     continue;
-                } else if (mode === MODE_UNDERLAY && !this.__fileInUnderlayData(schema, null)){
+                } else if (mode === MODE_UNDERLAY && !this.remoteData.fileInUnderlayData(schema, null)){
                     // Underlay data not in listing
                     debug(`non-split underlay not found: ${schema}`);
                     continue;
@@ -473,7 +469,7 @@ class DataDownloader {
      * @returns {Promise<unknown>}
      */
     getGeoData(regionSchema, regionParent) {
-        var fileNames = this.__getFileNames(regionSchema, regionParent);
+        var fileNames = this.remoteData.getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
             if (!this._geoDataInsts[regionSchema]) {
@@ -502,6 +498,7 @@ class DataDownloader {
 
                 import(`../../data/geoJSONData/${fileNames.geoJSONFilename}.json`).then((module) => {  // FIXME!!
                     var geodata = module.default;
+
                     for (var iRegionSchema in geodata) {
                         for (var iRegionParent in geodata[iRegionSchema]) {
                             let schemaObj = this.schemas[iRegionSchema],
@@ -587,7 +584,7 @@ class DataDownloader {
      * @returns {Promise<unknown>}
      */
     getCaseData(dataType, regionSchema, regionParent) {
-        var fileNames = this.__getFileNames(regionSchema, regionParent);
+        var fileNames = this.remoteData.getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
             if (!this._caseDataInsts[dataType]) {
@@ -615,10 +612,14 @@ class DataDownloader {
                 debug(`Case data fetching: ${regionSchema}->${regionParent}`);
                 this._caseDataPending[fileNames.caseDataFilename] = [];
 
-                import(`../../data/caseData/${fileNames.caseDataFilename}.json`).then((module) => {  // FIXME!!
-                    var caseData = module.default['time_series_data'];
+                this.remoteData.downloadFromRemote(`${fileNames.caseDataFilename}.json`)
+                               .then(resp => resp.json())
+                               .then(jsonData => {
+
+                    var caseData = jsonData['time_series_data'];
+
                     for (var iRegionParent in caseData) {
-                        for (var iDataType of module.default['sub_headers']) {
+                        for (var iDataType of jsonData['sub_headers']) {
                             if (!this._caseDataInsts[iDataType]) {
                                 this._caseDataInsts[iDataType] = {};
                             }
@@ -626,9 +627,9 @@ class DataDownloader {
                                 this._caseDataInsts[iDataType][regionSchema] = {};
                             }
 
-                            this._caseDataInsts[iDataType][regionSchema][iRegionParent] = new CasesData(
-                                caseData[iRegionParent], module.default['date_ids'], module.default['sub_headers'],
-                                iDataType, module.default['updated_dates'][regionSchema][iRegionParent],
+                            this._caseDataInsts[iDataType][regionSchema][iRegionParent] = new CasesWithManualAUStateData( //new CasesData(
+                                caseData[iRegionParent], jsonData['date_ids'], jsonData['sub_headers'],
+                                iDataType, jsonData['updated_dates'][regionSchema][iRegionParent],
                                 regionSchema, iRegionParent
                             );
                         }
@@ -651,86 +652,6 @@ class DataDownloader {
                 });
             }
         });
-    }
-
-    /**************************************************************************
-     * Remote data filenames
-     **************************************************************************/
-
-    /**
-     * Get the remove filenames for a given schema type and region parent.
-     *
-     * Note that if a given schema type isn't split into multiple files,
-     * the region parent will be ignored
-     *
-     * @param schemaType
-     * @param regionParent
-     * @returns {{caseDataFilename: string, staticDataFilename: string}}
-     * @private
-     */
-    __getFileNames(schemaType, regionParent) {
-        var caseDataFilename,
-            geoJSONFilename,
-            underlayDataFilename;
-
-        if (this.schemas[schemaType].split_by_parent_region) {
-            if (regionParent == null) {
-                throw `schemaType ${schemaType} is split by parent region but parent not provided`;
-            }
-            geoJSONFilename = `${schemaType}_${regionParent}`;
-            underlayDataFilename = `${schemaType}_${regionParent}`;
-            caseDataFilename = `${schemaType}_${regionParent}`;
-        }
-        else {
-            geoJSONFilename = `${schemaType}`;
-            underlayDataFilename = `${schemaType}`;
-            caseDataFilename = `${schemaType}`;
-        }
-
-        return {
-            geoJSONFilename: geoJSONFilename,
-            underlayDataFilename: underlayDataFilename,
-            caseDataFilename: caseDataFilename
-        };
-    }
-
-    /**
-     * Get whether a cases data file exists on the remote server
-     *
-     * @param schemaType
-     * @param regionParent
-     * @returns {boolean}
-     * @private
-     */
-    __fileInCaseData(schemaType, regionParent) {
-        var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.caseDataListing.has(fileNames.caseDataFilename);
-    }
-
-    /**
-     * Get whether a GeoJSON data file exists on the remote server
-     *
-     * @param schemaType
-     * @param regionParent
-     * @returns {boolean}
-     * @private
-     */
-    __fileInGeoJSONData(schemaType, regionParent) {
-        var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.geoJSONDataListing.has(fileNames.geoJSONFilename);
-    }
-
-    /**
-     * Get whether an underlay data file exists on the remote server
-     *
-     * @param schemaType
-     * @param regionParent
-     * @returns {boolean}
-     * @private
-     */
-    __fileInUnderlayData(schemaType, regionParent) {
-        var fileNames = this.__getFileNames(schemaType, regionParent);
-        return this.underlayDataListing.has(fileNames.underlayDataFilename);
     }
 
     /**************************************************************************

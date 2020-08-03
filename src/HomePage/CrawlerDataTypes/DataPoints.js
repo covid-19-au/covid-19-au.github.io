@@ -25,11 +25,11 @@ SOFTWARE.
 import CasesData from "../CrawlerData/CasesData"
 import RegionType from "../CrawlerDataTypes/RegionType"
 import UnderlayData from "../CrawlerData/UnderlayData"
-import TimeSeriesItem from "./TimeSeriesItem";
+import DataPoint from "./DataPoint";
 import DateRangeType from "./DateRangeType";
 
 
-class TimeSeriesItems extends Array {
+class DataPoints extends Array {
     /**
      * An array of TimeSeriesItem instances. Inherits from Array,
      * so has all the normal methods like push() etc, but also
@@ -38,15 +38,11 @@ class TimeSeriesItems extends Array {
      *
      * @param dataSource a CasesData or UnderlayData instance
      * @param regionType a RegionType instance
-     * @param dateRangeType a DateRangeType instance. Note this may
-     *        not necessarily be the maximum and minimum dates within
-     *        the TimeSeriesItem's contained in the array if datapoints
-     *        aren't available for the requested time interval
      * @param ageRange (optional) the age range the time series value
      *        is relevant for, e.g. "0-9"
      * @param items (optional) populate with these initial items
      */
-    constructor(dataSource, regionType, dateRangeType, ageRange, items) {
+    constructor(dataSource, regionType, ageRange, items) {
         super();
         if (items) {
             for (var item of items) {
@@ -68,7 +64,6 @@ class TimeSeriesItems extends Array {
             throw `RegionType ${regionType} should be an instance of RegionType!`;
         }
 
-        this.dateRangeType = dateRangeType;
         this.dataSource = dataSource;
         this.regionType = regionType;
         this.ageRange = ageRange;
@@ -77,17 +72,47 @@ class TimeSeriesItems extends Array {
     /**
      *
      */
+    updateDateRangeType() {
+        // TODO!!!
+    }
+
+    /********************************************************************
+     * Copy/clone array
+     ********************************************************************/
+
+    /**
+     * Return a new copy of these DataPoints
+     *
+     * @returns {DataPoints}
+     */
     clone() {
-        return new TimeSeriesItems(
+        return new DataPoints(
             this.dataSource, this.regionType,
-            this.dateRangeType, this.ageRange,
-            this
+            this.ageRange, this
         );
     }
 
     /**
+     * Clone without any datapoints
      *
-     * @returns {TimeSeriesItems}
+     * @returns {DataPoints}
+     */
+    cloneWithoutDatapoints(items) {
+        return new DataPoints(
+            this.dataSource, this.regionType,
+            this.ageRange, items||[]
+        );
+    }
+
+    /********************************************************************
+     * Sort array
+     ********************************************************************/
+
+    /**
+     * Sort so that oldest datapoints come last.
+     * Sorts in-place (returns `this`)
+     *
+     * @returns {DataPoints}
      */
     sortAscending() {
         this.sort((a, b) => {return a[0] - b[0]});
@@ -95,8 +120,10 @@ class TimeSeriesItems extends Array {
     }
 
     /**
+     * Sort so that newest datapoints come first.
+     * Sorts in-place (returns `this`)
      *
-     * @returns {TimeSeriesItems}
+     * @returns {DataPoints}
      */
     sortDescending() {
         this.sort((a, b) => {return b[0] - a[0]});
@@ -140,11 +167,34 @@ class TimeSeriesItems extends Array {
     }
 
     /**
+     * Get the datatype as a string, e.g. "total" or "status_active"
      *
      * @returns {*}
      */
     getDataType() {
-        return this.dataType;
+        return this.dataSource.getDataType();
+    }
+
+    /**
+     * Get the from/to date range of all values as a DateRangeType
+     *
+     * @returns {DateRangeType}
+     */
+    getDateRangeType() {
+        let minDate = null,
+            maxDate = null;
+
+        for (let dataPoint of this) {
+            if (!minDate || dataPoint.getDateType() < minDate) {
+                minDate = dataPoint.getDateType();
+            }
+            if (!maxDate || dataPoint.getDateType() > maxDate) {
+                maxDate = dataPoint.getDateType();
+            }
+        }
+
+        return (minDate && maxDate) ?
+            new DateRangeType(minDate, maxDate) : null;
     }
 
     /********************************************************************
@@ -188,16 +238,8 @@ class TimeSeriesItems extends Array {
     }
 
     /********************************************************************
-     * TODO!
+     * Get derived values
      ********************************************************************/
-
-    /**
-     *
-     * @param overNumDays
-     */
-    getRateOfChange(overNumDays) {
-
-    }
 
     /**
      * Assuming these values are totals, add samples subtracting from the previous sample.
@@ -215,21 +257,14 @@ class TimeSeriesItems extends Array {
             let timeSeriesItem = originalArray[i],
                 prevTimeSeriesItem = originalArray[i+1];
 
-            r.push(new TimeSeriesItem(
+            r.push(new DataPoint(
                 timeSeriesItem.getDateType(),
                 prevTimeSeriesItem.getValue()-timeSeriesItem.getValue()
             ));
         }
 
-        let dateRangeType;
-        if (r.length) {
-            dateRangeType = new DateRangeType(
-                r[0].getDateType(), r[r.length-1].getDateType()
-            );
-        }
-
-        return new TimeSeriesItems(
-            this.dataSource, this.regionType, dateRangeType, this.ageRange, r
+        return new DataPoints(
+            this.dataSource, this.regionType, this.ageRange, r
         ).sortDescending();
     }
 
@@ -256,46 +291,40 @@ class TimeSeriesItems extends Array {
                 numVals++;
             }
 
-            r.push(new TimeSeriesItem(highestDate, totalVal/numVals));
+            r.push(new DataPoint(highestDate, totalVal/numVals));
         }
 
-        let dateRangeType;
-        if (r.length) {
-            dateRangeType = new DateRangeType(
-                r[r.length-1].getDateType(), r[0].getDateType()
-            );
-        }
-
-        return new TimeSeriesItems(
-            this.dataSource, this.regionType, dateRangeType, this.ageRange, r
+        return new DataPoints(
+            this.dataSource, this.regionType, this.ageRange, r
         );
     }
 
     /**
+     * Create a new DataPoints instance
      *
+     * @param dateRangeType
+     * @param defaultValue
+     * @returns {DataPoints}
      */
     missingDaysFilledIn(dateRangeType, defaultValue) {
-        dateRangeType = dateRangeType || this.dateRangeType;
-
-        let out = new TimeSeriesItems(
+        let out = new DataPoints(
             this.dataSource, this.regionType,
-            this.dateRangeType, this.ageRange,
-            []
+            this.ageRange, []
         );
 
         let map = {};
-        for (let [x, y] of this) {
-            map[x] = y;
+        for (let [dateType, value] of this) {
+            map[dateType.toString()] = value;
         }
 
         // Make sure every date has a datapoint
         // (otherwise eCharts rendering goes haywire)
         let curValue = defaultValue;
         for (let dateType of dateRangeType.toArrayOfDateTypes()) {
-            if (dateType in map) { // WARNING!!!
-                curValue = map[dateType];
+            if (dateType.toString() in map) { // WARNING!!!
+                curValue = map[dateType.toString()];
             }
-            out.push([dateType, curValue])
+            out.push(new DataPoint(dateType, curValue))
         }
 
         // Sort by newest first
@@ -305,36 +334,25 @@ class TimeSeriesItems extends Array {
 
     /**
      *
+     * @param overNumDays
+     */
+    getRateOfChange(overNumDays) {
+        // TODO!
+    }
+
+    /**
+     *
      */
     getRatePerCapita100k() {
-
+        // TODO!
     }
 
     /**
      *
      */
     getRatePerRegion100k() {
-
-    }
-
-    /********************************************************************
-     * Get data for CanvasJS graphs
-     ********************************************************************/
-
-    /**
-     *
-     * @returns {{x: *, y: *}[]}
-     */
-    getCanvasJSData() {
-        let r = [];
-        for (let item of this) {
-            r.push({
-                x: item.getDateType(),
-                y: item.getValue()
-            });
-        }
-        return r;
+        // TODO!
     }
 }
 
-export default TimeSeriesItems;
+export default DataPoints;

@@ -25,7 +25,7 @@ SOFTWARE.
 import DateType from "../CrawlerDataTypes/DateType"
 
 
-class TimeSeriesItem extends Array {
+class DataPoint extends Array {
     /**
      * A basic time series datapoint, with a DateType
      * instance and NumberType instance associated with it
@@ -78,4 +78,4 @@ class TimeSeriesItem extends Array {
     }
 }
 
-export default TimeSeriesItem;
+export default DataPoint;

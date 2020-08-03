@@ -29,6 +29,7 @@ import Paper from "@material-ui/core/Paper";
 
 import ReactEcharts from "echarts-for-react";
 import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "./eChartsFns";
+import DataPointsCollection from "../CrawlerDataTypes/DataPointsCollection";
 
 
 class MultiDataTypeBarChart extends React.Component {
@@ -68,6 +69,8 @@ class MultiDataTypeBarChart extends React.Component {
                         marginTop: '25px'
                     }}
                 />
+
+                {this.__mode === 'percentiles' ? <div style={{color: "gray", marginTop: "10px", textAlign: "center"}}>Note: in percentiles mode, values are averaged over 7 days to reduce noise. Negative values are ignored.</div> : ''}
             </div>
         );
     }
@@ -95,8 +98,9 @@ class MultiDataTypeBarChart extends React.Component {
         let series = [],
             allDates = new Set();
 
-        for (let casesInst of this.__casesInsts) {
-            let caseNumberTimeSeries = casesInst.getCaseNumberTimeSeries(this.__regionType, null);
+        for (let caseNumberTimeSeries of new DataPointsCollection(this.__casesInsts.map((casesInst) => {
+            return casesInst.getCaseNumberTimeSeries(this.__regionType, null);
+        }), null)) {
             if (caseNumberTimeSeries) {
                 caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals();
                 if (this.__mode === 'percentiles') {
@@ -110,7 +114,7 @@ class MultiDataTypeBarChart extends React.Component {
             for (let timeSeriesItem of caseNumberTimeSeries) {
                 data.push([
                     timeSeriesItem.getDateType(),
-                    (timeSeriesItem.getValue() >= 0) ? timeSeriesItem.getValue() : 0
+                    (timeSeriesItem.getValue() >= 0 || this.__mode !== 'percentiles') ? timeSeriesItem.getValue() : 0
                 ]);
                 allDates.add(timeSeriesItem.getDateType());
             }
@@ -121,7 +125,7 @@ class MultiDataTypeBarChart extends React.Component {
             }
 
             series.push({
-                name: casesInst.dataType.replace('source_', '').replace('status_', '').replace(/_/, ' '),
+                name: caseNumberTimeSeries.getDataType().replace('source_', '').replace('status_', '').replace(/_/, ' '),
                 type: this.__mode === 'percentiles' ? 'line' : 'bar',
                 areaStyle: this.__mode === 'percentiles' ? {} : null,
                 stack: 'stackalltogether',

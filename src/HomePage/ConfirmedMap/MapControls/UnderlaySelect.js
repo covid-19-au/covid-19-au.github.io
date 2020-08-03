@@ -23,7 +23,6 @@ SOFTWARE.
  */
 
 import React from "react";
-import schemaTypes from "../../../data/caseData/schema_types.json"
 
 
 class UnderlaySelect extends React.Component {
@@ -34,6 +33,8 @@ class UnderlaySelect extends React.Component {
      */
     constructor(props) {
         super(props);
+
+        if (!props.remoteData) throw "Need remote data!"
 
         this.state = {
             underlay: null
@@ -80,7 +81,7 @@ class UnderlaySelect extends React.Component {
     __getUnderlayCategoryOptions() {
         // TODO: Filter to only schemas in view!
         let out = [];
-        for (let [optGroupLabel, options] of schemaTypes.underlay_categories) {
+        for (let [optGroupLabel, options] of this.props.remoteData.getUnderlayCategories()) {
             out.push(`<optgroup label="${optGroupLabel}">`);
             for (let [optionLabel, optionValue] of options) {
                 // Option value is the underlay filename
@@ -112,7 +113,7 @@ class UnderlaySelect extends React.Component {
         }
 
         let out = [];
-        for (let [optGroupLabel, options] of schemaTypes.underlays[this.state.underlayCategory]) {
+        for (let [optGroupLabel, options] of this.props.remoteData.getUnderlays()[this.state.underlayCategory]) {
             out.push(`<optgroup label="${optGroupLabel}">`);
             for (let [optionLabel, optionValue] of options) {
                 // Option value is the underlay filename

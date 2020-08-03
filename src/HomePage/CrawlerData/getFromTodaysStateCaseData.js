@@ -1,5 +1,5 @@
 import StateLatestNums from "../../data/stateCaseData";
-import TimeSeriesItem from "../CrawlerDataTypes/TimeSeriesItem";
+import DataPoint from "../CrawlerDataTypes/DataPoint";
 import DateType from "../CrawlerDataTypes/DateType";
 
 
@@ -21,22 +21,22 @@ function getFromTodaysStateCaseData(stateName, dataType) {
             continue;
         }
         else if (dataType === 'total') {
-            return new TimeSeriesItem(new DateType(dateUpdated), iConfirmed);
+            return new DataPoint(new DateType(dateUpdated), iConfirmed);
         }
         else if (dataType === 'status_deaths') {
-            return new TimeSeriesItem(new DateType(dateUpdated), iDeaths);
+            return new DataPoint(new DateType(dateUpdated), iDeaths);
         }
         else if (dataType === 'status_recovered') {
-            return new TimeSeriesItem(new DateType(dateUpdated), iRecovered);
+            return new DataPoint(new DateType(dateUpdated), iRecovered);
         }
         else if (dataType === 'tests_total') { //  CHECK ME!!!
-            return new TimeSeriesItem(new DateType(dateUpdated), iTested);
+            return new DataPoint(new DateType(dateUpdated), iTested);
         }
         else if (dataType === 'status_icu') {
-            return new TimeSeriesItem(new DateType(dateUpdated), iInICU);
+            return new DataPoint(new DateType(dateUpdated), iInICU);
         }
         else if (dataType === 'status_hospitalized') {
-            return new TimeSeriesItem(new DateType(dateUpdated), iInHospital);
+            return new DataPoint(new DateType(dateUpdated), iInHospital);
         }
     }
     return null;

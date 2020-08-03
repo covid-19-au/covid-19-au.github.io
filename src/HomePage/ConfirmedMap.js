@@ -1,11 +1,34 @@
+/**
+This file is licensed under the MIT license
+
+Copyright (c) 2020 David Morrissey
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+
 import React from "react"
 import mapboxgl from 'mapbox-gl'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import CovidMapControl from "./ConfirmedMap/CovidMapControl"
-import Fns from "./ConfirmedMap/Fns"
-import RegionType from "./CrawlerDataTypes/RegionType";
+import UpdatedDatesDisplay from "./ConfirmedMap/MapControls/UpdatedDatesDisplay";
 
 //Fetch Token from env
 let token = process.env.REACT_APP_MAP_API;
@@ -36,7 +59,8 @@ class ConfirmedMap extends React.Component {
                     <CovidMapControl ref={el => this.covidMapControl = el}
                                      onGeoDataChanged={this.__onGeoDataChanged.bind(this)}
                                      dataType={this.props.dataType}
-                                     timePeriod={this.props.timePeriod}>
+                                     timePeriod={this.props.timePeriod}
+                                     height={this.props.height || "60vh"}>
                     </CovidMapControl>
                 </div>
 
@@ -50,26 +74,31 @@ class ConfirmedMap extends React.Component {
                     <span className="due">
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
-                                <span style={{fontWeight: 'bold'}}>🔍 Zoom in</span> for regional numbers.
-                                <b>🖱️ Click</b> or <b>👆 tap</b> regions for history over time.</li>
+                                <span style={{fontWeight: 'bold'}}>🔍&nbsp;Zoom in</span> for regional numbers.
+                                Victoria and New South Wales have postcode-level data at higher zoom levels.<br/>
+                                <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
+                            </li>
 
                             <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>
-                                The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>
+                                The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>&nbsp;
                                 selects the <i>current day</i>. The <i>n</i> days (7/14/21 days) controls show the <i>current day</i>'s
                                 value minus the value <i>n</i> days before the <i>current day</i>. Negative numbers in this mode mean the
-                                value is that amount less than it was that many days ago.</li>
+                                value is that amount less than it was that many days ago.
+                            </li>
 
-                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
+                            <li style={{color: '#777', marginBottom: '2px', paddingBottom: '0px'}}>
                                 Regional Case Map may not be up-to-date. Refer to state totals in Cases by State table for
-                                current statistics. Displayed cases identify regions only, not specific addresses.</li>
+                                current statistics. <br/>
+                                Displayed cases identify regions only, not specific addresses.<br />
+                                Postcode-level data for Victoria has only been provided for a short period,
+                                so the time slider won't go far back.
+                            </li>
 
                             <li style={{color: '#555'}}>
                                 <div style={{color: '#777', fontSize: '0.9em'}}>
                                     Regional data updated: <span ref={
                                         (el) => this.__updatedSpan = el
-                                    }>{
-                                        this.__getUpdatedDates()
-                                    }</span>
+                                    }><UpdatedDatesDisplay ref={el => {this.__updatedDatesDisplay = el}}/></span>
                                 </div>
                             </li>
                         </ul>
@@ -90,56 +119,9 @@ class ConfirmedMap extends React.Component {
         this.__geoDataInsts = geoDataInsts;
         this.__caseDataInsts = caseDataInsts;
 
-        if (this.__updatedSpan) {
-            this.__updatedSpan.innerHTML = this.__getUpdatedDates();
+        if (this.__updatedDatesDisplay) {
+            this.__updatedDatesDisplay.setValue(geoDataInsts, caseDataInsts);
         }
-    }
-
-    __getUpdatedDates() {
-        let bySchemas = {};
-        for (let caseDataInst of this.__caseDataInsts||[]) {
-            let regionSchema = caseDataInst.getRegionSchema(),
-                regionParent = caseDataInst.getRegionParent(),
-                updatedDate = caseDataInst.getUpdatedDate();
-
-            if (!(regionSchema in bySchemas)) {
-                bySchemas[regionSchema] = [];
-            }
-            bySchemas[regionSchema].push([regionParent, updatedDate]);
-        }
-
-        let r = [];
-        for (let regionSchema of Fns.sortedKeys(bySchemas)) {
-            let schemaHTML = [];
-
-            for (let [regionParent, updatedDate] of bySchemas[regionSchema]) {
-                let prettifiedRegion;
-
-                if (regionParent && regionParent.indexOf('-') !== -1) {
-                    prettifiedRegion = new RegionType(
-                        'admin_1',
-                        regionParent.split('-')[0],
-                        regionParent
-                    ).getLocalized();
-                } else if (regionParent) {
-                    prettifiedRegion = new RegionType(
-                        'admin_0', '', regionParent
-                    ).getLocalized();
-                } else {
-                    prettifiedRegion = regionParent; // ???
-                }
-
-                schemaHTML.push(
-                    `${prettifiedRegion} ${updatedDate.prettified()}`
-                );
-            }
-
-            schemaHTML.sort();
-            r.push(`${regionSchema.replace('_', ' ')}: ${schemaHTML.join(', ')}`)
-        }
-
-        r.sort();
-        return r.join('; ') || 'loading, please wait...';
     }
 
     /*******************************************************************

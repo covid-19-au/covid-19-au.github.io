@@ -22,15 +22,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import Fns from "../ConfirmedMap/Fns";
-
-import DateRangeType from "../CrawlerDataTypes/DateRangeType"
 import DateType from "../CrawlerDataTypes/DateType"
 import RegionType from "../CrawlerDataTypes/RegionType"
-import TimeSeriesItem from "../CrawlerDataTypes/TimeSeriesItem"
-import TimeSeriesItems from "../CrawlerDataTypes/TimeSeriesItems"
+import DataPoint from "../CrawlerDataTypes/DataPoint"
+import DataPoints from "../CrawlerDataTypes/DataPoints"
 
-import getFromTodaysStateCaseData from "./getFromTodaysStateCaseData"
 
 function debug(message) {
     if (false) {
@@ -238,7 +234,7 @@ class CasesData {
                     if (dateUpdated > maxDateType) {
                         continue;
                     } if (iValue != null && iValue !== '') {
-                        return new TimeSeriesItem(dateUpdated, parseInt(iValue));
+                        return new DataPoint(dateUpdated, parseInt(iValue));
                     }
                 }
             }
@@ -278,7 +274,7 @@ class CasesData {
                     if (dateUpdated > maxDateType) {
                         continue;
                     } if (iValue != null && iValue !== '') {
-                        oldest = new TimeSeriesItem(
+                        oldest = new DataPoint(
                             latest.getDateType(), latest.getValue() - parseInt(iValue)
                         );
                         if (dateUpdated.numDaysSince(maxDateType) > numDays) {
@@ -291,7 +287,7 @@ class CasesData {
 
         // Can't do much if data doesn't go back
         // that far other than show oldest we can
-        return oldest || new TimeSeriesItem(
+        return oldest || new DataPoint(
             latest.getDateType(), 0
         );
     }
@@ -357,7 +353,7 @@ class CasesData {
         );
 
         if (latestTimeSeriesItem && pastTimeSeriesItem) {
-            return new TimeSeriesItem(
+            return new DataPoint(
                 latestTimeSeriesItem.getDateType(),
                 Math.round(latestTimeSeriesItem.getValue() - pastTimeSeriesItem.getValue()) // NOTE ME!!! ============================================
             )
@@ -379,9 +375,8 @@ class CasesData {
     getCaseNumberTimeSeries(regionType, ageRange, maxDateType) {
         maxDateType = maxDateType || DateType.today();
 
-        var dateRangeType = new DateRangeType(maxDateType, maxDateType);
-        var r = new TimeSeriesItems(
-            this, regionType, dateRangeType, ageRange
+        var r = new DataPoints(
+            this, regionType, ageRange
         );
 
         // TODO: FIX FOR MANUALLY ENTERED DATA!!! ===========================================================================
@@ -398,7 +393,7 @@ class CasesData {
                         continue;
                     } if (iValue != null && iValue !== '') {
                         // May as well use CanvasJS format
-                        r.push(new TimeSeriesItem(dateUpdated, parseInt(iValue)));
+                        r.push(new DataPoint(dateUpdated, parseInt(iValue)));
                     }
                 }
             }
@@ -408,7 +403,6 @@ class CasesData {
             return null;
         }
         r.sort((x, y) => x.getDateType() - y.getDateType());
-        dateRangeType.setDateRange(r[0].getDateType(), r[r.length-1].getDateType());
         return r;
     }
 

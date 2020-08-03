@@ -51,6 +51,7 @@ function setGeneralBarOption(state) {
     "Death",
     "Recovered",
     "Tested",
+    "Active",
     "in Hospital",
     "in ICU",
   ];
@@ -63,15 +64,15 @@ function setGeneralBarOption(state) {
     tempBarSeies.setItemStyle(colorMapping[generalBarLegend[i]]);
     generalBarSeries.addSubSeries(tempBarSeies);
   }
-  // add active case into graph and put it after recovered case
-  let activeData = lastData[0] - lastData[1] - lastData[2];
-  generalBarLegend.splice(3, 0, "Active");
-  let tempBarSeies = new BarSeries(
-    generalBarLegend[3],
-    new Array(activeData.toString())
-  );
-  tempBarSeies.setItemStyle(colorMapping["Active"]);
-  generalBarSeries.addSubSeries(tempBarSeies, 3);
+  // // add active case into graph and put it after recovered case
+  // let activeData = lastData[0] - lastData[1] - lastData[2];
+  // generalBarLegend.splice(3, 0, "Active");
+  // let tempBarSeies = new BarSeries(
+  //   generalBarLegend[3],
+  //   new Array(activeData.toString())
+  // );
+  // tempBarSeies.setItemStyle(colorMapping["Active"]);
+  // generalBarSeries.addSubSeries(tempBarSeies, 3);
 
   let tempOption = {
     grid: {
