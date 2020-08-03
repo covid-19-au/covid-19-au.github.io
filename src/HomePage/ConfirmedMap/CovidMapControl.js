@@ -364,59 +364,57 @@ class CovidMapControl extends React.Component {
      * @private
      */
     __onMapMoveChange(geoData, dataType, zoomLevel, noUpdateEvent) {
-        var callMe = () => {
-            if (!this.map) {
-                // React JS likely destroyed the elements in the interim
-                return;
-            } else {
-                // Update the sources
-                this.clusteredCaseSource.setData(
-                    geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
-                );
-                this.casesSource.setData(
-                    geoData.polygons, geoData.geoDataInsts, geoData.caseDataInsts
-                );
-                this.geoDataInsts = geoData.geoDataInsts;
-                this.caseDataInsts = geoData.caseDataInsts;
+        if (!this.map || !this.__mapTimeSlider) {
+            // React JS likely destroyed the elements in the interim
+            this.__mapMovePending = false;
+            return;
+        } else {
+            // Update the sources
+            this.clusteredCaseSource.setData(
+                geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
+            );
+            this.casesSource.setData(
+                geoData.polygons, geoData.geoDataInsts, geoData.caseDataInsts
+            );
+            this.geoDataInsts = geoData.geoDataInsts;
+            this.caseDataInsts = geoData.caseDataInsts;
 
-                // Remember these schemas/datatypes/zoom levels for
-                // later, so as to not need to refresh if not changed
-                this.prevSchemasForCases = geoData.schemasForCases;
-                this.prevDataType = dataType;
-                this.prevZoomLevel = zoomLevel;
+            // Remember these schemas/datatypes/zoom levels for
+            // later, so as to not need to refresh if not changed
+            this.prevSchemasForCases = geoData.schemasForCases;
+            this.prevDataType = dataType;
+            this.prevZoomLevel = zoomLevel;
 
-                // Now add the layers
-                this.casesFillPolyLayer.updateLayer();
-                this.casesLinePolyLayer.updateLayer();
-                this.caseCirclesLayer.updateLayer();
+            // Now add the layers
+            this.casesFillPolyLayer.updateLayer();
+            this.casesLinePolyLayer.updateLayer();
+            this.caseCirclesLayer.updateLayer();
 
-                // Hide/show markers based on datatype
-                if (new Set(['total', 'status_active']).has(dataType)) {
-                    // Show/hide markers depending on whether they are within 3 weeks
-                    // if in "total" or "active" mode, otherwise leave all hidden
-                    for (let marker of this.confirmedMarkers) {
-                        if (marker.getIsActive(this.__mapTimeSlider.getValue())) {
-                            marker.show();
-                        } else {
-                            marker.hide();
-                        }
-                    }
-                } else {
-                    for (let marker of this.confirmedMarkers) {
+            // Hide/show markers based on datatype
+            if (new Set(['total', 'status_active']).has(dataType)) {
+                // Show/hide markers depending on whether they are within 3 weeks
+                // if in "total" or "active" mode, otherwise leave all hidden
+                for (let marker of this.confirmedMarkers) {
+                    if (marker.getIsActive(this.__mapTimeSlider.getValue())) {
+                        marker.show();
+                    } else {
                         marker.hide();
                     }
                 }
-
-                this.__mapMovePending = false;
+            } else {
+                for (let marker of this.confirmedMarkers) {
+                    marker.hide();
+                }
             }
 
-            if (!noUpdateEvent && this.props.onGeoDataChanged) {
-                // Send an event to allow for "data updated on xx date"
-                // etc displays outside the control
-                this.props.onGeoDataChanged(geoData.geoDataInsts, geoData.caseDataInsts);
-            }
-        };
-        callMe();
+            this.__mapMovePending = false;
+        }
+
+        if (!noUpdateEvent && this.props.onGeoDataChanged) {
+            // Send an event to allow for "data updated on xx date"
+            // etc displays outside the control
+            this.props.onGeoDataChanged(geoData.geoDataInsts, geoData.caseDataInsts);
+        }
     }
 
     /*******************************************************************
