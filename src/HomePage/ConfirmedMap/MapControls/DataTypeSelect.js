@@ -218,7 +218,7 @@ class DataTypeSelect extends React.Component {
      * @returns {DataTypeSelect._onTimePeriodChange.props}
      */
     getTimePeriod() {
-        if (this.state.remoteData.getConstants()[this.state.dataType].timeperiods) {
+        if (!this.state.remoteData || this.state.remoteData.getConstants()[this.state.dataType].timeperiods) { // WARNING!!! ===============
             return this.state.timePeriod;
         } else {
             return null;
