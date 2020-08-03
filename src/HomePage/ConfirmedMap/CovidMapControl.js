@@ -108,9 +108,9 @@ class CovidMapControl extends React.Component {
 
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
-            style: style,
+            //style: style,
             //style: 'mapbox://styles/mapbox/light-v10?optimize=true',
-            //style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
+            style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
             //style: 'mapbox://styles/mapbox/satellite-v9?optimize=true',
             zoom: 1,
             maxZoom: 12,
@@ -123,7 +123,9 @@ class CovidMapControl extends React.Component {
         });
 
         let runMeLater = async () => {
+            //console.log("Getting remote data...");
             this.remoteData = await getRemoteData();
+            //console.log("Remote data fetched");
             this.dataDownloader = new DataDownloader(this.remoteData);
 
             // Add the map controls to the map container element so that
@@ -156,7 +158,16 @@ class CovidMapControl extends React.Component {
             map.addControl(new mapboxgl.NavigationControl());
             map.addControl(new mapboxgl.FullscreenControl());
 
-            map.on('load', () => {
+            let onLoad = () => {
+                if (this.__unmounted) {
+                    //console.log("UNMOUNTED!!!")
+                    return;
+                } else if (!map.loaded()) {
+                    // Sometimes the load event doesn't fire here due to
+                    // it being in an async function, so just keep polling!
+                    return setTimeout(onLoad, 20);
+                }
+
                 const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
                 const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
 
@@ -200,7 +211,8 @@ class CovidMapControl extends React.Component {
                     this.props.onload(this, map);
                 }
                 this.onMapMoveChange();
-            });
+            };
+            onLoad();
         };
         runMeLater();
     }
@@ -372,12 +384,13 @@ class CovidMapControl extends React.Component {
     __onMapMoveChange(geoData, dataType, zoomLevel, noUpdateEvent) {
         if (!this.map || !this.__mapTimeSlider) {
             // React JS likely destroyed the elements in the interim
-            this.__mapMovePending = false;
-
             if (this.__unmounted) {
+                this.__mapMovePending = false;
                 return;
             } else {
-                return setTimeout(this.__onMapMoveChange.bind(this), 20);
+                return setTimeout(() => {
+                    this.__onMapMoveChange(geoData, dataType, zoomLevel, noUpdateEvent)
+                }, 20);
             }
         } else {
             // Update the sources
