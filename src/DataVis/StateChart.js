@@ -17,6 +17,7 @@ import DataDownloader from "../HomePage/CrawlerData/DataDownloader";
 import ConfirmedMap from "../HomePage/ConfirmedMap"
 import Acknowledgement from "../Acknowledgment";
 import AgeBarChart from "../HomePage/CrawlerDataVis/AgeCharts/AgeBarChart";
+import getRemoteData from "../HomePage/CrawlerData/RemoteData";
 
 const stateNameMapping = {
     VIC: "Victoria",
@@ -42,7 +43,6 @@ class StateChart extends React.Component {
     constructor(props) {
         // Params for props: state/dataType/timePeriod
         super(props);
-        this.dataDownloader = new DataDownloader();
     }
 
     render() {
@@ -63,16 +63,14 @@ class StateChart extends React.Component {
                             {renderStatus(this.props.state.toUpperCase())}
                         </div>
                     </div>
-                </Grid>
 
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card">
                         <h2>Current Statistics</h2>
                         <GeneralBarChart state={this.props.state} />
                     </div>
                 </Grid>
 
-                <Grid style={{minWidth: '90%', maxWidth: '1800px'}} item xs={11} sm={11} md={10} lg={100}>
+                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card" style={{
                         display: 'flex',
                         flexDirection: 'column'
@@ -90,7 +88,7 @@ class StateChart extends React.Component {
                         <ConfirmedMap stateName={'AU-'+this.props.state}
                                       dataType={this.props.dataType}
                                       timePeriod={this.props.timePeriod}
-                                      height={"75vh"}/>
+                                      height={"60vh"}/>
                     </div>
                 </Grid>
 
@@ -151,12 +149,6 @@ class StateChart extends React.Component {
                     </Grid>
                 )}
 
-                {/*<Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                    <div className="card">
-                        <h2>Patient Status</h2>
-                        <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart2 = el} />
-                    </div>
-                </Grid>*/}
                 <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card">
                         <h2>Most Active 10 Regions</h2>
@@ -185,6 +177,9 @@ class StateChart extends React.Component {
     async __initPlotlyJSCharts() {
         // TODO: FIX NT!!!! ===========================================================================================
 
+        let remoteData = await getRemoteData();
+        this.dataDownloader = new DataDownloader(remoteData);
+
         let regionParent = 'au-'+this.props.state.toLowerCase(),
             regionSchema;
 
@@ -196,7 +191,6 @@ class StateChart extends React.Component {
 
         this.__initTreeMap(regionSchema, regionParent);
         this.__initAreaChart(regionSchema, regionParent);
-        //this.__initPatientStatus(regionParent);
         this.__initInfectionSource(regionParent);
 
         if (this.populationPyramid) {
@@ -226,6 +220,9 @@ class StateChart extends React.Component {
             'new', regionSchema, regionParent
         );
 
+        if (!this.areaChart) {
+            return;
+        }
         this.areaChart.setCasesInsts(activeCaseData, newCaseData);
     }
 
@@ -247,37 +244,10 @@ class StateChart extends React.Component {
                 dataType, 'admin_1', 'au'
             ));
         }
-        this.multiDataTypeAreaChart.setCasesInst(
-            casesInsts,
-            new RegionType('admin_1', 'au', regionParent)
-        );
-    }
-
-    /**
-     *
-     * @param regionParent
-     * @returns {Promise<void>}
-     * @private
-     */
-    async __initPatientStatus(regionParent) {
-        let casesInsts = [];
-
-        for (let dataType of [
-            'status_deaths',
-            'status_hospitalized',
-            'status_icu',
-            'status_active',
-            //'status_recovered',
-            'status_unknown'
-        ]) {
-            let i = await this.dataDownloader.getCaseData(
-                dataType, 'admin_1', 'au'
-            );
-            if (i)
-                casesInsts.push(i);
+        if (!this.multiDataTypeAreaChart) {
+            return;
         }
-
-        this.multiDataTypeAreaChart2.setCasesInst(
+        this.multiDataTypeAreaChart.setCasesInst(
             casesInsts,
             new RegionType('admin_1', 'au', regionParent)
         );
@@ -293,6 +263,9 @@ class StateChart extends React.Component {
         let totalCaseData = await this.dataDownloader.getCaseData(
                 'total', 'admin_1', 'au'
         );
+        if (!this.ageBarChart) {
+            return;
+        }
         this.ageBarChart.setCasesInst(
             totalCaseData,
             new RegionType('admin_1', 'au', regionParent)
@@ -320,7 +293,9 @@ class StateChart extends React.Component {
             'admin_1', 'au', regionParent
         );
 
-        if (maleData.getAgeRanges(regionType).length && femaleData.getAgeRanges(regionType).length) {
+        if (!this.populationPyramid) {
+            return;
+        } else if (maleData.getAgeRanges(regionType).length && femaleData.getAgeRanges(regionType).length) {
             this.populationPyramid.setCasesInst(
                 maleData, femaleData, regionType
             );
@@ -356,7 +331,9 @@ class StateChart extends React.Component {
             'status_active', regionSchema, regionParent
         );
 
-        if (!activeCaseData || !activeCaseData.datatypeInData()) {
+        if (!this.treeMap) {
+            return;
+        } else if (!activeCaseData || !activeCaseData.datatypeInData()) {
             // Revert to 21 days if "status_active" isn't available
             this.treeMap.setCasesInst(null, newCaseData, totalCaseData);
         } else {

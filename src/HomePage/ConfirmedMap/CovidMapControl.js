@@ -40,6 +40,9 @@ import MapBoxSource from "./Sources/MapBoxSource";
 import ClusteredCaseSource from "./Sources/ClusteredCaseSource";
 import DateRangeType from "../CrawlerDataTypes/DateRangeType";
 import DateType from "../CrawlerDataTypes/DateType";
+import getRemoteData from "../CrawlerData/RemoteData";
+import confirmedData from "../../data/mapdataCon";
+import MarkerConfirmed from "./Markers/MarkerConfirmed";
 
 
 // A "blank" style to allow for using vector data
@@ -73,7 +76,6 @@ class CovidMapControl extends React.Component {
      */
     constructor(props) {
         super(props);
-        this.dataDownloader = new DataDownloader();
     }
 
     /*******************************************************************
@@ -118,66 +120,87 @@ class CovidMapControl extends React.Component {
             fadeDuration: 250
         });
 
-        // Add the map controls to the map container element so that
-        // they'll be displayed when the map is shown fullscreen
-        let mapContainerChild = document.createElement('div');
-        this.mapContainer.appendChild(mapContainerChild);
-        ReactDOM.render(
-            <CovidMapControls ref={el => this.covidMapControls = el}
-                              onchange={(e) => this._onControlsChange(e)}
-                              dataType={this.props.dataType}
-                              timePeriod={this.props.timePeriod} />,
-            mapContainerChild
-        );
+        let runMeLater = async () => {
+            this.remoteData = await getRemoteData();
+            this.dataDownloader = new DataDownloader(this.remoteData);
 
-        // Disable map rotation
-        map.dragRotate.disable();
-        map.touchZoomRotate.disableRotation();
+            // Add the map controls to the map container element so that
+            // they'll be displayed when the map is shown fullscreen
+            let mapContainerChild = document.createElement('div');
+            this.mapContainer.appendChild(mapContainerChild);
+            ReactDOM.render(
+                <CovidMapControls ref={el => this.covidMapControls = el}
+                                  onchange={(e) => this._onControlsChange(e)}
+                                  dataType={this.props.dataType}
+                                  timePeriod={this.props.timePeriod}/>,
+                mapContainerChild
+            );
 
-        // Add geolocate control to the map.
-        map.addControl(
-            new mapboxgl.GeolocateControl({
-                positionOptions: {
-                    enableHighAccuracy: true
-                },
-                trackUserLocation: true
-            })
-        );
+            // Disable map rotation
+            map.dragRotate.disable();
+            map.touchZoomRotate.disableRotation();
 
-        //Add zoom+fullscreen controls
-        map.addControl(new mapboxgl.NavigationControl());
-        map.addControl(new mapboxgl.FullscreenControl());
+            // Add geolocate control to the map.
+            map.addControl(
+                new mapboxgl.GeolocateControl({
+                    positionOptions: {
+                        enableHighAccuracy: true
+                    },
+                    trackUserLocation: true
+                })
+            );
 
-        map.on('load', () => {
-            const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
-            const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
+            //Add zoom+fullscreen controls
+            map.addControl(new mapboxgl.NavigationControl());
+            map.addControl(new mapboxgl.FullscreenControl());
 
-            // Create the MapBox sources
-            let underlaySource = this.underlaySource = new MapBoxSource(map);
-            let casesSource = this.casesSource = new MapBoxSource(map);
-            let clusteredCaseSource = this.clusteredCaseSource = new ClusteredCaseSource(map);
+            map.on('load', () => {
+                const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
+                const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
 
-            // Add layers for the underlay
-            this.underlayFillPoly = new UnderlayFillPolyLayer(map, 'underlayFillPoly', underlaySource);
-            this.underlayLinePoly = new LinePolyLayer(map, 'underlayLinePoly', UNDERLAY_LINE_POLY_COLOR, 1.0, underlaySource);
+                // Create the MapBox sources
+                let underlaySource = this.underlaySource = new MapBoxSource(map);
+                let casesSource = this.casesSource = new MapBoxSource(map);
+                let clusteredCaseSource = this.clusteredCaseSource = new ClusteredCaseSource(map);
 
-            // Add layers for cases
-            this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
-            this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
-            this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource);
-            this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource);
+                // Add layers for the underlay
+                this.underlayFillPoly = new UnderlayFillPolyLayer(map, 'underlayFillPoly', underlaySource);
+                this.underlayLinePoly = new LinePolyLayer(map, 'underlayLinePoly', UNDERLAY_LINE_POLY_COLOR, 1.0, underlaySource);
 
-            // Bind events for loading data
-            map.on('move', () => {this.onMapMoveChange();});
-            map.on('zoom', () => {this.onMapMoveChange();});
-            map.on('moveend', () => {this.onMapMoveChange();});
-            map.on('zoomend', () => {this.onMapMoveChange();});
+                // Add layers for cases
+                this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
+                this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
+                this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource);
+                this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource);
 
-            if (this.props.onload) {
-                this.props.onload(this, map);
-            }
-            this.onMapMoveChange();
-        });
+                // Bind events for loading data
+                map.on('move', () => {
+                    this.onMapMoveChange();
+                });
+                map.on('zoom', () => {
+                    this.onMapMoveChange();
+                });
+                map.on('moveend', () => {
+                    this.onMapMoveChange();
+                });
+                map.on('zoomend', () => {
+                    this.onMapMoveChange();
+                });
+
+                // Add markers: confirmed cases/hospitals
+                // only for tas/nt at this point
+                this.confirmedMarkers = [];
+                confirmedData.forEach((item) => {
+                    this.confirmedMarkers.push(new MarkerConfirmed(map, item));
+                });
+
+                if (this.props.onload) {
+                    this.props.onload(this, map);
+                }
+                this.onMapMoveChange();
+            });
+        };
+        runMeLater();
     }
 
     addToMapContainer(elm) {
@@ -367,6 +390,23 @@ class CovidMapControl extends React.Component {
                 this.casesLinePolyLayer.updateLayer();
                 this.caseCirclesLayer.updateLayer();
 
+                // Hide/show markers based on datatype
+                if (new Set(['total', 'status_active']).has(dataType)) {
+                    // Show/hide markers depending on whether they are within 3 weeks
+                    // if in "total" or "active" mode, otherwise leave all hidden
+                    for (let marker of this.confirmedMarkers) {
+                        if (marker.getIsActive(this.__mapTimeSlider.getValue())) {
+                            marker.show();
+                        } else {
+                            marker.hide();
+                        }
+                    }
+                } else {
+                    for (let marker of this.confirmedMarkers) {
+                        marker.hide();
+                    }
+                }
+
                 this.__mapMovePending = false;
             }
 
@@ -391,27 +431,34 @@ class CovidMapControl extends React.Component {
      * @param iso_3166_2
      */
     setBoundsToRegion(iso_3166_2) {
-        let animOptions = {
-            animate: false
+        let runMe = () => {
+            if (!this.map || !this.dataDownloader) {
+                return setTimeout(runMe, 50);
+            }
+
+            let animOptions = {
+                animate: false
+            };
+
+            if (!iso_3166_2) {
+                // no boundary: show whole world
+                this.map.setMaxBounds([[-180, -90], [180, 90]]);
+                this.map.fitBounds([[-180, -90], [180, 90]], animOptions);
+                this.__onlyShowISO_3166_2 = iso_3166_2;
+            } else {
+                // ISO 3166-2
+                iso_3166_2 = iso_3166_2.toLowerCase();
+                let bounds = this.dataDownloader.getAdminBoundsForISO_3166_2(iso_3166_2)
+                    .enlarged(0.15)
+                    .toMapBox();
+                this.map.setMaxBounds(bounds);
+                this.map.fitBounds(bounds, animOptions);
+                this.__onlyShowISO_3166_2 = iso_3166_2;
+            }
+
+            this._onControlsChange();
         };
-
-        if (!iso_3166_2) {
-            // no boundary: show whole world
-            this.map.setMaxBounds([[-180, -90], [180, 90]]);
-            this.map.fitBounds([[-180, -90], [180, 90]], animOptions);
-            this.__onlyShowISO_3166_2 = iso_3166_2;
-        } else {
-            // ISO 3166-2
-            iso_3166_2 = iso_3166_2.toLowerCase();
-            let bounds = this.dataDownloader.getAdminBoundsForISO_3166_2(iso_3166_2)
-                                            .enlarged(0.15)
-                                            .toMapBox();
-            this.map.setMaxBounds(bounds);
-            this.map.fitBounds(bounds, animOptions);
-            this.__onlyShowISO_3166_2 = iso_3166_2;
-        }
-
-        this._onControlsChange();
+        runMe();
     }
 
     /**

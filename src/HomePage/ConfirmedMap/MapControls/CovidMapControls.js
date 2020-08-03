@@ -63,10 +63,6 @@ class CovidMapControls extends React.Component {
                                 onchange={(dataType, timePeriod) => this._onChangeType(dataType, timePeriod)}
                                 dataType={this.props.dataType}
                                 timePeriod={this.props.timePeriod}/>
-                <div style={{display: 'none'}}>
-                    <UnderlaySelect ref={(el) => this.__underlaySelect = el}
-                                    onchange={(underlayCategory, underlay) => this._onChangeUnderlay(underlayCategory, underlay)}/>
-                </div>
             </div>
         );
     }
@@ -74,8 +70,7 @@ class CovidMapControls extends React.Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         this.props.onchange({
             dataType: this.getDataType(),
-            timePeriod: this.getTimePeriod(),
-            underlay: this.getUnderlay()
+            timePeriod: this.getTimePeriod()
         })
     }
 
@@ -139,14 +134,6 @@ class CovidMapControls extends React.Component {
      */
     getTimePeriod() {
         return this.__dataTypeSelect.getTimePeriod();
-    }
-
-    /**
-     *
-     * @returns {null|UnderlaySelect._onUnderlaySelect.props}
-     */
-    getUnderlay() {
-        return this.__underlaySelect.getUnderlay();
     }
 
     /*******************************************************************

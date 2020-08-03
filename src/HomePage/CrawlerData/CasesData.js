@@ -22,15 +22,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import Fns from "../ConfirmedMap/Fns";
-
-import DateRangeType from "../CrawlerDataTypes/DateRangeType"
 import DateType from "../CrawlerDataTypes/DateType"
 import RegionType from "../CrawlerDataTypes/RegionType"
 import DataPoint from "../CrawlerDataTypes/DataPoint"
 import DataPoints from "../CrawlerDataTypes/DataPoints"
 
-import getFromTodaysStateCaseData from "./getFromTodaysStateCaseData"
 
 function debug(message) {
     if (false) {

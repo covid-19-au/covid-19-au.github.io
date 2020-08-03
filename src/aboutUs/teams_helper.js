@@ -23,8 +23,10 @@ const Developers = {
             website: "",
             fileName: "Han.png",
             items: [
-                "Project lead", "Site administration/management",
-                "Data updates", "Website framework"
+                "Project lead",
+                "Site admin and management",
+                "Data updates",
+                "Website framework"
             ]
         },
         {
@@ -35,7 +37,9 @@ const Developers = {
             website: "",
             fileName: "Andrew.png",
             items: [
-                "Blog interface", "About page", "Information page content", "Global comparisons", "Hospital table"
+                "Blog interface", "About page",
+                "Information page content",
+                "Global comparisons", "Hospital table"
             ]
         },
         {
@@ -46,7 +50,9 @@ const Developers = {
             website: "",
             fileName: "Ben.png",
             items: [
-                "State case number display", "Ships interface", "Data updates"
+                "State case number display",
+                "Ships interface",
+                "Data updates"
             ]
         },
         {
@@ -57,7 +63,8 @@ const Developers = {
             website: "",
             fileName: "Box.png",
             items: [
-                "Flights Interface", "State details page visualizations"
+                "Flights Interface",
+                "State details page visualizations"
             ]
         },
         {
@@ -68,9 +75,11 @@ const Developers = {
             website: "https://langlynx.com",
             fileName: "Dave.png",
             items: [
-                "Regional and world case map/visualizations", "Backend database administration",
-                "Web monitor for regional stats", "Age distribution over time visualization",
-                "Infection source graph"
+                "State and world case maps",
+                "Backend database admin",
+                "Web monitor for statistics",
+                "Age distribution charts",
+                "Infection source chart"
             ]
         },
         {
@@ -81,8 +90,10 @@ const Developers = {
             website: "",
             fileName: "Paldeep.png",
             items: [
-                "State data updates", "Information page interface/content",
-                "Home page local charts/status interface", "News page interface/content",
+                "State data updates",
+                "Information page",
+                "State status and charts",
+                "News page",
                 "UI consistency"
             ]
         },
@@ -117,9 +128,9 @@ const Promotion = {
             fileName: "Ruby.png",
             items: [
                 "Head of promotions",
-                "Facebook promotion/account management",
-                "Instagram promotion/account management",
-                "Reddit promotion/account management",
+                "Social media account management",
+                "Facebook promotion",
+                "Instagram promotion",
                 "Blog articles"
             ]
         },
@@ -139,7 +150,10 @@ const Promotion = {
             github: "",
             website: "",
             fileName: "Annie.png",
-            items: ["Facebook promotion", "Blog articles"]
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Ben Ye",
@@ -148,7 +162,10 @@ const Promotion = {
             github: "",
             website: "",
             fileName: "BenYe.png",
-            items: ["Instagram promotion/account management", "Blog articles"]
+            items: [
+                "Instagram promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Cherrie Wu",
@@ -157,7 +174,10 @@ const Promotion = {
             github: "",
             website: "",
             fileName: "Cherrie.png",
-            items: ["Facebook promotion", "Weekly Insights"]
+            items: [
+                "Facebook promotion",
+                "Weekly Insights"
+            ]
         },
         {
             name: "Dil Kaur",
@@ -167,9 +187,10 @@ const Promotion = {
             website: "https://www.dil-k.com/",
             fileName: "Dil.png",
             items: [
-                "Instagram promotion/account management",
-                "Project logo/website branding",
-                "Blog articles", "Daily summary reports"
+                "Instagram promotion",
+                "Project logo design",
+                "Daily summary reports",
+                "Blog articles",
             ]
         },
         {
@@ -180,7 +201,8 @@ const Promotion = {
             website: "",
             fileName: "Elizabeth.png",
             items: [
-                "Twitter account management", "Blog articles"
+                "Twitter promotion",
+                "Blog articles"
             ]
         },
         {
@@ -190,7 +212,9 @@ const Promotion = {
             github: "",
             website: "https://kohind.com",
             fileName: "Huan.png",
-            items: ["LinkedIn promotion"]
+            items: [
+                "LinkedIn promotion"
+            ]
         },
         {
             name: "Jennifer Ziyi Yang",
@@ -199,7 +223,11 @@ const Promotion = {
             github: "",
             website: "",
             fileName: "Jennifer.png",
-            items: ["Facebook promotion", "WeChat promotion", "Blog articles"]
+            items: [
+                "Facebook promotion",
+                "WeChat promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Jiwon Ryu",
@@ -208,7 +236,10 @@ const Promotion = {
             github: "",
             website: "",
             fileName: "Jiwon.png",
-            items: ["Facebook promotion", "Blog articles"]
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Lee Paton",
@@ -225,7 +256,10 @@ const Promotion = {
             github: "",
             website: "",
             fileName: "Nash.png",
-            items: ["Facebook promotion", "Blog articles"]
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Michelle Yu Ying Wong",
@@ -235,10 +269,10 @@ const Promotion = {
             website: "",
             fileName: "Michelle.png",
             items: [
-                "Twitter promotion/account management",
-                "Blog articles",
+                "Twitter promotion",
+                "Digital marketing material",
                 "Daily summary reports",
-                "Digital marketing material"
+                "Blog articles"
             ]
         },
         {
@@ -248,7 +282,10 @@ const Promotion = {
             github: "",
             website: "",
             fileName: "Serina.png",
-            items: ["Facebook promotion", "Blog articles"]
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Tiffany Kong",
@@ -257,7 +294,10 @@ const Promotion = {
             github: "",
             website: "",
             fileName: "Tiffany.png",
-            items: ["Facebook promotion", "Blog articles"]
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Xiao Chen Xi",
@@ -266,7 +306,10 @@ const Promotion = {
             github: "",
             website: "",
             fileName: "Xiaochen.png",
-            items: ["Facebook promotion", "Blog articles"]
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
         },
     ]
 };
@@ -282,7 +325,8 @@ const Data_Collection = {
             website: "",
             fileName: "Ben.png",
             items: [
-                "Head of data collection", "Cruise interface"
+                "Head of data collection",
+                "Cruise interface"
             ]
         },
         {
@@ -300,7 +344,9 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Dabao.png",
-            items: ["News updates"]
+            items: [
+                "News updates"
+            ]
         },
         {
             name: "Dave Morrissey",
@@ -310,8 +356,10 @@ const Data_Collection = {
             website: "https://langlynx.com",
             fileName: "Dave.png",
             items: [
-                "Regional statistics automation", "Hospitals data aggregator",
-                "GIS data processing", "ABS statistics processing"
+                "State and world statistics automation",
+                "Hospitals data aggregator",
+                "GIS data processing",
+                "ABS statistics processing"
             ]
         },
         {
@@ -321,7 +369,9 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Emma.png",
-            items: ["Daily top news"]
+            items: [
+                "Daily top news"
+            ]
         },
         {
             name: "Ginny Liu",
@@ -330,7 +380,9 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Ginny.png",
-            items: ["State statistics"]
+            items: [
+                "State statistics"
+            ]
         },
         {
             name: "Hanying Li",
@@ -339,7 +391,22 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Hanying.png",
-            items: ["State statistics", "Hospitals data"]
+            items: [
+                "State statistics",
+                "Hospitals data"
+            ]
+        },
+        {
+            name: "Huan Yee Koh",
+            linkedin: "https://www.linkedin.com/in/huankoh/",
+            email: "huanyeekoh@gmail.com",
+            github: "",
+            website: "https://kohind.com",
+            fileName: "Huan.png",
+            items: [
+                "News updates",
+                "State statistics"
+            ]
         },
         {
             name: "Jinghan Zhang",
@@ -356,7 +423,9 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Louis.png",
-            items: ["News updates"]
+            items: [
+                "News updates"
+            ]
         },
         {
             name: "Mahesh Hase",
@@ -365,7 +434,9 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Mahesh.png",
-            items: ["Collection of government statistics"]
+            items: [
+                "State statistics"
+            ]
         },
         {
             name: "Michelle Yu Ying Wong",
@@ -375,8 +446,10 @@ const Data_Collection = {
             website: "",
             fileName: "Michelle.png",
             items: [
-                "Cruise ship case statistics", "News aggregation system",
-                "State case data", "Hospitals data"
+                "Cruise ship case statistics",
+                "News aggregation system",
+                "State case data",
+                "Hospitals data"
             ]
         },
         {
@@ -386,7 +459,10 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Qian.png",
-            items: ["State statistics", "Hospitals data"]
+            items: [
+                "State statistics",
+                "Hospitals data"
+            ]
         },
         {
             name: "Richard Yang",
@@ -395,7 +471,10 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Richard.png",
-            items: ["State statistics", "Hospitals data"]
+            items: [
+                "State statistics",
+                "Hospitals data"
+            ]
         },
         {
             name: "Yuchao Wu",
@@ -412,7 +491,9 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Zehua.png",
-            items: ["State statistics"]
+            items: [
+                "State statistics"
+            ]
         },
     ]
 };
@@ -489,7 +570,8 @@ const Contributor = {
             website: "",
             fileName: "Khoi.png",
             items: [
-                "State map filters", "Website footer"
+                "State map filters",
+                "Website footer"
             ]
         },
         {

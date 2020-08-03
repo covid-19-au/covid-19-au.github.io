@@ -25,7 +25,7 @@ SOFTWARE.
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import React from "react";
-import schemaTypes from "../../../data/caseData/schema_types.json"
+import getRemoteData from "../../CrawlerData/RemoteData";
 
 
 class DataTypeSelect extends React.Component {
@@ -36,6 +36,13 @@ class DataTypeSelect extends React.Component {
      */
     constructor(props) {
         super(props);
+
+        let getRemoteDataLater = async () => {
+            this.setState({
+                remoteData: await getRemoteData()
+            });
+        };
+        getRemoteDataLater();
 
         this.state = {
             timePeriod: props.timePeriod,
@@ -54,6 +61,10 @@ class DataTypeSelect extends React.Component {
      *******************************************************************/
 
     render() {
+        if (!this.state.remoteData) {
+            return null;
+        }
+
         const padding = '6px';
 
         const activeStyles = {
@@ -79,7 +90,7 @@ class DataTypeSelect extends React.Component {
         var getSelectOptions = () => {
             // TODO: Filter to
             var out = [];
-            for (let [optGroupLabel, options] of schemaTypes.constant_select) {
+            for (let [optGroupLabel, options] of this.state.remoteData.getConstantSelect()) {
                 out.push(`<optgroup label="${optGroupLabel}">`);
                 for (let [optionLabel, optionValue] of options) {
                     if (optionValue === this.state.dataType) {
@@ -102,10 +113,11 @@ class DataTypeSelect extends React.Component {
                     <div style={{ fontWeight: 'bold', fontSize: '0.8em', marginLeft: '3px', display: 'none' }}>Markers</div>
                     <select ref={this.markersSelect}
                         style={{ "width": "100%" }}
+                        onChange={() => {this._onMarkersChange(this.markersSelect.current.value)}}
                         dangerouslySetInnerHTML={ {__html: getSelectOptions()} } />
                 </div>
 
-                <div style={{ display: schemaTypes.constants[this.state.dataType].timeperiods ? 'block' : 'none' }}>
+                <div style={{ display: this.state.remoteData.getConstants()[this.state.dataType].timeperiods ? 'block' : 'none' }}>
                     <span className="key" style={{ alignSelf: "flex-end", marginBottom: "5px" }}>
                         <ButtonGroup ref={this.markersButtonGroup}
                             size="small"
@@ -165,9 +177,6 @@ class DataTypeSelect extends React.Component {
      *******************************************************************/
 
     componentDidMount() {
-        this.markersSelect.current.onchange = () => {
-            this._onMarkersChange(this.markersSelect.current.value);
-        };
     }
 
     /*******************************************************************
@@ -209,7 +218,7 @@ class DataTypeSelect extends React.Component {
      * @returns {DataTypeSelect._onTimePeriodChange.props}
      */
     getTimePeriod() {
-        if (schemaTypes.constants[this.state.dataType].timeperiods) {
+        if (this.state.remoteData.getConstants()[this.state.dataType].timeperiods) {
             return this.state.timePeriod;
         } else {
             return null;
