@@ -379,9 +379,8 @@ class CasesData {
     getCaseNumberTimeSeries(regionType, ageRange, maxDateType) {
         maxDateType = maxDateType || DateType.today();
 
-        var dateRangeType = new DateRangeType(maxDateType, maxDateType);
         var r = new DataPoints(
-            this, regionType, dateRangeType, ageRange
+            this, regionType, ageRange
         );
 
         // TODO: FIX FOR MANUALLY ENTERED DATA!!! ===========================================================================
@@ -408,7 +407,6 @@ class CasesData {
             return null;
         }
         r.sort((x, y) => x.getDateType() - y.getDateType());
-        dateRangeType.setDateRange(r[0].getDateType(), r[r.length-1].getDateType());
         return r;
     }
 

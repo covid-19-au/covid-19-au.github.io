@@ -281,7 +281,7 @@ class UnderlayData {
      * @returns {[]}
      */
     getDateRange(regionType, dateRangeType) {
-        var r = new DataPoints(this, regionType, dateRangeType);
+        var r = new DataPoints(this, regionType);
         var values = this._getValuesByRID(regionType);
 
         var fromDateString = dateRangeType.getFromDate().toString();

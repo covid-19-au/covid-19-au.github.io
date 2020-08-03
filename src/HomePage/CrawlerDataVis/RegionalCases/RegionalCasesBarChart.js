@@ -29,6 +29,7 @@ import Paper from "@material-ui/core/Paper";
 
 import ReactEcharts from "echarts-for-react";
 import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "../eChartsFns";
+import DataPointsCollection from "../../CrawlerDataTypes/DataPointsCollection";
 
 
 /**
@@ -114,32 +115,32 @@ class RegionalCasesBarChart extends React.Component {
         let series = [],
             allDates = new Set(),
             casesInst = this.__mode === 'new' ?
-                this.__newCasesInst : this.__casesInst;
+                this.__newCasesInst : this.__casesInst,
+            dataPointsInsts = [];
 
         for (let regionType of casesInst.getRegionChildren()) {
             let caseNumberTimeSeries = casesInst.getCaseNumberTimeSeries(
                 regionType, null
             ) || [];
-            caseNumberTimeSeries.sort((x, y) => {
-                return x.getDateType().getTime()-y.getDateType().getTime()
-            });
 
-            let data = [];
-            for (let timeSeriesItem of caseNumberTimeSeries) {
-                data.push([
-                    timeSeriesItem.getDateType(),
-                    (timeSeriesItem.getValue() >= 0 || this.__mode !== 'percentiles') ? timeSeriesItem.getValue() : 0
-                ]);
-                allDates.add(timeSeriesItem.getDateType());
+            if (caseNumberTimeSeries.length) {
+                // Only add if there are samples for this region
+                dataPointsInsts.push(caseNumberTimeSeries);
             }
+        }
 
-            // Only add if there are samples available for this region
-            if (!data.length) {
-                continue;
+        for (let dataPoints of new DataPointsCollection(dataPointsInsts)) {
+            let data = [];
+            for (let dataPoint of dataPoints.sortDescending()) {
+                data.push([
+                    dataPoint.getDateType(),
+                    (dataPoint.getValue() >= 0 || this.__mode !== 'percentiles') ? dataPoint.getValue() : 0
+                ]);
+                allDates.add(dataPoint.getDateType().toString());
             }
 
             series.push({
-                name: regionType.getLocalized(),
+                name: dataPoints.getRegionType().getLocalized(),
                 type: this.__mode === 'percentiles' ? 'line' : 'bar',
                 areaStyle: this.__mode === 'percentiles' ? {} : null,
                 stack: 'mystack',
@@ -168,10 +169,12 @@ class RegionalCasesBarChart extends React.Component {
             otherOut = [];
         for (let seriesItem of leftOver) {
             for (let [dateType, value] of seriesItem.data) {
-                if (!(dateType in otherTotals)) {
-                    otherTotals[dateType] = [dateType, 0]
+                if (!(dateType.toString() in otherTotals)) {
+                    otherTotals[dateType.toString()] = [dateType, 0];
                 }
-                otherTotals[dateType][1] += value;
+                if (value) {
+                    otherTotals[dateType.toString()][1] += value;
+                }
             }
         }
         for (let k in otherTotals) {

@@ -22,37 +22,70 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 import DateRangeType from "./DateRangeType";
+import DataPoint from "./DataPoint";
+import DataPoints from "./DataPoints";
 
 
 class DataPointsCollection extends Array {
-    constructor(dataPointsInsts) {
+    constructor(dataPointsInsts, defaultValue) {
         super();
-        let fromDateType, toDateType;
+        let dateRange = null;
+        this.defaultValue = defaultValue;
 
         for (let dataPointsInst of dataPointsInsts||[]) {
-            for (let dataPoint of dataPointsInsts) {
-                if (!fromDateType || dataPoint.getDateType() < fromDateType) {
-                    fromDateType = FIXME;
-                }
-                if (!toDateType || dataPoint.getDateType() > toDateType) {
-                    toDateType = FIXME;
-                }
+            if (!dateRange) {
+                dateRange = dataPointsInst.getDateRangeType();
+            } else {
+                dateRange = dateRange.addedTo(
+                    dataPointsInst.getDateRangeType()
+                );
             }
-            this.push(dataPointsInst);
         }
 
-        if (fromDateType && toDateType) {
-            this.dateRangeType = new DateRangeType(
-                fromDateType, toDateType
-            );
-
-            // TODO: MAKE SURE BLANKS ARE FILLED IN FOR THE ENTIRE DATE RANGE!!!!
+        if (dateRange) {
+            // Make sure blanks are filled in for the entire date range!
+            for (let dataPointsInst of dataPointsInsts||[]) {
+                dataPointsInst = dataPointsInst.missingDaysFilledIn(
+                    dateRange, defaultValue
+                );
+                this.push(dataPointsInst);
+            }
         }
     }
 
-    push(item) {
+    /********************************************************************
+     * Clone/copy collection of datapoints
+     ********************************************************************/
 
-        super.push(item);
+    /**
+     *
+     */
+    clone() {
+        return new DataPointsCollection(this, this.defaultValue);
+    }
+
+    /**
+     * Create a new copy of this DataPointsCollection, but without any
+     * of the DataPoints instances supplied in the array `dataPointsInsts`
+     *
+     * @param dataPointsInsts
+     */
+    cloneExcept(dataPointsInsts) {
+        return new DataPointsCollection(this.filter(
+            item => dataPointsInsts.indexOf(item) === -1
+        ), this.defaultValue);
+    }
+
+    /********************************************************************
+     * Get maximum/minimum values
+     ********************************************************************/
+
+    getMaxValue() {
+        // TODO!
+    }
+
+    getMinValue() {
+        // TODO!
     }
 
     /********************************************************************
@@ -61,23 +94,45 @@ class DataPointsCollection extends Array {
 
     /**
      *
+     * @returns {any[]}
      */
     getAgeRanges() {
-
+        let r = new Set();
+        for (let dataPointsInst of this) {
+            r.add(dataPointsInst.getAgeRange());
+        }
+        return Array.from(r);
     }
 
     /**
      *
+     * @returns {any[]}
      */
     getDataTypes() {
-
+        let r = new Set();
+        for (let dataPointsInst of this) {
+            r.add(dataPointsInst.getDataType());
+        }
+        return Array.from(r);
     }
 
     /**
      *
+     * @returns {any[]}
      */
-    getRegionChildren() {
+    getRegionTypes() {
+        let r = [],
+            set = new Set();
 
+        for (let dataPointsInst of this) {
+            if (set.has(dataPointsInst.getHashKey())) {
+                continue;
+            }
+            set.add(dataPointsInst.getHashKey());
+            r.push(dataPointsInst.getRegionType());
+        }
+
+        return r;
     }
 
     /********************************************************************
@@ -89,7 +144,14 @@ class DataPointsCollection extends Array {
      * @param ageRange
      */
     getByAgeRange(ageRange) {
+        ageRange = ageRange || '';
 
+        for (let dataPointsInst of this) {
+            if (dataPointsInst.getAgeRange() === ageRange) {
+                return dataPointsInst;
+            }
+        }
+        return null;
     }
 
     /**
@@ -97,7 +159,12 @@ class DataPointsCollection extends Array {
      * @param dataType
      */
     getByDataType(dataType) {
-
+        for (let dataPointsInst of this) {
+            if (dataPointsInst.getDataType() === dataType) {
+                return dataPointsInst;
+            }
+        }
+        return null;
     }
 
     /**
@@ -105,7 +172,12 @@ class DataPointsCollection extends Array {
      * @param regionType
      */
     getByRegionType(regionType) {
-
+        for (let dataPointsInst of this) {
+            if (dataPointsInst.getRegionType().equalTo(regionType)) {
+                return dataPointsInst;
+            }
+        }
+        return null;
     }
 
     /********************************************************************
@@ -120,7 +192,7 @@ class DataPointsCollection extends Array {
      * @param category
      * @param averageOverDays
      */
-    mergeOtherRegionsIntoCategory(leaveRegionTypesAsIs, category, averageOverDays) {
+    otherRegionsMergedIntoCategory(leaveRegionTypesAsIs, category, averageOverDays) {
 
     }
 
@@ -129,8 +201,22 @@ class DataPointsCollection extends Array {
      * @param ageRange1
      * @param ageRange2
      */
-    mergeAgeRanges(ageRange1, ageRange2) {
+    ageRangeMerged(ageRange1, ageRange2) {
+        let dataPoints1 = this.getByAgeRange(ageRange1),
+            dataPoints2 = this.getByAgeRange(ageRange2);
 
+        let newDataPoints = dataPoints1.map(function(dataPoint1, i) {
+            let dataPoint2 = dataPoints2[i];
+            if (!dataPoint1.getDateType().equalTo(dataPoint2.getDateType())) {
+                throw "Shouldn't get here!";
+            }
+            return new DataPoint(
+                dataPoint1.getDateType(),
+                dataPoint1.getValue()+dataPoint2.getValue()
+            );
+        });
+
+        return dataPoints1.cloneWithoutDatapoints(newDataPoints);
     }
 
     /**
@@ -138,7 +224,23 @@ class DataPointsCollection extends Array {
      * @param dataType1
      * @param dataType2
      */
-    mergeDataTypes(dataType1, dataType2) {
+    dataTypesMerged(dataType1, dataType2) {
+        let dataPoints1 = this.getByDataType(dataType1),
+            dataPoints2 = this.getByDataType(dataType2);
 
+        let newDataPoints = dataPoints1.map(function(dataPoint1, i) {
+            let dataPoint2 = dataPoints2[i];
+            if (!dataPoint1.getDateType().equalTo(dataPoint2.getDateType())) {
+                throw "Shouldn't get here!";
+            }
+            return new DataPoint(
+                dataPoint1.getDateType(),
+                dataPoint1.getValue()+dataPoint2.getValue()
+            );
+        });
+
+        return dataPoints1.cloneWithoutDatapoints(newDataPoints);
     }
 }
+
+export default DataPointsCollection;

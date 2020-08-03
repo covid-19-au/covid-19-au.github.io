@@ -60,7 +60,8 @@ class WorldMap extends React.Component {
                     <CovidMapControl ref={el => this.covidMapControl = el}
                                      onGeoDataChanged={this.__onGeoDataChanged.bind(this)}
                                      dataType={this.props.dataType}
-                                     timePeriod={this.props.timePeriod}>
+                                     timePeriod={this.props.timePeriod}
+                                     height={"75vh"}>
                     </CovidMapControl>
                 </div>
 

@@ -63,14 +63,16 @@ class StateChart extends React.Component {
                             {renderStatus(this.props.state.toUpperCase())}
                         </div>
                     </div>
+                </Grid>
 
+                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card">
                         <h2>Current Statistics</h2>
                         <GeneralBarChart state={this.props.state} />
                     </div>
                 </Grid>
 
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <Grid style={{minWidth: '90%', maxWidth: '1800px'}} item xs={11} sm={11} md={10} lg={100}>
                     <div className="card" style={{
                         display: 'flex',
                         flexDirection: 'column'
@@ -87,7 +89,8 @@ class StateChart extends React.Component {
                         </h2>
                         <ConfirmedMap stateName={'AU-'+this.props.state}
                                       dataType={this.props.dataType}
-                                      timePeriod={this.props.timePeriod}/>
+                                      timePeriod={this.props.timePeriod}
+                                      height={"75vh"}/>
                     </div>
                 </Grid>
 
@@ -171,6 +174,10 @@ class StateChart extends React.Component {
         );
     }
 
+    /********************************************************************
+     * On initialization triggers
+     ********************************************************************/
+
     componentDidMount() {
         this.__initPlotlyJSCharts();
     }
@@ -189,7 +196,6 @@ class StateChart extends React.Component {
 
         this.__initTreeMap(regionSchema, regionParent);
         this.__initAreaChart(regionSchema, regionParent);
-        //this.__initBubbleChart(regionSchema, regionParent);
         //this.__initPatientStatus(regionParent);
         this.__initInfectionSource(regionParent);
 
@@ -202,19 +208,9 @@ class StateChart extends React.Component {
         }
     }
 
-    /**
-     *
-     * @returns {Promise<void>}
-     * @private
-     */
-    async __initBubbleChart(regionSchema, regionParent) {
-        let newCaseData = await this.dataDownloader.getCaseData(
-            'status_active', regionSchema, regionParent
-        );
-        if (newCaseData && newCaseData.datatypeInData()) {
-            this.bubbleChart.setCasesInst(newCaseData);
-        }
-    }
+    /********************************************************************
+     * Horizontal bar/area charts
+     ********************************************************************/
 
     /**
      *
@@ -231,32 +227,6 @@ class StateChart extends React.Component {
         );
 
         this.areaChart.setCasesInsts(activeCaseData, newCaseData);
-    }
-
-    /**
-     *
-     * @param regionSchema
-     * @param regionParent
-     * @returns {Promise<void>}
-     * @private
-     */
-    async __initTreeMap(regionSchema, regionParent) {
-        let totalCaseData = await this.dataDownloader.getCaseData(
-            'total', regionSchema, regionParent
-        );
-        let newCaseData = await this.dataDownloader.getCaseData(
-            'new', regionSchema, regionParent
-        );
-        let activeCaseData = await this.dataDownloader.getCaseData(
-            'status_active', regionSchema, regionParent
-        );
-
-        if (!activeCaseData || !activeCaseData.datatypeInData()) {
-            // Revert to 21 days if "status_active" isn't available
-            this.treeMap.setCasesInst(null, newCaseData, totalCaseData);
-        } else {
-            this.treeMap.setCasesInst(activeCaseData, newCaseData, totalCaseData);
-        }
     }
 
     /**
@@ -319,6 +289,26 @@ class StateChart extends React.Component {
      * @returns {Promise<void>}
      * @private
      */
+    async __initAgeBarChart(regionParent) {
+        let totalCaseData = await this.dataDownloader.getCaseData(
+                'total', 'admin_1', 'au'
+        );
+        this.ageBarChart.setCasesInst(
+            totalCaseData,
+            new RegionType('admin_1', 'au', regionParent)
+        )
+    }
+    
+    /********************************************************************
+     * Vertical bar charts
+     ********************************************************************/
+
+    /**
+     *
+     * @param regionParent
+     * @returns {Promise<void>}
+     * @private
+     */
     async __initPopulationPyramid(regionParent) {
         let femaleData = await this.dataDownloader.getCaseData(
             'total_female', 'admin_1', 'au'
@@ -344,20 +334,34 @@ class StateChart extends React.Component {
         }
     }
 
+    /********************************************************************
+     * Tree maps
+     ********************************************************************/
+
     /**
      *
+     * @param regionSchema
      * @param regionParent
      * @returns {Promise<void>}
      * @private
      */
-    async __initAgeBarChart(regionParent) {
+    async __initTreeMap(regionSchema, regionParent) {
         let totalCaseData = await this.dataDownloader.getCaseData(
-                'total', 'admin_1', 'au'
+            'total', regionSchema, regionParent
         );
-        this.ageBarChart.setCasesInst(
-            totalCaseData,
-            new RegionType('admin_1', 'au', regionParent)
-        )
+        let newCaseData = await this.dataDownloader.getCaseData(
+            'new', regionSchema, regionParent
+        );
+        let activeCaseData = await this.dataDownloader.getCaseData(
+            'status_active', regionSchema, regionParent
+        );
+
+        if (!activeCaseData || !activeCaseData.datatypeInData()) {
+            // Revert to 21 days if "status_active" isn't available
+            this.treeMap.setCasesInst(null, newCaseData, totalCaseData);
+        } else {
+            this.treeMap.setCasesInst(activeCaseData, newCaseData, totalCaseData);
+        }
     }
 }
 

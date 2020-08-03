@@ -75,6 +75,12 @@ class DateRangeType {
      * @returns {*}
      */
     setDateRange(fromDate, toDate) {
+        if (!(fromDate instanceof DateType)) {
+            throw fromDate;
+        }
+        if (!(fromDate instanceof DateType)) {
+            throw toDate;
+        }
         if (fromDate > toDate) {
             throw `fromDate ${fromDate} should be less than or equal to toDate ${toDate}`;
         }
@@ -97,11 +103,11 @@ class DateRangeType {
             r = [];
 
         while (true) {
-            let iDate = new DateType(this.fromDate+daysOffsetInMs);
-            if (iDate > this.toDate) {
+            let iDate = this.fromDate.getTime()+daysOffsetInMs;
+            if (iDate > this.toDate.getTime()) {
                 break;
             }
-            r.push(iDate);
+            r.push(new DateType(new Date(iDate)));
             daysOffsetInMs += DAY_IN_MILLISECONDS;
         }
         return r;
@@ -124,7 +130,7 @@ class DateRangeType {
             fromDate = this.getFromDate();
         }
 
-        if (otherDateRangeType.getToDate() > this.getFromDate()) {
+        if (otherDateRangeType.getToDate() > this.getToDate()) {
             toDate = otherDateRangeType.getToDate();
         } else {
             toDate = this.getToDate();

@@ -38,15 +38,11 @@ class DataPoints extends Array {
      *
      * @param dataSource a CasesData or UnderlayData instance
      * @param regionType a RegionType instance
-     * @param dateRangeType a DateRangeType instance. Note this may
-     *        not necessarily be the maximum and minimum dates within
-     *        the TimeSeriesItem's contained in the array if datapoints
-     *        aren't available for the requested time interval
      * @param ageRange (optional) the age range the time series value
      *        is relevant for, e.g. "0-9"
      * @param items (optional) populate with these initial items
      */
-    constructor(dataSource, regionType, dateRangeType, ageRange, items) {
+    constructor(dataSource, regionType, ageRange, items) {
         super();
         if (items) {
             for (var item of items) {
@@ -68,7 +64,6 @@ class DataPoints extends Array {
             throw `RegionType ${regionType} should be an instance of RegionType!`;
         }
 
-        this.dateRangeType = dateRangeType;
         this.dataSource = dataSource;
         this.regionType = regionType;
         this.ageRange = ageRange;
@@ -93,8 +88,7 @@ class DataPoints extends Array {
     clone() {
         return new DataPoints(
             this.dataSource, this.regionType,
-            this.dateRangeType, this.ageRange,
-            this
+            this.ageRange, this
         );
     }
 
@@ -103,11 +97,10 @@ class DataPoints extends Array {
      *
      * @returns {DataPoints}
      */
-    cloneWithoutDatapoints() {
+    cloneWithoutDatapoints(items) {
         return new DataPoints(
             this.dataSource, this.regionType,
-            this.dateRangeType, this.ageRange,
-            []
+            this.ageRange, items||[]
         );
     }
 
@@ -179,15 +172,29 @@ class DataPoints extends Array {
      * @returns {*}
      */
     getDataType() {
-        return this.dataType;
+        return this.dataSource.getDataType();
     }
 
     /**
+     * Get the from/to date range of all values as a DateRangeType
      *
-     * @returns {*}
+     * @returns {DateRangeType}
      */
     getDateRangeType() {
-        return this.dateRangeType;
+        let minDate = null,
+            maxDate = null;
+
+        for (let dataPoint of this) {
+            if (!minDate || dataPoint.getDateType() < minDate) {
+                minDate = dataPoint.getDateType();
+            }
+            if (!maxDate || dataPoint.getDateType() > maxDate) {
+                maxDate = dataPoint.getDateType();
+            }
+        }
+
+        return (minDate && maxDate) ?
+            new DateRangeType(minDate, maxDate) : null;
     }
 
     /********************************************************************
@@ -256,15 +263,8 @@ class DataPoints extends Array {
             ));
         }
 
-        let dateRangeType;
-        if (r.length) {
-            dateRangeType = new DateRangeType(
-                r[0].getDateType(), r[r.length-1].getDateType()
-            );
-        }
-
         return new DataPoints(
-            this.dataSource, this.regionType, dateRangeType, this.ageRange, r
+            this.dataSource, this.regionType, this.ageRange, r
         ).sortDescending();
     }
 
@@ -294,43 +294,37 @@ class DataPoints extends Array {
             r.push(new DataPoint(highestDate, totalVal/numVals));
         }
 
-        let dateRangeType;
-        if (r.length) {
-            dateRangeType = new DateRangeType(
-                r[r.length-1].getDateType(), r[0].getDateType()
-            );
-        }
-
         return new DataPoints(
-            this.dataSource, this.regionType, dateRangeType, this.ageRange, r
+            this.dataSource, this.regionType, this.ageRange, r
         );
     }
 
     /**
+     * Create a new DataPoints instance
      *
+     * @param dateRangeType
+     * @param defaultValue
+     * @returns {DataPoints}
      */
     missingDaysFilledIn(dateRangeType, defaultValue) {
-        dateRangeType = dateRangeType || this.dateRangeType;
-
         let out = new DataPoints(
             this.dataSource, this.regionType,
-            this.dateRangeType, this.ageRange,
-            []
+            this.ageRange, []
         );
 
         let map = {};
-        for (let [x, y] of this) {
-            map[x] = y;
+        for (let [dateType, value] of this) {
+            map[dateType.toString()] = value;
         }
 
         // Make sure every date has a datapoint
         // (otherwise eCharts rendering goes haywire)
         let curValue = defaultValue;
         for (let dateType of dateRangeType.toArrayOfDateTypes()) {
-            if (dateType in map) { // WARNING!!!
-                curValue = map[dateType];
+            if (dateType.toString() in map) { // WARNING!!!
+                curValue = map[dateType.toString()];
             }
-            out.push([dateType, curValue])
+            out.push(new DataPoint(dateType, curValue))
         }
 
         // Sort by newest first

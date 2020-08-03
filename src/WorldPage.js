@@ -34,7 +34,7 @@ class WorldPage extends React.Component {
     render() {
         // spacing={gspace}
         return (
-            <div style={{width: '100%', maxWidth: '1500px'}}>
+            <div style={{width: '100%', maxWidth: '95vw'}}>
                 <div style={{
                     border: '1px solid red',
                     borderLeft: 'none',

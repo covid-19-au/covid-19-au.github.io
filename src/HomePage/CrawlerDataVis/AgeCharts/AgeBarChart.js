@@ -28,6 +28,7 @@ import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
 import ReactEcharts from "echarts-for-react";
 import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "../eChartsFns";
+import DataPointsCollection from "../../CrawlerDataTypes/DataPointsCollection";
 
 
 /**
@@ -112,12 +113,17 @@ class AgeBarChart extends React.Component {
             series = [],
             allDates = new Set();
 
-        for (let ageRange of this.__casesData.getAgeRanges(this.__regionType)) {
+        for (let caseNumberTimeSeries of new DataPointsCollection(
+            this.__casesData.getAgeRanges(this.__regionType).map((ageRange) => {
+                return this.__casesData.getCaseNumberTimeSeries(
+                    this.__regionType, ageRange
+                );
+            })
+        )) {
+
+            let ageRange = caseNumberTimeSeries.getAgeRange();
             data[ageRange] = [];
 
-            let caseNumberTimeSeries = this.__casesData.getCaseNumberTimeSeries(
-                this.__regionType, ageRange
-            );
             if (caseNumberTimeSeries) {
                 caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals();
                 if (this.__mode === 'percentiles') {
@@ -128,7 +134,7 @@ class AgeBarChart extends React.Component {
             }
 
             caseNumberTimeSeries.sort((x, y) => {
-                return x.getDateType()-y.getDateType()
+                return x.getDateType() - y.getDateType()
             });
 
             for (let timeSeriesItem of caseNumberTimeSeries) {
@@ -136,7 +142,8 @@ class AgeBarChart extends React.Component {
 
                 data[ageRange].push([
                     timeSeriesItem.getDateType(),
-                    (timeSeriesItem.getValue() >= 0 || this.__mode !== 'percentiles') ? timeSeriesItem.getValue() : 0
+                    (timeSeriesItem.getValue() >= 0 || this.__mode !== 'percentiles') ?
+                        timeSeriesItem.getValue() : 0
                 ]);
             }
 

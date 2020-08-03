@@ -59,7 +59,8 @@ class ConfirmedMap extends React.Component {
                     <CovidMapControl ref={el => this.covidMapControl = el}
                                      onGeoDataChanged={this.__onGeoDataChanged.bind(this)}
                                      dataType={this.props.dataType}
-                                     timePeriod={this.props.timePeriod}>
+                                     timePeriod={this.props.timePeriod}
+                                     height={this.props.height || "60vh"}>
                     </CovidMapControl>
                 </div>
 

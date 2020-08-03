@@ -29,6 +29,7 @@ import Paper from "@material-ui/core/Paper";
 
 import ReactEcharts from "echarts-for-react";
 import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "./eChartsFns";
+import DataPointsCollection from "../CrawlerDataTypes/DataPointsCollection";
 
 
 class MultiDataTypeBarChart extends React.Component {
@@ -97,8 +98,9 @@ class MultiDataTypeBarChart extends React.Component {
         let series = [],
             allDates = new Set();
 
-        for (let casesInst of this.__casesInsts) {
-            let caseNumberTimeSeries = casesInst.getCaseNumberTimeSeries(this.__regionType, null);
+        for (let caseNumberTimeSeries of new DataPointsCollection(this.__casesInsts.map((casesInst) => {
+            return casesInst.getCaseNumberTimeSeries(this.__regionType, null);
+        }), null)) {
             if (caseNumberTimeSeries) {
                 caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals();
                 if (this.__mode === 'percentiles') {
@@ -123,7 +125,7 @@ class MultiDataTypeBarChart extends React.Component {
             }
 
             series.push({
-                name: casesInst.dataType.replace('source_', '').replace('status_', '').replace(/_/, ' '),
+                name: caseNumberTimeSeries.getDataType().replace('source_', '').replace('status_', '').replace(/_/, ' '),
                 type: this.__mode === 'percentiles' ? 'line' : 'bar',
                 areaStyle: this.__mode === 'percentiles' ? {} : null,
                 stack: 'stackalltogether',

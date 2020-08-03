@@ -53,12 +53,8 @@ class CasesWithManualAUStateData extends CasesData {
                                   .split('-')[1]
                                   .toUpperCase();
 
-        let dateRangeType = new DateRangeType(
-            DateType.today(), DateType.today()
-        );  // HACK!!!
         let r = new DataPoints(
-            this, regionType, dateRangeType,
-            "", []
+            this, regionType,"", []
         );
 
         for (let sortableDate of dates) {
@@ -91,12 +87,6 @@ class CasesWithManualAUStateData extends CasesData {
         }
 
         r.sortDescending();
-
-        if (r.length) {
-            r.getDateRangeType().setDateRange(
-                r[r.length - 1].getDateType(), r[0].getDateType()
-            );
-        }
         return r.length ? r : null;
     }
 
@@ -182,10 +172,6 @@ class CasesWithManualAUStateData extends CasesData {
             }
 
             dataPoints.sortDescending();
-            dataPoints.getDateRangeType().setDateRange(
-                dataPoints[dataPoints.length-1].getDateType(),
-                dataPoints[0].getDateType()
-            );
             return out.length ? out : null;
         } else {
             return super.getCaseNumberTimeSeries(

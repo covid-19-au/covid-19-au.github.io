@@ -84,7 +84,10 @@ class CovidMapControl extends React.Component {
         return (
             <div ref={el => this.absContainer = el}>
                 <div ref={el => this.mapContainer = el}
-                     style={{background: 'white'}}>
+                     style={{
+                         background: 'white',
+                         height: this.props.height || '60vh'
+                     }}>
                 </div>
 
                 <MapTimeSlider ref={el => {this.__mapTimeSlider = el}}
