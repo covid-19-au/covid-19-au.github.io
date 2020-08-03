@@ -104,6 +104,8 @@ class CovidMapControl extends React.Component {
      *******************************************************************/
 
     componentDidMount() {
+        this.__unmounted = false;
+
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
             //style: style,
@@ -201,6 +203,10 @@ class CovidMapControl extends React.Component {
             });
         };
         runMeLater();
+    }
+
+    componentWillUnmount() {
+        this.__unmounted = true;
     }
 
     addToMapContainer(elm) {
@@ -367,7 +373,12 @@ class CovidMapControl extends React.Component {
         if (!this.map || !this.__mapTimeSlider) {
             // React JS likely destroyed the elements in the interim
             this.__mapMovePending = false;
-            return;
+
+            if (this.__unmounted) {
+                return;
+            } else {
+                return setTimeout(this.__onMapMoveChange.bind(this), 20);
+            }
         } else {
             // Update the sources
             this.clusteredCaseSource.setData(
