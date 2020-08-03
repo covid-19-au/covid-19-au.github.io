@@ -108,9 +108,9 @@ class CovidMapControl extends React.Component {
 
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
-            //style: style,
+            style: style,
             //style: 'mapbox://styles/mapbox/light-v10?optimize=true',
-            style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
+            //style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
             //style: 'mapbox://styles/mapbox/satellite-v9?optimize=true',
             zoom: 1,
             maxZoom: 12,
