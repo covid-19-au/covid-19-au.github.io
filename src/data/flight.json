@@ -1114,5 +1114,14 @@
     "dateDeparture": "",
     "dateArrival": "31-07-20",
     "closeContactRow": "Unsure"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "QR900",
+    "airline": "Qatar",
+    "path": "Doha to Perth",
+    "dateDeparture": "",
+    "dateArrival": "28-07-20",
+    "closeContactRow": "30,31,32,33,34"
   }
 ]
