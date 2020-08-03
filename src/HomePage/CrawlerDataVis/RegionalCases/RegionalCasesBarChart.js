@@ -138,6 +138,9 @@ class RegionalCasesBarChart extends React.Component {
                 ]);
                 allDates.add(dataPoint.getDateType().toString());
             }
+            if (!data.length) {
+                continue;
+            }
 
             series.push({
                 name: dataPoints.getRegionType().getLocalized(),
@@ -180,15 +183,17 @@ class RegionalCasesBarChart extends React.Component {
         for (let k in otherTotals) {
             otherOut.push(otherTotals[k]);
         }
-        series.push({
-            name: 'Other',
-            type: this.__mode === 'percentiles' ? 'line' : 'bar',
-            areaStyle: this.__mode === 'percentiles' ? {} : null,
-            stack: 'mystack',
-            data: otherOut,
-            symbol: 'roundRect',
-            step: true,
-        });
+        if (otherOut.length) {
+            series.push({
+                name: 'Other',
+                type: this.__mode === 'percentiles' ? 'line' : 'bar',
+                areaStyle: this.__mode === 'percentiles' ? {} : null,
+                stack: 'mystack',
+                data: otherOut,
+                symbol: 'roundRect',
+                step: true,
+            });
+        }
 
         // Sort so that highest values are on the bottom
         for (let seriesItem of series) {
