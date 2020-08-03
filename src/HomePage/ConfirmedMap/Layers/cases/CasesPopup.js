@@ -205,7 +205,7 @@ class CasesPopup {
                         axisLabel: {
                             formatter: function(value) {
                                 value = new Date(value);
-                                return value.getDay() + "/" +value.getMonth();
+                                return value.getDate() + "/" +value.getMonth();
                             }
                         }
                     },
