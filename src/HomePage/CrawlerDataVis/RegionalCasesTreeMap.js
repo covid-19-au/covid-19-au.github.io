@@ -77,7 +77,7 @@ class RegionalCasesTreeMap extends React.Component {
                     ref={el => {this.reactEChart = el}}
                     option={this.state.option}
                     style={{
-                        height: "50vh",
+                        height: "65vh",
                         marginTop: '25px'
                     }}
                 />
