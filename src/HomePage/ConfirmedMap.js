@@ -75,7 +75,9 @@ class ConfirmedMap extends React.Component {
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
                                 <span style={{fontWeight: 'bold'}}>🔍&nbsp;Zoom in</span> for regional numbers.
-                                Victoria and New South Wales have postcode-level data at higher zoom levels.<br/>
+                                Victoria and New South Wales have 📬&nbsp;postcode-level data at higher zoom levels.<br/>
+                                * Note: postcode-level data for Victoria has only been provided for a short period,
+                                so the time slider won't go far back.<br/>
                                 <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
                             </li>
 
@@ -89,9 +91,7 @@ class ConfirmedMap extends React.Component {
                             <li style={{color: '#777', marginBottom: '2px', paddingBottom: '0px'}}>
                                 Regional Case Map may not be up-to-date. Refer to state totals in Cases by State table for
                                 current statistics. <br/>
-                                Displayed cases identify regions only, not specific addresses.<br />
-                                Postcode-level data for Victoria has only been provided for a short period,
-                                so the time slider won't go far back.
+                                Displayed cases identify regions only, not specific addresses.
                             </li>
 
                             <li style={{color: '#555'}}>

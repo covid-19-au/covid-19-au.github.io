@@ -96,10 +96,18 @@ class StateChart extends React.Component {
                         </div>
                     </div>
 
-                    <div className="card">
+                    {/*<div className="card">
                         <h2>Current Statistics</h2>
                         <GeneralBarChart state={this.props.state} />
+                    </div>*/}
+
+                    <div className="card">
+                        <h2>Historical Data</h2>
+                        {/* Display "Historical Statistics" chart */}
+                        <GeneralLineChart state={this.props.state} />
                     </div>
+
+                    {this.props.state !== 'NT' && this.props.state !== 'TAS' ? genderBalance : ''}
                 </Grid>
 
                 <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
@@ -122,16 +130,6 @@ class StateChart extends React.Component {
                                       timePeriod={this.props.timePeriod}
                                       height={"60vh"}/>
                     </div>
-                </Grid>
-
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                    <div className="card">
-                        <h2>Historical Data</h2>
-                        {/* Display "Historical Statistics" chart */}
-                        <GeneralLineChart state={this.props.state} />
-                    </div>
-
-                    {this.props.state !== 'NT' && this.props.state !== 'TAS' ? genderBalance : ''}
                 </Grid>
 
                 {this.props.state !== 'NT' && this.props.state !== 'TAS' ? infectionSources : ''}

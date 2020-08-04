@@ -264,6 +264,7 @@ function GoogleMap({ province, newData }) {
 
                 <Chart
                     width={window.innerWidth < 960 ? '100%' : 'auto'}
+                    height="25vh"
                     left="auto"
                     align="right"
                     top="40%"
