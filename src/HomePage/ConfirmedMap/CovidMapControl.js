@@ -130,6 +130,11 @@ class CovidMapControl extends React.Component {
         });
 
         let runMeLater = async () => {
+            if (!this.mapContainer) {
+                // Control probably destroyed in the interim!
+                return;
+            }
+
             //console.log("Getting remote data...");
             this.remoteData = await getRemoteData();
             //console.log("Remote data fetched");

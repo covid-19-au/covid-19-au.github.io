@@ -27,8 +27,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
 import ReactEcharts from "echarts-for-react";
-import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "../eChartsFns";
-import DataPointsCollection from "../../CrawlerDataTypes/DataPointsCollection";
+import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "./eChartsFns";
+import DataPointsCollection from "../CrawlerDataTypes/DataPointsCollection";
 
 
 /**

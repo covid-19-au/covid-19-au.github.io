@@ -28,9 +28,9 @@ import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
 import ReactEcharts from "echarts-for-react";
 
-import RegionType from "../../CrawlerDataTypes/RegionType";
-import MapTimeSlider from "../../ConfirmedMap/MapControls/MapTimeSlider";
-import DateType from "../../CrawlerDataTypes/DateType";
+import RegionType from "../CrawlerDataTypes/RegionType";
+import MapTimeSlider from "../ConfirmedMap/MapControls/MapTimeSlider";
+import DateType from "../CrawlerDataTypes/DateType";
 
 
 /**
@@ -179,6 +179,15 @@ class RegionalCasesTreeMap extends React.Component {
             }
         }
 
+        // Add percentiles
+        let total = 0;
+        for (let iData of data) {
+            total += iData.value||0;
+        }
+        for (let iData of data) {
+            iData.value = [iData.value, Math.round(iData.value/total*100.0)];
+        }
+
         this.setState({
             mode: this.__mode,
             option: {
@@ -190,7 +199,44 @@ class RegionalCasesTreeMap extends React.Component {
                     ).getLocalized(),
                     animationDuration: 100,
                     type: 'treemap',
-                    data: data
+                    data: data,
+                    label: {
+                        normal: {
+                            position: 'insideTopLeft',
+                            formatter: function (params) {
+                                return [
+                                    '{name|' + params.name + '}',
+                                    '{hr|}',
+                                    '{cases|' + params.value[0] + '}',
+                                    '{percent|' + params.value[1] + '%}'
+                                ].join('\n');
+                            },
+                            rich: {
+                                name: {
+                                    fontSize: 13,
+                                    color: 'white'
+                                },
+                                cases: {
+                                    fontSize: 20,
+                                    lineHeight: 20,
+                                    color: '#efefef'
+                                },
+                                percent: {
+                                    fontSize: 15,
+                                    lineHeight: 15,
+                                    color: '#efefef'
+                                },
+                                hr: {
+                                    width: '100%',
+                                    borderColor: 'rgba(255,255,255,0.2)',
+                                    borderWidth: 0.5,
+                                    height: 0,
+                                    lineHeight: 10
+                                }
+                            }
+                        },
+                    },
+
                 }]
             }
         });

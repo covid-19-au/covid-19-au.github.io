@@ -8,15 +8,15 @@ import GenderChart from "./GenderChart";
 import GeneralBarChart from "./GeneralBarChart";
 import GeneralLineChart from "./GeneralLineChart";
 import renderStatus from "./renderStatus";
-import RegionalCasesBarChart from "../HomePage/CrawlerDataVis/RegionalCases/RegionalCasesBarChart";
+import RegionalCasesBarChart from "../HomePage/CrawlerDataVis/RegionalCasesBarChart";
 import MultiDataTypeBarChart from "../HomePage/CrawlerDataVis/MultiDataTypeBarChart";
-import PopulationPyramid from "../HomePage/CrawlerDataVis/AgeCharts/PopulationPyramid";
-import RegionalCasesTreeMap from "../HomePage/CrawlerDataVis/RegionalCases/RegionalCasesTreeMap";
+import PopulationPyramid from "../HomePage/CrawlerDataVis/PopulationPyramid";
+import RegionalCasesTreeMap from "../HomePage/CrawlerDataVis/RegionalCasesTreeMap";
 import RegionType from "../HomePage/CrawlerDataTypes/RegionType";
 import DataDownloader from "../HomePage/CrawlerData/DataDownloader";
 import ConfirmedMap from "../HomePage/ConfirmedMap"
 import Acknowledgement from "../Acknowledgment";
-import AgeBarChart from "../HomePage/CrawlerDataVis/AgeCharts/AgeBarChart";
+import AgeBarChart from "../HomePage/CrawlerDataVis/AgeBarChart";
 import getRemoteData from "../HomePage/CrawlerData/RemoteData";
 
 const stateNameMapping = {
