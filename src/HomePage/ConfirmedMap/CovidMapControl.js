@@ -85,7 +85,9 @@ class CovidMapControl extends React.Component {
 
     render() {
         return (
-            <div ref={el => this.absContainer = el}>
+            <div ref={el => this.absContainer = el}
+                 style={{position: "relative"}}>
+
                 <div ref={el => this.mapContainer = el}
                      style={{
                          background: 'white',
