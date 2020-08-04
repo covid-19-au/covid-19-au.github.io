@@ -43,6 +43,7 @@ import DateType from "../CrawlerDataTypes/DateType";
 import getRemoteData from "../CrawlerData/RemoteData";
 import confirmedData from "../../data/mapdataCon";
 import MarkerConfirmed from "./Markers/MarkerConfirmed";
+import LoadingIndicator from "./MapControls/LoadingIndicator";
 
 
 // A "blank" style to allow for using vector data
@@ -92,9 +93,15 @@ class CovidMapControl extends React.Component {
                      }}>
                 </div>
 
-                <MapTimeSlider ref={el => {this.__mapTimeSlider = el}}
-                               onChange={(newValue) => this._onMapTimeSlider(newValue)}
-                               numDays={90}/>
+                <LoadingIndicator
+                    ref={el => this.loadingIndicator = el}
+                />
+
+                <MapTimeSlider
+                    ref={el => {this.__mapTimeSlider = el}}
+                    onChange={(newValue) => this._onMapTimeSlider(newValue)}
+                    numDays={90}
+                />
             </div>
         )
     }
@@ -126,17 +133,21 @@ class CovidMapControl extends React.Component {
             //console.log("Getting remote data...");
             this.remoteData = await getRemoteData();
             //console.log("Remote data fetched");
-            this.dataDownloader = new DataDownloader(this.remoteData);
+            this.dataDownloader = new DataDownloader(
+                this.remoteData, this.loadingIndicator
+            );
 
             // Add the map controls to the map container element so that
             // they'll be displayed when the map is shown fullscreen
             let mapContainerChild = document.createElement('div');
             this.mapContainer.appendChild(mapContainerChild);
             ReactDOM.render(
-                <CovidMapControls ref={el => this.covidMapControls = el}
-                                  onchange={(e) => this._onControlsChange(e)}
-                                  dataType={this.props.dataType}
-                                  timePeriod={this.props.timePeriod}/>,
+                <CovidMapControls
+                    ref={el => this.covidMapControls = el}
+                    onchange={(e) => this._onControlsChange(e)}
+                    dataType={this.props.dataType}
+                    timePeriod={this.props.timePeriod}
+                />,
                 mapContainerChild
             );
 

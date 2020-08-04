@@ -46,7 +46,7 @@ class DataDownloader {
     /**
      *
      */
-    constructor(remoteData) {
+    constructor(remoteData, loadingIndicator) {
         this._geoDataInsts = {};
         this._underlayDataInsts = {};
         this._caseDataInsts = {};
@@ -56,6 +56,11 @@ class DataDownloader {
         this._geoDataPending = {};
 
         this.remoteData = remoteData;
+        this.loadingIndicator = loadingIndicator;
+
+        this.inProgress = 0;
+        this.completed = 0;
+
         this.schemas = remoteData.getSchemas();
         this.adminBounds = this._getAdminBounds(remoteData.getAdminBounds());
     }
@@ -496,7 +501,17 @@ class DataDownloader {
                 debug(`Geodata fetching: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename] = [];
 
+                this.inProgress += 2;
+                if (this.loadingIndicator) {
+                    this.loadingIndicator.show(this.completed, this.inProgress);
+                }
+
                 import(`../../data/geoJSONData/${fileNames.geoJSONFilename}.json`).then((module) => {  // FIXME!!
+                    this.completed += 1;
+                    if (this.loadingIndicator) {
+                        this.loadingIndicator.show(this.completed, this.inProgress);
+                    }
+
                     var geodata = module.default;
 
                     for (var iRegionSchema in geodata) {
@@ -526,6 +541,17 @@ class DataDownloader {
                         this._geoDataInsts[regionSchema] :
                         this._geoDataInsts[regionSchema][regionParent]
                     );
+
+                    this.completed += 1;
+                    if (this.loadingIndicator) {
+                        if (this.completed === this.inProgress) {
+                            this.completed = 0;
+                            this.inProgress = 0;
+                            this.loadingIndicator.hide();
+                        } else {
+                            this.loadingIndicator.show(this.completed, this.inProgress);
+                        }
+                    }
                 });
             }
         });
@@ -612,9 +638,25 @@ class DataDownloader {
                 debug(`Case data fetching: ${regionSchema}->${regionParent}`);
                 this._caseDataPending[fileNames.caseDataFilename] = [];
 
+                this.inProgress += 3;
+                if (this.loadingIndicator) {
+                    this.loadingIndicator.show(this.completed, this.inProgress);
+                }
+
                 this.remoteData.downloadFromRemote(`${fileNames.caseDataFilename}.json`)
-                               .then(resp => resp.json())
+                               .then(resp => {
+                                   this.completed += 1;
+                                   if (this.loadingIndicator) {
+                                       this.loadingIndicator.show(this.completed, this.inProgress);
+                                   }
+                                   return resp.json()
+                               })
                                .then(jsonData => {
+
+                    this.completed += 1;
+                    if (this.loadingIndicator) {
+                        this.loadingIndicator.show(this.completed, this.inProgress);
+                    }
 
                     var caseData = jsonData['time_series_data'];
 
@@ -649,6 +691,17 @@ class DataDownloader {
                         this._caseDataInsts[dataType][regionSchema] :
                         this._caseDataInsts[dataType][regionSchema][regionParent]
                     );
+
+                    this.completed += 1;
+                    if (this.loadingIndicator) {
+                        if (this.completed === this.inProgress) {
+                            this.completed = 0;
+                            this.inProgress = 0;
+                            this.loadingIndicator.hide();
+                        } else {
+                            this.loadingIndicator.show(this.completed, this.inProgress);
+                        }
+                    }
                 });
             }
         });

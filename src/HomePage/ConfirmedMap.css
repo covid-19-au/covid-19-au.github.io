@@ -109,3 +109,37 @@ code {
     border: 1px dashed #ddd;
     white-space: nowrap;
 }
+
+
+
+.loading-cont {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+    pointer-events: none;
+}
+.loading-cont-shown {
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+    transition-timing-function: cubic-bezier(1, 0.9, 0, 0);
+}
+.loading-cont-hidden {
+    opacity: 0;
+}
+
+.loading-pad {
+    width: 150px;
+    background-color: lightgray;
+    padding: 3px;
+}
+
+.loading-pad-cont {
+    position: relative;
+}
+
+.loading-loaded {
+    background-color: darkred;
+    height: 15px;
+}
