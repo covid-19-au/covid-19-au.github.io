@@ -36,7 +36,7 @@ class LoadingIndicator extends React.Component {
     render() {
         const loadedWidth = ((
             this.state.currentValue / this.state.maxValue
-        )*150) - 6;
+        )*150);
 
         return (
             <div className={
@@ -47,8 +47,12 @@ class LoadingIndicator extends React.Component {
             }>
                 <div className="loading-pad">
                     <div className="loading-pad-cont">
-                        <div className="loading-loaded"
-                             style={{width: loadedWidth+'px'}}>
+                        Loading...
+                        <div className="loading-indicator-bg"
+                            style={{background: "#EEE"}}>
+                            <div className="loading-loaded"
+                                 style={{width: loadedWidth+'px'}}>
+                            </div>
                         </div>
                     </div>
                 </div>
