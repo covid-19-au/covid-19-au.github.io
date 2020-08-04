@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-08-04/melbournes-coronavirus-lockdown-worth-it-burnet-institute-data/12521434",
+            "title": "Melbourne's stage 3 lockdown prevented thousands of coronavirus cases, research data shows",
+            "source": "ABCNews",
+            "date": "4 August 2020",
+            "time": "20:19",
+            "summary": "Researchers from the Burnet institute predicted that about 27,000 people would have been diagnosed with COVID-19 in July had the growth rate of the coronavirus continued uncheck. The actual number of cases recorded in July was about 8,000. CEO Brendan Crabb said overwhelmingly, community effort in adhering to stage 3 restrictions had a \"major impact\" in preventing cases and saving lives. \"We can assume we would have had three to four times the number of deaths, three to four times the number of serious illnesses, so a very major impact of stage 3 lockdown,\" Professor Crabb said."
+        },
+        {
             "link": "https://www.sbs.com.au/news/we-asked-for-your-questions-about-victoria-s-new-coronavirus-restrictions-here-s-what-you-wanted-to-know",
             "title": "From moving house to questions about travelling to halal butchers, here's what you wanted to know about Victoria's latest coronavirus restrictions. ",
             "source": "SBSNews",
@@ -47,30 +55,6 @@
             "date": "29 July 2020",
             "time": "20:00",
             "summary": "Queensland announced today that its border will be closed to greater Sydney from 1am on Saturday. All aged care homes in Queensland are also closed to visitors for 48 hours."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-escalates-response-to-aged-care-crisis-as-state-records-384-new-coronavirus-cases",
-            "title": "Victoria escalates response to aged care crisis as state records 384 new coronavirus cases",
-            "source": "SBSNews",
-            "date": "28 July 2020",
-            "time": "14:00",
-            "summary": "Victoria recorded 384 new cases overnight as well as six more deaths, taking the state's death toll to 83. State Premier Daniel Andrews has announced that more elective surgeries would be cancelled to free up resources to combat ballooning outbreaks within aged care facilities. Mr Andrews also added that health staff, particularly registered nurses, would be moved out of some hospitals and into aged care facilities."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/melbourne-s-public-housing-lockdown-caused-a-massive-surge-in-calls-to-mental-health-helplines",
-            "title": "Melbourne's public housing lockdown caused a 'massive' surge in calls to mental health helplines",
-            "source": "SBSNews",
-            "date": "28 July 2020",
-            "time": "15:00",
-            "summary": "When the nine public housing towers in Melbourne went into lockdown, calls mental health organisations spiked by over 20 percent. \"That is massive, we rarely register increases of that size,\" said Lifeline chair John Brogden. \"In Victoria, calls to Beyond Blue’s support services doubled in the fortnight surrounding the re-introduction of lockdowns in Melbourne and Mitchell Shire,\" a spokesperson told SBS News. "
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-extends-hotel-stays-for-the-homeless-until-april-amid-second-coronavirus-wave",
-            "title": "Victoria extends hotel stays for the homeless until April amid second coronavirus wave",
-            "source": "SBSNews",
-            "date": "28 July 2020",
-            "time": "18:00",
-            "summary": "The Victorian announced a $150 million package to extend hotel stays for 2,000 homeless Victorians until at least April next year. During that time, efforts will be made to support these individuals into stable, long term housing. "
         }
     ]
 }
