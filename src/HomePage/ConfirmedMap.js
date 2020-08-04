@@ -76,8 +76,7 @@ class ConfirmedMap extends React.Component {
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
                                 <span style={{fontWeight: 'bold'}}>🔍&nbsp;Zoom in</span> for regional numbers.
                                 Victoria and New South Wales have 📬&nbsp;postcode-level data at higher zoom levels.<br/>
-                                * Note: postcode-level data for Victoria has only been provided for a short period,
-                                so the time slider won't go far back.<br/>
+                                * Note: postcode-level data for Victoria has only been provided for July 31st.<br/>
                                 <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
                             </li>
 
@@ -86,12 +85,6 @@ class ConfirmedMap extends React.Component {
                                 selects the <i>current day</i>. The <i>n</i> days (7/14/21 days) controls show the <i>current day</i>'s
                                 value minus the value <i>n</i> days before the <i>current day</i>. Negative numbers in this mode mean the
                                 value is that amount less than it was that many days ago.
-                            </li>
-
-                            <li style={{color: '#777', marginBottom: '2px', paddingBottom: '0px'}}>
-                                Regional Case Map may not be up-to-date. Refer to state totals in Cases by State table for
-                                current statistics. <br/>
-                                Displayed cases identify regions only, not specific addresses.
                             </li>
 
                             <li style={{color: '#555'}}>
