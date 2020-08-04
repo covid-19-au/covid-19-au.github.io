@@ -217,13 +217,13 @@ class RegionalCasesTreeMap extends React.Component {
                                     color: 'white'
                                 },
                                 cases: {
-                                    fontSize: 20,
-                                    lineHeight: 20,
+                                    fontSize: 14,
+                                    lineHeight: 14,
                                     color: '#efefef'
                                 },
                                 percent: {
-                                    fontSize: 15,
-                                    lineHeight: 15,
+                                    fontSize: 14,
+                                    lineHeight: 14,
                                     color: '#efefef'
                                 },
                                 hr: {
