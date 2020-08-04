@@ -28,6 +28,7 @@ import LngLatBounds from "../CrawlerDataTypes/LngLatBounds";
 import GeoDataPropertyAssignment from "./GeoDataPropertyAssignment";
 
 import CasesWithManualAUStateData from "./CasesWithManualAUStateData";
+import getRemoteData from "./RemoteData";
 
 
 var MODE_GEOJSON_ONLY = 0,
@@ -42,11 +43,23 @@ function debug(message) {
 }
 
 
+let __dataDownloader;
+async function getDataDownloader(remoteData) {
+    if (!remoteData) {
+        remoteData = await getRemoteData();
+    }
+    if (!__dataDownloader) {
+        __dataDownloader = new DataDownloader(remoteData);
+    }
+    return __dataDownloader;
+}
+
+
 class DataDownloader {
     /**
      *
      */
-    constructor(remoteData, loadingIndicator) {
+    constructor(remoteData) {
         this._geoDataInsts = {};
         this._underlayDataInsts = {};
         this._caseDataInsts = {};
@@ -56,7 +69,6 @@ class DataDownloader {
         this._geoDataPending = {};
 
         this.remoteData = remoteData;
-        this.loadingIndicator = loadingIndicator;
 
         this.inProgress = 0;
         this.completed = 0;
@@ -67,6 +79,10 @@ class DataDownloader {
 
     getAdminBoundsForISO_3166_2(iso_3166_2) {
         return this.adminBounds[iso_3166_2];
+    }
+
+    setLoadingIndicator(loadingIndicator) {
+        this.loadingIndicator = loadingIndicator;
     }
 
     /**************************************************************************
@@ -743,4 +759,4 @@ class DataDownloader {
     }
 }
 
-export default DataDownloader;
+export default getDataDownloader;

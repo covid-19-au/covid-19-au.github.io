@@ -24,34 +24,93 @@ SOFTWARE.
 
 import React from 'react';
 import ReactEcharts from "echarts-for-react";
+import Paper from "@material-ui/core/Paper";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import MapTimeSlider from "../ConfirmedMap/MapControls/MapTimeSlider";
 
 
 class PopulationPyramid extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            mode: '14days'
+        };
+        this.__mode = '14days';
     }
 
     render() {
-        if (!this.state.option) {
-            return null;
-        }
-
         return (
             <div>
-                <ReactEcharts
-                    ref={el => {this.reactEChart = el}}
-                    option={this.state.option}
-                    style={{
-                        height: "50vh",
-                        marginTop: '25px'
-                    }}
-                />
+                <Paper>
+                    <Tabs
+                        value={this.state.mode}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        onChange={(e, newValue) => this.setMode(newValue)}
+                        ref={(el) => this.visTabs = el}
+                        centered
+                    >
+                        <Tab label="All Time" value="alltime" />
+                        <Tab label="Last 14 Days" value="14days" />
+                    </Tabs>
+                </Paper>
+
+                {
+                    this.state.option ?
+                        <ReactEcharts
+                            ref={el => {
+                                this.reactEChart = el
+                            }}
+                            option={this.state.option}
+                            style={{
+                                height: "50vh",
+                                marginTop: '25px'
+                            }}
+                        /> :''
+                }
+
+                <div style={{display: this.state.mode === '14days' ? 'block' : 'none'}}>
+                    <MapTimeSlider
+                        ref={el => {this.mapTimeSlider = el}}
+                        onChange={() => this.__onTimeSliderChange()}
+                    />
+                </div>
             </div>
         );
     }
 
+    __onTimeSliderChange() {
+        this.setCasesInst(
+            this.__maleCasesInst,
+            this.__femaleCasesInst,
+            this.__regionType
+        );
+    }
+
+    setMode(mode) {
+        this.__mode = mode;
+        this.setCasesInst(
+            this.__maleCasesInst,
+            this.__femaleCasesInst,
+            this.__regionType
+        );
+    }
+
     setCasesInst(maleCasesInst, femaleCasesInst, regionType) {
+        this.__maleCasesInst = maleCasesInst;
+        this.__femaleCasesInst = femaleCasesInst;
+        this.__regionType = regionType;
+
+        if (!this.mapTimeSlider) {
+            return setTimeout(
+                () => this.setCasesInst(
+                    maleCasesInst, femaleCasesInst, regionType
+                ),
+                20
+            );
+        }
+
         let maleVals = [],
             femaleVals = [],
             ageRanges = new Set();
@@ -70,18 +129,27 @@ class PopulationPyramid extends React.Component {
         // Now add the values
         for (let ageRange of ageRanges) {
             maleVals.push(
-                maleCasesInst.getCaseNumber(regionType, ageRange).getValue()
+                this.__mode === 'alltime' ?
+                    maleCasesInst.getCaseNumber(regionType, ageRange).getValue() :
+                    maleCasesInst.getCaseNumberOverNumDays(
+                        regionType, ageRange, 14, this.mapTimeSlider.getValue()
+                    ).getValue()
             );
         }
         if (femaleCasesInst) {
             for (let ageRange of ageRanges) {
                 femaleVals.push(
-                    -femaleCasesInst.getCaseNumber(regionType, ageRange).getValue()
+                    this.__mode === 'alltime' ?
+                        -femaleCasesInst.getCaseNumber(regionType, ageRange).getValue() :
+                        -femaleCasesInst.getCaseNumberOverNumDays(
+                            regionType, ageRange, 14, this.mapTimeSlider.getValue()
+                        ).getValue()
                 );
             }
         }
 
         this.setState({
+            mode: this.__mode,
             option: {
                 tooltip: {
                     trigger: 'axis',

@@ -27,7 +27,7 @@ import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
 import CovidMapControls from "./MapControls/CovidMapControls";
 import MapTimeSlider from "./MapControls/MapTimeSlider";
-import DataDownloader from "../CrawlerData/DataDownloader";
+import getDataDownloader from "../CrawlerData/DataDownloader";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 
 import DaysSinceLayer from "./Layers/cases/DaysSinceLayer";
@@ -132,17 +132,16 @@ class CovidMapControl extends React.Component {
         });
 
         let runMeLater = async () => {
+            //console.log("Getting remote data...");
+            this.remoteData = await getRemoteData();
+            //console.log("Remote data fetched");
+            this.dataDownloader = await getDataDownloader(this.remoteData);
+            this.dataDownloader.setLoadingIndicator(this.loadingIndicator);
+
             if (!this.mapContainer) {
                 // Control probably destroyed in the interim!
                 return;
             }
-
-            //console.log("Getting remote data...");
-            this.remoteData = await getRemoteData();
-            //console.log("Remote data fetched");
-            this.dataDownloader = new DataDownloader(
-                this.remoteData, this.loadingIndicator
-            );
 
             // Add the map controls to the map container element so that
             // they'll be displayed when the map is shown fullscreen
@@ -200,7 +199,7 @@ class CovidMapControl extends React.Component {
 
                 // Add layers for cases
                 this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource);
-                this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
+                //this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
                 this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
                 this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource);
 
@@ -429,7 +428,7 @@ class CovidMapControl extends React.Component {
 
             // Now add the layers
             this.casesFillPolyLayer.updateLayer();
-            this.casesLinePolyLayer.updateLayer();
+            //this.casesLinePolyLayer.updateLayer();
             this.caseCirclesLayer.updateLayer();
 
             // Hide/show markers based on datatype

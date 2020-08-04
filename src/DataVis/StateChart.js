@@ -13,7 +13,7 @@ import MultiDataTypeBarChart from "../HomePage/CrawlerDataVis/MultiDataTypeBarCh
 import PopulationPyramid from "../HomePage/CrawlerDataVis/PopulationPyramid";
 import RegionalCasesTreeMap from "../HomePage/CrawlerDataVis/RegionalCasesTreeMap";
 import RegionType from "../HomePage/CrawlerDataTypes/RegionType";
-import DataDownloader from "../HomePage/CrawlerData/DataDownloader";
+import getDataDownloader from "../HomePage/CrawlerData/DataDownloader";
 import ConfirmedMap from "../HomePage/ConfirmedMap"
 import Acknowledgement from "../Acknowledgment";
 import AgeBarChart from "../HomePage/CrawlerDataVis/AgeBarChart";
@@ -188,8 +188,8 @@ class StateChart extends React.Component {
     async __initPlotlyJSCharts() {
         // TODO: FIX NT!!!! ===========================================================================================
 
-        let remoteData = await getRemoteData();
-        this.dataDownloader = new DataDownloader(remoteData);
+        this.remoteData = await getRemoteData();
+        this.dataDownloader = await getDataDownloader(this.remoteData);
 
         let regionParent = 'au-'+this.props.state.toLowerCase(),
             regionSchema;

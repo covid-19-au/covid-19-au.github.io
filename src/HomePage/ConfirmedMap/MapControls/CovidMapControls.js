@@ -23,8 +23,8 @@ SOFTWARE.
  */
 
 import React from "react"
-import DataTypeSelect from "./DataTypeSelect";
-import UnderlaySelect from "./UnderlaySelect";
+import DataTypeSelect from "./covid_map_controls/DataTypeSelect";
+import UnderlaySelect from "./covid_map_controls/UnderlaySelect";
 
 
 class CovidMapControls extends React.Component {

@@ -110,7 +110,7 @@ class MapBoxSource {
      */
     setData(data, geoDataInsts, caseDataInsts) {
         if (!this.getSourceInst()) { // WARNING: This could have consequences for the order of async jobs!!! ======================================
-            setTimeout(this.setData.bind(this), 150, data);
+            setTimeout(this.setData.bind(this), 0, data);
             return true;
         }
 

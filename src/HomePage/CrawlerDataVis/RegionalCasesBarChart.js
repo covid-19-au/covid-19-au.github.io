@@ -81,7 +81,12 @@ class RegionalCasesBarChart extends React.Component {
                     }}
                 />
 
-                {this.__mode === 'percentiles' ? <div style={{color: "gray", marginTop: "10px", textAlign: "center"}}>Note: in percentiles mode, values are averaged over 7 days to reduce noise. Negative values are ignored.</div> : ''}
+                {
+                    this.__mode === 'percentiles' ?
+                        <div style={{color: "gray", marginTop: "10px", textAlign: "center"}}>
+                            Note: in percentiles mode, values are averaged over 7 days to reduce noise. Negative values are ignored.
+                        </div> :''
+                }
             </div>
         );
     }
@@ -129,7 +134,16 @@ class RegionalCasesBarChart extends React.Component {
             }
         }
 
-        for (let dataPoints of new DataPointsCollection(dataPointsInsts)) {
+        let dataPointsCollection;
+        if (this.__mode === 'new') {
+            // Don't use DataPointsCollection in new mode,
+            // as that will fill in missing days+give incorrect values!
+            dataPointsCollection = dataPointsInsts;
+        } else {
+            dataPointsCollection = new DataPointsCollection(dataPointsInsts);
+        }
+
+        for (let dataPoints of dataPointsCollection) {
             let data = [];
             for (let dataPoint of dataPoints.sortDescending()) {
                 data.push([

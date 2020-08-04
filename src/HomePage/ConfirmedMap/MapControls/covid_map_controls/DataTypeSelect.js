@@ -25,7 +25,7 @@ SOFTWARE.
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import React from "react";
-import getRemoteData from "../../CrawlerData/RemoteData";
+import getRemoteData from "../../../CrawlerData/RemoteData";
 
 
 class DataTypeSelect extends React.Component {
