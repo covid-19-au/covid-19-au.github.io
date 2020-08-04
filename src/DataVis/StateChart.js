@@ -64,7 +64,7 @@ class StateChart extends React.Component {
         let mostActive10Regions = (
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2>Most Active 10 Regions</h2>
+                    <h2>Most Active Regions</h2>
                     <RegionalCasesBarChart ref={(el) => this.areaChart = el} />
                     {/*<RegionalCasesHeatMap ref={(el) => this.bubbleChart = el} />*/}
                 </div>
