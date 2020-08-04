@@ -71,7 +71,7 @@ class StateChart extends React.Component {
             </Grid>
         );
         let casesShownAsArea = (
-            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+            <Grid style={{minWidth: '45%', maxWidth: '900px'}} item xs={11} sm={11} md={11} lg={11}>
                 <div className="card">
                     <h2>Cases Shown as Area</h2>
                     <RegionalCasesTreeMap ref={(el) => this.treeMap = el} />

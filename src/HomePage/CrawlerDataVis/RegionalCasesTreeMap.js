@@ -78,6 +78,7 @@ class RegionalCasesTreeMap extends React.Component {
                     option={this.state.option}
                     style={{
                         height: "65vh",
+                        maxHeight: "570px",
                         marginTop: '25px'
                     }}
                 />
