@@ -123,8 +123,8 @@ code {
 }
 .loading-cont-shown {
     opacity: 1;
-    transition: opacity 2s ease-in-out;
-    transition-timing-function: cubic-bezier(1, 0.9, 0, 0);
+    transition: opacity 1s;
+    transition-timing-function: cubic-bezier(1,0,1,0);
 }
 .loading-cont-hidden {
     opacity: 0;
