@@ -1,4 +1,5 @@
-let URL = 'http://18.219.202.227/covid_static_data/schema_types.json';
+//let URL = 'http://18.219.202.227/covid_static_data/schema_types.json';
+let URL = 'https://covid-global-map.org/covid_static_data/schema_types.json';
 let __remoteData;
 
 
@@ -23,7 +24,8 @@ class __RemoteData {
 
     downloadFromRemote(jsonPath) {
         return fetch(
-            `http://18.219.202.227/covid_static_data/` +
+            //`http://18.219.202.227/covid_static_data/` +
+            `https://covid-global-map.org/covid_static_data/` +
             `${this.schemaTypes.output_path}/${jsonPath}`
         );
     }
