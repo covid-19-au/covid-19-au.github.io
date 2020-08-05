@@ -479,6 +479,38 @@ class DataDownloader {
      * Download Files
      **************************************************************************/
 
+    __downloadFromRemote(jsonPath, callback, tryCount) {
+        tryCount = tryCount || 0;
+        tryCount++;
+
+        if (tryCount >= 30) {
+            // This will probably be fatal and unrecoverable
+            // TODO:
+            throw `Tried 30 times - giving up downloading ${jsonPath}`;
+        }
+
+        this.remoteData
+            .downloadFromRemote(
+                jsonPath
+            )
+            .catch(() => {
+                return setTimeout(
+                    () => this.__downloadFromRemote(jsonPath, callback, tryCount),
+                    Math.pow(tryCount*10, 2)
+                );
+            })
+            .then(resp => {
+                this.completed += 1;
+                if (this.loadingIndicator) {
+                    this.loadingIndicator.show(this.completed, this.inProgress);
+                }
+                return resp.json();
+            })
+            .then(geodata => {
+                callback(geodata);
+            });
+    }
+
     // There a fair amount of duplicated code below, but can't
     // think of a way of making it much better at the moment
 
@@ -517,18 +549,14 @@ class DataDownloader {
                 debug(`Geodata fetching: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename] = [];
 
-                this.inProgress += 2;
+                this.inProgress += 3;
                 if (this.loadingIndicator) {
                     this.loadingIndicator.show(this.completed, this.inProgress);
                 }
 
-                import(`../../data/geoJSONData/${fileNames.geoJSONFilename}.json`).then((module) => {  // FIXME!!
-                    this.completed += 1;
-                    if (this.loadingIndicator) {
-                        this.loadingIndicator.show(this.completed, this.inProgress);
-                    }
-
-                    var geodata = module.default;
+                this.__downloadFromRemote(
+                    `geo_data/${fileNames.geoJSONFilename}.json`,
+                    geodata => {
 
                     for (var iRegionSchema in geodata) {
                         for (var iRegionParent in geodata[iRegionSchema]) {
@@ -659,17 +687,9 @@ class DataDownloader {
                     this.loadingIndicator.show(this.completed, this.inProgress);
                 }
 
-                this.remoteData.downloadFromRemote(
-                                   `case_data/${fileNames.caseDataFilename}.json`
-                               )
-                               .then(resp => {
-                                   this.completed += 1;
-                                   if (this.loadingIndicator) {
-                                       this.loadingIndicator.show(this.completed, this.inProgress);
-                                   }
-                                   return resp.json()
-                               })
-                               .then(jsonData => {
+                this.__downloadFromRemote(
+                    `case_data/${fileNames.caseDataFilename}.json`,
+                    jsonData => {
 
                     this.completed += 1;
                     if (this.loadingIndicator) {
