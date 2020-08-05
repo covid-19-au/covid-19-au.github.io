@@ -9,7 +9,7 @@
         "logScale":"Logarithmic Scale:"
     },
     "dataAck":{
-        "title":"Data Acknowledgement",
+        "title":"Data Source",
         "body1":"The data on our site is publicly available and is obtained from a variety of official government sources. A full list of acknowledgements is found below.",
         "source1":"© State of New South Wales NSW Ministry of Health. For current information go to ",
         "source2":"© The State of Queensland (Queensland Health) at ",

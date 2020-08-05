@@ -153,6 +153,22 @@ class PopulationPyramid extends React.Component {
             option: {
                 tooltip: {
                     trigger: 'axis',
+                    formatter: function(params) {
+                        console.log(JSON.stringify(params));
+                        return (
+                            `<div>Age group ${params[0].axisValueLabel}</div>` +
+                            params.map(param =>
+                                `<div style="border-bottom: 1px solid ${param.color}; border-left: 8px solid ${param.color}; padding-left: 3px;">` +
+                                    `<span style="padding: 0; display: inline; margin: 0">` +
+                                        `${param.seriesName}&nbsp;&nbsp;` +
+                                        `<span style="float: right; padding: 0; display: inline; margin: 0">` +
+                                            `${Math.abs(param.value)}` +
+                                        `</span>` +
+                                    `</span>` +
+                                `</div>`
+                            ).join('')
+                        );
+                    },
                     axisPointer: {
                         type: 'shadow'
                     }

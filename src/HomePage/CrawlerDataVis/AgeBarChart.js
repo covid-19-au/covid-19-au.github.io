@@ -27,7 +27,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
 import ReactEcharts from "echarts-for-react";
-import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue} from "./eChartsFns";
+import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue, percentilesTooltip, otherTooltip} from "./eChartsFns";
 import DataPointsCollection from "../CrawlerDataTypes/DataPointsCollection";
 
 
@@ -171,6 +171,7 @@ class AgeBarChart extends React.Component {
                 animationDuration: 200,
                 tooltip: {
                     trigger: 'axis',
+                    formatter: this.__mode === 'percentiles' ? percentilesTooltip : otherTooltip,
                     axisPointer: {
                         type: 'cross',
                         label: {

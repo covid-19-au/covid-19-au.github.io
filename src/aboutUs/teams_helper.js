@@ -64,7 +64,7 @@ const Developers = {
             fileName: "Box.png",
             items: [
                 "Flights Interface",
-                "State details page visualizations"
+                "State charts"
             ]
         },
         {

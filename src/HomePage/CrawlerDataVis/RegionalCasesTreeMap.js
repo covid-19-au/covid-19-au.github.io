@@ -198,7 +198,6 @@ class RegionalCasesTreeMap extends React.Component {
                         casesInst.getRegionParent().split('-')[0],
                         casesInst.getRegionParent()
                     ).getLocalized(),
-                    animationDuration: 100,
                     type: 'treemap',
                     data: data,
                     label: {
