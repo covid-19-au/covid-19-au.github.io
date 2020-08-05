@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
+            "title": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today",
+            "source": "ABCNews",
+            "date": "5 August 2020",
+            "time": "19:00",
+            "summary": "A number of new regulations have been implemented in Victoria, New South Wales and Queensland."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-records-725-new-infections-while-man-in-his-30s-becomes-australia-s-youngest-coronavirus-death",
+            "title": "Of the 15 new deaths recorded on Wednesday, twelve were linked to the state's aged-care sector.",
+            "source": "SBSNews",
+            "date": "5 August 2020",
+            "time": "15:00",
+            "summary": "Victoria recorded 752 new coronavirus cases today as well as 15 more deaths. One death was a man in his 30s, and 12 were linked to the state's aged care sector. The man in his 30s is the youngest person to die from the virus in Australia."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-08-04/melbournes-coronavirus-lockdown-worth-it-burnet-institute-data/12521434",
             "title": "Melbourne's stage 3 lockdown prevented thousands of coronavirus cases, research data shows",
             "source": "ABCNews",
@@ -47,14 +63,6 @@
             "date": "30 July 2020",
             "time": "18:42",
             "summary": "Australian Prime Minister Scott Morrison and Victorian Premier Daniel Andrews are planning to discuss whether further restrictions are necessary to contain the escalating outbreak in Victoria. Victoria recorded 723 new cases today (a record for the state), along with 13 new deaths. Andrews announced today that face coverings would be mandatory in all of Victoria. Previously the rule was restricted to metropolitan Melbourne and the Mitchell Shire."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/live/2020/jul/29/coronavirus-australia-victoria-aged-care-outbreak-melbourne-sydney-nsw-qld-andrews-berejiklian-morrison-latest-updates",
-            "title": "Australian states tighten border restrictions as coronavirus community transmissions grow – as it happened",
-            "source": "TheGuardian",
-            "date": "29 July 2020",
-            "time": "20:00",
-            "summary": "Queensland announced today that its border will be closed to greater Sydney from 1am on Saturday. All aged care homes in Queensland are also closed to visitors for 48 hours."
         }
     ]
 }

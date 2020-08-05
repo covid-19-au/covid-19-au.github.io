@@ -753,6 +753,8 @@
             "text": {
                 "text_1": [
                     "From 1am Saturday, August 1st the Queensland will close its borders to all residents from Greater Sydney.",
+                    "From 1am Saturday, August 8th, Queensland will close its borders to Victoria and the ACT.",
+                    "All Queensland residents who return from \"declared coronavirus hotspots\" will be sent to mandatory hotel quarantine for 14 days at their own expense.",
                     "Restrictions:"
                 ],
                 "ulist_1": [
@@ -774,6 +776,10 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
+                        "name": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today - ABC News"
+                    },
+                    {
                         "link": "https://www.news.com.au/national/queensland/news/disappointing-qld-reports-two-new-virus-cases/news-story/a71c1efc65e261d398fdf83e6cc2697c",
                         "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
                     },
@@ -783,12 +789,13 @@
                     }
                 ]
             },
-            "lastUpdated": "29 July 2020"
+            "lastUpdated": "05 August 2020"
         },
         {
             "name": "New South Wales",
             "text": {
                 "text_1": [
+                    "From 12:01am Friday August 7th, anyone entering NSW from Victoria will be placed in mandatory hotel quarantine for 14 days at their own expense. Exceptions will be made for those experiencing financial hardships. The new rule does not apply to border communities.",
                     "Restrictions:"
                 ],
                 "ulist_1": [
@@ -810,12 +817,16 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
+                        "name": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today - ABC News"
+                    },
+                    {
                         "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
                         "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
                     }
                 ]
             },
-            "lastUpdated": "04 July 2020"
+            "lastUpdated": "05 August 2020"
         },
         {
             "name": "Victoria",
