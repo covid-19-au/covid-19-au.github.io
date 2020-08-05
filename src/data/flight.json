@@ -1095,7 +1095,7 @@
     "path": "Dubai to Sydney",
     "dateDeparture": "19-07-20",
     "dateArrival": "20-07-20",
-    "closeContactRow": "16, 17, 18, 19, 20 (additional TBC)"
+    "closeContactRow": "16, 17, 18, 19, 20"
   },
   {
     "reportState": "QLD",
@@ -1122,6 +1122,24 @@
     "path": "Doha to Perth",
     "dateDeparture": "",
     "dateArrival": "28-07-20",
-    "closeContactRow": "30,31,32,33,34"
+    "closeContactRow": "30, 31, 32, 33, 34"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "QF444",
+    "airline": "Qantas",
+    "path": "Melbourne to Sydney",
+    "dateDeparture": "",
+    "dateArrival": "26-07-20",
+    "closeContactRow": "16, 17, 18, 19, 20"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "ANA879",
+    "airline": "All Nippon Airways",
+    "path": "Tokyo to Sydney",
+    "dateDeparture": "22-07-20",
+    "dateArrival": "23-07-20",
+    "closeContactRow": "26, 27, 28, 29, 30"
   }
 ]
