@@ -659,7 +659,9 @@ class DataDownloader {
                     this.loadingIndicator.show(this.completed, this.inProgress);
                 }
 
-                this.remoteData.downloadFromRemote(`${fileNames.caseDataFilename}.json`)
+                this.remoteData.downloadFromRemote(
+                                   `case_data/${fileNames.caseDataFilename}.json`
+                               )
                                .then(resp => {
                                    this.completed += 1;
                                    if (this.loadingIndicator) {
