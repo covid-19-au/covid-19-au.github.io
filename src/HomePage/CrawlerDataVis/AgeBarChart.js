@@ -26,25 +26,35 @@ import React from 'react';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-
 import ReactEcharts from "echarts-for-react";
 import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue, percentilesTooltip, otherTooltip} from "./eChartsFns";
 import DataPointsCollection from "../CrawlerDataTypes/DataPointsCollection";
 
 
-class MultiDataTypeBarChart extends React.Component {
-    constructor(props) {
-        super(props);
+/**
+ * An "age distribution" filled bar chart which allows comparing regions over time.
+ *
+ * Only really suitable for desktop as the legend uses too much space on mobile
+ */
+class AgeBarChart extends React.Component {
+    constructor() {
+        super();
         this.state = {
-            mode: 'totals'
+            mode: 'percentiles',
+            allDates: []
         };
-        this.__mode = 'total';
+        this.__mode = 'percentiles';
     }
+
+    /*******************************************************************
+     * HTML Rendering
+     *******************************************************************/
 
     render() {
         if (!this.state.option) {
             return null;
         }
+
         return (
             <div>
                 <Paper>
@@ -81,13 +91,13 @@ class MultiDataTypeBarChart extends React.Component {
 
     setMode(mode) {
         this.__mode = mode;
-        this.__updateSeriesData();
+        this.__updateSeriesData()
     }
 
-    setCasesInst(casesInsts, regionType) {
-        this.__casesInsts = casesInsts;
+    setCasesInst(casesData, regionType) {
+        this.__casesData = casesData;
         this.__regionType = regionType;
-        this.__updateSeriesData();
+        this.__updateSeriesData()
     }
 
     /*******************************************************************
@@ -95,12 +105,25 @@ class MultiDataTypeBarChart extends React.Component {
      *******************************************************************/
 
     __updateSeriesData() {
-        let series = [],
+        if (!this.__casesData) {
+            return;
+        }
+
+        let data = {},
+            series = [],
             allDates = new Set();
 
-        for (let caseNumberTimeSeries of new DataPointsCollection(this.__casesInsts.map((casesInst) => {
-            return casesInst.getCaseNumberTimeSeries(this.__regionType, null);
-        }), null)) {
+        for (let caseNumberTimeSeries of new DataPointsCollection(
+            this.__casesData.getAgeRanges(this.__regionType).map((ageRange) => {
+                return this.__casesData.getCaseNumberTimeSeries(
+                    this.__regionType, ageRange
+                );
+            })
+        )) {
+
+            let ageRange = caseNumberTimeSeries.getAgeRange();
+            data[ageRange] = [];
+
             if (caseNumberTimeSeries) {
                 caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals();
                 if (this.__mode === 'percentiles') {
@@ -110,26 +133,26 @@ class MultiDataTypeBarChart extends React.Component {
                 caseNumberTimeSeries = [];
             }
 
-            let data = [];
-            for (let timeSeriesItem of caseNumberTimeSeries) {
-                data.push([
-                    timeSeriesItem.getDateType(),
-                    (timeSeriesItem.getValue() >= 0 || this.__mode !== 'percentiles') ? timeSeriesItem.getValue() : 0
-                ]);
-                allDates.add(timeSeriesItem.getDateType());
-            }
+            caseNumberTimeSeries.sort((x, y) => {
+                return x.getDateType() - y.getDateType()
+            });
 
-            // Only add if there are samples available for this region
-            if (!data.length) {
-                continue;
+            for (let timeSeriesItem of caseNumberTimeSeries) {
+                allDates.add(timeSeriesItem.getDateType());
+
+                data[ageRange].push([
+                    timeSeriesItem.getDateType(),
+                    (timeSeriesItem.getValue() >= 0 || this.__mode !== 'percentiles') ?
+                        timeSeriesItem.getValue() : 0
+                ]);
             }
 
             series.push({
-                name: caseNumberTimeSeries.getDataType().replace('source_', '').replace('status_', '').replace(/_/, ' '),
+                name: ageRange,
                 type: this.__mode === 'percentiles' ? 'line' : 'bar',
                 areaStyle: this.__mode === 'percentiles' ? {} : null,
-                stack: 'stackalltogether',
-                data: data,
+                stack: 'one',
+                data: data[ageRange],
                 symbol: 'roundRect',
                 step: false,
             });
@@ -199,4 +222,4 @@ class MultiDataTypeBarChart extends React.Component {
     }
 }
 
-export default MultiDataTypeBarChart;
+export default AgeBarChart;

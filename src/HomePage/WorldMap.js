@@ -81,10 +81,11 @@ class WorldMap extends React.Component {
 
                             <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>
                                 The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>&nbsp;
-                                selects the <i>current day</i>. The <i>n</i> days (7/14/21 days) controls show the <i>current day</i>'s
-                                value minus the value <i>n</i> days before the <i>current day</i>. <br/>
+                                selects the <i>current day</i>. The 7/14/21 days controls show the current day's
+                                value minus the value 7, 14 or 21 days before the current day. <br />
 
-                                Negative numbers in this mode mean the value is that amount less than it was that many days ago.
+                                Negative numbers in this mode mean the
+                                value is that amount less than it was that many days ago.
                             </li>
 
                             <li style={{color: '#555'}}>

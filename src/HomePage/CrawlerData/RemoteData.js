@@ -1,12 +1,15 @@
-import schemaTypes from "../../data/caseData/schema_types";
-
-let URL = 'http://18.219.202.227/covid_static_data/schema_types.json';
+//let URL = 'http://18.219.202.227/covid_static_data/schema_types.json';
+let URL = 'https://covid-global-map.org/covid_static_data/schema_types.json';
+let __remoteData;
 
 
 async function getRemoteData() {
-    let schemaTypes = await fetch(URL);
-    schemaTypes = await schemaTypes.json();
-    return new __RemoteData(schemaTypes);
+    if (!__remoteData) {
+        let schemaTypes = await fetch(URL);
+        schemaTypes = await schemaTypes.json();
+        __remoteData = new __RemoteData(schemaTypes);
+    }
+    return __remoteData;
 }
 
 
@@ -21,7 +24,8 @@ class __RemoteData {
 
     downloadFromRemote(jsonPath) {
         return fetch(
-            `http://18.219.202.227/covid_static_data/` +
+            //`http://18.219.202.227/covid_static_data/` +
+            `https://covid-global-map.org/covid_static_data/` +
             `${this.schemaTypes.output_path}/${jsonPath}`
         );
     }

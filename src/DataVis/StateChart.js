@@ -8,15 +8,15 @@ import GenderChart from "./GenderChart";
 import GeneralBarChart from "./GeneralBarChart";
 import GeneralLineChart from "./GeneralLineChart";
 import renderStatus from "./renderStatus";
-import RegionalCasesBarChart from "../HomePage/CrawlerDataVis/RegionalCases/RegionalCasesBarChart";
+import RegionalCasesBarChart from "../HomePage/CrawlerDataVis/RegionalCasesBarChart";
 import MultiDataTypeBarChart from "../HomePage/CrawlerDataVis/MultiDataTypeBarChart";
-import PopulationPyramid from "../HomePage/CrawlerDataVis/AgeCharts/PopulationPyramid";
-import RegionalCasesTreeMap from "../HomePage/CrawlerDataVis/RegionalCases/RegionalCasesTreeMap";
+import PopulationPyramid from "../HomePage/CrawlerDataVis/PopulationPyramid";
+import RegionalCasesTreeMap from "../HomePage/CrawlerDataVis/RegionalCasesTreeMap";
 import RegionType from "../HomePage/CrawlerDataTypes/RegionType";
-import DataDownloader from "../HomePage/CrawlerData/DataDownloader";
+import getDataDownloader from "../HomePage/CrawlerData/DataDownloader";
 import ConfirmedMap from "../HomePage/ConfirmedMap"
 import Acknowledgement from "../Acknowledgment";
-import AgeBarChart from "../HomePage/CrawlerDataVis/AgeCharts/AgeBarChart";
+import AgeBarChart from "../HomePage/CrawlerDataVis/AgeBarChart";
 import getRemoteData from "../HomePage/CrawlerData/RemoteData";
 
 const stateNameMapping = {
@@ -53,6 +53,38 @@ class StateChart extends React.Component {
 
         ReactGA.pageview("/state/" + this.props.state);
 
+        let infectionSources = (
+            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <div className="card">
+                    <h2>Infection Sources</h2>
+                    <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart = el} />
+                </div>
+            </Grid>
+        );
+        let mostActive10Regions = (
+            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <div className="card">
+                    <h2>Most Active Regions</h2>
+                    <RegionalCasesBarChart ref={(el) => this.areaChart = el} />
+                    {/*<RegionalCasesHeatMap ref={(el) => this.bubbleChart = el} />*/}
+                </div>
+            </Grid>
+        );
+        let casesShownAsArea = (
+            <Grid style={{minWidth: '45%', maxWidth: '900px'}} item xs={11} sm={11} md={11} lg={11}>
+                <div className="card">
+                    <h2>Cases Shown as Area</h2>
+                    <RegionalCasesTreeMap ref={(el) => this.treeMap = el} />
+                </div>
+            </Grid>
+        );
+        let genderBalance = (
+            <div className="card">
+                <h2>Gender Balance</h2>
+                {stateAgeGenderData ? <GenderChart state={this.props.state} /> : ''}
+            </div>
+        );
+
         return (
             <Grid container spacing={1} justify="center" wrap="wrap">
                 <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
@@ -64,10 +96,18 @@ class StateChart extends React.Component {
                         </div>
                     </div>
 
-                    <div className="card">
+                    {/*<div className="card">
                         <h2>Current Statistics</h2>
                         <GeneralBarChart state={this.props.state} />
+                    </div>*/}
+
+                    <div className="card">
+                        <h2>Historical Data</h2>
+                        {/* Display "Historical Statistics" chart */}
+                        <GeneralLineChart state={this.props.state} />
                     </div>
+
+                    {this.props.state !== 'NT' && this.props.state !== 'TAS' ? genderBalance : ''}
                 </Grid>
 
                 <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
@@ -92,25 +132,7 @@ class StateChart extends React.Component {
                     </div>
                 </Grid>
 
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                    <div className="card">
-                        <h2>Historical Data</h2>
-                        {/* Display "Historical Statistics" chart */}
-                        <GeneralLineChart state={this.props.state} />
-                    </div>
-
-                    <div className="card">
-                        <h2>Gender Balance</h2>
-                        {stateAgeGenderData ? <GenderChart state={this.props.state} /> : ''}
-                    </div>
-                </Grid>
-
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                    <div className="card">
-                        <h2>Infection Sources</h2>
-                        <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart = el} />
-                    </div>
-                </Grid>
+                {this.props.state !== 'NT' && this.props.state !== 'TAS' ? infectionSources : ''}
 
                 {stateAgeGenderData !== null || this.props.state === 'QLD' || this.props.state === 'WA' ? (
                     <Fragment>
@@ -149,19 +171,8 @@ class StateChart extends React.Component {
                     </Grid>
                 )}
 
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                    <div className="card">
-                        <h2>Most Active 10 Regions</h2>
-                        <RegionalCasesBarChart ref={(el) => this.areaChart = el} />
-                        {/*<RegionalCasesHeatMap ref={(el) => this.bubbleChart = el} />*/}
-                    </div>
-                </Grid>
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                    <div className="card">
-                        <h2>Cases Shown as Area</h2>
-                        <RegionalCasesTreeMap ref={(el) => this.treeMap = el} />
-                    </div>
-                </Grid>
+                {this.props.state !== 'NT' ? mostActive10Regions : ''}
+                {this.props.state !== 'NT' ? casesShownAsArea : ''}
             </Grid>
         );
     }
@@ -177,8 +188,8 @@ class StateChart extends React.Component {
     async __initPlotlyJSCharts() {
         // TODO: FIX NT!!!! ===========================================================================================
 
-        let remoteData = await getRemoteData();
-        this.dataDownloader = new DataDownloader(remoteData);
+        this.remoteData = await getRemoteData();
+        this.dataDownloader = await getDataDownloader(this.remoteData);
 
         let regionParent = 'au-'+this.props.state.toLowerCase(),
             regionSchema;

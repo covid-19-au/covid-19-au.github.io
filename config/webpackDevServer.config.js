@@ -33,7 +33,7 @@ module.exports = function(proxy, allowedHost) {
         disableHostCheck:
             !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true',
         // Enable gzip compression of generated files.
-        compress: process.env.NODE_ENV === 'development',
+        compress: true, //process.env.NODE_ENV === 'development',
         // Silence WebpackDevServer's own logs since they're generally not useful.
         // It will still show compile warnings and errors with this setting.
         clientLogLevel: 'none',

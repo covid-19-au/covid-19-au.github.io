@@ -706,9 +706,9 @@ module.exports = function(webpackEnv) {
                 // The formatter is invoked directly in WebpackDevServerUtils during development
                 formatter: isEnvProduction ? typescriptFormatter : undefined,
             }),
-            process.env.ANALYZE && new BundleAnalyzerPlugin(),
+            process.env.ANALYZE && new BundleAnalyzerPlugin()
 
-            isEnvProduction && new CompressionPlugin({
+            /*isEnvProduction && new CompressionPlugin({
                 filename: '[path].gz[query]',
                 algorithm: 'gzip',
                 test: /\.js$|\.css$|\.html$|\.json$/,
@@ -724,7 +724,7 @@ module.exports = function(webpackEnv) {
                 },
                 threshold: 10240,
                 minRatio: 0.8,
-            })
+            })*/
         ].filter(Boolean),
 
         // Some libraries import Node modules but don't use them in the browser.

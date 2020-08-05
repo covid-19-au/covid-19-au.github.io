@@ -64,7 +64,7 @@ const Developers = {
             fileName: "Box.png",
             items: [
                 "Flights Interface",
-                "State details page visualizations"
+                "State charts"
             ]
         },
         {
@@ -78,8 +78,8 @@ const Developers = {
                 "State and world case maps",
                 "Backend database admin",
                 "Web monitor for statistics",
-                "Age distribution charts",
-                "Infection source chart"
+                "Age and infection source charts",
+                "Regional case charts"
             ]
         },
         {

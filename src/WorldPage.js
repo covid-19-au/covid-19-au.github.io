@@ -45,7 +45,7 @@ class WorldPage extends React.Component {
                     width: '95%'
                 }}>
                     <b>Note:</b> This page is based on preliminary data from
-                    the <a href="https://github.com/mcyph/covid_19_au_grab" style={{color: '#1277d3'}}>subnational-covid-data</a> project,
+                    the <a href="https://github.com/mcyph/global_subnational_covid_data" style={{color: '#1277d3'}}>global-subnational-covid-data</a> project,
                     and may contain errors or inconsistencies.
                 </div>
 

@@ -32,16 +32,26 @@ import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue, percentilesToo
 import DataPointsCollection from "../CrawlerDataTypes/DataPointsCollection";
 
 
-class MultiDataTypeBarChart extends React.Component {
-    constructor(props) {
-        super(props);
+/**
+ * A "regional cases" filled bar chart which allows comparing regions over time.
+ *
+ * Only really suitable for desktop as the legend uses too much space on mobile
+ */
+class RegionalCasesBarChart extends React.Component {
+    constructor() {
+        super();
         this.state = {
-            mode: 'totals'
+            mode: 'active'
         };
-        this.__mode = 'total';
+        this.__mode = 'active';
     }
 
+    /*******************************************************************
+     * HTML Rendering
+     *******************************************************************/
+
     render() {
+        // xAxis range: getLastDaysRangeOfSample(this.state.data, 21)
         if (!this.state.option) {
             return null;
         }
@@ -56,8 +66,9 @@ class MultiDataTypeBarChart extends React.Component {
                      ref={(el) => this.visTabs = el}
                      centered
                     >
-                        <Tab label="New" value="total" />
-                        <Tab label="% Percentiles" value="percentiles" />
+                        {this.disableTotalMode ? '' : <Tab label="Active" value="active" />}
+                        {this.disableTotalMode ? '' : <Tab label="Active %" value="percentiles" />}
+                        <Tab label="New" value="new" />
                     </Tabs>
                 </Paper>
 
@@ -70,7 +81,12 @@ class MultiDataTypeBarChart extends React.Component {
                     }}
                 />
 
-                {this.__mode === 'percentiles' ? <div style={{color: "gray", marginTop: "10px", textAlign: "center"}}>Note: in percentiles mode, values are averaged over 7 days to reduce noise. Negative values are ignored.</div> : ''}
+                {
+                    this.__mode === 'percentiles' ?
+                        <div style={{color: "gray", marginTop: "10px", textAlign: "center"}}>
+                            Note: in percentiles mode, values are averaged over 7 days to reduce noise. Negative values are ignored.
+                        </div> :''
+                }
             </div>
         );
     }
@@ -81,13 +97,19 @@ class MultiDataTypeBarChart extends React.Component {
 
     setMode(mode) {
         this.__mode = mode;
-        this.__updateSeriesData();
+        this.__updateSeriesData()
     }
 
-    setCasesInst(casesInsts, regionType) {
-        this.__casesInsts = casesInsts;
-        this.__regionType = regionType;
-        this.__updateSeriesData();
+    setCasesInsts(casesInst, newCasesInst) {
+        this.__casesInst = casesInst;
+        this.__newCasesInst = newCasesInst;
+
+        if (!casesInst) {
+            this.disableTotalMode = true;
+            this.__mode = 'new';
+        }
+
+        this.__updateSeriesData()
     }
 
     /*******************************************************************
@@ -96,44 +118,104 @@ class MultiDataTypeBarChart extends React.Component {
 
     __updateSeriesData() {
         let series = [],
-            allDates = new Set();
+            allDates = new Set(),
+            casesInst = this.__mode === 'new' ?
+                this.__newCasesInst : this.__casesInst,
+            dataPointsInsts = [];
 
-        for (let caseNumberTimeSeries of new DataPointsCollection(this.__casesInsts.map((casesInst) => {
-            return casesInst.getCaseNumberTimeSeries(this.__regionType, null);
-        }), null)) {
-            if (caseNumberTimeSeries) {
-                caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals();
-                if (this.__mode === 'percentiles') {
-                    caseNumberTimeSeries = caseNumberTimeSeries.getDayAverage(7);
-                }
-            } else {
-                caseNumberTimeSeries = [];
+        for (let regionType of casesInst.getRegionChildren()) {
+            let caseNumberTimeSeries = casesInst.getCaseNumberTimeSeries(
+                regionType, null
+            ) || [];
+
+            if (caseNumberTimeSeries.length) {
+                // Only add if there are samples for this region
+                dataPointsInsts.push(caseNumberTimeSeries);
             }
+        }
 
+        let dataPointsCollection;
+        if (this.__mode === 'new') {
+            // Don't use DataPointsCollection in new mode,
+            // as that will fill in missing days+give incorrect values!
+            dataPointsCollection = dataPointsInsts;
+        } else {
+            dataPointsCollection = new DataPointsCollection(dataPointsInsts);
+        }
+
+        for (let dataPoints of dataPointsCollection) {
             let data = [];
-            for (let timeSeriesItem of caseNumberTimeSeries) {
+            for (let dataPoint of dataPoints.sortDescending()) {
                 data.push([
-                    timeSeriesItem.getDateType(),
-                    (timeSeriesItem.getValue() >= 0 || this.__mode !== 'percentiles') ? timeSeriesItem.getValue() : 0
+                    dataPoint.getDateType(),
+                    (dataPoint.getValue() >= 0 || this.__mode !== 'percentiles') ? dataPoint.getValue() : 0
                 ]);
-                allDates.add(timeSeriesItem.getDateType());
+                allDates.add(dataPoint.getDateType().toString());
             }
-
-            // Only add if there are samples available for this region
             if (!data.length) {
                 continue;
             }
 
             series.push({
-                name: caseNumberTimeSeries.getDataType().replace('source_', '').replace('status_', '').replace(/_/, ' '),
+                name: dataPoints.getRegionType().getLocalized(),
                 type: this.__mode === 'percentiles' ? 'line' : 'bar',
                 areaStyle: this.__mode === 'percentiles' ? {} : null,
-                stack: 'stackalltogether',
+                stack: 'mystack',
                 data: data,
                 symbol: 'roundRect',
-                step: false,
+                step: true,
             });
         }
+
+        if (!series.length) {
+            if (this.__mode === 'active' || this.__mode === 'percentiles') {
+                this.disableTotalMode = true;
+                this.__mode = 'new';
+                return this.__updateSeriesData();
+            }
+        }
+
+        // Limit to just the 6 regions with most cases
+        series.sort((a, b) => a.data[0][1] - b.data[0][1])
+              .reverse();
+        let leftOver = series.slice(5);
+        series = series.slice(0, 5);
+
+        // Merge the other regions into a single "other" category
+        let otherTotals = {},
+            otherOut = [];
+        for (let seriesItem of leftOver) {
+            for (let [dateType, value] of seriesItem.data) {
+                if (!(dateType.toString() in otherTotals)) {
+                    otherTotals[dateType.toString()] = [dateType, 0];
+                }
+                if (value) {
+                    otherTotals[dateType.toString()][1] += value;
+                }
+            }
+        }
+        for (let k in otherTotals) {
+            otherOut.push(otherTotals[k]);
+        }
+        if (otherOut.length) {
+            series.push({
+                name: 'Other',
+                type: this.__mode === 'percentiles' ? 'line' : 'bar',
+                areaStyle: this.__mode === 'percentiles' ? {} : null,
+                stack: 'mystack',
+                data: otherOut,
+                symbol: 'roundRect',
+                step: true,
+            });
+        }
+
+        // Sort so that highest values are on the bottom
+        for (let seriesItem of series) {
+            seriesItem.data.sort((a, b) => a[0].getTime() - b[0].getTime());
+        }
+        series.sort(
+            (a, b) => b.data[b.data.length-1][1] - a.data[a.data.length-1][1]
+        );
 
         if (this.__mode === 'percentiles') {
             toPercentiles(series);
@@ -165,7 +247,7 @@ class MultiDataTypeBarChart extends React.Component {
                 },
                 xAxis: {
                     type: 'time',
-                    boundaryGap: false
+                    boundaryGap: false,
                 },
                 yAxis: {
                     type: 'value',
@@ -199,4 +281,4 @@ class MultiDataTypeBarChart extends React.Component {
     }
 }
 
-export default MultiDataTypeBarChart;
+export default RegionalCasesBarChart;

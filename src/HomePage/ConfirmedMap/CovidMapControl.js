@@ -27,7 +27,7 @@ import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
 import CovidMapControls from "./MapControls/CovidMapControls";
 import MapTimeSlider from "./MapControls/MapTimeSlider";
-import DataDownloader from "../CrawlerData/DataDownloader";
+import getDataDownloader from "../CrawlerData/DataDownloader";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 
 import DaysSinceLayer from "./Layers/cases/DaysSinceLayer";
@@ -43,6 +43,7 @@ import DateType from "../CrawlerDataTypes/DateType";
 import getRemoteData from "../CrawlerData/RemoteData";
 import confirmedData from "../../data/mapdataCon";
 import MarkerConfirmed from "./Markers/MarkerConfirmed";
+import LoadingIndicator from "./MapControls/LoadingIndicator";
 
 
 // A "blank" style to allow for using vector data
@@ -84,7 +85,9 @@ class CovidMapControl extends React.Component {
 
     render() {
         return (
-            <div ref={el => this.absContainer = el}>
+            <div ref={el => this.absContainer = el}
+                 style={{position: "relative"}}>
+
                 <div ref={el => this.mapContainer = el}
                      style={{
                          background: 'white',
@@ -92,9 +95,15 @@ class CovidMapControl extends React.Component {
                      }}>
                 </div>
 
-                <MapTimeSlider ref={el => {this.__mapTimeSlider = el}}
-                               onChange={(newValue) => this._onMapTimeSlider(newValue)}
-                               numDays={90}/>
+                <LoadingIndicator
+                    ref={el => this.loadingIndicator = el}
+                />
+
+                <MapTimeSlider
+                    ref={el => {this.__mapTimeSlider = el}}
+                    onChange={(newValue) => this._onMapTimeSlider(newValue)}
+                    numDays={90}
+                />
             </div>
         )
     }
@@ -104,6 +113,8 @@ class CovidMapControl extends React.Component {
      *******************************************************************/
 
     componentDidMount() {
+        this.__unmounted = false;
+
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
             //style: style,
@@ -121,18 +132,28 @@ class CovidMapControl extends React.Component {
         });
 
         let runMeLater = async () => {
+            //console.log("Getting remote data...");
             this.remoteData = await getRemoteData();
-            this.dataDownloader = new DataDownloader(this.remoteData);
+            //console.log("Remote data fetched");
+            this.dataDownloader = await getDataDownloader(this.remoteData);
+            this.dataDownloader.setLoadingIndicator(this.loadingIndicator);
+
+            if (!this.mapContainer) {
+                // Control probably destroyed in the interim!
+                return;
+            }
 
             // Add the map controls to the map container element so that
             // they'll be displayed when the map is shown fullscreen
             let mapContainerChild = document.createElement('div');
             this.mapContainer.appendChild(mapContainerChild);
             ReactDOM.render(
-                <CovidMapControls ref={el => this.covidMapControls = el}
-                                  onchange={(e) => this._onControlsChange(e)}
-                                  dataType={this.props.dataType}
-                                  timePeriod={this.props.timePeriod}/>,
+                <CovidMapControls
+                    ref={el => this.covidMapControls = el}
+                    onchange={(e) => this._onControlsChange(e)}
+                    dataType={this.props.dataType}
+                    timePeriod={this.props.timePeriod}
+                />,
                 mapContainerChild
             );
 
@@ -154,7 +175,16 @@ class CovidMapControl extends React.Component {
             map.addControl(new mapboxgl.NavigationControl());
             map.addControl(new mapboxgl.FullscreenControl());
 
-            map.on('load', () => {
+            let onLoad = () => {
+                if (this.__unmounted) {
+                    //console.log("UNMOUNTED!!!")
+                    return;
+                } else if (!map.loaded()) {
+                    // Sometimes the load event doesn't fire here due to
+                    // it being in an async function, so just keep polling!
+                    return setTimeout(onLoad, 20);
+                }
+
                 const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
                 const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
 
@@ -168,9 +198,9 @@ class CovidMapControl extends React.Component {
                 this.underlayLinePoly = new LinePolyLayer(map, 'underlayLinePoly', UNDERLAY_LINE_POLY_COLOR, 1.0, underlaySource);
 
                 // Add layers for cases
-                this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
-                this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
                 this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource);
+                //this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
+                this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
                 this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource);
 
                 // Bind events for loading data
@@ -198,9 +228,14 @@ class CovidMapControl extends React.Component {
                     this.props.onload(this, map);
                 }
                 this.onMapMoveChange();
-            });
+            };
+            onLoad();
         };
         runMeLater();
+    }
+
+    componentWillUnmount() {
+        this.__unmounted = true;
     }
 
     addToMapContainer(elm) {
@@ -364,59 +399,63 @@ class CovidMapControl extends React.Component {
      * @private
      */
     __onMapMoveChange(geoData, dataType, zoomLevel, noUpdateEvent) {
-        var callMe = () => {
-            if (!this.map) {
-                // React JS likely destroyed the elements in the interim
+        if (!this.map || !this.__mapTimeSlider) {
+            // React JS likely destroyed the elements in the interim
+            if (this.__unmounted) {
+                this.__mapMovePending = false;
                 return;
             } else {
-                // Update the sources
-                this.clusteredCaseSource.setData(
-                    geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
-                );
-                this.casesSource.setData(
-                    geoData.polygons, geoData.geoDataInsts, geoData.caseDataInsts
-                );
-                this.geoDataInsts = geoData.geoDataInsts;
-                this.caseDataInsts = geoData.caseDataInsts;
+                return setTimeout(() => {
+                    this.__onMapMoveChange(geoData, dataType, zoomLevel, noUpdateEvent)
+                }, 20);
+            }
+        } else {
+            // Update the sources
+            this.clusteredCaseSource.setData(
+                geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
+            );
+            this.casesSource.setData(
+                geoData.polygons, geoData.geoDataInsts, geoData.caseDataInsts
+            );
+            this.geoDataInsts = geoData.geoDataInsts;
+            this.caseDataInsts = geoData.caseDataInsts;
 
-                // Remember these schemas/datatypes/zoom levels for
-                // later, so as to not need to refresh if not changed
-                this.prevSchemasForCases = geoData.schemasForCases;
-                this.prevDataType = dataType;
-                this.prevZoomLevel = zoomLevel;
+            // Remember these schemas/datatypes/zoom levels for
+            // later, so as to not need to refresh if not changed
+            this.prevSchemasForCases = geoData.schemasForCases;
+            this.prevDataType = dataType;
+            this.prevZoomLevel = zoomLevel;
 
-                // Now add the layers
-                this.casesFillPolyLayer.updateLayer();
-                this.casesLinePolyLayer.updateLayer();
-                this.caseCirclesLayer.updateLayer();
+            // Now add the layers
+            this.casesFillPolyLayer.updateLayer();
+            //this.casesLinePolyLayer.updateLayer();
+            this.caseCirclesLayer.updateLayer();
 
-                // Hide/show markers based on datatype
-                if (new Set(['total', 'status_active']).has(dataType)) {
-                    // Show/hide markers depending on whether they are within 3 weeks
-                    // if in "total" or "active" mode, otherwise leave all hidden
-                    for (let marker of this.confirmedMarkers) {
-                        if (marker.getIsActive(this.__mapTimeSlider.getValue())) {
-                            marker.show();
-                        } else {
-                            marker.hide();
-                        }
-                    }
-                } else {
-                    for (let marker of this.confirmedMarkers) {
+            // Hide/show markers based on datatype
+            if (new Set(['total', 'status_active']).has(dataType)) {
+                // Show/hide markers depending on whether they are within 3 weeks
+                // if in "total" or "active" mode, otherwise leave all hidden
+                for (let marker of this.confirmedMarkers) {
+                    if (marker.getIsActive(this.__mapTimeSlider.getValue())) {
+                        marker.show();
+                    } else {
                         marker.hide();
                     }
                 }
-
-                this.__mapMovePending = false;
+            } else {
+                for (let marker of this.confirmedMarkers) {
+                    marker.hide();
+                }
             }
 
-            if (!noUpdateEvent && this.props.onGeoDataChanged) {
-                // Send an event to allow for "data updated on xx date"
-                // etc displays outside the control
-                this.props.onGeoDataChanged(geoData.geoDataInsts, geoData.caseDataInsts);
-            }
-        };
-        callMe();
+            this.__mapMovePending = false;
+        }
+
+        if (!noUpdateEvent && this.props.onGeoDataChanged) {
+            // Send an event to allow for "data updated on xx date"
+            // etc displays outside the control
+            this.props.onGeoDataChanged(geoData.geoDataInsts, geoData.caseDataInsts);
+        }
     }
 
     /*******************************************************************

@@ -28,6 +28,7 @@ import LngLatBounds from "../CrawlerDataTypes/LngLatBounds";
 import GeoDataPropertyAssignment from "./GeoDataPropertyAssignment";
 
 import CasesWithManualAUStateData from "./CasesWithManualAUStateData";
+import getRemoteData from "./RemoteData";
 
 
 var MODE_GEOJSON_ONLY = 0,
@@ -36,9 +37,21 @@ var MODE_GEOJSON_ONLY = 0,
 
 
 function debug(message) {
-    if (false) {
+    if (true) {
         console.log(message);
     }
+}
+
+
+let __dataDownloader;
+async function getDataDownloader(remoteData) {
+    if (!remoteData) {
+        remoteData = await getRemoteData();
+    }
+    if (!__dataDownloader) {
+        __dataDownloader = new DataDownloader(remoteData);
+    }
+    return __dataDownloader;
 }
 
 
@@ -56,12 +69,20 @@ class DataDownloader {
         this._geoDataPending = {};
 
         this.remoteData = remoteData;
+
+        this.inProgress = 0;
+        this.completed = 0;
+
         this.schemas = remoteData.getSchemas();
         this.adminBounds = this._getAdminBounds(remoteData.getAdminBounds());
     }
 
     getAdminBoundsForISO_3166_2(iso_3166_2) {
         return this.adminBounds[iso_3166_2];
+    }
+
+    setLoadingIndicator(loadingIndicator) {
+        this.loadingIndicator = loadingIndicator;
     }
 
     /**************************************************************************
@@ -496,7 +517,17 @@ class DataDownloader {
                 debug(`Geodata fetching: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename] = [];
 
+                this.inProgress += 2;
+                if (this.loadingIndicator) {
+                    this.loadingIndicator.show(this.completed, this.inProgress);
+                }
+
                 import(`../../data/geoJSONData/${fileNames.geoJSONFilename}.json`).then((module) => {  // FIXME!!
+                    this.completed += 1;
+                    if (this.loadingIndicator) {
+                        this.loadingIndicator.show(this.completed, this.inProgress);
+                    }
+
                     var geodata = module.default;
 
                     for (var iRegionSchema in geodata) {
@@ -526,6 +557,17 @@ class DataDownloader {
                         this._geoDataInsts[regionSchema] :
                         this._geoDataInsts[regionSchema][regionParent]
                     );
+
+                    this.completed += 1;
+                    if (this.loadingIndicator) {
+                        if (this.completed === this.inProgress) {
+                            this.completed = 0;
+                            this.inProgress = 0;
+                            this.loadingIndicator.hide();
+                        } else {
+                            this.loadingIndicator.show(this.completed, this.inProgress);
+                        }
+                    }
                 });
             }
         });
@@ -612,9 +654,27 @@ class DataDownloader {
                 debug(`Case data fetching: ${regionSchema}->${regionParent}`);
                 this._caseDataPending[fileNames.caseDataFilename] = [];
 
-                this.remoteData.downloadFromRemote(`${fileNames.caseDataFilename}.json`)
-                               .then(resp => resp.json())
+                this.inProgress += 3;
+                if (this.loadingIndicator) {
+                    this.loadingIndicator.show(this.completed, this.inProgress);
+                }
+
+                this.remoteData.downloadFromRemote(
+                                   `case_data/${fileNames.caseDataFilename}.json`
+                               )
+                               .then(resp => {
+                                   this.completed += 1;
+                                   if (this.loadingIndicator) {
+                                       this.loadingIndicator.show(this.completed, this.inProgress);
+                                   }
+                                   return resp.json()
+                               })
                                .then(jsonData => {
+
+                    this.completed += 1;
+                    if (this.loadingIndicator) {
+                        this.loadingIndicator.show(this.completed, this.inProgress);
+                    }
 
                     var caseData = jsonData['time_series_data'];
 
@@ -649,6 +709,17 @@ class DataDownloader {
                         this._caseDataInsts[dataType][regionSchema] :
                         this._caseDataInsts[dataType][regionSchema][regionParent]
                     );
+
+                    this.completed += 1;
+                    if (this.loadingIndicator) {
+                        if (this.completed === this.inProgress) {
+                            this.completed = 0;
+                            this.inProgress = 0;
+                            this.loadingIndicator.hide();
+                        } else {
+                            this.loadingIndicator.show(this.completed, this.inProgress);
+                        }
+                    }
                 });
             }
         });
@@ -690,4 +761,4 @@ class DataDownloader {
     }
 }
 
-export default DataDownloader;
+export default getDataDownloader;

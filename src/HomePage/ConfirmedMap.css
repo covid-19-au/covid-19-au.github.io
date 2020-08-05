@@ -109,3 +109,45 @@ code {
     border: 1px dashed #ddd;
     white-space: nowrap;
 }
+
+
+
+.loading-cont {
+    /* needs to be fixed width to be centered! */
+    width: 176px;
+
+    position: absolute;
+    left: 50%;
+    margin-left: -88px;
+    top: 50%;
+    margin-top: -50px;
+    pointer-events: none;
+    box-sizing: border-box;
+    box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
+}
+.loading-cont-shown {
+    opacity: 1;
+    transition: opacity 1s;
+    transition-timing-function: cubic-bezier(1,0,1,0);
+}
+.loading-cont-hidden {
+    opacity: 0;
+}
+
+.loading-pad {
+    width: 176px;
+    background-color: white;
+    padding: 10px 13px;
+    box-sizing: border-box;
+}
+.loading-pad-cont {
+    position: relative;
+}
+
+.loading-indicator-bg {
+    background-color: gray;
+}
+.loading-loaded {
+    background-color: darkred;
+    height: 15px;
+}
