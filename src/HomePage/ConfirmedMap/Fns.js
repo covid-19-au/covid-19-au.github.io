@@ -130,7 +130,7 @@ var fns = {
                 .toFixed(digits)
                 .replace(rx, "$1");
 
-        if (Math.abs(num) >= 1000 && r.indexOf('.') === -1) {
+        if (digits && Math.abs(num) >= 1000 && r.indexOf('.') === -1) {
             r += '.0';
         }
         return r+si[i].symbol;

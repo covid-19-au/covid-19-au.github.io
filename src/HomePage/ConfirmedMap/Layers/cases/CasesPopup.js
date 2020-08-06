@@ -27,6 +27,7 @@ import RegionType from "../../../CrawlerDataTypes/RegionType";
 import ReactEcharts from "echarts-for-react";
 import React from "react";
 import ReactDOM from "react-dom";
+import Fns from "../../Fns";
 
 
 class CasesPopup {
@@ -198,8 +199,6 @@ class CasesPopup {
             <ReactEcharts
                 ref={el => {this.reactEChart = el}}
                 option={{
-                    animation: true,
-                    animationDuration: 4000,
                     xAxis: {
                         type: 'time',
                         axisLabel: {
@@ -212,7 +211,15 @@ class CasesPopup {
                     yAxis: {
                         type: 'value',
                         axisLabel: {
-                            show: false
+                            formatter: function(value) {
+                                let compact = Fns.getCompactNumberRepresentation(value, 1);
+                                if (compact.indexOf('.0') !== -1) {
+                                    return Fns.getCompactNumberRepresentation(value, 0);
+                                } else {
+                                    return compact;
+                                }
+                            },
+                            show: true
                         }
                     },
                     tooltip: {
@@ -225,12 +232,13 @@ class CasesPopup {
                         }
                     },
                     grid: {
-                        left: 15,
+                        left: 40,
                         top: 15,
                         right: 8,
                         bottom: 20
                     },
                     series: [{
+                        animation: false,
                         data: timeSeries,
                         type: 'line',
                         symbol: 'none',
