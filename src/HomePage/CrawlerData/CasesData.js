@@ -29,7 +29,7 @@ import DataPoints from "../CrawlerDataTypes/DataPoints"
 
 
 function debug(message) {
-    if (true) {
+    if (false) {
         console.log(message);
     }
 }

@@ -25,7 +25,6 @@ SOFTWARE.
 import RegionType from "../CrawlerDataTypes/RegionType";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 import Fns from "../ConfirmedMap/Fns"
-import mapbox from "mapbox-gl";
 
 
 class GeoData {

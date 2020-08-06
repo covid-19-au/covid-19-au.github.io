@@ -37,7 +37,7 @@ var MODE_GEOJSON_ONLY = 0,
 
 
 function debug(message) {
-    if (true) {
+    if (false) {
         console.log(message);
     }
 }
