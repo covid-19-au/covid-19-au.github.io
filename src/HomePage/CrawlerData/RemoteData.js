@@ -18,7 +18,7 @@ class __RemoteData {
         this.schemaTypes = schemaTypes;
 
         this.caseDataListing = new Set(schemaTypes.listings.case_data_listing);
-        this.geoJSONDataListing = new Set(schemaTypes.listings.geo_json_data_listing);
+        this.geoJSONDataListing = new Set(schemaTypes.listings.geo_data_listing);
         this.underlayDataListing = new Set(schemaTypes.listings.underlay_data_listing);
     }
 

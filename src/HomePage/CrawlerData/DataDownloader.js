@@ -549,7 +549,7 @@ class DataDownloader {
                 debug(`Geodata fetching: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename] = [];
 
-                this.inProgress += 3;
+                this.inProgress += 2;
                 if (this.loadingIndicator) {
                     this.loadingIndicator.show(this.completed, this.inProgress);
                 }
@@ -682,7 +682,7 @@ class DataDownloader {
                 debug(`Case data fetching: ${regionSchema}->${regionParent}`);
                 this._caseDataPending[fileNames.caseDataFilename] = [];
 
-                this.inProgress += 3;
+                this.inProgress += 2;
                 if (this.loadingIndicator) {
                     this.loadingIndicator.show(this.completed, this.inProgress);
                 }
@@ -691,7 +691,6 @@ class DataDownloader {
                     `case_data/${fileNames.caseDataFilename}.json`,
                     jsonData => {
 
-                    this.completed += 1;
                     if (this.loadingIndicator) {
                         this.loadingIndicator.show(this.completed, this.inProgress);
                     }
