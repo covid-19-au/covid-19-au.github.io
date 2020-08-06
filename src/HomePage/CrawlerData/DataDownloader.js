@@ -539,7 +539,7 @@ class DataDownloader {
                 debug(`Geodata instances cached: ${regionSchema}->${regionParent}`);
                 return resolve(this._geoDataInsts[regionSchema]);
             }
-            else if (this._geoDataPending[fileNames.geoDataFilename]) {
+            else if (this._geoDataPending[fileNames.geoJSONFilename]) {
                 // Request already pending!
                 debug(`Geodata pending: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename].push([resolve, regionSchema, regionParent]);
