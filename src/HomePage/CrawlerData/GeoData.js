@@ -116,11 +116,15 @@ class GeoData {
             let max_lat = -99999999999999999;
 
             for (let [area, boundingCoords, centerCoords, iPoints] of geodata) {
+                boundingCoords = this.__uncompress(boundingCoords);
+                centerCoords = this.__uncompress(centerCoords);
+                iPoints = this.__uncompressPoints(iPoints)
+
                 var properties = {
                     "area": area,
                     "largestItem": largestItem,
-                    "boundingCoords": this.__uncompress(boundingCoords),
-                    "centerCoords": this.__uncompress(centerCoords),
+                    "boundingCoords": boundingCoords,
+                    "centerCoords": centerCoords,
                     "regionSchema": this.regionSchema,
                     "regionParent": this.regionParent,
                     "regionChild": regionChild,
@@ -131,7 +135,7 @@ class GeoData {
                     "type": "Feature",
                     "geometry": {
                         "type": "Polygon",
-                        "coordinates": this.__uncompressPoints(iPoints)
+                        "coordinates": iPoints
                     },
                     "properties": properties
                 });
