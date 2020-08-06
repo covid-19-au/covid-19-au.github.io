@@ -1,8 +1,5 @@
 import React from "react";
-import { A } from "hookrouter";
-import FeedbackIcon from "@material-ui/icons/Feedback";
 import Button from "@material-ui/core/Button";
-import {makeStyles} from "@material-ui/core/styles";
 
 let statesOrder = [
     "VIC",
@@ -88,7 +85,9 @@ class StatesPage extends React.Component {
                 textAlign: "center",
                 padding: "50px 0"
             }}>
-                <h3 style={{marginBottom: "45px"}}>Select a state or territory to see the statistics page</h3>
+                <h3 style={{marginBottom: "45px"}}>
+                    Select a state or territory to see the statistics page
+                </h3>
 
                 {
                     statesOrder.map((stateName) =>
@@ -96,20 +95,33 @@ class StatesPage extends React.Component {
                                 variant="outlined"
                                 style={buttonStyles}>
                             <div>
-                                <svg width={200} height={200} preserveAspectRatio="none" viewBox="220 30 330 320">
+                                <svg width={200}
+                                     height={200}
+                                     preserveAspectRatio="none"
+                                     viewBox="220 30 330 320">
                                     <g>
                                         {(() => {
                                             let out = [];
                                             for (let key in statesSVG) {
-                                                let elm = React.cloneElement(statesSVG[key], {fill: "#EEE"})
+                                                let elm = React.cloneElement(statesSVG[key], {
+                                                    fill: "#EEE"
+                                                });
                                                 out.push(elm);
                                             }
                                             return out;
                                         })()}
-                                        {React.cloneElement(statesSVG[stateName], {fill: "#f0005c"})}
+                                        {React.cloneElement(statesSVG[stateName], {
+                                            fill: "#f0005c"
+                                        })}
                                     </g>
                                 </svg>
-                                <div style={{textAlign: "center", fontSize: "1.5em"}}>{ stateName }</div>
+
+                                <div style={{
+                                    textAlign: "center",
+                                    fontSize: "1.5em"
+                                }}>
+                                    { stateName }
+                                </div>
                             </div>
                         </Button>
                     )

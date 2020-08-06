@@ -25,7 +25,6 @@ SOFTWARE.
 import RegionType from "../CrawlerDataTypes/RegionType";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 import Fns from "../ConfirmedMap/Fns"
-import mapbox from "mapbox-gl";
 
 
 class GeoData {
@@ -116,6 +115,10 @@ class GeoData {
             let max_lat = -99999999999999999;
 
             for (let [area, boundingCoords, centerCoords, iPoints] of geodata) {
+                boundingCoords = this.__uncompress(boundingCoords);
+                centerCoords = this.__uncompress(centerCoords);
+                iPoints = this.__uncompressPoints(iPoints)
+
                 var properties = {
                     "area": area,
                     "largestItem": largestItem,
@@ -177,6 +180,33 @@ class GeoData {
         this.outlines = outlines;
         this.points = points;
         this.bounds = bounds;
+    }
+
+    /**
+     *
+     * @param points
+     * @returns {*}
+     * @private
+     */
+    __uncompress(points) {
+        return points.map(i => i/1000.0);
+    }
+
+    /**
+     *
+     * @param points
+     * @private
+     */
+    __uncompressPoints(points) {
+        let r = [];
+        for (let [long, lat] of points) {
+            let item = [];
+            for (let i = 0; i < long.length; i++) {
+                item.push([long[i] / 1000.0, lat[i] / 1000.0])
+            }
+            r.push(item);
+        }
+        return r;
     }
 
     /*******************************************************************

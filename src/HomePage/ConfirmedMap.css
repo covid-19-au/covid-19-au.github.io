@@ -127,7 +127,7 @@ code {
 }
 .loading-cont-shown {
     opacity: 1;
-    transition: opacity 1s;
+    transition: opacity 1.5s;
     transition-timing-function: cubic-bezier(1,0,1,0);
 }
 .loading-cont-hidden {

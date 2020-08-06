@@ -377,35 +377,30 @@ h2 small {
   height: 36px;
   justify-content: space-around;
   align-items: center;
-  /*background-color: #bae1ff;*/
-  /*filter: saturate(65%);*/
+  background-color: #c5dff2;
 }
 
 .navBarStuck {
   height: 36px;
   justify-content: space-around;
   align-items: center;
-  background-color: #bae1ff;
-  filter: saturate(65%);
+  background-color: #c5dff2;
   color: black;
 }
 
 .sticky {
-  position: fixed;
+  position: fixed !important;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 65535;
+  opacity: 0.9;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
 }
 
 .sticky-wrapper {
   position: relative;
   height: 36px;
-}
-
-.sticky .sticky-inner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
 }
 
 .navItems {

@@ -235,7 +235,7 @@ export default function Area({ area, onChange, data }) {
       </span>
       <br />
       <span className="due" style={{ padding: 0, color: "#333" }}>
-          * See also the <A href="/state" className="citationLink" style={{color: "blue"}}>states page</A> for more detailed statistics.
+          *See also the <A href="/state" className="citationLink" style={{color: "blue"}}>states page</A> for more detailed statistics.
       </span>
     </div>
   );

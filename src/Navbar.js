@@ -10,7 +10,7 @@ export default function Navbar({ setNav, nav }) {
     const [isSticky, setSticky] = useState(false);
     const ref = useRef(null);
     const handleScroll = () => {
-        setSticky(ref.current.getBoundingClientRect().top <= 0);
+        setSticky(ref.current.parentNode.getBoundingClientRect().top <= 0);
     };
 
     useEffect(() => {
@@ -28,76 +28,79 @@ export default function Navbar({ setNav, nav }) {
     }
 
     return (
-        <div
-            className={`sticky-wrapper ${isSticky ? "sticky" : ""}`}
-            ref={ref}
-            style={{
-                background: "#bae1ff",
-                filter: "saturate(65%)",
-            }}
-        >
-            <div style={{
-                    margin: "0 auto",
-                    maxWidth: "700px"
-                }}>
+        <div className="navBar">
             <div
-                className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
-                style={{marginRight:0,marginLeft:0}}
+                className={`sticky-wrapper ${isSticky ? "sticky" : ""}`}
+                ref={ref}
+                style={{
+                    background: "#c5dff2",
+                    width: "100%"
+                }}
             >
-
-                    <A
-                        className={`navItems ${
-                            window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""
-                            } ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `}
-                        onClick={onClick} href="/"
+                <div
+                    style={{
+                        margin: "0 auto",
+                        maxWidth: "700px"
+                    }}
+                >
+                    <div
+                        className={`row sticky-inner ${isSticky ? "navBarStuck" : "navBar"}`}
+                        style={{marginRight:0,marginLeft:0}}
                     >
-                      <strong><i className="fas fa-home desktop-only"></i> {i18next.t("nav:home")}</strong>
-                    </A>
+                        <A
+                            className={`navItems ${
+                                window.location.pathname === "/" && !isSticky ? "navCurrentPage " : ""
+                                } ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `}
+                            onClick={onClick} href="/"
+                        >
+                          <strong><i className="fas fa-home desktop-only"></i> {i18next.t("nav:home")}</strong>
+                        </A>
 
-                    <A
-                                className={`navItems ${
-                                    window.location.pathname.match(/\/state([/.*])?/) && !isSticky ? "navCurrentPage " : ""
-                                    } ${window.location.pathname.match(/\/state([/.*])?/) && isSticky ? "navCurrentPageSticky" : ""} `}
-                                onClick={onClick} href="/state"
-                            >
-                      <strong><i className="fas fa-chart-line desktop-only"></i> States</strong>
-                    </A>
+                        <A
+                                    className={`navItems ${
+                                        window.location.pathname.match(/\/state([/.*])?/) && !isSticky ? "navCurrentPage " : ""
+                                        } ${window.location.pathname.match(/\/state([/.*])?/) && isSticky ? "navCurrentPageSticky" : ""} `}
+                                    onClick={onClick} href="/state"
+                                >
+                          <strong><i className="fas fa-chart-line desktop-only"></i> States</strong>
+                        </A>
 
-                    <A
-                                className={`navItems ${
-                                    window.location.pathname === "/world" && !isSticky ? "navCurrentPage " : ""
-                                    } ${window.location.pathname === "/world" && isSticky ? "navCurrentPageSticky" : ""} `}
-                                onClick={onClick} href="/world"
-                            >
-                      <strong><i className="fas fa-globe-asia desktop-only"></i> World</strong>
-                    </A>
+                        <A
+                                    className={`navItems ${
+                                        window.location.pathname === "/world" && !isSticky ? "navCurrentPage " : ""
+                                        } ${window.location.pathname === "/world" && isSticky ? "navCurrentPageSticky" : ""} `}
+                                    onClick={onClick} href="/world"
+                                >
+                          <strong><i className="fas fa-globe-asia desktop-only"></i> World</strong>
+                        </A>
 
-                            <A
-                                className={`navItems ${
-                                    window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""
-                                    } ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `}
-                                onClick={onClick} href="/info"
-                            >
-                      <strong><i className="fas fa-info-circle desktop-only"></i> {i18next.t("nav:info")}</strong>
-                    </A>
-                            <A
-                                className={`navItems ${
-                                    window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""
-                                    } ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `}
-                                onClick={onClick} href="/news"
-                            >
-                      <strong><i className="fas fa-newspaper desktop-only"></i> {i18next.t("nav:news")}</strong>
-                    </A>
+                                <A
+                                    className={`navItems ${
+                                        window.location.pathname === "/info" && !isSticky ? "navCurrentPage " : ""
+                                        } ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `}
+                                    onClick={onClick} href="/info"
+                                >
+                          <strong><i className="fas fa-info-circle desktop-only"></i> {i18next.t("nav:info")}</strong>
+                        </A>
+                                <A
+                                    className={`navItems ${
+                                        window.location.pathname === "/news" && !isSticky ? "navCurrentPage " : ""
+                                        } ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `}
+                                    onClick={onClick} href="/news"
+                                >
+                          <strong><i className="fas fa-newspaper desktop-only"></i> {i18next.t("nav:news")}</strong>
+                        </A>
 
-                    {/*<A
-                        className={`navItems ${
-                            window.location.pathname.includes("/blog") && !isSticky ? "navCurrentPage " : ""
-                            } ${window.location.pathname.includes("/blog") && isSticky ? "navCurrentPageSticky" : ""} `}
-                        onClick={onClick} href="/blog"
-                    >
-                      <strong>{i18next.t("nav:blog")}</strong>
-                    </A>*/}
+                        {/*<A
+                            className={`navItems ${
+                                window.location.pathname.includes("/blog") && !isSticky ? "navCurrentPage " : ""
+                                } ${window.location.pathname.includes("/blog") && isSticky ? "navCurrentPageSticky" : ""} `}
+                            onClick={onClick} href="/blog"
+                        >
+                          <strong>{i18next.t("nav:blog")}</strong>
+                        </A>*/}
 
+                    </div>
                 </div>
             </div>
         </div>
