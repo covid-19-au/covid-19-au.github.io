@@ -69,6 +69,14 @@ class CasesFillPolyLayer {
         this.__casesPopup.enablePopups();
     }
 
+    /**
+     *
+     * @returns {*}
+     */
+    getLayerId() {
+        return this.uniqueId+'fillpoly';
+    }
+
     /*******************************************************************
      * Fill poly
      *******************************************************************/

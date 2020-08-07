@@ -1,43 +1,24 @@
 import axios from "axios";
+import RegionType from "../CrawlerDataTypes/RegionType";
 const qs = require("querystring");
 
 
-function dvAna(record) {
-    const token = process.env.REACT_APP_MAP_API;
-    const promise = axios({
-        method: "post",
-        url: `https://dvana.ellieben.com:2046/records/`,
-        data: qs.stringify(record),
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            token: token,
-        },
-    });
-    promise.then((response) => {
-        return null;
-    });
-    promise.catch((err) => {
-        return null;
-    });
-}
-
-
 class AxiosAnalytics {
-    constructor(map) {
-        //dvAna functions
-        var my = this;
+    constructor(map, covidMapControls, mapTimeSlider) {
+        this.map = map;
+        this.covidMapControls = covidMapControls;
+        this.mapTimeSlider = mapTimeSlider;
+        this.associatedLayers = new Set();
+        
         map.on("dragend", async (e) => {
             try {
-                dvAna({
+                this.__send({
                     type: "Pan",
-                    marker: my.state._markers.toString(),
-                    period: my.state._timeperiod.toString(),
-                    underlay:
-                        my.state._underlay === null
-                            ? "no underlay"
-                            : my.state._underlay.toString(),
+                    marker: covidMapControls.getDataType().toString(),
+                    period: covidMapControls.getTimePeriod().toString(),
                     zoomLevel: map.getZoom(),
                     endLngLat: map.getCenter().toString(),
+                    dateSlider: mapTimeSlider.getValue().toISOString()
                 });
             } catch (e) {
                 return null;
@@ -46,14 +27,10 @@ class AxiosAnalytics {
 
         map.on("zoomend", async (e) => {
             try {
-                dvAna({
+                this.__send({
                     type: "Zoom",
-                    marker: my.state._markers.toString(),
-                    period: my.state._timeperiod.toString(),
-                    underlay:
-                        my.state._underlay === null
-                            ? "no underlay"
-                            : my.state._underlay.toString(),
+                    marker: covidMapControls.getDataType().toString(),
+                    period: covidMapControls.getTimePeriod().toString(),
                     zoomLevel: map.getZoom(),
                     endLngLat: map.getCenter().toString(),
                 });
@@ -61,39 +38,68 @@ class AxiosAnalytics {
                 return null;
             }
         });
-
-        map.on("click", function (e) {
-            try {
-                map.dvAnaClickContext = my.state;
-            } catch (e) {
-                return null;
-            }
-        });
     }
 
     associateLayerId(layerId) {
-        this.map.on('click', 'FIXME', (e) => {
-            let cityName = e.FIXME; // FIXME!!
+        if (this.associatedLayers.has(layerId)) {
+            // Only associate once!
+            return;
+        }
+        this.associatedLayers.add(layerId);
 
-            // for dvAna
+        this.map.on('click', layerId, (e) => {
+            if (!e.features.length) {
+                return;
+            }
+
+            let feature = e.features[0];
+            alert(feature);
+            if (!feature.properties || !feature.properties['regionChild']) {
+                return;
+            }
+
+            // Get info about the region
+            let regionType = new RegionType(
+                feature.properties['regionSchema'],
+                feature.properties['regionParent'],
+                feature.properties['regionChild']
+            );
+            let cityName = regionType.prettified();
+
             (async () => {
                 try {
-                    dvAna({
+                    this.__send({
                         type: "ClickPopUp",
-                        marker: this.map.dvAnaClickContext._markers.toString(),
-                        period: this.map.dvAnaClickContext._timeperiod.toString(),
-                        underlay:
-                            this.map.dvAnaClickContext._underlay === null
-                                ? "no underlay"
-                                : this.map.dvAnaClickContext._underlay.toString(),
+                        marker: this.covidMapControls.getDataType().toString(),
+                        period: this.covidMapControls.getTimePeriod().toString(),
                         zoomLevel: this.map.getZoom(),
                         clickCity: cityName,
                         lngLat: e.lngLat.toString(),
+                        dateSlider: this.mapTimeSlider.getValue().toISOString(),
                     });
                 } catch (e) {
                     return null;
                 }
             })();
+        });
+    }
+
+    __send(record) {
+        const token = process.env.REACT_APP_MAP_API;
+        const promise = axios({
+            method: "post",
+            url: `https://dvana.ellieben.com:2046/records/`,
+            data: qs.stringify(record),
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                token: token,
+            },
+        });
+        promise.then((response) => {
+            return null;
+        });
+        promise.catch((err) => {
+            return null;
         });
     }
 }

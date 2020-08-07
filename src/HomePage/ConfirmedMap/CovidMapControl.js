@@ -44,6 +44,10 @@ import getRemoteData from "../CrawlerData/RemoteData";
 import confirmedData from "../../data/mapdataCon";
 import MarkerConfirmed from "./Markers/MarkerConfirmed";
 import LoadingIndicator from "./MapControls/LoadingIndicator";
+import AxiosAnalytics from "./AxiosAnalytics";
+
+
+const ENABLE_AXIOS_ANALYTICS = true;
 
 
 // A "blank" style to allow for using vector data
@@ -223,6 +227,13 @@ class CovidMapControl extends React.Component {
                 confirmedData.forEach((item) => {
                     this.confirmedMarkers.push(new MarkerConfirmed(map, item));
                 });
+
+                // Init analytics
+                if (ENABLE_AXIOS_ANALYTICS) {
+                    this.axiosAnalytics = new AxiosAnalytics(
+                        map, this.covidMapControls, this.__mapTimeSlider
+                    );
+                }
 
                 if (this.props.onload) {
                     this.props.onload(this, map);
@@ -430,6 +441,13 @@ class CovidMapControl extends React.Component {
             this.casesFillPolyLayer.updateLayer();
             //this.casesLinePolyLayer.updateLayer();
             this.caseCirclesLayer.updateLayer();
+
+            // Make it so click events are registered for analytics (if relevant)
+            if (this.axiosAnalytics) {
+                this.axiosAnalytics.associateLayerId(
+                    this.casesFillPolyLayer.getLayerId()
+                );
+            }
 
             // Hide/show markers based on datatype
             if (new Set(['total', 'status_active']).has(dataType)) {
