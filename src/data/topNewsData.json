@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victorian-anti-lockdown-protest-organisers-raided-and-arrested-before-dangerous-demonstration",
+            "title": "Victorian anti-lockdown protest organisers raided and arrested before dangerous demonstration",
+            "source": "SBSNews",
+            "date": "7 August 2020",
+            "time": "13:36",
+            "summary": "Police have raided the homes of and arrested two men accused of planning an anti-lockdown protest in Melbourne. The individuals had created an event on Facebook which had 100 confirmed attendees and a further 400 expressions of interest. \"This is a completely blatant breach of the chief health officer's directions and puts Victorian lives at risk,\" police said."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/aug/07/victoria-reports-911-healthcare-workers-have-covid-19-after-daily-rise-of-101",
+            "title": "Victoria reports 911 healthcare workers have Covid-19, after daily rise of 101",
+            "source": "The Guardian",
+            "date": "7 August 2020",
+            "time": "14:42",
+            "summary": "Victoria has reported that 911 healthcare in the state have COVID-19. The state announced a total of 450 new cases today, 101 of those are healthcare workers. Victoria’s chief health officer Brett Sutton said the numbers are very concering."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
             "title": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today",
             "source": "ABCNews",
@@ -47,14 +63,6 @@
             "date": "1 August 2020",
             "time": "16:00",
             "summary": "A Covid-19 vaccine candidate, COVAX-19, developed by Adelaide-based company Vaxine has shown positive results in phase one human trials. Victorian aged care residents could be included in the next stage of testing. Lead researcher Professor Nikolai Petrovsky said the vaccine candidate had been shown to be safe and to induce antibodies that attack the coronavirus that causes COVID-19.\"We've had no major side-effects in any of the subjects,\" they said. If subsequent trials are passed, the vaccine could be ready by the end of the year."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-31/one-in-four-not-home-covid19-positive-adf-door-knock/12511682",
-            "title": "More than a quarter of Victoria coronavirus patients not at home when doorknocked by ADF",
-            "source": "ABCNews",
-            "date": "31 July 2020",
-            "time": "17:30",
-            "summary": "Door knocks carried out by authorities yesterday at 500 properties found that 1 in 4 coronavirus patients were not at home. Teams of Australian Defence Force (ADF) and Department of Health and Human Services (DHHS) officers have been doorknocking all positive cases of coronavirus as the number of active infections has gone from \"There will be a multitude of reasons for that but what I can confirm is more than 100 cases have been referred to Victoria Police,\" state Premier Daniel Andrews said. "
         }
     ]
 }
