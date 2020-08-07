@@ -53,7 +53,6 @@ class AxiosAnalytics {
             }
 
             let feature = e.features[0];
-            alert(feature);
             if (!feature.properties || !feature.properties['regionChild']) {
                 return;
             }
