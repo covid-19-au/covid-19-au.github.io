@@ -1,6 +1,70 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/jul/30/morrison-and-andrews-consider-more-restrictions-to-contain-victorias-escalating-covid-19-outbreak",
+            "title": "Morrison and Andrews consider more restrictions to contain Victoria's escalating Covid-19 outbreak ",
+            "source": "TheGuardian",
+            "date": "30 July 2020",
+            "time": "18:42",
+            "summary": "Australian Prime Minister Scott Morrison and Victorian Premier Daniel Andrews are planning to discuss whether further restrictions are necessary to contain the escalating outbreak in Victoria. Victoria recorded 723 new cases today (a record for the state), along with 13 new deaths. Andrews announced today that face coverings would be mandatory in all of Victoria. Previously the rule was restricted to metropolitan Melbourne and the Mitchell Shire."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/live/2020/jul/29/coronavirus-australia-victoria-aged-care-outbreak-melbourne-sydney-nsw-qld-andrews-berejiklian-morrison-latest-updates",
+            "title": "Australian states tighten border restrictions as coronavirus community transmissions grow – as it happened",
+            "source": "TheGuardian",
+            "date": "29 July 2020",
+            "time": "20:00",
+            "summary": "Queensland announced today that its border will be closed to greater Sydney from 1am on Saturday. All aged care homes in Queensland are also closed to visitors for 48 hours."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-escalates-response-to-aged-care-crisis-as-state-records-384-new-coronavirus-cases",
+            "title": "Victoria escalates response to aged care crisis as state records 384 new coronavirus cases",
+            "source": "SBSNews",
+            "date": "28 July 2020",
+            "time": "14:00",
+            "summary": "Victoria recorded 384 new cases overnight as well as six more deaths, taking the state's death toll to 83. State Premier Daniel Andrews has announced that more elective surgeries would be cancelled to free up resources to combat ballooning outbreaks within aged care facilities. Mr Andrews also added that health staff, particularly registered nurses, would be moved out of some hospitals and into aged care facilities."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/melbourne-s-public-housing-lockdown-caused-a-massive-surge-in-calls-to-mental-health-helplines",
+            "title": "Melbourne's public housing lockdown caused a 'massive' surge in calls to mental health helplines",
+            "source": "SBSNews",
+            "date": "28 July 2020",
+            "time": "15:00",
+            "summary": "When the nine public housing towers in Melbourne went into lockdown, calls mental health organisations spiked by over 20 percent. \"That is massive, we rarely register increases of that size,\" said Lifeline chair John Brogden. \"In Victoria, calls to Beyond Blue’s support services doubled in the fortnight surrounding the re-introduction of lockdowns in Melbourne and Mitchell Shire,\" a spokesperson told SBS News. "
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victoria-extends-hotel-stays-for-the-homeless-until-april-amid-second-coronavirus-wave",
+            "title": "Victoria extends hotel stays for the homeless until April amid second coronavirus wave",
+            "source": "SBSNews",
+            "date": "28 July 2020",
+            "time": "18:00",
+            "summary": "The Victorian announced a $150 million package to extend hotel stays for 2,000 homeless Victorians until at least April next year. During that time, efforts will be made to support these individuals into stable, long term housing. "
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-27/coronavirus-cases-rise-again-as-victorians-go-to-work-while-sick/12495898",
+            "title": "Victorians must not go to work with coronavirus symptoms or lockdown 'will not end', Dan Andrews says",
+            "source": "ABCNews",
+            "date": "27 July 2020",
+            "time": "17:00",
+            "summary": "Victoria Premier Daniel Andrews has revealed that Victorians who go to work while displaying coronavirus symptoms are the \"biggest driver of transmission\" and added that the lockdown will not end until people instead get tested and isolate while waiting for results. Victoria recorded its highest daily increase in cases today with 532 people testing positive. Andrews warned all Victorians, no matter where they work, to \"act on your symptoms, don't ignore them.\" \"These are the facts and unless we see a change, then we're going to continue to see these numbers at unacceptably high levels,\" he added."
+        },
+        {
+            "link": "https://www.abc.net.au/news/2020-07-26/key-points-daniel-andrews-coronavirus-victoria-update/12493160",
+            "title": "Victorian Premier Daniel Andrews gave an update on the state's coronavirus crisis. Here are some key takeaways",
+            "source": "ABCNews",
+            "date": "26 July 2020",
+            "time": "15:00",
+            "summary": "10 more individuals have died in Victoria due to the coronavirus and 42 remain in intensive care. The state also recorded 459 new cases overnight. State Premier Daniel Andrews mentioned that he is, \"very proud to see so many people wearing masks right across the city, particularly in regional Victoria, too, where it's not compulsory,\""
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/jul/24/national-cabinet-commits-to-covid-19-suppression-strategy-to-secure-zero-community-transmissions",
+            "title": "National cabinet commits to Covid-19 suppression strategy to secure zero community transmissions ",
+            "source": "TheGuardian",
+            "date": "24 July 2020",
+            "time": "17:38",
+            "summary": "After a meeting on Friday, the national cabinet has agreed to share more data and COVID-19 testing response times, and have committed to a virus with a goal of having zero community transmissions. There is now acceptance in the national cabinet that all states and territories need to take precautions to avoid community transmission, currently only occurring in Victoria and New South Wales."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-07-23/victoria-records-five-deaths-and-403-new-cases-of-covid-19/12483916?nw=0",
             "title": "Victoria records five deaths and 403 new cases of coronavirus overnight",
             "source": "ABCNews",

@@ -753,6 +753,8 @@
             "text": {
                 "text_1": [
                     "From 1am Saturday, August 1st the Queensland will close its borders to all residents from Greater Sydney.",
+                    "From 1am Saturday, August 8th, Queensland will close its borders to Victoria and the ACT.",
+                    "All Queensland residents who return from \"declared coronavirus hotspots\" will be sent to mandatory hotel quarantine for 14 days at their own expense.",
                     "Restrictions:"
                 ],
                 "ulist_1": [
@@ -774,6 +776,10 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
+                        "name": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today - ABC News"
+                    },
+                    {
                         "link": "https://www.news.com.au/national/queensland/news/disappointing-qld-reports-two-new-virus-cases/news-story/a71c1efc65e261d398fdf83e6cc2697c",
                         "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
                     },
@@ -783,12 +789,13 @@
                     }
                 ]
             },
-            "lastUpdated": "29 July 2020"
+            "lastUpdated": "05 August 2020"
         },
         {
             "name": "New South Wales",
             "text": {
                 "text_1": [
+                    "From 12:01am Friday August 7th, anyone entering NSW from Victoria will be placed in mandatory hotel quarantine for 14 days at their own expense. Exceptions will be made for those experiencing financial hardships. The new rule does not apply to border communities.",
                     "Restrictions:"
                 ],
                 "ulist_1": [
@@ -810,50 +817,8 @@
                 "text_2": [],
                 "citation": [
                     {
-                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
-                        "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
-                    }
-                ]
-            },
-            "lastUpdated": "04 July 2020"
-        },
-        {
-            "name": "Victoria",
-            "text": {
-                "text_1": [
-                    "From 11:59pm on 2 August, every person in regional Victoria will need to wear a mask or face covering when leaving the house. ",
-                    "Residents of metropolitan Melbourne and the Mitchell Shire are under Level 3 restrictions from 11:59pm on 8 July for at least 6 weeks",
-                    "There are only four reasons people in metropolitan Melbourne and the Mitchell Shire can leave their homes: for work or school, for care or care giving, for daily exercise, and for food and other essentials.",
-                    "From 11.59pm on 22 July, it will be mandatory to wear a mask for people who leave their homes in metropolitan Melbourne and the Mitchell Shire for any of the above four legal reasons",
-                    "If you live in metropolitan Melbourne or the Mitchell Shire, you cannot:"
-                ],
-                "ulist_1": [
-                    "Exercise outside the lockdown zone",
-                    "Leave your primary place of residence for a holiday home outside the lockdown zone, you can only travel into these areas for work you have to do in person, or to provide or receive care",
-                    "Have any visitors to your home"
-                ],
-                "text_middle": [
-                    "In the rest of Victoria:"
-                ],
-                "ulist_2": [
-                    "You can have up to five guests in your home, reduced to a total in-home gathering size of 20. The Victorian health department says you can have more than one set of visitors over per day, but that you should \"be considered and use common sense\". You are allowed to have people stay over at your home",
-                    "Up to 10 people can gather outside for recreational purposes, or to engage in activities like hiking, jogging and other non-contact sport.",
-                    "Residents of care facilities, including aged care, can have up to two support visits each day, for up to two hours. The two visitors can go together, or in separate visits that total two hours. Those under the age of 16 can only visit if the resident is receiving end-of-life care or if they are in the company of an adult.",
-                    "Cafes, restaurants and other hospitality businesses like RSLs and bowling clubs are able to seat up to 20 patrons in an enclosed space. There can only be one customer per four square metres and tables must be spaced at least 1.5 metres apart. Venues are also required to keep the first name and phone number of every customer to help with contact tracing, if necessary. Alcohol will only be available to purchase with meals. From 12 July , the number of diners allowed will increase to 50. Food courts will still only be able to offer delivery and takeaway. Under stage 3 rules, expected to be introduced in July, a venue’s attendance limit will require four square metres per person.",
-                    "There are no restrictions on how far you can travel within the state, unless you live in one of the Melbourne postcodes currently under Level 3 lockdown restrictions (see list at the start of this explainer). You are allowed to stay in a holiday home or private residence, and tourist accommodation, including caravan parks and camping grounds, where there are no shared communal facilities.",
-                    "There are no restrictions on leaving or entering Victoria. Since 1 June, overnight stays at tourist accommodation, caravan parks and camping grounds without communal facilities, have been permitted. Some state premiers are recommending you don’t travel to Victoria though, given the current outbreaks in Melbourne.",
-                    "For weddings held at a venue, the celebrant, couple being married, and 20 people will be allowed to attend. Up to 50 people will be allowed to attend a funeral, in addition to the officiant and funeral staff, as long as there are four square metres allowed per person. But if a wedding or funeral is held in a home, only 20 people in total will be allowed to attend (including the celebrant and couple/ officiant and staff). Under stage 3 rules, expected to be introduced in July, attendance limits will require four square metres per person.",
-                    "Places of worship can open for private worship or small religious ceremonies of up to 20 people, plus the minimum number of people reasonably required for the service, is allowed in a single, undivided indoor space. There must be four square metres per person. At least one hour should be allowed between services or ceremonies to reduce the risk of crowds.",
-                    "You are only supposed to shop for necessary goods and services. Most businesses are also required to keep a record of names and contact details of customers in case contact tracing is later required.",
-                    "Hairdressers and barbers are allowed to be open, but they are required to take your name and contact details should contact tracing become necessary. Beauty therapy, spray-tanning, waxing and nail salons, spas and massage parlours and tattoo and piercing services are able to reopen. Up to 20 customers are allowed on one premise, subject to the four square metre rule. Providers will still need to log customers’ contact details.",
-                    "Galleries, museums, national institutions, historic sites, amusement parks, zoos and arcades are allowed to open up to 20 customers per separate space, with four square metres per person. Drive-in cinemas are also allowed to recommence food and drink operations. From 12 July , the number of people allowed in these venues will increase to 50 per separate space. Up to 50 customers will be allowed to watch a film per cinema at movie theatres. Customers not from the same household will have to sit at least 1.5 metres apart, and the four square metre rule will apply. Concert venues and theatres will be able to reopen to 50 viewers per separate space. From 20 July, electronic gaming at pubs, clubs and casinos will restart, per social distancing requirements.",
-                    "Gyms, yoga studios, and fitness classes, and indoor personal training are prohibited. Up to 20 people can gather outside for activities like hiking, jogging , bike riding, canoeing, kayaking and other non-contact sports. Outdoor boot camps of up to 20 people plus the trainer are also allowed. Outdoor swimming pools can have 20 patrons per enclosed space and three swimmers per pool lane. Playgrounds, outdoor gums, and skateparks have also been open since 26 May. As of 22 June, indoor sports facilities, like gyms, can open up to 20 clients at a time, per separate enclosed space, as long as the four square metre rule is followed. Only 10 people are allowed per group per activity. Children are allowed to compete in contact sport, but non-contact sport will also be allowed for all ages. Skiing is also permitted now. . Adults can begin training for contact sport from 13 July and begin playing from 20 July."
-                ],
-                "text_2": [],
-                "citation": [
-                    {
-                        "link": "https://www.sbs.com.au/news/coronavirus-infections-surge-past-700-in-victoria-on-australia-s-deadliest-day-of-pandemic",
-                        "name": "Coronavirus infections surge past 700 in Victoria on Australia's deadliest day of pandemic - SBS News"
+                        "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
+                        "name": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today - ABC News"
                     },
                     {
                         "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
@@ -861,7 +826,33 @@
                     }
                 ]
             },
-            "lastUpdated": "30 July 2020"
+            "lastUpdated": "05 August 2020"
+        },
+        {
+            "name": "Victoria",
+            "text": {
+                "text_1": [
+                    "From 11:59pm on 2 August, every person in  Victoria will need to wear a mask or face covering when leaving the house.",
+                    "From 2 August, metropolitan Melbourne will be under stage 4 restrictions for 6 weeks",
+                    "From 6 August, stage 3 restrictions will be in effect in all of regional Victoria",
+                    "Please refer to the links below for a detailed breakdown of the stage 3 (regional Victoria) and stage 4 restrictions (metropolitan Melbourne)"
+                ],
+                "ulist_1": [],
+                "text_middle": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/jul/31/coronavirus-melbourne-stage-3-lockdown-rules-restrictions-victoria-vic-metropolitan-metro-mitchell-shire-explained-covid-19-what-you-need-to-know",
+                        "name": "Regional Victoria stage 3 coronavirus restrictions and lockdown rules explained  - The Guardian"
+                    },
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/aug/02/victoria-stage-4-restrictions-melbourne-lockdown-rules-covid-19-vic-four-victorian",
+                        "name": "Melbourne stage 4 restrictions and coronavirus lockdown rules explained - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "02 August 2020"
         },
         {
             "name": "Tasmania",

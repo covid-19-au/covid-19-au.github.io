@@ -76,7 +76,13 @@ class ConfirmedMap extends React.Component {
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
                                 <span style={{fontWeight: 'bold'}}>🔍&nbsp;Zoom in</span> for regional numbers.
                                 Victoria and New South Wales have 📬&nbsp;postcode-level data at higher zoom levels.<br/>
-                                * Note: postcode-level data for Victoria has only been provided for July 31st.<br/>
+                                <div style={{
+                                    color: "gray",
+                                    display: (
+                                        this.stateName.toLowerCase() === "au-nsw" ||
+                                        this.stateName.toLowerCase() === 'au'
+                                    ) ? "block" : "none"
+                                }}>* Note: The NSW definition for an active case changed on 12 June.</div>
                                 <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
                             </li>
 
