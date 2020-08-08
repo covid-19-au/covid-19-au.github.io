@@ -374,14 +374,11 @@ class CasesData {
      */
     getCaseNumberTimeSeries(regionType, ageRange, maxDateType) {
         maxDateType = maxDateType || DateType.today();
+        ageRange = ageRange || '';
 
         var r = new DataPoints(
             this, regionType, ageRange
         );
-
-        // TODO: FIX FOR MANUALLY ENTERED DATA!!! ===========================================================================
-
-        ageRange = ageRange || '';
 
         for (var [iRegion, iAgeRange, iValues] of this.data) {
             if (iRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
@@ -391,8 +388,7 @@ class CasesData {
 
                     if (dateUpdated > maxDateType) {
                         continue;
-                    } if (iValue != null && iValue !== '') {
-                        // May as well use CanvasJS format
+                    } else if (iValue != null && iValue !== '') {
                         r.push(new DataPoint(dateUpdated, parseInt(iValue)));
                     }
                 }
