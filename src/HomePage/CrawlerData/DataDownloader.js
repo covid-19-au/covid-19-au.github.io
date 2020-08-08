@@ -505,11 +505,11 @@ class DataDownloader {
                 try {
                     return resp.json();
                 } catch (e) {
-                    if (jsonPath.indexOf('admin') !== -1) {
+                    if (jsonPath.indexOf('admin') === -1) {
                         // If there's an error that isn't for admin_0/admin_1,
                         // chances are the page hasn't been refreshed for some
                         // time+the data has been deleted on the remote server!
-                        Location.reload();
+                        window.location.reload();
                     }
                 }
             })
