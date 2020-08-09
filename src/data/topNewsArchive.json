@@ -1,6 +1,14 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victoria-announces-state-of-disaster-as-melbourne-enters-drastic-stage-4-coronavirus-lockdown",
+            "title": "Victoria announces State of Disaster as Melbourne enters drastic Stage 4 coronavirus lockdown",
+            "source": "SBSNews",
+            "date": "2 August 2020",
+            "time": "19:00",
+            "summary": "A State of Disaster has been declared in Melbourne. Authorities have imposed stage 4 lockdown restrictions in metropolitan Melbourne. With 760 mystery cases around the state, state Premier Daniel Andrews has announced that the new restrictions would be in place for 6 weeks. The restrictions include a curfew from 8pm to 5am."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-08-01/sa-potential-coronavirus-vaccine-passes-first-phase/12514988",
             "title": "South Australian coronavirus vaccine candidate shows positive results in phase one human trials",
             "source": "ABCNews",
