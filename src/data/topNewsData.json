@@ -1,6 +1,38 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/australia-marks-deadliest-day-in-the-coronavirus-pandemic-as-victoria-records-17-deaths",
+            "title": "Australia marks deadliest day in the coronavirus pandemic as Victoria records 17 deaths",
+            "source": "SBSNews",
+            "date": "9 August 2020",
+            "time": "18:00",
+            "summary": "Victoria recorded 394 new cases and 17 deaths today, the country's deadliest day of the pandemic so far. Ten of the deaths were linked to aged care facilities. "
+        },
+        {
+            "link": "https://www.sbs.com.au/news/more-than-140-turned-back-at-queensland-border-in-first-hours-of-closure-to-nsw-and-act",
+            "title": "More than 140 turned back at Queensland border in first hours of closure to NSW and ACT",
+            "source": "SBSNews",
+            "date": "8 August 2020",
+            "time": "11:00",
+            "summary": "More than 140 people have been turned away at the Queensland border as it was closed to people from ACT, NSW and Victoria. \"It's unfortunate but this is all about stopping COVID-19 coming into Queensland,\" said Queensland Police Services Chief Superintendent Mark Wheeler."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/victorian-anti-lockdown-protest-organisers-raided-and-arrested-before-dangerous-demonstration",
+            "title": "Victorian anti-lockdown protest organisers raided and arrested before dangerous demonstration",
+            "source": "SBSNews",
+            "date": "7 August 2020",
+            "time": "13:36",
+            "summary": "Police have raided the homes of and arrested two men accused of planning an anti-lockdown protest in Melbourne. The individuals had created an event on Facebook which had 100 confirmed attendees and a further 400 expressions of interest. \"This is a completely blatant breach of the chief health officer's directions and puts Victorian lives at risk,\" police said."
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/aug/07/victoria-reports-911-healthcare-workers-have-covid-19-after-daily-rise-of-101",
+            "title": "Victoria reports 911 healthcare workers have Covid-19, after daily rise of 101",
+            "source": "TheGuardian",
+            "date": "7 August 2020",
+            "time": "14:42",
+            "summary": "Victoria has reported that 911 healthcare in the state have COVID-19. The state announced a total of 450 new cases today, 101 of those are healthcare workers. Victoria’s chief health officer Brett Sutton said the numbers are very concering."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
             "title": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today",
             "source": "ABCNews",
@@ -31,30 +63,6 @@
             "date": "3 August 2020",
             "time": "17:00",
             "summary": "SBS News has collected a number of common questions requested by users regarding the lockdowns in Victoria. Metropolitan Melbourne will be under stage 4 restrictions, and regional Victoria will be under stage 3 restrictions. Check the full articles for some commonly asked questions, and refer to our Info page for details regarding the regulations."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-announces-state-of-disaster-as-melbourne-enters-drastic-stage-4-coronavirus-lockdown",
-            "title": "Victoria announces State of Disaster as Melbourne enters drastic Stage 4 coronavirus lockdown",
-            "source": "SBSNews",
-            "date": "2 August 2020",
-            "time": "19:00",
-            "summary": "A State of Disaster has been declared in Melbourne. Authorities have imposed stage 4 lockdown restrictions in metropolitan Melbourne. With 760 mystery cases around the state, state Premier Daniel Andrews has announced that the new restrictions would be in place for 6 weeks. The restrictions include a curfew from 8pm to 5am."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-08-01/sa-potential-coronavirus-vaccine-passes-first-phase/12514988",
-            "title": "South Australian coronavirus vaccine candidate shows positive results in phase one human trials",
-            "source": "ABCNews",
-            "date": "1 August 2020",
-            "time": "16:00",
-            "summary": "A Covid-19 vaccine candidate, COVAX-19, developed by Adelaide-based company Vaxine has shown positive results in phase one human trials. Victorian aged care residents could be included in the next stage of testing. Lead researcher Professor Nikolai Petrovsky said the vaccine candidate had been shown to be safe and to induce antibodies that attack the coronavirus that causes COVID-19.\"We've had no major side-effects in any of the subjects,\" they said. If subsequent trials are passed, the vaccine could be ready by the end of the year."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-07-31/one-in-four-not-home-covid19-positive-adf-door-knock/12511682",
-            "title": "More than a quarter of Victoria coronavirus patients not at home when doorknocked by ADF",
-            "source": "ABCNews",
-            "date": "31 July 2020",
-            "time": "17:30",
-            "summary": "Door knocks carried out by authorities yesterday at 500 properties found that 1 in 4 coronavirus patients were not at home. Teams of Australian Defence Force (ADF) and Department of Health and Human Services (DHHS) officers have been doorknocking all positive cases of coronavirus as the number of active infections has gone from \"There will be a multitude of reasons for that but what I can confirm is more than 100 cases have been referred to Victoria Police,\" state Premier Daniel Andrews said. "
         }
     ]
 }

@@ -4,6 +4,39 @@
             "image": [],
             "video": [
                 {
+                    "link": "https://www.youtube.com/watch?v=MoLkHrc-R1Y",
+                    "description": "Pele Vs Maradona"
+                }
+            ],
+            "type": "distraction",
+            "date": "9/8/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=ZfFvLJyPf3o",
+                    "description": "How Earth’s Geography Will Change With Climate Change"
+                }
+            ],
+            "type": "distraction",
+            "date": "8/8/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=HSsqzzuGTPo",
+                    "description": "4K Drone Footage - Bird's Eye View of Croatia, Europe - 3 Hour Ambient Drone Film"
+                }
+            ],
+            "type": "distraction",
+            "date": "7/8/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
                     "link": "https://www.youtube.com/watch?v=rhFK5_Nx9xY&t=1s",
                     "description": "What Do Alien Civilizations Look Like? The Kardashev Scale"
                 }
