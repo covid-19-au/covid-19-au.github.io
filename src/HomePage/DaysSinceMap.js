@@ -3,13 +3,14 @@ import mapboxgl from 'mapbox-gl';
 import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
-import Acknowledgement from "../Acknowledgment"
-import TimeSeriesDataSource from "./ConfirmedMap/data_sources/DataCases"
-import GeoBoundaries from "./ConfirmedMap/GeoBoundaries" // FIXME!
+//import Acknowledgement from "../Acknowledgment"
+import TimeSeriesDataSource from "./CrawlerData/CasesData"
+import GeoBoundaries from "./ConfirmedMap/GeoBoundaries/GeoBoundaries" // FIXME!
 
 
 const regionsTimeSeries = regionsData['time_series_data'],
-      regionsDateIDs = regionsData['date_ids'];
+      regionsDateIDs = regionsData['date_ids'],
+      regionsUpdatedDates = regionsData['updated_dates'];
 
 
 //Fetch Token from env
@@ -108,6 +109,7 @@ class DaysSinceMap extends React.Component {
                 key, 'total',
                 regionsTimeSeries[key],
                 regionsDateIDs,
+                regionsUpdatedDates[key],
                 key.split(":")[1],
                 key.split(":")[0]
             );
@@ -136,7 +138,13 @@ class DaysSinceMap extends React.Component {
                     caseGeoBoundariesInst.addLinePoly(caseDataInst);
 
                     caseGeoBoundariesInst.addDaysSince(caseDataInst);
-                    caseGeoBoundariesInst.addCasesFillPoly(caseDataInst);
+                    caseGeoBoundariesInst.addFillPoly(
+                        null,
+                        caseDataInst,
+                        0,
+                        false,
+                        true
+                    );
                 })
                 }, 500)
 
@@ -159,7 +167,7 @@ class DaysSinceMap extends React.Component {
 
         var schemas = [
             // In order of preference
-            //'postcode',
+            'postcode',
             'lga',
             'hhs',
             'ths',

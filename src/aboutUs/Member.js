@@ -72,11 +72,33 @@ const HtmlTooltip = withStyles((theme) => ({
   },
 }))(Tooltip);
 
+
+function getDotPoints(items) {
+  if (items && items.length) {
+    return (
+      <div>
+        <ul style={{
+          padding: "0px 0px 0px 25px",
+          margin: "0",
+          listStyleType: "disc",
+          lineHeight: "1.3em",
+        }}>
+          {items.map((item) =>
+              <li>{item}</li>
+          )}
+        </ul>
+      </div>
+    );
+  }
+  return '';
+}
+
+
 const Member = (props) => {
     const classes = useStyles();
-    const { name, linkedin, email, github, website, fileName } = props.member;
+    const { name, linkedin, email, github, website, fileName, items } = props.member;
     return (
-        <Grid item xs={6} sm={4} className={`${classes.root} icon`}>
+        <Grid item xs={15} sm={6} md={4} className={`${classes.root} icon`}>
           {noContact(linkedin, email, github, website)
           ? (
             <a className={`${classes.member} ${classes.disabled}`} href="/" target="_blank" rel="noopener noreferrer">
@@ -104,7 +126,10 @@ const Member = (props) => {
               }>
               <div>
                 <Avatar alt={name} src={fileName ? require(`./avatars/${fileName}`) : ''} className={classes.large}>{getInitial(name)}</Avatar>
-                <Typography className={`responsiveNames ${noContact(linkedin, email, github, website) ? '' : classes.link}`} variant='h6' display='block' gutterBottom>{name}</Typography>
+                <div>
+                  <Typography className={`responsiveNames ${noContact(linkedin, email, github, website) ? '' : classes.link}`} variant='h6' display='block' gutterBottom>{name}</Typography>
+                  {getDotPoints(items)}
+                </div>
               </div>
             </HtmlTooltip>
           )}

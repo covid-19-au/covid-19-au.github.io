@@ -1,8 +1,6 @@
 import React, {
   useState,
-  Suspense,
   useEffect,
-  useRef
 } from "react";
 
 import keyBy from "lodash.keyby";
@@ -13,8 +11,6 @@ import relativeTime from "dayjs/plugin/relativeTime";
 
 import all from "./data/overall";
 import provinces from "./data/area";
-import information from "./data/info";
-import mapDataHos from "./data/mapdataHos";
 
 
 import Fallback from "./fallback"
@@ -25,6 +21,8 @@ import NewsPage from "./NewsPage";
 import InfoPage from "./InfoPage";
 import Navbar from "./Navbar";
 import HomePage from "./HomePage/HomePage";
+import StatesPage from "./StatesPage";
+import WorldPage from "./WorldPage";
 import BlogPage from "./BlogPage/BlogPage";
 import Blog from "./BlogPage/Blog";
 import AboutUsPage from "./aboutUs/AboutUsPage";
@@ -32,31 +30,18 @@ import AboutUsPage from "./aboutUs/AboutUsPage";
 import StateChart from "./DataVis/StateChart";
 
 import "./App.css";
-import uuid from "react-uuid";
-import ReactPlayer from "react-player";
 
 import DashboardConfig from "./DashboardConfig"
 
 // routes
-import { useRoutes, A, usePath } from 'hookrouter';
-// import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import { useRoutes, usePath } from 'hookrouter';
 
 import ReactGA from "react-ga";
-// import i18n bundle
-import i18next from './i18n';
-
-import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 import Grid from "@material-ui/core/Grid";
-import NewsTimeline from "./NewsTimeline";
-import { useTable, useFilters, useGlobalFilter, usePagination } from 'react-table'
 
 import stateCaseData from "./data/stateCaseData";
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Alert, AlertTitle } from '@material-ui/lab';
+import { Alert } from '@material-ui/lab';
 import Header from './Header';
 import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
 
@@ -69,11 +54,6 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 const provincesByName = keyBy(provinces, "name");
 const provincesByPinyin = keyBy(provinces, "pinyin");
-
-
-
-
-
 
 
 // This is a custom filter UI for selecting
@@ -209,14 +189,36 @@ function App() {
     "/news": () => <NewsPage province={province} gspace={gspace} />,
     "/faq": () => <FAQPage />,
     "/dailyHistory": () => <DailyHistoryPage />,
-    "/state/vic": () => <StateChart state="VIC" />,
-    "/state/nsw": () => <StateChart state="NSW" />,
-    "/state/qld": () => <StateChart state="QLD" />,
-    "/state/act": () => <StateChart state="ACT" />,
-    "/state/sa": () => <StateChart state="SA" />,
-    "/state/wa": () => <StateChart state="WA" />,
-    "/state/nt": () => <StateChart state="NT" />,
-    "/state/tas": () => <StateChart state="TAS" />,
+    "/world": () => <WorldPage />,
+    "/state": () => <StatesPage />,
+
+    // Remember to update these based on how many
+    // cases there currently are in each state/territory!
+    "/state/vic": () => <StateChart state="VIC"
+                                    dataType={"status_active"}
+                                    timePeriod={null} />,
+    "/state/nsw": () => <StateChart state="NSW"
+                                    dataType={"status_active"}
+                                    timePeriod={null} />,
+    "/state/qld": () => <StateChart state="QLD"
+                                    dataType={"status_active"}
+                                    timePeriod={null} />,
+    "/state/act": () => <StateChart state="ACT"
+                                    dataType={"total"}
+                                    timePeriod={21} />,
+    "/state/sa": () => <StateChart state="SA"
+                                   dataType={"total"}
+                                   timePeriod={21} />,
+    "/state/wa": () => <StateChart state="WA"
+                                   dataType={"total"}
+                                   timePeriod={21} />,
+    "/state/nt": () => <StateChart state="NT"
+                                   dataType={"total"}
+                                   timePeriod={21} />,
+    "/state/tas": () => <StateChart state="TAS"
+                                    dataType={"status_active"}
+                                    timePeriod={null} />,
+
     "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={overall} inputData={data} setProvince={setProvince} area={area} />,
     "/blog": () => <Blog />,
     "/blog/:id": ({ id }) => <Blog id={id} />,

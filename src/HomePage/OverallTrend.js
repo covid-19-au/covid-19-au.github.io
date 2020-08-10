@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ReactEcharts from 'echarts-for-react';
 import countryData from "../data/country.json";
-import echarts from "echarts"
+//import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 
-import stateData from "../data/state.json"
+//import stateData from "../data/state.json"
 // import i18n bundle
 import i18next from '../i18n';
 
