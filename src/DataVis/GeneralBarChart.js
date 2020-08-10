@@ -114,15 +114,12 @@ function GeneralBarChart({ state }) {
   barOption = setGeneralBarOption(state.toUpperCase());
 
   return (
-    <Grid item xs={11} sm={11} md={4}>
-      <div className="card">
-        <h2>Current Statistics</h2>
-        <ReactEcharts option={barOption} />
-        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-          Time in AEST, Last Update: {ageGenderUpdateTime}
-        </span>
-      </div>
-    </Grid>
+    <div>
+      <ReactEcharts option={barOption} />
+      <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+        Time in AEST, Last Update: {ageGenderUpdateTime}
+      </span>
+    </div>
   );
 }
 

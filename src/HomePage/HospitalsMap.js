@@ -6,7 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import hospitalImg from '../img/icon/hospital.png'
 
-import MarkerHospital from "./ConfirmedMap/markers/MarkerHospital"
+import MarkerHospital from "./ConfirmedMap/Markers/MarkerHospital"
 
 
 //Fetch Token from env

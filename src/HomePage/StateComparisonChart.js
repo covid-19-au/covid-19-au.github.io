@@ -1,8 +1,8 @@
 
 import React, { useState, Suspense, useEffect } from "react";
 import ReactEcharts from 'echarts-for-react';
-import countryData from "../data/country.json";
-import echarts from "echarts"
+//import countryData from "../data/country.json";
+//import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import stateData from "../data/state.json"

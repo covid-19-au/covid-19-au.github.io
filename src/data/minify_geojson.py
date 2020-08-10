@@ -16,6 +16,9 @@ def get_minified(path):
         elif 'unincorporated' in str(feature).lower() and not 'pastoral' in str(feature).lower():
             continue
 
+        if 'id' in feature:
+            del feature['id']
+
         for key in (
             'id',
             'lg_ply_pid',
@@ -37,12 +40,15 @@ def get_minified(path):
             '_state_3',
             '_state_4',
             '_state_5',
+
         ):
             if key in feature['properties']:
                 del feature['properties'][key]
 
             for i_key in list(feature['properties']):
-                if i_key.endswith(key):
+                if i_key.endswith(key) and i_key != 'loc_pid':
+                    del feature['properties'][i_key]
+                elif i_key.startswith('nsw_loc') and i_key != 'nsw_loca_2':
                     del feature['properties'][i_key]
 
         if 'ths_tas' in path:

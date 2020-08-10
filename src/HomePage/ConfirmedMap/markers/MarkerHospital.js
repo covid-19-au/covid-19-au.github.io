@@ -43,6 +43,7 @@ class MarkerHospital {
         el.style.borderRadius = '50%';
         el.style.cursor = 'pointer';
     }
+
     _addMarker(el) {
         let coor = [
             this.item['coor'][1],

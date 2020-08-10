@@ -419,6 +419,8 @@ class EChartglobalLog extends Component {
                     <span className="key" style={{ fontSize: "80%", paddingTop: 0 }}>
                         {i18next.t("homePage:globalChart.updateNotice")}{this.state.dates[this.state.dates.length - 1]}
                     </span><br /><br />
+
+                    <span className="key" style={{color: "#333"}}>*See also the <a className="citationLink" href={"/world"}>world map page</a>.<p></p></span><br />
                     <span className="key">{i18next.t("homePage:chartCommon.clickLegend")}<p></p></span><br />
                     <span className="key">{i18next.t("homePage:chartCommon.clickPoint")}<p></p></span><br />
                     <span className="key"><p>{i18next.t("homePage:globalChart.append0")}</p></span><br />

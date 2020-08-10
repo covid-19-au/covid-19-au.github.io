@@ -10,7 +10,7 @@ const Project_Manager = {
             fileName: "Chunyang.png"
         }
     ]
-}
+};
 
 const Developers = {
     teamName: "Developers",
@@ -21,31 +21,13 @@ const Developers = {
             email: "",
             github: "",
             website: "",
-            fileName: "Han.png"
-        },
-        {
-            name: "Ben Wu",
-            linkedin: "https://www.linkedin.com/in/ben-wu-42145342/",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Ben.png"
-        },
-        {
-            name: "Paldeep Singh",
-            linkedin: "https://www.linkedin.com/in/paldeep-singh-137030110/",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Paldeep.png"
-        },
-        {
-            name: "Box Lu",
-            linkedin: "https://www.linkedin.com/in/boxuan-lu/",
-            email: "",
-            github: "https://github.com/BoxHezi",
-            website: "",
-            fileName: "Box.png"
+            fileName: "Han.png",
+            items: [
+                "Project lead",
+                "Site admin and management",
+                "Data updates",
+                "Website framework"
+            ]
         },
         {
             name: "Andrew Zhang",
@@ -53,15 +35,67 @@ const Developers = {
             email: "andrew.zhang9799@gmail.com",
             github: "https://github.com/andrewzhang3",
             website: "",
-            fileName: "Andrew.png"
+            fileName: "Andrew.png",
+            items: [
+                "Blog interface", "About page",
+                "Information page content",
+                "Global comparisons", "Hospital table"
+            ]
         },
         {
-            name: "Saharsh Bhatia",
-            linkedin: "",
+            name: "Ben Wu",
+            linkedin: "https://www.linkedin.com/in/ben-wu-42145342/",
             email: "",
             github: "",
             website: "",
-            fileName: "Saharsh.png"
+            fileName: "Ben.png",
+            items: [
+                "State case number display",
+                "Ships interface",
+                "Data updates"
+            ]
+        },
+        {
+            name: "Box Lu",
+            linkedin: "https://www.linkedin.com/in/boxuan-lu/",
+            email: "",
+            github: "https://github.com/BoxHezi",
+            website: "",
+            fileName: "Box.png",
+            items: [
+                "Flights Interface",
+                "State charts"
+            ]
+        },
+        {
+            name: "Dave Morrissey",
+            linkedin: "",
+            email: "david.l.morrissey@gmail.com",
+            github: "https://github.com/mcyph",
+            website: "https://langlynx.com",
+            fileName: "Dave.png",
+            items: [
+                "State and world case maps",
+                "Backend database admin",
+                "Web monitor for statistics",
+                "Age and infection source charts",
+                "Regional case charts"
+            ]
+        },
+        {
+            name: "Paldeep Singh",
+            linkedin: "https://www.linkedin.com/in/paldeep-singh-137030110/",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Paldeep.png",
+            items: [
+                "State data updates",
+                "Information page",
+                "State status and charts",
+                "News page",
+                "UI consistency"
+            ]
         },
         {
             name: "Robin Liu",
@@ -70,16 +104,17 @@ const Developers = {
             github: "",
             website: "",
             fileName: "Robin.png"
-        },{
-            name: "Dave Morrissey",
+        },
+        {
+            name: "Saharsh Bhatia",
             linkedin: "",
-            email: "david.l.morrissey@gmail.com",
-            github: "https://github.com/mcyph",
-            website: "https://langlynx.com",
-            fileName: "Dave.png"
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Saharsh.png"
         }
     ]
-}
+};
 
 const Promotion = {
     teamName: "Promotion",
@@ -90,47 +125,14 @@ const Promotion = {
             email: "rubyhmyeo@gmail.com",
             github: "",
             website: "",
-            fileName: "Ruby.png"
-        },
-        {
-            name: "Louis Nash",
-            linkedin: "http://linkedin.com/in/louisnash",
-            email: "louisnash2907@gmail.com",
-            github: "",
-            website: "",
-            fileName: "Nash.png"
-        },
-        {
-            name: "Michelle Yu Ying Wong",
-            linkedin: "https://www.linkedin.com/in/michelle-wong-44aa4aa5/",
-            email: "michelleyuyingwong@gmail.com",
-            github: "",
-            website: "",
-            fileName: "Michelle.png"
-        },
-        {
-            name: "Jennifer Ziyi Yang",
-            linkedin: "",
-            email: "yangziyi1997@gmail.com",
-            github: "",
-            website: "",
-            fileName: "Jennifer.png"
-        },
-        // {
-        //     name: "Huan Yee Koh",
-        //     linkedin: "",
-        //     email: "",
-        //     github: "",
-        //     website: "",
-        //     fileName: "Huan.png"
-        // },
-        {
-            name: "Xiao Chen Xi",
-            linkedin: "",
-            email: "xxc12396@gmail.com",
-            github: "",
-            website: "",
-            fileName: "Xiaochen.png"
+            fileName: "Ruby.png",
+            items: [
+                "Head of promotions",
+                "Social media account management",
+                "Facebook promotion",
+                "Instagram promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Aditya Dogra",
@@ -138,23 +140,8 @@ const Promotion = {
             email: "",
             github: "",
             website: "",
-            fileName: "Aditya.png"
-        },
-        {
-            name: "Jiwon Ryu",
-            linkedin: "https://www.linkedin.com/in/jiwonryu0603/",
-            email: "ryujiwon0603@gmail.com",
-            github: "",
-            website: "",
-            fileName: "Jiwon.png"
-        },
-        {
-            name: "Dil Kaur",
-            linkedin: "",
-            email: "",
-            github: "",
-            website: "https://www.dil-k.com/",
-            fileName: "Dil.png"
+            fileName: "Aditya.png",
+            items: ["LinkedIn promotion"]
         },
         {
             name: "Annie Kyi Lin Thant",
@@ -162,7 +149,97 @@ const Promotion = {
             email: "klthant97@gmail.com",
             github: "",
             website: "",
-            fileName: "Annie.png"
+            fileName: "Annie.png",
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
+        },
+        {
+            name: "Ben Ye",
+            linkedin: "",
+            email: "benye61@gmail.com",
+            github: "",
+            website: "",
+            fileName: "BenYe.png",
+            items: [
+                "Instagram promotion",
+                "Blog articles"
+            ]
+        },
+        {
+            name: "Cherrie Wu",
+            linkedin: "http://linkedin.com/in/cherrie-wu-735823a8",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Cherrie.png",
+            items: [
+                "Facebook promotion",
+                "Weekly Insights"
+            ]
+        },
+        {
+            name: "Dil Kaur",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "https://www.dil-k.com/",
+            fileName: "Dil.png",
+            items: [
+                "Instagram promotion",
+                "Project logo design",
+                "Daily summary reports",
+                "Blog articles",
+            ]
+        },
+        {
+            name: "Elizabeth Hoysted",
+            linkedin: "https://www.linkedin.com/in/elizabeth-hoysted-853a1b149/",
+            email: "ekhoysted@gmail.com",
+            github: "",
+            website: "",
+            fileName: "Elizabeth.png",
+            items: [
+                "Twitter promotion",
+                "Blog articles"
+            ]
+        },
+        {
+            name: "Huan Yee Koh",
+            linkedin: "https://www.linkedin.com/in/huankoh/",
+            email: "huanyeekoh@gmail.com",
+            github: "",
+            website: "https://kohind.com",
+            fileName: "Huan.png",
+            items: [
+                "LinkedIn promotion"
+            ]
+        },
+        {
+            name: "Jennifer Ziyi Yang",
+            linkedin: "",
+            email: "yangziyi1997@gmail.com",
+            github: "",
+            website: "",
+            fileName: "Jennifer.png",
+            items: [
+                "Facebook promotion",
+                "WeChat promotion",
+                "Blog articles"
+            ]
+        },
+        {
+            name: "Jiwon Ryu",
+            linkedin: "https://www.linkedin.com/in/jiwonryu0603/",
+            email: "ryujiwon0603@gmail.com",
+            github: "",
+            website: "",
+            fileName: "Jiwon.png",
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Lee Paton",
@@ -173,12 +250,30 @@ const Promotion = {
             fileName: "Lee.png"
         },
         {
-            name: "Ben Ye",
-            linkedin: "",
-            email: "benye61@gmail.com",
+            name: "Louis Nash",
+            linkedin: "http://linkedin.com/in/louisnash",
+            email: "louisnash2907@gmail.com",
             github: "",
             website: "",
-            fileName: "BenYe.png"
+            fileName: "Nash.png",
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
+        },
+        {
+            name: "Michelle Yu Ying Wong",
+            linkedin: "https://www.linkedin.com/in/michelle-wong-44aa4aa5/",
+            email: "michelleyuyingwong@gmail.com",
+            github: "",
+            website: "",
+            fileName: "Michelle.png",
+            items: [
+                "Twitter promotion",
+                "Digital marketing material",
+                "Daily summary reports",
+                "Blog articles"
+            ]
         },
         {
             name: "Serina Liu",
@@ -186,15 +281,11 @@ const Promotion = {
             email: "",
             github: "",
             website: "",
-            fileName: "Serina.png"
-        },
-        {
-            name: "Elizabeth Hoysted",
-            linkedin: "https://www.linkedin.com/in/elizabeth-hoysted-853a1b149/",
-            email: "ekhoysted@gmail.com",
-            github: "",
-            website: "",
-            fileName: "Elizabeth.png"
+            fileName: "Serina.png",
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
         },
         {
             name: "Tiffany Kong",
@@ -202,85 +293,41 @@ const Promotion = {
             email: "ktiffany128@gmail.com",
             github: "",
             website: "",
-            fileName: "Tiffany.png"
+            fileName: "Tiffany.png",
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
         },
         {
-            name: "Cherrie Wu",
-            linkedin: "http://linkedin.com/in/cherrie-wu-735823a8",
-            email: "",
+            name: "Xiao Chen Xi",
+            linkedin: "",
+            email: "xxc12396@gmail.com",
             github: "",
             website: "",
-            fileName: "Cherrie.png"
-        }
+            fileName: "Xiaochen.png",
+            items: [
+                "Facebook promotion",
+                "Blog articles"
+            ]
+        },
     ]
-}
+};
 
 const Data_Collection = {
     teamName: "Data Collection",
     members: [
         {
-            name: "Hanying Li",
-            linkedin: "",
+            name: "Ben Wu",
+            linkedin: "https://www.linkedin.com/in/ben-wu-42145342/",
             email: "",
             github: "",
             website: "",
-            fileName: "Hanying.png"
-        },
-        {
-            name: "Zehua Zhang",
-            linkedin: "",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Zehua.png"
-        },
-        {
-            name: "Jinghan Zhang",
-            linkedin: "",
-            email: "15620804053@163.com",
-            github: "",
-            website: "",
-            fileName: "Haddy.png"
-        },
-        {
-            name: "Richard Yang",
-            linkedin: "",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Richard.png"
-        },
-        {
-            name: "Dave Morrissey",
-            linkedin: "",
-            email: "david.l.morrissey@gmail.com",
-            github: "https://github.com/mcyph",
-            website: "https://langlynx.com",
-            fileName: "Dave.png"
-        },
-        {
-            name: "Dabao Wang",
-            linkedin: "",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Dabao.png"
-        },
-        {
-            name: "Mahesh Hase",
-            linkedin: "www.linkedin.com/in/maheshhase",
-            email: "mahesh.hase@gmail.com",
-            github: "",
-            website: "",
-            fileName: "Mahesh.png"
-        },
-        {
-            name: "Qian Li",
-            linkedin: "https://www.linkedin.com/in/qian-li-0b7815102/",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Qian.png"
+            fileName: "Ben.png",
+            items: [
+                "Head of data collection",
+                "Cruise interface"
+            ]
         },
         {
             name: "Adnan Shariff",
@@ -291,20 +338,29 @@ const Data_Collection = {
             fileName: ""
         },
         {
-            name: "Louis Panozzo",
+            name: "Dabao Wang",
             linkedin: "",
             email: "",
             github: "",
             website: "",
-            fileName: "Louis.png"
+            fileName: "Dabao.png",
+            items: [
+                "News updates"
+            ]
         },
         {
-            name: "Ginny Liu",
+            name: "Dave Morrissey",
             linkedin: "",
-            email: "ginny913791@gmail.com",
-            github: "",
-            website: "",
-            fileName: "Ginny.png"
+            email: "david.l.morrissey@gmail.com",
+            github: "https://github.com/mcyph",
+            website: "https://langlynx.com",
+            fileName: "Dave.png",
+            items: [
+                "State and world statistics automation",
+                "Hospitals data aggregator",
+                "GIS data processing",
+                "ABS statistics processing"
+            ]
         },
         {
             name: "Emma Callaghan",
@@ -312,7 +368,75 @@ const Data_Collection = {
             email: "",
             github: "",
             website: "",
-            fileName: "Emma.png"
+            fileName: "Emma.png",
+            items: [
+                "Daily top news"
+            ]
+        },
+        {
+            name: "Ginny Liu",
+            linkedin: "",
+            email: "ginny913791@gmail.com",
+            github: "",
+            website: "",
+            fileName: "Ginny.png",
+            items: [
+                "State statistics"
+            ]
+        },
+        {
+            name: "Hanying Li",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Hanying.png",
+            items: [
+                "State statistics",
+                "Hospitals data"
+            ]
+        },
+        {
+            name: "Huan Yee Koh",
+            linkedin: "https://www.linkedin.com/in/huankoh/",
+            email: "huanyeekoh@gmail.com",
+            github: "",
+            website: "https://kohind.com",
+            fileName: "Huan.png",
+            items: [
+                "News updates",
+                "State statistics"
+            ]
+        },
+        {
+            name: "Jinghan Zhang",
+            linkedin: "",
+            email: "15620804053@163.com",
+            github: "",
+            website: "",
+            fileName: "Haddy.png"
+        },
+        {
+            name: "Louis Panozzo",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Louis.png",
+            items: [
+                "News updates"
+            ]
+        },
+        {
+            name: "Mahesh Hase",
+            linkedin: "www.linkedin.com/in/maheshhase",
+            email: "mahesh.hase@gmail.com",
+            github: "",
+            website: "",
+            fileName: "Mahesh.png",
+            items: [
+                "State statistics"
+            ]
         },
         {
             name: "Michelle Yu Ying Wong",
@@ -320,7 +444,37 @@ const Data_Collection = {
             email: "michelleyuyingwong@gmail.com",
             github: "",
             website: "",
-            fileName: "Michelle.png"
+            fileName: "Michelle.png",
+            items: [
+                "Cruise ship case statistics",
+                "News aggregation system",
+                "State case data",
+                "Hospitals data"
+            ]
+        },
+        {
+            name: "Qian Li",
+            linkedin: "https://www.linkedin.com/in/qian-li-0b7815102/",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Qian.png",
+            items: [
+                "State statistics",
+                "Hospitals data"
+            ]
+        },
+        {
+            name: "Richard Yang",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Richard.png",
+            items: [
+                "State statistics",
+                "Hospitals data"
+            ]
         },
         {
             name: "Yuchao Wu",
@@ -329,61 +483,24 @@ const Data_Collection = {
             github: "",
             website: "",
             fileName: "Yuchao.png"
-        }
+        },
+        {
+            name: "Zehua Zhang",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Zehua.png",
+            items: [
+                "State statistics"
+            ]
+        },
     ]
-}
+};
 
 const Contributor = {
     teamName: "Contributor",
     members: [
-        {
-            name: "Matt Lui",
-            linkedin: "https://www.linkedin.com/",
-            email: "me@mattlui.com",
-            github: "https://github.com/gamma032steam",
-            website: "",
-            fileName: "Matt.png"
-        },
-        {
-            name: "Marcel Masque",
-            linkedin: "",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Marcel.png"
-        },
-        {
-            name: "Yaoye Lu",
-            linkedin: "",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Yaoye.png"
-        },
-        {
-            name: "Tuan Khoi Nguyen",
-            linkedin: "",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Khoi.png"
-        },
-        {
-            name: "Oscar Morrisono",
-            linkedin: "",
-            email: "",
-            github: "",
-            website: "",
-            fileName: ""
-        },
-        {
-            name: "Karl",
-            linkedin: "",
-            email: "",
-            github: "",
-            website: "",
-            fileName: "Karl.png"
-        },
         {
             name: "Akshay Sapra",
             linkedin: "",
@@ -401,15 +518,72 @@ const Contributor = {
             fileName: "Ishan.png"
         },
         {
+            name: "Karl",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Karl.png"
+        },
+        {
+            name: "Matt Lui",
+            linkedin: "https://www.linkedin.com/",
+            email: "me@mattlui.com",
+            github: "https://github.com/gamma032steam",
+            website: "",
+            fileName: "Matt.png",
+            items: [
+                "State case map",
+                "Search engine optimisation",
+                "Old case indicators"
+            ]
+        },
+        {
+            name: "Marcel Masque",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Marcel.png"
+        },
+        {
             name: "Mohak Wathare",
             linkedin: "",
             email: "watharemohak@gmail.com",
             github: "",
             website: "",
             fileName: "Mohak.png"
-        }
+        },
+        {
+            name: "Oscar Morrison",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "",
+            fileName: ""
+        },
+        {
+            name: "Tuan Khoi Nguyen",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Khoi.png",
+            items: [
+                "State map filters",
+                "Website footer"
+            ]
+        },
+        {
+            name: "Yaoye Lu",
+            linkedin: "",
+            email: "",
+            github: "",
+            website: "",
+            fileName: "Yaoye.png"
+        },
     ]
-}
+};
 
 const Language = {
     teamName: "Multi-language supporters",
@@ -463,6 +637,6 @@ const Language = {
             fileName: ""
         }
     ]
-}
+};
 
 export { Developers, Project_Manager, Promotion, Data_Collection, Contributor, Language };
