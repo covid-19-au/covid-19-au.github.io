@@ -142,6 +142,16 @@ class CovidMapControl extends React.Component {
             this.dataDownloader = await getDataDownloader(this.remoteData);
             this.dataDownloader.setLoadingIndicator(this.loadingIndicator);
 
+            // Preload some more common data
+            this.dataDownloader.getCaseData('total', 'admin_0', '');
+            this.dataDownloader.getCaseData('total', 'admin_1', 'au');
+            this.dataDownloader.getCaseData('total', 'lga', 'vic');
+            this.dataDownloader.getCaseData('total', 'lga', 'nsw');
+            this.dataDownloader.getGeoData('admin_0', '');
+            this.dataDownloader.getGeoData('admin_1', 'au');
+            this.dataDownloader.getGeoData('lga', 'vic');
+            this.dataDownloader.getGeoData('lga', 'nsw');
+
             if (!this.mapContainer) {
                 // Control probably destroyed in the interim!
                 return;
@@ -208,12 +218,12 @@ class CovidMapControl extends React.Component {
                 this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource);
 
                 // Bind events for loading data
-                map.on('move', () => {
-                    this.onMapMoveChange();
-                });
-                map.on('zoom', () => {
-                    this.onMapMoveChange();
-                });
+                //map.on('move', () => {
+                //    this.onMapMoveChange();
+                //});
+                //map.on('zoom', () => {
+                //    this.onMapMoveChange();
+                //});
                 map.on('moveend', () => {
                     this.onMapMoveChange();
                 });
