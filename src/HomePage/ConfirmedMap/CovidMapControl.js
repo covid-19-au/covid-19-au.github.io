@@ -122,8 +122,8 @@ class CovidMapControl extends React.Component {
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
             //style: style,
-            style: 'mapbox://styles/mapbox/light-v10?optimize=true',
-            //style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
+            //style: 'mapbox://styles/mapbox/light-v10?optimize=true',
+            style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
             //style: 'mapbox://styles/mapbox/satellite-v9?optimize=true',
             zoom: 1,
             maxZoom: 12,
@@ -141,6 +141,16 @@ class CovidMapControl extends React.Component {
             //console.log("Remote data fetched");
             this.dataDownloader = await getDataDownloader(this.remoteData);
             this.dataDownloader.setLoadingIndicator(this.loadingIndicator);
+
+            // Preload some more common data
+            this.dataDownloader.getCaseData('total', 'admin_0', '');
+            this.dataDownloader.getCaseData('total', 'admin_1', 'au');
+            this.dataDownloader.getCaseData('total', 'lga', 'vic');
+            this.dataDownloader.getCaseData('total', 'lga', 'nsw');
+            this.dataDownloader.getGeoData('admin_0', '');
+            this.dataDownloader.getGeoData('admin_1', 'au');
+            this.dataDownloader.getGeoData('lga', 'vic');
+            this.dataDownloader.getGeoData('lga', 'nsw');
 
             if (!this.mapContainer) {
                 // Control probably destroyed in the interim!
