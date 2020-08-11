@@ -1141,5 +1141,23 @@
     "dateDeparture": "22-07-20",
     "dateArrival": "23-07-20",
     "closeContactRow": "26, 27, 28, 29, 30"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "JQ510",
+    "airline": "Jetstar​",
+    "path": "​Melbourne to Sydney",
+    "dateDeparture": "06-08-20",
+    "dateArrival": "06-08-20",
+    "closeContactRow": "​20, 21, 22, 23, 24"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "​VA863",
+    "airline": "​Virgin",
+    "path": "​Melbourne to Sydney",
+    "dateDeparture": "06-08-20",
+    "dateArrival": "06-08-20",
+    "closeContactRow": "​5, 6, 7, 8, 9"
   }
 ]
