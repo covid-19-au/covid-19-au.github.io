@@ -69,13 +69,13 @@ class CasesFillPolyLayer {
                     'fill-outline-color': [
                         'case',
                         ['boolean', ['feature-state', 'hover'], false],
-                        'rgba(40, 40, 40, 0.9)',
+                        'rgba(0, 0, 0, 0.9)',
                         'rgba(100, 100, 100, 0.4)'
                     ],
                     'fill-opacity': [
                         'case',
                         ['boolean', ['feature-state', 'hover'], false],
-                        0.7,
+                        0.6,
                         FILL_OPACITY
                     ]
                 }
