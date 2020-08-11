@@ -40,12 +40,14 @@ class MapBoxSource {
         this.map = map;
         var id = this.__id = __currentId++;
 
-        map.addSource(`mapboxSource${id}`, {
+        map.addSource(this.getSourceId(), {
             "type": "geojson",
             "data": {
                 "type": "FeatureCollection",
                 'features': []
             },
+            'promoteId': 'uniqueid',
+            //'generateId': true,
             //"buffer": 0, // default 128
             "tolerance": 0.7 // default 0.375; higher will make vectors lower quality but faster
             //"minzoom": minZoom,

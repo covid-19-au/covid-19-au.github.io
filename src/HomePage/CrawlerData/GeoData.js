@@ -117,7 +117,7 @@ class GeoData {
             for (let [area, boundingCoords, centerCoords, iPoints] of geodata) {
                 boundingCoords = this.__uncompress(boundingCoords);
                 centerCoords = this.__uncompress(centerCoords);
-                iPoints = this.__uncompressPoints(iPoints)
+                iPoints = this.__uncompressPoints(iPoints);
 
                 var properties = {
                     "area": area,
@@ -131,6 +131,7 @@ class GeoData {
                     "label": this.getLabel(regionChild, this.iso639code)
                 };
                 outlines['features'].push({
+                    "id": largestItem ? uniqueId : Math.random(),
                     "type": "Feature",
                     "geometry": {
                         "type": "Polygon",
@@ -139,6 +140,7 @@ class GeoData {
                     "properties": properties
                 });
                 points['features'].push({
+                    "id": largestItem ? uniqueId : Math.random(),
                     "type": "Feature",
                     "geometry": {
                         "type": "Point",
