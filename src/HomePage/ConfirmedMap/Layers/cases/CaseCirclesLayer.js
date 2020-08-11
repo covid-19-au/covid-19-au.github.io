@@ -25,6 +25,7 @@ SOFTWARE.
 import getMapBoxCaseColors from "./getMapBoxCaseColors";
 import Fns from "../../Fns"
 import MapBoxSource from "../../Sources/MapBoxSource";
+import HoverStateHelper from "../HoverStateHelper";
 
 
 class CaseCirclesLayer {
@@ -37,11 +38,15 @@ class CaseCirclesLayer {
      * @param uniqueId a unique id for the MapBox GL layer
      * @param clusteredCaseSources
      */
-    constructor(map, uniqueId, clusteredCaseSources) {
+    constructor(map, uniqueId, clusteredCaseSources, hoverStateHelper) {
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
         this.rectangleSource = new MapBoxSource(map, null, null, null);
+
+        this.hoverStateHelper = hoverStateHelper;
+        this.hoverStateHelper.associateSourceId(this.rectangleSource.getSourceId());
+        this.hoverStateHelper.associateSourceId(this.clusteredCaseSources.getSourceId())
     }
 
     __addLayer() {
@@ -69,9 +74,10 @@ class CaseCirclesLayer {
         }
 
         let addCityLabel = (underneath) => {
+            let layerId = this.uniqueId + 'citylabel' + (underneath ? 'un' : '');
             map.addLayer(
                 {
-                    'id': this.uniqueId + 'citylabel' + (underneath ? 'un' : ''),
+                    'id': layerId,
                     'type': 'symbol',
                     'source': this.clusteredCaseSources.getSourceId(),
                     'filter': ['all',
@@ -99,6 +105,7 @@ class CaseCirclesLayer {
                 },
                 underneath ? (this.uniqueId+'rectangle') : null
             );
+            //this.hoverStateHelper.associateLayerId(layerId);
         };
         addCityLabel(false);
 
@@ -111,6 +118,7 @@ class CaseCirclesLayer {
                 ['has', 'cases']
             ]
         });
+        //this.hoverStateHelper.associateLayerId(this.uniqueId+'rectangle');
 
         // Need to add after the rectangle source has been
         // created to make sure it's directly underneath it!
@@ -139,6 +147,7 @@ class CaseCirclesLayer {
                 "text-color": "rgba(255, 255, 255, 1.0)"
             }
         });
+        //this.hoverStateHelper.associateLayerId(this.uniqueId+'label');
 
         this.__layerAdded = true;
     }
@@ -176,6 +185,18 @@ class CaseCirclesLayer {
                 [255, 222, 207, 0.5], [231, 50, 16, 1.0],
                 'rgba(0, 0, 0, 0.0)', 'rgb(182,14,28)',
                 [0,80,0,1.0], [0,80,0,0.4],
+                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
+            ),
+            textHaloColor = getMapBoxCaseColors(
+                [231, 50, 16, 0.5], [231, 50, 16, 1.0],
+                'rgba(0, 0, 0, 0.0)', 'rgb(182,14,28)',
+                [0,80,0,1.0], [0,80,0,0.5],
+                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
+            ),
+            hoverRectangleColor = getMapBoxCaseColors(
+                [180, 15, 0, 1.0], [182, 14, 28, 1.0],
+                'rgba(0, 0, 0, 0.0)', 'rgb(182,14,28)',
+                [0,80,0,1.0], [0,80,0,1.0],
                 caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
             );
 
@@ -238,13 +259,28 @@ class CaseCirclesLayer {
 
         map.setPaintProperty(
             // Color circle by value
-            this.uniqueId+'rectangle', 'fill-color', rectangleColor
+            this.uniqueId+'rectangle', 'fill-color', [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                hoverRectangleColor,
+                rectangleColor
+            ]
         );
         map.setPaintProperty(
-            this.uniqueId+'citylabel', 'text-halo-color', rectangleColor
+            this.uniqueId+'citylabel', 'text-halo-color', [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                hoverRectangleColor,
+                textHaloColor
+            ]
         );
         map.setPaintProperty(
-            this.uniqueId+'citylabelun', 'text-halo-color', rectangleColor
+            this.uniqueId+'citylabelun', 'text-halo-color', [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                hoverRectangleColor,
+                textHaloColor
+            ]
         );
 
         this.__updateRectangleWidth(rectangleWidths);

@@ -45,6 +45,7 @@ import confirmedData from "../../data/mapdataCon";
 import MarkerConfirmed from "./Markers/MarkerConfirmed";
 import LoadingIndicator from "./MapControls/LoadingIndicator";
 import AxiosAnalytics from "./AxiosAnalytics";
+import HoverStateHelper from "./Layers/HoverStateHelper";
 
 
 const ENABLE_AXIOS_ANALYTICS = true;
@@ -212,10 +213,11 @@ class CovidMapControl extends React.Component {
                 this.underlayLinePoly = new LinePolyLayer(map, 'underlayLinePoly', UNDERLAY_LINE_POLY_COLOR, 1.0, underlaySource);
 
                 // Add layers for cases
-                this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource);
+                this.hoverStateHelper = new HoverStateHelper(map);
+                this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource, this.hoverStateHelper);
                 //this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
                 this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
-                this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource);
+                this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource, this.hoverStateHelper);
 
                 // Bind events for loading data
                 //map.on('move', () => {
