@@ -4,6 +4,8 @@ const ROAD_LINE_WIDTH = 0.5;
 
 const OTHER_LABEL_COLOR = '#888888';
 const OTHER_LABEL_TRANSFORM = 'lowercase';
+
+const MAIN_LABEL_COLOR = '#444444';
 const GREENERY_OPACITY = 0.3;
 
 
@@ -2246,13 +2248,14 @@ export default {
 
         // BEGIN COUNTRY LABELS
 
-        /*{
+        {
             "interactive": true,
             "layout": {
                 "text-font": [
                     "Open Sans Bold",
                     "Arial Unicode MS Bold"
                 ],
+                "text-transform": OTHER_LABEL_TRANSFORM,
                 "text-field": "{name_en}",
                 "text-max-width": 6.25,
                 "text-size": {
@@ -2280,10 +2283,7 @@ export default {
             "source": "mapbox",
             "id": "country_label_4",
             "paint": {
-                "text-color": "#334",
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 2,
-                "text-halo-blur": 1
+                "text-color": MAIN_LABEL_COLOR,
             },
             "source-layer": "country_label"
         },
@@ -2294,6 +2294,7 @@ export default {
                     "Open Sans Bold",
                     "Arial Unicode MS Bold"
                 ],
+                "text-transform": OTHER_LABEL_TRANSFORM,
                 "text-field": "{name_en}",
                 "text-max-width": 6.25,
                 "text-size": {
@@ -2321,10 +2322,7 @@ export default {
             "source": "mapbox",
             "id": "country_label_3",
             "paint": {
-                "text-color": "#334",
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 2,
-                "text-halo-blur": 1
+                "text-color": MAIN_LABEL_COLOR,
             },
             "source-layer": "country_label"
         },
@@ -2335,6 +2333,7 @@ export default {
                     "Open Sans Bold",
                     "Arial Unicode MS Bold"
                 ],
+                "text-transform": OTHER_LABEL_TRANSFORM,
                 "text-field": "{name_en}",
                 "text-max-width": 6.25,
                 "text-size": {
@@ -2362,10 +2361,7 @@ export default {
             "source": "mapbox",
             "id": "country_label_2",
             "paint": {
-                "text-color": "#334",
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 2,
-                "text-halo-blur": 1
+                "text-color": MAIN_LABEL_COLOR,
             },
             "source-layer": "country_label"
         },
@@ -2376,6 +2372,7 @@ export default {
                     "Open Sans Bold",
                     "Arial Unicode MS Bold"
                 ],
+                "text-transform": OTHER_LABEL_TRANSFORM,
                 "text-field": "{name_en}",
                 "text-max-width": 6.25,
                 "text-size": {
@@ -2403,12 +2400,9 @@ export default {
             "source": "mapbox",
             "id": "country_label_1",
             "paint": {
-                "text-color": "#334",
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 2,
-                "text-halo-blur": 1
+                "text-color": MAIN_LABEL_COLOR,
             },
             "source-layer": "country_label"
-        }*/
+        }
     ]
 }

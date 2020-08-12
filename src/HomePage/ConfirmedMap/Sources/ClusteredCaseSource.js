@@ -104,29 +104,15 @@ class ClusteredCaseSource extends MapBoxSource {
      * so larger values will mean less will be displayed
      *
      * @param geoJSONData
-     * @param zoomLevel
      * @returns {*|GeoDataForDataSource.__getModifiedGeoJSONWithPointsJoined.props}
      */
-    __getModifiedGeoJSONWithPointsJoined(geoJSONData, zoomLevel) {
-        var zoomMap = {
-            // I have no idea if these are right...
-            // There will be less circles with higher numbers
-            0: 45,
-            1: 12,
-            2: 6,
-            3: 3.5,
-            4: 1.5,
-            5: 0.8,
-            6: 0.4,
-            7: 0.2,
-            8: 0.05,
-            9: 0.025,
-            10: 0.0007,
-            11: 0.00035,
-            12: 0.00010
-        };
+    __getModifiedGeoJSONWithPointsJoined(geoJSONData) {
+        // Convert from pixels to lat/long so as
+        // to be able to scale based on zoom level
+        let coordinate1 = this.map.unproject([0, 0]),
+            coordinate2 = this.map.unproject([50, 50]);
 
-        var mergeSmallerThan = zoomMap[zoomLevel];
+        let mergeSmallerThan = coordinate2.lng-coordinate1.lng;
         var eliminatedMap = new Map();
         var mergedMap = new Map();
         var byCaseCount = [];
