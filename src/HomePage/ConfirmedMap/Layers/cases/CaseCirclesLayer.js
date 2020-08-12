@@ -90,6 +90,7 @@ class CaseCirclesLayer {
                             ['get', 'label'],
                             {'font-scale': 0.7},
                         ],
+                        'text-transform': 'lowercase',
                         'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
                         'text-offset': [0, 0.75],
                         'text-anchor': 'top',
@@ -97,8 +98,6 @@ class CaseCirclesLayer {
                         'symbol-sort-key': ["get", "cases"]
                     },
                     'paint': {
-                        'text-color': 'rgba(255, 255, 255, 1.0)',
-                        'text-halo-color': 'rgb(0, 0, 0)',
                         'text-halo-width': 1,
                         'text-halo-blur': 2
                     }
@@ -184,24 +183,30 @@ class CaseCirclesLayer {
         if (caseVals.length < 40) {
             startOpacity = 1.0;
         } else if (caseVals.length < 70) {
-            startOpacity = 0.85;
+            startOpacity = 0.8;
         } else if (caseVals.length < 100) {
-            startOpacity = 0.7;
+            startOpacity = 0.6;
         } else {
-            startOpacity = 0.5;
+            startOpacity = 0.4;
         }
 
         let map = this.map,
             rectangleColor = getMapBoxCaseColors(
                 [255, 222, 207, startOpacity], [231, 50, 16, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(182,14,28)',
+                'rgba(0, 0, 0, 0.0)', 'rgb(169,0,15)',
                 [0,80,0,1.0], [0,80,0,startOpacity],
                 caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
             ),
+            textColor = getMapBoxCaseColors(
+                [187,122,121, 1.0], [182, 14, 28, 1.0],
+                'rgba(0, 0, 0, 0.0)', 'rgb(169,0,15)',
+                [0,80,0,1.0], [0,80,0,1.0],
+                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
+            ),
             textHaloColor = getMapBoxCaseColors(
-                [231, 50, 16, startOpacity], [231, 50, 16, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(182,14,28)',
-                [0,80,0,1.0], [0,80,0,startOpacity],
+                [255, 255, 255, startOpacity], [255, 255, 255, 1.0],
+                'rgba(0, 0, 0, 0.0)', 'rgb(255,255,255)',
+                [255, 255, 255, 1.0], [255, 255, 255, startOpacity],
                 caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
             ),
             hoverRectangleColor = "rgba(150, 10, 6, 0.9)";
@@ -273,20 +278,26 @@ class CaseCirclesLayer {
             ]
         );
         map.setPaintProperty(
-            this.uniqueId+'citylabel', 'text-halo-color', [
+            this.uniqueId+'citylabel', 'text-color', [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
                 hoverRectangleColor,
-                textHaloColor
+                textColor
             ]
         );
         map.setPaintProperty(
-            this.uniqueId+'citylabelun', 'text-halo-color', [
+            this.uniqueId+'citylabelun', 'text-color', [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
                 hoverRectangleColor,
-                textHaloColor
+                textColor
             ]
+        );
+        map.setPaintProperty(
+            this.uniqueId+'citylabel', 'text-halo-color', textHaloColor
+        );
+        map.setPaintProperty(
+            this.uniqueId+'citylabelun', 'text-halo-color', textHaloColor
         );
 
         this.__updateRectangleWidth(rectangleWidths);

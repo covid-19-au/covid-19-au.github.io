@@ -46,6 +46,7 @@ import MarkerConfirmed from "./Markers/MarkerConfirmed";
 import LoadingIndicator from "./MapControls/LoadingIndicator";
 import AxiosAnalytics from "./AxiosAnalytics";
 import HoverStateHelper from "./Layers/HoverStateHelper";
+import BRIGHT_V9_MOD_STYLE from "./bright_v9_mod";
 
 
 const ENABLE_AXIOS_ANALYTICS = true;
@@ -124,8 +125,10 @@ class CovidMapControl extends React.Component {
             container: this.mapContainer,
             //style: style,
             //style: 'mapbox://styles/mapbox/light-v10?optimize=true',
-            style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
+            //style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
             //style: 'mapbox://styles/mapbox/satellite-v9?optimize=true',
+            //style: 'mapbox://styles/mapbox/bright-v9?optimize=true',
+            style: BRIGHT_V9_MOD_STYLE,
             zoom: 1,
             maxZoom: 12,
             //minZoom: 1,
@@ -199,6 +202,9 @@ class CovidMapControl extends React.Component {
                     // it being in an async function, so just keep polling!
                     return setTimeout(onLoad, 20);
                 }
+
+
+                map.setPaintProperty('water', "fill-color", "#9fc4e1");
 
                 const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
                 const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
