@@ -5,7 +5,7 @@ const ROAD_LINE_WIDTH = 0.5;
 const OTHER_LABEL_COLOR = '#888888';
 const OTHER_LABEL_TRANSFORM = 'lowercase';
 
-const MAIN_LABEL_COLOR = '#444444';
+const MAIN_LABEL_COLOR = '#333333';
 const GREENERY_OPACITY = 0.3;
 
 
@@ -1329,8 +1329,6 @@ export default {
             "id": "water_label",
             "paint": {
                 "text-color": OTHER_LABEL_COLOR,
-                //"text-halo-width": 1.5,
-                //"text-halo-color": "rgba(255,255,255,0.7)"
             },
             "source-layer": "water_label"
         },
@@ -1584,9 +1582,6 @@ export default {
             "id": "airport_label",
             "paint": {
                 "text-color": OTHER_LABEL_COLOR,
-                //"text-halo-color": "#ffffff",
-                //"text-halo-width": 1,
-                //"text-halo-blur": 0.5
             },
             "source-layer": "airport_label"
         },
@@ -1627,8 +1622,6 @@ export default {
             "id": "road_label",
             "paint": {
                 "text-color": OTHER_LABEL_COLOR,
-                //"text-halo-width": 1,
-                //"text-halo-blur": 0.5
             },
             "source-layer": "road_label"
         },
@@ -1891,9 +1884,6 @@ export default {
             "id": "marine_label_line_4",
             "paint": {
                 "text-color": OTHER_LABEL_COLOR,
-                //"text-halo-color": "rgba(255,255,255,0.7)",
-                //"text-halo-width": 0.75,
-                //"text-halo-blur": 0.75
             },
             "source-layer": "marine_label"
         },
@@ -2088,9 +2078,6 @@ export default {
             "id": "marine_label_line_2",
             "paint": {
                 "text-color": OTHER_LABEL_COLOR,
-                //"text-halo-color": "rgba(255,255,255,0.7)",
-                //"text-halo-width": 0.75,
-                //"text-halo-blur": 0.75
             },
             "source-layer": "marine_label"
         },
