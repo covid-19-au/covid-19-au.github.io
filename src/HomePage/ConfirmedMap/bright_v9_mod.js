@@ -2,7 +2,7 @@ const ROAD_OPACITY = 0.5;
 const ROAD_COLOR = "orange"; //"#e9ac77";
 const ROAD_LINE_WIDTH = 0.5;
 
-const OTHER_LABEL_COLOR = '#888888';
+const OTHER_LABEL_COLOR = '#666666';
 const OTHER_LABEL_TRANSFORM = 'lowercase';
 
 const MAIN_LABEL_COLOR = '#333333';
@@ -1670,13 +1670,14 @@ export default {
 
         // BEGIN PLACE LABELS
 
-        /*{
+        {
             "interactive": true,
             "layout": {
                 "text-font": [
                     "Open Sans Bold",
                     "Arial Unicode MS Bold"
                 ],
+                "text-transform": OTHER_LABEL_TRANSFORM,
                 "text-letter-spacing": 0.1,
                 "text-field": "{name_en}",
                 "text-max-width": 9,
@@ -1711,8 +1712,6 @@ export default {
             "id": "place_label_other",
             "paint": {
                 "text-color": OTHER_LABEL_COLOR,
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 1.2
             },
             "source-layer": "place_label"
         },
@@ -1723,6 +1722,7 @@ export default {
                     "Open Sans Regular",
                     "Arial Unicode MS Regular"
                 ],
+                "text-transform": OTHER_LABEL_TRANSFORM,
                 "text-field": "{name_en}",
                 "text-max-width": 8,
                 "text-size": {
@@ -1752,8 +1752,6 @@ export default {
             "id": "place_label_village",
             "paint": {
                 "text-color": OTHER_LABEL_COLOR,
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 1.2
             },
             "source-layer": "place_label"
         },
@@ -1764,6 +1762,7 @@ export default {
                     "Open Sans Regular",
                     "Arial Unicode MS Regular"
                 ],
+                "text-transform": OTHER_LABEL_TRANSFORM,
                 "text-field": "{name_en}",
                 "text-max-width": 8,
                 "text-size": {
@@ -1793,8 +1792,6 @@ export default {
             "id": "place_label_town",
             "paint": {
                 "text-color": OTHER_LABEL_COLOR,
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 1.2
             },
             "source-layer": "place_label"
         },
@@ -1805,6 +1802,7 @@ export default {
                     "Open Sans Semibold",
                     "Arial Unicode MS Bold"
                 ],
+                "text-transform": OTHER_LABEL_TRANSFORM,
                 "text-field": "{name_en}",
                 "text-max-width": 8,
                 "text-size": {
@@ -1834,11 +1832,12 @@ export default {
             "id": "place_label_city",
             "paint": {
                 "text-color": OTHER_LABEL_COLOR,
-                "text-halo-color": "rgba(255,255,255,0.8)",
-                "text-halo-width": 1.2
             },
             "source-layer": "place_label"
-        },*/
+        },
+
+
+
         {
             "interactive": true,
             "layout": {
