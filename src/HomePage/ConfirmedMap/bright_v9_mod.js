@@ -2,7 +2,7 @@ const ROAD_OPACITY = 0.5;
 const ROAD_COLOR = "orange"; //"#e9ac77";
 const ROAD_LINE_WIDTH = 0.5;
 
-const OTHER_LABEL_COLOR = '#666666';
+const OTHER_LABEL_COLOR = '#555555';
 const OTHER_LABEL_TRANSFORM = 'lowercase';
 
 const MAIN_LABEL_COLOR = '#333333';

@@ -186,7 +186,9 @@ class PopulationPyramid extends React.Component {
                     {
                         type: 'value',
                         axisLabel: {
-                            formatter: o => Math.abs(o)
+                            formatter: o => {
+                                return Math.abs(o)
+                            }
                         },
                     }
                 ],
@@ -206,7 +208,7 @@ class PopulationPyramid extends React.Component {
                         stack: true,
                         label: {
                             show: true,
-                            formatter: o => Math.abs(o.value)
+                            formatter: o => -o.value
                         },
                         data: femaleVals
                     },
@@ -216,7 +218,7 @@ class PopulationPyramid extends React.Component {
                         stack: true,
                         label: {
                             show: true,
-                            formatter: o => Math.abs(o.value)
+                            formatter: o => o.value
                         },
                         data: maleVals
                     },
@@ -227,7 +229,7 @@ class PopulationPyramid extends React.Component {
                         stack: true,
                         label: {
                             show: true,
-                            formatter: o => Math.abs(o.value)
+                            formatter: o => o.value
                         },
                         data: maleVals
                     }
