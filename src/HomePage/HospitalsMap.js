@@ -33,7 +33,7 @@ class HospitalsMap extends React.Component {
     render() {
         return (
             <p style={{width: "100%"}}>
-                <div ref={el => this.mapContainer = el} style={{width: "100%"}}>
+                <div ref={el => this.mapContainer = el} style={{width: "100%", height: "55vh"}}>
 
                 </div>
                 <span className="due">
