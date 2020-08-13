@@ -64,7 +64,7 @@ class CasesFillPolyLayer {
                 id: this.uniqueId+'fillpoly',
                 type: 'fill',
                 source: this.mapBoxSource.getSourceId(),
-                maxzoom: 13,
+                maxzoom: 14,
                 paint: {
                     'fill-antialias': true,
                     'fill-outline-color': [
@@ -81,7 +81,7 @@ class CasesFillPolyLayer {
                             0.6,
                             FILL_OPACITY
                         ],
-                        13.0, 0
+                        14.0, 0
                     ]
                 }
             },
