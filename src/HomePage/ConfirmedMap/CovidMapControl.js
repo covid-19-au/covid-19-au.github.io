@@ -224,7 +224,7 @@ class CovidMapControl extends React.Component {
                         'source-layer': 'building',
                         'filter': ['==', 'extrude', 'true'],
                         'type': 'fill-extrusion',
-                        'minzoom': 8,
+                        'minzoom': 14,
                         'paint': {
                             'fill-extrusion-color': '#aaa',
 
@@ -418,18 +418,6 @@ class CovidMapControl extends React.Component {
             this.__pollForMapChange();
         }
         this.__loadInProgress = true;
-
-        setTimeout(() => {
-            if (this.map.getZoom() >= 14.0 && !this.pitched) {
-                //this.map.setPitch(20);
-                this.map.easeTo({pitch: 20});
-                this.pitched = true;
-            } else if (this.map.getZoom() <= 13.5 && this.pitched) {
-                //this.map.setPitch(0);
-                this.map.easeTo({pitch: 0});
-                this.pitched = false;
-            }
-        }, 10);
 
         try {
             /**
