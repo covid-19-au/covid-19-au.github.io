@@ -33,6 +33,8 @@ class CasesWithManualAUStateData extends CasesData {
             regionParent === 'au' &&
             STATE_CASE_DATA_TYPES.has(dataType)
         );
+        this.__dataPointsCache = new Map();
+        this.__caseNumberCache = new Map();
     }
 
     /**
@@ -46,6 +48,8 @@ class CasesWithManualAUStateData extends CasesData {
     __getDataPointsFromStateCaseData(regionType) {
         if (this.regionSchema !== 'admin_1' || this.regionParent !== 'au') {
             throw "Shouldn't get here!";
+        } else if (this.__dataPointsCache.has(regionType.getHashKey())) {
+            return this.__dataPointsCache.get(regionType.getHashKey());
         }
 
         let dates = Fns.sortedKeys(stateNums).reverse();
@@ -87,7 +91,9 @@ class CasesWithManualAUStateData extends CasesData {
         }
 
         r.sortDescending();
-        return r.length ? r : null;
+        r = r.length ? r : null;
+        this.__dataPointsCache.set(regionType.getHashKey(), r);
+        return r;
     }
 
     /*******************************************************************
@@ -103,18 +109,32 @@ class CasesWithManualAUStateData extends CasesData {
     getCaseNumber(regionType, ageRange, maxDateType) {
         maxDateType = maxDateType || DateType.today();
 
+        // Cache, as this is a major bottleneck
+        let cacheKey = regionType.getHashKey()+ageRange+maxDateType.toString();
+        if (this.__caseNumberCache.has(cacheKey)) {
+            return this.__caseNumberCache.get(cacheKey);
+        }
+
+        let r;
         if (this.__useManualStateData && !ageRange) {
             for (let dataPoint of this.__getDataPointsFromStateCaseData(regionType)||[]) {
                 if (dataPoint.getDateType() <= maxDateType) {
                     return dataPoint;
                 }
             }
-            return null;
+            r = null;
         } else {
-            return super.getCaseNumber(
+            r = super.getCaseNumber(
                 regionType, ageRange, maxDateType
             );
         }
+
+        if (this.__caseNumberCache.size > 512) {
+            // Don't use too much memory!
+            this.__caseNumberCache = new Map();
+        }
+        this.__caseNumberCache.set(cacheKey, r);
+        return r;
     }
 
     /**

@@ -73,7 +73,7 @@ class DateType extends Date {
             // supplied years/months/days
             years = arguments[0].getFullYear();
             months = arguments[0].getMonth()+1;
-            days = arguments[0].getDate()-1;
+            days = arguments[0].getDate();
         }
         else {
             // Use supplied years/months/days
@@ -85,13 +85,23 @@ class DateType extends Date {
         super(
             years,
             months == null ? 0 : months-1,
-            days == null ? 0 : days+1
+            days == null ? 0 : days
         );
         //this.setHours(0, 0, 0, 0);
 
         this.years = years;
         this.months = months;
         this.days = days;
+
+        if (this.years !== this.getFullYear()) {
+            throw "Years regression failure!";
+        }
+        if (this.months != null && this.months !== this.getMonth()+1) {
+            throw "Months regression failure!";
+        }
+        if (this.days != null && this.days !== this.getDate()) {
+            throw "Days regression failure!";
+        }
     }
 
     /**
