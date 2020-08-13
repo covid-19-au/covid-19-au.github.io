@@ -74,13 +74,12 @@ class ConfirmedMap extends React.Component {
                     <span className="due">
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
-                                <b>🔍&nbsp;Zoom in</b> for regional numbers.&nbsp;
-                                <b>📬&nbsp;Postcode-level data</b> (Victoria and NSW) and&nbsp;
-                                <b>🏢&nbsp;3d buildings</b> at higher zoom levels.
+                                <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.<br/>
                             </li>
 
-                            <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>
-                                <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
+                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
+                                <b>🔍&nbsp;Zoom in</b> for regional numbers. <b>📬&nbsp;Postcode data</b> (Vic/NSW) and&nbsp;
+                                <b>🏢&nbsp;3d structures</b> (e.g. shopping centers) at higher zoom levels.
                             </li>
 
                             <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>

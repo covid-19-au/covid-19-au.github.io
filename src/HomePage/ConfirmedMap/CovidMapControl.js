@@ -237,7 +237,7 @@ class CovidMapControl extends React.Component {
                                 14,
                                 0,
                                 15.05,
-                                ['*', ['get', 'height'], 2]
+                                ['*', ['get', 'height'], 3]
                             ],
                             'fill-extrusion-base': [
                                 'interpolate',
@@ -245,10 +245,18 @@ class CovidMapControl extends React.Component {
                                 ['zoom'],
                                 14,
                                 0,
-                                14.05,
-                                ['*', ['get', 'min_height'], 2]
+                                15.05,
+                                ['*', ['get', 'min_height'], 3]
                             ],
-                            'fill-extrusion-opacity': 0.6
+                            'fill-extrusion-opacity': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                14.5,
+                                0.0,
+                                15.5,
+                                0.6
+                            ]
                         }
                     },
                     labelLayerId
