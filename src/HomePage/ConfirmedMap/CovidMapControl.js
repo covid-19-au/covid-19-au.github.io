@@ -130,7 +130,7 @@ class CovidMapControl extends React.Component {
             //style: 'mapbox://styles/mapbox/bright-v9?optimize=true',
             style: BRIGHT_V9_MOD_STYLE,
             zoom: 1,
-            maxZoom: 15,
+            maxZoom: 15.5,
 
             pitch: 0,
 
@@ -411,29 +411,17 @@ class CovidMapControl extends React.Component {
         }
         this.__loadInProgress = true;
 
-        let t = new Date().getTime();
-        if (this.map.getZoom() >= 14.0 &&
-            !this.pitched &&
-            (!this.lastPitch || t-this.lastPitch>3000)) {
-
-            this.map.easeTo({
-                pitch: 20
-            });
-            this.pitched = true;
-            // Make sure they don't happen too soon after each
-            // other to reduce risk of random exceptions!
-            this.lastPitch = t;
-        } else if (
-            this.map.getZoom() <= 13.5 &&
-            this.pitched &&
-            (!this.lastPitch || t-this.lastPitch>3000)) {
-
-            this.map.easeTo({
-                pitch: 0
-            });
-            this.pitched = false;
-            this.lastPitch = t;
-        }
+        setTimeout(() => {
+            if (this.map.getZoom() >= 14.0 && !this.pitched) {
+                //this.map.setPitch(20);
+                this.map.easeTo({pitch: 20});
+                this.pitched = true;
+            } else if (this.map.getZoom() <= 13.5 && this.pitched) {
+                //this.map.setPitch(0);
+                this.map.easeTo({pitch: 0});
+                this.pitched = false;
+            }
+        }, 10);
 
         try {
             /**
