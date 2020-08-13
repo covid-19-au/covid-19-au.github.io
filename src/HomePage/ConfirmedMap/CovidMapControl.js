@@ -421,12 +421,10 @@ class CovidMapControl extends React.Component {
 
         setTimeout(() => {
             if (!this.pitched && this.map.getZoom() >= 14.0) {
-                //this.map.setPitch(20);
-                this.map.easeTo({pitch: 20});
+                this.map.setPitch(20);
                 this.pitched = true;
             } else if (this.pitched && this.map.getZoom() <= 13.5) {
-                //this.map.setPitch(0);
-                this.map.easeTo({pitch: 0});
+                this.map.setPitch(0);
                 this.pitched = false;
             }
         }, 10);
