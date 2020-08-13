@@ -1159,5 +1159,23 @@
     "dateDeparture": "06-08-20",
     "dateArrival": "06-08-20",
     "closeContactRow": "​5, 6, 7, 8, 9"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "QR900",
+    "airline": "Qatar",
+    "path": "​Doha to Perth",
+    "dateDeparture": "",
+    "dateArrival": "09-08-20",
+    "closeContactRow": "​39, 40, 41, 42, 43, 44"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "QR900",
+    "airline": "Qatar",
+    "path": "​Doha to Perth",
+    "dateDeparture": "",
+    "dateArrival": "09-08-20",
+    "closeContactRow": "​23, 24, 25, 26, 27, 28, 29, 30, 31, 32"
   }
 ]
