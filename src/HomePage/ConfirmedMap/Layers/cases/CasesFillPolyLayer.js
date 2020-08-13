@@ -73,14 +73,10 @@ class CasesFillPolyLayer {
                         'rgba(100, 100, 100, 0.4)'
                     ],
                     'fill-opacity': [
-                        "interpolate", ["linear"], ["zoom"],
-                        13.0, [
-                            'case',
-                            ['boolean', ['feature-state', 'hover'], false],
-                            0.6,
-                            FILL_OPACITY
-                        ],
-                        15.0, 0.1
+                        'case',
+                        ['boolean', ['feature-state', 'hover'], false],
+                        0.6,
+                        FILL_OPACITY
                     ]
                 }
             },
@@ -128,7 +124,11 @@ class CasesFillPolyLayer {
             );
 
         this.map.setPaintProperty(
-            this.uniqueId + 'fillpoly', 'fill-color', circleColor
+            this.uniqueId + 'fillpoly', 'fill-color', [
+                "interpolate", ["linear"], ["zoom"],
+                13.0, circleColor,
+                15.0, "rgba(0, 0, 0, 0)"
+            ]
         );
 
         this.__shown = true;
