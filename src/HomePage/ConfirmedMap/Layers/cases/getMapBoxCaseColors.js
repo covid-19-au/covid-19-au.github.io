@@ -68,14 +68,22 @@ function getMapBoxCaseColors(
     r.push(maxColor);
 
     __extendForColorRange(
-        r, quantiles, totalCases, caseVals, fromNegColor, toNegColor, true
+        r, quantiles, totalCases, caseVals, toNegColor, fromNegColor, true
     );
+
+    // SPECIAL CASE: Because we're using the quantiles from the positive
+    // values for the negative, it's possible to miss -1 (or lower negatives)
+    r.push(['<=', ['get', 'cases'], -1]);
+    r.push(`rgba(${fromNegColor[0]}, ${fromNegColor[1]}, ${fromNegColor[2]}, ${fromNegColor[3]})`);
+
     __extendForColorRange(
         r, quantiles, totalCases, caseVals, fromColor, toColor, false
     );
 
     // Fallback to this value if nothing else matches
     r.push(nullColor);
+
+    //console.log(JSON.stringify(r));
     return r;
 }
 
@@ -113,12 +121,12 @@ function __extendForColorRange(r, quantiles, totalCases, caseVals, fromColor, to
             r.push(['<=', ['get', 'cases'], val]);
         }
 
-        r.push(`rgba(
-            ${Math.round(fromColor[0]*(1.0-pc)+toColor[0]*pc)}, 
-            ${Math.round(fromColor[1]*(1.0-pc)+toColor[1]*pc)}, 
-            ${Math.round(fromColor[2]*(1.0-pc)+toColor[2]*pc)},
-            ${fromColor[3]*(1.0-pc)+toColor[3]*pc}
-        )`)
+        r.push(`rgba(` +
+            `${Math.round(fromColor[0]*(1.0-pc)+toColor[0]*pc)},` +
+            `${Math.round(fromColor[1]*(1.0-pc)+toColor[1]*pc)},` +
+            `${Math.round(fromColor[2]*(1.0-pc)+toColor[2]*pc)},` +
+            `${fromColor[3]*(1.0-pc)+toColor[3]*pc}` +
+        `)`)
     }
 }
 
