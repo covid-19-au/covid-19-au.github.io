@@ -124,7 +124,11 @@ class CasesFillPolyLayer {
             );
 
         this.map.setPaintProperty(
-            this.uniqueId + 'fillpoly', 'fill-color', circleColor
+            this.uniqueId + 'fillpoly', 'fill-color', [
+                "interpolate", ["linear"], ["zoom"],
+                13.0, circleColor,
+                15.0, "rgba(0, 0, 0, 0)"
+            ]
         );
 
         this.__shown = true;

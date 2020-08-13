@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victoria-to-spend-14-million-on-more-multicultural-coronavirus-support-after-translation-bungles",
+            "title": "Victoria to spend $14 million on more multicultural coronavirus support after translation bungles",
+            "source": "SBSNews",
+            "date": "13 August 2020",
+            "time": "20:00",
+            "summary": "The Victorian government announced $14.3 million dollars worth of funding to support multicultural communities through the coronavirus crisis. This is in response to errors being uncovered in the translations of critical health messages. Of the additional funding, $2 million will be for translation and interpreter services, $5.5 million would be for the distribution of those services and $6.9 million will be for the organisations that work on the ground."
+        },
+        {
             "link": "https://www.sbs.com.au/news/australia-must-place-climate-action-at-centre-of-coronavirus-recovery-chief-un-economist-says",
             "title": "Australia must place climate action at centre of coronavirus recovery, chief UN economist says",
             "source": "SBSNews",
