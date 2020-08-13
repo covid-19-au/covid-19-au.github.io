@@ -130,11 +130,14 @@ class CovidMapControl extends React.Component {
             //style: 'mapbox://styles/mapbox/bright-v9?optimize=true',
             style: BRIGHT_V9_MOD_STYLE,
             zoom: 1,
-            maxZoom: 12,
+            maxZoom: 15,
+
+            pitch: 0,
+
             //minZoom: 1,
             transition: {
-                duration: 0,
-                delay: 0
+                duration: 250,
+                delay: 25
             },
             fadeDuration: 250
         });
@@ -203,6 +206,53 @@ class CovidMapControl extends React.Component {
                     return setTimeout(onLoad, 20);
                 }
 
+                // Insert the layer beneath any symbol layer.
+                var layers = map.getStyle().layers;
+
+                var labelLayerId;
+                    for (var i = 0; i < layers.length; i++) {
+                        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+                            labelLayerId = layers[i].id;
+                        break;
+                    }
+                }
+
+                map.addLayer(
+                    {
+                        'id': '3d-buildings',
+                        'source': 'mapbox',
+                        'source-layer': 'building',
+                        'filter': ['==', 'extrude', 'true'],
+                        'type': 'fill-extrusion',
+                        'minzoom': 8,
+                        'paint': {
+                            'fill-extrusion-color': '#aaa',
+
+                            // use an 'interpolate' expression to add a smooth transition effect to the
+                            // buildings as the user zooms in
+                            'fill-extrusion-height': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                14,
+                                0,
+                                15.05,
+                                ['*', ['get', 'height'], 2]
+                            ],
+                            'fill-extrusion-base': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                14,
+                                0,
+                                14.05,
+                                ['*', ['get', 'min_height'], 2]
+                            ],
+                            'fill-extrusion-opacity': 0.6
+                        }
+                    },
+                    labelLayerId
+                );
 
                 map.setPaintProperty('water', "fill-color", "#9fc4e1");
 
@@ -360,6 +410,19 @@ class CovidMapControl extends React.Component {
             this.__pollForMapChange();
         }
         this.__loadInProgress = true;
+
+
+        if (this.map.getZoom() >= 14.0 && !this.pitched) {
+            this.map.easeTo({
+                pitch: 20
+            });
+            this.pitched = true;
+        } else if (this.map.getZoom() <= 13.5 && this.pitched) {
+            this.map.easeTo({
+                pitch: 0
+            });
+            this.pitched = false;
+        }
 
         try {
             /**

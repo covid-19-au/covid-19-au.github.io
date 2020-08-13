@@ -203,9 +203,9 @@ class ClusteredCaseSource extends MapBoxSource {
                     // This should be implemented in a way which allows adding unified popups, etc with fill area charts
 
                     if (properties.label.length > 15) {
-                        properties.label = `${mergedMap.get(index).length+1} items...`;
+                        properties.label = `${mergedMap.get(index).length+1} areas...`;
                     } else {
-                        properties.label = `${mergedMap.get(index).length+1} items\n(${properties.label}, ...)`;
+                        properties.label = `${mergedMap.get(index).length+1} areas\n(${properties.label}, ...)`;
                     }
 
                 }

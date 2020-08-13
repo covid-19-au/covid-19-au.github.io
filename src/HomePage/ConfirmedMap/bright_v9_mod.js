@@ -7,6 +7,7 @@ const OTHER_LABEL_TRANSFORM = 'lowercase';
 
 const MAIN_LABEL_COLOR = '#333333';
 const GREENERY_OPACITY = 0.3;
+const BUILDINGS_MIN_ZOOM = 10;
 
 
 export default {
@@ -759,7 +760,7 @@ export default {
                     "Open Sans Semibold",
                     "Arial Unicode MS Bold"
                 ],
-                "text-transform": "uppercase",
+                "text-transform": OTHER_LABEL_TRANSFORM,
                 "text-letter-spacing": 0.1,
                 "text-size": {
                     "base": 1.4,
@@ -796,7 +797,7 @@ export default {
             "source": "mapbox",
             "id": "road_major_label",
             "paint": {
-                "text-color": "#666",
+                "text-color": OTHER_LABEL_COLOR,
             },
             "source-layer": "road_label"
         },
