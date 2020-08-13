@@ -79,6 +79,7 @@ class CaseCirclesLayer {
                 {
                     'id': layerId,
                     'type': 'symbol',
+                    'maxzoom': 12.5,
                     'source': this.clusteredCaseSources.getSourceId(),
                     'filter': ['all',
                         ['!=', 'cases', 0],
@@ -111,6 +112,7 @@ class CaseCirclesLayer {
         map.addLayer({
             'id': this.uniqueId+'rectangle',
             'type': 'fill',
+            'maxzoom': 12.5,
             'source': this.rectangleSource.getSourceId(),
             filter: ['all',
                 ['!=', 'cases', 0],
@@ -126,6 +128,7 @@ class CaseCirclesLayer {
         map.addLayer({
             id: this.uniqueId+'label',
             type: 'symbol',
+            'maxzoom': 12.5,
             source: this.clusteredCaseSources.getSourceId(),
             filter: ['all',
                 ['!=', 'cases', 0],
