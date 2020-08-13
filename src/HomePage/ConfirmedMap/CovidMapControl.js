@@ -414,7 +414,7 @@ class CovidMapControl extends React.Component {
         let t = new Date().getTime();
         if (this.map.getZoom() >= 14.0 &&
             !this.pitched &&
-            (!this.lastPitch || t-this.lastPitch>300)) {
+            (!this.lastPitch || t-this.lastPitch>3000)) {
 
             this.map.easeTo({
                 pitch: 20
@@ -426,7 +426,7 @@ class CovidMapControl extends React.Component {
         } else if (
             this.map.getZoom() <= 13.5 &&
             this.pitched &&
-            (!this.lastPitch || t-this.lastPitch>300)) {
+            (!this.lastPitch || t-this.lastPitch>3000)) {
 
             this.map.easeTo({
                 pitch: 0
