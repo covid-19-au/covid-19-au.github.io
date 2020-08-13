@@ -80,7 +80,7 @@ class CasesFillPolyLayer {
                             0.6,
                             FILL_OPACITY
                         ],
-                        15.0, 0.2
+                        15.0, 0.1
                     ]
                 }
             },
