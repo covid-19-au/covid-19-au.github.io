@@ -1177,5 +1177,23 @@
     "dateDeparture": "",
     "dateArrival": "09-08-20",
     "closeContactRow": "​23, 24, 25, 26, 27, 28, 29, 30, 31, 32"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "AI302",
+    "airline": "​Air India",
+    "path": "​New Delhi to Sydney",
+    "dateDeparture": "08-08-20​",
+    "dateArrival": "08-08-20​",
+    "closeContactRow": "​​1, 2, 3, 4, 5​"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "QR900",
+    "airline": "Qatar",
+    "path": "​Doha to Perth",
+    "dateDeparture": "",
+    "dateArrival": "11-08-20",
+    "closeContactRow": "33, 34, 35, 36, 37"
   }
 ]
