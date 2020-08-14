@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victorian-man-in-his-20s-becomes-australia-s-youngest-coronavirus-death-as-state-records-372-new-cases",
+            "title": "Victorian man in his 20s becomes Australia’s youngest coronavirus death as state records 372 new cases",
+            "source": "SBSNews",
+            "date": "14 August 2020",
+            "time": "15:00",
+            "summary": "Victoria announced 372 new coronavirus cases and 14 new deaths today. The state's death tally stands at 289. Victorian Premier Daniel Andrews revealed that one of the deaths was a man in his 20s, the youngest victim of the pandemic in Australia so far."
+        },
+        {
             "link": "https://www.sbs.com.au/news/victoria-to-spend-14-million-on-more-multicultural-coronavirus-support-after-translation-bungles",
             "title": "Victoria to spend $14 million on more multicultural coronavirus support after translation bungles",
             "source": "SBSNews",
@@ -47,22 +55,6 @@
             "date": "8 August 2020",
             "time": "11:00",
             "summary": "More than 140 people have been turned away at the Queensland border as it was closed to people from ACT, NSW and Victoria. \"It's unfortunate but this is all about stopping COVID-19 coming into Queensland,\" said Queensland Police Services Chief Superintendent Mark Wheeler."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victorian-anti-lockdown-protest-organisers-raided-and-arrested-before-dangerous-demonstration",
-            "title": "Victorian anti-lockdown protest organisers raided and arrested before dangerous demonstration",
-            "source": "SBSNews",
-            "date": "7 August 2020",
-            "time": "13:36",
-            "summary": "Police have raided the homes of and arrested two men accused of planning an anti-lockdown protest in Melbourne. The individuals had created an event on Facebook which had 100 confirmed attendees and a further 400 expressions of interest. \"This is a completely blatant breach of the chief health officer's directions and puts Victorian lives at risk,\" police said."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/aug/07/victoria-reports-911-healthcare-workers-have-covid-19-after-daily-rise-of-101",
-            "title": "Victoria reports 911 healthcare workers have Covid-19, after daily rise of 101",
-            "source": "TheGuardian",
-            "date": "7 August 2020",
-            "time": "14:42",
-            "summary": "Victoria has reported that 911 healthcare in the state have COVID-19. The state announced a total of 450 new cases today, 101 of those are healthcare workers. Victoria’s chief health officer Brett Sutton said the numbers are very concering."
         }
     ]
 }
