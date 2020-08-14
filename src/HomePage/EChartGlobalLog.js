@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import globalConfirmed from '../data/time_series_covid19_confirmed_global.csv';
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
+
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 // import i18n bundle
@@ -335,7 +338,9 @@ class EChartglobalLog extends Component {
                         outline: "none"
                     }} onClick={this.onDeselectAllClick}>{i18next.t("homePage:globalChart.selectNo")}</Button>
                 </ButtonGroup>
-                <ReactEcharts style={{ minHeight: "500px" }}
+                <ReactEchartsCore
+                    echarts={echarts}
+                    style={{ minHeight: "500px" }}
                     ref={(e) => { this.chartReference = e; }}
                     lazyUpdate={true}
                     option={{

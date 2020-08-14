@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import ReactEcharts from 'echarts-for-react';
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
+
 import countryData from "../data/country.json";
-//import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 
@@ -141,7 +143,9 @@ export default function OverallTrend() {
     return (
         <div className="card">
             <h2>{i18next.t("homePage:overallTrend.title")}</h2>
-            <ReactEcharts style={{ minHeight: "400px" }}
+            <ReactEchartsCore
+                echarts={echarts}
+                style={{ minHeight: "400px" }}
                 option={
                     {
                         grid: {

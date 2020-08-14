@@ -1,7 +1,9 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import ageGenderData from "../data/ageGender";
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
 
 import { Series, BarSeries } from "./Series";
 import { genderColorMapping } from "./Colors";
@@ -127,7 +129,7 @@ function AgeChart({ state }) {
         ) : (
           <h2>Cases by Age Group</h2>
         )}
-        <ReactEcharts option={ageOption} />
+        <ReactEchartsCore echarts={echarts} option={ageOption} />
         <span className="due" style={{ fontSize: "80%", padding: 0 }}>
           Time in AEST, Last Update: {ageGenderUpdateTime}
         </span>

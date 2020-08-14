@@ -23,10 +23,14 @@ SOFTWARE.
  */
 
 import React from 'react';
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/bar';
+
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+
 import MapTimeSlider from "../ConfirmedMap/MapControls/MapTimeSlider";
 
 
@@ -58,7 +62,8 @@ class PopulationPyramid extends React.Component {
 
                 {
                     this.state.option ?
-                        <ReactEcharts
+                        <ReactEchartsCore
+                            echarts={echarts}
                             ref={el => {
                                 this.reactEChart = el
                             }}

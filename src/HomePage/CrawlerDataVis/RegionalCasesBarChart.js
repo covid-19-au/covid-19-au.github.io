@@ -26,8 +26,13 @@ import React from 'react';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/bar';
+import 'echarts/lib/component/legend';
+import 'echarts/lib/component/tooltip';
+import 'echarts/lib/component/dataZoom';
 
-import ReactEcharts from "echarts-for-react";
 import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue, percentilesTooltip, otherTooltip} from "./eChartsFns";
 import DataPointsCollection from "../CrawlerDataTypes/DataPointsCollection";
 
@@ -72,7 +77,8 @@ class RegionalCasesBarChart extends React.Component {
                     </Tabs>
                 </Paper>
 
-                <ReactEcharts
+                <ReactEchartsCore
+                    echarts={echarts}
                     ref={el => {this.reactEChart = el}}
                     option={this.state.option}
                     style={{
