@@ -118,8 +118,8 @@ class CasesFillPolyLayer {
         let caseVals = this.mapBoxSource.getPointsAllVals(),
             circleColor = getMapBoxCaseColors(
                 [255, 222, 207, 0.5], [231, 34, 0, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(182,0,15)',
-                [0,80,0,1.0], [0,80,0,0.4],
+                'rgba(0, 0, 0, 0.0)', 'rgb(182, 0, 15)',
+                [0, 80, 0, 0.4], [0, 80, 0, 1.0],
                 caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
             );
 
