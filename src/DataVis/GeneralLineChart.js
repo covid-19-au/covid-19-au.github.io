@@ -4,7 +4,9 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
 
 import { Series, LineSeries } from "./Series";
 import { colorMapping } from "./Colors";
@@ -195,7 +197,7 @@ function GeneralLineChart({ state }) {
 
   return (
     <div>
-      <ReactEcharts option={lineOption} />
+      <ReactEchartsCore echarts={echarts} option={lineOption} />
       <span className="key" style={{ marginTop: "0.5rem" }}>
         Logarithmic Scale:&nbsp;
         <ButtonGroup size="small" aria-label="small outlined button group">

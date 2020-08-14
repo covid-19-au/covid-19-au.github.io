@@ -1,8 +1,9 @@
 
 import React, { useState, Suspense, useEffect } from "react";
-import ReactEcharts from 'echarts-for-react';
-//import countryData from "../data/country.json";
-//import echarts from "echarts"
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
+
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import stateData from "../data/state.json"
@@ -341,7 +342,10 @@ export default function StateComparisonChart() {
         <div className="card">
             <h2>{i18next.t("homePage:stateComparisons.title")}</h2>
 
-            <ReactEcharts style={{ height: "550px" }} option={
+            <ReactEchartsCore
+                echarts={echarts}
+                style={{ height: "550px" }}
+                option={
                 {
                     grid: [{
                         bottom: '53%',
@@ -458,7 +462,7 @@ export default function StateComparisonChart() {
 
 
 
-                }}></ReactEcharts>
+                }}></ReactEchartsCore>
             <span className="due">
                 <span className="key"><p>{i18next.t("homePage:chartCommon.clickLegend")}</p></span><br />
                 <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />

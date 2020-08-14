@@ -1,5 +1,5 @@
 import hospitalImg from "../../../img/icon/hospital.png";
-import mapboxgl from "mapbox-gl";
+import mapboxgl from "mapbox-gl/dist/mapbox-gl";
 
 /*******************************************************************
  * Hospital markers

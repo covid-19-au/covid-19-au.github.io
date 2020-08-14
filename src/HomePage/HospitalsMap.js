@@ -1,9 +1,10 @@
 import React from "react";
-import mapboxgl from 'mapbox-gl';
-import hospitalData from "../data/mapdataHos"
 
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
+
 import './ConfirmedMap.css'
+import hospitalData from "../data/mapdataHos"
 import hospitalImg from '../img/icon/hospital.png'
 
 import MarkerHospital from "./ConfirmedMap/Markers/MarkerHospital"
