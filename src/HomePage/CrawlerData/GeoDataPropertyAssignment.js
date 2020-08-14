@@ -3,7 +3,7 @@ import Fns from "../ConfirmedMap/Fns";
 
 
 function debug(msg) {
-    if (true) {
+    if (false) {
         console.log(msg);
     }
 }
@@ -176,7 +176,18 @@ class GeoDataPropertyAssignment {
             );
             let timeSeriesItem;
 
-            if (!this.constants[casesInst.getDataType()] || !this.constants[casesInst.getDataType()].averagedata) {
+            // Only smooth over time for e.g. the "new" datatype when
+            // one of the 7/14/21 day controls are selected!
+            //
+            // (the reason for smoothing here is to reduce noise,
+            // but I think the expected behaviour is otherwise to
+            // simply show the number of cases for the previous day
+            // with data)
+
+            if (!this.constants[casesInst.getDataType()] ||
+                !this.constants[casesInst.getDataType()].averagedata ||
+                !dateRangeType
+            ) {
                 timeSeriesItem = (
                     dateRangeType ?
                         casesInst.getCaseNumberOverNumDays(

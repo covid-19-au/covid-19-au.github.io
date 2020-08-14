@@ -74,15 +74,7 @@ class ConfirmedMap extends React.Component {
                     <span className="due">
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
-                                <span style={{fontWeight: 'bold'}}>🔍&nbsp;Zoom in</span> for regional numbers.
-                                Victoria and New South Wales have 📬&nbsp;postcode-level data at higher zoom levels.<br/>
-                                <div style={{
-                                    color: "gray",
-                                    display: (
-                                        this.stateName.toLowerCase() === "au-nsw" ||
-                                        this.stateName.toLowerCase() === 'au'
-                                    ) ? "block" : "none"
-                                }}>* Note: The NSW definition for an active case changed on 12 June.</div>
+                                <b>🔍&nbsp;Zoom in</b> for regional numbers. <b>📬&nbsp;Postcode data</b> (Vic/NSW) at higher zoom levels.<br/>
                                 <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
                             </li>
 
@@ -92,6 +84,16 @@ class ConfirmedMap extends React.Component {
                                 value minus the value 7, 14 or 21 days before the current day. Negative numbers in this mode mean the
                                 value is that amount less than it was that many days ago.
                             </li>
+
+                            <li style={{
+                                color: "#555",
+                                marginBottom: "2px",
+                                paddingBottom: "0px",
+                                display: (
+                                    this.stateName.toLowerCase() === "au-nsw" ||
+                                    this.stateName.toLowerCase() === 'au'
+                                ) ? "list-item" : "none"
+                            }}><b>Note:</b> The NSW definition for an active case changed on 12 June.</li>
 
                             <li style={{color: '#555'}}>
                                 <div style={{color: '#777', fontSize: '0.9em'}}>

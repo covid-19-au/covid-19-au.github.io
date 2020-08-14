@@ -45,6 +45,8 @@ import confirmedData from "../../data/mapdataCon";
 import MarkerConfirmed from "./Markers/MarkerConfirmed";
 import LoadingIndicator from "./MapControls/LoadingIndicator";
 import AxiosAnalytics from "./AxiosAnalytics";
+import HoverStateHelper from "./Layers/HoverStateHelper";
+import BRIGHT_V9_MOD_STYLE from "./bright_v9_mod";
 
 
 const ENABLE_AXIOS_ANALYTICS = true;
@@ -123,14 +125,19 @@ class CovidMapControl extends React.Component {
             container: this.mapContainer,
             //style: style,
             //style: 'mapbox://styles/mapbox/light-v10?optimize=true',
-            style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
+            //style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
             //style: 'mapbox://styles/mapbox/satellite-v9?optimize=true',
+            //style: 'mapbox://styles/mapbox/bright-v9?optimize=true',
+            style: BRIGHT_V9_MOD_STYLE,
             zoom: 1,
-            maxZoom: 12,
+            maxZoom: 15.5,
+
+            pitch: 0,
+
             //minZoom: 1,
             transition: {
                 duration: 250,
-                delay: 10
+                delay: 25
             },
             fadeDuration: 250
         });
@@ -141,6 +148,16 @@ class CovidMapControl extends React.Component {
             //console.log("Remote data fetched");
             this.dataDownloader = await getDataDownloader(this.remoteData);
             this.dataDownloader.setLoadingIndicator(this.loadingIndicator);
+
+            // Preload some more common data
+            this.dataDownloader.getCaseData('total', 'admin_0', '');
+            this.dataDownloader.getCaseData('total', 'admin_1', 'au');
+            this.dataDownloader.getCaseData('total', 'lga', 'vic');
+            this.dataDownloader.getCaseData('total', 'lga', 'nsw');
+            this.dataDownloader.getGeoData('admin_0', '');
+            this.dataDownloader.getGeoData('admin_1', 'au');
+            this.dataDownloader.getGeoData('lga', 'vic');
+            this.dataDownloader.getGeoData('lga', 'nsw');
 
             if (!this.mapContainer) {
                 // Control probably destroyed in the interim!
@@ -189,6 +206,64 @@ class CovidMapControl extends React.Component {
                     return setTimeout(onLoad, 20);
                 }
 
+                // Insert the layer beneath any symbol layer.
+                var layers = map.getStyle().layers;
+
+                var labelLayerId;
+                    for (var i = 0; i < layers.length; i++) {
+                        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+                            labelLayerId = layers[i].id;
+                        break;
+                    }
+                }
+
+                map.addLayer(
+                    {
+                        'id': '3d-buildings',
+                        'source': 'mapbox',
+                        'source-layer': 'building',
+                        'filter': ['==', 'extrude', 'true'],
+                        'type': 'fill-extrusion',
+                        'minzoom': 14,
+                        'paint': {
+                            'fill-extrusion-color': '#aaa',
+
+                            // use an 'interpolate' expression to add a smooth transition effect to the
+                            // buildings as the user zooms in
+                            'fill-extrusion-height': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                14,
+                                0,
+                                15.05,
+                                ['*', ['get', 'height'], 3]
+                            ],
+                            'fill-extrusion-base': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                14,
+                                0,
+                                15.05,
+                                ['*', ['get', 'min_height'], 3]
+                            ],
+                            'fill-extrusion-opacity': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                14.5,
+                                0.0,
+                                15.5,
+                                0.6
+                            ]
+                        }
+                    },
+                    labelLayerId
+                );
+
+                map.setPaintProperty('water', "fill-color", "#9fc4e1");
+
                 const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
                 const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
 
@@ -202,18 +277,19 @@ class CovidMapControl extends React.Component {
                 this.underlayLinePoly = new LinePolyLayer(map, 'underlayLinePoly', UNDERLAY_LINE_POLY_COLOR, 1.0, underlaySource);
 
                 // Add layers for cases
-                this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource);
+                this.hoverStateHelper = new HoverStateHelper(map);
+                this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource, this.hoverStateHelper);
                 //this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
                 this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
-                this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource);
+                this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource, this.hoverStateHelper);
 
                 // Bind events for loading data
-                map.on('move', () => {
-                    this.onMapMoveChange();
-                });
-                map.on('zoom', () => {
-                    this.onMapMoveChange();
-                });
+                //map.on('move', () => {
+                //    this.onMapMoveChange();
+                //});
+                //map.on('zoom', () => {
+                //    this.onMapMoveChange();
+                //});
                 map.on('moveend', () => {
                     this.onMapMoveChange();
                 });
@@ -274,7 +350,10 @@ class CovidMapControl extends React.Component {
      */
     __onMapTimeSlider() {
         let poll = () => {
-            if (this.map.loaded()) {
+            if (!this.map || !this.__mapTimeSlider) {
+                this.__pollingTS = false;
+                return;
+            } else if (this.map.loaded()) {
                 this.__pollingTS = false;
 
                 // Get the date range for the 7/14/21 day controls
@@ -293,7 +372,7 @@ class CovidMapControl extends React.Component {
                     this.prevDataType, this.prevZoomLevel, true
                 );
             } else {
-                setTimeout(poll, 1);
+                return setTimeout(poll, 0);
             }
         };
 
@@ -310,11 +389,14 @@ class CovidMapControl extends React.Component {
 
     __pollForMapChange() {
         let poll = () => {
-            if (this.map.loaded()) {
+            if (!this.map || !this.__mapTimeSlider) {
+                this.__polling = false;
+                return;
+            } else if (!this.__loadInProgress) {
                 this.__polling = false;
                 this.onMapMoveChange();
             } else {
-                setTimeout(poll, 1);
+                setTimeout(poll, 0);
             }
         };
 
@@ -322,7 +404,7 @@ class CovidMapControl extends React.Component {
             return;
         }
         this.__polling = true;
-        setTimeout(poll, 1);
+        setTimeout(poll, 0);
     }
 
     /**
@@ -330,76 +412,84 @@ class CovidMapControl extends React.Component {
      * countries/regions in view, and hide/show as needed!
      */
     async onMapMoveChange() {
-        if (!this.__mapTimeSlider || !this.map || !this.map.loaded()) {
-            return this.__pollForMapChange();
+        if (!this.__mapTimeSlider || !this.map) {
+            return;
+        } else if (this.__loadInProgress) {
+            this.__pollForMapChange();
         }
+        this.__loadInProgress = true;
 
-        /**
-         *
-         * @param possibleSchemas
-         * @returns {Set<unknown>|*}
-         */
-        let filterToISO3166 = (possibleSchemas) => {
-            if (!this.__onlyShowISO_3166_2) {
-                return possibleSchemas
-            }
-            let r = new Set(),
-                iso_3166_2 = this.__onlyShowISO_3166_2.toLowerCase(),
-                iso_3166_a2 = iso_3166_2.split('-')[0];
+        try {
+            /**
+             *
+             * @param possibleSchemas
+             * @returns {Set<unknown>|*}
+             */
+            let filterToISO3166 = (possibleSchemas) => {
+                if (!this.__onlyShowISO_3166_2) {
+                    return possibleSchemas
+                }
+                let r = new Set(),
+                    iso_3166_2 = this.__onlyShowISO_3166_2.toLowerCase(),
+                    iso_3166_a2 = iso_3166_2.split('-')[0];
 
-            for (let key of possibleSchemas.keys()) {
-                if (key === iso_3166_2 ||
-                    key === iso_3166_a2 ||
-                    key.split('-')[0] === iso_3166_2) {
-                    r.add(key);
-                    //console.log("ADDING> "+key)
+                for (let key of possibleSchemas.keys()) {
+                    if (key === iso_3166_2 ||
+                        key === iso_3166_a2 ||
+                        key.split('-')[0] === iso_3166_2) {
+                        r.add(key);
+                        //console.log("ADDING> "+key)
+                    }
+                }
+                return r
+            };
+
+            let zoomLevel = parseInt(this.map.getZoom()), // NOTE ME!!
+                lngLatBounds = LngLatBounds.fromMapbox(this.map.getBounds()),
+                iso3166WithinView = filterToISO3166(
+                    this.dataDownloader.getISO3166WithinView(lngLatBounds)
+                ),
+                schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
+                    zoomLevel, iso3166WithinView
+                ),
+                dataType = this.covidMapControls.getDataType();
+
+            if (this.prevSchemasForCases) {
+                let changed = (
+                    zoomLevel !== this.prevZoomLevel ||
+                    this.dataDownloader.caseDataForZoomAndCoordsChanged(
+                        zoomLevel,
+                        this.prevDataType, this.prevSchemasForCases,
+                        dataType, schemasForCases
+                    )
+                );
+                if (!changed) {
+                    return;
                 }
             }
-            return r
-        };
 
-        let zoomLevel = parseInt(this.map.getZoom()), // NOTE ME!!
-            lngLatBounds = LngLatBounds.fromMapbox(this.map.getBounds()),
-            iso3166WithinView = filterToISO3166(
-                this.dataDownloader.getISO3166WithinView(lngLatBounds)
-            ),
-            schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
-                zoomLevel, iso3166WithinView
-            ),
-            dataType = this.covidMapControls.getDataType();
+            // Get the date range for the 7/14/21 day controls
+            let dateRangeType = null,
+                currentDateType = this.__mapTimeSlider.getValue();
 
-        if (this.prevSchemasForCases) {
-            let changed = (
-                zoomLevel !== this.prevZoomLevel ||
-                this.dataDownloader.caseDataForZoomAndCoordsChanged(
-                    zoomLevel,
-                    this.prevDataType, this.prevSchemasForCases,
-                    dataType, schemasForCases
+            if (this.covidMapControls.getTimePeriod()) {
+                dateRangeType = new DateRangeType(
+                    currentDateType.daysSubtracted(this.covidMapControls.getTimePeriod()),
+                    currentDateType
                 )
-            );
-            if (!changed) {
-                return;
             }
+
+            let dataCollection = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
+                lngLatBounds, dataType, schemasForCases, iso3166WithinView
+            );
+            this.__onMapMoveChange(
+                dataCollection.getAssignedData(dateRangeType, currentDateType),
+                dataType, zoomLevel
+            );
+
+        } finally {
+            this.__loadInProgress = false;
         }
-
-        // Get the date range for the 7/14/21 day controls
-        let dateRangeType = null,
-            currentDateType = this.__mapTimeSlider.getValue();
-
-        if (this.covidMapControls.getTimePeriod()) {
-            dateRangeType = new DateRangeType(
-                currentDateType.daysSubtracted(this.covidMapControls.getTimePeriod()),
-                currentDateType
-            )
-        }
-
-        let dataCollection = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
-            lngLatBounds, dataType, schemasForCases, iso3166WithinView
-        );
-        this.__onMapMoveChange(
-            dataCollection.getAssignedData(dateRangeType, currentDateType),
-            dataType, zoomLevel
-        );
     }
 
     /**
@@ -412,14 +502,7 @@ class CovidMapControl extends React.Component {
     __onMapMoveChange(geoData, dataType, zoomLevel, noUpdateEvent) {
         if (!this.map || !this.__mapTimeSlider) {
             // React JS likely destroyed the elements in the interim
-            if (this.__unmounted) {
-                this.__mapMovePending = false;
-                return;
-            } else {
-                return setTimeout(() => {
-                    this.__onMapMoveChange(geoData, dataType, zoomLevel, noUpdateEvent)
-                }, 20);
-            }
+            return;
         } else {
             // Update the sources
             this.clusteredCaseSource.setData(
@@ -465,8 +548,6 @@ class CovidMapControl extends React.Component {
                     marker.hide();
                 }
             }
-
-            this.__mapMovePending = false;
         }
 
         if (!noUpdateEvent && this.props.onGeoDataChanged) {

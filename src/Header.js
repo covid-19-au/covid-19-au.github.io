@@ -7,6 +7,13 @@ import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { A } from "hookrouter";
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRss, faShareAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+
 
 export default function Header({ province }) {
 
@@ -16,54 +23,23 @@ export default function Header({ province }) {
         setShowSocialMediaIcons(state);
     };
 
-    const changeLanguage = code => e => {
+    const changeLanguage = code => {
         localStorage.setItem('language', code);
         window.location.reload();
     };
 
-    const BootstrapInput = withStyles((theme) => ({
-        root: {
-            'label + &': {
-                marginTop: theme.spacing(3),
-            },
-        },
-        input: {
-            borderRadius: 4,
-            position: 'relative',
-            backgroundColor: "transparent",
-            border: 'none',
-            fontSize: 16,
-            transition: theme.transitions.create(['border-color', 'box-shadow']),
-            // Use the system font instead of the default Roboto font.
-
-        },
-    }))(InputBase);
-
-    const [state, setState] = React.useState({
-        lang: ""
-    });
-
-    const handleChange = (event) => {
-        const name = event.target.name;
-        setState({
-            ...state,
-            [name]: event.target.value,
-        });
-        changeLanguage(event.target.value)
-
+    const [anchorEl, setAnchorEl] = React.useState(
+        null
+    );
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
     };
-
-    const useStyles = makeStyles((theme) => ({
-        margin: {
-            margin: theme.spacing(1),
-        },
-    }));
-
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     return (
         <header>
-
-
             <div className="bg"></div>
             <h1
                 style={{
@@ -74,7 +50,8 @@ export default function Header({ province }) {
                 }}
             >
                 COVID-19 in Australia
-      </h1>
+            </h1>
+
             <h1
                 style={{
                     fontSize: "180%",
@@ -84,8 +61,7 @@ export default function Header({ province }) {
                 }}
             >
                 Real-Time Report
-
-      </h1>
+            </h1>
 
             <div className="slogan"><i>Stay Calm, Stay Informed</i></div>
 
@@ -102,53 +78,85 @@ export default function Header({ province }) {
                 <a onClick={() => {
                     ReactGA.event({ category: 'Header', action: "share" });
                     setModalVisibility(true)
-                }}><i className="fas fa-share-alt"></i></a>
+                }}><FontAwesomeIcon icon={faShareAlt} /></a>
 
-                <a style={{ marginLeft: '0.8rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "twitter" }) }} href="https://twitter.com/covid19augithub"><i style={{ fontSize: "2rem" }} className="fab fa-twitter"></i></a>
-                <a style={{ marginLeft: '0.8rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "instagram" }) }} href="https://www.instagram.com/covid19_au/"><i style={{ fontSize: "2rem" }} className="fab fa-instagram"></i></a>
-                <a style={{ marginLeft: '0.8rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }} href="https://www.facebook.com/covid19au.github/"><i style={{ fontSize: "2rem" }} className="fab fa-facebook"></i></a>
-                <A className={window.location.pathname === '/blog' ? 'navCurrentPage' : ''} style={{ marginLeft: '4rem' }} target="_blank" rel="noopener noreferrer" onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }} href="/blog"><i style={{ fontSize: "2rem" }} className="fas fa-rss"></i><span style={{fontSize: "0.7em", display: "inline-block", verticalAlign: "-4%", paddingLeft: "6px", color: "#EEE"}}>blog</span></A>
-                {/*} <br />
-                <LanguageIcon style={{ fontSize: "2rem", marginRight: "0.5rem", marginLeft: "1rem" }} />
-                <Select
-                    labelId="demo-customized-select-label"
-                    id="demo-customized-select"
-                    native
-                    value={state.lang}
-                    onChange={(event) => changeLanguage(event.target.value)}
-                    style={{ textTransform: "none", color: "white", border: "none", borderRadius: "5px", fontSize: "1.2rem", fontWeight: "500" }}
-                    IconComponent={() => (
-                        <div style={{ margin: "0px" }} />
-                    )}
-                    input={<BootstrapInput />}
-                >
+                <a style={{ marginLeft: '0.8rem' }}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   onClick={() => { ReactGA.event({ category: 'Header', action: "twitter" }) }}
+                   href="https://twitter.com/covid19augithub"><FontAwesomeIcon style={{ fontSize: "2rem" }}
+                                                                               icon={faTwitter} /></a>
+                <a style={{ marginLeft: '0.8rem' }}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   onClick={() => { ReactGA.event({ category: 'Header', action: "instagram" }) }}
+                   href="https://www.instagram.com/covid19_au/"><FontAwesomeIcon style={{ fontSize: "2rem" }}
+                                                                                 icon={faInstagram} /></a>
+                <a style={{ marginLeft: '0.8rem' }}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }}
+                   href="https://www.facebook.com/covid19au.github/"><FontAwesomeIcon style={{ fontSize: "2rem" }}
+                                                                                      icon={faFacebook} /></a>
+                <A className={window.location.pathname === '/blog' ? 'navCurrentPage' : ''}
+                   style={{ marginLeft: '4rem' }}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   onClick={() => { ReactGA.event({ category: 'Header', action: "github" }) }}
+                   href="/blog">
+                    <FontAwesomeIcon style={{ fontSize: "2rem" }}
+                                     icon={faRss} />
+                    <span style={{
+                        fontSize: "0.7em",
+                        display: "inline-block",
+                        verticalAlign: "-4%",
+                        paddingLeft: "6px",
+                        color: "#EEE"
+                    }}>blog</span></A>
 
-                    >
-                    <option value='en'>English</option>
-                    <option value='es'>Español</option>
-                </Select>*/}
-                <div className="dropdown">
-                    <Button variant="outlined" size="medium" data-toggle="dropdown" style={{ textTransform: "none", color: "white", border: "none", borderRadius: "5px", fontSize: "1.2rem", fontWeight: "500" }} startIcon={<LanguageIcon style={{ fontSize: "1.8rem" }} />}>{i18next.t("nav:lang")}</Button>
-                    {/* <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "transparent", border: "1px solid white", borderRadius: "5px", outline: "none", padding: "5px", marginTop: "0.1rem", marginBottom: 0 }}>
+                <div className="dropdown" style={{position: "relative"}}>
+                    <Button variant="outlined"
+                            size="medium"
+                            data-toggle="dropdown"
+                            onClick={(e) => handleClick(e)}
+                            style={{
+                                textTransform: "none",
+                                color: "white",
+                                border: "none",
+                                borderRadius: "5px",
+                                fontSize: "1.2rem",
+                                fontWeight: "500"
+                            }}
+                            startIcon={
+                                <LanguageIcon style={{ fontSize: "1.8rem" }} />
+                            }>
                         {i18next.t("nav:lang")}
-                    </button> */}
+                    </Button>
 
-                    <div className="dropdown-menu" >
-                        <a className="dropdown-item" onClick={changeLanguage('en')}>English</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" onClick={changeLanguage('es')}>Español</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" onClick={changeLanguage('vi')}>Tiếng Việt</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" onClick={changeLanguage('zh')}>简体中文</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" onClick={changeLanguage('tw')}>繁體中文</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" onClick={changeLanguage('ko')}>한국어</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" onClick={changeLanguage('ja')}>日本語</a>
-                    </div>
+                    <Menu
+                        id="simple-menu"
+                        getContentAnchorEl={null}
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'center',
+                        }}
+                    >
+                        <MenuItem onClick={e => {changeLanguage('en'); handleClose(e)}}>English</MenuItem>
+                        <MenuItem onClick={e => {changeLanguage('es'); handleClose(e)}}>Español</MenuItem>
+                        <MenuItem onClick={e => {changeLanguage('vi'); handleClose(e)}}>Tiếng Việt</MenuItem>
+                        <MenuItem onClick={e => {changeLanguage('zh'); handleClose(e)}}>简体中文</MenuItem>
+                        <MenuItem onClick={e => {changeLanguage('tw'); handleClose(e)}}>繁體中文</MenuItem>
+                        <MenuItem onClick={e => {changeLanguage('ko'); handleClose(e)}}>한국어</MenuItem>
+                        <MenuItem onClick={e => {changeLanguage('ja'); handleClose(e)}}>日本語</MenuItem>
+                    </Menu>
                 </div>
             </div>
 

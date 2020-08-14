@@ -37,10 +37,12 @@ class CasesFillPolyLayer {
      * @param uniqueId a unique ID for the MapBox GL layer
      * @param mapBoxSource a MapBoxSource instance
      */
-    constructor(map, uniqueId, mapBoxSource) {
+    constructor(map, uniqueId, mapBoxSource, hoverStateHelper) {
         this.map = map;
         this.uniqueId = uniqueId;
         this.mapBoxSource = mapBoxSource;
+        this.hoverStateHelper = hoverStateHelper;
+        this.hoverStateHelper.associateSourceId(mapBoxSource.getSourceId());
 
         this.__casesPopup = new CasesPopup(map, this.uniqueId + 'fillpoly', this.mapBoxSource);
 
@@ -61,10 +63,26 @@ class CasesFillPolyLayer {
             {
                 id: this.uniqueId+'fillpoly',
                 type: 'fill',
-                source: this.mapBoxSource.getSourceId()
+                source: this.mapBoxSource.getSourceId(),
+                paint: {
+                    'fill-antialias': true,
+                    'fill-outline-color': [
+                        'case',
+                        ['boolean', ['feature-state', 'hover'], false],
+                        'rgba(0, 0, 0, 0.9)',
+                        'rgba(100, 100, 100, 0.4)'
+                    ],
+                    'fill-opacity': [
+                        'case',
+                        ['boolean', ['feature-state', 'hover'], false],
+                        0.6,
+                        FILL_OPACITY
+                    ]
+                }
             },
             lastFillLayer
         );
+        this.hoverStateHelper.associateLayerId(this.uniqueId+'fillpoly');
 
         this.__casesPopup.enablePopups();
     }
@@ -100,16 +118,17 @@ class CasesFillPolyLayer {
         let caseVals = this.mapBoxSource.getPointsAllVals(),
             circleColor = getMapBoxCaseColors(
                 [255, 222, 207, 0.5], [231, 34, 0, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(182,0,15)',
-                [0,80,0,1.0], [0,80,0,0.4],
+                'rgba(0, 0, 0, 0.0)', 'rgb(182, 0, 15)',
+                [0, 80, 0, 0.4], [0, 80, 0, 1.0],
                 caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
             );
 
         this.map.setPaintProperty(
-            this.uniqueId + 'fillpoly', 'fill-opacity', FILL_OPACITY
-        );
-        this.map.setPaintProperty(
-            this.uniqueId + 'fillpoly', 'fill-color', circleColor
+            this.uniqueId + 'fillpoly', 'fill-color', [
+                "interpolate", ["linear"], ["zoom"],
+                13.0, circleColor,
+                15.0, "rgba(0, 0, 0, 0)"
+            ]
         );
 
         this.__shown = true;

@@ -20,10 +20,10 @@ import i18next from "../i18n";
 import stateCaseData from "../data/stateCaseData";
 import UpdatedDateFns from "./UpdatedDateFns";
 import provinces from "../data/area";
+import GoogleMap from "./GoogleMap";
 
 
 const provincesByName = keyBy(provinces, "name");
-const GoogleMap = React.lazy(() => import("./GoogleMap"));
 
 
 export default function HomePage({

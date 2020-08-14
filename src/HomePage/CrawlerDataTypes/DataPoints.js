@@ -291,7 +291,7 @@ class DataPoints extends Array {
                 numVals++;
             }
 
-            r.push(new DataPoint(highestDate, totalVal/numVals));
+            r.push(new DataPoint(highestDate, Math.round(totalVal/numVals))); // NOTE ME!!!! ==================
         }
 
         return new DataPoints(
