@@ -5,13 +5,11 @@ import ausPop from '../data/ausPop'
 import Acknowledgement from "../Acknowledgment"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import Radio from '@material-ui/core/Radio';
 import Tooltip from '@material-ui/core/Tooltip';
-import RadioGroup from '@material-ui/core/RadioGroup';
 
-import { Chart } from "react-google-charts";
 // import i18n bundle
 import i18next from '../i18n';
+import GoogleMapDropin from "./GoogleMapDropin";
 
 function GoogleMap({ province, newData }) {
     // Colour gradients for the map: https://material.io/design/color/#tools-for-picking-colors
@@ -42,6 +40,7 @@ function GoogleMap({ province, newData }) {
         '#FFEE58',
         '#FDD835'
     ];
+
     const [loading, setLoading] = useState(true);
     const [mapType, setMapType] = useState('active-cases');
     const [mapGradient, setMapGradient] = useState(redGradient);
@@ -64,7 +63,7 @@ function GoogleMap({ province, newData }) {
             "QLD": "AU-QLD",
             "SA": "AU-SA",
             "TAS": "AU-TAS",
-        }
+        };
 
         // Set the hover label and colour gradient
         let label = "";
@@ -86,7 +85,7 @@ function GoogleMap({ province, newData }) {
                 setMapGradient(redGradient);
                 break;
             case 'tested':
-                label = "Tested"
+                label = "Tested";
                 setMapGradient(blueGradient);
                 break;
             case 'relative-tests':
@@ -98,7 +97,13 @@ function GoogleMap({ province, newData }) {
                 setMapGradient(blueGradient);
                 break;
         }
-        let temp = mapType === "test-strike" ? [["state", label, { role: 'tooltip' }]] : [["state", label]];
+
+        let temp;
+        if (mapType === "test-strike") {
+            temp = [["state", label, { role: 'tooltip' }]];
+        } else {
+            temp = [["state", label]];
+        }
 
         // Set data values
         for (let i = 0; i < newData.length; i++) {
@@ -133,13 +138,32 @@ function GoogleMap({ province, newData }) {
                     value = newData[i][5];
                     break;
             }
-            // Don't include if there's no data
-            if (value === "N/A") { continue; }
 
-            // v: Tooltip text, f: ISO region code
-            mapType === 'test-strike' ?
-                temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseFloat(value), "Test Positive Rate: " + parseFloat(value) + '%']) :
-                temp.push([{ v: translate[newData[i][0]], f: newData[i][0] }, parseFloat(value)]);
+            // Don't include if there's no data
+            if (value === "N/A") {
+                continue;
+            }
+
+            let isoRegionCode = newData[i][0];
+            if (mapType === 'test-strike') {
+                // v: Tooltip text, f: ISO region code
+                temp.push([
+                    {
+                        v: translate[isoRegionCode],
+                        f: isoRegionCode
+                    },
+                    parseFloat(value),
+                    "Test Positive Rate: " + parseFloat(value) + '%'
+                ]);
+            } else {
+                temp.push([
+                    {
+                        v: translate[isoRegionCode],
+                        f: isoRegionCode
+                    },
+                    parseFloat(value)
+                ]);
+            }
         }
 
         setMyData(temp)
@@ -157,14 +181,6 @@ function GoogleMap({ province, newData }) {
             resolution: 'provinces'
         }
     };
-
-    // const toggleData = (value) => {
-    //     setMapType(value);
-    //     ReactGA.event({ category: 'casesMap', action: value});
-    //
-    // }
-
-
 
     const activeStyles = {
         color: 'black',
@@ -262,7 +278,7 @@ function GoogleMap({ province, newData }) {
                 </ButtonGroup>
 
 
-                <Chart
+                <GoogleMapDropin
                     width={window.innerWidth < 960 ? '100%' : 'auto'}
                     height="28vh"
                     left="auto"

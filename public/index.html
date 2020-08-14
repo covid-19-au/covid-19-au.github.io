@@ -41,11 +41,13 @@
     -->
 
     <title>COVID-19 Case Tracker Australia</title>
-    <script>document.write("<script type='text/javascript' src='https://visitorshitcounter.com/js/hitCounter.js?v="+Date.now()+"'><\/script>");</script>
+    <!--<link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>-->
+
+    <script>document.write("<script async type='text/javascript' src='https://visitorshitcounter.com/js/hitCounter.js?v="+Date.now()+"'><\/script>");</script>
     <script>
-      $(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-      });
+      document.onload = function() {
+        document.querySelectorAll('[data-toggle="tooltip"]').forEach(el => el.tooltip());
+      };
     </script>
   </head>
   <body>
