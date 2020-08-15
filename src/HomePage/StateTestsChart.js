@@ -8,9 +8,6 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 // import i18n bundle
 import i18next from '../i18n';
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Paper from "@material-ui/core/Paper";
 
 import stateData from "../data/state.json"
 import stateColours from "./stateColours";
@@ -48,23 +45,7 @@ class StateTestsChart extends React.Component {
         };
 
         return (
-            <div className="card">
-                <h2>{i18next.t("homePage:stateComparisons.title")}</h2>
-
-                <Paper>
-                    <Tabs
-                     value={this.state.mode}
-                     indicatorColor="primary"
-                     textColor="primary"
-                     onChange={(e, newValue) => this.setMode(newValue)}
-                     ref={(el) => this.visTabs = el}
-                     centered
-                    >
-                        <Tab label="Tests" value="total" />
-                        <Tab label="Tests %" value="total_pc" />}
-                    </Tabs>
-                </Paper>
-
+            <>
                 <ReactEchartsCore
                     echarts={echarts}
                     style={{
@@ -115,7 +96,7 @@ class StateTestsChart extends React.Component {
                         </a>
                     </span>
                 </span>
-            </div>
+            </>
         );
     }
 
@@ -297,15 +278,17 @@ class StateTestsChart extends React.Component {
             while (j < testedDataFinal[orderedStates[i]].length) {
                 let newLine = {
                     name: i18next.t("homePage:state." + orderedStates[i]),
-                    type: 'bar',
-                    stack: 'two',
-                    //sampling: 'average',
-                    //showSymbol: false,
+                    type: 'line',
                     symbol: 'circle',
+                    //stack: this.__logScale ? null : 'one',
+                    //areaStyle: this.__logScale ? null : {},
+                    smooth: true,
+                    sampling: 'average',
+                    animation: false,
+                    data: testedDataFinal[orderedStates[i]][j],
                     itemStyle: {
                         color: stateColours[orderedStates[i]]
                     },
-                    data: testedDataFinal[orderedStates[i]][j],
                     tooltip: {
                         trigger: "none"
                     }
@@ -317,27 +300,36 @@ class StateTestsChart extends React.Component {
             i = i + 1;
         }
 
+        i = 0;
+        while (i < orderedStates.length) {
+            let dottedLine = {
+                name: i18next.t("homePage:state." + orderedStates[i]),
+                type: 'line',
+                symbol: 'circle',
+                animation: false,
+                data: testedData[i],
+                itemStyle: {
+                    color: stateColours[orderedStates[i]]
+                },
+                lineStyle: {
+                    type: "dotted"
+                }
+            };
+            lineSeries.push(dottedLine);
+            i += 1;
+        }
+
         this.setState({
             logScale: this.__logScale,
             option: {
+                animation: false,
                 grid: [
                     {
-                        bottom: '7%',
+                        top: '40px',
+                        bottom: '40px',
                         containLabel: true,
                         left: 0,
-                        right: "5%",
-                        top: '12%'
-                    }
-                ],
-                title: [
-                    {
-                        text: i18next.t("homePage:status.testConducted"),
-                        left: '5%',
-                        top: '7%',
-                        textStyle: {
-                            fontWeight: "bold",
-                            fontSize: 12
-                        }
+                        right: 0,
                     }
                 ],
                 tooltip: {
@@ -359,19 +351,18 @@ class StateTestsChart extends React.Component {
                 yAxis: [
                     {
                         type: yAxisType,
-                        min: this.__logScale ? 100 : 0
+                        min: this.__logScale ? 1 : 0
                     }
                 ],
                 xAxis: [{
                     type: "category",
                     data: testedDates
-
                 }],
                 dataZoom: [
                     {
                         type: 'inside',
                         start: startTested,
-                        end: 100,
+                        end: 100
                     },
                     {
                         start: 0,
@@ -385,7 +376,7 @@ class StateTestsChart extends React.Component {
                             shadowOffsetX: 2,
                             shadowOffsetY: 2
                         },
-                        bottom: "46.5%",
+                        bottom: "0%",
                         left: "center"
                     }
                 ],

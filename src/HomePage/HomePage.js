@@ -14,11 +14,9 @@ import all from "../data/overall";
 
 import OverallTrend from "./OverallTrend";
 import StateCasesChart from "./StateCasesChart";
-import Ships from "./Ships";
+import StateTestsChart from "./StateTestsChart";
 import Acknowledgement from "../Acknowledgment";
 import i18next from "../i18n";
-import stateCaseData from "../data/stateCaseData";
-import UpdatedDateFns from "./UpdatedDateFns";
 import provinces from "../data/area";
 import GoogleMap from "./GoogleMap";
 
@@ -93,33 +91,36 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Active</h2>
-                    <StateCasesChart valueType="active" />
-                </div>
-                <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Totals</h2>
-                    <StateCasesChart valueType="total" />
+                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active and Totals</h2>
+                    <StateCasesChart valueTypes={["active", "total"]} />
                 </div>
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Deaths</h2>
-                    <StateCasesChart valueType="deaths" />
+                    <h2 style={{ display: "flex" }} aria-label="In hospital or ICU due to COVID 19">In Hospital or ICU</h2>
+                    <StateCasesChart valueTypes={["in_hospital", "in_icu"]} />
                 </div>
+            </Grid>
+
+            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">In Hospital</h2>
-                    <StateCasesChart valueType="in_hospital" />
+                    <h2 style={{ display: "flex" }} aria-label="Deaths due to COVID 19">Deaths</h2>
+                    <StateCasesChart valueTypes={["deaths"]} />
                 </div>
+            </Grid>
+
+            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">In ICU</h2>
-                    <StateCasesChart valueType="in_icu" />
+                    <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tests Performed</h2>
+                    <StateTestsChart />
                 </div>
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <EChartGlobalLog />
             </Grid>
+
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <Flights flights={flights} />
                 {/*<Ships />*/}

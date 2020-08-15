@@ -51,7 +51,7 @@ class GoogleMapDropin extends React.Component {
                             out.push(
                                 <ReactTooltip id={dataItem[0].f}>
                                     { dataItem[2] || <>
-                                        <div style={{fontSize: "1.3em", textAlign: "center"}}>{dataItem[0].f}</div>
+                                        <div style={{fontSize: "1.2em", textAlign: "center"}}>{dataItem[0].f}</div>
                                         <div style={{fontSize: "1.2em"}}>{this.props.data[0][1]}: {dataItem[1]}</div>
                                     </> }
                                 </ReactTooltip>
@@ -122,7 +122,6 @@ class GoogleMapDropin extends React.Component {
         ref.current.setAttribute("stroke", '#555');
         ref.current.setAttribute("stroke-width", '2px');
         ref.current.setAttribute("stroke-linecap", "round");
-        ref.current.setAttribute("stroke-dasharray", "15,5");
 
         this.triangleIndicator.style.left = Math.round(200*(value/this.maxVal))-10+'px';
         this.triangleIndicator.style.display = 'block';
@@ -132,7 +131,6 @@ class GoogleMapDropin extends React.Component {
         ref.current.setAttribute("stroke", '#e5ccd4');
         ref.current.setAttribute("stroke-width", '1px');
         ref.current.setAttribute("stroke-linecap", "butt");
-        ref.current.setAttribute("stroke-dasharray", "none");
 
         this.triangleIndicator.style.display = 'none';
     }

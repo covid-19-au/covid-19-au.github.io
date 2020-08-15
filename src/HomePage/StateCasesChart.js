@@ -31,11 +31,15 @@ class StateCasesChart extends React.Component {
     constructor(props) {
         super(props);
 
-        if (!props.valueType) {
-            throw "valueType must be supplied!";
+        if (!props.valueTypes) {
+            throw "valueTypes must be supplied!";
         }
-        this.state = {};
+        this.state = {
+            valueType: props.valueTypes[0]
+        };
+        this.__valueType = props.valueTypes[0];
         this.__logScale = false;
+        this.__currentKey = 0;
     }
 
     /*******************************************************************
@@ -63,29 +67,48 @@ class StateCasesChart extends React.Component {
 
         return (
             <>
+                <Paper style={{
+                    display: this.props.valueTypes.length <= 1 ? "none" : "block",
+                    marginBottom: "20px"
+                }}>
+                    <Tabs
+                     value={this.state.valueType}
+                     indicatorColor="primary"
+                     textColor="primary"
+                     onChange={(e, newValue) => this.setValueType(newValue)}
+                     centered
+                    >
+                        {
+                            this.props.valueTypes.map(valueType => {
+                                return <Tab label={valueType.replace('_', ' ')} value={valueType} />;
+                            })
+                        }
+                    </Tabs>
+                </Paper>
+
                 <ReactEchartsCore
+                    key={this.__currentKey++}
                     echarts={echarts}
                     style={{
-                        height: "28vh"
+                        height: "28vh",
+                        width: this.state.sizeHack ? "auto" : "100%"
                     }}
                     option={this.state.option}
                 />
 
                 <span className="due">
-                    {/*
                     <span className="key"><p>{i18next.t("homePage:chartCommon.clickLegend")}</p></span><br />
                     <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
-                    <span className="key"><p>{i18next.t("homePage:chartCommon.dottedLine")}</p></span><br />
-                    */}
+
                     <span className="key" style={{ marginTop: "0.5rem" }}>
 
                         Logarithmic Scale:&nbsp;
                         <ButtonGroup size="small" aria-label="small outlined button group">
+                            <Button style={this.state.logScale ? inactiveStyles : activeStyles}
+                                    onClick={() => this.setLogScale(false)}>Off</Button>
                             <Button style={this.state.logScale ? activeStyles : inactiveStyles}
                                     disableElevation={true}
                                     onClick={() => this.setLogScale(true)}>On</Button>
-                            <Button style={this.state.logScale ? inactiveStyles : activeStyles}
-                                    onClick={() => this.setLogScale(false)}>Off</Button>
                         </ButtonGroup>
                         <a
                             style={{
@@ -120,6 +143,11 @@ class StateCasesChart extends React.Component {
     }
 
     componentDidMount() {
+        this.__updateSeriesData();
+    }
+
+    setValueType(valueType) {
+        this.__valueType = valueType;
         this.__updateSeriesData();
     }
 
@@ -177,7 +205,7 @@ class StateCasesChart extends React.Component {
         for (let day in stateData) {
             let arr = day.split("-");
             const cases = stateData[day];
-            instances.push(cases[state][valuesMap[this.props.valueType]]);
+            instances.push(cases[state][valuesMap[this.__valueType]]);
         }
         return instances;
     }
@@ -229,44 +257,29 @@ class StateCasesChart extends React.Component {
         // Add dotted+solid lines for confirmed cases
         let i = 0;
         while (i < orderedStates.length) {
-            let dottedLine = {
-                name: i18next.t("homePage:state." + orderedStates[i]),
-                type: 'line',
-                symbol: 'circle',
-                stack: 'one',
-                areaStyle: {},
-                data: caseData[i],
-                itemStyle: {
-                    color: stateColours[orderedStates[i]]
-                },
-                lineStyle: {
-                    type: "dotted"
-                }
-            };
-
             let confirmedLine = {
                 name: i18next.t("homePage:state." + orderedStates[i]),
                 type: 'line',
                 symbol: 'circle',
-                stack: 'one',
-                areaStyle: {},
+                stack: this.__logScale ? null : 'one',
+                areaStyle: this.__logScale ? null : {},
                 smooth: true,
                 sampling: 'average',
+                animation: false,
                 data: caseData[i],
                 itemStyle: {
                     color: stateColours[orderedStates[i]]
                 },
             };
-
-            //lineSeries.push(dottedLine);
             lineSeries.push(confirmedLine);
-
             i = i + 1;
         }
 
         this.setState({
             logScale: this.__logScale,
+            valueType: this.__valueType,
             option: {
+                animation: false,
                 grid: [
                     {
                         top: '40px',
