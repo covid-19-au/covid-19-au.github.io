@@ -13,12 +13,10 @@ import country from "../data/country";
 import all from "../data/overall";
 
 import OverallTrend from "./OverallTrend";
-import StateComparisonChart from "./StateComparisonChart";
-import Ships from "./Ships";
+import StateCasesChart from "./StateCasesChart";
+import StateTestsChart from "./StateTestsChart";
 import Acknowledgement from "../Acknowledgment";
 import i18next from "../i18n";
-import stateCaseData from "../data/stateCaseData";
-import UpdatedDateFns from "./UpdatedDateFns";
 import provinces from "../data/area";
 import GoogleMap from "./GoogleMap";
 
@@ -54,7 +52,6 @@ export default function HomePage({
                 </div>
 
                 <div className="card">
-                  <Suspense fallback={<div className="loading">Loading...</div>}>
                     <GoogleMap
                       province={province}
                       data={data}
@@ -67,7 +64,6 @@ export default function HomePage({
                       newData={myData}
                     />
                     <Area area={area} onChange={setProvince} data={myData} />
-                  </Suspense>
                 </div>
             </Grid>
 
@@ -92,13 +88,71 @@ export default function HomePage({
 
                 <OverallTrend />
             </Grid>
+
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                <StateComparisonChart />
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active and Total<div
+                        style={{
+                            alignSelf: "flex-end",
+                            marginLeft: "auto",
+                            fontSize: "60%"
+                        }}>
+                        <Acknowledgement>
+                        </Acknowledgement>
+                    </div></h2>
+                    <StateCasesChart valueTypes={["active", "total"]} />
+                </div>
+            </Grid>
+
+            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="In hospital or ICU due to COVID 19">In Hospital/ICU<div
+                        style={{
+                            alignSelf: "flex-end",
+                            marginLeft: "auto",
+                            fontSize: "60%"
+                        }}>
+                        <Acknowledgement>
+                        </Acknowledgement>
+                    </div></h2>
+                    <StateCasesChart valueTypes={["in_hospital", "in_icu"]} />
+                </div>
+            </Grid>
+
+            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="Deaths due to COVID 19">Deaths<div
+                        style={{
+                            alignSelf: "flex-end",
+                            marginLeft: "auto",
+                            fontSize: "60%"
+                        }}>
+                        <Acknowledgement>
+                        </Acknowledgement>
+                    </div></h2>
+                    <StateCasesChart valueTypes={["deaths"]} />
+                </div>
+            </Grid>
+
+            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tested<div
+                        style={{
+                            alignSelf: "flex-end",
+                            marginLeft: "auto",
+                            fontSize: "60%"
+                        }}>
+                        <Acknowledgement>
+                        </Acknowledgement>
+                    </div></h2>
+                    <StateTestsChart />
+                </div>
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <EChartGlobalLog />
             </Grid>
+
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <Flights flights={flights} />
                 {/*<Ships />*/}

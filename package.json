@@ -97,6 +97,7 @@
     "react-scroll": "^1.7.16",
     "react-share": "4.1.0",
     "react-table": "^7.0.0",
+    "react-tooltip": "^4.2.8",
     "react-twitter-embed": "^3.0.3",
     "react-uuid": "^1.0.2",
     "resolve": "1.12.2",
