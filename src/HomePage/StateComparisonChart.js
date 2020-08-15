@@ -2,12 +2,16 @@ import React from "react";
 import ReactEchartsCore from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
+import 'echarts/lib/component/title';
 
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import stateData from "../data/state.json"
 // import i18n bundle
 import i18next from '../i18n';
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Paper from "@material-ui/core/Paper";
 
 
 class StateComparisonChart extends React.Component {
@@ -24,10 +28,9 @@ class StateComparisonChart extends React.Component {
             "ACT": "#edbd64",
             "NT": "#ed7d51"
         };
-        this.state = {
-            yAxisType: "value",
-            logScale: false,
-        };
+
+        this.state = {};
+        this.__logScale = false;
     }
 
     /*******************************************************************
@@ -56,6 +59,22 @@ class StateComparisonChart extends React.Component {
         return (
             <div className="card">
                 <h2>{i18next.t("homePage:stateComparisons.title")}</h2>
+
+                <Paper>
+                    <Tabs
+                     value={this.state.mode}
+                     indicatorColor="primary"
+                     textColor="primary"
+                     onChange={(e, newValue) => this.setMode(newValue)}
+                     ref={(el) => this.visTabs = el}
+                     centered
+                    >
+                        <Tab label="Active" value="active" />}
+                        <Tab label="Active %" value="active_pc" />
+                        <Tab label="Total" value="total" />
+                        <Tab label="Total %" value="total_pc" />}
+                    </Tabs>
+                </Paper>
 
                 <ReactEchartsCore
                     echarts={echarts}
@@ -120,9 +139,8 @@ class StateComparisonChart extends React.Component {
      *******************************************************************/
 
     setLogScale(logScale) {
-        this.setState({
-            logScale: logScale
-        });
+        this.__logScale = logScale;
+        this.__updateSeriesData();
     }
 
     /**
@@ -161,16 +179,19 @@ class StateComparisonChart extends React.Component {
      */
     getCaseData(stateData, states) {
         // Map each state into its series
-        return states.map(state =>this.__getCaseData(stateData, state));
+        return states.map(state => this.__getCaseData(stateData, state));
     }
 
     __getCaseData(stateData, state) {
         let instances = [];
 
+        const TOTAL_IDX = 0;
+        const ACTIVE_IDX = 1;
+
         for (let day in stateData) {
             let arr = day.split("-");
             const cases = stateData[day];
-            instances.push(cases[state][0]);
+            instances.push(cases[state][ACTIVE_IDX]);
         }
         return instances;
     }
@@ -320,7 +341,7 @@ class StateComparisonChart extends React.Component {
      *******************************************************************/
 
     __updateSeriesData() {
-        let yAxisType = this.state.logScale ? 'log' : null;
+        let yAxisType = this.__logScale ? 'log' : 'value';
         let orderedStates = this.getSortedStates(stateData);
 
         // Get case data
@@ -332,14 +353,14 @@ class StateComparisonChart extends React.Component {
         let testedDates = this.getTestedDates(stateData);
         let testedDataFinal = this.getTestedDataSet(testedData, orderedStates);
 
-        // Graph initial start point (2 weeks)
-        let startCase = parseInt(100 - (14 / caseDates.length * 100));
-        let startTested = parseInt(100 - (14 / testedDates.length * 100));
+        // Graph initial start point (4 weeks)
+        let startCase = parseInt(100 - (28 / caseDates.length * 100));
+        let startTested = parseInt(100 - (28 / testedDates.length * 100));
 
         // List of lines to pass into "series" option
         let lineSeries = [];
 
-        // Add solid lines
+        // Add solid lines for tested data
         let i = 0;
         while (i < orderedStates.length) {
             let j = 0;
@@ -347,9 +368,11 @@ class StateComparisonChart extends React.Component {
             while (j < testedDataFinal[orderedStates[i]].length) {
                 let newLine = {
                     name: i18next.t("homePage:state." + orderedStates[i]),
-                    type: 'line',
-                    sampling: 'average',
-                    showSymbol: false,
+                    type: 'bar',
+                    stack: 'two',
+                    //sampling: 'average',
+                    //showSymbol: false,
+                    symbol: 'circle',
                     itemStyle: {
                         color: this.stateColours[orderedStates[i]]
                     },
@@ -365,40 +388,46 @@ class StateComparisonChart extends React.Component {
             i = i + 1;
         }
 
-        // Add Dotted Lines and confirmed cases
+        // Add dotted+solid lines for confirmed cases
         i = 0;
         while (i < orderedStates.length) {
-            let dottedLine = {
+            /*let dottedLine = {
                 name: i18next.t("homePage:state." + orderedStates[i]),
-                type: 'line',
+                type: 'bar',
+                symbol: 'circle',
+                stack: 'one',
+                data: testedData[i],
                 itemStyle: {
                     color: this.stateColours[orderedStates[i]]
                 },
-                data: testedData[i],
                 lineStyle: {
                     type: "dotted"
                 }
-            };
+            };*/
 
             let confirmedLine = {
                 name: i18next.t("homePage:state." + orderedStates[i]),
-                type: 'line',
+                type: 'bar',
+                symbol: 'circle',
                 smooth: true,
                 sampling: 'average',
+                stack: 'one',
+                data: caseData[i],
+                xAxisIndex: 1,
+                yAxisIndex: 1,
                 itemStyle: {
                     color: this.stateColours[orderedStates[i]]
                 },
-                data: caseData[i],
-                xAxisIndex: 1, yAxisIndex: 1
             };
 
-            lineSeries.push(dottedLine);
+            //lineSeries.push(dottedLine);
             lineSeries.push(confirmedLine);
 
             i = i + 1;
         }
 
         this.setState({
+            logScale: this.__logScale,
             option: {
                 grid: [
                     {
@@ -455,11 +484,11 @@ class StateComparisonChart extends React.Component {
                 yAxis: [
                     {
                         type: yAxisType,
-                        min: this.state.logScale ? 100 : 0
+                        min: this.__logScale ? 100 : 0
                     },
                     {
                         type: yAxisType,
-                        min: this.state.logScale ? 1 : 0,
+                        min: this.__logScale ? 1 : 0,
                         gridIndex: 1
                     }
                 ],

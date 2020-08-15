@@ -3,12 +3,14 @@ import globalConfirmed from '../data/time_series_covid19_confirmed_global.csv';
 import ReactEchartsCore from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
+import 'echarts/lib/component/title';
 
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 // import i18n bundle
 import i18next from '../i18n';
 import ReactGA from "react-ga";
+
 
 class EChartglobalLog extends Component {
     static defaultProps = {
