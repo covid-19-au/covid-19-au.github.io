@@ -1,5 +1,4 @@
 import React from "react";
-import mapboxgl from 'mapbox-gl';
 import regionsData from "../data/regionsTimeSeries.json"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
@@ -11,11 +10,6 @@ import GeoBoundaries from "./ConfirmedMap/GeoBoundaries/GeoBoundaries" // FIXME!
 const regionsTimeSeries = regionsData['time_series_data'],
       regionsDateIDs = regionsData['date_ids'],
       regionsUpdatedDates = regionsData['updated_dates'];
-
-
-//Fetch Token from env
-let token = process.env.REACT_APP_MAP_API;
-mapboxgl.accessToken = token;
 
 
 class DaysSinceMap extends React.Component {

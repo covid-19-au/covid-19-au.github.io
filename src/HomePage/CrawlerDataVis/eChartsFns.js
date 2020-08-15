@@ -64,17 +64,6 @@ const fns = {
     },
 
     getMaximumCombinedValue: function (series) {
-        function roundUp(v) {
-            v = parseInt(v);
-            let isNeg = v < 0;
-            if (isNeg) v = -v;
-
-            let r = Math.floor(
-                parseInt((parseInt(String(v)[0]) + 1) + String(v).slice(1).split('').map(() => '0').join(''))
-            );
-            return isNeg ? -r : r
-        }
-
         let r = {};
 
         for (let seriesItem of series) {
@@ -92,7 +81,35 @@ const fns = {
                 max = r[k];
             }
         }
-        return roundUp(max);
+        return fns.roundUp(max);
+    },
+
+    roundUp: function(origV) {
+        let v = parseInt(origV);
+        let isNeg = v < 0;
+        if (isNeg) v = -v;
+
+        let mod = Math.floor(
+            parseInt(
+                (parseInt(String(v)[0]) + (isNeg ? 0 : 1)) +
+                String(v).slice(1).split('').map(() => '0').join('')
+            )
+        );
+        return isNeg ? -mod : mod
+    },
+
+    roundDown: function(origV) {
+        let v = parseInt(origV);
+        let isNeg = v < 0;
+        if (isNeg) v = -v;
+
+        let mod = Math.floor(
+            parseInt(
+                (parseInt(String(v)[0]) + (isNeg ? 1 : 0)) +
+                String(v).slice(1).split('').map(() => '0').join('')
+            )
+        );
+        return isNeg ? -mod : mod
     },
 
     /**
@@ -152,5 +169,7 @@ export const getMaximumCombinedValue = fns.getMaximumCombinedValue;
 export const getBarHandleIcon = fns.getBarHandleIcon;
 export const percentilesTooltip = fns.percentilesTooltip;
 export const otherTooltip = fns.otherTooltip;
+export const roundUp = fns.roundUp;
+export const roundDown = fns.roundDown;
 
 export default fns;

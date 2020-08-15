@@ -1,6 +1,8 @@
 import React from "react";
 import ageGenderData from "../data/ageGender";
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/pie';
 
 import {PieSeries, Series} from "./Series";
 import {genderColorMapping} from "./Colors";
@@ -79,7 +81,7 @@ function GenderChart({ state }) {
 
     return (
         <div>
-            <ReactEcharts option={genderOption} style={{ height: '200px' }} />
+            <ReactEchartsCore echarts={echarts} option={genderOption} style={{ height: '200px' }} />
             <span className="" style={{ fontSize: "80%", padding: 0 }}>
                 Time in AEST, Last Update: {ageGenderUpdateTime}
             </span>

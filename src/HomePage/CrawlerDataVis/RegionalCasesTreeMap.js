@@ -26,7 +26,9 @@ import React from 'react';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/treemap';
 
 import RegionType from "../CrawlerDataTypes/RegionType";
 import MapTimeSlider from "../ConfirmedMap/MapControls/MapTimeSlider";
@@ -73,7 +75,8 @@ class RegionalCasesTreeMap extends React.Component {
                     </Tabs>
                 </Paper>
 
-                <ReactEcharts
+                <ReactEchartsCore
+                    echarts={echarts}
                     ref={el => {this.reactEChart = el}}
                     option={this.state.option}
                     style={{
