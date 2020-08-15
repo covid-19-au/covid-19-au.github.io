@@ -91,7 +91,7 @@ class StateCasesChart extends React.Component {
                     echarts={echarts}
                     style={{
                         height: "28vh",
-                        marginTop: this.props.valueTypes.length <= 1 ? "10px" : 0
+                        //marginTop: this.props.valueTypes.length <= 1 ? "10px" : 0
                     }}
                     option={this.state.option}
                 />

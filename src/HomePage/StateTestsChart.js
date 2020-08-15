@@ -50,7 +50,7 @@ class StateTestsChart extends React.Component {
                     echarts={echarts}
                     style={{
                         height: "30vh",
-                        marginTop: "10px"
+                        //marginTop: "10px"
                     }}
                     option={this.state.option}
                 />

@@ -91,7 +91,7 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active and Total<div
+                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">State Comparisons<div
                         style={{
                             alignSelf: "flex-end",
                             marginLeft: "auto",
@@ -100,19 +100,11 @@ export default function HomePage({
                         <Acknowledgement>
                         </Acknowledgement>
                     </div></h2>
-                    <StateCasesChart valueTypes={["active", "total"]} />
-                </div>
 
-                <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tested<div
-                        style={{
-                            alignSelf: "flex-end",
-                            marginLeft: "auto",
-                            fontSize: "60%"
-                        }}>
-                        <Acknowledgement>
-                        </Acknowledgement>
-                    </div></h2>
+                    <h6>Active Cases</h6>
+                    <StateCasesChart valueTypes={["active"]} />
+
+                    <h6 style={{marginTop: "20px"}}>Total Tests</h6>
                     <StateTestsChart />
                 </div>
             </Grid>
