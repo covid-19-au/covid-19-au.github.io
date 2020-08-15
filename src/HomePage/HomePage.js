@@ -91,7 +91,7 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active and Totals<div
+                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active and Total<div
                         style={{
                             alignSelf: "flex-end",
                             marginLeft: "auto",
