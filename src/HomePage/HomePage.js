@@ -13,7 +13,7 @@ import country from "../data/country";
 import all from "../data/overall";
 
 import OverallTrend from "./OverallTrend";
-import StateComparisonChart from "./StateComparisonChart";
+import StateCasesChart from "./StateCasesChart";
 import Ships from "./Ships";
 import Acknowledgement from "../Acknowledgment";
 import i18next from "../i18n";
@@ -54,7 +54,6 @@ export default function HomePage({
                 </div>
 
                 <div className="card">
-                  <Suspense fallback={<div className="loading">Loading...</div>}>
                     <GoogleMap
                       province={province}
                       data={data}
@@ -67,7 +66,6 @@ export default function HomePage({
                       newData={myData}
                     />
                     <Area area={area} onChange={setProvince} data={myData} />
-                  </Suspense>
                 </div>
             </Grid>
 
@@ -92,8 +90,31 @@ export default function HomePage({
 
                 <OverallTrend />
             </Grid>
+
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                <StateComparisonChart />
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Active</h2>
+                    <StateCasesChart valueType="active" />
+                </div>
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Totals</h2>
+                    <StateCasesChart valueType="total" />
+                </div>
+            </Grid>
+
+            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">Deaths</h2>
+                    <StateCasesChart valueType="deaths" />
+                </div>
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">In Hospital</h2>
+                    <StateCasesChart valueType="in_hospital" />
+                </div>
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="Status of COVID 19 cases">In ICU</h2>
+                    <StateCasesChart valueType="in_icu" />
+                </div>
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
