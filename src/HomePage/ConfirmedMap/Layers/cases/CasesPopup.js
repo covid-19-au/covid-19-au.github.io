@@ -22,9 +22,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import mapboxgl from "mapbox-gl";
+import mapboxgl from "mapbox-gl/dist/mapbox-gl";
 import RegionType from "../../../CrawlerDataTypes/RegionType";
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
+
 import React from "react";
 import ReactDOM from "react-dom";
 import Fns from "../../Fns";
@@ -196,7 +199,8 @@ class CasesPopup {
         popup.addTo(this.map);
 
         ReactDOM.render(
-            <ReactEcharts
+            <ReactEchartsCore
+                echarts={echarts}
                 ref={el => {this.reactEChart = el}}
                 option={{
                     xAxis: {

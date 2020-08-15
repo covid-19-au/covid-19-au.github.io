@@ -23,16 +23,9 @@ SOFTWARE.
  */
 
 import React from "react"
-import mapboxgl from 'mapbox-gl'
-
-import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import CovidMapControl from "./ConfirmedMap/CovidMapControl"
 import UpdatedDatesDisplay from "./ConfirmedMap/MapControls/UpdatedDatesDisplay";
-
-//Fetch Token from env
-let token = process.env.REACT_APP_MAP_API;
-mapboxgl.accessToken = token;
 
 
 class ConfirmedMap extends React.Component {

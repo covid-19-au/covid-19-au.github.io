@@ -24,7 +24,9 @@ SOFTWARE.
 
 import React from "react"
 import ReactDOM from "react-dom";
-import mapboxgl from "mapbox-gl";
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
+import 'mapbox-gl/dist/mapbox-gl.css'
+
 import CovidMapControls from "./MapControls/CovidMapControls";
 import MapTimeSlider from "./MapControls/MapTimeSlider";
 import getDataDownloader from "../CrawlerData/DataDownloader";
@@ -48,6 +50,10 @@ import AxiosAnalytics from "./AxiosAnalytics";
 import HoverStateHelper from "./Layers/HoverStateHelper";
 import BRIGHT_V9_MOD_STYLE from "./bright_v9_mod";
 
+
+//Fetch Token from env
+let token = process.env.REACT_APP_MAP_API;
+mapboxgl.accessToken = token;
 
 const ENABLE_AXIOS_ANALYTICS = true;
 
