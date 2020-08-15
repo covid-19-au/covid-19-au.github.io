@@ -91,7 +91,7 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active and Total<div
+                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active, Total and Deaths<div
                         style={{
                             alignSelf: "flex-end",
                             marginLeft: "auto",
@@ -100,7 +100,7 @@ export default function HomePage({
                         <Acknowledgement>
                         </Acknowledgement>
                     </div></h2>
-                    <StateCasesChart valueTypes={["active", "total"]} />
+                    <StateCasesChart valueTypes={["active", "total", "deaths"]} />
                 </div>
             </Grid>
 
@@ -121,21 +121,6 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Deaths due to COVID 19">Deaths<div
-                        style={{
-                            alignSelf: "flex-end",
-                            marginLeft: "auto",
-                            fontSize: "60%"
-                        }}>
-                        <Acknowledgement>
-                        </Acknowledgement>
-                    </div></h2>
-                    <StateCasesChart valueTypes={["deaths"]} />
-                </div>
-            </Grid>
-
-            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                <div className="card">
                     <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tested<div
                         style={{
                             alignSelf: "flex-end",
@@ -147,15 +132,13 @@ export default function HomePage({
                     </div></h2>
                     <StateTestsChart />
                 </div>
+
+                <Flights flights={flights} />
+                {/*<Ships />*/}
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <EChartGlobalLog />
-            </Grid>
-
-            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                <Flights flights={flights} />
-                {/*<Ships />*/}
             </Grid>
         </Grid>
     );
