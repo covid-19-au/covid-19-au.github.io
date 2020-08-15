@@ -91,7 +91,7 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active, Total and Deaths<div
+                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active and Total<div
                         style={{
                             alignSelf: "flex-end",
                             marginLeft: "auto",
@@ -100,10 +100,24 @@ export default function HomePage({
                         <Acknowledgement>
                         </Acknowledgement>
                     </div></h2>
-                    <StateCasesChart valueTypes={["active", "total", "deaths"]} />
+                    <StateCasesChart valueTypes={["active", "total"]} />
+                </div>
+
+                <div className="card">
+                    <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tested<div
+                        style={{
+                            alignSelf: "flex-end",
+                            marginLeft: "auto",
+                            fontSize: "60%"
+                        }}>
+                        <Acknowledgement>
+                        </Acknowledgement>
+                    </div></h2>
+                    <StateTestsChart />
                 </div>
             </Grid>
 
+            {/*
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
                     <h2 style={{ display: "flex" }} aria-label="In hospital or ICU due to COVID 19">In Hospital/ICU<div
@@ -118,27 +132,13 @@ export default function HomePage({
                     <StateCasesChart valueTypes={["in_hospital", "in_icu"]} />
                 </div>
             </Grid>
-
-            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tested<div
-                        style={{
-                            alignSelf: "flex-end",
-                            marginLeft: "auto",
-                            fontSize: "60%"
-                        }}>
-                        <Acknowledgement>
-                        </Acknowledgement>
-                    </div></h2>
-                    <StateTestsChart />
-                </div>
-
-                <Flights flights={flights} />
-                {/*<Ships />*/}
-            </Grid>
+            */}
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <EChartGlobalLog />
+
+                <Flights flights={flights} />
+                {/*<Ships />*/}
             </Grid>
         </Grid>
     );
