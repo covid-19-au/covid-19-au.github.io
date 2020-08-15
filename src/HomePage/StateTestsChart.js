@@ -63,11 +63,11 @@ class StateTestsChart extends React.Component {
 
                         Logarithmic Scale:&nbsp;
                         <ButtonGroup size="small" aria-label="small outlined button group">
+                            <Button style={this.state.logScale ? inactiveStyles : activeStyles}
+                                    onClick={() => this.setLogScale(false)}>Off</Button>
                             <Button style={this.state.logScale ? activeStyles : inactiveStyles}
                                     disableElevation={true}
                                     onClick={() => this.setLogScale(true)}>On</Button>
-                            <Button style={this.state.logScale ? inactiveStyles : activeStyles}
-                                    onClick={() => this.setLogScale(false)}>Off</Button>
                         </ButtonGroup>
                         <a
                             style={{
