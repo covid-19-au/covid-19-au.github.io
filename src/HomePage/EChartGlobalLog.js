@@ -259,11 +259,7 @@ class EChartglobalLog extends Component {
             newDataSet["z"] = arrMapKeys[i] === "AU" ? 3 : arrMapKeys[i] === "US" ? 1 : 2;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;
-            /*
-            newDataSet["lineStyle"] = {
-                width: 0.5
-            }*/
-            //newDataSet["symbol"] = "circle";
+            newDataSet["symbol"] = "diamond";
             newDataSet["sampling"] = "average";
             newDataSet["itemStyle"] = {
                 color: this.props.countryColours[arrMapKeys[i]].backgroundColor
@@ -279,12 +275,13 @@ class EChartglobalLog extends Component {
                             formatter: '{a}'
                         }
                     };
+                } else {
+                    return {
+                        name: this.state.dates[(this.state.dates.length - 1) - (this.state.arrMap[arrMapKeys[i]]["x,y"].length - 1) + index],
+                        value: val,
+                        symbolSize: 1
+                    };
                 }
-                return {
-                    name: this.state.dates[(this.state.dates.length - 1) - (this.state.arrMap[arrMapKeys[i]]["x,y"].length - 1) + index],
-                    value: val,
-                    symbolSize: 1
-                };
             });
 
             dataSets.push(newDataSet);
@@ -375,6 +372,9 @@ class EChartglobalLog extends Component {
                             show: false
                         },
                         series: this.state.dataSets,
+                        axisPointer: {
+                            type: 'cross',
+                        },
                         yAxis: {
                             name: i18next.t("homePage:status.newCaseWeek"),
                             nameTextStyle: {
