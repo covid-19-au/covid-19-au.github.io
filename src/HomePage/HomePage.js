@@ -13,8 +13,9 @@ import country from "../data/country";
 import all from "../data/overall";
 
 import OverallTrend from "./OverallTrend";
-import StateCasesChart from "./StateCasesChart";
-import StateTestsChart from "./StateTestsChart";
+//import StateCasesChart from "./StateCasesChart";
+//import StateTestsChart from "./StateTestsChart";
+import StateComparisonChart from "./StateComparisonChart";
 import Acknowledgement from "../Acknowledgment";
 import i18next from "../i18n";
 import provinces from "../data/area";
@@ -101,11 +102,7 @@ export default function HomePage({
                         </Acknowledgement>
                     </div></h2>
 
-                    <h6>Active Cases</h6>
-                    <StateCasesChart valueTypes={["active"]} />
-
-                    <h6 style={{marginTop: "20px"}}>Total Tests</h6>
-                    <StateTestsChart />
+                    <StateComparisonChart />
                 </div>
             </Grid>
 
@@ -129,8 +126,11 @@ export default function HomePage({
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <EChartGlobalLog />
 
-                <Flights flights={flights} />
                 {/*<Ships />*/}
+            </Grid>
+
+            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <Flights flights={flights} />
             </Grid>
         </Grid>
     );
