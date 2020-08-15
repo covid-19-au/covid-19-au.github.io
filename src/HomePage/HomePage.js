@@ -106,7 +106,7 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="In hospital or ICU due to COVID 19">In Hospital or ICU<div
+                    <h2 style={{ display: "flex" }} aria-label="In hospital or ICU due to COVID 19">In Hospital/ICU<div
                         style={{
                             alignSelf: "flex-end",
                             marginLeft: "auto",
@@ -136,7 +136,7 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tests Performed<div
+                    <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tested<div
                         style={{
                             alignSelf: "flex-end",
                             marginLeft: "auto",
