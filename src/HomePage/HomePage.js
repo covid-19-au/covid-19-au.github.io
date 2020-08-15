@@ -91,28 +91,60 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active and Totals</h2>
+                    <h2 style={{ display: "flex" }} aria-label="Active COVID 19 cases">Active and Totals<div
+                        style={{
+                            alignSelf: "flex-end",
+                            marginLeft: "auto",
+                            fontSize: "60%"
+                        }}>
+                        <Acknowledgement>
+                        </Acknowledgement>
+                    </div></h2>
                     <StateCasesChart valueTypes={["active", "total"]} />
                 </div>
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="In hospital or ICU due to COVID 19">In Hospital or ICU</h2>
+                    <h2 style={{ display: "flex" }} aria-label="In hospital or ICU due to COVID 19">In Hospital or ICU<div
+                        style={{
+                            alignSelf: "flex-end",
+                            marginLeft: "auto",
+                            fontSize: "60%"
+                        }}>
+                        <Acknowledgement>
+                        </Acknowledgement>
+                    </div></h2>
                     <StateCasesChart valueTypes={["in_hospital", "in_icu"]} />
                 </div>
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Deaths due to COVID 19">Deaths</h2>
+                    <h2 style={{ display: "flex" }} aria-label="Deaths due to COVID 19">Deaths<div
+                        style={{
+                            alignSelf: "flex-end",
+                            marginLeft: "auto",
+                            fontSize: "60%"
+                        }}>
+                        <Acknowledgement>
+                        </Acknowledgement>
+                    </div></h2>
                     <StateCasesChart valueTypes={["deaths"]} />
                 </div>
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
-                    <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tests Performed</h2>
+                    <h2 style={{ display: "flex" }} aria-label="Total tests performed">Total Tests Performed<div
+                        style={{
+                            alignSelf: "flex-end",
+                            marginLeft: "auto",
+                            fontSize: "60%"
+                        }}>
+                        <Acknowledgement>
+                        </Acknowledgement>
+                    </div></h2>
                     <StateTestsChart />
                 </div>
             </Grid>
