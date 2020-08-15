@@ -202,17 +202,17 @@ function GeneralLineChart({ state }) {
         Logarithmic Scale:&nbsp;
         <ButtonGroup size="small" aria-label="small outlined button group">
           <Button
+            style={logScale ? inactiveStyles : activeStyles}
+            onClick={() => setLogScale(false)}
+          >
+            Off
+          </Button>
+          <Button
             style={logScale ? activeStyles : inactiveStyles}
             disableElevation={true}
             onClick={() => setLogScale(true)}
           >
             On
-          </Button>
-          <Button
-            style={logScale ? inactiveStyles : activeStyles}
-            onClick={() => setLogScale(false)}
-          >
-            Off
           </Button>
         </ButtonGroup>
         <a
