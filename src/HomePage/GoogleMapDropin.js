@@ -51,7 +51,7 @@ class GoogleMapDropin extends React.Component {
                             out.push(
                                 <ReactTooltip id={dataItem[0].f}>
                                     { dataItem[2] || <>
-                                        <h5 style={{textAlign: "center"}}>{dataItem[0].f}</h5>
+                                        <div style={{fontSize: "1.3em", textAlign: "center"}}>{dataItem[0].f}</div>
                                         <div style={{fontSize: "1.2em"}}>{this.props.data[0][1]}: {dataItem[1]}</div>
                                     </> }
                                 </ReactTooltip>
