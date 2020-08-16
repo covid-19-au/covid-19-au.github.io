@@ -1,9 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import ageGenderData from "../data/ageGender";
-import stateData from "../data/state";
 import stateCaseData from "../data/stateCaseData";
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/bar';
 
 import { Series, BarSeries } from "./Series";
 import { colorMapping } from "./Colors";
@@ -115,7 +115,7 @@ function GeneralBarChart({ state }) {
 
   return (
     <div>
-      <ReactEcharts option={barOption} />
+      <ReactEchartsCore echarts={echarts} option={barOption} />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         Time in AEST, Last Update: {ageGenderUpdateTime}
       </span>

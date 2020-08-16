@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import globalConfirmed from '../data/time_series_covid19_confirmed_global.csv';
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
+import 'echarts/lib/component/title';
+
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 // import i18n bundle
 import i18next from '../i18n';
 import ReactGA from "react-ga";
+
 
 class EChartglobalLog extends Component {
     static defaultProps = {
@@ -256,11 +261,7 @@ class EChartglobalLog extends Component {
             newDataSet["z"] = arrMapKeys[i] === "AU" ? 3 : arrMapKeys[i] === "US" ? 1 : 2;
             newDataSet["type"] = "line";
             newDataSet["smooth"] = true;
-            /*
-            newDataSet["lineStyle"] = {
-                width: 0.5
-            }*/
-            //newDataSet["symbol"] = "circle";
+            newDataSet["symbol"] = "diamond";
             newDataSet["sampling"] = "average";
             newDataSet["itemStyle"] = {
                 color: this.props.countryColours[arrMapKeys[i]].backgroundColor
@@ -276,12 +277,13 @@ class EChartglobalLog extends Component {
                             formatter: '{a}'
                         }
                     };
+                } else {
+                    return {
+                        name: this.state.dates[(this.state.dates.length - 1) - (this.state.arrMap[arrMapKeys[i]]["x,y"].length - 1) + index],
+                        value: val,
+                        symbolSize: 1
+                    };
                 }
-                return {
-                    name: this.state.dates[(this.state.dates.length - 1) - (this.state.arrMap[arrMapKeys[i]]["x,y"].length - 1) + index],
-                    value: val,
-                    symbolSize: 1
-                };
             });
 
             dataSets.push(newDataSet);
@@ -335,7 +337,9 @@ class EChartglobalLog extends Component {
                         outline: "none"
                     }} onClick={this.onDeselectAllClick}>{i18next.t("homePage:globalChart.selectNo")}</Button>
                 </ButtonGroup>
-                <ReactEcharts style={{ minHeight: "500px" }}
+                <ReactEchartsCore
+                    echarts={echarts}
+                    style={{ minHeight: "500px" }}
                     ref={(e) => { this.chartReference = e; }}
                     lazyUpdate={true}
                     option={{
@@ -370,6 +374,9 @@ class EChartglobalLog extends Component {
                             show: false
                         },
                         series: this.state.dataSets,
+                        axisPointer: {
+                            type: 'cross',
+                        },
                         yAxis: {
                             name: i18next.t("homePage:status.newCaseWeek"),
                             nameTextStyle: {
@@ -436,8 +443,8 @@ class EChartglobalLog extends Component {
 
                         {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                            <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>{i18next.t("homePage:misc.onButton")}</Button>
                             <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({ logScale: false })}>{i18next.t("homePage:misc.offButton")}</Button>
+                            <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>{i18next.t("homePage:misc.onButton")}</Button>
                         </ButtonGroup>
                         <a
                             style={{

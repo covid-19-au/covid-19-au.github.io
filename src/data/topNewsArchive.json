@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/australia-marks-deadliest-day-in-the-coronavirus-pandemic-as-victoria-records-17-deaths",
+            "title": "Australia marks deadliest day in the coronavirus pandemic as Victoria records 17 deaths",
+            "source": "SBSNews",
+            "date": "9 August 2020",
+            "time": "18:00",
+            "summary": "Victoria recorded 394 new cases and 17 deaths today, the country's deadliest day of the pandemic so far. Ten of the deaths were linked to aged care facilities. "
+        },
+        {
+            "link": "https://www.sbs.com.au/news/more-than-140-turned-back-at-queensland-border-in-first-hours-of-closure-to-nsw-and-act",
+            "title": "More than 140 turned back at Queensland border in first hours of closure to NSW and ACT",
+            "source": "SBSNews",
+            "date": "8 August 2020",
+            "time": "11:00",
+            "summary": "More than 140 people have been turned away at the Queensland border as it was closed to people from ACT, NSW and Victoria. \"It's unfortunate but this is all about stopping COVID-19 coming into Queensland,\" said Queensland Police Services Chief Superintendent Mark Wheeler."
+        },
+        {
             "link": "https://www.sbs.com.au/news/victorian-anti-lockdown-protest-organisers-raided-and-arrested-before-dangerous-demonstration",
             "title": "Victorian anti-lockdown protest organisers raided and arrested before dangerous demonstration",
             "source": "SBSNews",

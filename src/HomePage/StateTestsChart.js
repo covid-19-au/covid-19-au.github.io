@@ -6,28 +6,16 @@ import 'echarts/lib/component/title';
 
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import stateData from "../data/state.json"
 // import i18n bundle
 import i18next from '../i18n';
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Paper from "@material-ui/core/Paper";
+
+import stateData from "../data/state.json"
+import stateColours from "./stateColours";
 
 
-class StateComparisonChart extends React.Component {
+class StateTestsChart extends React.Component {
     constructor(props) {
         super(props);
-
-        this.stateColours = {
-            "NSW": "#8ccfff",
-            "VIC": "#547dbf",
-            "QLD": "#c27cb9",
-            "WA": "#8e9191",
-            "SA": "#c74c4a",
-            "TAS": "#79d9b4",
-            "ACT": "#edbd64",
-            "NT": "#ed7d51"
-        };
 
         this.state = {};
         this.__logScale = false;
@@ -61,7 +49,8 @@ class StateComparisonChart extends React.Component {
                 <ReactEchartsCore
                     echarts={echarts}
                     style={{
-                        height: "550px"
+                        height: "30vh",
+                        //marginTop: "10px"
                     }}
                     option={this.state.option}
                 />
@@ -147,61 +136,6 @@ class StateComparisonChart extends React.Component {
         });
 
         return sortable.map(state => state[0]);
-    }
-
-    /*******************************************************************
-     * Case data
-     *******************************************************************/
-
-    /**
-     * Breaks the data down into spline data points
-     * @param stateData
-     * @param states
-     * @returns {*}
-     */
-    getCaseData(stateData, states) {
-        // Map each state into its series
-        return states.map(state => this.__getCaseData(stateData, state));
-    }
-
-    __getCaseData(stateData, state) {
-        let instances = [];
-
-        const TOTAL_IDX = 0;
-        const ACTIVE_IDX = 1;
-
-        for (let day in stateData) {
-            let arr = day.split("-");
-            const cases = stateData[day];
-            instances.push(cases[state][ACTIVE_IDX]);
-        }
-        return instances;
-    }
-
-    getCaseDates(stateData) {
-        let monthTrans = {
-            0: "Jan",
-            1: "Feb",
-            2: "Mar",
-            3: "Apr",
-            4: "May",
-            5: "Jun",
-            6: "Jul",
-            7: "Aug",
-            8: "Sept",
-            9: "Oct",
-            10: "Nov",
-            11: "Dec"
-        };
-
-        let dateData = [];
-        for (let key in stateData) {
-            let arr = key.split("-");
-            let date = new Date(arr[0], arr[1] - 1, arr[2]);
-            let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-            dateData.push(labelName);
-        }
-        return dateData;
     }
 
     /*******************************************************************
@@ -326,17 +260,12 @@ class StateComparisonChart extends React.Component {
         let yAxisType = this.__logScale ? 'log' : 'value';
         let orderedStates = this.getSortedStates(stateData);
 
-        // Get case data
-        let caseData = this.getCaseData(stateData, orderedStates);
-        let caseDates = this.getCaseDates(stateData);
-
         // Get tested data
         let testedData = this.getTestedData(stateData, orderedStates);
         let testedDates = this.getTestedDates(stateData);
         let testedDataFinal = this.getTestedDataSet(testedData, orderedStates);
 
         // Graph initial start point (4 weeks)
-        let startCase = parseInt(100 - (28 / caseDates.length * 100));
         let startTested = parseInt(100 - (28 / testedDates.length * 100));
 
         // List of lines to pass into "series" option
@@ -351,13 +280,16 @@ class StateComparisonChart extends React.Component {
                 let newLine = {
                     name: i18next.t("homePage:state." + orderedStates[i]),
                     type: 'line',
-                    sampling: 'average',
-                    showSymbol: false,
                     symbol: 'circle',
-                    itemStyle: {
-                        color: this.stateColours[orderedStates[i]]
-                    },
+                    //stack: this.__logScale ? null : 'one',
+                    //areaStyle: this.__logScale ? null : {},
+                    smooth: true,
+                    sampling: 'average',
+                    animation: false,
                     data: testedDataFinal[orderedStates[i]][j],
+                    itemStyle: {
+                        color: stateColours[orderedStates[i]]
+                    },
                     tooltip: {
                         trigger: "none"
                     }
@@ -369,79 +301,36 @@ class StateComparisonChart extends React.Component {
             i = i + 1;
         }
 
-        // Add dotted+solid lines for confirmed cases
         i = 0;
         while (i < orderedStates.length) {
             let dottedLine = {
                 name: i18next.t("homePage:state." + orderedStates[i]),
                 type: 'line',
                 symbol: 'circle',
+                animation: false,
                 data: testedData[i],
                 itemStyle: {
-                    color: this.stateColours[orderedStates[i]]
+                    color: stateColours[orderedStates[i]]
                 },
                 lineStyle: {
                     type: "dotted"
                 }
             };
-
-            let confirmedLine = {
-                name: i18next.t("homePage:state." + orderedStates[i]),
-                type: 'line',
-                symbol: 'circle',
-                smooth: true,
-                sampling: 'average',
-                data: caseData[i],
-                xAxisIndex: 1,
-                yAxisIndex: 1,
-                itemStyle: {
-                    color: this.stateColours[orderedStates[i]]
-                },
-            };
-
             lineSeries.push(dottedLine);
-            lineSeries.push(confirmedLine);
-
-            i = i + 1;
+            i += 1;
         }
 
         this.setState({
             logScale: this.__logScale,
             option: {
+                animation: false,
                 grid: [
                     {
-                        bottom: '53%',
+                        top: '40px',
+                        bottom: '40px',
                         containLabel: true,
                         left: 0,
-                        right: "5%",
-                        top: '12%'
-                    },
-                    {
-                        bottom: '7%',
-                        top: '60%',
-                        containLabel: true,
-                        left: 0,
-                        right: "5%"
-                    }
-                ],
-                title: [
-                    {
-                        text: i18next.t("homePage:status.testConducted"),
-                        left: '5%',
-                        top: '7%',
-                        textStyle: {
-                            fontWeight: "bold",
-                            fontSize: 12
-                        }
-                    },
-                    {
-                        text: i18next.t("homePage:status.confirmCase"),
-                        top: '55%',
-                        left: '5%',
-                        textStyle: {
-                            fontWeight: "bold",
-                            fontSize: 12
-                        }
+                        right: 0,
                     }
                 ],
                 tooltip: {
@@ -463,68 +352,39 @@ class StateComparisonChart extends React.Component {
                 yAxis: [
                     {
                         type: yAxisType,
-                        min: this.__logScale ? 100 : 0
-                    },
-                    {
-                        type: yAxisType,
-                        min: this.__logScale ? 1 : 0,
-                        gridIndex: 1
+                        min: this.__logScale ? 1 : 0
                     }
                 ],
                 xAxis: [{
                     type: "category",
                     data: testedDates
-
-                }, {
-                    type: "category",
-                    data: caseDates,
-                    gridIndex: 1
-                }
-
-                ], dataZoom: [{
-                    type: 'inside',
-                    start: startTested,
-                    end: 100,
-                }, {
-                    start: 0,
-                    end: 10,
-                    handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
-                    handleSize: '80%',
-                    handleStyle: {
-                        color: '#fff',
-                        shadowBlur: 3,
-                        shadowColor: 'rgba(0, 0, 0, 0.6)',
-                        shadowOffsetX: 2,
-                        shadowOffsetY: 2
-                    },
-                    bottom: "46.5%",
-                    left: "center"
-                }, {
-                    type: 'inside',
-                    start: startCase,
-                    end: 100,
-                    xAxisIndex: 1
-                }, {
-                    start: 0,
-                    end: 10,
-                    handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
-                    handleSize: '80%',
-                    handleStyle: {
-                        color: '#fff',
-                        shadowBlur: 3,
-                        shadowColor: 'rgba(0, 0, 0, 0.6)',
-                        shadowOffsetX: 2,
-                        shadowOffsetY: 2
-                    },
-                    bottom: "0%",
-                    left: "center",
-                    xAxisIndex: 1
                 }],
+                dataZoom: [
+                    {
+                        type: 'inside',
+                        start: startTested,
+                        end: 100
+                    },
+                    {
+                        start: 0,
+                        end: 10,
+                        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                        handleSize: '80%',
+                        handleStyle: {
+                            color: '#fff',
+                            shadowBlur: 3,
+                            shadowColor: 'rgba(0, 0, 0, 0.6)',
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 2
+                        },
+                        bottom: "0%",
+                        left: "center"
+                    }
+                ],
                 series: lineSeries
-                //Tested Graphs
             }
         })
     }
 }
 
-export default StateComparisonChart;
+export default StateTestsChart;

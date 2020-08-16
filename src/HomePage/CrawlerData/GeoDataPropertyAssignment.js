@@ -3,7 +3,7 @@ import Fns from "../ConfirmedMap/Fns";
 
 
 function debug(msg) {
-    if (true) {
+    if (false) {
         console.log(msg);
     }
 }
