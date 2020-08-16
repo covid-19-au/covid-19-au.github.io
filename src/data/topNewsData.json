@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/hundreds-of-international-students-to-return-to-south-australia-under-national-pilot-program",
+            "title": "Hundreds of international students to return to South Australia under national pilot program",
+            "source": "SBSNews",
+            "date": "16 August 2020",
+            "time": "15:00",
+            "summary": "A national pilot program looking to revive Australia higher education sector will see 300 international students return to university in Adelaide next month. The students from South East Asia will travel to Australia from Singapore in September. They will undergo mandatory supervised quarantine, which will be paid for the universities."
+        },
+        {
             "link": "https://www.abc.net.au/news/2020-08-15/victorian-coronavirus-messaging-could-reach-more-people-cho-says/12560986",
             "title": "Victorian coronavirus response 'not doing enough' to reach key groups, Chief Health Officer says",
             "source": "ABCNews",
@@ -47,14 +55,6 @@
             "date": "11 August 2020",
             "time": "18:00",
             "summary": "Tasmania has recorded its first coronavirus case in 20 days. The person is a man in his 60s who had visited Melbourne for medical treatment. He has been admitted to hospital and being treated under appropriate infection control protocols."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/australia-marks-deadliest-day-in-the-coronavirus-pandemic-as-victoria-records-17-deaths",
-            "title": "Australia marks deadliest day in the coronavirus pandemic as Victoria records 17 deaths",
-            "source": "SBSNews",
-            "date": "9 August 2020",
-            "time": "18:00",
-            "summary": "Victoria recorded 394 new cases and 17 deaths today, the country's deadliest day of the pandemic so far. Ten of the deaths were linked to aged care facilities. "
         }
     ]
 }
