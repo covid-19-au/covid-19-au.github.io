@@ -1,3 +1,6 @@
+import "bootstrap-scss/bootstrap.scss";
+import "./App.css";
+
 import React, {
   useState,
   useEffect,
@@ -28,8 +31,6 @@ import Blog from "./BlogPage/Blog";
 import AboutUsPage from "./aboutUs/AboutUsPage";
 
 import StateChart from "./DataVis/StateChart";
-
-import "./App.css";
 
 import DashboardConfig from "./DashboardConfig"
 

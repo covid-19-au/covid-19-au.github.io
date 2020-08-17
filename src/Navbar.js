@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { A } from "hookrouter";
 // import i18n bundle
 import i18next from './i18n';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faChartLine, faGlobeAsia, faInfoCircle, faNewspaper } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Navbar({ setNav, nav }) {
@@ -53,7 +55,7 @@ export default function Navbar({ setNav, nav }) {
                                 } ${window.location.pathname === "/" && isSticky ? "navCurrentPageSticky" : ""} `}
                             onClick={onClick} href="/"
                         >
-                          <strong><i className="fas fa-home desktop-only"></i> {i18next.t("nav:home")}</strong>
+                          <strong><FontAwesomeIcon icon={faHome} className="fas desktop-only" /> {i18next.t("nav:home")}</strong>
                         </A>
 
                         <A
@@ -62,7 +64,7 @@ export default function Navbar({ setNav, nav }) {
                                         } ${window.location.pathname.match(/\/state([/.*])?/) && isSticky ? "navCurrentPageSticky" : ""} `}
                                     onClick={onClick} href="/state"
                                 >
-                          <strong><i className="fas fa-chart-line desktop-only"></i> States</strong>
+                          <strong><FontAwesomeIcon icon={faChartLine} className="fas desktop-only" /> States</strong>
                         </A>
 
                         <A
@@ -71,7 +73,7 @@ export default function Navbar({ setNav, nav }) {
                                         } ${window.location.pathname === "/world" && isSticky ? "navCurrentPageSticky" : ""} `}
                                     onClick={onClick} href="/world"
                                 >
-                          <strong><i className="fas fa-globe-asia desktop-only"></i> World</strong>
+                          <strong><FontAwesomeIcon icon={faGlobeAsia} className="fas desktop-only" /> World</strong>
                         </A>
 
                                 <A
@@ -80,7 +82,7 @@ export default function Navbar({ setNav, nav }) {
                                         } ${window.location.pathname === "/info" && isSticky ? "navCurrentPageSticky" : ""} `}
                                     onClick={onClick} href="/info"
                                 >
-                          <strong><i className="fas fa-info-circle desktop-only"></i> {i18next.t("nav:info")}</strong>
+                          <strong><FontAwesomeIcon icon={faInfoCircle} className="fas desktop-only" /> {i18next.t("nav:info")}</strong>
                         </A>
                                 <A
                                     className={`navItems ${
@@ -88,7 +90,7 @@ export default function Navbar({ setNav, nav }) {
                                         } ${window.location.pathname === "/news" && isSticky ? "navCurrentPageSticky" : ""} `}
                                     onClick={onClick} href="/news"
                                 >
-                          <strong><i className="fas fa-newspaper desktop-only"></i> {i18next.t("nav:news")}</strong>
+                          <strong><FontAwesomeIcon icon={faNewspaper} className="fas desktop-only" /> {i18next.t("nav:news")}</strong>
                         </A>
 
                         {/*<A

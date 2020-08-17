@@ -1141,5 +1141,59 @@
     "dateDeparture": "22-07-20",
     "dateArrival": "23-07-20",
     "closeContactRow": "26, 27, 28, 29, 30"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "JQ510",
+    "airline": "Jetstar​",
+    "path": "​Melbourne to Sydney",
+    "dateDeparture": "06-08-20",
+    "dateArrival": "06-08-20",
+    "closeContactRow": "​20, 21, 22, 23, 24"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "​VA863",
+    "airline": "​Virgin",
+    "path": "​Melbourne to Sydney",
+    "dateDeparture": "06-08-20",
+    "dateArrival": "06-08-20",
+    "closeContactRow": "​5, 6, 7, 8, 9"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "QR900",
+    "airline": "Qatar",
+    "path": "​Doha to Perth",
+    "dateDeparture": "",
+    "dateArrival": "09-08-20",
+    "closeContactRow": "​39, 40, 41, 42, 43, 44"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "QR900",
+    "airline": "Qatar",
+    "path": "​Doha to Perth",
+    "dateDeparture": "",
+    "dateArrival": "09-08-20",
+    "closeContactRow": "​23, 24, 25, 26, 27, 28, 29, 30, 31, 32"
+  },
+  {
+    "reportState": "NSW",
+    "flightNo": "AI302",
+    "airline": "​Air India",
+    "path": "​New Delhi to Sydney",
+    "dateDeparture": "08-08-20​",
+    "dateArrival": "08-08-20​",
+    "closeContactRow": "​​1, 2, 3, 4, 5​"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "QR900",
+    "airline": "Qatar",
+    "path": "​Doha to Perth",
+    "dateDeparture": "",
+    "dateArrival": "11-08-20",
+    "closeContactRow": "33, 34, 35, 36, 37"
   }
 ]

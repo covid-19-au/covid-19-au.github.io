@@ -23,10 +23,14 @@ SOFTWARE.
  */
 
 import React from 'react';
-import ReactEcharts from "echarts-for-react";
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/bar';
+
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+
 import MapTimeSlider from "../ConfirmedMap/MapControls/MapTimeSlider";
 
 
@@ -58,7 +62,8 @@ class PopulationPyramid extends React.Component {
 
                 {
                     this.state.option ?
-                        <ReactEcharts
+                        <ReactEchartsCore
+                            echarts={echarts}
                             ref={el => {
                                 this.reactEChart = el
                             }}
@@ -157,16 +162,26 @@ class PopulationPyramid extends React.Component {
                         console.log(JSON.stringify(params));
                         return (
                             `<div>Age group ${params[0].axisValueLabel}</div>` +
-                            params.map(param =>
-                                `<div style="border-bottom: 1px solid ${param.color}; border-left: 8px solid ${param.color}; padding-left: 3px;">` +
+                            params.map(param => {
+
+                                let value;
+                                if (param.seriesName === 'Male' || param.seriesName === 'Total') {
+                                    value = param.value;
+                                } else if (param.seriesName === 'Female') {
+                                    value = -param.value;
+                                }
+
+                                return (
+                                    `<div style="border-bottom: 1px solid ${param.color}; border-left: 8px solid ${param.color}; padding-left: 3px;">` +
                                     `<span style="padding: 0; display: inline; margin: 0">` +
-                                        `${param.seriesName}&nbsp;&nbsp;` +
-                                        `<span style="float: right; padding: 0; display: inline; margin: 0">` +
-                                            `${Math.abs(param.value)}` +
-                                        `</span>` +
+                                    `${param.seriesName}&nbsp;&nbsp;` +
+                                    `<span style="float: right; padding: 0; display: inline; margin: 0">` +
+                                    `${value}` +
                                     `</span>` +
-                                `</div>`
-                            ).join('')
+                                    `</span>` +
+                                    `</div>`
+                                );
+                            }).join('')
                         );
                     },
                     axisPointer: {
@@ -186,7 +201,9 @@ class PopulationPyramid extends React.Component {
                     {
                         type: 'value',
                         axisLabel: {
-                            formatter: o => Math.abs(o)
+                            formatter: o => {
+                                return Math.abs(o)
+                            }
                         },
                     }
                 ],
@@ -206,7 +223,7 @@ class PopulationPyramid extends React.Component {
                         stack: true,
                         label: {
                             show: true,
-                            formatter: o => Math.abs(o.value)
+                            formatter: o => -o.value
                         },
                         data: femaleVals
                     },
@@ -216,7 +233,7 @@ class PopulationPyramid extends React.Component {
                         stack: true,
                         label: {
                             show: true,
-                            formatter: o => Math.abs(o.value)
+                            formatter: o => o.value
                         },
                         data: maleVals
                     },
@@ -227,7 +244,7 @@ class PopulationPyramid extends React.Component {
                         stack: true,
                         label: {
                             show: true,
-                            formatter: o => Math.abs(o.value)
+                            formatter: o => o.value
                         },
                         data: maleVals
                     }

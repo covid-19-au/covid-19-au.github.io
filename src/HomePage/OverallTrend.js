@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import ReactEcharts from 'echarts-for-react';
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
+
 import countryData from "../data/country.json";
-//import echarts from "echarts"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 
@@ -141,7 +143,9 @@ export default function OverallTrend() {
     return (
         <div className="card">
             <h2>{i18next.t("homePage:overallTrend.title")}</h2>
-            <ReactEcharts style={{ minHeight: "400px" }}
+            <ReactEchartsCore
+                echarts={echarts}
+                style={{ minHeight: "400px" }}
                 option={
                     {
                         grid: {
@@ -277,8 +281,8 @@ export default function OverallTrend() {
 
                     {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                        <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>{i18next.t("homePage:misc.onButton")}</Button>
                         <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>{i18next.t("homePage:misc.offButton")}</Button>
+                        <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>{i18next.t("homePage:misc.onButton")}</Button>
                     </ButtonGroup>
                     <a
                         style={{

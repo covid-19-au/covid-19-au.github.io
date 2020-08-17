@@ -1,12 +1,14 @@
 import React from "react";
-import mapboxgl from 'mapbox-gl';
-import hospitalData from "../data/mapdataHos"
 
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
+
 import './ConfirmedMap.css'
+import hospitalData from "../data/mapdataHos"
 import hospitalImg from '../img/icon/hospital.png'
 
 import MarkerHospital from "./ConfirmedMap/Markers/MarkerHospital"
+import BRIGHT_V9_MOD_STYLE from "./ConfirmedMap/bright_v9_mod";
 
 
 //Fetch Token from env
@@ -33,7 +35,7 @@ class HospitalsMap extends React.Component {
     render() {
         return (
             <p style={{width: "100%"}}>
-                <div ref={el => this.mapContainer = el} style={{width: "100%"}}>
+                <div ref={el => this.mapContainer = el} style={{width: "100%", height: "55vh"}}>
 
                 </div>
                 <span className="due">
@@ -61,7 +63,8 @@ class HospitalsMap extends React.Component {
 
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
-            style: 'mapbox://styles/mapbox/streets-v9',
+            //style: 'mapbox://styles/mapbox/streets-v9',
+            style: BRIGHT_V9_MOD_STYLE,
             center: [lng, lat],
             zoom: zoom,
             maxZoom: 9,
