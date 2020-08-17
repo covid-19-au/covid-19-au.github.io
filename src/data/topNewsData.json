@@ -1,6 +1,22 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.theguardian.com/australia-news/2020/aug/17/ruby-princess-nsw-premier-gladys-berejiklian-apologises-unreservedly-for-cruise-ship-debacle",
+            "title": "Ruby Princess: NSW premier Gladys Berejiklian apologises 'unreservedly' for cruise ship debacle ",
+            "source": "TheGuardian",
+            "date": "17 August 2020",
+            "time": "13:40",
+            "summary": "New South Wales Premier Gladys Berejiklian has apologised to individuals that may have suffered due to NSW Health's handling of the Ruby Princess cruise ship. The NSW inquiry into the ship which was the source of over 900 coronavirus cases and 28 deaths, released its results on Friday. It found multiple errors it described as \"serious\", \"inexplicable\" and \"basic\""
+        },
+        {
+            "link": "https://www.theguardian.com/australia-news/2020/aug/17/victoria-records-25-coronavirus-deaths-in-deadliest-day-so-far",
+            "title": "Victoria records 25 coronavirus deaths in Australia's deadliest day so far ",
+            "source": "TheGuardian",
+            "date": "17 August 2020",
+            "time": "15:44",
+            "summary": "Victoria recorded its deadliest day of the pandemic so far with 25 deaths announced overnight. More than 300 people have now died since the second wave began in Melbourne in June."
+        },
+        {
             "link": "https://www.sbs.com.au/news/hundreds-of-international-students-to-return-to-south-australia-under-national-pilot-program",
             "title": "Hundreds of international students to return to South Australia under national pilot program",
             "source": "SBSNews",
