@@ -1195,5 +1195,14 @@
     "dateDeparture": "",
     "dateArrival": "11-08-20",
     "closeContactRow": "33, 34, 35, 36, 37"
+  },
+  {
+    "reportState": "QLD",
+    "flightNo": "VA962",
+    "airline": "Virgin",
+    "path": "​Brisbane to Sydney",
+    "dateDeparture": "17-08-20",
+    "dateArrival": "17-08-20",
+    "closeContactRow": "Unsure"
   }
 ]
