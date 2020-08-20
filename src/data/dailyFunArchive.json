@@ -4,6 +4,39 @@
             "image": [],
             "video": [
                 {
+                    "link": "https://www.youtube.com/watch?v=Cqbleas1mmo&t=355s",
+                    "description": "The Russian Revolution - OverSimplified (Part 1)"
+                }
+            ],
+            "type": "distraction",
+            "date": "19/8/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=y8XvQNt26KI",
+                    "description": "Unlimited Resources From Space – Asteroid Mining"
+                }
+            ],
+            "type": "distraction",
+            "date": "18/8/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
+                    "link": "https://www.youtube.com/watch?v=ZEyAs3NWH4A",
+                    "description": "New: Mars In 4K"
+                }
+            ],
+            "type": "distraction",
+            "date": "17/8/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
                     "link": "https://www.youtube.com/watch?v=R0x7ECje-lY",
                     "description": "Kimchi (ft. Roy Choi) | Basics with Babish"
                 }
