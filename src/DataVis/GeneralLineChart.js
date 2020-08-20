@@ -137,7 +137,7 @@ function setGeneralLineOption(state, logScale) {
       left: 0,
       right: "5%",
       bottom: "10%",
-      top: "20%",
+      top: "54px",
     },
     tooltip: lineBarTooltip,
     legend: {
@@ -197,7 +197,7 @@ function GeneralLineChart({ state }) {
 
   return (
     <div>
-      <ReactEchartsCore echarts={echarts} option={lineOption} />
+      <ReactEchartsCore echarts={echarts} option={lineOption} style={{height: "28vh"}} />
       <span className="key" style={{ marginTop: "0.5rem" }}>
         Logarithmic Scale:&nbsp;
         <ButtonGroup size="small" aria-label="small outlined button group">
