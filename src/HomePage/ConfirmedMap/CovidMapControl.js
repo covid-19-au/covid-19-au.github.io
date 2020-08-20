@@ -458,10 +458,10 @@ class CovidMapControl extends React.Component {
                 iso3166WithinView = filterToISO3166(
                     this.dataDownloader.getISO3166WithinView(lngLatBounds)
                 ),
+                dataType = this.covidMapControls.getDataType(),
                 schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
-                    zoomLevel, iso3166WithinView
-                ),
-                dataType = this.covidMapControls.getDataType();
+                    zoomLevel, iso3166WithinView, dataType
+                );
 
             if (this.prevSchemasForCases) {
                 let changed = (

@@ -276,8 +276,8 @@ class DataDownloader {
      * @param iso3166WithinView
      * @returns {Map<any, any>}
      */
-    getPossibleSchemasForCases(zoomLevel, iso3166WithinView) {
-        return this.__getPossibleSchemas(MODE_CASES, zoomLevel, iso3166WithinView);
+    getPossibleSchemasForCases(zoomLevel, iso3166WithinView, dataType) {
+        return this.__getPossibleSchemas(MODE_CASES, zoomLevel, iso3166WithinView, dataType);
     }
 
     /**
@@ -301,7 +301,7 @@ class DataDownloader {
      * @returns {Map<any, any>}
      * @private
      */
-    __getPossibleSchemas(mode, zoomLevel, iso3166WithinView) {
+    __getPossibleSchemas(mode, zoomLevel, iso3166WithinView, dataType) {
         var r = [];
         debug(`ISO 3166 within view: ${Array.from(iso3166WithinView)}`);
 
@@ -362,7 +362,7 @@ class DataDownloader {
                     } else if (!this.remoteData.fileInGeoJSONData(schema, iso3166)) {
                         debug(`split geojson not found: ${schema} ${iso3166}`);
                         continue;
-                    } else if (mode === MODE_CASES && !this.remoteData.fileInCaseData(schema, iso3166)){
+                    } else if (mode === MODE_CASES && !this.remoteData.caseDataFileHasDataType(schema, iso3166, dataType)){
                         // Cases data not in listing
                         debug(`split cases not found: ${schema} ${iso3166}`);
                         continue;
@@ -393,7 +393,7 @@ class DataDownloader {
                 } else if (!this.remoteData.fileInGeoJSONData(schema, null)) {
                     debug(`non-split geojson not found: ${schema}`);
                     continue;
-                } else if (mode === MODE_CASES && !this.remoteData.fileInCaseData(schema, null)){
+                } else if (mode === MODE_CASES && !this.remoteData.caseDataFileHasDataType(schema, null, dataType)){
                     // Cases data not in listing
                     debug(`non-split cases not found: ${schema}`);
                     continue;

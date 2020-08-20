@@ -107,6 +107,20 @@ class __RemoteData {
     }
 
     /**
+     * Get whether a given file has a datatype (e.g. "total" or "new")
+     *
+     * @param schemaType
+     * @param regionParent
+     * @param dataType
+     * @returns {*}
+     */
+    caseDataFileHasDataType(schemaType, regionParent, dataType) {
+        var fileNames = this.getFileNames(schemaType, regionParent),
+            caseFilename = fileNames.caseDataFilename;
+        return (this.schemaTypes.case_data_datatypes[caseFilename]||[]).indexOf(dataType) !== -1;
+    }
+
+    /**
      * Get whether a GeoJSON data file exists on the remote server
      *
      * @param schemaType
