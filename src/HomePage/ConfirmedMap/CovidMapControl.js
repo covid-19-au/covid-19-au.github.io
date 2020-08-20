@@ -488,14 +488,27 @@ class CovidMapControl extends React.Component {
                 )
             }
 
-            let dataCollection = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
-                lngLatBounds, dataType, schemasForCases, iso3166WithinView
+            // First update without downloading geodata/case data
+            let dataCollectionNoDownload = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
+                lngLatBounds, dataType, schemasForCases, iso3166WithinView, true
             );
             this.__onMapMoveChange(
-                dataCollection.getAssignedData(dateRangeType, currentDateType),
+                dataCollectionNoDownload.getAssignedData(dateRangeType, currentDateType),
                 dataType, zoomLevel
             );
 
+            // Then download case/geodata if need be
+            if (!dataCollectionNoDownload.getAllDownloaded()) {
+                let dataCollection = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
+                    lngLatBounds, dataType, schemasForCases, iso3166WithinView, false
+                );
+                if (dataCollectionNoDownload.insts.length !== dataCollection.insts.length) {
+                    this.__onMapMoveChange(
+                        dataCollection.getAssignedData(dateRangeType, currentDateType),
+                        dataType, zoomLevel
+                    );
+                }
+            }
         } finally {
             this.__loadInProgress = false;
         }

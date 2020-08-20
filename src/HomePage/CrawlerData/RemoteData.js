@@ -117,6 +117,7 @@ class __RemoteData {
     caseDataFileHasDataType(schemaType, regionParent, dataType) {
         var fileNames = this.getFileNames(schemaType, regionParent),
             caseFilename = fileNames.caseDataFilename;
+
         return (this.schemaTypes.case_data_datatypes[caseFilename]||[]).indexOf(dataType) !== -1;
     }
 

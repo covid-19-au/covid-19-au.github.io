@@ -129,7 +129,8 @@ class DataDownloader {
      * @private
      */
     async getDataCollectionForCoords(lngLatBounds, dataType,
-                                     possibleSchemasForCases, iso3166WithinView) {
+                                     possibleSchemasForCases, iso3166WithinView,
+                                     noDownload) {
         var promises = [];
 
         for (let schemaInfo of possibleSchemasForCases) {
@@ -137,16 +138,16 @@ class DataDownloader {
                 for (let iso3166 of schemaInfo.iso3166Codes) {
                     promises.push([
                         schemaInfo,
-                        this.getGeoData(schemaInfo.schema, iso3166),
-                        this.getCaseData(dataType, schemaInfo.schema, iso3166)
+                        this.getGeoData(schemaInfo.schema, iso3166, noDownload),
+                        this.getCaseData(dataType, schemaInfo.schema, iso3166, noDownload)
                     ]);
                 }
             }
             else {
                 promises.push([
                     schemaInfo,
-                    this.getGeoData(schemaInfo.schema, null),
-                    this.getCaseData(dataType, schemaInfo.schema, null)
+                    this.getGeoData(schemaInfo.schema, null, noDownload),
+                    this.getCaseData(dataType, schemaInfo.schema, null, noDownload)
                 ]);
             }
         }
@@ -175,11 +176,13 @@ class DataDownloader {
             }
         };
 
+        let allDownloaded = true;
         for (let [schemaInfo, geoDataPromise, caseDataPromise] of promises) {
             let geoData = await geoDataPromise,
                 caseData = await caseDataPromise;
 
             if (!geoData || !caseData) {
+                allDownloaded = false;
                 continue;
             }
 
@@ -224,7 +227,7 @@ class DataDownloader {
 
         return new GeoDataPropertyAssignment(
             this.remoteData.getConstants(),
-            insts, dataType, lngLatBounds, iso3166WithinView, parents
+            insts, dataType, lngLatBounds, iso3166WithinView, parents, allDownloaded
         );
     }
 
@@ -534,7 +537,7 @@ class DataDownloader {
      * @param regionParent
      * @returns {Promise<unknown>}
      */
-    getGeoData(regionSchema, regionParent) {
+    getGeoData(regionSchema, regionParent, noDownload) {
         var fileNames = this.remoteData.getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
@@ -556,6 +559,9 @@ class DataDownloader {
                 // Request already pending!
                 debug(`Geodata pending: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename].push([resolve, regionSchema, regionParent]);
+            }
+            else if (noDownload) {
+                return resolve(null);
             }
             else {
                 // Otherwise send a new request
@@ -666,7 +672,7 @@ class DataDownloader {
      * @param regionParent
      * @returns {Promise<unknown>}
      */
-    getCaseData(dataType, regionSchema, regionParent) {
+    getCaseData(dataType, regionSchema, regionParent, noDownload) {
         var fileNames = this.remoteData.getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
@@ -689,6 +695,9 @@ class DataDownloader {
                 // Request already pending!
                 debug(`Case data pending: ${regionSchema}->${regionParent}`);
                 this._caseDataPending[fileNames.caseDataFilename].push([resolve, dataType, regionSchema, regionParent]);
+            }
+            else if (noDownload) {
+                return resolve(null);
             }
             else {
                 // Otherwise send a new request
