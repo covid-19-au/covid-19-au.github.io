@@ -17,13 +17,22 @@ class GeoDataPropertyAssignment {
      * @param lngLatBounds
      * @param iso3166WithinView
      */
-    constructor(constants, insts, dataType, lngLatBounds, iso3166WithinView, parents) {
+    constructor(constants, insts, dataType, lngLatBounds, iso3166WithinView, parents, allDownloaded) {
         this.constants = constants;
         this.insts = insts;
         this.dataType = dataType;
         this.lngLatBounds = lngLatBounds;
         this.iso3166WithinView = iso3166WithinView;
         this.parents = parents;
+        this.allDownloaded = allDownloaded;
+    }
+
+    /**
+     * Returns whether there was still data left
+     * to download at the current coordinates
+     */
+    getAllDownloaded() {
+        return this.allDownloaded;
     }
 
     /**

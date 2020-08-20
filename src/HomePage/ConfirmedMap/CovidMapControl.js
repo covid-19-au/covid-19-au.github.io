@@ -142,10 +142,10 @@ class CovidMapControl extends React.Component {
 
             //minZoom: 1,
             transition: {
-                duration: 250,
-                delay: 25
+                duration: 0,
+                delay: 0
             },
-            fadeDuration: 250
+            fadeDuration: 0
         });
 
         let runMeLater = async () => {
@@ -298,6 +298,9 @@ class CovidMapControl extends React.Component {
                 //});
                 map.on('moveend', () => {
                     this.onMapMoveChange();
+                });
+                map.on('zoomstart', () => {
+                    this.__resetPointsData();
                 });
                 map.on('zoomend', () => {
                     this.onMapMoveChange();
@@ -455,10 +458,10 @@ class CovidMapControl extends React.Component {
                 iso3166WithinView = filterToISO3166(
                     this.dataDownloader.getISO3166WithinView(lngLatBounds)
                 ),
+                dataType = this.covidMapControls.getDataType(),
                 schemasForCases = this.dataDownloader.getPossibleSchemasForCases(
-                    zoomLevel, iso3166WithinView
-                ),
-                dataType = this.covidMapControls.getDataType();
+                    zoomLevel, iso3166WithinView, dataType
+                );
 
             if (this.prevSchemasForCases) {
                 let changed = (
@@ -485,14 +488,27 @@ class CovidMapControl extends React.Component {
                 )
             }
 
-            let dataCollection = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
-                lngLatBounds, dataType, schemasForCases, iso3166WithinView
+            // First update without downloading geodata/case data
+            let dataCollectionNoDownload = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
+                lngLatBounds, dataType, schemasForCases, iso3166WithinView, true
             );
             this.__onMapMoveChange(
-                dataCollection.getAssignedData(dateRangeType, currentDateType),
+                dataCollectionNoDownload.getAssignedData(dateRangeType, currentDateType),
                 dataType, zoomLevel
             );
 
+            // Then download case/geodata if need be
+            if (!dataCollectionNoDownload.getAllDownloaded()) {
+                let dataCollection = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
+                    lngLatBounds, dataType, schemasForCases, iso3166WithinView, false
+                );
+                if (dataCollectionNoDownload.insts.length !== dataCollection.insts.length) {
+                    this.__onMapMoveChange(
+                        dataCollection.getAssignedData(dateRangeType, currentDateType),
+                        dataType, zoomLevel
+                    );
+                }
+            }
         } finally {
             this.__loadInProgress = false;
         }
@@ -530,6 +546,7 @@ class CovidMapControl extends React.Component {
             this.casesFillPolyLayer.updateLayer();
             //this.casesLinePolyLayer.updateLayer();
             this.caseCirclesLayer.updateLayer();
+            this.caseCirclesLayer.fadeIn();
 
             // Make it so click events are registered for analytics (if relevant)
             if (this.axiosAnalytics) {
@@ -556,11 +573,32 @@ class CovidMapControl extends React.Component {
             }
         }
 
+        let arraysEqual = (arr1, arr2) => {
+            // Check if all items exist and are in the same order
+            for (var i = 0; arr1.length < i; i++) {
+                if (arr1[i] !== arr2[i]) return false;
+            }
+        };
+
         if (!noUpdateEvent && this.props.onGeoDataChanged) {
             // Send an event to allow for "data updated on xx date"
             // etc displays outside the control
-            this.props.onGeoDataChanged(geoData.geoDataInsts, geoData.caseDataInsts);
+            if (
+                !this.prevGeoData ||
+                (
+                    this.prevGeoData.geoDataInsts.length === geoData.geoDataInsts.length &&
+                    this.prevGeoData.caseDataInsts.length === geoData.caseDataInsts.length &&
+                    arraysEqual(this.prevGeoData.geoDataInsts, geoData.geoDataInsts) &&
+                    arraysEqual(this.prevGeoData.caseDataInsts, geoData.caseDataInsts)
+                )
+            ) {
+                // Don't update if not changed!
+            } else {
+                this.props.onGeoDataChanged(geoData.geoDataInsts, geoData.caseDataInsts);
+            }
+
         }
+        this.prevGeoData = geoData;
     }
 
     /*******************************************************************
@@ -612,10 +650,16 @@ class CovidMapControl extends React.Component {
      * @private
      */
     _onControlsChange() {
+        this.__resetPointsData(true);
+        this.__resetPolyData();
+
+        if (this.clusteredCaseSource && this.casesSource) {
+            this.onMapMoveChange();
+        }
+    }
+
+    __resetPointsData(noFade) {
         let points = {
-            "type": "FeatureCollection",
-            "features": []
-        },  polygons = {
             "type": "FeatureCollection",
             "features": []
         };
@@ -623,14 +667,27 @@ class CovidMapControl extends React.Component {
         if (this.clusteredCaseSource) {
             this.clusteredCaseSource.setData(points);
         }
+
+        if (!noFade) {
+            if (this.caseCirclesLayer) {
+                this.caseCirclesLayer.fadeOut();
+            }
+            setTimeout(() => {
+                if (this.caseCirclesLayer) {
+                    this.caseCirclesLayer.updateLayer();
+                }
+            }, 400);
+        }
+    }
+
+    __resetPolyData() {
+        let polygons = {
+            "type": "FeatureCollection",
+            "features": []
+        };
+
         if (this.casesSource) {
             this.casesSource.setData(polygons);
-        }
-        if (this.caseCirclesLayer) {
-            this.caseCirclesLayer.updateLayer();
-        }
-        if (this.clusteredCaseSource && this.casesSource) {
-            this.onMapMoveChange();
         }
     }
 }
