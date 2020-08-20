@@ -129,7 +129,8 @@ class DataDownloader {
      * @private
      */
     async getDataCollectionForCoords(lngLatBounds, dataType,
-                                     possibleSchemasForCases, iso3166WithinView) {
+                                     possibleSchemasForCases, iso3166WithinView,
+                                     noDownload) {
         var promises = [];
 
         for (let schemaInfo of possibleSchemasForCases) {
@@ -137,16 +138,16 @@ class DataDownloader {
                 for (let iso3166 of schemaInfo.iso3166Codes) {
                     promises.push([
                         schemaInfo,
-                        this.getGeoData(schemaInfo.schema, iso3166),
-                        this.getCaseData(dataType, schemaInfo.schema, iso3166)
+                        this.getGeoData(schemaInfo.schema, iso3166, noDownload),
+                        this.getCaseData(dataType, schemaInfo.schema, iso3166, noDownload)
                     ]);
                 }
             }
             else {
                 promises.push([
                     schemaInfo,
-                    this.getGeoData(schemaInfo.schema, null),
-                    this.getCaseData(dataType, schemaInfo.schema, null)
+                    this.getGeoData(schemaInfo.schema, null, noDownload),
+                    this.getCaseData(dataType, schemaInfo.schema, null, noDownload)
                 ]);
             }
         }
@@ -175,9 +176,15 @@ class DataDownloader {
             }
         };
 
+        let allDownloaded = true;
         for (let [schemaInfo, geoDataPromise, caseDataPromise] of promises) {
             let geoData = await geoDataPromise,
                 caseData = await caseDataPromise;
+
+            if (!geoData || !caseData) {
+                allDownloaded = false;
+                continue;
+            }
 
             // Allow it so that e.g. admin0 AU is hidden
             // if admin1 AU-VIC is shown by recording
@@ -220,7 +227,7 @@ class DataDownloader {
 
         return new GeoDataPropertyAssignment(
             this.remoteData.getConstants(),
-            insts, dataType, lngLatBounds, iso3166WithinView, parents
+            insts, dataType, lngLatBounds, iso3166WithinView, parents, allDownloaded
         );
     }
 
@@ -272,8 +279,8 @@ class DataDownloader {
      * @param iso3166WithinView
      * @returns {Map<any, any>}
      */
-    getPossibleSchemasForCases(zoomLevel, iso3166WithinView) {
-        return this.__getPossibleSchemas(MODE_CASES, zoomLevel, iso3166WithinView);
+    getPossibleSchemasForCases(zoomLevel, iso3166WithinView, dataType) {
+        return this.__getPossibleSchemas(MODE_CASES, zoomLevel, iso3166WithinView, dataType);
     }
 
     /**
@@ -297,7 +304,7 @@ class DataDownloader {
      * @returns {Map<any, any>}
      * @private
      */
-    __getPossibleSchemas(mode, zoomLevel, iso3166WithinView) {
+    __getPossibleSchemas(mode, zoomLevel, iso3166WithinView, dataType) {
         var r = [];
         debug(`ISO 3166 within view: ${Array.from(iso3166WithinView)}`);
 
@@ -358,7 +365,7 @@ class DataDownloader {
                     } else if (!this.remoteData.fileInGeoJSONData(schema, iso3166)) {
                         debug(`split geojson not found: ${schema} ${iso3166}`);
                         continue;
-                    } else if (mode === MODE_CASES && !this.remoteData.fileInCaseData(schema, iso3166)){
+                    } else if (mode === MODE_CASES && !this.remoteData.caseDataFileHasDataType(schema, iso3166, dataType)){
                         // Cases data not in listing
                         debug(`split cases not found: ${schema} ${iso3166}`);
                         continue;
@@ -389,7 +396,7 @@ class DataDownloader {
                 } else if (!this.remoteData.fileInGeoJSONData(schema, null)) {
                     debug(`non-split geojson not found: ${schema}`);
                     continue;
-                } else if (mode === MODE_CASES && !this.remoteData.fileInCaseData(schema, null)){
+                } else if (mode === MODE_CASES && !this.remoteData.caseDataFileHasDataType(schema, null, dataType)){
                     // Cases data not in listing
                     debug(`non-split cases not found: ${schema}`);
                     continue;
@@ -509,7 +516,7 @@ class DataDownloader {
                         // If there's an error that isn't for admin_0/admin_1,
                         // chances are the page hasn't been refreshed for some
                         // time+the data has been deleted on the remote server!
-                        window.location.reload();
+                        throw "Exception occurred loading data!"
                     }
                 }
             })
@@ -530,7 +537,7 @@ class DataDownloader {
      * @param regionParent
      * @returns {Promise<unknown>}
      */
-    getGeoData(regionSchema, regionParent) {
+    getGeoData(regionSchema, regionParent, noDownload) {
         var fileNames = this.remoteData.getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
@@ -538,7 +545,7 @@ class DataDownloader {
                 this._geoDataInsts[regionSchema] = {};
             }
 
-            if (regionParent != null && this._geoDataInsts[regionSchema][regionParent]) {
+            if (regionParent != null && regionParent in this._geoDataInsts[regionSchema]) {
                 // Data already downloaded+instance created
                 debug(`Geodata instance cached: ${regionSchema}->${regionParent}`);
                 return resolve(this._geoDataInsts[regionSchema][regionParent]);
@@ -552,6 +559,9 @@ class DataDownloader {
                 // Request already pending!
                 debug(`Geodata pending: ${regionSchema}->${regionParent}`);
                 this._geoDataPending[fileNames.geoJSONFilename].push([resolve, regionSchema, regionParent]);
+            }
+            else if (noDownload) {
+                return resolve(null);
             }
             else {
                 // Otherwise send a new request
@@ -662,7 +672,7 @@ class DataDownloader {
      * @param regionParent
      * @returns {Promise<unknown>}
      */
-    getCaseData(dataType, regionSchema, regionParent) {
+    getCaseData(dataType, regionSchema, regionParent, noDownload) {
         var fileNames = this.remoteData.getFileNames(regionSchema, regionParent);
 
         return new Promise(resolve => {
@@ -673,18 +683,21 @@ class DataDownloader {
                 this._caseDataInsts[dataType][regionSchema] = {};
             }
 
-            if (regionParent != null && this._caseDataInsts[dataType][regionSchema][regionParent]) {
+            if (regionParent != null && regionParent in this._caseDataInsts[dataType][regionSchema]) {
                 debug(`Case data instance cached: ${regionSchema}->${regionParent}`);
                 return resolve(this._caseDataInsts[dataType][regionSchema][regionParent]);
             }
-            else if (regionParent == null && !Fns.isArrayEmpty(this._caseDataInsts[dataType][regionSchema])) {
+            else if (regionParent == null && !Fns.isArrayEmpty(this._caseDataInsts[dataType][regionSchema]||{})) { // WARNING: What if e.g. all admin_1 is requested, but previous specific admin_1's instances have been created?
                 debug(`Case data instances cached: ${regionSchema}->${regionParent}`);
                 return resolve(this._caseDataInsts[dataType][regionSchema]);
             }
-            else if (this._caseDataPending[fileNames.caseDataFilename]) {
+            else if (this._caseDataPending[fileNames.caseDataFilename] != null) {
                 // Request already pending!
                 debug(`Case data pending: ${regionSchema}->${regionParent}`);
                 this._caseDataPending[fileNames.caseDataFilename].push([resolve, dataType, regionSchema, regionParent]);
+            }
+            else if (noDownload) {
+                return resolve(null);
             }
             else {
                 // Otherwise send a new request
@@ -721,6 +734,14 @@ class DataDownloader {
                                 regionSchema, iRegionParent
                             );
                         }
+                    }
+
+                    // HACK: Assign null to the originally requested file
+                    // TODO: Add a registry of which dataTypes are in which files to schema_types.json to make this unnecessary!! ============================================
+                    if (regionParent == null && !(regionSchema in this._caseDataInsts[dataType])) {
+                        this._caseDataInsts[dataType][regionSchema] = null;
+                    } else if (regionParent != null && !(regionParent in this._caseDataInsts[dataType][regionSchema])) {
+                        this._caseDataInsts[dataType][regionSchema][regionParent] = null;
                     }
 
                     // Resolve any other requests which want the

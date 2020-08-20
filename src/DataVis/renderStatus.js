@@ -1,15 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Grid from "@material-ui/core/Grid";
 import ageGenderData from "../data/ageGender";
 import stateData from "../data/state";
-import ReactGA from "react-ga";
 import latestAusData from "../data/stateCaseData";
 import Tag from "../HomePage/Tag";
-
-import AgeChart from "./AgeChart";
-import GenderChart from "./GenderChart";
-import GeneralBarChart from "./GeneralBarChart";
-import GeneralLineChart from "./GeneralLineChart";
 
 const stateNameMapping = {
   VIC: "Victoria",

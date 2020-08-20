@@ -28,6 +28,12 @@ import MapBoxSource from "../../Sources/MapBoxSource";
 import HoverStateHelper from "../HoverStateHelper";
 
 
+// NOTE: I'm not currently using a specific transition value, as not
+// using one seems to be much faster while using the timeline controls,
+// while still having a transition? This doesn't make a lot of sense..
+const FADE_TRANSITION_DURATION = 600;
+
+
 class CaseCirclesLayer {
     /**
      * MapBox GL layers which show case numbers in red circles
@@ -100,7 +106,8 @@ class CaseCirclesLayer {
                     },
                     'paint': {
                         'text-halo-width': 1,
-                        'text-halo-blur': 2
+                        'text-halo-blur': 2,
+                        //"text-opacity-transition": {duration: FADE_TRANSITION_DURATION},
                     }
                 },
                 underneath ? (this.uniqueId+'rectangle') : null
@@ -117,7 +124,10 @@ class CaseCirclesLayer {
             filter: ['all',
                 ['!=', 'cases', 0],
                 ['has', 'cases']
-            ]
+            ],
+            paint: {
+                //"fill-opacity-transition": {duration: FADE_TRANSITION_DURATION},
+            }
         });
         //this.hoverStateHelper.associateLayerId(this.uniqueId+'rectangle');
 
@@ -146,12 +156,27 @@ class CaseCirclesLayer {
                 'symbol-sort-key': ["get", "cases"]
             },
             paint: {
-                "text-color": "rgba(255, 255, 255, 1.0)"
+                "text-color": "rgba(255, 255, 255, 1.0)",
+                //"text-opacity-transition": {duration: FADE_TRANSITION_DURATION},
             }
         });
         //this.hoverStateHelper.associateLayerId(this.uniqueId+'label');
 
         this.__layerAdded = true;
+    }
+
+    fadeOut() {
+        this.map.setPaintProperty(this.uniqueId+'rectangle', 'fill-opacity', 0);
+        this.map.setPaintProperty(this.uniqueId+'label', 'text-opacity', 0);
+        this.map.setPaintProperty(this.uniqueId + 'citylabel', 'text-opacity', 0);
+        this.map.setPaintProperty(this.uniqueId + 'citylabelun', 'text-opacity', 0);
+    }
+
+    fadeIn() {
+        this.map.setPaintProperty(this.uniqueId+'rectangle', 'fill-opacity', 1.0);
+        this.map.setPaintProperty(this.uniqueId+'label', 'text-opacity', 1.0);
+        this.map.setPaintProperty(this.uniqueId + 'citylabel', 'text-opacity', 1.0);
+        this.map.setPaintProperty(this.uniqueId + 'citylabelun', 'text-opacity', 1.0);
     }
 
     /*******************************************************************
