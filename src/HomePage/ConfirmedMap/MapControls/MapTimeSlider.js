@@ -37,6 +37,7 @@ class MapTimeSlider extends React.Component {
      */
     constructor(props) {
         super(props);
+        this.extraStyles = props.extraStyles || {};
         this.state = {
             maxDate: DateType.today()
         };
@@ -52,17 +53,17 @@ class MapTimeSlider extends React.Component {
                   ref={el => this.mapSliderCont = el}
                   style={{display: "flex"}}>
                 <label className="map-slider-item"
-                       style={{width: "6em", textAlign: "center"}}>Time&nbsp;slider:</label>
+                       style={{width: "6em", textAlign: "center", ...this.extraStyles}}>Time&nbsp;slider:</label>
                 <input className="map-slider-item"
                        ref={el => {this.mapSlider = el}}
-                       style={{flexGrow: "1"}}
+                       style={{flexGrow: "1", ...this.extraStyles}}
                        onChange={() => this.__onChange()}
                        type="range" step="1" min="0"
                        max={this.props.numDays||30}
                        defaultValue={this.props.numDays||30} />
                 <label className="map-slider-item"
                        ref={el => {this.mapSliderLabel = el}}
-                       style={{width: "3em", textAlign: "center"}}>{
+                       style={{width: "3em", textAlign: "center", ...this.extraStyles}}>{
                            new Date(this.state.maxDate).getDate()+'/'+
                            (new Date(this.state.maxDate).getMonth()+1)
                        }</label>

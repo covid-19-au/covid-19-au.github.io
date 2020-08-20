@@ -4,8 +4,6 @@ import ageGenderData from "../data/ageGender";
 import ReactGA from "react-ga";
 import latestAusData from "../data/stateCaseData";
 
-import GenderChart from "./GenderChart";
-import GeneralBarChart from "./GeneralBarChart";
 import GeneralLineChart from "./GeneralLineChart";
 import renderStatus from "./renderStatus";
 import RegionalCasesBarChart from "../HomePage/CrawlerDataVis/RegionalCasesBarChart";
@@ -18,6 +16,7 @@ import ConfirmedMap from "../HomePage/ConfirmedMap"
 import Acknowledgement from "../Acknowledgment";
 import AgeBarChart from "../HomePage/CrawlerDataVis/AgeBarChart";
 import getRemoteData from "../HomePage/CrawlerData/RemoteData";
+import GenderPieChart from "../HomePage/CrawlerDataVis/GenderPieChart";
 
 const stateNameMapping = {
     VIC: "Victoria",
@@ -48,13 +47,10 @@ class StateChart extends React.Component {
     render() {
         const statusUpdateTime = latestAusData["updatedTime"];
 
-        // get choosen state data
-        const stateAgeGenderData = getExpectStateData(this.props.state);
-
         ReactGA.pageview("/state/" + this.props.state);
 
         let infectionSources = (
-            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+            <Grid style={{minWidth: '48%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
                     <h2>Infection Sources</h2>
                     <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart = el} />
@@ -62,7 +58,7 @@ class StateChart extends React.Component {
             </Grid>
         );
         let mostActive10Regions = (
-            <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+            <Grid style={{minWidth: '48%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <div className="card">
                     <h2>Most Active Regions</h2>
                     <RegionalCasesBarChart ref={(el) => this.areaChart = el} />
@@ -71,7 +67,7 @@ class StateChart extends React.Component {
             </Grid>
         );
         let casesShownAsArea = (
-            <Grid style={{minWidth: '45%', maxWidth: '900px'}} item xs={11} sm={11} md={11} lg={11}>
+            <Grid style={{minWidth: '48%', maxWidth: '900px'}} item xs={11} sm={11} md={11} lg={11}>
                 <div className="card">
                     <h2>Cases Shown as Area</h2>
                     <RegionalCasesTreeMap ref={(el) => this.treeMap = el} />
@@ -81,13 +77,14 @@ class StateChart extends React.Component {
         let genderBalance = (
             <div className="card">
                 <h2>Gender Balance</h2>
-                {stateAgeGenderData ? <GenderChart state={this.props.state} /> : ''}
+
+                <GenderPieChart ref={el => {this.genderPieChart = el}} />
             </div>
         );
 
         return (
             <Grid container spacing={1} justify="center" wrap="wrap">
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <Grid style={{minWidth: '48%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card">
                         <div className="table">
                             {/* Display some basic current case stats */}
@@ -107,10 +104,10 @@ class StateChart extends React.Component {
                         <GeneralLineChart state={this.props.state} />
                     </div>
 
-                    {this.props.state !== 'NT' && this.props.state !== 'TAS' ? genderBalance : ''}
+                    {this.props.state !== 'NT' && this.props.state !== 'TAS' && this.props.state !== 'ACT' ? genderBalance : ''}
                 </Grid>
 
-                <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                <Grid style={{minWidth: '48%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                     <div className="card" style={{
                         display: 'flex',
                         flexDirection: 'column'
@@ -132,44 +129,25 @@ class StateChart extends React.Component {
                     </div>
                 </Grid>
 
-                {this.props.state !== 'NT' && this.props.state !== 'TAS' ? infectionSources : ''}
-
-                {stateAgeGenderData !== null || this.props.state === 'QLD' || this.props.state === 'WA' ? (
+                {true ? (
                     <Fragment>
                         {/* "Cases by Age Group" chart */}
-                        <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                        <Grid style={{minWidth: '48%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                             <div className="card">
                                 <h2>Age Distribution</h2>
                                 <PopulationPyramid ref={(el) => this.populationPyramid = el} />
                             </div>
                         </Grid>
-                        <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
+                        <Grid style={{minWidth: '48%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                             <div className="card">
                                 <h2>Age Distribution Over Time</h2>
                                 <AgeBarChart ref={(el) => this.ageBarChart = el} />
                             </div>
                         </Grid>
                     </Fragment>
-                ) : (
-                    <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                        <h2 style={{ textAlign: "center" }}>
-                            We are working on acquiring detailed age group and gender data for{" "}
-                            {stateNameMapping[this.props.state]}!
-                        </h2>
-                        <br />
-                        <h5 style={{ textAlign: "center" }}>
-                            If you have reliable source for such data, please let us know
-                            through{" "}
-                            <a
-                                href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
-                                style={{ color: "blue", textDecoration: "underline" }}
-                            >
-                                this
-                            </a>{" "}
-                            form.
-                        </h5>
-                    </Grid>
-                )}
+                ) : ''}
+
+                {this.props.state !== 'NT' && this.props.state !== 'TAS' ? infectionSources : ''}
 
                 {this.props.state !== 'NT' ? mostActive10Regions : ''}
                 {this.props.state !== 'NT' ? casesShownAsArea : ''}
@@ -211,6 +189,23 @@ class StateChart extends React.Component {
         if (this.ageBarChart) {
             this.__initAgeBarChart(regionParent);
         }
+
+        if (this.genderPieChart) {
+            this.__initGenderPieChart(regionParent);
+        }
+    }
+
+    /********************************************************************
+     * Pie charts
+     ********************************************************************/
+
+    async __initGenderPieChart(regionParent) {
+        let totalCasesInst = await this.dataDownloader.getCaseData('total', 'admin_1', 'au');
+        let femaleCasesInst = await this.dataDownloader.getCaseData('total_female', 'admin_1', 'au');
+        let maleCasesInst = await this.dataDownloader.getCaseData('total_male', 'admin_1', 'au');
+
+        let regionType = new RegionType('admin_1', 'au', regionParent);
+        this.genderPieChart.setCasesInst(totalCasesInst, maleCasesInst, femaleCasesInst, regionType);
     }
 
     /********************************************************************
@@ -244,6 +239,10 @@ class StateChart extends React.Component {
      * @private
      */
     async __initInfectionSource(regionParent) {
+        if (!this.multiDataTypeAreaChart) {
+            return;
+        }
+
         let casesInsts = [];
         for (let dataType of [
             'source_confirmed',
@@ -251,13 +250,14 @@ class StateChart extends React.Component {
             'source_under_investigation',
             'source_overseas'
         ]) {
-            casesInsts.push(await this.dataDownloader.getCaseData(
+            let casesInst = await this.dataDownloader.getCaseData(
                 dataType, 'admin_1', 'au'
-            ));
+            );
+            if (casesInst) {
+                casesInsts.push(casesInst);
+            }
         }
-        if (!this.multiDataTypeAreaChart) {
-            return;
-        }
+
         this.multiDataTypeAreaChart.setCasesInst(
             casesInsts,
             new RegionType('admin_1', 'au', regionParent)
