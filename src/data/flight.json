@@ -1204,5 +1204,14 @@
     "dateDeparture": "17-08-20",
     "dateArrival": "17-08-20",
     "closeContactRow": "Unsure"
+  },
+  {
+    "reportState": "WA",
+    "flightNo": "EK420",
+    "airline": "Emirates",
+    "path": "​Dubai to Perth",
+    "dateDeparture": "",
+    "dateArrival": "15-08-20",
+    "closeContactRow": "25, 26, 27, 28, 29, 30"
   }
 ]
