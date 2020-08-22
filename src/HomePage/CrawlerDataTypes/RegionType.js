@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
+import i18next from "../../i18n";
 
 let __labels = {};
 
@@ -188,16 +189,16 @@ class RegionType {
      *        e.g. "en" or "zh" for Chinese
      * @returns {*}
      */
-    getLocalized(langCode) {
+    getLocalized() {
         let hasLabels = (
             __labels[this.regionSchema] &&
             __labels[this.regionSchema][this.regionParent] &&
             __labels[this.regionSchema][this.regionParent][this.regionChild]
         );
 
-        if (hasLabels && __labels[this.regionSchema][this.regionParent][this.regionChild][langCode]) {
+        if (hasLabels && __labels[this.regionSchema][this.regionParent][this.regionChild][i18next.language]) {
             // Have a direct localization
-            return __labels[this.regionSchema][this.regionParent][this.regionChild][langCode];
+            return __labels[this.regionSchema][this.regionParent][this.regionChild][i18next.language];
         }
         else if (hasLabels && __labels[this.regionSchema][this.regionParent][this.regionChild]['en']) {
             // Fall back to English if one not available

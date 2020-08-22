@@ -49,6 +49,7 @@ import LoadingIndicator from "./MapControls/LoadingIndicator";
 import AxiosAnalytics from "./AxiosAnalytics";
 import HoverStateHelper from "./Layers/HoverStateHelper";
 import BRIGHT_V9_MOD_STYLE from "./bright_v9_mod";
+import i18next from "../../i18n";
 
 
 //Fetch Token from env
@@ -268,7 +269,31 @@ class CovidMapControl extends React.Component {
                     labelLayerId
                 );
 
+                let localeMap = {
+                    tw: 'zh', // HACK - need to update to streets-v8 to have proper zh-Hant!
+                    zh: 'zh-Hans'
+                };
+
                 map.setPaintProperty('water', "fill-color", "#9fc4e1");
+                for (let id of [
+                    'country_label_1', 'country_label_2',
+                    'country_label_3', 'country_label_4',
+                    'marine_label_point_1', 'marine_label_line_1',
+                    'marine_label_point_2', 'marine_label_line_2',
+                    'marine_label_point_3', 'marine_label_line_3',
+                    'marine_label_point_4', 'marine_label_line_4',
+                    'place_label_city', 'place_label_town',
+                    'place_label_village', 'place_label_other',
+                    'road_label', 'airport_label', 'poi_label_1',
+                    'rail_station_label', 'poi_label_2',
+                    'poi_label_3', 'poi_label_4',
+                    'water_label',
+                    'road_major_label', 'poi_label'
+                ]) {
+                    map.setLayoutProperty(id, 'text-field', [
+                        'get', 'name_' + localeMap[i18next.language]||i18next.language
+                    ]);
+                }
 
                 const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
                 const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
@@ -498,7 +523,7 @@ class CovidMapControl extends React.Component {
             );
 
             // Then download case/geodata if need be
-            if (!dataCollectionNoDownload.getAllDownloaded()) {
+            if (!dataCollectionNoDownload.getMoreToDownload()) {
                 let dataCollection = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
                     lngLatBounds, dataType, schemasForCases, iso3166WithinView, false
                 );

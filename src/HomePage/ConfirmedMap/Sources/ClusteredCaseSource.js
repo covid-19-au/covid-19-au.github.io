@@ -202,7 +202,7 @@ class ClusteredCaseSource extends MapBoxSource {
                     // HACK: Give an indicator that there's actually multiple region at this point
                     // This should be implemented in a way which allows adding unified popups, etc with fill area charts
 
-                    if (properties.label.length > 15) {
+                    if (properties.label.length > 20) {
                         properties.label = `${mergedMap.get(index).length+1} areas...`;
                     } else {
                         properties.label = `${mergedMap.get(index).length+1} areas\n(${properties.label}, ...)`;

@@ -25,6 +25,7 @@ SOFTWARE.
 import RegionType from "../CrawlerDataTypes/RegionType";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 import Fns from "../ConfirmedMap/Fns"
+import i18next from "../../i18n";
 
 
 class GeoData {
@@ -59,7 +60,6 @@ class GeoData {
         this.schemaRegionParent = schemaRegionParent;
 
         this.regionParentGeoData = regionParentGeoData;
-        this.iso639code = 'en'; // HACK: Please add localization support later!!! ======================================
         this._processData(regionParentGeoData);
     }
 
@@ -128,7 +128,7 @@ class GeoData {
                     "regionParent": this.regionParent,
                     "regionChild": regionChild,
                     "uniqueid": uniqueId,
-                    "label": this.getLabel(regionChild, this.iso639code)
+                    "label": this.getLabel(regionChild, i18next.language)
                 };
                 outlines['features'].push({
                     "id": largestItem ? uniqueId : Math.random(),

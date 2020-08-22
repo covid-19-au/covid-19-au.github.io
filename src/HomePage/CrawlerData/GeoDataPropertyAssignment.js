@@ -31,7 +31,7 @@ class GeoDataPropertyAssignment {
      * Returns whether there was still data left
      * to download at the current coordinates
      */
-    getAllDownloaded() {
+    getMoreToDownload() {
         return this.allDownloaded;
     }
 

@@ -21,17 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-
-import getMapBoxCaseColors from "./getMapBoxCaseColors";
-import Fns from "../../Fns"
-import MapBoxSource from "../../Sources/MapBoxSource";
-import HoverStateHelper from "../HoverStateHelper";
-
-
-// NOTE: I'm not currently using a specific transition value, as not
-// using one seems to be much faster while using the timeline controls,
-// while still having a transition? This doesn't make a lot of sense..
-const FADE_TRANSITION_DURATION = 600;
+import CaseCityLabelsLayer from "./CaseCityLabelsLayer";
+import CaseRectangleLayer from "./CaseRectangleLayer";
 
 
 class CaseCirclesLayer {
@@ -48,93 +39,24 @@ class CaseCirclesLayer {
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
-        this.rectangleSource = new MapBoxSource(map, null, null, null);
 
         this.hoverStateHelper = hoverStateHelper;
-        this.hoverStateHelper.associateSourceId(this.rectangleSource.getSourceId());
-        this.hoverStateHelper.associateSourceId(this.clusteredCaseSources.getSourceId())
+        this.hoverStateHelper.associateSourceId(this.clusteredCaseSources.getSourceId());
+
+        this.caseCityLabelsLayer = new CaseCityLabelsLayer(map, uniqueId, clusteredCaseSources);
+        this.caseRectangleLayer = new CaseRectangleLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
     }
 
     __addLayer() {
+        this.caseCityLabelsLayer.__addLayer();
+        this.caseRectangleLayer.__addLayer();
+
+        if (this.__layerAdded) {
+            return;
+        }
         let map = this.map;
 
-        // Make it so that symbol/circle layers are given different priorities
-        // This is essentially a hack to make it so Canberra is situated above
-        // NSW lines, but under NSW cases which are larger in number.
-        // Ideally, all the layers for all the schemas should be combined,
-        // so as to be able to combine ACT+NSW cases at different zooms
-        var lastSymbolLayer,
-            lastCircleLayer;
-
-        var layers = map.getStyle().layers;
-        for (var i = 0; i < layers.length; i++) {
-            if (layers[i].type === 'symbol') {
-                lastSymbolLayer = layers[i].id;
-            }
-            else if (layers[i].type === 'circle') {
-                lastCircleLayer = layers[i].id;
-            }
-            else if (layers[i].type === 'fill' || layers[i].type === 'line') {
-                lastSymbolLayer = lastCircleLayer = null;
-            }
-        }
-
-        let addCityLabel = (underneath) => {
-            let layerId = this.uniqueId + 'citylabel' + (underneath ? 'un' : '');
-            map.addLayer(
-                {
-                    'id': layerId,
-                    'type': 'symbol',
-                    'maxzoom': 14,
-                    'source': this.clusteredCaseSources.getSourceId(),
-                    'filter': ['all',
-                        ['!=', 'cases', 0],
-                        ['has', 'cases']
-                    ],
-                    'layout': {
-                        'text-field': [
-                            'format',
-                            ['get', 'label'],
-                            {'font-scale': 0.7},
-                        ],
-                        'text-transform': 'lowercase',
-                        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                        'text-offset': [0, 0.75],
-                        'text-anchor': 'top',
-                        'text-allow-overlap': underneath,
-                        'symbol-sort-key': ["get", "cases"]
-                    },
-                    'paint': {
-                        'text-halo-width': 1,
-                        'text-halo-blur': 2,
-                        //"text-opacity-transition": {duration: FADE_TRANSITION_DURATION},
-                    }
-                },
-                underneath ? (this.uniqueId+'rectangle') : null
-            );
-            //this.hoverStateHelper.associateLayerId(layerId);
-        };
-        addCityLabel(false);
-
-        map.addLayer({
-            'id': this.uniqueId+'rectangle',
-            'type': 'fill',
-            'maxzoom': 14,
-            'source': this.rectangleSource.getSourceId(),
-            filter: ['all',
-                ['!=', 'cases', 0],
-                ['has', 'cases']
-            ],
-            paint: {
-                //"fill-opacity-transition": {duration: FADE_TRANSITION_DURATION},
-            }
-        });
-        //this.hoverStateHelper.associateLayerId(this.uniqueId+'rectangle');
-
-        // Need to add after the rectangle source has been
-        // created to make sure it's directly underneath it!
-        addCityLabel(true);
-
+        // Add the cases number layer
         map.addLayer({
             id: this.uniqueId+'label',
             type: 'symbol',
@@ -160,23 +82,22 @@ class CaseCirclesLayer {
                 //"text-opacity-transition": {duration: FADE_TRANSITION_DURATION},
             }
         });
-        //this.hoverStateHelper.associateLayerId(this.uniqueId+'label');
 
         this.__layerAdded = true;
     }
 
     fadeOut() {
-        this.map.setPaintProperty(this.uniqueId+'rectangle', 'fill-opacity', 0);
         this.map.setPaintProperty(this.uniqueId+'label', 'text-opacity', 0);
-        this.map.setPaintProperty(this.uniqueId + 'citylabel', 'text-opacity', 0);
-        this.map.setPaintProperty(this.uniqueId + 'citylabelun', 'text-opacity', 0);
+
+        this.caseCityLabelsLayer.fadeOut();
+        this.caseRectangleLayer.fadeOut();
     }
 
     fadeIn() {
-        this.map.setPaintProperty(this.uniqueId+'rectangle', 'fill-opacity', 1.0);
         this.map.setPaintProperty(this.uniqueId+'label', 'text-opacity', 1.0);
-        this.map.setPaintProperty(this.uniqueId + 'citylabel', 'text-opacity', 1.0);
-        this.map.setPaintProperty(this.uniqueId + 'citylabelun', 'text-opacity', 1.0);
+
+        this.caseCityLabelsLayer.fadeIn();
+        this.caseRectangleLayer.fadeIn();
     }
 
     /*******************************************************************
@@ -205,172 +126,12 @@ class CaseCirclesLayer {
         ];
 
         caseVals = caseVals||this.clusteredCaseSources.getPointsAllVals();
+
+        this.caseCityLabelsLayer.updateLayer(caseVals);
+        this.caseRectangleLayer.updateLayer(caseVals);
+
         this.__caseVals = caseVals;
-
-        let startOpacity;
-        if (caseVals.length < 40) {
-            startOpacity = 1.0;
-        } else if (caseVals.length < 70) {
-            startOpacity = 0.8;
-        } else if (caseVals.length < 100) {
-            startOpacity = 0.6;
-        } else {
-            startOpacity = 0.4;
-        }
-
-        let map = this.map,
-            rectangleColor = getMapBoxCaseColors(
-                [255, 222, 207, startOpacity], [231, 50, 16, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(169, 0, 15)',
-                [164,192,160, startOpacity], [46,110,15, 1.0],
-                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
-            ),
-            textColor = getMapBoxCaseColors(
-                [187,122,121, 1.0], [182, 14, 28, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(169,0,15)',
-                [115,140,111, 1.0], [46,110,15, 1.0],
-                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
-            ),
-            textHaloColor = getMapBoxCaseColors(
-                [255, 255, 255, startOpacity], [255, 255, 255, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(255, 255, 255)',
-                [255, 255, 255, startOpacity], [255, 255, 255, 1.0],
-                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
-            ),
-            hoverRectangleColor = "rgba(150, 10, 6, 0.9)";
-
-        let rectangleWidths;
-        if (this.clusteredCaseSources.clusteringBeingUsed()) {
-            rectangleWidths = {
-                '-6': 30,
-                '-5': 25,
-                '-4': 20,
-                '-3': 14,
-                '-2': 10,
-                '-1': 9,
-                '0': 0,
-                '1': 9,
-                '2': 13,
-                '3': 16,
-                '4': 20,
-                '5': 25,
-                '6': 30,
-            };
-        } else {
-            // Scale circle radius by relative values
-            let posTimes = 1.0,
-                negTimes = 1.0,
-                lowest = caseVals[0],
-                highest = caseVals[caseVals.length-1];
-
-            if (highest <= 9) {
-                posTimes *= 1.5;
-            } else if (highest <= 99) {
-                posTimes *= 1.3;
-            } else if (highest <= 999) {
-                posTimes *= 1.1;
-            }
-
-            if (lowest >= 0) {
-                negTimes *= 1.5;
-            } else if (highest >= -1) {
-                negTimes *= 1.3;
-            } else if (highest >= -10) {
-                negTimes *= 1.1;
-            }
-
-            rectangleWidths = {
-                '-6': 30 * negTimes,
-                '-5': 25 * negTimes,
-                '-4': 20 * negTimes,
-                '-3': 14 * negTimes,
-                '-2': 10 * negTimes,
-                '-1': 9 * negTimes,
-                '0': 0,
-                '1': 9 * posTimes,
-                '2': 15 * posTimes,
-                '3': 22 * posTimes,
-                '4': 30 * posTimes,
-                '5': 35 * posTimes,
-                '6': 40 * posTimes
-            };
-        }
-
-        map.setPaintProperty(
-            // Color circle by value
-            this.uniqueId+'rectangle', 'fill-color', [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                hoverRectangleColor,
-                rectangleColor
-            ]
-        );
-        map.setPaintProperty(
-            this.uniqueId+'citylabel', 'text-color', [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                hoverRectangleColor,
-                textColor
-            ]
-        );
-        map.setPaintProperty(
-            this.uniqueId+'citylabelun', 'text-color', [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                hoverRectangleColor,
-                textColor
-            ]
-        );
-        map.setPaintProperty(
-            this.uniqueId+'citylabel', 'text-halo-color', textHaloColor
-        );
-        map.setPaintProperty(
-            this.uniqueId+'citylabelun', 'text-halo-color', textHaloColor
-        );
-
-        this.__updateRectangleWidth(rectangleWidths);
         this.__shown = true;
-    }
-
-    __updateRectangleWidth(rectangleWidths) {
-        let data = this.clusteredCaseSources.getData(),
-            features = data['features'];
-
-        for (let feature of features) {
-            let [lng, lat] = feature['geometry']['coordinates'],
-                pxPoint = this.map.project([lng, lat]),
-                casesSz = parseInt(feature['properties']['casesSz']),
-                leftOver = Math.abs(feature['properties']['casesSz']-casesSz);
-
-            if (!casesSz) continue;
-            if (casesSz < -4) casesSz = -4;
-            if (casesSz > 4) casesSz = 4;
-
-            let pxLng = pxPoint.x;
-            let pxLat = pxPoint.y;
-            let rectangleWidth = rectangleWidths[casesSz];
-
-            rectangleWidth += (
-                rectangleWidths[
-                    casesSz < 0 ? casesSz-1 : casesSz+1
-                ] - rectangleWidth
-            ) * leftOver;
-
-            //console.log(`${casesSz} ${rectangleWidth} ${pxLng} ${pxLat}`);
-
-            let pt1 = this.map.unproject([pxLng-rectangleWidth, pxLat-10]),
-                pt2 = this.map.unproject([pxLng+rectangleWidth, pxLat-10]),
-                pt3 = this.map.unproject([pxLng+rectangleWidth, pxLat+10]),
-                pt4 = this.map.unproject([pxLng-rectangleWidth, pxLat+10]);
-
-            feature['geometry']['type'] = 'Polygon';
-            feature['geometry']['coordinates'] = [[
-                pt1.toArray(), pt2.toArray(),
-                pt3.toArray(), pt4.toArray(),
-            ]];
-        }
-
-        this.rectangleSource.setData(data);
     }
 
     /**
@@ -381,9 +142,12 @@ class CaseCirclesLayer {
             const map = this.map;
             map.removeLayer(this.uniqueId);
             map.removeLayer(this.uniqueId + 'label');
-            map.removeLayer(this.uniqueId + 'citylabel');
-            map.removeLayer(this.uniqueId + 'citylabelun');
+
+            this.caseCityLabelsLayer.removeLayer();
+            this.caseRectangleLayer.removeLayer();
+
             this.__shown = false;
+            this.__layerAdded = false;
         }
     }
 }
