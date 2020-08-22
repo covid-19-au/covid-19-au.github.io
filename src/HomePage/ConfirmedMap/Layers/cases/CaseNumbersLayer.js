@@ -25,7 +25,7 @@ import CaseCityLabelsLayer from "./CaseCityLabelsLayer";
 import CaseRectangleLayer from "./CaseRectangleLayer";
 
 
-class CaseCirclesLayer {
+class CaseNumbersLayer {
     /**
      * MapBox GL layers which show case numbers in red circles
      *
@@ -48,13 +48,13 @@ class CaseCirclesLayer {
     }
 
     __addLayer() {
-        this.caseCityLabelsLayer.__addLayer();
-        this.caseRectangleLayer.__addLayer();
-
         if (this.__layerAdded) {
             return;
         }
         let map = this.map;
+
+        this.caseRectangleLayer.__addLayer();
+        this.caseCityLabelsLayer.__addLayer();
 
         // Add the cases number layer
         map.addLayer({
@@ -126,12 +126,74 @@ class CaseCirclesLayer {
         ];
 
         caseVals = caseVals||this.clusteredCaseSources.getPointsAllVals();
+        let rectangleWidths = this.__getRectangleWidths(caseVals);
 
         this.caseCityLabelsLayer.updateLayer(caseVals);
-        this.caseRectangleLayer.updateLayer(caseVals);
+        this.caseRectangleLayer.updateLayer(caseVals, rectangleWidths);
 
         this.__caseVals = caseVals;
         this.__shown = true;
+    }
+
+    __getRectangleWidths(caseVals) {
+        let rectangleWidths;
+
+        if (this.clusteredCaseSources.clusteringBeingUsed()) {
+            rectangleWidths = {
+                '-6': 30,
+                '-5': 25,
+                '-4': 20,
+                '-3': 14,
+                '-2': 10,
+                '-1': 9,
+                '0': 0,
+                '1': 9,
+                '2': 13,
+                '3': 16,
+                '4': 20,
+                '5': 25,
+                '6': 30,
+            };
+        } else {
+            // Scale circle radius by relative values
+            let posTimes = 1.0,
+                negTimes = 1.0,
+                lowest = caseVals[0],
+                highest = caseVals[caseVals.length-1];
+
+            if (highest <= 9) {
+                posTimes *= 1.5;
+            } else if (highest <= 99) {
+                posTimes *= 1.3;
+            } else if (highest <= 999) {
+                posTimes *= 1.1;
+            }
+
+            if (lowest >= 0) {
+                negTimes *= 1.5;
+            } else if (highest >= -1) {
+                negTimes *= 1.3;
+            } else if (highest >= -10) {
+                negTimes *= 1.1;
+            }
+
+            rectangleWidths = {
+                '-6': 30 * negTimes,
+                '-5': 25 * negTimes,
+                '-4': 20 * negTimes,
+                '-3': 14 * negTimes,
+                '-2': 10 * negTimes,
+                '-1': 9 * negTimes,
+                '0': 0,
+                '1': 9 * posTimes,
+                '2': 15 * posTimes,
+                '3': 22 * posTimes,
+                '4': 30 * posTimes,
+                '5': 35 * posTimes,
+                '6': 40 * posTimes
+            };
+        }
+        return rectangleWidths;
     }
 
     /**
@@ -152,4 +214,4 @@ class CaseCirclesLayer {
     }
 }
 
-export default CaseCirclesLayer;
+export default CaseNumbersLayer;

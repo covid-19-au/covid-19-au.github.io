@@ -64,7 +64,7 @@ class CaseRectangleLayer {
         this.map.setPaintProperty(this.uniqueId+'rectangle', 'fill-opacity', 1.0);
     }
 
-    updateLayer(caseVals) {
+    updateLayer(caseVals, rectangleWidths) {
         if (!this.__layerAdded) {
             this.__addLayer();
         }
@@ -91,63 +91,6 @@ class CaseRectangleLayer {
                 caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
             ),
             hoverRectangleColor = "rgba(150, 10, 6, 0.9)";
-
-        let rectangleWidths;
-        if (this.clusteredCaseSources.clusteringBeingUsed()) {
-            rectangleWidths = {
-                '-6': 30,
-                '-5': 25,
-                '-4': 20,
-                '-3': 14,
-                '-2': 10,
-                '-1': 9,
-                '0': 0,
-                '1': 9,
-                '2': 13,
-                '3': 16,
-                '4': 20,
-                '5': 25,
-                '6': 30,
-            };
-        } else {
-            // Scale circle radius by relative values
-            let posTimes = 1.0,
-                negTimes = 1.0,
-                lowest = caseVals[0],
-                highest = caseVals[caseVals.length-1];
-
-            if (highest <= 9) {
-                posTimes *= 1.5;
-            } else if (highest <= 99) {
-                posTimes *= 1.3;
-            } else if (highest <= 999) {
-                posTimes *= 1.1;
-            }
-
-            if (lowest >= 0) {
-                negTimes *= 1.5;
-            } else if (highest >= -1) {
-                negTimes *= 1.3;
-            } else if (highest >= -10) {
-                negTimes *= 1.1;
-            }
-
-            rectangleWidths = {
-                '-6': 30 * negTimes,
-                '-5': 25 * negTimes,
-                '-4': 20 * negTimes,
-                '-3': 14 * negTimes,
-                '-2': 10 * negTimes,
-                '-1': 9 * negTimes,
-                '0': 0,
-                '1': 9 * posTimes,
-                '2': 15 * posTimes,
-                '3': 22 * posTimes,
-                '4': 30 * posTimes,
-                '5': 35 * posTimes,
-                '6': 40 * posTimes
-            };
-        }
 
         map.setPaintProperty(
             // Color circle by value

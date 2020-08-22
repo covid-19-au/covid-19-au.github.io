@@ -35,7 +35,7 @@ import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 import DaysSinceLayer from "./Layers/cases/DaysSinceLayer";
 import CasesFillPolyLayer from "./Layers/cases/CasesFillPolyLayer";
 import UnderlayFillPolyLayer from "./Layers/underlay/UnderlayFillPolyLayer";
-import CaseCirclesLayer from "./Layers/cases/CaseCirclesLayer";
+import CaseNumbersLayer from "./Layers/cases/CaseNumbersLayer";
 import LinePolyLayer from "./Layers/LinePolyLayer";
 
 import MapBoxSource from "./Sources/MapBoxSource";
@@ -50,6 +50,7 @@ import AxiosAnalytics from "./AxiosAnalytics";
 import HoverStateHelper from "./Layers/HoverStateHelper";
 import BRIGHT_V9_MOD_STYLE from "./bright_v9_mod";
 import i18next from "../../i18n";
+import CaseGraphLayer from "./Layers/cases/CaseGraphLayer";
 
 
 //Fetch Token from env
@@ -281,7 +282,7 @@ class CovidMapControl extends React.Component {
                     'marine_label_point_1', 'marine_label_line_1',
                     'marine_label_point_2', 'marine_label_line_2',
                     'marine_label_point_3', 'marine_label_line_3',
-                    'marine_label_point_4', 'marine_label_line_4',
+                    //'marine_label_point_4', 'marine_label_line_4',
                     'place_label_city', 'place_label_town',
                     'place_label_village', 'place_label_other',
                     'road_label', 'airport_label', 'poi_label_1',
@@ -312,7 +313,8 @@ class CovidMapControl extends React.Component {
                 this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource, this.hoverStateHelper);
                 //this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
                 this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
-                this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource, this.hoverStateHelper);
+                this.caseCirclesLayer = new CaseGraphLayer(map, 'graph', clusteredCaseSource, this.hoverStateHelper);
+                //this.caseCirclesLayer = new CaseNumbersLayer(map, 'heatMap', clusteredCaseSource, this.hoverStateHelper);
 
                 // Bind events for loading data
                 //map.on('move', () => {
