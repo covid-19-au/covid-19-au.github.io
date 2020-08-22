@@ -752,6 +752,7 @@
             "name": "Queensland",
             "text": {
                 "text_1": [
+                    "From 22/08/2020, gatherings at homes across greater Brisbane will be limited to a maximum of 10 people. The regions affected by the restrictions are: Brisbane, Ipswich, Logan, Scenic Rim, Lockyer Valley, Somerset, Moreton and Redlands. Gatherings outside of Greater Brisbane will be limited to 30 people.",
                     "From 1am Saturday, August 1st the Queensland will close its borders to all residents from Greater Sydney.",
                     "From 1am Saturday, August 8th, Queensland will close its borders to Victoria and the ACT.",
                     "All Queensland residents who return from \"declared coronavirus hotspots\" will be sent to mandatory hotel quarantine for 14 days at their own expense.",
@@ -776,6 +777,10 @@
                 "text_2": [],
                 "citation": [
                     {
+                        "link": "https://www.abc.net.au/news/2020-08-22/coronavirus-cases-linked-to-brisbane-youth-detention-centre/12585448",
+                        "name": "Six new coronavirus cases linked to Brisbane Youth Detention Centre as restrictions are reimposed across Queensland - ABC News"
+                    },
+                    {
                         "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
                         "name": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today - ABC News"
                     },
@@ -789,7 +794,7 @@
                     }
                 ]
             },
-            "lastUpdated": "05 August 2020"
+            "lastUpdated": "22 August 2020"
         },
         {
             "name": "New South Wales",
