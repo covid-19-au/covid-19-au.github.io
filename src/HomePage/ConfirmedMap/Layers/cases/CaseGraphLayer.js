@@ -25,6 +25,7 @@ SOFTWARE.
 import CaseRectangleLayer from "./CaseRectangleLayer";
 import CaseCityLabelsLayer from "./CaseCityLabelsLayer";
 import MapBoxSource from "../../Sources/MapBoxSource";
+import CaseNumbersLayer from "./CaseNumbersLayer";
 
 let RECTANGLE_WIDTH = 25;
 
@@ -40,6 +41,7 @@ class CaseGraphLayer {
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
+        this.__mode = 'casenums';
 
         this.lineSource = new MapBoxSource(map, null, null, null);
         this.hoverStateHelper = hoverStateHelper;
@@ -47,6 +49,7 @@ class CaseGraphLayer {
 
         this.caseCityLabelsLayer = new CaseCityLabelsLayer(map, uniqueId, clusteredCaseSources);
         this.caseRectangleLayer = new CaseRectangleLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
+        this.caseNumbersLayer = new CaseNumbersLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
     }
 
     __addLayer() {
@@ -58,7 +61,7 @@ class CaseGraphLayer {
         this.caseRectangleLayer.__addLayer();
         this.caseCityLabelsLayer.__addLayer();
 
-        // Add the cases number layer
+        // Add the cases graph line layer
         map.addLayer({
             id: this.uniqueId+'line',
             type: 'line',
@@ -73,11 +76,13 @@ class CaseGraphLayer {
                 'line-cap': 'round'
             },
             'paint': {
-                'line-color': '#5555ff',
-                'line-width': 2,
+                'line-color': 'white',
+                'line-width': 2.0,
                 'line-blur': 0.5
             }
         });
+
+        this.caseNumbersLayer.__addLayer();
 
         this.__layerAdded = true;
     }
@@ -86,12 +91,30 @@ class CaseGraphLayer {
         this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 0);
         this.caseCityLabelsLayer.fadeOut();
         this.caseRectangleLayer.fadeOut();
+        this.caseNumbersLayer.fadeOut();
     }
 
     fadeIn() {
-        this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 1.0);
+        this.__mode === 'graphs' ?
+            this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 1.0) :
+            this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 0.0)
+        ;
+
         this.caseCityLabelsLayer.fadeIn();
         this.caseRectangleLayer.fadeIn();
+
+        this.__mode === 'casenums' ?
+            this.caseNumbersLayer.fadeIn() :
+            this.caseNumbersLayer.fadeOut()
+        ;
+    }
+
+    changeModeToCaseNums() {
+        this.__mode = 'casenums';
+    }
+
+    changeModeToGraphs() {
+        this.__mode = 'graphs';
     }
 
     /*******************************************************************
@@ -103,7 +126,7 @@ class CaseGraphLayer {
      *
      * @param caseVals
      */
-    updateLayer(caseVals) {
+    updateLayer(caseVals, maxDateType) {
         if (!this.__layerAdded) {
             this.__addLayer();
         }
@@ -111,15 +134,32 @@ class CaseGraphLayer {
         caseVals = caseVals||this.clusteredCaseSources.getPointsAllVals();
         let rectangleWidths = this.__getRectangleWidths(caseVals);
 
+        let startOpacity;
+        if (caseVals.length < 40) {
+            startOpacity = 1.0;
+        } else if (caseVals.length < 70) {
+            startOpacity = 0.8;
+        } else if (caseVals.length < 100) {
+            startOpacity = 0.6;
+        } else {
+            startOpacity = 0.4;
+        }
+
         this.caseCityLabelsLayer.updateLayer(caseVals);
         this.caseRectangleLayer.updateLayer(caseVals, rectangleWidths);
-        this.__updateLineData(rectangleWidths);
+        this.caseNumbersLayer.updateLayer(caseVals);
+
+        this.__updateLineData(rectangleWidths, maxDateType);
 
         this.__caseVals = caseVals;
         this.__shown = true;
     }
 
     __getRectangleWidths(caseVals) {
+        if (this.__mode === 'casenums') {
+            return this.caseNumbersLayer.__getRectangleWidths(caseVals);
+        }
+
         // HACK!
         return {
             '-6': RECTANGLE_WIDTH,
@@ -138,31 +178,38 @@ class CaseGraphLayer {
         };
     }
 
-    __updateLineData(rectangleWidths) {
+    __updateLineData(rectangleWidths, maxDateType) {
         let data = this.clusteredCaseSources.getData(),
-            features = data['features'];
+            features = data['features'],
+            daysToClip = maxDateType ? maxDateType.numDaysSince() : 0;
+
+        let min = 9999999999999999,
+            max = -999999999999999;
+
+        for (let feature of features) {
+            let timeSeries = feature['properties']['casesTimeSeries'];
+            if (!timeSeries || !timeSeries.length) {
+                continue
+            }
+            timeSeries = feature['properties']['casesTimeSeriesMod'] =
+                timeSeries.slice(daysToClip, daysToClip + (RECTANGLE_WIDTH * 2));
+
+            let iMin = Math.min(...timeSeries),
+                iMax = Math.max(...timeSeries);
+
+            if (Math.min(...timeSeries)) {
+                if (iMin < min) min = iMin;
+                if (iMax > max) max = iMax;
+            }
+        }
 
         for (let feature of features) {
             let [lng, lat] = feature['geometry']['coordinates'],
-                pxPoint = this.map.project([lng, lat]),
-                casesSz = parseInt(feature['properties']['casesSz']),
-                leftOver = Math.abs(feature['properties']['casesSz']-casesSz);
+                pxPoint = this.map.project([lng, lat]);
 
-            if (!casesSz) continue;
-            if (casesSz < -4) casesSz = -4;
-            if (casesSz > 4) casesSz = 4;
+            let longitudeInPx = pxPoint.x;
+            let latitudeInPx = pxPoint.y;
 
-            let pxLng = pxPoint.x;
-            let pxLat = pxPoint.y;
-            let rectangleWidth = rectangleWidths[casesSz];
-
-            rectangleWidth += (
-                rectangleWidths[
-                    casesSz < 0 ? casesSz-1 : casesSz+1
-                ] - rectangleWidth
-            ) * leftOver;
-
-            //console.log(`${casesSz} ${rectangleWidth} ${pxLng} ${pxLat}`);
             feature['geometry']['type'] = 'LineString';
             feature['geometry']['coordinates'] = [];
 
@@ -170,16 +217,15 @@ class CaseGraphLayer {
             if (!timeSeries || !timeSeries.length) {
                 continue
             }
+            timeSeries = feature['properties']['casesTimeSeriesMod'];
 
+            let idx = 0,
+                min = Math.min(...timeSeries),
+                max = Math.max(...timeSeries);
 
-
-            let min = Math.min(...timeSeries),
-                max = Math.max(...timeSeries),
-                idx = 0;
-
-            for (let x=pxLng+rectangleWidth; x>pxLng-rectangleWidth; x--) {
-                let pt1 = this.map.unproject([x, pxLat-10]).toArray(),
-                    pt2 = this.map.unproject([x, pxLat+10]).toArray();
+            for (let x=longitudeInPx+RECTANGLE_WIDTH; x>longitudeInPx-RECTANGLE_WIDTH; x--) {
+                let pt1 = this.map.unproject([x, latitudeInPx-10]).toArray(),
+                    pt2 = this.map.unproject([x, latitudeInPx+10]).toArray();
 
                 let y = timeSeries[idx++];
                 if (y == null) {
@@ -206,6 +252,7 @@ class CaseGraphLayer {
 
             this.caseCityLabelsLayer.removeLayer();
             this.caseRectangleLayer.removeLayer();
+            this.caseNumbersLayer.removeLayer();
 
             this.__shown = false;
             this.__layerAdded = false;

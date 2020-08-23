@@ -188,17 +188,24 @@ class ClusteredCaseSource extends MapBoxSource {
                 //newFeatures.push(feature);
             }
             else if (mergedMap.has(index)) {
-                var cases = properties['cases'];
+                var cases = properties['cases'],
+                    newTimeSeries = JSON.parse(JSON.stringify(properties['casesTimeSeries']))||[];
 
                 for (let otherIndex of mergedMap.get(index)) {
                     // TODO: Add info about which features were merged(?)
                     var otherFeature =  geoJSONData['features'][otherIndex],
                         otherProperties = otherFeature.properties;
-
                     cases = cases + otherProperties['cases'];
+
+                    for (let x=0; x<otherProperties['casesTimeSeries'].length; x++) {
+                        if (x+1 > newTimeSeries.length) {
+                            newTimeSeries.push(0);
+                        }
+                        newTimeSeries[x] += otherProperties['casesTimeSeries'][x] || 0;
+                    }
                 }
 
-                if (properties.label ) {
+                if (properties.label) {
                     // HACK: Give an indicator that there's actually multiple region at this point
                     // This should be implemented in a way which allows adding unified popups, etc with fill area charts
 
@@ -214,6 +221,8 @@ class ClusteredCaseSource extends MapBoxSource {
                 properties['casesFmt'] = Fns.getCompactNumberRepresentation(cases, 1);
                 properties['casesSz'] = properties['casesFmt'].length;
                 properties['negcases'] = -cases;
+                properties['casesTimeSeries'] = newTimeSeries;
+
                 newFeatures.push(feature);
             }
             else {

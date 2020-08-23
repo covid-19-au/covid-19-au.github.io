@@ -21,8 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-import CaseCityLabelsLayer from "./CaseCityLabelsLayer";
-import CaseRectangleLayer from "./CaseRectangleLayer";
 
 
 class CaseNumbersLayer {
@@ -42,9 +40,6 @@ class CaseNumbersLayer {
 
         this.hoverStateHelper = hoverStateHelper;
         this.hoverStateHelper.associateSourceId(this.clusteredCaseSources.getSourceId());
-
-        this.caseCityLabelsLayer = new CaseCityLabelsLayer(map, uniqueId, clusteredCaseSources);
-        this.caseRectangleLayer = new CaseRectangleLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
     }
 
     __addLayer() {
@@ -52,9 +47,6 @@ class CaseNumbersLayer {
             return;
         }
         let map = this.map;
-
-        this.caseRectangleLayer.__addLayer();
-        this.caseCityLabelsLayer.__addLayer();
 
         // Add the cases number layer
         map.addLayer({
@@ -88,16 +80,10 @@ class CaseNumbersLayer {
 
     fadeOut() {
         this.map.setPaintProperty(this.uniqueId+'label', 'text-opacity', 0);
-
-        this.caseCityLabelsLayer.fadeOut();
-        this.caseRectangleLayer.fadeOut();
     }
 
     fadeIn() {
         this.map.setPaintProperty(this.uniqueId+'label', 'text-opacity', 1.0);
-
-        this.caseCityLabelsLayer.fadeIn();
-        this.caseRectangleLayer.fadeIn();
     }
 
     /*******************************************************************
@@ -125,13 +111,7 @@ class CaseNumbersLayer {
             '#e73210'
         ];
 
-        caseVals = caseVals||this.clusteredCaseSources.getPointsAllVals();
-        let rectangleWidths = this.__getRectangleWidths(caseVals);
-
-        this.caseCityLabelsLayer.updateLayer(caseVals);
-        this.caseRectangleLayer.updateLayer(caseVals, rectangleWidths);
-
-        this.__caseVals = caseVals;
+        //this.__caseVals = caseVals;
         this.__shown = true;
     }
 
@@ -202,11 +182,7 @@ class CaseNumbersLayer {
     removeLayer() {
         if (this.__shown) {
             const map = this.map;
-            map.removeLayer(this.uniqueId);
             map.removeLayer(this.uniqueId + 'label');
-
-            this.caseCityLabelsLayer.removeLayer();
-            this.caseRectangleLayer.removeLayer();
 
             this.__shown = false;
             this.__layerAdded = false;

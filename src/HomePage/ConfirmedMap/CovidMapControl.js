@@ -572,7 +572,7 @@ class CovidMapControl extends React.Component {
             // Now add the layers
             this.casesFillPolyLayer.updateLayer();
             //this.casesLinePolyLayer.updateLayer();
-            this.caseCirclesLayer.updateLayer();
+            this.caseCirclesLayer.updateLayer(null, this.__mapTimeSlider.getValue());
             this.caseCirclesLayer.fadeIn();
 
             // Make it so click events are registered for analytics (if relevant)
@@ -611,7 +611,7 @@ class CovidMapControl extends React.Component {
             // Send an event to allow for "data updated on xx date"
             // etc displays outside the control
             if (
-                !this.prevGeoData ||
+                this.prevGeoData &&
                 (
                     this.prevGeoData.geoDataInsts.length === geoData.geoDataInsts.length &&
                     this.prevGeoData.caseDataInsts.length === geoData.caseDataInsts.length &&
@@ -677,6 +677,12 @@ class CovidMapControl extends React.Component {
      * @private
      */
     _onControlsChange() {
+        if (this.caseCirclesLayer) {
+            this.covidMapControls.getDisplayGraphs() ?
+                this.caseCirclesLayer.changeModeToGraphs() :
+                this.caseCirclesLayer.changeModeToCaseNums();
+        }
+
         this.__resetPointsData(true);
         this.__resetPolyData();
 

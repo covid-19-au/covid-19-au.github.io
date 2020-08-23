@@ -281,13 +281,13 @@ class DataPoints extends Array {
         originalArray.sortDescending();
 
         let r = [];
-        for (let i=0; i<originalArray.length; i++) {
+        for (let i=0; i<originalArray.length-overNumDays; i++) {
             let totalVal = 0,
                 numVals = 0,
                 highestDate = originalArray[i].getDateType();
 
-            for (let j=i; j<originalArray.length && j<i+overNumDays; j++) {
-                totalVal += originalArray[j].getValue();
+            for (let j=i; j<i+overNumDays; j++) {
+                totalVal += originalArray[j] ? originalArray[j].getValue() : 0;
                 numVals++;
             }
 
@@ -333,11 +333,64 @@ class DataPoints extends Array {
     }
 
     /**
+     * Create a new DataPoints instance
+     *
+     * @param dateRangeType
+     * @param defaultValue
+     * @returns {DataPoints}
+     */
+    missingDaysInterpolated(dateRangeType, defaultValue) {
+        let out = new DataPoints(
+            this.dataSource, this.regionType,
+            this.ageRange, []
+        );
+
+        let map = {};
+        for (let [dateType, value] of this) {
+            map[dateType.toString()] = value;
+        }
+
+        // Make sure every date has a datapoint
+        // (otherwise eCharts rendering goes haywire)
+        let curValue = defaultValue,
+            dateTypes = dateRangeType.toArrayOfDateTypes();
+
+        for (let i=0; i<dateTypes.length; i++) {
+            let dateType = dateTypes[i];
+
+            if (dateType.toString() in map) { // WARNING!!!
+                curValue = map[dateType.toString()];
+            }
+            out.push(new DataPoint(dateType, curValue))
+        }
+
+        // Sort by newest first
+        out.sortDescending();
+        return out;
+    }
+
+    /**
      *
      * @param overNumDays
      */
     getRateOfChange(overNumDays) {
-        // TODO!
+        // WARNING: This assumes this is in descending order!!!
+        let r = [];
+        for (let i=0; i<this.length-overNumDays; i++) {
+            let [date1, x1] = this[i],
+                [date2, x2] = this[i+overNumDays];
+
+            if (date2 > date1) {
+                throw "DataPoints should be in descending order for getRateOfChange!"
+            }
+            r.push(new DataPoint(
+                date1,
+                (x1 - x2)
+                    // overNumDays
+                    / (Math.abs(x1) > Math.abs(x2) ? x1 : x2)
+            ));
+        }
+        return this.cloneWithoutDatapoints(r);
     }
 
     /**

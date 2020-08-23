@@ -86,7 +86,7 @@ div.map-cont-controls {
         left: 8px;
         z-index: 500;
         width: 30%;
-        min-width: 220px;
+        min-width: 245px;
         border-radius: 6px;
         box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
     }
@@ -151,3 +151,11 @@ code {
     background-color: darkred;
     height: 15px;
 }
+
+
+.narrow-text {
+    display: inline-block;
+    transform: scale(1,1.5);
+    font-size: 0.8em;
+}
+

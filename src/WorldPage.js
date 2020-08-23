@@ -54,7 +54,7 @@ class WorldPage extends React.Component {
                         <div className="card">
                             <WorldMap stateName={"all"}
                                       dataType={"total"}
-                                      timePeriod={14} />
+                                      timePeriod={21} />
                         </div>
                     </Grid>
                 </Grid>

@@ -28,6 +28,8 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import CovidMapControl from "./ConfirmedMap/CovidMapControl"
 import UpdatedDatesDisplay from "./ConfirmedMap/MapControls/UpdatedDatesDisplay";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faChartLine} from "@fortawesome/free-solid-svg-icons";
 
 
 class WorldMap extends React.Component {
@@ -75,11 +77,22 @@ class WorldMap extends React.Component {
 
                             <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>
                                 The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>&nbsp;
-                                selects the <i>current day</i>. The 7/14/21 days controls show the current day's
-                                value minus the value 7, 14 or 21 days before the current day. <br />
+                                selects the <i>current day</i>. The 7/21 days controls show the current day's
+                                value minus the value 7 or 21 days before the current day. Negative numbers in this mode mean the
+                                value is that amount less than it was that many days ago.<br/>
 
-                                Negative numbers in this mode mean the
-                                value is that amount less than it was that many days ago.
+                                The <FontAwesomeIcon icon={faChartLine} />&nbsp;<b>Growth Change</b> icon
+                                graphs the <a href="https://en.wikipedia.org/wiki/Exponential_growth">exponential change in growth</a> for
+                                each region over 50 days.&nbsp;
+
+                                A downwards trajectory means infections are slowing down.&nbsp;
+
+                                The graph is normalized for each region over the whole 50 days, and is meant only to give an
+                                indication whether the <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">rate of change</a> is
+                                getting higher or lower, not to compare between regions and does not show case numbers.&nbsp;
+
+                                The green or red color key shows change in the number of cases over the last 14 days, allowing
+                                basic regional comparisons.
                             </li>
 
                             <li style={{color: '#555'}}>
