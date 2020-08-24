@@ -33,9 +33,9 @@ import getDataDownloader from "../CrawlerData/DataDownloader";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 
 import DaysSinceLayer from "./Layers/cases/DaysSinceLayer";
-import CasesFillPolyLayer from "./Layers/cases/CasesFillPolyLayer";
+import CasesFillPolyLayer from "./Layers/cases/case_layer/CasesFillPolyLayer";
 import UnderlayFillPolyLayer from "./Layers/underlay/UnderlayFillPolyLayer";
-import CaseNumbersLayer from "./Layers/cases/CaseNumbersLayer";
+import CaseNumbersLayer from "./Layers/cases/case_layer/CaseNumbersLayer";
 import LinePolyLayer from "./Layers/LinePolyLayer";
 
 import MapBoxSource from "./Sources/MapBoxSource";
@@ -50,7 +50,7 @@ import AxiosAnalytics from "./AxiosAnalytics";
 import HoverStateHelper from "./Layers/HoverStateHelper";
 import BRIGHT_V9_MOD_STYLE from "./bright_v9_mod";
 import i18next from "../../i18n";
-import CaseGraphLayer from "./Layers/cases/CaseGraphLayer";
+import CaseLayer from "./Layers/cases/CaseLayer";
 
 
 //Fetch Token from env
@@ -313,8 +313,7 @@ class CovidMapControl extends React.Component {
                 this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource, this.hoverStateHelper);
                 //this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
                 this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
-                this.caseCirclesLayer = new CaseGraphLayer(map, 'graph', clusteredCaseSource, this.hoverStateHelper);
-                //this.caseCirclesLayer = new CaseNumbersLayer(map, 'heatMap', clusteredCaseSource, this.hoverStateHelper);
+                this.caseLayer = new CaseLayer(map, 'graph', clusteredCaseSource, this.hoverStateHelper);
 
                 // Bind events for loading data
                 //map.on('move', () => {
@@ -572,8 +571,8 @@ class CovidMapControl extends React.Component {
             // Now add the layers
             this.casesFillPolyLayer.updateLayer();
             //this.casesLinePolyLayer.updateLayer();
-            this.caseCirclesLayer.updateLayer(null, this.__mapTimeSlider.getValue());
-            this.caseCirclesLayer.fadeIn();
+            this.caseLayer.updateLayer(null, this.__mapTimeSlider.getValue());
+            this.caseLayer.fadeIn();
 
             // Make it so click events are registered for analytics (if relevant)
             if (this.axiosAnalytics) {
@@ -677,10 +676,10 @@ class CovidMapControl extends React.Component {
      * @private
      */
     _onControlsChange() {
-        if (this.caseCirclesLayer) {
+        if (this.caseLayer) {
             this.covidMapControls.getDisplayGraphs() ?
-                this.caseCirclesLayer.changeModeToGraphs() :
-                this.caseCirclesLayer.changeModeToCaseNums();
+                this.caseLayer.changeModeToGraphs() :
+                this.caseLayer.changeModeToCaseNums();
         }
 
         this.__resetPointsData(true);
@@ -702,12 +701,12 @@ class CovidMapControl extends React.Component {
         }
 
         if (!noFade) {
-            if (this.caseCirclesLayer) {
-                this.caseCirclesLayer.fadeOut();
+            if (this.caseLayer) {
+                this.caseLayer.fadeOut();
             }
             setTimeout(() => {
-                if (this.caseCirclesLayer) {
-                    this.caseCirclesLayer.updateLayer();
+                if (this.caseLayer) {
+                    this.caseLayer.updateLayer();
                 }
             }, 400);
         }

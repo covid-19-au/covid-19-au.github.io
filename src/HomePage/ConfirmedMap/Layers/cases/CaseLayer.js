@@ -22,15 +22,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import CaseRectangleLayer from "./CaseRectangleLayer";
-import CaseCityLabelsLayer from "./CaseCityLabelsLayer";
-import MapBoxSource from "../../Sources/MapBoxSource";
-import CaseNumbersLayer from "./CaseNumbersLayer";
+import CaseRectangleLayer from "./case_layer/CaseRectangleLayer";
+import CaseCityLabelsLayer from "./case_layer/CaseCityLabelsLayer";
+import CaseNumbersLayer from "./case_layer/CaseNumbersLayer";
+import CaseGraphLayer from "./case_layer/CaseGraphLayer";
 
 let RECTANGLE_WIDTH = 25;
 
 
-class CaseGraphLayer {
+class CaseLayer {
     /**
      *
      * @param map a MapBox GL instance
@@ -43,10 +43,10 @@ class CaseGraphLayer {
         this.clusteredCaseSources = clusteredCaseSources;
         this.__mode = 'casenums';
 
-        this.lineSource = new MapBoxSource(map, null, null, null);
         this.hoverStateHelper = hoverStateHelper;
         this.hoverStateHelper.associateSourceId(this.clusteredCaseSources.getSourceId());
 
+        this.caseGraphLayer = new CaseGraphLayer(map, uniqueId, clusteredCaseSources);
         this.caseCityLabelsLayer = new CaseCityLabelsLayer(map, uniqueId, clusteredCaseSources);
         this.caseNumbersRectangleLayer = new CaseRectangleLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
         this.caseGraphRectangleLayer = new CaseRectangleLayer(map, uniqueId+'graph', clusteredCaseSources, hoverStateHelper, true);
@@ -57,62 +57,38 @@ class CaseGraphLayer {
         if (this.__layerAdded) {
             return;
         }
-        let map = this.map;
 
         this.caseNumbersRectangleLayer.__addLayer();
         this.caseGraphRectangleLayer.__addLayer();
         this.caseCityLabelsLayer.__addLayer();
-
-        // Add the cases graph line layer
-        map.addLayer({
-            id: this.uniqueId+'line',
-            type: 'line',
-            'maxzoom': 14,
-            source: this.lineSource.getSourceId(),
-            'layout': {
-                'line-join': 'round',
-                'line-cap': 'round'
-            },
-            'paint': {
-                'line-color': 'white',
-                'line-width': 2.0,
-                'line-blur': 0.5
-            }
-        });
-
+        this.caseGraphLayer.__addLayer();
         this.caseNumbersLayer.__addLayer();
 
         this.__layerAdded = true;
     }
 
     fadeOut() {
-        this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 0);
         this.caseCityLabelsLayer.fadeOut();
         this.caseNumbersRectangleLayer.fadeOut();
         this.caseGraphRectangleLayer.fadeOut();
         this.caseNumbersLayer.fadeOut();
+        this.caseGraphLayer.fadeOut();
     }
 
     fadeIn() {
-        this.__mode === 'graphs' ?
-            this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 1.0) :
-            this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 0.0)
-        ;
-
         this.caseCityLabelsLayer.fadeIn();
 
         if (this.__mode === 'casenums') {
+            this.caseGraphLayer.fadeOut();
             this.caseNumbersRectangleLayer.fadeIn();
             this.caseGraphRectangleLayer.fadeOut();
-        } else {
+            this.caseNumbersLayer.fadeIn();
+        } else if (this.__mode === 'graphs') {
+            this.caseGraphLayer.fadeIn();
             this.caseGraphRectangleLayer.fadeIn();
             this.caseNumbersRectangleLayer.fadeOut();
+            this.caseNumbersLayer.fadeOut();
         }
-
-        this.__mode === 'casenums' ?
-            this.caseNumbersLayer.fadeIn() :
-            this.caseNumbersLayer.fadeOut()
-        ;
     }
 
     changeModeToCaseNums() {
@@ -140,26 +116,15 @@ class CaseGraphLayer {
         caseVals = caseVals||this.clusteredCaseSources.getPointsAllVals();
         let rectangleWidths = this.__getRectangleWidths(caseVals);
 
-        let startOpacity;
-        if (caseVals.length < 40) {
-            startOpacity = 1.0;
-        } else if (caseVals.length < 70) {
-            startOpacity = 0.8;
-        } else if (caseVals.length < 100) {
-            startOpacity = 0.6;
-        } else {
-            startOpacity = 0.4;
-        }
-
         this.caseCityLabelsLayer.updateLayer(caseVals);
-        this.caseNumbersLayer.updateLayer(caseVals);
 
-        this.__mode === 'casenums' ?
-            this.caseNumbersRectangleLayer.updateLayer(caseVals, rectangleWidths, maxDateType) :
-            this.caseGraphRectangleLayer.updateLayer(caseVals, rectangleWidths, maxDateType)
-        ;
-
-        this.__updateLineData(rectangleWidths, maxDateType);
+        if (this.__mode === 'graphs') {
+            this.caseGraphLayer.updateLayer(caseVals, maxDateType);
+            this.caseGraphRectangleLayer.updateLayer(caseVals, rectangleWidths, maxDateType);
+        } else if (this.__mode === 'casenums') {
+            this.caseNumbersLayer.updateLayer(caseVals);
+            this.caseNumbersRectangleLayer.updateLayer(caseVals, rectangleWidths, maxDateType);
+        }
 
         this.__caseVals = caseVals;
         this.__shown = true;
@@ -188,89 +153,11 @@ class CaseGraphLayer {
         };
     }
 
-    __updateLineData(rectangleWidths, maxDateType) {
-        let data = this.clusteredCaseSources.getData(),
-            features = data['features'],
-            daysToClip = maxDateType ? maxDateType.numDaysSince() : 0;
-
-        let min = 9999999999999999,
-            max = -999999999999999;
-
-        for (let feature of features) {
-            let timeSeries = feature['properties']['casesTimeSeries'];
-            if (!timeSeries || !timeSeries.length) {
-                continue
-            }
-            timeSeries = feature['properties']['casesTimeSeriesMod'] =
-                timeSeries.slice(daysToClip, daysToClip + (RECTANGLE_WIDTH * 2));
-
-            let iMin = Math.min(...timeSeries),
-                iMax = Math.max(...timeSeries);
-
-            if (Math.min(...timeSeries)) {
-                if (iMin < min) min = iMin;
-                if (iMax > max) max = iMax;
-            }
-        }
-
-        for (let feature of features) {
-            let [lng, lat] = feature['geometry']['coordinates'],
-                pxPoint = this.map.project([lng, lat]);
-
-            let longitudeInPx = pxPoint.x;
-            let latitudeInPx = pxPoint.y;
-
-            feature['geometry']['type'] = 'LineString';
-            feature['geometry']['coordinates'] = [];
-
-            let timeSeries = feature['properties']['casesTimeSeries'];
-            if (!timeSeries || !timeSeries.length) {
-                continue
-            }
-
-            timeSeries = feature['properties']['casesTimeSeriesMod'];
-            if (!timeSeries || !timeSeries.length) {
-                continue
-            }
-
-            let idx = 0,
-                min = Math.min(...timeSeries),
-                max = Math.max(...timeSeries);
-
-            for (let x=longitudeInPx+RECTANGLE_WIDTH; x>longitudeInPx-RECTANGLE_WIDTH; x--) {
-                let pt1 = this.map.unproject([x, latitudeInPx-10]).toArray(),
-                    pt2 = this.map.unproject([x, latitudeInPx+10]).toArray();
-
-                let y = timeSeries[idx++];
-                if (y == null) {
-                    let lastCoord = feature['geometry']['coordinates'][
-                        feature['geometry']['coordinates'].length-1
-                    ];
-
-                    if (lastCoord) {
-                        feature['geometry']['coordinates'].push([pt1[0], lastCoord[1]]);
-                    }
-                    continue;
-                }
-
-                y = pt2[1] - ((y-min)/(max-min) * (pt2[1]-pt1[1]));
-                feature['geometry']['coordinates'].push([pt1[0], y]);
-            }
-            //console.log(JSON.stringify(feature['geometry']['coordinates']));
-        }
-
-        this.lineSource.setData(data);
-    }
-
     /**
      * Remove the cases layer
      */
     removeLayer() {
         if (this.__shown) {
-            const map = this.map;
-            map.removeLayer(this.uniqueId);
-            map.removeLayer(this.uniqueId + 'line');
-
             this.caseCityLabelsLayer.removeLayer();
             this.caseNumbersRectangleLayer.removeLayer();
             this.caseGraphRectangleLayer.removeLayer();
@@ -282,4 +169,4 @@ class CaseGraphLayer {
     }
 }
 
-export default CaseGraphLayer;
+export default CaseLayer;
