@@ -48,12 +48,42 @@ class CaseGraphLayer {
         }
         let map = this.map;
 
+        let DASH_ON_RATIO = 2,
+            DASH_OFF_RATIO = 0.7,
+            DASH_LENGTH = 1;
+
+        map.addLayer({
+            id: this.uniqueId+'zeroline',
+            type: 'line',
+            'maxzoom': 14,
+            source: this.lineSource.getSourceId(),
+            'filter': ['all',
+                ['has', 'isZeroLine']
+            ],
+            'layout': {
+                //'line-join': 'round',
+                //'line-cap': 'round'
+            },
+            'paint': {
+                'line-color': 'white',
+                'line-width': 1,
+                //'line-blur': 0.5,
+                'line-dasharray': [
+                    DASH_ON_RATIO*DASH_LENGTH,
+                    DASH_OFF_RATIO*DASH_LENGTH
+                ]
+            }
+        });
+
         // Add the cases graph line layer
         map.addLayer({
             id: this.uniqueId+'line',
             type: 'line',
             'maxzoom': 14,
             source: this.lineSource.getSourceId(),
+            'filter': ['all',
+                ['has', 'casesTimeSeries']
+            ],
             'layout': {
                 'line-join': 'round',
                 'line-cap': 'round'
@@ -100,6 +130,7 @@ class CaseGraphLayer {
     __updateLineData(maxDateType) {
         let data = this.clusteredCaseSources.getData(),
             features = data['features'],
+            zeroFeatures = [],
             daysToClip = maxDateType ? maxDateType.numDaysSince() : 0;
 
         let min = 9999999999999999,
@@ -165,9 +196,28 @@ class CaseGraphLayer {
                 y = pt2[1] - ((y-min)/(max-min) * (pt2[1]-pt1[1]));
                 feature['geometry']['coordinates'].push([pt1[0], y]);
             }
+
+            let pt1 = this.map.unproject([longitudeInPx-RECTANGLE_WIDTH, latitudeInPx-10]).toArray(),
+                pt2 = this.map.unproject([longitudeInPx+RECTANGLE_WIDTH, latitudeInPx+10]).toArray(),
+                zeroY = pt2[1] - ((0-min)/(max-min) * (pt2[1]-pt1[1]));
+
+            zeroFeatures.push({
+                geometry: {
+                    type: 'LineString',
+                    coordinates: [
+                        [pt1[0], zeroY],
+                        [pt2[0], zeroY]
+                    ]
+                },
+                properties: {
+                    isZeroLine: true
+                }
+            })
+
             //console.log(JSON.stringify(feature['geometry']['coordinates']));
         }
 
+        data['features'] = data['features'].concat(zeroFeatures);
         this.lineSource.setData(data);
     }
 
