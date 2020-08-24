@@ -48,7 +48,8 @@ class CaseGraphLayer {
         this.hoverStateHelper.associateSourceId(this.clusteredCaseSources.getSourceId());
 
         this.caseCityLabelsLayer = new CaseCityLabelsLayer(map, uniqueId, clusteredCaseSources);
-        this.caseRectangleLayer = new CaseRectangleLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
+        this.caseNumbersRectangleLayer = new CaseRectangleLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
+        this.caseGraphRectangleLayer = new CaseRectangleLayer(map, uniqueId+'graph', clusteredCaseSources, hoverStateHelper, true);
         this.caseNumbersLayer = new CaseNumbersLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
     }
 
@@ -58,7 +59,8 @@ class CaseGraphLayer {
         }
         let map = this.map;
 
-        this.caseRectangleLayer.__addLayer();
+        this.caseNumbersRectangleLayer.__addLayer();
+        this.caseGraphRectangleLayer.__addLayer();
         this.caseCityLabelsLayer.__addLayer();
 
         // Add the cases graph line layer
@@ -67,10 +69,6 @@ class CaseGraphLayer {
             type: 'line',
             'maxzoom': 14,
             source: this.lineSource.getSourceId(),
-            filter: ['all',
-                ['!=', 'cases', 0],
-                ['has', 'cases']
-            ],
             'layout': {
                 'line-join': 'round',
                 'line-cap': 'round'
@@ -90,7 +88,8 @@ class CaseGraphLayer {
     fadeOut() {
         this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 0);
         this.caseCityLabelsLayer.fadeOut();
-        this.caseRectangleLayer.fadeOut();
+        this.caseNumbersRectangleLayer.fadeOut();
+        this.caseGraphRectangleLayer.fadeOut();
         this.caseNumbersLayer.fadeOut();
     }
 
@@ -101,7 +100,14 @@ class CaseGraphLayer {
         ;
 
         this.caseCityLabelsLayer.fadeIn();
-        this.caseRectangleLayer.fadeIn();
+
+        if (this.__mode === 'casenums') {
+            this.caseNumbersRectangleLayer.fadeIn();
+            this.caseGraphRectangleLayer.fadeOut();
+        } else {
+            this.caseGraphRectangleLayer.fadeIn();
+            this.caseNumbersRectangleLayer.fadeOut();
+        }
 
         this.__mode === 'casenums' ?
             this.caseNumbersLayer.fadeIn() :
@@ -146,8 +152,12 @@ class CaseGraphLayer {
         }
 
         this.caseCityLabelsLayer.updateLayer(caseVals);
-        this.caseRectangleLayer.updateLayer(caseVals, rectangleWidths);
         this.caseNumbersLayer.updateLayer(caseVals);
+
+        this.__mode === 'casenums' ?
+            this.caseNumbersRectangleLayer.updateLayer(caseVals, rectangleWidths, maxDateType) :
+            this.caseGraphRectangleLayer.updateLayer(caseVals, rectangleWidths, maxDateType)
+        ;
 
         this.__updateLineData(rectangleWidths, maxDateType);
 
@@ -217,7 +227,11 @@ class CaseGraphLayer {
             if (!timeSeries || !timeSeries.length) {
                 continue
             }
+
             timeSeries = feature['properties']['casesTimeSeriesMod'];
+            if (!timeSeries || !timeSeries.length) {
+                continue
+            }
 
             let idx = 0,
                 min = Math.min(...timeSeries),
@@ -229,7 +243,14 @@ class CaseGraphLayer {
 
                 let y = timeSeries[idx++];
                 if (y == null) {
-                    break;
+                    let lastCoord = feature['geometry']['coordinates'][
+                        feature['geometry']['coordinates'].length-1
+                    ];
+
+                    if (lastCoord) {
+                        feature['geometry']['coordinates'].push([pt1[0], lastCoord[1]]);
+                    }
+                    continue;
                 }
 
                 y = pt2[1] - ((y-min)/(max-min) * (pt2[1]-pt1[1]));
@@ -251,7 +272,8 @@ class CaseGraphLayer {
             map.removeLayer(this.uniqueId + 'line');
 
             this.caseCityLabelsLayer.removeLayer();
-            this.caseRectangleLayer.removeLayer();
+            this.caseNumbersRectangleLayer.removeLayer();
+            this.caseGraphRectangleLayer.removeLayer();
             this.caseNumbersLayer.removeLayer();
 
             this.__shown = false;

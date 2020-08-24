@@ -83,11 +83,9 @@ class ConfirmedMap extends React.Component {
                                 graphs the <a href="https://en.wikipedia.org/wiki/Exponential_growth">exponential change in growth</a> for
                                 each region over 50 days.&nbsp;
 
-                                A downwards trajectory means infections are slowing down.&nbsp;
-
-                                The graph is normalized for each region over the whole 50 days, and is meant only to give an
-                                indication whether the <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">rate of change</a> is
-                                getting higher or lower, not to compare between regions and does not show case numbers.&nbsp;
+                                It is meant only to give an indication whether the
+                                <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">rate of change</a> is
+                                increasing or decreasing, not to compare between regions.&nbsp;
 
                                 The green or red color key shows change in the number of cases over the last 14 days, allowing
                                 basic regional comparisons.

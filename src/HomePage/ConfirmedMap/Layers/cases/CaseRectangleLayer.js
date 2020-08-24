@@ -25,12 +25,16 @@ import getMapBoxCaseColors from "./getMapBoxCaseColors";
 import MapBoxSource from "../../Sources/MapBoxSource";
 
 
+let RECTANGLE_WIDTH = 25; //TODO: MOVE ME!!
+
+
 class CaseRectangleLayer {
-    constructor(map, uniqueId, clusteredCaseSources, hoverStateHelper) {
+    constructor(map, uniqueId, clusteredCaseSources, hoverStateHelper, alwaysShow) {
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
         this.hoverStateHelper = hoverStateHelper;
+        this.alwaysShow = alwaysShow;
 
         this.rectangleSource = new MapBoxSource(map, null, null, null);
         this.hoverStateHelper.associateSourceId(this.rectangleSource.getSourceId());
@@ -40,15 +44,12 @@ class CaseRectangleLayer {
         if (this.__layerAdded) {
             return;
         }
+
         this.map.addLayer({
             'id': this.uniqueId+'rectangle',
             'type': 'fill',
             'maxzoom': 14,
             'source': this.rectangleSource.getSourceId(),
-            filter: ['all',
-                ['!=', 'cases', 0],
-                ['has', 'cases']
-            ],
             paint: {
                 //"fill-opacity-transition": {duration: FADE_TRANSITION_DURATION},
             }
@@ -64,7 +65,7 @@ class CaseRectangleLayer {
         this.map.setPaintProperty(this.uniqueId+'rectangle', 'fill-opacity', 1.0);
     }
 
-    updateLayer(caseVals, rectangleWidths) {
+    updateLayer(caseVals, rectangleWidths, maxDateType) {
         if (!this.__layerAdded) {
             this.__addLayer();
         }
@@ -88,7 +89,8 @@ class CaseRectangleLayer {
                 [255, 222, 207, startOpacity], [231, 50, 16, 1.0],
                 'rgba(0, 0, 0, 0.0)', 'rgb(169, 0, 15)',
                 [164,192,160, startOpacity], [46,110,15, 1.0],
-                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
+                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1,
+                this.alwaysShow
             ),
             hoverRectangleColor = "rgba(150, 10, 6, 0.9)";
 
@@ -102,15 +104,32 @@ class CaseRectangleLayer {
             ]
         );
 
-        this.__updateRectangleWidth(rectangleWidths);
+        this.__updateRectangleWidth(rectangleWidths, maxDateType);
         this.__shown = true;
     }
 
-    __updateRectangleWidth(rectangleWidths) {
+    __updateRectangleWidth(rectangleWidths, maxDateType) {
         let data = this.clusteredCaseSources.getData(),
             features = data['features'];
 
         for (let feature of features) {
+            if (this.alwaysShow) {
+                if (
+                    !feature['properties']['casesTimeSeries'] ||
+                    !feature['properties']['casesTimeSeries'].length
+                ) {
+                    continue;
+                }
+                let daysToClip = maxDateType ? maxDateType.numDaysSince() : 0;
+                let timeSeries = feature['properties']['casesTimeSeries'].slice(daysToClip, daysToClip + (RECTANGLE_WIDTH * 2))
+                if (!timeSeries.length) {
+                    continue;
+                }
+            }
+            else if (!this.alwaysShow && !feature['properties']['cases']) {
+                continue;
+            }
+
             let [lng, lat] = feature['geometry']['coordinates'],
                 pxPoint = this.map.project([lng, lat]),
                 casesSz = parseInt(feature['properties']['casesSz']),

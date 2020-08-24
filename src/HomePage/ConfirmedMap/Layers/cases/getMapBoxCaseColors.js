@@ -40,7 +40,7 @@ function getMapBoxCaseColors(
     nullColor, maxColor,
     fromNegColor, toNegColor,
     caseVals, quantiles,
-    minRange
+    minRange, showForZero
 ) {
     // Make sure we're using only positive values for relative comparisons
     // to make sure we don't have -1 being as bright as +1000 etc
@@ -60,8 +60,10 @@ function getMapBoxCaseColors(
     r.push(['==', ['get', 'cases'], null]);
     r.push(nullColor);
 
-    r.push(['==', ['get', 'cases'], 0]);
-    r.push(nullColor); // FIXME: Add a special "0" color!!! ==================================================
+    if (!showForZero) {
+        r.push(['==', ['get', 'cases'], 0]);
+        r.push(nullColor);
+    }
 
     // Emphasize the highest case value
     r.push(['==', ['get', 'cases'], caseVals[caseVals.length-1]]);

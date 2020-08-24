@@ -314,15 +314,15 @@ class DataPoints extends Array {
 
         let map = {};
         for (let [dateType, value] of this) {
-            map[dateType.toString()] = value;
+            map[dateType.prettified()] = value;
         }
 
         // Make sure every date has a datapoint
         // (otherwise eCharts rendering goes haywire)
-        let curValue = defaultValue;
+        let curValue = defaultValue||0;
         for (let dateType of dateRangeType.toArrayOfDateTypes()) {
-            if (dateType.toString() in map) { // WARNING!!!
-                curValue = map[dateType.toString()];
+            if (dateType.prettified() in map) { // WARNING!!!
+                curValue = map[dateType.prettified()];
             }
             out.push(new DataPoint(dateType, curValue))
         }
@@ -345,28 +345,36 @@ class DataPoints extends Array {
             this.ageRange, []
         );
 
-        let map = {};
-        for (let [dateType, value] of this) {
-            map[dateType.toString()] = value;
+        for (let i=0; i<this.length-1; i++) {
+            let [prevDateType, prevValue] = this[i],
+                [nextDateType, nextValue] = this[i+1],
+                numDays = nextDateType.numDaysSince(prevDateType);
+
+            //console.log(`${prevDateType.prettified()} ${nextDateType.prettified()} ${prevValue} ${nextValue}`);
+
+            if (nextDateType > prevDateType) {
+                throw "DataPoints should be in descending order for missingDaysInterpolated!"
+            }
+
+            for (let j=0; j<numDays; j++) {
+                let dateType = prevDateType.daysSubtracted(j),
+                    elapsedPc = j / numDays,
+                    value = Math.round(
+                        (prevValue * (1.0-elapsedPc)) +
+                        (nextValue * elapsedPc)
+                    );
+                out.push(new DataPoint(dateType, value))
+            }
         }
 
-        // Make sure every date has a datapoint
-        // (otherwise eCharts rendering goes haywire)
-        let curValue = defaultValue,
-            dateTypes = dateRangeType.toArrayOfDateTypes();
-
-        for (let i=0; i<dateTypes.length; i++) {
-            let dateType = dateTypes[i];
-
-            if (dateType.toString() in map) { // WARNING!!!
-                curValue = map[dateType.toString()];
-            }
-            out.push(new DataPoint(dateType, curValue))
+        if (this.length) {
+            // Make sure the very last item isn't skipped!
+            out.push(this[this.length - 1]);
         }
 
         // Sort by newest first
         out.sortDescending();
-        return out;
+        return out//.missingDaysFilledIn(dateRangeType, defaultValue);
     }
 
     /**
@@ -375,6 +383,9 @@ class DataPoints extends Array {
      */
     getRateOfChange(overNumDays) {
         // WARNING: This assumes this is in descending order!!!
+        // ALSO NOTE: If the number is undefined due to no
+        // data for the specified days, "null" will be output!
+
         let r = [];
         for (let i=0; i<this.length-overNumDays; i++) {
             let [date1, x1] = this[i],
@@ -383,11 +394,11 @@ class DataPoints extends Array {
             if (date2 > date1) {
                 throw "DataPoints should be in descending order for getRateOfChange!"
             }
+
+            let divBy = Math.abs(x1);
             r.push(new DataPoint(
                 date1,
-                (x1 - x2)
-                    // overNumDays
-                    / (Math.abs(x1) > Math.abs(x2) ? x1 : x2)
+                divBy ? (x1 - x2) / divBy : null
             ));
         }
         return this.cloneWithoutDatapoints(r);

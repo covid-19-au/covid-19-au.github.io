@@ -253,7 +253,10 @@ class GeoDataPropertyAssignment {
                     // Fill in every day till the present day
                     let dateRangeType = timeSeries.getDateRangeType();
                     dateRangeType.setDateRange(dateRangeType.getFromDate(), DateType.today());
-                    timeSeries = timeSeries.missingDaysFilledIn(dateRangeType);
+
+                    timeSeries = timeSeries.sortDescending();
+                    timeSeries = timeSeries.missingDaysInterpolated(dateRangeType);
+                    //timeSeries = timeSeries.missingDaysFilledIn(dateRangeType);
 
                     if (this.constants[casesInst.getDataType()] && this.constants[casesInst.getDataType()].dayssince) {
                         // if "dayssince" flag is set, it means the values
@@ -261,10 +264,11 @@ class GeoDataPropertyAssignment {
                         timeSeries = timeSeries.getNewValuesFromTotals();
                     }
 
-                    // Can afford to be more liberal with averaging if have more days
-                    // (it will discard "overNumDays" samples of data)
+                    // I think 7 days is a good number (unless there aren't enough samples)
+                    // as some sources are updated weekly and should be a good balance
+                    // in most cases
                     if (timeSeries.length > 28) {
-                        timeSeries = timeSeries.getDayAverage(14);
+                        timeSeries = timeSeries.getDayAverage(7);
                     } else if (timeSeries.length > 14) {
                         timeSeries = timeSeries.getDayAverage(7);
                     } else if (timeSeries.length > 7) {

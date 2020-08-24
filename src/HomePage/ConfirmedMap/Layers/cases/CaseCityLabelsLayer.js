@@ -51,7 +51,7 @@ class CaseCityLabelsLayer {
                 'maxzoom': 14,
                 'source': this.clusteredCaseSources.getSourceId(),
                 'filter': ['all',
-                    ['!=', 'cases', 0],
+                    //['!=', 'cases', 0],
                     ['has', 'cases']
                 ],
                 'layout': {

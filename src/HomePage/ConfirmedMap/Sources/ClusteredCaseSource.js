@@ -124,7 +124,7 @@ class ClusteredCaseSource extends MapBoxSource {
         let index = -1;
         for (let feature of geoJSONData['features']) {
             index++;
-            if (!feature.properties['cases']) { //  || feature1.properties['cases'] < 0
+            if (feature.properties['cases'] == null) { //  || feature1.properties['cases'] < 0
                 // Only add if cases has been added to!
                 continue;
             }
