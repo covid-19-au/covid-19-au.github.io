@@ -117,11 +117,17 @@ class CaseGraphLayer {
     }
 
     fadeOut() {
+        if (!this.__layerAdded) {
+            return;
+        }
         this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 0);
         this.map.setPaintProperty(this.uniqueId+'zeroline', 'line-opacity', 0);
     }
 
     fadeIn() {
+        if (!this.__layerAdded) {
+            return;
+        }
         this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 1.0);
         this.map.setPaintProperty(this.uniqueId+'zeroline', 'line-opacity', 1.0);
     }

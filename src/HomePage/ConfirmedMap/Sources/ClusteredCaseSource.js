@@ -41,9 +41,10 @@ class ClusteredCaseSource extends MapBoxSource {
      * @param maxZoom
      * @param data
      */
-    constructor(remoteData, map, minZoom, maxZoom, data) {
+    constructor(remoteData, map, minZoom, maxZoom, data, filterFn) {
         super(map, minZoom, maxZoom, data);
         this.remoteData = remoteData;
+        this.filterFn = filterFn;
     }
 
     /**
@@ -269,13 +270,18 @@ class ClusteredCaseSource extends MapBoxSource {
                 // GeoDataPropertyAssignment.js to allow for addition of the values!
                 properties['casesTimeSeries'] = this.getRateOfChange(7, newTimeSeries);
 
-                newFeatures.push(feature);
+                if (!this.filterFn || this.filterFn(feature)) {
+                    newFeatures.push(feature);
+                }
             }
             else {
                 if (feature.properties['casesTimeSeries']) {
                     feature.properties['casesTimeSeries'] = this.getRateOfChange(7, feature.properties['casesTimeSeries']);
                 }
-                newFeatures.push(feature);
+
+                if (!this.filterFn || this.filterFn(feature)) {
+                    newFeatures.push(feature);
+                }
             }
         }
         geoJSONData['features'] = newFeatures;

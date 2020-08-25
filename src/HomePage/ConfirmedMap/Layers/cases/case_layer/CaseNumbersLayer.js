@@ -55,10 +55,6 @@ class CaseNumbersLayer {
             type: 'symbol',
             'maxzoom': 14,
             source: this.clusteredCaseSources.getSourceId(),
-            filter: ['all',
-                ['!=', 'cases', 0],
-                ['has', 'cases']
-            ],
             layout: {
                 'text-field': '{casesFmt}',
                 'text-font': [
@@ -80,10 +76,16 @@ class CaseNumbersLayer {
     }
 
     fadeOut() {
+        if (!this.__layerAdded) {
+            return;
+        }
         this.map.setPaintProperty(this.uniqueId+'label', 'text-opacity', 0);
     }
 
     fadeIn() {
+        if (!this.__layerAdded) {
+            return;
+        }
         this.map.setPaintProperty(this.uniqueId+'label', 'text-opacity', 1.0);
     }
 

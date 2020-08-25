@@ -24,13 +24,10 @@ SOFTWARE.
 
 import CaseRectangleLayer from "./case_layer/CaseRectangleLayer";
 import CaseCityLabelsLayer from "./case_layer/CaseCityLabelsLayer";
-import CaseNumbersLayer from "./case_layer/CaseNumbersLayer";
 import CaseGraphLayer from "./case_layer/CaseGraphLayer";
 
-let RECTANGLE_WIDTH = 25;
 
-
-class CaseLayer {
+class RateOfChangeCaseLayer {
     /**
      *
      * @param map a MapBox GL instance
@@ -42,27 +39,15 @@ class CaseLayer {
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
-        this.__mode = 'casenums';
 
         this.hoverStateHelper = hoverStateHelper;
         this.hoverStateHelper.associateSourceId(this.clusteredCaseSources.getSourceId());
 
-        this.caseGraphLayer = new CaseGraphLayer(
-            map, uniqueId, clusteredCaseSources
-        );
-        this.caseCityLabelsLayer = new CaseCityLabelsLayer(
-            map, uniqueId, clusteredCaseSources
-        );
-        this.caseNumbersRectangleLayer = new CaseRectangleLayer(
-            map, uniqueId, clusteredCaseSources, hoverStateHelper,
-            false
-        );
-        this.caseGraphRectangleLayer = new CaseRectangleLayer(
+        this.caseGraphLayer = new CaseGraphLayer(map, uniqueId, clusteredCaseSources);
+        this.caseCityLabelsLayer = new CaseCityLabelsLayer(map, uniqueId, clusteredCaseSources);
+        this.caseRectangleLayer = new CaseRectangleLayer(
             map, uniqueId+'graph', clusteredCaseSources, hoverStateHelper,
-            true, 3, 2
-        );
-        this.caseNumbersLayer = new CaseNumbersLayer(
-            remoteData, map, uniqueId, clusteredCaseSources, hoverStateHelper
+            3, 2
         );
     }
 
@@ -71,45 +56,23 @@ class CaseLayer {
             return;
         }
 
-        this.caseNumbersRectangleLayer.__addLayer();
-        this.caseGraphRectangleLayer.__addLayer();
+        this.caseRectangleLayer.__addLayer();
         this.caseCityLabelsLayer.__addLayer();
         this.caseGraphLayer.__addLayer();
-        this.caseNumbersLayer.__addLayer();
 
         this.__layerAdded = true;
     }
 
     fadeOut() {
         this.caseCityLabelsLayer.fadeOut();
-        this.caseNumbersRectangleLayer.fadeOut();
-        this.caseGraphRectangleLayer.fadeOut();
-        this.caseNumbersLayer.fadeOut();
+        this.caseRectangleLayer.fadeOut();
         this.caseGraphLayer.fadeOut();
     }
 
     fadeIn() {
         this.caseCityLabelsLayer.fadeIn();
-
-        if (this.__mode === 'casenums') {
-            this.caseGraphLayer.fadeOut();
-            this.caseNumbersRectangleLayer.fadeIn();
-            this.caseGraphRectangleLayer.fadeOut();
-            this.caseNumbersLayer.fadeIn();
-        } else if (this.__mode === 'graphs') {
-            this.caseGraphLayer.fadeIn();
-            this.caseGraphRectangleLayer.fadeIn();
-            this.caseNumbersRectangleLayer.fadeOut();
-            this.caseNumbersLayer.fadeOut();
-        }
-    }
-
-    changeModeToCaseNums() {
-        this.__mode = 'casenums';
-    }
-
-    changeModeToGraphs() {
-        this.__mode = 'graphs';
+        this.caseGraphLayer.fadeIn();
+        this.caseRectangleLayer.fadeIn();
     }
 
     /*******************************************************************
@@ -131,25 +94,15 @@ class CaseLayer {
             typeOfData = this.clusteredCaseSources.getTypeOfData();
 
         this.caseCityLabelsLayer.updateLayer(caseVals, typeOfData);
-
-        if (this.__mode === 'graphs') {
-            this.caseGraphLayer.updateLayer(caseVals, typeOfData, maxDateType);
-            this.caseGraphRectangleLayer.updateLayer(caseVals, typeOfData, rectangleWidths, maxDateType);
-        } else if (this.__mode === 'casenums') {
-            this.caseNumbersLayer.updateLayer(caseVals, typeOfData);
-            this.caseNumbersRectangleLayer.updateLayer(caseVals, typeOfData, rectangleWidths, maxDateType);
-        }
+        this.caseGraphLayer.updateLayer(caseVals, typeOfData, maxDateType);
+        this.caseRectangleLayer.updateLayer(caseVals, typeOfData, rectangleWidths, maxDateType);
 
         this.__caseVals = caseVals;
         this.__shown = true;
     }
 
     __getRectangleWidths(caseVals) {
-        if (this.__mode === 'casenums') {
-            return this.caseNumbersLayer.__getRectangleWidths(caseVals);
-        } else if (this.__mode === 'graphs') {
-            return this.caseGraphLayer.__getRectangleWidths(caseVals);
-        }
+        return this.caseGraphLayer.__getRectangleWidths(caseVals);
     }
 
     /**
@@ -158,9 +111,7 @@ class CaseLayer {
     removeLayer() {
         if (this.__shown) {
             this.caseCityLabelsLayer.removeLayer();
-            this.caseNumbersRectangleLayer.removeLayer();
-            this.caseGraphRectangleLayer.removeLayer();
-            this.caseNumbersLayer.removeLayer();
+            this.caseRectangleLayer.removeLayer();
 
             this.__shown = false;
             this.__layerAdded = false;
@@ -168,4 +119,4 @@ class CaseLayer {
     }
 }
 
-export default CaseLayer;
+export default RateOfChangeCaseLayer;

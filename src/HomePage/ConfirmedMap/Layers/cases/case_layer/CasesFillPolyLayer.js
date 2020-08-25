@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-import CasesPopup from "../CasesPopup";
+import CasesPopup from "./CasesPopup";
 import getMapBoxCaseColors from "../getMapBoxCaseColors";
 
 const FILL_OPACITY = 0.37;

@@ -35,46 +35,37 @@ class CaseCityLabelsLayer {
         if (this.__layerAdded) {
             return;
         }
-        this.__addCityLabel(false);
-        // Need to add after the rectangle source has been
-        // created to make sure it's directly underneath it!
-        this.__addCityLabel(true);
+        this.__addCityLabel();
         this.__layerAdded = true;
     }
 
-    __addCityLabel(underneath) {
-        let layerId = this.uniqueId + 'citylabel' + (underneath ? 'un' : '');
-        this.map.addLayer(
-            {
-                'id': layerId,
-                'type': 'symbol',
-                'maxzoom': 14,
-                'source': this.clusteredCaseSources.getSourceId(),
-                'filter': ['all',
-                    //['!=', 'cases', 0],
-                    ['has', 'cases']
+    __addCityLabel() {
+        let layerId = this.uniqueId + 'citylabel';
+        let options = {
+            'id': layerId,
+            'type': 'symbol',
+            'maxzoom': 14,
+            'source': this.clusteredCaseSources.getSourceId(),
+            'layout': {
+                'text-field': [
+                    'format',
+                    ['get', 'label'],
+                    {'font-scale': 0.7},
                 ],
-                'layout': {
-                    'text-field': [
-                        'format',
-                        ['get', 'label'],
-                        {'font-scale': 0.7},
-                    ],
-                    'text-transform': 'lowercase',
-                    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                    'text-offset': [0, 0.75],
-                    'text-anchor': 'top',
-                    'text-allow-overlap': underneath,
-                    'symbol-sort-key': ["get", "cases"]
-                },
-                'paint': {
-                    'text-halo-width': 1,
-                    'text-halo-blur': 2,
-                    //"text-opacity-transition": {duration: FADE_TRANSITION_DURATION},
-                }
+                'text-transform': 'lowercase',
+                'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                'text-offset': [0, 0.75],
+                'text-anchor': 'top',
+                'text-allow-overlap': true,
+                'symbol-sort-key': ["get", "cases"]
             },
-            underneath ? (this.uniqueId+'rectangle') : null
-        );
+            'paint': {
+                'text-halo-width': 1.3,
+                //'text-halo-blur': 2,
+                //"text-opacity-transition": {duration: FADE_TRANSITION_DURATION},
+            }
+        };
+        this.map.addLayer(options);
         //this.hoverStateHelper.associateLayerId(layerId);
     }
 
@@ -120,38 +111,30 @@ class CaseCityLabelsLayer {
             ]
         );
         this.map.setPaintProperty(
-            this.uniqueId+'citylabelun', 'text-color', [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                hoverRectangleColor,
-                textColor
-            ]
-        );
-        this.map.setPaintProperty(
             this.uniqueId+'citylabel', 'text-halo-color', textHaloColor
-        );
-        this.map.setPaintProperty(
-            this.uniqueId+'citylabelun', 'text-halo-color', textHaloColor
         );
 
         this.__shown = true;
     }
 
     fadeIn() {
+        if (!this.__layerAdded) {
+            return;
+        }
         this.map.setPaintProperty(this.uniqueId + 'citylabel', 'text-opacity', 1.0);
-        this.map.setPaintProperty(this.uniqueId + 'citylabelun', 'text-opacity', 1.0);
     }
 
     fadeOut() {
+        if (!this.__layerAdded) {
+            return;
+        }
         this.map.setPaintProperty(this.uniqueId + 'citylabel', 'text-opacity', 0);
-        this.map.setPaintProperty(this.uniqueId + 'citylabelun', 'text-opacity', 0);
     }
 
     removeLayer() {
         if (this.__shown) {
             const map = this.map;
             map.removeLayer(this.uniqueId + 'citylabel');
-            map.removeLayer(this.uniqueId + 'citylabelun');
             this.__shown = false;
             this.__layerAdded = false;
         }

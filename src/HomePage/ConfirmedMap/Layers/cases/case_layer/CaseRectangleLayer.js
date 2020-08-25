@@ -29,12 +29,11 @@ let RECTANGLE_WIDTH = 25; //TODO: MOVE ME!!
 
 
 class CaseRectangleLayer {
-    constructor(map, uniqueId, clusteredCaseSources, hoverStateHelper, alwaysShow, paddingWidth, paddingHeight) {
+    constructor(map, uniqueId, clusteredCaseSources, hoverStateHelper, paddingWidth, paddingHeight) {
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
         this.hoverStateHelper = hoverStateHelper;
-        this.alwaysShow = alwaysShow;
         this.paddingWidth = paddingWidth||0;
         this.paddingHeight = paddingHeight||0;
 
@@ -60,10 +59,16 @@ class CaseRectangleLayer {
     }
 
     fadeOut() {
+        if (!this.__layerAdded) {
+            return;
+        }
         this.map.setPaintProperty(this.uniqueId+'rectangle', 'fill-opacity', 0);
     }
 
     fadeIn() {
+        if (!this.__layerAdded) {
+            return;
+        }
         this.map.setPaintProperty(this.uniqueId+'rectangle', 'fill-opacity', 1.0);
     }
 
@@ -106,35 +111,16 @@ class CaseRectangleLayer {
             ]
         );
 
-        this.__updateRectangleWidth(caseVals, typeOfData, rectangleWidths, maxDateType);
+        this.__updateRectangleWidth(caseVals, typeOfData, rectangleWidths);
         this.__shown = true;
     }
 
-    __updateRectangleWidth(caseVals, typeOfData, rectangleWidths, maxDateType) {
+    __updateRectangleWidth(caseVals, typeOfData, rectangleWidths) {
         let data = this.clusteredCaseSources.getData(),
             features = data['features'];
 
         let outFeatures = [];
         for (let feature of features) {
-            if (this.alwaysShow) {
-                if (
-                    !feature['properties']['casesTimeSeries'] ||
-                    !feature['properties']['casesTimeSeries'].length
-                ) {
-                    continue;
-                }
-
-                let daysToClip = maxDateType ? maxDateType.numDaysSince() : 0;
-                let timeSeries = feature['properties']['casesTimeSeries'].slice(daysToClip, daysToClip + (RECTANGLE_WIDTH * 2))
-
-                if (!timeSeries.filter(i => !!i).length) {
-                    continue;
-                }
-            }
-            else if (!this.alwaysShow && !feature['properties']['cases']) {
-                continue;
-            }
-
             let [lng, lat] = feature['geometry']['coordinates'],
                 pxPoint = this.map.project([lng, lat]),
                 casesSz = parseInt(feature['properties']['casesSz']),

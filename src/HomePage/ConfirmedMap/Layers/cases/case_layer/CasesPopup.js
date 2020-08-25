@@ -23,14 +23,14 @@ SOFTWARE.
  */
 
 import mapboxgl from "mapbox-gl/dist/mapbox-gl";
-import RegionType from "../../../CrawlerDataTypes/RegionType";
+import RegionType from "../../../../CrawlerDataTypes/RegionType";
 import ReactEchartsCore from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
 
 import React from "react";
 import ReactDOM from "react-dom";
-import Fns from "../../Fns";
+import Fns from "../../../Fns";
 
 
 class CasesPopup {
