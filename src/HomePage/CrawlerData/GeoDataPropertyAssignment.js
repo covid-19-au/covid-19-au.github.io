@@ -276,7 +276,9 @@ class GeoDataPropertyAssignment {
                     }
 
                     // Convert to % difference
-                    timeSeries = timeSeries.getRateOfChange(7);
+                    // Don't do this here - it can mess up clustering!
+                    // Better to do it in clusteredCaseSource.js
+                    //timeSeries = timeSeries.getRateOfChange(7);
 
                     let ts = [];
                     for (let dataPoint of timeSeries) {

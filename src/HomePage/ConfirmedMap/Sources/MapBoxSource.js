@@ -36,7 +36,7 @@ class MapBoxSource {
      * @param maxZoom the maximum zoom (or null)
      * @param data the GeoJSON data (or null)
      */
-    constructor(map, minZoom, maxZoom, data) {
+    constructor(map, minZoom, maxZoom, data, typeOfData) {
         this.map = map;
         var id = this.__id = __currentId++;
 
@@ -55,7 +55,7 @@ class MapBoxSource {
         });
 
         if (data) {
-            this.setData(data);
+            this.setData(typeOfData, data);
         }
     }
 
@@ -92,6 +92,7 @@ class MapBoxSource {
             return;
         }
         this.getSourceInst().setData([]);
+        this.__typeOfData = null;
         //delete this.__dataKeys;
     }
 
@@ -110,7 +111,7 @@ class MapBoxSource {
      * @param caseDataInsts
      * @returns {boolean}
      */
-    setData(data, geoDataInsts, caseDataInsts) {
+    setData(typeOfData, data, geoDataInsts, caseDataInsts) {
         if (!this.getSourceInst()) { // WARNING: This could have consequences for the order of async jobs!!! ======================================
             setTimeout(this.setData.bind(this), 0, data);
             return true;
@@ -118,6 +119,7 @@ class MapBoxSource {
 
         this.getSourceInst().setData(data);
         this.__data = data;
+        this.__typeOfData = typeOfData;
 
         if (caseDataInsts) {
             this.__assignCaseDataInsts(caseDataInsts);
@@ -143,6 +145,10 @@ class MapBoxSource {
      */
     getData() {
         return JSON.parse(JSON.stringify(this.__data));
+    }
+
+    getTypeOfData() {
+        return this.__typeOfData;
     }
 
     /*******************************************************************

@@ -302,7 +302,7 @@ class CovidMapControl extends React.Component {
                 // Create the MapBox sources
                 let underlaySource = this.underlaySource = new MapBoxSource(map);
                 let casesSource = this.casesSource = new MapBoxSource(map);
-                let clusteredCaseSource = this.clusteredCaseSource = new ClusteredCaseSource(map);
+                let clusteredCaseSource = this.clusteredCaseSource = new ClusteredCaseSource(this.remoteData, map);
 
                 // Add layers for the underlay
                 this.underlayFillPoly = new UnderlayFillPolyLayer(map, 'underlayFillPoly', underlaySource);
@@ -313,7 +313,7 @@ class CovidMapControl extends React.Component {
                 this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource, this.hoverStateHelper);
                 //this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
                 this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
-                this.caseLayer = new CaseLayer(map, 'graph', clusteredCaseSource, this.hoverStateHelper);
+                this.caseLayer = new CaseLayer(this.remoteData, map, 'graph', clusteredCaseSource, this.hoverStateHelper);
 
                 // Bind events for loading data
                 //map.on('move', () => {
@@ -554,10 +554,10 @@ class CovidMapControl extends React.Component {
         } else {
             // Update the sources
             this.clusteredCaseSource.setData(
-                geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
+                dataType, geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
             );
             this.casesSource.setData(
-                geoData.polygons, geoData.geoDataInsts, geoData.caseDataInsts
+                dataType, geoData.polygons, geoData.geoDataInsts, geoData.caseDataInsts
             );
             this.geoDataInsts = geoData.geoDataInsts;
             this.caseDataInsts = geoData.caseDataInsts;
@@ -697,7 +697,7 @@ class CovidMapControl extends React.Component {
         };
 
         if (this.clusteredCaseSource) {
-            this.clusteredCaseSource.setData(points);
+            this.clusteredCaseSource.setData(null, points);
         }
 
         if (!noFade) {
@@ -719,7 +719,7 @@ class CovidMapControl extends React.Component {
         };
 
         if (this.casesSource) {
-            this.casesSource.setData(polygons);
+            this.casesSource.setData(null, polygons);
         }
     }
 }

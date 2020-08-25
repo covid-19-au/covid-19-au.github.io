@@ -42,6 +42,24 @@ class CaseGraphLayer {
         this.lineSource = new MapBoxSource(map, null, null, null);
     }
 
+    __getRectangleWidths() {
+        return {
+            '-6': RECTANGLE_WIDTH,
+            '-5': RECTANGLE_WIDTH,
+            '-4': RECTANGLE_WIDTH,
+            '-3': RECTANGLE_WIDTH,
+            '-2': RECTANGLE_WIDTH,
+            '-1': RECTANGLE_WIDTH,
+            '0': RECTANGLE_WIDTH,
+            '1': RECTANGLE_WIDTH,
+            '2': RECTANGLE_WIDTH,
+            '3': RECTANGLE_WIDTH,
+            '4': RECTANGLE_WIDTH,
+            '5': RECTANGLE_WIDTH,
+            '6': RECTANGLE_WIDTH
+        };
+    }
+
     __addLayer() {
         if (this.__layerAdded) {
             return;
@@ -100,10 +118,12 @@ class CaseGraphLayer {
 
     fadeOut() {
         this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 0);
+        this.map.setPaintProperty(this.uniqueId+'zeroline', 'line-opacity', 0);
     }
 
     fadeIn() {
         this.map.setPaintProperty(this.uniqueId+'line', 'line-opacity', 1.0);
+        this.map.setPaintProperty(this.uniqueId+'zeroline', 'line-opacity', 1.0);
     }
 
     /*******************************************************************
@@ -115,19 +135,19 @@ class CaseGraphLayer {
      *
      * @param caseVals
      */
-    updateLayer(caseVals, maxDateType) {
+    updateLayer(caseVals, typeOfData, maxDateType) {
         if (!this.__layerAdded) {
             this.__addLayer();
         }
 
         caseVals = caseVals||this.clusteredCaseSources.getPointsAllVals();
-        this.__updateLineData(maxDateType);
+        this.__updateLineData(caseVals, typeOfData, maxDateType);
 
         this.__caseVals = caseVals;
         this.__shown = true;
     }
 
-    __updateLineData(maxDateType) {
+    __updateLineData(caseVals, typeOfData, maxDateType) {
         let data = this.clusteredCaseSources.getData(),
             features = data['features'],
             zeroFeatures = [],
@@ -164,18 +184,25 @@ class CaseGraphLayer {
             feature['geometry']['coordinates'] = [];
 
             let timeSeries = feature['properties']['casesTimeSeries'];
-            if (!timeSeries || !timeSeries.length) {
+            if (!timeSeries || !timeSeries.filter(i => !!i).length) {
                 continue
             }
 
             timeSeries = feature['properties']['casesTimeSeriesMod'];
-            if (!timeSeries || !timeSeries.length) {
+            if (!timeSeries || !timeSeries.filter(i => !!i).length) {
                 continue
             }
 
             let idx = 0,
                 min = Math.min(...timeSeries),
                 max = Math.max(...timeSeries);
+
+            if (min > 0 && max > 0) {
+                min = 0;
+            }
+            if (min < 0 && max < 0) {
+                max = 0;
+            }
 
             for (let x=longitudeInPx+RECTANGLE_WIDTH; x>longitudeInPx-RECTANGLE_WIDTH; x--) {
                 let pt1 = this.map.unproject([x, latitudeInPx-10]).toArray(),
@@ -218,7 +245,7 @@ class CaseGraphLayer {
         }
 
         data['features'] = data['features'].concat(zeroFeatures);
-        this.lineSource.setData(data);
+        this.lineSource.setData(typeOfData, data);
     }
 
     /**

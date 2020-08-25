@@ -78,7 +78,7 @@ class CaseCityLabelsLayer {
         //this.hoverStateHelper.associateLayerId(layerId);
     }
 
-    updateLayer(caseVals) {
+    updateLayer(caseVals, typeOfData) {
         if (!this.__layerAdded) {
             this.__addLayer();
         }

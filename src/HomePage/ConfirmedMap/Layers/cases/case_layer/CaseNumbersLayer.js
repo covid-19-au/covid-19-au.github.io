@@ -33,7 +33,8 @@ class CaseNumbersLayer {
      * @param uniqueId a unique id for the MapBox GL layer
      * @param clusteredCaseSources
      */
-    constructor(map, uniqueId, clusteredCaseSources, hoverStateHelper) {
+    constructor(remoteData, map, uniqueId, clusteredCaseSources, hoverStateHelper) {
+        this.remoteData = remoteData;
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
@@ -95,9 +96,18 @@ class CaseNumbersLayer {
      *
      * @param caseVals
      */
-    updateLayer(caseVals) {
+    updateLayer(caseVals, typeOfData) {
         if (!this.__layerAdded) {
             this.__addLayer();
+        }
+
+        let isPercentile = typeOfData ?
+            this.remoteData.getConstants()[typeOfData]['percentile'] : false;
+
+        if (isPercentile) {
+            this.map.setLayoutProperty(this.uniqueId +'label', 'text-field', '{casesFmt}%');
+        } else {
+            this.map.setLayoutProperty(this.uniqueId +'label', 'text-field', '{casesFmt}');
         }
 
         let colors = [
@@ -111,7 +121,7 @@ class CaseNumbersLayer {
             '#e73210'
         ];
 
-        //this.__caseVals = caseVals;
+        this.__caseVals = caseVals;
         this.__shown = true;
     }
 

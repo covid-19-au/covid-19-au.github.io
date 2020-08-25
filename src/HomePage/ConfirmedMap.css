@@ -155,7 +155,10 @@ code {
 
 .narrow-text {
     display: inline-block;
-    transform: scale(1,1.5);
-    font-size: 0.8em;
+    transform: scale(1.4,2);
+    margin-left: 13.5%;
+    margin-right: 13%;
+    font-size: 53%;
+    vertical-align: middle;
 }
 

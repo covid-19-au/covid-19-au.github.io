@@ -81,18 +81,9 @@ class WorldMap extends React.Component {
                                 value minus the value 7 or 21 days before the current day. Negative numbers in this mode mean the
                                 value is that amount less than it was that many days ago.<br/>
 
-                                The <FontAwesomeIcon icon={faChartLine} />&nbsp;<b>Growth Change</b> icon
-                                graphs the <a href="https://en.wikipedia.org/wiki/Exponential_growth">exponential change in growth</a> for
-                                each region over 50 days.&nbsp;
-
-                                A downwards trajectory means infections are slowing down.&nbsp;
-
-                                The graph is normalized for each region over the whole 50 days, and is meant only to give an
-                                indication whether the <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">rate of change</a> is
-                                getting higher or lower, not to compare between regions and does not show case numbers.&nbsp;
-
-                                The green or red color key shows change in the number of cases over the last 14 days, allowing
-                                basic regional comparisons.
+                                The <FontAwesomeIcon icon={faChartLine} />&nbsp;<b>Growth Change</b> control
+                                graphs the exponential <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">change in growth</a> for
+                                each region over 50 days. The dotted line indicates a rate of change of 0. Below this line, case numbers start declining.
                             </li>
 
                             <li style={{color: '#555'}}>

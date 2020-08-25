@@ -29,12 +29,14 @@ let RECTANGLE_WIDTH = 25; //TODO: MOVE ME!!
 
 
 class CaseRectangleLayer {
-    constructor(map, uniqueId, clusteredCaseSources, hoverStateHelper, alwaysShow) {
+    constructor(map, uniqueId, clusteredCaseSources, hoverStateHelper, alwaysShow, paddingWidth, paddingHeight) {
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
         this.hoverStateHelper = hoverStateHelper;
         this.alwaysShow = alwaysShow;
+        this.paddingWidth = paddingWidth||0;
+        this.paddingHeight = paddingHeight||0;
 
         this.rectangleSource = new MapBoxSource(map, null, null, null);
         this.hoverStateHelper.associateSourceId(this.rectangleSource.getSourceId());
@@ -46,10 +48,10 @@ class CaseRectangleLayer {
         }
 
         this.map.addLayer({
-            'id': this.uniqueId+'rectangle',
-            'type': 'fill',
-            'maxzoom': 14,
-            'source': this.rectangleSource.getSourceId(),
+            id: this.uniqueId+'rectangle',
+            type: 'fill',
+            maxzoom: 14,
+            source: this.rectangleSource.getSourceId(),
             paint: {
                 //"fill-opacity-transition": {duration: FADE_TRANSITION_DURATION},
             }
@@ -65,7 +67,7 @@ class CaseRectangleLayer {
         this.map.setPaintProperty(this.uniqueId+'rectangle', 'fill-opacity', 1.0);
     }
 
-    updateLayer(caseVals, rectangleWidths, maxDateType) {
+    updateLayer(caseVals, typeOfData, rectangleWidths, maxDateType) {
         if (!this.__layerAdded) {
             this.__addLayer();
         }
@@ -104,14 +106,15 @@ class CaseRectangleLayer {
             ]
         );
 
-        this.__updateRectangleWidth(rectangleWidths, maxDateType);
+        this.__updateRectangleWidth(caseVals, typeOfData, rectangleWidths, maxDateType);
         this.__shown = true;
     }
 
-    __updateRectangleWidth(rectangleWidths, maxDateType) {
+    __updateRectangleWidth(caseVals, typeOfData, rectangleWidths, maxDateType) {
         let data = this.clusteredCaseSources.getData(),
             features = data['features'];
 
+        let outFeatures = [];
         for (let feature of features) {
             if (this.alwaysShow) {
                 if (
@@ -120,9 +123,11 @@ class CaseRectangleLayer {
                 ) {
                     continue;
                 }
+
                 let daysToClip = maxDateType ? maxDateType.numDaysSince() : 0;
                 let timeSeries = feature['properties']['casesTimeSeries'].slice(daysToClip, daysToClip + (RECTANGLE_WIDTH * 2))
-                if (!timeSeries.length) {
+
+                if (!timeSeries.filter(i => !!i).length) {
                     continue;
                 }
             }
@@ -151,19 +156,21 @@ class CaseRectangleLayer {
 
             //console.log(`${casesSz} ${rectangleWidth} ${pxLng} ${pxLat}`);
 
-            let pt1 = this.map.unproject([pxLng-rectangleWidth, pxLat-10]),
-                pt2 = this.map.unproject([pxLng+rectangleWidth, pxLat-10]),
-                pt3 = this.map.unproject([pxLng+rectangleWidth, pxLat+10]),
-                pt4 = this.map.unproject([pxLng-rectangleWidth, pxLat+10]);
+            let pt1 = this.map.unproject([pxLng-rectangleWidth-this.paddingWidth, pxLat-10-this.paddingHeight]),
+                pt2 = this.map.unproject([pxLng+rectangleWidth+this.paddingWidth, pxLat-10-this.paddingHeight]),
+                pt3 = this.map.unproject([pxLng+rectangleWidth+this.paddingWidth, pxLat+10+this.paddingHeight]),
+                pt4 = this.map.unproject([pxLng-rectangleWidth-this.paddingWidth, pxLat+10+this.paddingHeight]);
 
             feature['geometry']['type'] = 'Polygon';
             feature['geometry']['coordinates'] = [[
                 pt1.toArray(), pt2.toArray(),
                 pt3.toArray(), pt4.toArray(),
             ]];
+            outFeatures.push(feature);
         }
 
-        this.rectangleSource.setData(data);
+        data['features'] = outFeatures;
+        this.rectangleSource.setData(typeOfData, data);
     }
 
     /**

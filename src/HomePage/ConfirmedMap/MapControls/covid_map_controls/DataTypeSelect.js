@@ -142,8 +142,8 @@ class DataTypeSelect extends React.Component {
                                 onClick={() => this._onTimePeriodChange(21)}>21 Days</Button>
                             <Button style={this.state.timePeriod === "graphs" ? activeStyles : inactiveStyles}
                                     onClick={() => this._onTimePeriodChange("graphs")}>
-                                <div style={{padding: "0 10px 0 11px", color: "#111"}}>
-                                    <FontAwesomeIcon icon={faChartLine} />&nbsp;<span class="narrow-text">Growth Change</span>
+                                <div style={{padding: "0px 21px 0px 5px"}}>
+                                    <FontAwesomeIcon icon={faChartLine} />&nbsp;<span class="narrow-text">Rate of Change</span>
                                 </div>
                             </Button>
                         </ButtonGroup>

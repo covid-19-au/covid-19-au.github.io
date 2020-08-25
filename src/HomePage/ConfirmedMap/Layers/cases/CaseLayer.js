@@ -37,7 +37,8 @@ class CaseLayer {
      * @param uniqueId a unique id for the MapBox GL layer
      * @param clusteredCaseSources
      */
-    constructor(map, uniqueId, clusteredCaseSources, hoverStateHelper) {
+    constructor(remoteData, map, uniqueId, clusteredCaseSources, hoverStateHelper) {
+        this.remoteData = remoteData;
         this.map = map;
         this.uniqueId = uniqueId;
         this.clusteredCaseSources = clusteredCaseSources;
@@ -46,11 +47,23 @@ class CaseLayer {
         this.hoverStateHelper = hoverStateHelper;
         this.hoverStateHelper.associateSourceId(this.clusteredCaseSources.getSourceId());
 
-        this.caseGraphLayer = new CaseGraphLayer(map, uniqueId, clusteredCaseSources);
-        this.caseCityLabelsLayer = new CaseCityLabelsLayer(map, uniqueId, clusteredCaseSources);
-        this.caseNumbersRectangleLayer = new CaseRectangleLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
-        this.caseGraphRectangleLayer = new CaseRectangleLayer(map, uniqueId+'graph', clusteredCaseSources, hoverStateHelper, true);
-        this.caseNumbersLayer = new CaseNumbersLayer(map, uniqueId, clusteredCaseSources, hoverStateHelper);
+        this.caseGraphLayer = new CaseGraphLayer(
+            map, uniqueId, clusteredCaseSources
+        );
+        this.caseCityLabelsLayer = new CaseCityLabelsLayer(
+            map, uniqueId, clusteredCaseSources
+        );
+        this.caseNumbersRectangleLayer = new CaseRectangleLayer(
+            map, uniqueId, clusteredCaseSources, hoverStateHelper,
+            false
+        );
+        this.caseGraphRectangleLayer = new CaseRectangleLayer(
+            map, uniqueId+'graph', clusteredCaseSources, hoverStateHelper,
+            true, 3, 2
+        );
+        this.caseNumbersLayer = new CaseNumbersLayer(
+            remoteData, map, uniqueId, clusteredCaseSources, hoverStateHelper
+        );
     }
 
     __addLayer() {
@@ -114,16 +127,17 @@ class CaseLayer {
         }
 
         caseVals = caseVals||this.clusteredCaseSources.getPointsAllVals();
-        let rectangleWidths = this.__getRectangleWidths(caseVals);
+        let rectangleWidths = this.__getRectangleWidths(caseVals),
+            typeOfData = this.clusteredCaseSources.getTypeOfData();
 
-        this.caseCityLabelsLayer.updateLayer(caseVals);
+        this.caseCityLabelsLayer.updateLayer(caseVals, typeOfData);
 
         if (this.__mode === 'graphs') {
-            this.caseGraphLayer.updateLayer(caseVals, maxDateType);
-            this.caseGraphRectangleLayer.updateLayer(caseVals, rectangleWidths, maxDateType);
+            this.caseGraphLayer.updateLayer(caseVals, typeOfData, maxDateType);
+            this.caseGraphRectangleLayer.updateLayer(caseVals, typeOfData, rectangleWidths, maxDateType);
         } else if (this.__mode === 'casenums') {
-            this.caseNumbersLayer.updateLayer(caseVals);
-            this.caseNumbersRectangleLayer.updateLayer(caseVals, rectangleWidths, maxDateType);
+            this.caseNumbersLayer.updateLayer(caseVals, typeOfData);
+            this.caseNumbersRectangleLayer.updateLayer(caseVals, typeOfData, rectangleWidths, maxDateType);
         }
 
         this.__caseVals = caseVals;
@@ -133,24 +147,9 @@ class CaseLayer {
     __getRectangleWidths(caseVals) {
         if (this.__mode === 'casenums') {
             return this.caseNumbersLayer.__getRectangleWidths(caseVals);
+        } else if (this.__mode === 'graphs') {
+            return this.caseGraphLayer.__getRectangleWidths(caseVals);
         }
-
-        // HACK!
-        return {
-            '-6': RECTANGLE_WIDTH,
-            '-5': RECTANGLE_WIDTH,
-            '-4': RECTANGLE_WIDTH,
-            '-3': RECTANGLE_WIDTH,
-            '-2': RECTANGLE_WIDTH,
-            '-1': RECTANGLE_WIDTH,
-            '0': RECTANGLE_WIDTH,
-            '1': RECTANGLE_WIDTH,
-            '2': RECTANGLE_WIDTH,
-            '3': RECTANGLE_WIDTH,
-            '4': RECTANGLE_WIDTH,
-            '5': RECTANGLE_WIDTH,
-            '6': RECTANGLE_WIDTH
-        };
     }
 
     /**
