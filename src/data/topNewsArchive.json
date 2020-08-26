@@ -1,6 +1,14 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-08-19/coronavirus-queensland-contact-trace-virgin-flight-brisbane-cafe/12564752",
+            "title": "Coronavirus health alert issued for Brisbane cafe after woman tests positive",
+            "source": "ABCNews",
+            "date": "19 August 2020",
+            "time": "20:00",
+            "summary": "A women testing positive for COVID-19 in Japan has prompted urgent contact tracing and coronavirus testing in Brisbane. The woman had flown to Sydney on 17th August and subsequently flew to Jpan where she tested positive for COVID-19."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/aug/18/australian-government-does-deal-to-secure-potential-oxford-university-covid-vaccine-for-free",
             "title": "Australian government does deal to secure potential Oxford University Covid vaccine for free ",
             "source": "TheGuardian",
