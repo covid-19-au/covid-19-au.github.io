@@ -23,7 +23,7 @@ SOFTWARE.
  */
 
 import CasesPopup from "./CasesPopup";
-import getMapBoxCaseColors from "./getMapBoxCaseColors";
+import getMapBoxCaseColors from "../getMapBoxCaseColors";
 
 const FILL_OPACITY = 0.37;
 
@@ -103,7 +103,7 @@ class CasesFillPolyLayer {
      * Add the (transparent) fill poly layer for
      * cases to allow for popup on click events
      */
-    updateLayer() {
+    updateLayer(caseVals, typeOfData) {
         let colors = [
             'rgba(0,80,0,0.8)',
             'rgba(0,0,80,0.0)',
@@ -115,12 +115,12 @@ class CasesFillPolyLayer {
             '#e72200'
         ];
 
-        let caseVals = this.mapBoxSource.getPointsAllVals(),
-            circleColor = getMapBoxCaseColors(
+        let fillCaseVals = this.mapBoxSource.getPointsAllVals();
+        let circleColor = getMapBoxCaseColors(
                 [255, 222, 207, 0.5], [231, 34, 0, 1.0],
                 'rgba(0, 0, 0, 0.0)', 'rgb(182, 0, 15)',
                 [0, 80, 0, 0.4], [0, 80, 0, 1.0],
-                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1
+                fillCaseVals, [0.0, 0.25, 0.75, 0.90, 0.95], 1
             );
 
         this.map.setPaintProperty(

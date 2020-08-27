@@ -281,13 +281,13 @@ class DataPoints extends Array {
         originalArray.sortDescending();
 
         let r = [];
-        for (let i=0; i<originalArray.length; i++) {
+        for (let i=0; i<originalArray.length-overNumDays; i++) {
             let totalVal = 0,
                 numVals = 0,
                 highestDate = originalArray[i].getDateType();
 
-            for (let j=i; j<originalArray.length && j<i+overNumDays; j++) {
-                totalVal += originalArray[j].getValue();
+            for (let j=i; j<i+overNumDays; j++) {
+                totalVal += originalArray[j] ? originalArray[j].getValue() : 0;
                 numVals++;
             }
 
@@ -314,15 +314,15 @@ class DataPoints extends Array {
 
         let map = {};
         for (let [dateType, value] of this) {
-            map[dateType.toString()] = value;
+            map[dateType.prettified()] = value;
         }
 
         // Make sure every date has a datapoint
         // (otherwise eCharts rendering goes haywire)
-        let curValue = defaultValue;
+        let curValue = defaultValue||0;
         for (let dateType of dateRangeType.toArrayOfDateTypes()) {
-            if (dateType.toString() in map) { // WARNING!!!
-                curValue = map[dateType.toString()];
+            if (dateType.prettified() in map) { // WARNING!!!
+                curValue = map[dateType.prettified()];
             }
             out.push(new DataPoint(dateType, curValue))
         }
@@ -333,11 +333,75 @@ class DataPoints extends Array {
     }
 
     /**
+     * Create a new DataPoints instance
+     *
+     * @param dateRangeType
+     * @param defaultValue
+     * @returns {DataPoints}
+     */
+    missingDaysInterpolated(dateRangeType, defaultValue) {
+        let out = new DataPoints(
+            this.dataSource, this.regionType,
+            this.ageRange, []
+        );
+
+        for (let i=0; i<this.length-1; i++) {
+            let [prevDateType, prevValue] = this[i],
+                [nextDateType, nextValue] = this[i+1],
+                numDays = nextDateType.numDaysSince(prevDateType);
+
+            //console.log(`${prevDateType.prettified()} ${nextDateType.prettified()} ${prevValue} ${nextValue}`);
+
+            if (nextDateType > prevDateType) {
+                throw "DataPoints should be in descending order for missingDaysInterpolated!"
+            }
+
+            for (let j=0; j<numDays; j++) {
+                let dateType = prevDateType.daysSubtracted(j),
+                    elapsedPc = j / numDays,
+                    value = Math.round(
+                        (prevValue * (1.0-elapsedPc)) +
+                        (nextValue * elapsedPc)
+                    );
+                out.push(new DataPoint(dateType, value))
+            }
+        }
+
+        if (this.length) {
+            // Make sure the very last item isn't skipped!
+            out.push(this[this.length - 1]);
+        }
+
+        // Sort by newest first
+        out.sortDescending();
+        return out//.missingDaysFilledIn(dateRangeType, defaultValue);
+    }
+
+    /**
      *
      * @param overNumDays
      */
     getRateOfChange(overNumDays) {
-        // TODO!
+        // WARNING: This assumes this is in descending order!!!
+        // ALSO NOTE: If the number is undefined due to no
+        // data for the specified days, "null" will be output!
+
+        let r = [];
+        for (let i=0; i<this.length-overNumDays; i++) {
+            let [date1, x1] = this[i],
+                [date2, x2] = this[i+overNumDays];
+
+            if (date2 > date1) {
+                throw "DataPoints should be in descending order for getRateOfChange!"
+            }
+
+            let divBy = Math.abs(x1);
+            r.push(new DataPoint(
+                date1,
+                divBy ? (x1 - x2) / divBy : null
+            ));
+        }
+        return this.cloneWithoutDatapoints(r);
     }
 
     /**

@@ -28,6 +28,8 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import './ConfirmedMap.css'
 import CovidMapControl from "./ConfirmedMap/CovidMapControl"
 import UpdatedDatesDisplay from "./ConfirmedMap/MapControls/UpdatedDatesDisplay";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faChartLine} from "@fortawesome/free-solid-svg-icons";
 
 
 class WorldMap extends React.Component {
@@ -75,11 +77,15 @@ class WorldMap extends React.Component {
 
                             <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>
                                 The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>&nbsp;
-                                selects the <i>current day</i>. The 7/14/21 days controls show the current day's
-                                value minus the value 7, 14 or 21 days before the current day. <br />
+                                selects the <i>current day</i>. The 7/21 days controls show the current day's
+                                value minus the value 7 or 21 days before the current day. Negative numbers in this mode mean the
+                                value is that amount less than it was that many days ago.<br/>
 
-                                Negative numbers in this mode mean the
-                                value is that amount less than it was that many days ago.
+                                The <FontAwesomeIcon icon={faChartLine} />&nbsp;<b>Rate of Change</b> control
+                                graphs the exponential <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">change in growth</a> for
+                                each region over 50 days. If the cases plot goes above the dotted line, the number of people infected will keep
+                                increasing at an exponential rate. If they're below the dotted line, then things will get under control over
+                                time as less people are infected than were in the past.
                             </li>
 
                             <li style={{color: '#555'}}>

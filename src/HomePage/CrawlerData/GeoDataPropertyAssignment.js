@@ -1,5 +1,6 @@
 import RegionType from "../CrawlerDataTypes/RegionType";
 import Fns from "../ConfirmedMap/Fns";
+import DateType from "../CrawlerDataTypes/DateType";
 
 
 function debug(msg) {
@@ -7,6 +8,9 @@ function debug(msg) {
         console.log(msg);
     }
 }
+
+
+let __timeSeriesCache = new Map();
 
 
 class GeoDataPropertyAssignment {
@@ -31,7 +35,7 @@ class GeoDataPropertyAssignment {
      * Returns whether there was still data left
      * to download at the current coordinates
      */
-    getAllDownloaded() {
+    getMoreToDownload() {
         return this.allDownloaded;
     }
 
@@ -152,7 +156,8 @@ class GeoDataPropertyAssignment {
                 'cases',
                 'negcases',
                 'casesFmt',
-                'casesSz'
+                'casesSz',
+                'casesTimeSeries'
             ]) {
                 if (key in properties) {
                     delete properties[key];
@@ -227,8 +232,67 @@ class GeoDataPropertyAssignment {
                 continue;
             }
 
+            // Get a basic list of past values for the graph
+            let timeSeries,
+                tsKey = `${regionType.getHashKey()}||${ageRange||''}||${this.dataType}`;
+
+            if (__timeSeriesCache.has(tsKey)) {
+                timeSeries = __timeSeriesCache.get(tsKey);
+            } else {
+                timeSeries = (
+                    //dateRangeType ?
+                    //    casesInst.getCaseNumberTimeSeriesOverNumDays(
+                    //        regionType, ageRange, dateRangeType.getDifferenceInDays()
+                    //    ) :
+                    casesInst.getCaseNumberTimeSeries(
+                        regionType, ageRange
+                    )
+                );
+
+                if (timeSeries && timeSeries.getDateRangeType) {
+                    // Fill in every day till the present day
+                    let dateRangeType = timeSeries.getDateRangeType();
+                    dateRangeType.setDateRange(dateRangeType.getFromDate(), DateType.today());
+
+                    timeSeries = timeSeries.sortDescending();
+                    timeSeries = timeSeries.missingDaysInterpolated(dateRangeType);
+                    //timeSeries = timeSeries.missingDaysFilledIn(dateRangeType);
+
+                    if (this.constants[casesInst.getDataType()] && this.constants[casesInst.getDataType()].dayssince) {
+                        // if "dayssince" flag is set, it means the values
+                        // go up or down (not just for correcting mistakes etc)
+                        timeSeries = timeSeries.getNewValuesFromTotals();
+                    }
+
+                    // I think 7 days is a good number (unless there aren't enough samples)
+                    // as some sources are updated weekly and should be a good balance
+                    // in most cases
+                    if (timeSeries.length > 28) {
+                        timeSeries = timeSeries.getDayAverage(7);
+                    } else if (timeSeries.length > 14) {
+                        timeSeries = timeSeries.getDayAverage(7);
+                    } else if (timeSeries.length > 7) {
+                        timeSeries = timeSeries.getDayAverage(3);
+                    }
+
+                    // Convert to % difference
+                    // Don't do this here - it can mess up clustering!
+                    // Better to do it in clusteredCaseSource.js
+                    //timeSeries = timeSeries.getRateOfChange(7);
+
+                    let ts = [];
+                    for (let dataPoint of timeSeries) {
+                        ts.push(dataPoint.getValue())
+                    }
+                    timeSeries = ts;
+                } else {
+                    timeSeries = [];
+                }
+                __timeSeriesCache.set(tsKey, timeSeries);
+            }
+
             // Assign properties
-            this.__assignProperties(feature, timeSeriesItem, regionType, ageRange);
+            this.__assignProperties(feature, timeSeriesItem, timeSeries, regionType, ageRange);
 
             if (properties.cases && properties.cases < min) {
                 min = properties.cases;
@@ -295,7 +359,7 @@ class GeoDataPropertyAssignment {
      * @param ageRange
      * @private
      */
-    __assignProperties(feature, timeSeriesItem, regionType, ageRange) {
+    __assignProperties(feature, timeSeriesItem, timeSeries, regionType, ageRange) {
         let properties = feature.properties;
 
         if (timeSeriesItem.getDaysSince) {
@@ -310,6 +374,7 @@ class GeoDataPropertyAssignment {
         properties['negcases'] = -timeSeriesItem.getValue();
         properties['casesFmt'] = Fns.getCompactNumberRepresentation(timeSeriesItem.getValue(), 1);
         properties['casesSz'] = this._getCasesSize(feature);
+        properties['casesTimeSeries'] = timeSeries;
     }
 
     /**

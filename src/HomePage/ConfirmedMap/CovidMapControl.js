@@ -32,10 +32,10 @@ import MapTimeSlider from "./MapControls/MapTimeSlider";
 import getDataDownloader from "../CrawlerData/DataDownloader";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds"
 
-import DaysSinceLayer from "./Layers/cases/DaysSinceLayer";
-import CasesFillPolyLayer from "./Layers/cases/CasesFillPolyLayer";
+import DaysSinceLayer from "./Layers/cases/case_layer/DaysSinceLayer";
+import CasesFillPolyLayer from "./Layers/cases/case_layer/CasesFillPolyLayer";
 import UnderlayFillPolyLayer from "./Layers/underlay/UnderlayFillPolyLayer";
-import CaseCirclesLayer from "./Layers/cases/CaseCirclesLayer";
+import CaseNumbersLayer from "./Layers/cases/case_layer/CaseNumbersLayer";
 import LinePolyLayer from "./Layers/LinePolyLayer";
 
 import MapBoxSource from "./Sources/MapBoxSource";
@@ -49,6 +49,9 @@ import LoadingIndicator from "./MapControls/LoadingIndicator";
 import AxiosAnalytics from "./AxiosAnalytics";
 import HoverStateHelper from "./Layers/HoverStateHelper";
 import BRIGHT_V9_MOD_STYLE from "./bright_v9_mod";
+import i18next from "../../i18n";
+import NumbersCaseLayer from "./Layers/cases/NumbersCaseLayer";
+import RateOfChangeCaseLayer from "./Layers/cases/RateOfChangeCaseLayer";
 
 
 //Fetch Token from env
@@ -268,7 +271,31 @@ class CovidMapControl extends React.Component {
                     labelLayerId
                 );
 
+                let localeMap = {
+                    tw: 'zh', // HACK - need to update to streets-v8 to have proper zh-Hant!
+                    zh: 'zh-Hans'
+                };
+
                 map.setPaintProperty('water', "fill-color", "#9fc4e1");
+                for (let id of [
+                    'country_label_1', 'country_label_2',
+                    'country_label_3', 'country_label_4',
+                    'marine_label_point_1', 'marine_label_line_1',
+                    'marine_label_point_2', 'marine_label_line_2',
+                    'marine_label_point_3', 'marine_label_line_3',
+                    //'marine_label_point_4', 'marine_label_line_4',
+                    'place_label_city', 'place_label_town',
+                    'place_label_village', 'place_label_other',
+                    'road_label', 'airport_label', 'poi_label_1',
+                    'rail_station_label', 'poi_label_2',
+                    'poi_label_3', 'poi_label_4',
+                    'water_label',
+                    'road_major_label', 'poi_label'
+                ]) {
+                    map.setLayoutProperty(id, 'text-field', [
+                        'get', 'name_' + localeMap[i18next.language]||i18next.language
+                    ]);
+                }
 
                 const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
                 const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
@@ -276,7 +303,22 @@ class CovidMapControl extends React.Component {
                 // Create the MapBox sources
                 let underlaySource = this.underlaySource = new MapBoxSource(map);
                 let casesSource = this.casesSource = new MapBoxSource(map);
-                let clusteredCaseSource = this.clusteredCaseSource = new ClusteredCaseSource(map);
+                let clusteredCaseSource = this.clusteredCaseSource = new ClusteredCaseSource(this.remoteData, map, null, null, null, feature => {
+                    if (this.covidMapControls.getDisplayGraphs()) {
+                        let r = feature.properties.casesTimeSeries && feature.properties.casesTimeSeries.length;
+                        /*if (r) {
+                            for (let val of feature.properties.casesTimeSeries) {
+                                if (val != null) {
+                                    feature.properties.cases = val; // HACK!
+                                    break;
+                                }
+                            }
+                        }*/
+                        return r;
+                    } else {
+                        return feature.properties.cases
+                    }
+                });
 
                 // Add layers for the underlay
                 this.underlayFillPoly = new UnderlayFillPolyLayer(map, 'underlayFillPoly', underlaySource);
@@ -287,7 +329,8 @@ class CovidMapControl extends React.Component {
                 this.casesFillPolyLayer = new CasesFillPolyLayer(map, 'casesFillPolyLayer', casesSource, this.hoverStateHelper);
                 //this.casesLinePolyLayer = new LinePolyLayer(map, 'casesLinePolyLayer', CASES_LINE_POLY_COLOR, null, casesSource);
                 this.daysSinceLayer = new DaysSinceLayer(map, 'daysSinceLayer', casesSource);
-                this.caseCirclesLayer = new CaseCirclesLayer(map, 'heatMap', clusteredCaseSource, this.hoverStateHelper);
+                this.numbersCaseLayer = new NumbersCaseLayer(this.remoteData, map, 'nums', clusteredCaseSource, this.hoverStateHelper);
+                this.rateOfChangeCaseLayer = new RateOfChangeCaseLayer(this.remoteData, map, 'roc', clusteredCaseSource, this.hoverStateHelper);
 
                 // Bind events for loading data
                 //map.on('move', () => {
@@ -498,7 +541,7 @@ class CovidMapControl extends React.Component {
             );
 
             // Then download case/geodata if need be
-            if (!dataCollectionNoDownload.getAllDownloaded()) {
+            if (!dataCollectionNoDownload.getMoreToDownload()) {
                 let dataCollection = this.__dataCollection = await this.dataDownloader.getDataCollectionForCoords(
                     lngLatBounds, dataType, schemasForCases, iso3166WithinView, false
                 );
@@ -528,10 +571,10 @@ class CovidMapControl extends React.Component {
         } else {
             // Update the sources
             this.clusteredCaseSource.setData(
-                geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
+                dataType, geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
             );
             this.casesSource.setData(
-                geoData.polygons, geoData.geoDataInsts, geoData.caseDataInsts
+                dataType, geoData.polygons, geoData.geoDataInsts, geoData.caseDataInsts
             );
             this.geoDataInsts = geoData.geoDataInsts;
             this.caseDataInsts = geoData.caseDataInsts;
@@ -545,8 +588,16 @@ class CovidMapControl extends React.Component {
             // Now add the layers
             this.casesFillPolyLayer.updateLayer();
             //this.casesLinePolyLayer.updateLayer();
-            this.caseCirclesLayer.updateLayer();
-            this.caseCirclesLayer.fadeIn();
+
+            if (!this.covidMapControls.getDisplayGraphs()) {
+                this.numbersCaseLayer.updateLayer(null, this.__mapTimeSlider.getValue());
+                this.numbersCaseLayer.fadeIn();
+                this.rateOfChangeCaseLayer.fadeOut();
+            } else {
+                this.rateOfChangeCaseLayer.updateLayer(null, this.__mapTimeSlider.getValue());
+                this.rateOfChangeCaseLayer.fadeIn();
+                this.numbersCaseLayer.fadeOut();
+            }
 
             // Make it so click events are registered for analytics (if relevant)
             if (this.axiosAnalytics) {
@@ -584,7 +635,7 @@ class CovidMapControl extends React.Component {
             // Send an event to allow for "data updated on xx date"
             // etc displays outside the control
             if (
-                !this.prevGeoData ||
+                this.prevGeoData &&
                 (
                     this.prevGeoData.geoDataInsts.length === geoData.geoDataInsts.length &&
                     this.prevGeoData.caseDataInsts.length === geoData.caseDataInsts.length &&
@@ -665,16 +716,22 @@ class CovidMapControl extends React.Component {
         };
 
         if (this.clusteredCaseSource) {
-            this.clusteredCaseSource.setData(points);
+            this.clusteredCaseSource.setData(null, points);
         }
 
         if (!noFade) {
-            if (this.caseCirclesLayer) {
-                this.caseCirclesLayer.fadeOut();
+            if (this.numbersCaseLayer) {
+                this.numbersCaseLayer.fadeOut();
+            }
+            if (this.rateOfChangeCaseLayer) {
+                this.rateOfChangeCaseLayer.fadeOut();
             }
             setTimeout(() => {
-                if (this.caseCirclesLayer) {
-                    this.caseCirclesLayer.updateLayer();
+                if (this.numbersCaseLayer) {
+                    this.numbersCaseLayer.updateLayer();
+                }
+                if (this.rateOfChangeCaseLayer) {
+                    this.rateOfChangeCaseLayer.updateLayer();
                 }
             }, 400);
         }
@@ -687,7 +744,7 @@ class CovidMapControl extends React.Component {
         };
 
         if (this.casesSource) {
-            this.casesSource.setData(polygons);
+            this.casesSource.setData(null, polygons);
         }
     }
 }

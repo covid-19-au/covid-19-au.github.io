@@ -70,9 +70,9 @@ class GenderPieChart extends React.Component {
                             }}
                             option={this.state.option}
                             style={{
-                                height: "22vh",
-                                marginTop: "-5px",
-                                marginBottom: "-10px"
+                                height: "18vh",
+                                marginTop: "8px",
+                                zIndex: 2
                             }}
                         /> :''
                 }
@@ -82,7 +82,7 @@ class GenderPieChart extends React.Component {
                         ref={el => {this.mapTimeSlider = el}}
                         onChange={() => this.__onTimeSliderChange()}
                         extraStyles={{
-                            margin: "0px 10px"
+                            margin: "0px 10px 0px 10px"
                         }}
                     />
                 </div>
@@ -148,7 +148,7 @@ class GenderPieChart extends React.Component {
                     formatter: '{a} <br/>{b} : {c} ({d}%)'
                 },
                 legend: {
-                    top: "15%",
+                    top: "3%",
                     orient: 'vertical',
                     left: 'left',
                     data: ['Female', 'Male']
@@ -164,7 +164,7 @@ class GenderPieChart extends React.Component {
                     {
                         name: 'Gender',
                         type: 'pie',
-                        radius: ['50%', '70%'],
+                        radius: ['67%', '90%'],
                         color: [
                             genderColorMapping['Male'],
                             genderColorMapping['Female']
