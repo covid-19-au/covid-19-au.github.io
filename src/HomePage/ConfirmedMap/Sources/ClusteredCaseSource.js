@@ -155,7 +155,7 @@ class ClusteredCaseSource extends MapBoxSource {
                 // Only add if cases has been added to!
                 continue;
             }
-            byCaseCount.push([feature.properties['cases'], index]);
+            byCaseCount.push([Math.abs(feature.properties['cases']), index]);
         }
 
         // Sort so that areas with highest cases eliminate those with the lowest

@@ -61,7 +61,7 @@ class CaseCityLabelsLayer {
             },
             'paint': {
                 'text-halo-width': 1.3,
-                //'text-halo-blur': 2,
+                'text-halo-blur': 0.5,
                 //"text-opacity-transition": {duration: FADE_TRANSITION_DURATION},
             }
         };
