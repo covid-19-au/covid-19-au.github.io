@@ -149,7 +149,7 @@ export default function Area({ area, onChange, data }) {
           </div>
         </div>
         <div className="cured">
-          {<strong> {numberWithCommas(x[CURED])} </strong>}&nbsp;
+          {<strong> {numberWithCommas(x[CURED])} </strong>}
           <div className="dailyIncrease">
             {x[CURED] - lastTotal[x[0]][2] > 0
               ? `(+${x[3] - lastTotal[x[0]][2]})`

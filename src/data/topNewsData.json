@@ -1,68 +1,44 @@
 {
     "weeklyTopNews": [
         {
-            "link": "https://www.abc.net.au/news/2020-08-19/coronavirus-queensland-contact-trace-virgin-flight-brisbane-cafe/12564752",
-            "title": "Coronavirus health alert issued for Brisbane cafe after woman tests positive",
+            "link": "https://www.abc.net.au/news/2020-08-26/coronavirus-outbreak-at-frankston-hospital-in-melbourne-grows/12597734",
+            "title": "Coronavirus outbreak at Frankston Hospital in Melbourne's south-east sends more than 600 staff into quarantine",
             "source": "ABCNews",
-            "date": "19 August 2020",
-            "time": "20:00",
-            "summary": "A women testing positive for COVID-19 in Japan has prompted urgent contact tracing and coronavirus testing in Brisbane. The woman had flown to Sydney on 17th August and subsequently flew to Jpan where she tested positive for COVID-19."
+            "date": "26 August 2020",
+            "time": "19:00",
+            "summary": "A coronavirus outbreak at Frankston Hospital has lead to 618 staff being furloughed according to Peninsula Health. There are currently 44 active cases among Peninsula Health staff."
         },
         {
-            "link": "https://www.theguardian.com/australia-news/2020/aug/18/australian-government-does-deal-to-secure-potential-oxford-university-covid-vaccine-for-free",
-            "title": "Australian government does deal to secure potential Oxford University Covid vaccine for free ",
-            "source": "TheGuardian",
-            "date": "18 August 2020",
-            "time": "22:30",
-            "summary": "The federal government has announced that they have reached an agreement with British pharmaceutical giant AstraZeneca to supply Australians with Oxford University's COVID-19 vaccine for free. This will only happen if the vaccine clears clinical trials. The Prime Minister also announced that the government plans to continue to negotiate with other parties as well."
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/aug/17/ruby-princess-nsw-premier-gladys-berejiklian-apologises-unreservedly-for-cruise-ship-debacle",
-            "title": "Ruby Princess: NSW premier Gladys Berejiklian apologises 'unreservedly' for cruise ship debacle ",
-            "source": "TheGuardian",
-            "date": "17 August 2020",
-            "time": "13:40",
-            "summary": "New South Wales Premier Gladys Berejiklian has apologised to individuals that may have suffered due to NSW Health's handling of the Ruby Princess cruise ship. The NSW inquiry into the ship which was the source of over 900 coronavirus cases and 28 deaths, released its results on Friday. It found multiple errors it described as \"serious\", \"inexplicable\" and \"basic\""
-        },
-        {
-            "link": "https://www.theguardian.com/australia-news/2020/aug/17/victoria-records-25-coronavirus-deaths-in-deadliest-day-so-far",
-            "title": "Victoria records 25 coronavirus deaths in Australia's deadliest day so far ",
-            "source": "TheGuardian",
-            "date": "17 August 2020",
-            "time": "15:44",
-            "summary": "Victoria recorded its deadliest day of the pandemic so far with 25 deaths announced overnight. More than 300 people have now died since the second wave began in Melbourne in June."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/hundreds-of-international-students-to-return-to-south-australia-under-national-pilot-program",
-            "title": "Hundreds of international students to return to South Australia under national pilot program",
+            "link": "https://www.sbs.com.au/news/victoria-s-coronavirus-case-numbers-keep-falling-as-daniel-andrews-flags-state-of-emergency-extension",
+            "title": "Victoria's coronavirus case numbers keep falling, as Daniel Andrews flags state of emergency extension",
             "source": "SBSNews",
-            "date": "16 August 2020",
-            "time": "15:00",
-            "summary": "A national pilot program looking to revive Australia higher education sector will see 300 international students return to university in Adelaide next month. The students from South East Asia will travel to Australia from Singapore in September. They will undergo mandatory supervised quarantine, which will be paid for the universities."
+            "date": "24 August 2020",
+            "time": "14:00",
+            "summary": "Victoria's case numbers dropped sharply with only 116 announced today. This is the lowest daily tally since July 5th, when 74 cases were announced. July 5th was also the last time the number of new cases announced was under a hundred. Victorian Premier Daniel Andrews also announced today that the government is looking at extending the the state of emergency provisions that allowed for the coronavirus restrictions for 12 more months."
         },
         {
-            "link": "https://www.abc.net.au/news/2020-08-15/victorian-coronavirus-messaging-could-reach-more-people-cho-says/12560986",
-            "title": "Victorian coronavirus response 'not doing enough' to reach key groups, Chief Health Officer says",
-            "source": "ABCNews",
-            "date": "15 August 2020",
-            "time": "08:00",
-            "summary": "Victorian Chief Health Officer Brett Sutton has said that the Victorian coronavirus is \"not doing enough,\" to reach key groups. Despite numerous channels and media sources to communicate information, he has emphasised that, \"we absolutely always need to do more.\" Questions have been raised recently over a lack of community involvement in the coronavirus response, with translated campaign materials being described as \"non-sensical.\" The translations in question have since been rectified. "
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victorian-man-in-his-20s-becomes-australia-s-youngest-coronavirus-death-as-state-records-372-new-cases",
-            "title": "Victorian man in his 20s becomes Australia’s youngest coronavirus death as state records 372 new cases",
+            "link": "https://www.sbs.com.au/news/funding-for-victorian-bushfire-affected-communities-as-premier-warns-upcoming-summer-will-be-a-challenge",
+            "title": "Funding for Victorian bushfire-affected communities as premier warns upcoming summer will be a challenge",
             "source": "SBSNews",
-            "date": "14 August 2020",
-            "time": "15:00",
-            "summary": "Victoria announced 372 new coronavirus cases and 14 new deaths today. The state's death tally stands at 289. Victorian Premier Daniel Andrews revealed that one of the deaths was a man in his 20s, the youngest victim of the pandemic in Australia so far."
+            "date": "23 August 2020",
+            "time": "18:00",
+            "summary": "The state government has announced more than $110 million for bushfire-affected communities to help their long-term economic recovery. State Premier Daniel Andrews expressed that the state will be ready to handle the upcoming bushfire season, but stressed that it would not be easy. "
         },
         {
-            "link": "https://www.sbs.com.au/news/victoria-to-spend-14-million-on-more-multicultural-coronavirus-support-after-translation-bungles",
-            "title": "Victoria to spend $14 million on more multicultural coronavirus support after translation bungles",
+            "link": "https://www.sbs.com.au/news/new-coronavirus-restrictions-return-in-queensland-as-youth-detention-centre-cluster-grows",
+            "title": "New coronavirus restrictions return in Queensland as youth detention centre cluster grows",
             "source": "SBSNews",
-            "date": "13 August 2020",
-            "time": "20:00",
-            "summary": "The Victorian government announced $14.3 million dollars worth of funding to support multicultural communities through the coronavirus crisis. This is in response to errors being uncovered in the translations of critical health messages. Of the additional funding, $2 million will be for translation and interpreter services, $5.5 million would be for the distribution of those services and $6.9 million will be for the organisations that work on the ground."
+            "date": "22 August 2020",
+            "time": "12:00",
+            "summary": "Six more cases of COVID-19 have been reported in Queenslands. All six belong to a cluster at a youth detention centre. Authorities have now moved to limit indoor and outdoor gatherings."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/more-than-18-000-australians-stranded-by-coronavirus-are-still-trying-to-return-home",
+            "title": "More than 18,000 Australians stranded by coronavirus are still trying to return home",
+            "source": "SBSNews",
+            "date": "20 August 2020",
+            "time": "19:13",
+            "summary": "The Department of Foreign Affairs and Trade have revealed that 18,800 Australians remain overseas and have had their returns delayed due to the country's cap on internation arrivals. DFAT officials warned the pariliaments COVID committee of the situation earlier today."
         }
     ]
 }
