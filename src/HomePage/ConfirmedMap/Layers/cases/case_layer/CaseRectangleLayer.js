@@ -96,7 +96,7 @@ class CaseRectangleLayer {
                 [255, 222, 207, startOpacity], [231, 50, 16, 1.0],
                 'rgba(0, 0, 0, 0.0)', 'rgb(169, 0, 15)',
                 [164,192,160, startOpacity], [46,110,15, 1.0],
-                caseVals, [0.0, 0.25, 0.5, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99999], 1,
+                caseVals, [0.0, 0.25, 0.75, 0.90, 0.95], 1,
                 this.alwaysShow
             ),
             hoverRectangleColor = "rgba(150, 10, 6, 0.9)";

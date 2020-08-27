@@ -82,6 +82,9 @@ function getMapBoxCaseColors(
         r, quantiles, totalCases, caseVals, fromColor, toColor, false
     );
 
+    r.push(['<', ['get', 'cases'], caseVals[caseVals.length-1]]);
+    r.push(`rgba(${toColor[0]}, ${toColor[1]}, ${toColor[2]}, ${toColor[3]})`);
+
     // Fallback to this value if nothing else matches
     r.push(nullColor);
 
