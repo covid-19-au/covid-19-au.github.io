@@ -81,9 +81,10 @@ class WorldMap extends React.Component {
                                 value minus the value 7 or 21 days before the current day. Negative numbers in this mode mean the
                                 value is that amount less than it was that many days ago.<br/>
 
-                                The <FontAwesomeIcon icon={faChartLine} />&nbsp;<b>Growth Change</b> control
+                                The <FontAwesomeIcon icon={faChartLine} />&nbsp;<b>Rate of Change</b> control
                                 graphs the exponential <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">change in growth</a> for
-                                each region over 50 days. The dotted line indicates a rate of change of 0. Below this line, case numbers start declining.
+                                each region over 50 days. The dotted line indicates a rate of change of 0. Below
+                                this line, case numbers start declining. This can be an indication things are getting under control.
                             </li>
 
                             <li style={{color: '#555'}}>
