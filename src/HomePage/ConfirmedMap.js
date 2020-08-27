@@ -81,8 +81,9 @@ class ConfirmedMap extends React.Component {
 
                                 The <FontAwesomeIcon icon={faChartLine} />&nbsp;<b>Rate of Change</b> control
                                 graphs the exponential <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">change in growth</a> for
-                                each region over 50 days. The dotted line indicates a rate of change of 0. Below
-                                this line, case numbers start declining. This can be an indication things are getting under control.
+                                each region over 50 days. If the cases plot goes above the dotted line, the number of people infected will keep
+                                increasing at an exponential rate. If they're below the dotted line, then things will get under control over
+                                time as less people are infected than were in the past.
                             </li>
 
                             <li style={{
