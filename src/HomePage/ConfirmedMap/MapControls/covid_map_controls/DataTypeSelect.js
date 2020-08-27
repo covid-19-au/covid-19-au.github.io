@@ -27,6 +27,10 @@ import Button from "@material-ui/core/Button";
 import React from "react";
 import getRemoteData from "../../../CrawlerData/RemoteData";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChartLine, faTable } from '@fortawesome/free-solid-svg-icons'
+
+
 
 class DataTypeSelect extends React.Component {
     /**
@@ -45,8 +49,9 @@ class DataTypeSelect extends React.Component {
         getRemoteDataLater();
 
         this.state = {
-            timePeriod: props.timePeriod,
+            timePeriod: props.timePeriod||null,
             dataType: props.dataType||'status_active',
+            displayMode: 'caseNums',
             enabled: true
         };
 
@@ -65,7 +70,7 @@ class DataTypeSelect extends React.Component {
             return null;
         }
 
-        const padding = '6px';
+        const padding = '10px 6px';
 
         const activeStyles = {
             color: 'black',
@@ -75,7 +80,8 @@ class DataTypeSelect extends React.Component {
             //padding: "0px 5px",
             zIndex: 10,
             outline: "none",
-            textTransform: "none"
+            textTransform: "none",
+            flexGrow: 1,
         };
         const inactiveStyles = {
             color: 'grey',
@@ -84,7 +90,8 @@ class DataTypeSelect extends React.Component {
             paddingRight: padding,
             //padding: "0px 5px",
             outline: "none",
-            textTransform: "none"
+            textTransform: "none",
+            flexGrow: 1,
         };
 
         var getSelectOptions = () => {
@@ -117,24 +124,39 @@ class DataTypeSelect extends React.Component {
                         dangerouslySetInnerHTML={ {__html: getSelectOptions()} } />
                 </div>
 
-                <div style={{ display: this.state.remoteData.getConstants()[this.state.dataType].timeperiods ? 'block' : 'none' }}>
-                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "5px" }}>
+                <div style={{ display: (
+                    this.state.remoteData.getConstants()[this.state.dataType].timeperiods &&
+                        this.state.displayMode !== 'trajectory'
+                    ) ? 'block' : 'none' }}>
+
+                    <span className="key" style={{ alignSelf: "flex-end", marginBottom: "5px", width: "100%" }}>
                         <ButtonGroup ref={this.markersButtonGroup}
                             size="small"
-                            aria-label="small outlined button group">
+                            aria-label="small outlined button group"
+                            style={{width: "100%"}}>
                             <Button style={this.state.timePeriod == null ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(null)}>All</Button>
                             <Button style={this.state.timePeriod === 7 ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(7)}>7 Days</Button>
-                            <Button style={this.state.timePeriod === 14 ? activeStyles : inactiveStyles}
-                                onClick={() => this._onTimePeriodChange(14)}>14 Days</Button>
                             <Button style={this.state.timePeriod === 21 ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(21)}>21 Days</Button>
+                            <Button style={this.state.timePeriod === "graphs" ? activeStyles : inactiveStyles}
+                                    onClick={() => this._onTimePeriodChange("graphs")}>
+                                <div style={{padding: "0px 6px 0px 6px"}}>
+                                    Rate of Change
+                                </div>
+                            </Button>
                         </ButtonGroup>
                     </span>
                 </div>
             </div>
         );
+    }
+
+    _onDisplayModeChange(displayMode) {
+        this.setState({
+            displayMode: displayMode
+        });
     }
 
     /**
@@ -205,6 +227,10 @@ class DataTypeSelect extends React.Component {
      * Get value
      *******************************************************************/
 
+    getDisplayGraphs() {
+        return this.state.timePeriod === 'graphs';
+    }
+
     /**
      *
      * @returns {*}
@@ -218,51 +244,17 @@ class DataTypeSelect extends React.Component {
      * @returns {DataTypeSelect._onTimePeriodChange.props}
      */
     getTimePeriod() {
-        if (!this.state.remoteData || this.state.remoteData.getConstants()[this.state.dataType].timeperiods) { // WARNING!!! ===============
+        if ((
+                !this.state.remoteData ||
+                this.state.remoteData.getConstants()[this.state.dataType].timeperiods // WARNING!!! ===============
+            ) && this.state.timePeriod !== 'graphs'
+        ) {
             return this.state.timePeriod;
+        } else if (this.state.timePeriod === 'graphs') {
+            return 7;  // HACK!
         } else {
             return null;
         }
-    }
-
-    /*******************************************************************
-     * Get Select Options
-     *******************************************************************/
-
-    /**
-     *
-     * @param covidGeoData
-     * @param admin0InView
-     * @param admin1InView
-     * @returns {[]}
-     */
-    getPossibleMarkersSelectOptions(covidGeoData, admin0InView, admin1InView) {
-        /*
-        TODO: Get all the possible markers that can be displayed
-          considering whether the admin0/admin1
-         */
-        /*
-        var selOptionsOut = [];
-
-        for (var [groupText, groupItems] of this.constantSelect) {
-            var groupItemsOut = [];
-
-            for (var [optionText, optionValue] of groupItems) {
-                var found = false;
-                for (var [regionSchema, regionParent] of regionTypes) {
-                    if (this.caseData[regionSchema][regionParent][optionValue]) { // CHECK ME!!! ====================
-                        found = true;
-                        break;
-                    }
-                }
-                if (found) {
-                    groupItemsOut.push([optionText, optionValue]);
-                }
-            }
-            selOptionsOut.push([groupText, groupItemsOut]);
-        }
-        return selOptionsOut;
-        */
     }
 }
 

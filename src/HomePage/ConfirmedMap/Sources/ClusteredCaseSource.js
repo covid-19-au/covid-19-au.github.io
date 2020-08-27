@@ -24,6 +24,7 @@ SOFTWARE.
 
 import Fns from "../Fns";
 import MapBoxSource from "./MapBoxSource"
+import DataPoint from "../../CrawlerDataTypes/DataPoint";
 
 
 var UNCLUSTERED_ZOOM = 9;
@@ -40,8 +41,10 @@ class ClusteredCaseSource extends MapBoxSource {
      * @param maxZoom
      * @param data
      */
-    constructor(map, minZoom, maxZoom, data) {
+    constructor(remoteData, map, minZoom, maxZoom, data, filterFn) {
         super(map, minZoom, maxZoom, data);
+        this.remoteData = remoteData;
+        this.filterFn = filterFn;
     }
 
     /**
@@ -64,6 +67,26 @@ class ClusteredCaseSource extends MapBoxSource {
         return UNCLUSTERED_ZOOM;
     }
 
+    /**
+     *
+     * @param overNumDays
+     */
+    getRateOfChange(overNumDays, array) {
+        // WARNING: This assumes this is in descending order!!!
+        // ALSO NOTE: If the number is undefined due to no
+        // data for the specified days, "null" will be output!
+
+        let r = [];
+        for (let i=0; i<array.length-overNumDays; i++) {
+            let x1 = array[i],
+                x2 = array[i+overNumDays];
+
+            let divBy = Math.abs(x1);
+            r.push(divBy ? (x1 - x2) / divBy : null);
+        }
+        return r;
+    }
+
     /**************************************************************************
      * Update data/features
      **************************************************************************/
@@ -75,12 +98,16 @@ class ClusteredCaseSource extends MapBoxSource {
      * @param geoDataInsts
      * @param caseDataInsts
      */
-    setData(data, geoDataInsts, caseDataInsts) {
+    setData(typeOfData, data, geoDataInsts, caseDataInsts) {
+        this.__isPercentile = typeOfData ?
+            this.remoteData.getConstants()[typeOfData]['percentile'] : false;
+
         var currentZoom = parseInt(this.map.getZoom());
         //console.log(`current zoom: ${currentZoom}`);
         let modifiedData = this.__getModifiedGeoJSONWithPointsJoined(data, currentZoom);
         this.__clusteringBeingUsed = modifiedData.features.length !== data.features.length;
-        return super.setData(modifiedData, geoDataInsts, caseDataInsts);
+
+        return super.setData(typeOfData, modifiedData, geoDataInsts, caseDataInsts);
     }
 
     /*******************************************************************
@@ -124,11 +151,11 @@ class ClusteredCaseSource extends MapBoxSource {
         let index = -1;
         for (let feature of geoJSONData['features']) {
             index++;
-            if (!feature.properties['cases']) { //  || feature1.properties['cases'] < 0
+            if (feature.properties['cases'] == null) { //  || feature1.properties['cases'] < 0
                 // Only add if cases has been added to!
                 continue;
             }
-            byCaseCount.push([feature.properties['cases'], index]);
+            byCaseCount.push([Math.abs(feature.properties['cases']), index]);
         }
 
         // Sort so that areas with highest cases eliminate those with the lowest
@@ -188,21 +215,45 @@ class ClusteredCaseSource extends MapBoxSource {
                 //newFeatures.push(feature);
             }
             else if (mergedMap.has(index)) {
-                var cases = properties['cases'];
+                var cases = properties['cases'],
+                    newTimeSeries = JSON.parse(JSON.stringify(properties['casesTimeSeries']))||[],
+                    pcDivBy = 1;
+
+                let numAdded = {};
+                for (let x=0; x<newTimeSeries.length; x++) {
+                    numAdded[x] = 1;
+                }
 
                 for (let otherIndex of mergedMap.get(index)) {
                     // TODO: Add info about which features were merged(?)
                     var otherFeature =  geoJSONData['features'][otherIndex],
                         otherProperties = otherFeature.properties;
-
                     cases = cases + otherProperties['cases'];
+                    pcDivBy += 1;
+
+                    for (let x=0; x<otherProperties['casesTimeSeries'].length; x++) {
+                        if (x+1 > newTimeSeries.length) {
+                            newTimeSeries.push(0);
+                        }
+                        newTimeSeries[x] += otherProperties['casesTimeSeries'][x] || 0;
+                        numAdded[x] = (numAdded[x]||0) + 1;
+                    }
                 }
 
-                if (properties.label ) {
+                if (this.__isPercentile) {
+                    for (let x=0; x<newTimeSeries.length; x++) {
+                        newTimeSeries[x] /= numAdded[x]||1;
+                        newTimeSeries[x] = Math.round(newTimeSeries[x]);
+                    }
+                    cases /= pcDivBy;
+                    cases = Math.round(cases);
+                }
+
+                if (properties.label) {
                     // HACK: Give an indicator that there's actually multiple region at this point
                     // This should be implemented in a way which allows adding unified popups, etc with fill area charts
 
-                    if (properties.label.length > 15) {
+                    if (properties.label.length > 20) {
                         properties.label = `${mergedMap.get(index).length+1} areas...`;
                     } else {
                         properties.label = `${mergedMap.get(index).length+1} areas\n(${properties.label}, ...)`;
@@ -214,10 +265,23 @@ class ClusteredCaseSource extends MapBoxSource {
                 properties['casesFmt'] = Fns.getCompactNumberRepresentation(cases, 1);
                 properties['casesSz'] = properties['casesFmt'].length;
                 properties['negcases'] = -cases;
-                newFeatures.push(feature);
+
+                // NOTE ME: The rate of change is calculated here, and not in
+                // GeoDataPropertyAssignment.js to allow for addition of the values!
+                properties['casesTimeSeries'] = this.getRateOfChange(7, newTimeSeries);
+
+                if (!this.filterFn || this.filterFn(feature)) {
+                    newFeatures.push(feature);
+                }
             }
             else {
-                newFeatures.push(feature);
+                if (feature.properties['casesTimeSeries']) {
+                    feature.properties['casesTimeSeries'] = this.getRateOfChange(7, feature.properties['casesTimeSeries']);
+                }
+
+                if (!this.filterFn || this.filterFn(feature)) {
+                    newFeatures.push(feature);
+                }
             }
         }
         geoJSONData['features'] = newFeatures;

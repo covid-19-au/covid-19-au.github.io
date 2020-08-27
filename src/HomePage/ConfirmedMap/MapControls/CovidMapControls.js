@@ -120,6 +120,10 @@ class CovidMapControls extends React.Component {
      * Get value
      *******************************************************************/
 
+    getDisplayGraphs() {
+        return this.__dataTypeSelect.getDisplayGraphs();
+    }
+
     /**
      *
      * @returns {*}
