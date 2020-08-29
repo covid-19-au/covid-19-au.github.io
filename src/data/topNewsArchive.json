@@ -1,6 +1,14 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/new-coronavirus-restrictions-return-in-queensland-as-youth-detention-centre-cluster-grows",
+            "title": "New coronavirus restrictions return in Queensland as youth detention centre cluster grows",
+            "source": "SBSNews",
+            "date": "22 August 2020",
+            "time": "12:00",
+            "summary": "Six more cases of COVID-19 have been reported in Queenslands. All six belong to a cluster at a youth detention centre. Authorities have now moved to limit indoor and outdoor gatherings."
+        },
+        {
             "link": "https://www.sbs.com.au/news/more-than-18-000-australians-stranded-by-coronavirus-are-still-trying-to-return-home",
             "title": "More than 18,000 Australians stranded by coronavirus are still trying to return home",
             "source": "SBSNews",
