@@ -4,6 +4,17 @@
             "image": [],
             "video": [
                 {
+                    "link": "https://www.youtube.com/watch?v=5Zg-C8AAIGg",
+                    "description": "The beauty of data visualization - David McCandless"
+                }
+            ],
+            "type": "distraction",
+            "date": "30/8/2020"
+        },
+        {
+            "image": [],
+            "video": [
+                {
                     "link": "https://www.youtube.com/watch?v=H_akzwzghWQ&t=13s",
                     "description": "How COVID-19 Broke the Airline Pricing Model"
                 }
