@@ -113,7 +113,7 @@ function Fallback(props) {
       <div>
         A big thank you to{" "}
         <a
-          href="://www.mapbox.com/"
+          href="https://www.mapbox.com/"
           style={{ color: "blue" }}
           target="_blank"
           rel="noopener noreferrer"
@@ -122,7 +122,7 @@ function Fallback(props) {
         </a>
         {""},{" "}
         <a
-          href="://www.slack.com/"
+          href="https://www.slack.com/"
           style={{ color: "blue" }}
           target="_blank"
           rel="noopener noreferrer"
@@ -131,7 +131,7 @@ function Fallback(props) {
         </a>
         {""},{" "}
         <a
-          href="://aws.amazon.com/"
+          href="https://aws.amazon.com/"
           style={{ color: "blue" }}
           target="_blank"
           rel="noopener noreferrer"
