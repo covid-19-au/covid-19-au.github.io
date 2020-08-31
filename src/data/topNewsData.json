@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "Victoria's roadmap out of Covid lockdown – what we know so far ",
+            "title": "https://www.theguardian.com/australia-news/2020/aug/31/victorias-roadmap-out-of-covid-lockdown-what-we-know-so-far",
+            "source": "TheGuardian",
+            "date": "31 August 2020",
+            "time": "18:32",
+            "summary": "Victorian Premier Daniel Andrews announced that he will lay out a reopening timeline on Sunday, stressing that it will take months, not weeks"
+        },
+        {
             "link": "https://www.sbs.com.au/news/at-risk-tenants-of-victoria-s-public-housing-towers-to-be-offered-private-rentals",
             "title": "At-risk tenants of Victoria's public housing towers to be offered private rentals",
             "source": "SBSNews",
@@ -23,14 +31,6 @@
             "date": "26 August 2020",
             "time": "19:00",
             "summary": "A coronavirus outbreak at Frankston Hospital has lead to 618 staff being furloughed according to Peninsula Health. There are currently 44 active cases among Peninsula Health staff."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-s-coronavirus-case-numbers-keep-falling-as-daniel-andrews-flags-state-of-emergency-extension",
-            "title": "Victoria's coronavirus case numbers keep falling, as Daniel Andrews flags state of emergency extension",
-            "source": "SBSNews",
-            "date": "24 August 2020",
-            "time": "14:00",
-            "summary": "Victoria's case numbers dropped sharply with only 116 announced today. This is the lowest daily tally since July 5th, when 74 cases were announced. July 5th was also the last time the number of new cases announced was under a hundred. Victorian Premier Daniel Andrews also announced today that the government is looking at extending the the state of emergency provisions that allowed for the coronavirus restrictions for 12 more months."
         }
     ]
 }
