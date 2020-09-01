@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/sydney-cbd-coronavirus-cluster-grows-to-41-as-nsw-creates-travel-bubble-along-victoria-border",
+            "title": "Sydney CBD coronavirus cluster grows to 41 as NSW creates travel bubble along Victoria border",
+            "source": "SBSNews",
+            "date": "01 September 2020",
+            "time": "14:00",
+            "summary": "New South Wales recorded 13 new cases overnight. A cluster at a gym in Sydney has now been linked to 41 cases."
+        },
+        {
             "link": "Victoria's roadmap out of Covid lockdown – what we know so far ",
             "title": "https://www.theguardian.com/australia-news/2020/aug/31/victorias-roadmap-out-of-covid-lockdown-what-we-know-so-far",
             "source": "TheGuardian",
@@ -23,14 +31,6 @@
             "date": "29 August 2020",
             "time": "18:00",
             "summary": "Victoria's daily coronavirus numbers dropped below 100 for the first time in 2 months. The state reported only 95 cases in the last 24 hours, the lowest number since July 5th. There were also 18 more deaths overnight, taking the state's toll to 513, and the country's to 600."
-        },
-        {
-            "link": "https://www.abc.net.au/news/2020-08-26/coronavirus-outbreak-at-frankston-hospital-in-melbourne-grows/12597734",
-            "title": "Coronavirus outbreak at Frankston Hospital in Melbourne's south-east sends more than 600 staff into quarantine",
-            "source": "ABCNews",
-            "date": "26 August 2020",
-            "time": "19:00",
-            "summary": "A coronavirus outbreak at Frankston Hospital has lead to 618 staff being furloughed according to Peninsula Health. There are currently 44 active cases among Peninsula Health staff."
         }
     ]
 }

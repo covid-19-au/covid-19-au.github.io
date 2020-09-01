@@ -1,6 +1,14 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-08-26/coronavirus-outbreak-at-frankston-hospital-in-melbourne-grows/12597734",
+            "title": "Coronavirus outbreak at Frankston Hospital in Melbourne's south-east sends more than 600 staff into quarantine",
+            "source": "ABCNews",
+            "date": "26 August 2020",
+            "time": "19:00",
+            "summary": "A coronavirus outbreak at Frankston Hospital has lead to 618 staff being furloughed according to Peninsula Health. There are currently 44 active cases among Peninsula Health staff."
+        },
+        {
             "link": "https://www.sbs.com.au/news/victoria-s-coronavirus-case-numbers-keep-falling-as-daniel-andrews-flags-state-of-emergency-extension",
             "title": "Victoria's coronavirus case numbers keep falling, as Daniel Andrews flags state of emergency extension",
             "source": "SBSNews",
