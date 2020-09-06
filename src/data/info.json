@@ -837,27 +837,32 @@
             "name": "Victoria",
             "text": {
                 "text_1": [
-                    "From 11:59pm on 2 August, every person in  Victoria will need to wear a mask or face covering when leaving the house.",
-                    "From 2 August, metropolitan Melbourne will be under stage 4 restrictions for 6 weeks",
-                    "From 6 August, stage 3 restrictions will be in effect in all of regional Victoria",
-                    "Please refer to the links below for a detailed breakdown of the stage 3 (regional Victoria) and stage 4 restrictions (metropolitan Melbourne)"
+                    "The Victorian government has announced a roadmap for the easing of coronavirus restrictions. Stage 4 lockdown has been extended till 28 September",
+                    "13th September will mark a slight change in stage 4 restrictions:"
                 ],
-                "ulist_1": [],
-                "text_middle": [],
+                "ulist_1": [
+                    "Curfew wil then be from 9pm-5am (instead of the current 8pm-5am",
+                    "The exercise limit will go up to 2 hours a day instead of 1 (5km restriction still applies)",
+                    "People living alone can have one designated person visit",
+                    "Outdoor gatherings will be allowed for two people from different households or all members of the same household, for a maximum of 2 hours",
+                    "Remote learning will stake take place except for the children of essential workers when there is no adult at home",
+                    "Playgrounds will reopen",
+                    "Weddings for compassionate reasons will be allowed and can have up to five attendees",
+                    "Funerals will be capped at 10 people"
+                ],
+                "text_middle": [
+                    "Read more about the other stages in the article linked below."
+                ],
                 "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
-                        "link": "https://www.theguardian.com/australia-news/2020/jul/31/coronavirus-melbourne-stage-3-lockdown-rules-restrictions-victoria-vic-metropolitan-metro-mitchell-shire-explained-covid-19-what-you-need-to-know",
-                        "name": "Regional Victoria stage 3 coronavirus restrictions and lockdown rules explained  - The Guardian"
-                    },
-                    {
-                        "link": "https://www.theguardian.com/australia-news/2020/aug/02/victoria-stage-4-restrictions-melbourne-lockdown-rules-covid-19-vic-four-victorian",
-                        "name": "Melbourne stage 4 restrictions and coronavirus lockdown rules explained - The Guardian"
+                        "link": "https://www.theguardian.com/australia-news/2020/sep/06/victorias-roadmap-for-easing-coronavirus-lockdown-restrictions-what-you-need-to-know",
+                        "name": "Victoria's roadmap for easing coronavirus lockdown restrictions: what you need to know"
                     }
                 ]
             },
-            "lastUpdated": "02 August 2020"
+            "lastUpdated": "06 September 2020"
         },
         {
             "name": "Tasmania",
