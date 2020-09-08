@@ -52,15 +52,15 @@ class MultiDataTypeBarChart extends React.Component {
             <div>
                 <Paper>
                     <Tabs
-                     value={this.state.mode}
-                     indicatorColor="primary"
-                     textColor="primary"
-                     onChange={(e, newValue) => this.setMode(newValue)}
-                     ref={(el) => this.visTabs = el}
-                     centered
+                        value={this.state.mode}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        onChange={(e, newValue) => this.setMode(newValue)}
+                        ref={(el) => this.visTabs = el}
+                        centered
                     >
-                        <Tab label="New" value="total" />
-                        <Tab label="% Percentiles" value="percentiles" />
+                        <Tab label={!this.__activeMode ? 'New' : 'Active'} value="total"/>
+                        <Tab label="% Percentiles" value="percentiles"/>
                     </Tabs>
                 </Paper>
 
@@ -81,7 +81,7 @@ class MultiDataTypeBarChart extends React.Component {
                     }}
                 />
 
-                {this.__mode === 'percentiles' ? <div style={{
+                {this.__mode === 'percentiles' && !this.__activeMode ? <div style={{
                     color: "gray",
                     marginTop: "10px",
                     textAlign: "center"
@@ -154,9 +154,10 @@ class MultiDataTypeBarChart extends React.Component {
         this.__updateSeriesData();
     }
 
-    setCasesInst(casesInsts, regionType) {
+    setCasesInst(casesInsts, regionType, activeMode) {
         this.__casesInsts = casesInsts;
         this.__regionType = regionType;
+        this.__activeMode = activeMode;
         this.__updateSeriesData();
     }
 
@@ -177,9 +178,11 @@ class MultiDataTypeBarChart extends React.Component {
 
         for (let caseNumberTimeSeries of collection) {
             if (caseNumberTimeSeries) {
-                caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals();
-                if (this.__mode === 'percentiles') {
-                    caseNumberTimeSeries = caseNumberTimeSeries.getDayAverage(7);
+                if (!this.__activeMode) {
+                    caseNumberTimeSeries = caseNumberTimeSeries.getNewValuesFromTotals();
+                    if (this.__mode === 'percentiles') {
+                        caseNumberTimeSeries = caseNumberTimeSeries.getDayAverage(7);
+                    }
                 }
             } else {
                 caseNumberTimeSeries = [];
@@ -200,7 +203,7 @@ class MultiDataTypeBarChart extends React.Component {
             }
 
             series.push({
-                name: caseNumberTimeSeries.getDataType().replace('source_', '').replace('status_', '').replace(/_/, ' '),
+                name: caseNumberTimeSeries.getDataType().replace('source_', '').replace('status_', '').replace(/_/, ' ').replace(/_/, ' '),
                 type: this.__mode === 'percentiles' ? 'line' : 'bar',
                 areaStyle: this.__mode === 'percentiles' ? {} : null,
                 stack: 'stackalltogether',
@@ -216,6 +219,7 @@ class MultiDataTypeBarChart extends React.Component {
 
         this.setState({
             mode: this.__mode,
+            activeMode: this.__activeMode,
             maxDate: Math.max.apply(Math, Array.from(allDates)),
             minDate: Math.min.apply(Math, Array.from(allDates)),
             option: {
