@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.abc.net.au/news/2020-09-08/coronavirus-vaccine-trials-testing-on-older-australians/12636468",
+            "title": "Older Australians volunteering for next step in COVID-19 vaccine trials",
+            "source": "ABCNews",
+            "date": "08 September 2020",
+            "time": "17:00",
+            "summary": "The trial is being conducted by clinical research company Linear at the Queen Elizabeth II Medical Centre in Perth. The vaccine is manufactured by Clover Biopharmaceuticals."
+        },
+        {
             "link": "https://www.theguardian.com/australia-news/2020/sep/06/victorias-roadmap-for-easing-coronavirus-lockdown-restrictions-what-you-need-to-know",
             "title": "Victoria's roadmap for easing coronavirus lockdown restrictions: what you need to know ",
             "source": "TheGuardian",
@@ -39,14 +47,6 @@
             "date": "01 September 2020",
             "time": "14:00",
             "summary": "New South Wales recorded 13 new cases overnight. A cluster at a gym in Sydney has now been linked to 41 cases."
-        },
-        {
-            "link": "Victoria's roadmap out of Covid lockdown – what we know so far ",
-            "title": "https://www.theguardian.com/australia-news/2020/aug/31/victorias-roadmap-out-of-covid-lockdown-what-we-know-so-far",
-            "source": "TheGuardian",
-            "date": "31 August 2020",
-            "time": "18:32",
-            "summary": "Victorian Premier Daniel Andrews announced that he will lay out a reopening timeline on Sunday, stressing that it will take months, not weeks"
         }
     ]
 }
