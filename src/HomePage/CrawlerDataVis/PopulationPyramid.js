@@ -133,23 +133,25 @@ class PopulationPyramid extends React.Component {
 
         // Now add the values
         for (let ageRange of ageRanges) {
-            maleVals.push(
-                this.__mode === 'alltime' ?
-                    maleCasesInst.getCaseNumber(regionType, ageRange).getValue() :
-                    maleCasesInst.getCaseNumberOverNumDays(
-                        regionType, ageRange, 14, this.mapTimeSlider.getValue()
-                    ).getValue()
-            );
+            let appendMe = this.__mode === 'alltime' ?
+                maleCasesInst.getCaseNumber(regionType, ageRange) :
+                maleCasesInst.getCaseNumberOverNumDays(
+                    regionType, ageRange, 14, this.mapTimeSlider.getValue()
+                );
+            if (appendMe) {
+                maleVals.push(appendMe.getValue());
+            }
         }
         if (femaleCasesInst) {
             for (let ageRange of ageRanges) {
-                femaleVals.push(
-                    this.__mode === 'alltime' ?
-                        -femaleCasesInst.getCaseNumber(regionType, ageRange).getValue() :
-                        -femaleCasesInst.getCaseNumberOverNumDays(
-                            regionType, ageRange, 14, this.mapTimeSlider.getValue()
-                        ).getValue()
-                );
+                let appendMe = this.__mode === 'alltime' ?
+                    femaleCasesInst.getCaseNumber(regionType, ageRange) :
+                    femaleCasesInst.getCaseNumberOverNumDays(
+                        regionType, ageRange, 14, this.mapTimeSlider.getValue()
+                    );
+                if (appendMe) {
+                    femaleVals.push(-appendMe.getValue());
+                }
             }
         }
 

@@ -250,6 +250,10 @@ class StateChart extends React.Component {
             'source_under_investigation',
             'source_overseas'
         ]) {
+            if (regionParent.toLowerCase() === 'au-vic') {
+                dataType += '_active';
+            }
+
             let casesInst = await this.dataDownloader.getCaseData(
                 dataType, 'admin_1', 'au'
             );
@@ -260,7 +264,8 @@ class StateChart extends React.Component {
 
         this.multiDataTypeAreaChart.setCasesInst(
             casesInsts,
-            new RegionType('admin_1', 'au', regionParent)
+            new RegionType('admin_1', 'au', regionParent),
+            regionParent.toLowerCase() === 'au-vic'
         );
     }
 
