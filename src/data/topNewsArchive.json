@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/nsw-records-17-new-coronavirus-cases-only-one-in-hotel-quarantine",
+            "title": "NSW records 17 new coronavirus cases, only one in hotel quarantine",
+            "source": "SBSNews",
+            "date": "02 September 2020",
+            "time": "13:00",
+            "summary": "15 of the 17 new recorded cases are linked to known clusters. One case is in hotel quarantine and the source for the other is unknown."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/sydney-cbd-coronavirus-cluster-grows-to-41-as-nsw-creates-travel-bubble-along-victoria-border",
+            "title": "Sydney CBD coronavirus cluster grows to 41 as NSW creates travel bubble along Victoria border",
+            "source": "SBSNews",
+            "date": "01 September 2020",
+            "time": "14:00",
+            "summary": "New South Wales recorded 13 new cases overnight. A cluster at a gym in Sydney has now been linked to 41 cases."
+        },
+        {
             "link": "Victoria's roadmap out of Covid lockdown – what we know so far ",
             "title": "https://www.theguardian.com/australia-news/2020/aug/31/victorias-roadmap-out-of-covid-lockdown-what-we-know-so-far",
             "source": "TheGuardian",
