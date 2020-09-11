@@ -35,6 +35,7 @@ class StatesPage extends React.Component {
                 textAlign: "center",
                 padding: "50px 0"
             }}>
+                
                 <h3 style={{marginBottom: "45px"}}>
                     Select a state or territory to see the statistics page
                 </h3>
