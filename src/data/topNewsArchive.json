@@ -1,6 +1,22 @@
 {
     "archiveTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victoria-records-another-59-coronavirus-deaths-and-81-new-cases",
+            "title": "Victoria records another 59 coronavirus deaths and 81 new cases",
+            "source": "SBSNews",
+            "date": "04 September 2020",
+            "time": "15:00",
+            "summary": "The deaths revealed on Friday include 50 people in aged care that passed away during July and August. Of the nine new deaths reported, 8 were linked to aged care outbreaks."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/senate-censures-aged-care-minister-richard-colbeck-over-handling-of-coronavirus-crisis",
+            "title": "Senate censures Aged Care Minister Richard Colbeck over handling of coronavirus crisis",
+            "source": "SBSNews",
+            "date": "03 September 2020",
+            "time": "15:00",
+            "summary": "The Senate has decided to censure Aged Care Minister Roger Colbeck for his failure to take resposiblity for the coronavirus outbreaks across the sector."
+        },
+        {
             "link": "https://www.sbs.com.au/news/nsw-records-17-new-coronavirus-cases-only-one-in-hotel-quarantine",
             "title": "NSW records 17 new coronavirus cases, only one in hotel quarantine",
             "source": "SBSNews",

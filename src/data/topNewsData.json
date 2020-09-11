@@ -1,6 +1,14 @@
 {
     "weeklyTopNews": [
         {
+            "link": "https://www.sbs.com.au/news/victoria-s-14-day-average-continues-to-fall-with-43-coronavirus-new-cases-nine-deaths-reported",
+            "title": "Victoria's 14-day average continues to fall with 43 coronavirus new cases, nine deaths reported",
+            "source": "SBSNews",
+            "date": "11 September 2020",
+            "time": "17:00",
+            "summary": "Victoria reported 43 new covid-19 cases and 9 deaths. Victoria's two-week average continues to go down with regional Victoria now having just 72 active cases and a two-week average of just 4.5 new cases."
+        },
+        {
             "link": "https://www.sbs.com.au/news/the-oxford-coronavirus-vaccine-trial-has-been-paused-experts-say-we-shouldn-t-be-worried",
             "title": "The Oxford coronavirus vaccine trial has been paused. Experts say we shouldn't be worried",
             "source": "SBSNews",
@@ -23,22 +31,6 @@
             "date": "06 September 2020",
             "time": "17:20",
             "summary": "Melbourne's stage 4 restrictions have been extended for 2 weeks, and the state government has released a 'roadmap' for Victoria's easing of coronavirus restrictions."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/victoria-records-another-59-coronavirus-deaths-and-81-new-cases",
-            "title": "Victoria records another 59 coronavirus deaths and 81 new cases",
-            "source": "SBSNews",
-            "date": "04 September 2020",
-            "time": "15:00",
-            "summary": "The deaths revealed on Friday include 50 people in aged care that passed away during July and August. Of the nine new deaths reported, 8 were linked to aged care outbreaks."
-        },
-        {
-            "link": "https://www.sbs.com.au/news/senate-censures-aged-care-minister-richard-colbeck-over-handling-of-coronavirus-crisis",
-            "title": "Senate censures Aged Care Minister Richard Colbeck over handling of coronavirus crisis",
-            "source": "SBSNews",
-            "date": "03 September 2020",
-            "time": "15:00",
-            "summary": "The Senate has decided to censure Aged Care Minister Roger Colbeck for his failure to take resposiblity for the coronavirus outbreaks across the sector."
         }
     ]
 }
