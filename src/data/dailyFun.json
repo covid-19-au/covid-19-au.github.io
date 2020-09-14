@@ -1,15 +1,15 @@
 {
-    "dailyFunStuff": [
+  "dailyFunStuff": [
+    {
+      "image": [],
+      "video": [
         {
-            "image": [],
-            "video": [
-                {
-                    "link": "https://www.youtube.com/watch?v=pK2SbuBb4RE",
-                    "description": "What if Russia Kept Alaska?"
-                }
-            ],
-            "type": "distraction",
-            "date": "14/9/2020"
+          "link": "https://www.youtube.com/watch?v=XYCommbOVFY",
+          "description": "Writing Great Side Characters | Avatar: The Last Airbender"
         }
-    ]
+      ],
+      "type": "distraction",
+      "date": "15/9/2020"
+    }
+  ]
 }
