@@ -1,6 +1,14 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.theguardian.com/australia-news/2020/sep/20/this-is-a-good-day-says-victorias-daniel-andrews-as-covid-19-cases-drop-to-14",
+      "title": "'This is a good day,' says Victoria's Daniel Andrews as Covid-19 cases drop to 14 ",
+      "source": "The Guardian",
+      "date": "20 September 2020",
+      "time": "12:51",
+      "summary": "Professor Brett Sutton, Victoria's Chief Health Officer, described the number as \"very good\". Metropolitan Melbourne's 14 day average is now down to 36. The target set for the next round of easing of restrictions as 50. "
+    },
+    {
       "link": "https://www.sbs.com.au/news/victoria-records-28-new-coronavirus-cases-its-lowest-daily-tally-in-almost-three-months",
       "title": "Victoria records 28 new coronavirus cases, its lowest daily tally in almost three months",
       "source": "SBSNews",
@@ -23,46 +31,6 @@
       "date": "14 September 2020",
       "time": "13:00",
       "summary": "Victoria reported 35 new coronavirus cases this week, the lowest daily increase since June 26th when 30 new cases were reported."
-    },
-    {
-      "link": "https://www.sbs.com.au/news/lifeline-for-victorian-businesses-unveiled-as-melbourne-covid-19-lockdown-relaxed-from-midnight",
-      "title": "Lifeline for Victorian businesses unveiled, as Melbourne COVID-19 lockdown relaxed from midnight",
-      "source": "SBSNews",
-      "date": "13 September 2020",
-      "time": "18:00",
-      "summary": "Metropolitan Melbourne prepares for the easing of coronavirus regulations from midnight and the Victorian government has announced a $3 billion business support package to assist local buisnesses."
-    },
-    {
-      "link": "https://www.sbs.com.au/news/lifeline-for-victorian-businesses-unveiled-as-melbourne-covid-19-lockdown-relaxed-from-midnight",
-      "title": "Lifeline for Victorian businesses unveiled, as Melbourne COVID-19 lockdown relaxed from midnight",
-      "source": "SBSNews",
-      "date": "13 September 2020",
-      "time": "18:00",
-      "summary": "Metropolitan Melbourne prepares for the easing of coronavirus regulations from midnight and the Victorian government has announced a $3 billion business support package to assist local buisnesses."
-    },
-    {
-      "link": "https://www.sbs.com.au/news/lifeline-for-victorian-businesses-unveiled-as-melbourne-covid-19-lockdown-relaxed-from-midnight",
-      "title": "Lifeline for Victorian businesses unveiled, as Melbourne COVID-19 lockdown relaxed from midnight",
-      "source": "SBSNews",
-      "date": "13 September 2020",
-      "time": "18:00",
-      "summary": "Metropolitan Melbourne prepares for the easing of coronavirus regulations from midnight and the Victorian government has announced a $3 billion business support package to assist local buisnesses."
-    },
-    {
-      "link": "https://www.theguardian.com/australia-news/2020/sep/12/victoria-police-arrest-14-people-at-illegal-anti-lockdown-protests-in-melbourne",
-      "title": "Victoria police arrest 14 people at illegal anti-lockdown protests in Melbourne ",
-      "source": "TheGuardian",
-      "date": "12 September 2020",
-      "time": "17:43",
-      "summary": "The Victoria police have arrested 14 people at illegal anti-lockdown protests in Melbourne and issued 51 fines. 100 people attended these protests, which were spread throughout the city."
-    },
-    {
-      "link": "https://www.theguardian.com/australia-news/2020/sep/12/victorias-new-coronavirus-cases-fall-to-lowest-level-since-june-as-australian-death-toll-exceeds-800",
-      "title": "Victoria's new coronavirus cases fall to lowest level since June as Australian death toll exceeds 800 ",
-      "source": "TheGuardian",
-      "date": "12 September 2020",
-      "time": "16:15",
-      "summary": "Victoria announced 37 new coronavirus cases today, the state's lowest daily tally since 26 June. All of the cases were in metropolitan Melbourne."
     }
   ]
 }
