@@ -1,6 +1,14 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.sbs.com.au/news/south-australia-reopens-to-nsw-residents-as-queensland-widens-southern-border-bubble",
+      "title": "South Australia reopens to NSW residents as Queensland widens southern border bubble",
+      "source": "SBSNews",
+      "date": "22 September 2020",
+      "time": "21:00",
+      "summary": "Both NSW and Queensland are set to relax border restrictions with NSW after the state recorded zero locally acquired cases."
+    },
+    {
       "link": "https://www.theguardian.com/australia-news/2020/sep/20/this-is-a-good-day-says-victorias-daniel-andrews-as-covid-19-cases-drop-to-14",
       "title": "'This is a good day,' says Victoria's Daniel Andrews as Covid-19 cases drop to 14 ",
       "source": "TheGuardian",
@@ -15,14 +23,6 @@
       "date": "17 September 2020",
       "time": "13:00",
       "summary": "Victoria recorded 28 new coronavirus cases today, the state's lowest daily tally since late June. Victoria's 14 day average is now within the 30-50 target needed to ease restrictions on the 28th."
-    },
-    {
-      "link": "https://www.sbs.com.au/news/some-restrictions-to-ease-as-victoria-records-no-coronavirus-deaths-for-the-first-time-in-over-two-months",
-      "title": "Some restrictions to ease as Victoria records no coronavirus deaths for the first time in over two months",
-      "source": "SBSNews",
-      "date": "15 September 2020",
-      "time": "12:00",
-      "summary": "Victoria reported 42 new cases today and reported zero deaths overnight for the first time in 2 months. Regional Victoria may move into the next stage for easing restrictions on Thursday."
     }
   ]
 }
