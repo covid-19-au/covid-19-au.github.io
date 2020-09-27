@@ -1,6 +1,14 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://theconversation.com/curfew-lifted-and-covid-19-roadmap-is-ahead-of-schedule-as-melbourne-inches-towards-end-of-lockdown-146987",
+      "title": "Curfew lifted and COVID-19 roadmap is ‘ahead of schedule’ as Melbourne inches towards end of lockdown",
+      "source": "TheConversation",
+      "date": "27 September 2020",
+      "time": "15:19",
+      "summary": ""
+    },
+    {
       "link": "https://www.theguardian.com/world/2020/sep/26/victoria-records-one-death-and-12-new-cases-as-covid-19-numbers-continue-to-drop",
       "title": "Daniel Andrews says he will have 'good news' on Melbourne's Covid restrictions on Sunday ",
       "source": "TheGuardian",
@@ -23,14 +31,6 @@
       "date": "22 September 2020",
       "time": "21:00",
       "summary": "Both NSW and Queensland are set to relax border restrictions with NSW after the state recorded zero locally acquired cases."
-    },
-    {
-      "link": "https://www.theguardian.com/australia-news/2020/sep/20/this-is-a-good-day-says-victorias-daniel-andrews-as-covid-19-cases-drop-to-14",
-      "title": "'This is a good day,' says Victoria's Daniel Andrews as Covid-19 cases drop to 14 ",
-      "source": "TheGuardian",
-      "date": "20 September 2020",
-      "time": "12:51",
-      "summary": "Professor Brett Sutton, Victoria's Chief Health Officer, described the number as \"very good\". Metropolitan Melbourne's 14 day average is now down to 36. The target set for the next round of easing of restrictions as 50. "
     }
   ]
 }
