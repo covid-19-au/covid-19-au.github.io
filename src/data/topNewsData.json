@@ -1,12 +1,20 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.sbs.com.au/news/daniel-andrews-says-victoria-so-so-close-to-taking-a-big-step-as-state-records-just-five-new-cases",
+      "title": "Daniel Andrews says Victoria 'so, so close' to taking a 'big step' as state records just five new cases",
+      "source": "SBSNews",
+      "date": "28 September 2020",
+      "time": "14:53",
+      "summary": "Victorian Premier Daniel Andrews today said that the state is close to taking a \"really big step\" after only announcing 5 new cases overnight. The 14-day rolling average of new cases in Metropolitan Melbourne is now down to 20.3. "
+    },
+    {
       "link": "https://theconversation.com/curfew-lifted-and-covid-19-roadmap-is-ahead-of-schedule-as-melbourne-inches-towards-end-of-lockdown-146987",
       "title": "Curfew lifted and COVID-19 roadmap is ‘ahead of schedule’ as Melbourne inches towards end of lockdown",
       "source": "TheConversation",
       "date": "27 September 2020",
       "time": "15:19",
-      "summary": ""
+      "summary": "Metropolitan Melbourne moves into step two of eased restrictions, and Victoria Premier Daniel Andrews announced that step three would be brought forward by one week to October 19th."
     },
     {
       "link": "https://www.theguardian.com/world/2020/sep/26/victoria-records-one-death-and-12-new-cases-as-covid-19-numbers-continue-to-drop",
