@@ -133,16 +133,15 @@ class CasesPopup {
         let caseDataInst = this.mapBoxSource.getCaseDataInst(
                 regionType.getRegionSchema(), regionType.getRegionParent()
             ),
-            caseInfo = caseDataInst.getCaseNumber(regionType, null),
-            timeSeries = caseDataInst.getCaseNumberTimeSeries(regionType, null);
+            caseInfo = caseDataInst.getCaseNumber(regionType, null);
 
-        if (!caseInfo || !timeSeries) {
+        if (!caseInfo) {
             // no data?
             return;
         }
 
         // Show the popup
-        this.__showPopup(e.lngLat, regionType, caseInfo, timeSeries);
+        this.__showPopup(e.lngLat, regionType, caseInfo, caseDataInst);
     }
 
     /**
@@ -174,10 +173,10 @@ class CasesPopup {
      * @param lngLat a MapBox Longitude/Latitude instance
      * @param regionType a RegionType instance for cases
      * @param caseInfo the latest case info data
-     * @param timeSeries case info time series
+     * @param caseDataInst CaseData or CasesWithManualAUStateData instance
      * @private
      */
-    __showPopup(lngLat, regionType, caseInfo, timeSeries) {
+    __showPopup(lngLat, regionType, caseInfo, caseDataInst) {
         let popup = this.__popup = new mapboxgl.Popup({
             closeButton: true,
             closeOnClick: true
@@ -187,16 +186,50 @@ class CasesPopup {
             regionSchema = regionType.getRegionSchema();
 
         popup.setHTML(
-            `<div style="width: 200px">` +
+            `<div>` +
                 `${regionLabel} (${regionSchema}${regionChild !== regionLabel ? ' '+regionChild : ''})` +
                 '<br/>Cases: ' + caseInfo.getValue() +
                 '&nbsp;&nbsp;&nbsp;&nbsp;By: ' + caseInfo.getDateType().prettified() +
-                '<div id="chartContainer" style="width: 200px; min-height: 60px; height: 13vh;"></div>' +
+                '<div id="chartContainer" style="width: 200px; min-height: 60px; height: 15vh"></div>' +
             `</div>`
         );
 
         popup.setLngLat(lngLat);
         popup.addTo(this.map);
+
+        let series = [];
+        for (let sourceId of caseDataInst.getSourceIds()) {
+            let timeSeries = caseDataInst.getCaseNumberTimeSeries(regionType, null, null, sourceId);
+            if (timeSeries) {
+                series.push({
+                    name: sourceId.replace(/_/g, ' '),
+                    animation: false,
+                    data: timeSeries,
+                    type: 'line',
+                    symbol: 'none',
+                });
+            }
+
+            if (sourceId === 'manual_state_data' && timeSeries) {
+                // HACK: Only show manual data if it's available!
+                // JHU/Bing data is often quite low quality for state-level AU/NZ/Canada etc data, so it may be a good idea to extend this!
+                break;
+            }
+        }
+
+        // only display the legend if there's
+        // more than a single source available
+        let legend;
+        if (series.length > 1) {
+            legend = {
+                legend: {
+                    show: true,
+                    top: 15
+                }
+            };
+        } else {
+            legend = {};
+        }
 
         ReactDOM.render(
             <ReactEchartsCore
@@ -212,6 +245,7 @@ class CasesPopup {
                             }
                         }
                     },
+                    ...legend,
                     yAxis: {
                         type: 'value',
                         axisLabel: {
@@ -241,17 +275,12 @@ class CasesPopup {
                         right: 8,
                         bottom: 20
                     },
-                    series: [{
-                        animation: false,
-                        data: timeSeries,
-                        type: 'line',
-                        symbol: 'none',
-                    }]
+                    series: series
                 }}
                 style={{
                     //width: "200px",
                     minHeight: "60px",
-                    height: "13vh"
+                    height: "15vh"
                 }}
             />,
             document.getElementById('chartContainer')

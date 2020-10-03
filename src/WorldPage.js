@@ -25,30 +25,49 @@ SOFTWARE.
 import Grid from "@material-ui/core/Grid";
 import React from "react";
 import WorldMap from "./HomePage/WorldMap";
+import {faInfoCircle, faExclamationCircle} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import SocialMediaShareModal from "./socialMediaShare/SocialMediaShareModal";
+import ReactGA from "react-ga";
 
 class WorldPage extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {};
     }
 
     render() {
         // spacing={gspace}
         return (
-            <div style={{width: '100%', maxWidth: '95vw'}}>
-                <div style={{
-                    border: '1px solid red',
-                    borderLeft: 'none',
-                    borderRight: 'none',
-                    background: '#FEE',
+            <>
+            <div style={{
+                textAlign: 'center',
+                width: '100%',
+                background: 'lightYellow',
+                padding: "5px 0"
+            }}>
+                <FontAwesomeIcon icon={faInfoCircle} /> As far as we know these are the most detailed covid-19 case stats anywhere on the web. Help us by <a class="citationLink" href="#" onClick={() => {
+                    this.setState({socialMediaIconsShown: true});
+                    return false;
+                }}>spreading the word</a>!
+
+                <SocialMediaShareModal
+                    addToURL="world"
+                    visible={this.state.socialMediaIconsShown}
+                    onCancel={() => this.setState({socialMediaIconsShown: false})}
+                />
+            </div>
+            <div style={{
                     textAlign: 'center',
-                    margin: '20px auto 10px auto',
-                    width: '95%'
+                    width: '100%',
+                    background: '#FEE',
+                    padding: "5px 0"
                 }}>
-                    <b>Note:</b> This page is based on preliminary data from
+                    <FontAwesomeIcon icon={faExclamationCircle} /> <b>Note:</b> This page is based on preliminary data from
                     the <a href="https://github.com/mcyph/global_subnational_covid_data" style={{color: '#1277d3'}}>global-subnational-covid-data</a> project,
                     and may contain errors or inconsistencies.
-                </div>
-
+            </div>
+            <div style={{width: '100%', maxWidth: '95vw'}}>
                 <Grid container justify="center" wrap="wrap" style={{width: '100%'}}>
                     <Grid style={{minWidth: '95%'}} item xs={11} sm={11} md={10} lg={5}>
                         <div className="card">
@@ -59,6 +78,7 @@ class WorldPage extends React.Component {
                     </Grid>
                 </Grid>
             </div>
+            </>
         );
     }
 }

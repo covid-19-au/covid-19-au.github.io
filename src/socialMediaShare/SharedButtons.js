@@ -21,46 +21,48 @@ import {
 import { SharedContent } from './constants.js';
 import './SharedButtons.css'
 
-const SharedButtons = () => {
+const SharedButtons = ({ addToURL }) => {
+	addToURL = addToURL || '';
+
 	return (
 		<div>
 			<span>
-				<FacebookShareButton url={SharedContent.URL} quote={SharedContent.FB}>
+				<FacebookShareButton url={SharedContent.URL+addToURL} quote={SharedContent.FB}>
 					<FacebookIcon size={32} round={true} />
 				</FacebookShareButton>
 			</span>
 			<span>
-				<TwitterShareButton url={SharedContent.URL} title={SharedContent.SHORT_MESSAGE}>
+				<TwitterShareButton url={SharedContent.URL+addToURL} title={SharedContent.SHORT_MESSAGE}>
 					<TwitterIcon size={32} round={true} />
 				</TwitterShareButton>
 			</span>
 			<span>
-				<LineShareButton url={SharedContent.URL} title={SharedContent.TEXT}>
+				<LineShareButton url={SharedContent.URL+addToURL} title={SharedContent.TEXT}>
 					<LineIcon size={32} round={true} />
 				</LineShareButton>
 			</span>
 			<span>
-				<WhatsappShareButton url={SharedContent.URL} title={SharedContent.TEXT}>
+				<WhatsappShareButton url={SharedContent.URL+addToURL} title={SharedContent.TEXT}>
 					<WhatsappIcon size={32} round={true} />
 				</WhatsappShareButton>
 			</span>
 			<span>
-				<LinkedinShareButton url={SharedContent.URL} title={SharedContent.TEXT}>
+				<LinkedinShareButton url={SharedContent.URL+addToURL} title={SharedContent.TEXT}>
 					<LinkedinIcon size={32} round={true} />
 				</LinkedinShareButton>
 			</span>
 			<span>
-				<InstapaperShareButton url={SharedContent.URL} title={SharedContent.TEXT}>
+				<InstapaperShareButton url={SharedContent.URL+addToURL} title={SharedContent.TEXT}>
 					<InstapaperIcon size={32} round={true} />
 				</InstapaperShareButton>
 			</span>
 			<span>
-				<RedditShareButton url={SharedContent.URL} title={SharedContent.TEXT}>
+				<RedditShareButton url={SharedContent.URL+addToURL} title={SharedContent.TEXT}>
 					<RedditIcon size={32} round={true} />
 				</RedditShareButton>
 			</span>
 			<span>
-				<WeiboShareButton url={SharedContent.URL} title={SharedContent.WEIBO}>
+				<WeiboShareButton url={SharedContent.URL+addToURL} title={SharedContent.WEIBO}>
 					<WeiboIcon size={32} round={true} />
 				</WeiboShareButton>
 			</span>
