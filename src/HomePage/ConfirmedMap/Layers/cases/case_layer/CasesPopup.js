@@ -225,7 +225,7 @@ class CasesPopup {
                 legend: {
                     show: true,
                     top: 15,
-                    left: 38
+                    left: 37
                 }
             };
         } else {
