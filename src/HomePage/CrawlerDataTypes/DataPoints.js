@@ -86,10 +86,7 @@ class DataPoints extends Array {
      * @returns {DataPoints}
      */
     clone() {
-        return new DataPoints(
-            this.dataSource, this.regionType,
-            this.ageRange, this
-        );
+        return new DataPoints(this.dataSource, this.regionType, this.ageRange, this);
     }
 
     /**
@@ -98,10 +95,7 @@ class DataPoints extends Array {
      * @returns {DataPoints}
      */
     cloneWithoutDatapoints(items) {
-        return new DataPoints(
-            this.dataSource, this.regionType,
-            this.ageRange, items||[]
-        );
+        return new DataPoints(this.dataSource, this.regionType, this.ageRange, items||[]);
     }
 
     /********************************************************************
@@ -257,10 +251,7 @@ class DataPoints extends Array {
             let timeSeriesItem = originalArray[i],
                 prevTimeSeriesItem = originalArray[i+1];
 
-            r.push(new DataPoint(
-                timeSeriesItem.getDateType(),
-                prevTimeSeriesItem.getValue()-timeSeriesItem.getValue()
-            ));
+            r.push(new DataPoint(timeSeriesItem.getDateType(), prevTimeSeriesItem.getValue()-timeSeriesItem.getValue(), timeSeriesItem.getSourceId()));
         }
 
         return new DataPoints(
@@ -291,7 +282,7 @@ class DataPoints extends Array {
                 numVals++;
             }
 
-            r.push(new DataPoint(highestDate, Math.round(totalVal/numVals))); // NOTE ME!!!! ==================
+            r.push(new DataPoint(highestDate, Math.round(totalVal/numVals), originalArray[i].getSourceId())); // NOTE ME!!!! ==================
         }
 
         return new DataPoints(
@@ -306,25 +297,24 @@ class DataPoints extends Array {
      * @param defaultValue
      * @returns {DataPoints}
      */
-    missingDaysFilledIn(dateRangeType, defaultValue) {
-        let out = new DataPoints(
-            this.dataSource, this.regionType,
-            this.ageRange, []
-        );
+    missingDaysFilledIn(dateRangeType, defaultValue, defaultSourceId) {
+        let out = new DataPoints(this.dataSource, this.regionType, this.ageRange, []);
 
         let map = {};
-        for (let [dateType, value] of this) {
+        for (let [dateType, value, sourceId] of this) {
             map[dateType.prettified()] = value;
         }
 
         // Make sure every date has a datapoint
         // (otherwise eCharts rendering goes haywire)
-        let curValue = defaultValue||0;
+        let curValue = defaultValue||0,
+            sourceId = defaultSourceId||this[0].getSourceId();
+
         for (let dateType of dateRangeType.toArrayOfDateTypes()) {
             if (dateType.prettified() in map) { // WARNING!!!
                 curValue = map[dateType.prettified()];
             }
-            out.push(new DataPoint(dateType, curValue))
+            out.push(new DataPoint(dateType, curValue, sourceId))
         }
 
         // Sort by newest first
@@ -340,14 +330,11 @@ class DataPoints extends Array {
      * @returns {DataPoints}
      */
     missingDaysInterpolated(dateRangeType, defaultValue) {
-        let out = new DataPoints(
-            this.dataSource, this.regionType,
-            this.ageRange, []
-        );
+        let out = new DataPoints(this.dataSource, this.regionType, this.ageRange, []);
 
         for (let i=0; i<this.length-1; i++) {
-            let [prevDateType, prevValue] = this[i],
-                [nextDateType, nextValue] = this[i+1],
+            let [prevDateType, prevValue, prevSourceId] = this[i],
+                [nextDateType, nextValue, nextSourceId] = this[i+1],
                 numDays = nextDateType.numDaysSince(prevDateType);
 
             //console.log(`${prevDateType.prettified()} ${nextDateType.prettified()} ${prevValue} ${nextValue}`);
@@ -363,7 +350,7 @@ class DataPoints extends Array {
                         (prevValue * (1.0-elapsedPc)) +
                         (nextValue * elapsedPc)
                     );
-                out.push(new DataPoint(dateType, value))
+                out.push(new DataPoint(dateType, value, nextSourceId))
             }
         }
 
@@ -388,8 +375,8 @@ class DataPoints extends Array {
 
         let r = [];
         for (let i=0; i<this.length-overNumDays; i++) {
-            let [date1, x1] = this[i],
-                [date2, x2] = this[i+overNumDays];
+            let [date1, x1, sourceId1] = this[i],
+                [date2, x2, sourceId2] = this[i+overNumDays];
 
             if (date2 > date1) {
                 throw "DataPoints should be in descending order for getRateOfChange!"
@@ -398,7 +385,8 @@ class DataPoints extends Array {
             let divBy = Math.abs(x1);
             r.push(new DataPoint(
                 date1,
-                divBy ? (x1 - x2) / divBy : null
+                divBy ? (x1 - x2) / divBy : null,
+                sourceId1
             ));
         }
         return this.cloneWithoutDatapoints(r);

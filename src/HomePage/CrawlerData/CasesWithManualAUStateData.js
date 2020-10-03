@@ -3,10 +3,15 @@ import CasesData from "./CasesData";
 import stateNums from "../../data/state";
 import DataPoints from "../CrawlerDataTypes/DataPoints";
 import DataPoint from "../CrawlerDataTypes/DataPoint";
-import DateRangeType from "../CrawlerDataTypes/DateRangeType";
-import RegionType from "../CrawlerDataTypes/RegionType";
 import DateType from "../CrawlerDataTypes/DateType";
 
+import {
+    PRIORITIZE_RECENT_DATAPOINT,
+    PRIORITIZE_RECENT_DATAPOINTS,
+    PRIORITIZE_LOW_INT_VALUE,
+    PRIORITIZE_FIRST_VALUE,
+    PRIORITIZE_MANUAL_THEN_RECENT_DATAPOINT
+} from "./CasesData";
 
 const STATE_CASE_DATA_TYPES = new Set([
     'total',
@@ -18,13 +23,15 @@ const STATE_CASE_DATA_TYPES = new Set([
     'status_hospitalized'
 ]);
 
+const MANUAL_STATE_DATA_ID = 'manual_state_data';
+
 
 class CasesWithManualAUStateData extends CasesData {
-    constructor(casesData, regionsDateIds, subHeaders,
+    constructor(casesData, regionsDateIds, subHeaders, sourceIds,
                 dataType, updatedDate,
                 regionSchema, regionParent) {
 
-        super(casesData, regionsDateIds, subHeaders,
+        super(casesData, regionsDateIds, subHeaders, sourceIds,
               dataType, updatedDate,
               regionSchema, regionParent);
 
@@ -35,6 +42,18 @@ class CasesWithManualAUStateData extends CasesData {
         );
         this.__dataPointsCache = new Map();
         this.__caseNumberCache = new Map();
+    }
+
+    /**
+     *
+     * @returns {*}
+     */
+    getSourceIds() {
+        if (this.__useManualStateData) {
+            return [MANUAL_STATE_DATA_ID].concat(super.getSourceIds());
+        } else {
+            return super.getSourceIds()
+        }
     }
 
     /**
@@ -106,34 +125,27 @@ class CasesWithManualAUStateData extends CasesData {
      * @param ageRange
      * @param maxDateType
      */
-    getCaseNumber(regionType, ageRange, maxDateType) {
+    getCaseNumber(regionType, ageRange, maxDateType, sourceId) {
         maxDateType = maxDateType || DateType.today();
-
-        // Cache, as this is a major bottleneck
-        let cacheKey = regionType.getHashKey()+ageRange+maxDateType.toString();
-        if (this.__caseNumberCache.has(cacheKey)) {
-            return this.__caseNumberCache.get(cacheKey);
-        }
+        sourceId = sourceId || null;
 
         let r;
-        if (this.__useManualStateData && !ageRange) {
-            for (let dataPoint of this.__getDataPointsFromStateCaseData(regionType)||[]) {
-                if (dataPoint.getDateType() <= maxDateType) {
-                    return dataPoint;
+        if (sourceId == null) {
+            r = this.__tryEachSourceId(this.getCaseNumber, PRIORITIZE_MANUAL_THEN_RECENT_DATAPOINT, regionType, ageRange, maxDateType);
+        } else if (sourceId === MANUAL_STATE_DATA_ID) {
+            if (!this.__useManualStateData || ageRange) {
+                r = null;
+            } else {
+                for (let dataPoint of this.__getDataPointsFromStateCaseData(regionType) || []) {
+                    if (dataPoint.getDateType() <= maxDateType) {
+                        r = dataPoint;
+                        break;
+                    }
                 }
             }
-            r = null;
         } else {
-            r = super.getCaseNumber(
-                regionType, ageRange, maxDateType
-            );
+            r = super.getCaseNumber(regionType, ageRange, maxDateType, sourceId);
         }
-
-        if (this.__caseNumberCache.size > 512) {
-            // Don't use too much memory!
-            this.__caseNumberCache = new Map();
-        }
-        this.__caseNumberCache.set(cacheKey, r);
         return r;
     }
 
@@ -144,26 +156,29 @@ class CasesWithManualAUStateData extends CasesData {
      * @param numDays
      * @param maxDateType
      */
-    getCaseNumberOverNumDays(regionType, ageRange, numDays, maxDateType) {
+    getCaseNumberOverNumDays(regionType, ageRange, numDays, maxDateType, sourceId) {
         maxDateType = maxDateType || DateType.today();
 
-        if (this.__useManualStateData && !ageRange) {
-            let currentDataPoint = this.getCaseNumber(
-                regionType, ageRange, maxDateType
-            );
-            let prevDataPoint = this.getCaseNumber(
-                regionType, ageRange, maxDateType.daysSubtracted(numDays)
-            );
-            if (currentDataPoint && prevDataPoint) {
-                return new DataPoint(
-                    currentDataPoint.getDateType(),
-                    currentDataPoint.getValue() - prevDataPoint.getValue()
-                )
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getCaseNumberOverNumDays, PRIORITIZE_MANUAL_THEN_RECENT_DATAPOINT, regionType, ageRange, numDays, maxDateType);
+        }
+
+        if (sourceId === MANUAL_STATE_DATA_ID) {
+            if (!this.__useManualStateData || ageRange) {
+                return null;
+            } else {
+                let currentDataPoint = this.getCaseNumber(regionType, ageRange, maxDateType);
+                let prevDataPoint = this.getCaseNumber(regionType, ageRange, maxDateType.daysSubtracted(numDays));
+
+                if (currentDataPoint && prevDataPoint) {
+                    let value = currentDataPoint.getValue() - prevDataPoint.getValue();
+                    return new DataPoint(currentDataPoint.getDateType(), value, sourceId);
+                }
+                return null;
             }
-            return null;
         } else {
             return super.getCaseNumberOverNumDays(
-                regionType, ageRange, numDays, maxDateType
+                regionType, ageRange, numDays, maxDateType, sourceId
             );
         }
     }
@@ -178,24 +193,32 @@ class CasesWithManualAUStateData extends CasesData {
      * @param ageRange
      * @param maxDateType
      */
-    getCaseNumberTimeSeries(regionType, ageRange, maxDateType) {
+    getCaseNumberTimeSeries(regionType, ageRange, maxDateType, sourceId) {
         maxDateType = maxDateType || DateType.today();
 
-        if (this.__useManualStateData && !ageRange) {
-            let dataPoints = this.__getDataPointsFromStateCaseData(regionType) || [];
-            let out = dataPoints.cloneWithoutDatapoints();
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getCaseNumberTimeSeries, PRIORITIZE_RECENT_DATAPOINTS, regionType, ageRange, maxDateType);
+        }
 
-            for (let dataPoint of dataPoints) {
-                if (dataPoint.getDateType() <= maxDateType) {
-                    out.push(dataPoint);
+        if (sourceId === MANUAL_STATE_DATA_ID) {
+            if (!this.__useManualStateData || ageRange || regionType.getRegionSchema() !== 'admin_1' || regionType.getRegionParent() !== 'au') {
+                return null;
+            } else {
+                let dataPoints = this.__getDataPointsFromStateCaseData(regionType) || new DataPoints(this, regionType, ageRange);
+                let out = dataPoints.cloneWithoutDatapoints();
+
+                for (let dataPoint of dataPoints) {
+                    if (dataPoint.getDateType() <= maxDateType) {
+                        out.push(dataPoint);
+                    }
                 }
-            }
 
-            dataPoints.sortDescending();
-            return out.length ? out : null;
+                dataPoints.sortDescending();
+                return out.length ? out : null;
+            }
         } else {
             return super.getCaseNumberTimeSeries(
-                regionType, ageRange, maxDateType
+                regionType, ageRange, maxDateType, sourceId
             );
         }
     }
@@ -208,8 +231,15 @@ class CasesWithManualAUStateData extends CasesData {
      *
      * @param maxDateType
      */
-    getMaxMinValues(maxDateType) {
-        if (this.__useManualStateData) {
+    getMaxMinValues(maxDateType, sourceId) {
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getMaxMinValues, PRIORITIZE_FIRST_VALUE, maxDateType);
+        }
+
+        if (sourceId === MANUAL_STATE_DATA_ID) {
+            if (!this.__useManualStateData) {
+                throw "can't use manual state data!"
+            }
             maxDateType = maxDateType || DateType.today();
 
             var min = 99999999999,
@@ -238,7 +268,7 @@ class CasesWithManualAUStateData extends CasesData {
                 'median': allVals[Math.round(allVals.length / 2.0)]
             }
         } else {
-            return super.getMaxMinValues(maxDateType);
+            return super.getMaxMinValues(maxDateType, sourceId);
         }
     }
 
@@ -248,35 +278,30 @@ class CasesWithManualAUStateData extends CasesData {
      * @param ageRange
      * @param maxDateType
      */
-    getDaysSince(regionType, ageRange, maxDateType) {
-        if (this.__useManualStateData && !ageRange) {
-            ageRange = ageRange || '';
+    getDaysSince(regionType, ageRange, maxDateType, sourceId) {
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getDaysSince, PRIORITIZE_LOW_INT_VALUE, regionType, ageRange, maxDateType);
+        }
+
+        if (sourceId === MANUAL_STATE_DATA_ID) {
+            if (!this.__useManualStateData) {
+                throw "can't use manual state data!";
+            }
+            else if (ageRange) {
+                throw "can't use age ranges with manual data!";
+            }
             maxDateType = maxDateType || DateType.today();
-            var firstVal = null;
 
-            for (var [iChildRegion, iAgeRange, iValues] of this.data) {
-                if (iChildRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
-                    for (var j = 0; j < iValues.length; j++) {
-                        var dateUpdated = this.regionsDateIds[iValues[j][0]],
-                            iValue = iValues[j][this.subHeaderIndex + 1];
-
-                        if (dateUpdated > maxDateType) {
-                            continue;
-                        } if (iValue == null || iValue === '') {
-                            continue;
-                        } else if (firstVal == null) {
-                            firstVal = iValue;
-                        } else if (firstVal > iValue) {
-                            return dateUpdated.numDaysSince(maxDateType);
-                        }
+            for (let regionType of this.getRegionChildren()) {
+                for (let dataPoint of this.__getDataPointsFromStateCaseData(regionType) || []) {
+                    if (dataPoint.getDateType() <= maxDateType) {
+                        return dataPoint.getDateType().numDaysSince(maxDateType);
                     }
                 }
             }
             return null;
         } else {
-            return super.getDaysSince(
-                regionType, ageRange, maxDateType
-            );
+            return super.getDaysSince(regionType, ageRange, maxDateType, sourceId);
         }
     }
 }

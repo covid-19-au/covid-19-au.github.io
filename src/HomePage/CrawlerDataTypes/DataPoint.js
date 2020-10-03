@@ -32,14 +32,16 @@ class DataPoint extends Array {
      *
      * @param dateType
      * @param numberType
+     * @param sourceId
      */
-    constructor(dateType, numberType) {
+    constructor(dateType, numberType, sourceId) {
         if (!(dateType instanceof DateType)) {
             dateType = new DateType(dateType);
         }
         super();
         this[0] = dateType;
         this[1] = numberType;
+        this[2] = sourceId
     }
 
     /**
@@ -51,7 +53,8 @@ class DataPoint extends Array {
     equalTo(timeSeriesItem) {
         return (
             this.getDateType().toString() === timeSeriesItem.toString() &&
-            this.getValue() === timeSeriesItem.getValue()
+            this.getValue() === timeSeriesItem.getValue() &&
+            this.getSourceId() == this.timeSeriesItem.getSourceId()
         );
     }
 
@@ -75,6 +78,14 @@ class DataPoint extends Array {
      */
     getValue() {
         return this[1];
+    }
+
+    /**
+     *
+     * @returns {T}
+     */
+    getSourceId() {
+        return this[2];
     }
 }
 

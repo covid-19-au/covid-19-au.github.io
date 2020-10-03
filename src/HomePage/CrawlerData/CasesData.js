@@ -34,6 +34,12 @@ function debug(message) {
     }
 }
 
+export const PRIORITIZE_RECENT_DATAPOINT = 0,
+             PRIORITIZE_MANUAL_THEN_RECENT_DATAPOINT = 1,
+             PRIORITIZE_RECENT_DATAPOINTS = 2,
+             PRIORITIZE_LOW_INT_VALUE = 3,
+             PRIORITIZE_FIRST_VALUE = 4;
+
 
 class CasesData {
     /**
@@ -61,7 +67,7 @@ class CasesData {
               as otherwise the data will be a lot larger!
      * @param updatedDate
      */
-    constructor(casesData, regionsDateIds, subHeaders,
+    constructor(casesData, regionsDateIds, subHeaders, sourceIds,
                 dataType, updatedDate,
                 regionSchema, regionParent) {
 
@@ -75,17 +81,53 @@ class CasesData {
         this.regionParent = regionParent;
 
         this.subHeaderIndex = subHeaders.indexOf(dataType);
+
+        if (!casesData['dataUncompressed']) {
+            casesData['data'] = this.__dataUncompressed(casesData['data'])
+            casesData['dataUncompressed'] = true;
+        }
+
         this.data = casesData['data'];
-
-        //this.getCaseNumber = Fns.regionFnCached(this.getCaseNumber, this);
-        //this.getCaseNumberOverNumDays = Fns.regionFnCached(this.getCaseNumberOverNumDays, this);
-        //this.getMaxMinValues = Fns.fnCached(this.getMaxMinValues, this);
-        //this.getDaysSince = Fns.regionFnCached(this.getDaysSince, this);
-        //this.getCaseNumberTimeSeries = Fns.regionFnCached(this.getCaseNumberTimeSeries, this);
-
-        //this.getCaseNumberTimeSeriesOverNumDays = Fns.regionFnCached(this.getCaseNumberTimeSeriesOverNumDays, this);
+        this.sourceIds = sourceIds;
 
         this.__averagedCache = new Map();
+    }
+
+    /**
+     *
+     * @param data
+     * @private
+     */
+    __dataUncompressed(data) {
+        let r = {};
+
+        for (let key in data) {
+            let sourceDataOut = [];
+
+            for (let sourceDataItems of data[key]) {
+                let sourceDataItemsOut = [];
+
+                for (let sourceDataItem of sourceDataItems) {
+                    let sourceDataItemOut = [sourceDataItem[0]]
+
+                    for (let item of sourceDataItem.slice(1)) {
+                        if (typeof item === 'string') {
+                            // Strings contain an integer specifying number of nulls
+                            // (run length encoding) to reduce needed downloads
+                            for (let i = 0; i < parseInt(item); i++) {
+                                sourceDataItemOut.push(null);
+                            }
+                        } else {
+                            sourceDataItemOut.push(item)
+                        }
+                    }
+                    sourceDataItemsOut.push(sourceDataItemOut);
+                }
+                sourceDataOut.push(sourceDataItemsOut);
+            }
+            r[key] = sourceDataOut;
+        }
+        return r;
     }
 
     /**
@@ -110,7 +152,6 @@ class CasesData {
         let r = {};
         for (let [key, value] of Object.entries(regionsDateIds)) {
             r[key] = new DateType(value);
-            //console.log(`${JSON.stringify(value)} ${JSON.stringify(r[key])} ${r[key].prettified()}`);
         }
         return r;
     }
@@ -151,6 +192,63 @@ class CasesData {
         return this.dataType;
     }
 
+    /**
+     *
+     * @returns {*}
+     */
+    getSourceIds() {
+        return this.sourceIds;
+    }
+
+    /**
+     *
+     * @param fn
+     * @param mode
+     * @param args
+     * @returns {null|*}
+     * @private
+     */
+    __tryEachSourceId(fn, mode, ...args) {
+        let r = null;
+
+        for (let sourceId of this.getSourceIds()) {
+            //console.log(args.concat([sourceId]));
+            let iR = fn.apply(this, args.concat([sourceId]));
+
+            if (iR != null && mode === PRIORITIZE_FIRST_VALUE) {
+                return iR;
+            } else if (iR != null && mode === PRIORITIZE_LOW_INT_VALUE) {
+                if (r == null || iR < r) {
+                    r = iR;
+                }
+            } else if (iR != null && mode === PRIORITIZE_RECENT_DATAPOINT) {
+                // I've noticed that Bing has a lot of data on a more granular level than JHU,
+                // but that the quality of the data is sometimes not high or not updated, so thinking
+                // that the higher counts on the same date should take preference at the least
+                if (r == null || iR.getDateType() > r.getDateType() ||
+                    (iR.getDateType() >= r.getDateType() && r.getValue() < iR.getValue())) {
+                    r = iR;
+                }
+            } else if (iR != null && mode === PRIORITIZE_MANUAL_THEN_RECENT_DATAPOINT) {
+                if (sourceId === 'manual_state_data') {
+                    return iR;
+                } else if (r == null || iR.getDateType() > r.getDateType() ||
+                    (iR.getDateType() >= r.getDateType() && r.getValue() < iR.getValue())) {
+                    r = iR;
+                }
+            } else if (iR != null && mode === PRIORITIZE_RECENT_DATAPOINTS) {
+                if (r == null || iR.getDateRangeType().getToDate() > r.getDateRangeType().getToDate() ||
+                    (iR.getDateRangeType().getToDate() >= r.getDateRangeType().getToDate() && r[0].getValue() < iR[0].getValue())) {
+                    r = iR;
+                }
+            } else if (iR != null) {
+                throw "invalid mode: "+mode;
+            }
+        }
+
+        return r;
+    }
+
     /*******************************************************************
      * Get possible children
      *******************************************************************/
@@ -163,9 +261,10 @@ class CasesData {
      */
     getRegionChildren() {
         let r = new Set();
-        for (var [iRegion, iAgeRange, iValues] of this.data) {
+        for (let key in this.data) {
+            let [iRegionChild, iAgeRange] = key.split('||');
             if (!iAgeRange) {
-                r.add(iRegion)
+                r.add(iRegionChild)
             }
         }
         return this.__regionChildrenToTypes(Array.from(r).sort());
@@ -179,14 +278,16 @@ class CasesData {
      */
     getAgeRanges(regionType) {
         let r = new Set();
-        for (var [iRegion, iAgeRange, iValues] of this.data) {
-            let iRegionType = new RegionType(
-                this.regionSchema, this.regionParent, iRegion
-            );
+
+        for (let key in this.data) {
+            let [iRegionChild, iAgeRange] = key.split('||');
+            let iRegionType = new RegionType(this.regionSchema, this.regionParent, iRegionChild);
+
             if (regionType.equalTo(iRegionType) && iAgeRange && this.getCaseNumber(regionType, iAgeRange)) {
                 r.add(iAgeRange)
             }
         }
+
         return Array.from(r).sort();
     }
 
@@ -219,26 +320,35 @@ class CasesData {
      *                    and there are only values from the 25th, it will return the 25th.
      * @returns {{numCases: number, updatedDate: *}|{numCases, updatedDate}|{numCases: number, updatedDate}}
      */
-    getCaseNumber(regionType, ageRange, maxDateType) {
+    getCaseNumber(regionType, ageRange, maxDateType, sourceId) {
         ageRange = ageRange || '';
         maxDateType = maxDateType || DateType.today();
 
-        // TODO: FIX FOR MANUALLY ENTERED DATA!!! ===========================================================================
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getCaseNumber, PRIORITIZE_RECENT_DATAPOINT, regionType, ageRange, maxDateType);
+        }
 
-        for (var [iRegion, iAgeRange, iValues] of this.data) {
-            if (iRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
-                for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = this.regionsDateIds[iValues[j][0]],
-                        iValue = iValues[j][this.subHeaderIndex + 1];
+        let sourceIdIdx = this.sourceIds.indexOf(sourceId);
+        let iValues = this.data[`${regionType.getRegionChild()}||${ageRange}`];
 
-                    if (dateUpdated > maxDateType) {
-                        continue;
-                    } if (iValue != null && iValue !== '') {
-                        return new DataPoint(dateUpdated, parseInt(iValue));
-                    }
+        if (iValues) {
+            for (let j = 0; j < iValues[sourceIdIdx].length; j++) {
+                let dateUpdated = this.regionsDateIds[iValues[sourceIdIdx][j][0]],
+                    iValue = iValues[sourceIdIdx][j][this.subHeaderIndex + 1];
+
+                if (dateUpdated > maxDateType) {
+                    continue;
+                }
+                if (iValue != null && iValue !== '') {
+                    //alert(iValue+' '+sourceId+' '+sourceIdIdx+' '+iValues+' '+regionType.toString())
+                    return new DataPoint(dateUpdated, parseInt(iValue), sourceId);
                 }
             }
+            //console.log('FOUND BUT NO VALS: '+sourceId+' '+sourceIdIdx+' '+JSON.stringify(iValues)+' '+regionType.getRegionChild()+' '+ageRange)
+        } else {
+            //console.log('NOT FOUND: '+sourceId+' '+sourceIdIdx+' '+JSON.stringify(iValues)+' '+regionType.getRegionChild()+' '+ageRange)
         }
+
         return null;
     }
 
@@ -255,31 +365,37 @@ class CasesData {
      * @param numDays
      * @returns {{numCases: number, updatedDate: *}|null|{numCases: number, updatedDate: *}}
      */
-    getCaseNumberOverNumDays(regionType, ageRange, numDays, maxDateType) {
+    getCaseNumberOverNumDays(regionType, ageRange, numDays, maxDateType, sourceId) {
         maxDateType = maxDateType || DateType.today();
         ageRange = ageRange || '';
 
-        let latest = this.getCaseNumber(regionType, ageRange, maxDateType);
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getCaseNumberOverNumDays, PRIORITIZE_RECENT_DATAPOINT, regionType, ageRange, numDays, maxDateType);
+        }
+        let sourceIdIdx = this.sourceIds.indexOf(sourceId);
+
+        let latest = this.getCaseNumber(regionType, ageRange, maxDateType, sourceId);
         if (!latest) {
             return null;
         }
 
         let oldest = null;
-        for (let [iRegion, iAgeRange, iValues] of this.data) {
-            if (iRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
-                for (var j = 0; j < iValues.length; j++) {
-                    let dateUpdated = this.regionsDateIds[iValues[j][0]],
-                        iValue = iValues[j][this.subHeaderIndex + 1];
+        let iValues = this.data[`${regionType.getRegionChild()}||${ageRange}`];
 
-                    if (dateUpdated > maxDateType) {
-                        continue;
-                    } if (iValue != null && iValue !== '') {
-                        oldest = new DataPoint(
-                            latest.getDateType(), latest.getValue() - parseInt(iValue)
-                        );
-                        if (dateUpdated.numDaysSince(maxDateType) > numDays) {
-                            return oldest;
-                        }
+        if (iValues) {
+            for (var j = 0; j < iValues[sourceIdIdx].length; j++) {
+                let dateUpdated = this.regionsDateIds[iValues[sourceIdIdx][j][0]],
+                    iValue = iValues[sourceIdIdx][j][this.subHeaderIndex + 1];
+
+                if (dateUpdated > maxDateType) {
+                    continue;
+                }
+                if (iValue != null && iValue !== '') {
+                    oldest = new DataPoint(
+                        latest.getDateType(), latest.getValue() - parseInt(iValue), sourceId
+                    );
+                    if (dateUpdated.numDaysSince(maxDateType) > numDays) {
+                        return oldest;
                     }
                 }
             }
@@ -287,9 +403,7 @@ class CasesData {
 
         // Can't do much if data doesn't go back
         // that far other than show oldest we can
-        return oldest || new DataPoint(
-            latest.getDateType(), 0
-        );
+        return oldest || null;
     }
 
     /*******************************************************************
@@ -302,19 +416,19 @@ class CasesData {
      * @param ageRange
      * @param maxDateType
      */
-    getSmoothedCaseNumber(regionType, ageRange, maxDateType) {
+    getSmoothedCaseNumber(regionType, ageRange, maxDateType, sourceId) {
         ageRange = ageRange || '';
         maxDateType = maxDateType || DateType.today();
 
-        let uniqueKey = `${regionType.getHashKey()}||${ageRange}`;
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getSmoothedCaseNumber, PRIORITIZE_RECENT_DATAPOINT, regionType, ageRange, maxDateType);
+        }
+
+        let uniqueKey = `${regionType.getHashKey()}||${ageRange}||${sourceId}`;
         if (!this.__averagedCache.has(uniqueKey)) {
-            let dataPoints = this.getCaseNumberTimeSeries(regionType, ageRange, DateType.today());
+            let dataPoints = this.getCaseNumberTimeSeries(regionType, ageRange, DateType.today(), sourceId);
             if (dataPoints) {
                 dataPoints = dataPoints.getDayAverage(7);
-                //console.log(JSON.stringify(dataPoints))
-                //alert("DATAPOINTS: "+uniqueKey)
-            } else {
-                //alert("NOT DATAPOINTS: "+uniqueKey)
             }
             this.__averagedCache.set(uniqueKey, dataPoints);
         }
@@ -325,7 +439,6 @@ class CasesData {
         }
         else {
             for (let timeSeriesItem of dataPoints) {
-                //console.log(timeSeriesItem.getDateType().prettified())
                 if (timeSeriesItem.getDateType() <= maxDateType) {
                     return timeSeriesItem;
                 }
@@ -341,22 +454,20 @@ class CasesData {
      * @param numDays
      * @param maxDateType
      */
-    getSmoothedCaseNumberOverNumDays(regionType, ageRange, numDays, maxDateType) {
+    getSmoothedCaseNumberOverNumDays(regionType, ageRange, numDays, maxDateType, sourceId) {
         ageRange = ageRange || '';
         maxDateType = maxDateType || DateType.today();
 
-        let latestTimeSeriesItem = this.getSmoothedCaseNumber(
-            regionType, ageRange, maxDateType
-        );
-        let pastTimeSeriesItem = this.getSmoothedCaseNumber(
-            regionType, ageRange, maxDateType.daysSubtracted(numDays)
-        );
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getSmoothedCaseNumberOverNumDays, PRIORITIZE_RECENT_DATAPOINT, regionType, ageRange, numDays, maxDateType);
+        }
+
+        let latestTimeSeriesItem = this.getSmoothedCaseNumber(regionType, ageRange, maxDateType, sourceId);
+        let pastTimeSeriesItem = this.getSmoothedCaseNumber(regionType, ageRange, maxDateType.daysSubtracted(numDays), sourceId);
 
         if (latestTimeSeriesItem && pastTimeSeriesItem) {
-            return new DataPoint(
-                latestTimeSeriesItem.getDateType(),
-                Math.round(latestTimeSeriesItem.getValue() - pastTimeSeriesItem.getValue()) // NOTE ME!!! ============================================
-            )
+            let value = Math.round(latestTimeSeriesItem.getValue() - pastTimeSeriesItem.getValue());
+            return new DataPoint(latestTimeSeriesItem.getDateType(), value, sourceId)
         }
         return null;
     }
@@ -372,25 +483,27 @@ class CasesData {
      * @param ageRange
      * @returns {[]}
      */
-    getCaseNumberTimeSeries(regionType, ageRange, maxDateType) {
+    getCaseNumberTimeSeries(regionType, ageRange, maxDateType, sourceId) {
         maxDateType = maxDateType || DateType.today();
         ageRange = ageRange || '';
 
-        var r = new DataPoints(
-            this, regionType, ageRange
-        );
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getCaseNumberTimeSeries, PRIORITIZE_RECENT_DATAPOINTS, regionType, ageRange, maxDateType);
+        }
+        let sourceIdIdx = this.sourceIds.indexOf(sourceId);
 
-        for (var [iRegion, iAgeRange, iValues] of this.data) {
-            if (iRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
-                for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = this.regionsDateIds[iValues[j][0]],
-                        iValue = iValues[j][this.subHeaderIndex + 1];
+        let r = new DataPoints(this, regionType, ageRange);
+        let iValues = this.data[`${regionType.getRegionChild()}||${ageRange}`];
 
-                    if (dateUpdated > maxDateType) {
-                        continue;
-                    } else if (iValue != null && iValue !== '') {
-                        r.push(new DataPoint(dateUpdated, parseInt(iValue)));
-                    }
+        if (iValues) {
+            for (let j = 0; j < iValues[sourceIdIdx].length; j++) {
+                let dateUpdated = this.regionsDateIds[iValues[sourceIdIdx][j][0]],
+                    iValue = iValues[sourceIdIdx][j][this.subHeaderIndex + 1];
+
+                if (dateUpdated > maxDateType) {
+                    continue;
+                } else if (iValue != null && iValue !== '') {
+                    r.push(new DataPoint(dateUpdated, parseInt(iValue), sourceId));
                 }
             }
         }
@@ -411,11 +524,15 @@ class CasesData {
      * @param numDays
      * @returns {[]}
      */
-    getCaseNumberTimeSeriesOverNumDays(regionType, ageRange, numDays, maxDateType) {
+    getCaseNumberTimeSeriesOverNumDays(regionType, ageRange, numDays, maxDateType, sourceId) {
         maxDateType = maxDateType || DateType.today();
 
-        var r = [];
-        var values = this.getCaseNumberTimeSeries(regionType, ageRange, maxDateType);
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getCaseNumberTimeSeriesOverNumDays, PRIORITIZE_RECENT_DATAPOINTS, regionType, ageRange, numDays, maxDateType);
+        }
+
+        let r = new DataPoints(this, regionType, ageRange);
+        let values = this.getCaseNumberTimeSeries(regionType, ageRange, maxDateType, sourceId);
 
         for (let iData of values) {
             if (iData.getDateType().numDaysSince(maxDateType) > numDays) {
@@ -435,30 +552,29 @@ class CasesData {
      *
      * @returns {{min: number, median: *, max: number}}
      */
-    getMaxMinValues(maxDateType) {
+    getMaxMinValues(maxDateType, sourceId) {
         maxDateType = maxDateType || DateType.today();
+
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getMaxMinValues, PRIORITIZE_FIRST_VALUE, maxDateType);
+        }
 
         var min = 99999999999,
             max = -99999999999,
             allVals = [];
 
-        for (var [iRegion, iAgeRange, iValues] of this.data) {
-            let iRegionType = new RegionType(this.regionSchema, this.regionParent, iRegion);
-            var value = this.getCaseNumber(iRegionType, iAgeRange, maxDateType);  // TODO: Is this call necessary?? ===============
-            if (!value) {
-                continue;
-            }
+        for (let key in this.data) {
+            let [iRegionChild, iAgeRange] = key.split('||');
+            let iRegionType = new RegionType(this.regionSchema, this.regionParent, iRegionChild);
+
+            var value = this.getCaseNumber(iRegionType, iAgeRange, maxDateType, sourceId);
+            if (!value) continue;
             value = value.getValue();
 
-            if (value === '' || value == null) {
-                continue;
-            }
-            if (value > max) {
-                max = value;
-            }
-            if (value < min) {
-                min = value;
-            }
+            if (value === '' || value == null) continue;
+            if (value > max) max = value;
+            if (value < min) min = value;
+
             allVals.push(value);
         }
 
@@ -477,27 +593,30 @@ class CasesData {
      * @param ageRange (optional) the age range e.g. "0-9" as a string
      * @returns {null|*}
      */
-    getDaysSince(regionType, ageRange, maxDateType) {
+    getDaysSince(regionType, ageRange, maxDateType, sourceId) {
         ageRange = ageRange || '';
         maxDateType = maxDateType || DateType.today();
-        var firstVal = null;
 
-        for (var [iChildRegion, iAgeRange, iValues] of this.data) {
-            if (iChildRegion === regionType.getRegionChild() && iAgeRange === ageRange) {
-                for (var j = 0; j < iValues.length; j++) {
-                    var dateUpdated = this.regionsDateIds[iValues[j][0]],
-                        iValue = iValues[j][this.subHeaderIndex + 1];
+        if (sourceId == null) {
+            return this.__tryEachSourceId(this.getDaysSince, PRIORITIZE_LOW_INT_VALUE, regionType, ageRange, maxDateType);
+        }
+        let sourceIdIdx = this.sourceIds.indexOf(sourceId);
 
-                    if (dateUpdated > maxDateType) {
-                        continue;
-                    } if (iValue == null || iValue === '') {
-                        continue;
-                    } else if (firstVal == null) {
-                        firstVal = iValue;
-                    } else if (firstVal > iValue) {
-                        return dateUpdated.numDaysSince(maxDateType);
-                    }
-                }
+        let firstVal = null;
+        let iValues = this.data[`${regionType.getRegionChild()}||${ageRange}`];
+
+        for (let j = 0; j < iValues[sourceIdIdx].length; j++) {
+            let dateUpdated = this.regionsDateIds[iValues[sourceIdIdx][j][0]],
+                iValue = iValues[sourceIdIdx][j][this.subHeaderIndex + 1];
+
+            if (dateUpdated > maxDateType) {
+                continue;
+            } if (iValue == null || iValue === '') {
+                continue;
+            } else if (firstVal == null) {
+                firstVal = iValue;
+            } else if (firstVal > iValue) {
+                return dateUpdated.numDaysSince(maxDateType);
             }
         }
         return null;
