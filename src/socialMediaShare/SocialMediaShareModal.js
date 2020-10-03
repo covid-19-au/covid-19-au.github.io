@@ -17,7 +17,7 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-const SocialMediaShareModal = ({ visible, onCancel }) => {
+const SocialMediaShareModal = ({ visible, onCancel, addToURL }) => {
   return (
     <Modal
       isOpen={visible}
@@ -25,7 +25,7 @@ const SocialMediaShareModal = ({ visible, onCancel }) => {
       style={customStyles}
     >
       <p>Share this site.</p>
-      <SharedButtons />
+      <SharedButtons addToURL={addToURL} />
     </Modal>
   )
 }

@@ -1,5 +1,7 @@
-//let URL = 'http://18.219.202.227/covid_static_data/schema_types.json';
-let URL = 'https://covid-global-map.org/covid_static_data/schema_types.json';
+//let URL = 'http://18.219.202.227/covid_static_data/schema_types_v2.json';
+import DateType from "../CrawlerDataTypes/DateType";
+
+let URL = 'https://covid-global-map.org/covid_static_data/schema_types_v2.json';
 let __remoteData;
 
 
@@ -108,6 +110,7 @@ class __RemoteData {
 
     /**
      * Get whether a given file has a datatype (e.g. "total" or "new")
+     * which has also been updated within the last 7 days
      *
      * @param schemaType
      * @param regionParent
@@ -118,7 +121,10 @@ class __RemoteData {
         var fileNames = this.getFileNames(schemaType, regionParent),
             caseFilename = fileNames.caseDataFilename;
 
-        return (this.schemaTypes.case_data_datatypes[caseFilename]||[]).indexOf(dataType) !== -1;
+        return (
+            dataType in (this.schemaTypes.updated_dates_by_datatype[caseFilename] || {}) &&
+            new DateType(this.schemaTypes.updated_dates_by_datatype[caseFilename][dataType]).numDaysSince() <= 14
+        );
     }
 
     /**

@@ -729,7 +729,7 @@ class DataDownloader {
                             }
 
                             this._caseDataInsts[iDataType][regionSchema][iRegionParent] = new CasesWithManualAUStateData( //new CasesData(
-                                caseData[iRegionParent], jsonData['date_ids'], jsonData['sub_headers'],
+                                caseData[iRegionParent], jsonData['date_ids'], jsonData['sub_headers'], jsonData['source_ids'],
                                 iDataType, jsonData['updated_dates'][regionSchema][iRegionParent],
                                 regionSchema, iRegionParent
                             );
