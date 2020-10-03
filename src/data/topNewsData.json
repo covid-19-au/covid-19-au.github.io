@@ -1,6 +1,14 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.abc.net.au/news/2020-10-03/victoria-coronavirus-new-cases-eight-three-deaths/12728820",
+      "title": "Victoria records eight new coronavirus cases and three deaths as Melbourne's average falls, police patrol beaches",
+      "source": "SBSNews",
+      "date": "03 October 2020",
+      "time": "12:00",
+      "summary": "A large number of people were filmed flouting social distancing rules at St Kilda beach. Victoria Premier Daniel Andrews has expressed his \"disappointment\" in what he described as \"unacceptable\" scenes."
+    },
+    {
       "link": "https://www.sbs.com.au/news/new-south-wales-and-the-northern-territory-ready-to-open-their-borders-to-new-zealanders",
       "title": "New South Wales and the Northern Territory ready to open their borders to New Zealanders",
       "source": "SBSNews",
@@ -39,14 +47,6 @@
       "date": "27 September 2020",
       "time": "15:19",
       "summary": "Metropolitan Melbourne moves into step two of eased restrictions, and Victoria Premier Daniel Andrews announced that step three would be brought forward by one week to October 19th."
-    },
-    {
-      "link": "https://www.theguardian.com/world/2020/sep/26/victoria-records-one-death-and-12-new-cases-as-covid-19-numbers-continue-to-drop",
-      "title": "Daniel Andrews says he will have 'good news' on Melbourne's Covid restrictions on Sunday ",
-      "source": "TheGuardian",
-      "date": "26 September 2020",
-      "time": "18:13",
-      "summary": "Victorian Premier Daniel Andrews has teased a further easing of coronavirus restrictions after Victoria announced only 12 new cases overnight."
     }
   ]
 }
