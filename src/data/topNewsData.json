@@ -1,6 +1,14 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.theguardian.com/world/2020/oct/04/coronavirus-victoria-reports-12-cases-with-three-linked-to-melbourne-butchers-shop",
+      "title": "Coronavirus: Victoria reports 12 cases with three linked to Melbourne butcher ",
+      "source": "TheGuardian",
+      "date": "04 October 2020",
+      "time": "12:53",
+      "summary": "Three of the 12 new cases announced in Victoria today are linked to a butcher at Chadstone Shopping Centre. The 14-day rolling average is now 11.9."
+    },
+    {
       "link": "https://www.abc.net.au/news/2020-10-03/victoria-coronavirus-new-cases-eight-three-deaths/12728820",
       "title": "Victoria records eight new coronavirus cases and three deaths as Melbourne's average falls, police patrol beaches",
       "source": "SBSNews",
@@ -39,14 +47,6 @@
       "date": "28 September 2020",
       "time": "14:53",
       "summary": "Victorian Premier Daniel Andrews today said that the state is close to taking a \"really big step\" after only announcing 5 new cases overnight. The 14-day rolling average of new cases in Metropolitan Melbourne is now down to 20.3. "
-    },
-    {
-      "link": "https://theconversation.com/curfew-lifted-and-covid-19-roadmap-is-ahead-of-schedule-as-melbourne-inches-towards-end-of-lockdown-146987",
-      "title": "Curfew lifted and COVID-19 roadmap is ‘ahead of schedule’ as Melbourne inches towards end of lockdown",
-      "source": "TheConversation",
-      "date": "27 September 2020",
-      "time": "15:19",
-      "summary": "Metropolitan Melbourne moves into step two of eased restrictions, and Victoria Premier Daniel Andrews announced that step three would be brought forward by one week to October 19th."
     }
   ]
 }
