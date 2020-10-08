@@ -1,6 +1,14 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.sbs.com.au/news/victoria-records-11-new-coronavirus-cases-as-melbourne-s-14-day-average-continues-to-trend-down",
+      "title": "Victoria records 11 new coronavirus cases as Melbourne's 14-day average continues to trend down",
+      "source": "SBSNews",
+      "date": "08 October 2020",
+      "time": "11:00",
+      "summary": "The rolling 14-day average in Melbourne continues to decrease, reaching 9.7 today after 11 new cases were recorded."
+    },
+    {
       "link": "https://www.sbs.com.au/news/almost-200-victorians-self-isolating-as-chadstone-coronavirus-cluster-grows-to-31-cases",
       "title": "Almost 200 Victorians self-isolating, as Chadstone coronavirus cluster grows to 31 cases",
       "source": "SBSNews",
@@ -10,7 +18,7 @@
     },
     {
       "link": "https://www.abc.net.au/news/2020-10-06/coronavirus-queensland-cases-update-borders/12731476",
-      "title": "Queensland again records no new coronavirus cases but Health Minister warns testing numbers down",
+      "title": "Queensland again records no new coronavirus cases but Health Minister warns testing numbers down.",
       "source": "ABCNews",
       "date": "06 October 2020",
       "time": "17:00",
