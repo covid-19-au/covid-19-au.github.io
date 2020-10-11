@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.sbs.com.au/news/australia-is-in-talks-to-ease-travel-restrictions-with-select-countries-as-coronavirus-infection-rate-falls",
+      "title": "Australia is in talks to ease travel restrictions with select countries as coronavirus infection rate falls",
+      "source": "SBSNews",
+      "date": "11 October 2020",
+      "time": "18:00",
+      "summary": "As coronavirus numbers decrease, Australia is in talks with a number of countries including Japan, South Korea, and Singapore to ease travel restrictions."
+    },{
       "link": "https://www.theguardian.com/australia-news/2020/oct/10/daniel-andrews-says-it-is-unlikely-big-steps-will-be-taken-to-unwind-victorias-coronavirus-restrictions",
       "title": "Daniel Andrews says it is 'unlikely' big steps will be taken to unwind Victoria's coronavirus restrictions",
       "source": "TheGuardian",
@@ -30,14 +37,6 @@
       "date": "06 October 2020",
       "time": "17:00",
       "summary": "Queensland recorded 25 days in a row without a recorded COVID-19 case that posed a risk of community transmission."
-    },
-    {
-      "link": "https://www.theguardian.com/world/2020/oct/04/coronavirus-victoria-reports-12-cases-with-three-linked-to-melbourne-butchers-shop",
-      "title": "Coronavirus: Victoria reports 12 cases with three linked to Melbourne butcher ",
-      "source": "TheGuardian",
-      "date": "04 October 2020",
-      "time": "12:53",
-      "summary": "Three of the 12 new cases announced in Victoria today are linked to a butcher at Chadstone Shopping Centre. The 14-day rolling average is now 11.9."
     }
   ]
 }
