@@ -1,6 +1,20 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.abc.net.au/news/2020-10-12/coronavirus-outbreak-on-vega-dream-sees-six-more-test-positive/12754056",
+      "title": "Coronavirus outbreak on ship off Port Hedland, the Vega Dream, sees six more crew members test positive",
+      "source": "ABCNews",
+      "date": "12 October 2020",
+      "time": "19:00",
+      "summary": "The Vega Dream iron ore bulk carrier anchored off Western Australia has now been confirmed to have 7 cases of coronavirus in total. "
+    },{
+      "link": "https://www.sbs.com.au/news/victoria-records-15-new-coronavirus-cases-as-thousands-of-students-return-to-in-class-learning",
+      "title": "Victoria records 15 new coronavirus cases as thousands of students return to in-class learning",
+      "source": "SBSNews",
+      "date": "12 October 2020",
+      "time": "15:00",
+      "summary": "Victoria's 14-day rolling average has now increased from 9.7 on Sunday to 10.3 today. State Premier Daniel Andrews described the number of new cases today as \"higher than he would like.\""
+    },{
       "link": "https://www.sbs.com.au/news/australia-is-in-talks-to-ease-travel-restrictions-with-select-countries-as-coronavirus-infection-rate-falls",
       "title": "Australia is in talks to ease travel restrictions with select countries as coronavirus infection rate falls",
       "source": "SBSNews",
