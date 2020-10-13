@@ -1,6 +1,16 @@
 {
   "dailyFunStuff": [
-    {
+   {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=IJJ-XsQBUPI",
+          "description": "The Insanely Likable Career of Paul Rudd"
+        }
+      ],
+      "type": "distraction",
+      "date": "13/10/2020"
+    }, {
       "image": [],
       "video": [
         {
