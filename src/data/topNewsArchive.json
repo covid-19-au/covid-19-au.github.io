@@ -1,6 +1,14 @@
 {
   "archiveTopNews": [
-    
+   
+    {
+      "link": "https://www.sbs.com.au/news/almost-200-victorians-self-isolating-as-chadstone-coronavirus-cluster-grows-to-31-cases",
+      "title": "Almost 200 Victorians self-isolating, as Chadstone coronavirus cluster grows to 31 cases",
+      "source": "SBSNews",
+      "date": "07 October 2020",
+      "time": "15:00",
+      "summary": "Victoria has recorded 6 new cases and 2 deaths overnight. The outbreak at a butcher in Chadstone Shopping Centre has grown to 31 cases, and 177 people are now being asked to isolate as a precaution. Melbourne's 14-day rolling average is now 9.9."
+    }, 
     {
       "link": "https://www.abc.net.au/news/2020-10-06/coronavirus-queensland-cases-update-borders/12731476",
       "title": "Queensland again records no new coronavirus cases but Health Minister warns testing numbers down.",
