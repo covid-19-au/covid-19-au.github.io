@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.sbs.com.au/news/nsw-halts-easing-of-restrictions-after-recording-11-new-locally-acquired-cases",
+      "title": "NSW halts easing of restrictions after recording 11 new locally-acquired cases",
+      "source": "SBSNews",
+      "date": "14 October 2020",
+      "time": "13:00",
+      "summary": "NSW Premier Gladys Berejiklian announced 13 new cases of coronavirus in the state overnight including 11 locally-acquired cases. The number has caused the state government to halt its plans for easing restrictions."
+    },{
       "link": "https://www.abc.net.au/news/2020-10-12/coronavirus-outbreak-on-vega-dream-sees-six-more-test-positive/12754056",
       "title": "Coronavirus outbreak on ship off Port Hedland, the Vega Dream, sees six more crew members test positive",
       "source": "ABCNews",
@@ -35,14 +42,6 @@
       "date": "08 October 2020",
       "time": "11:00",
       "summary": "The rolling 14-day average in Melbourne continues to decrease, reaching 9.7 today after 11 new cases were recorded."
-    },
-    {
-      "link": "https://www.sbs.com.au/news/almost-200-victorians-self-isolating-as-chadstone-coronavirus-cluster-grows-to-31-cases",
-      "title": "Almost 200 Victorians self-isolating, as Chadstone coronavirus cluster grows to 31 cases",
-      "source": "SBSNews",
-      "date": "07 October 2020",
-      "time": "15:00",
-      "summary": "Victoria has recorded 6 new cases and 2 deaths overnight. The outbreak at a butcher in Chadstone Shopping Centre has grown to 31 cases, and 177 people are now being asked to isolate as a precaution. Melbourne's 14-day rolling average is now 9.9."
     }
   ]
 }
