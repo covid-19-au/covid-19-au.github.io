@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.theguardian.com/australia-news/2020/oct/16/victoria-set-to-ease-lockdown-rules-after-it-records-two-new-cases-and-no-deaths",
+      "title": "Victoria set to ease lockdown rules after it records two new cases and no deaths ",
+      "source": "TheGuardian",
+      "date": "17 October 2020",
+      "time": "15:52",
+      "summary": "The numbers are Victoria's lowest daily increase since June. Melbourne's 14 day rolling average now sits at 8.7 cases."
+    },{
       "link": "https://www.sbs.com.au/news/nsw-halts-easing-of-restrictions-after-recording-11-new-locally-acquired-cases",
       "title": "NSW halts easing of restrictions after recording 11 new locally-acquired cases",
       "source": "SBSNews",
