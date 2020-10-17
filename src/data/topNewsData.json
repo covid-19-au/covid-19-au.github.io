@@ -1,10 +1,17 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.abc.net.au/news/2020-10-17/nsw-records-five-new-local-coronavirus-cases/12778446",
+      "title": "NSW records five new locally acquired coronavirus cases as Oran Park cluster expands",
+      "source": "ABCNews",
+      "date": "17 October 2020",
+      "time": "19:00",
+      "summary": "NSW recorded 7 new cases in total, with 2 being in hotel quarantine. The other five have been attributed to the Oran Park cluster which now has 18 cases."
+    },{
       "link": "https://www.theguardian.com/australia-news/2020/oct/16/victoria-set-to-ease-lockdown-rules-after-it-records-two-new-cases-and-no-deaths",
       "title": "Victoria set to ease lockdown rules after it records two new cases and no deaths ",
       "source": "TheGuardian",
-      "date": "17 October 2020",
+      "date": "16 October 2020",
       "time": "15:52",
       "summary": "The numbers are Victoria's lowest daily increase since June. Melbourne's 14 day rolling average now sits at 8.7 cases."
     },{
@@ -35,13 +42,6 @@
       "date": "11 October 2020",
       "time": "18:00",
       "summary": "As coronavirus numbers decrease, Australia is in talks with a number of countries including Japan, South Korea, and Singapore to ease travel restrictions."
-    },{
-      "link": "https://www.theguardian.com/australia-news/2020/oct/10/daniel-andrews-says-it-is-unlikely-big-steps-will-be-taken-to-unwind-victorias-coronavirus-restrictions",
-      "title": "Daniel Andrews says it is 'unlikely' big steps will be taken to unwind Victoria's coronavirus restrictions",
-      "source": "TheGuardian",
-      "date": "10 October 2020",
-      "time": "13:57",
-      "summary": "Victorian Premier Daniel Andrews announced that although steps will be taken to ease restrictions on the 19th of October, they would not be as expansive as previously hoped. He called on Victorians to not lose hope, and the strategy is working. He emphasised that the easing of restrictions must be done properly."
     }
   ]
 }
