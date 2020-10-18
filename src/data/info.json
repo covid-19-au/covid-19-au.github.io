@@ -837,25 +837,17 @@
             "name": "Victoria",
             "text": {
                 "text_1": [
-                    "The Victorian government has announced a roadmap for the easing of coronavirus restrictions. Stage 4 lockdown has been extended till 28 September",
-                    "13th September will mark a slight change in stage 4 restrictions:"
+                    "A number of restrictions will be eased from Sunday 11:59pm 18 October 2020. Details of the eased restrictions and Victoria's roadmap are found in the links below."
                 ],
                 "ulist_1": [
-                    "Curfew wil then be from 9pm-5am (instead of the current 8pm-5am",
-                    "The exercise limit will go up to 2 hours a day instead of 1 (5km restriction still applies)",
-                    "People living alone can have one designated person visit",
-                    "Outdoor gatherings will be allowed for two people from different households or all members of the same household, for a maximum of 2 hours",
-                    "Remote learning will stake take place except for the children of essential workers when there is no adult at home",
-                    "Playgrounds will reopen",
-                    "Weddings for compassionate reasons will be allowed and can have up to five attendees",
-                    "Funerals will be capped at 10 people"
                 ],
                 "text_middle": [
-                    "Read more about the other stages in the article linked below."
+                  
                 ],
                 "ulist_2": [],
                 "text_2": [],
                 "citation": [
+                    {"link": "https://www.dhhs.vic.gov.au/summary-of-the-changes-to-restrictions-for-metropolitan-melbourne-and-regional-victoria","name":"Summary of changes to restrictions for metropolitan Melbourne and regional Victoria 18/10/2020 - Department of Health and Human Services"},
                     {
                         "link": "https://www.theguardian.com/australia-news/2020/sep/06/victorias-roadmap-for-easing-coronavirus-lockdown-restrictions-what-you-need-to-know",
                         "name": "Victoria's roadmap for easing coronavirus lockdown restrictions: what you need to know"
