@@ -1,6 +1,20 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.sbs.com.au/news/victoria-records-three-new-coronavirus-cases-amid-questions-over-a-possible-reinfection",
+      "title": "Victoria records three new coronavirus cases amid questions over a possible reinfection",
+      "source": "SBSNews",
+      "date": "21 October 2020",
+      "time": "17:00",
+      "summary": "Victoria recorded 3 new cases overnight, taking the 14-day rolling average to 6.2. One individual has tested positive for the virus again, after testing positive in June."
+    },{
+      "link": "https://www.sbs.com.au/news/nsw-relaxes-coronavirus-restrictions-for-places-of-worship-and-gyms-as-it-records-two-new-cases",
+      "title": "NSW relaxes coronavirus restrictions for places of worship and gyms as it records two new cases",
+      "source": "SBSNews",
+      "date": "21 October 2020",
+      "time": "17:00",
+      "summary": "NSW recorded 2 new locally acquired cases overnight. Religious services in the state will now be allowed to have up to 300 people attend from Friday, and rules around gym staffing will also be relaxed."
+    },{
       "link": "https://www.sbs.com.au/news/vic-set-to-open-up-earlier-than-planned",
       "title": "Vic set to open up earlier than planned",
       "source": "SBSNews",
@@ -28,13 +42,6 @@
       "date": "16 October 2020",
       "time": "15:52",
       "summary": "The numbers are Victoria's lowest daily increase since June. Melbourne's 14 day rolling average now sits at 8.7 cases."
-    },{
-      "link": "https://www.sbs.com.au/news/nsw-halts-easing-of-restrictions-after-recording-11-new-locally-acquired-cases",
-      "title": "NSW halts easing of restrictions after recording 11 new locally-acquired cases",
-      "source": "SBSNews",
-      "date": "14 October 2020",
-      "time": "13:00",
-      "summary": "NSW Premier Gladys Berejiklian announced 13 new cases of coronavirus in the state overnight including 11 locally-acquired cases. The number has caused the state government to halt its plans for easing restrictions."
     }
   ]
 }
