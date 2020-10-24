@@ -1,6 +1,16 @@
 {
   "dailyFunStuff": [
-   {
+  {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=p-SikBqk2PM",
+          "description": "Ice cream made with two bowls — no machine needed"
+        }
+      ],
+      "type": "distraction",
+      "date": "24/10/2020"
+    }, {
       "image": [],
       "video": [
         {
