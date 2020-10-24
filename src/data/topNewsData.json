@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
     {
+      "link": "https://www.theguardian.com/australia-news/2020/oct/24/daniel-andrews-says-victorian-easing-of-coronavirus-restrictions-in-doubt-as-cluster-worsens",
+      "title": "Daniel Andrews says Victorian easing of coronavirus restrictions in doubt as cluster worsens ",
+      "source": "TheGuardian",
+      "date": "24 October 2020",
+      "time": "17:41",
+      "summary": "Victoria recorded 7 new cases overnight, 6 were linked to known outbreak. The state government has asked all staff and students from two schools in North-East Melbourne to get tested for COVID-19."
+    },{
       "link": "https://www.abc.net.au/news/2020-10-23/anti-lockdown-protesters-converge-on-melbourne-shrine/12706900",
       "title": "Police arrest demonstrators at Melbourne protest against Victoria's coronavirus lockdown restrictions",
       "source": "ABCNews",
@@ -35,13 +42,6 @@
       "date": "19 October 2020",
       "time": "17:00",
       "summary": "State Premier Peter Gutwein is hopeful Tasmania will reopen to NSW in early November. He added that he will be providing an update on Friday or Monday."
-    },{
-      "link": "https://www.abc.net.au/news/2020-10-17/nsw-records-five-new-local-coronavirus-cases/12778446",
-      "title": "NSW records five new locally acquired coronavirus cases as Oran Park cluster expands",
-      "source": "ABCNews",
-      "date": "17 October 2020",
-      "time": "19:00",
-      "summary": "NSW recorded 7 new cases in total, with 2 being in hotel quarantine. The other five have been attributed to the Oran Park cluster which now has 18 cases."
     }
   ]
 }
