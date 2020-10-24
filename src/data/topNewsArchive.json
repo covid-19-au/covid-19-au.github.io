@@ -1,6 +1,13 @@
 {
   "archiveTopNews": [
   {
+      "link": "https://www.abc.net.au/news/2020-10-17/nsw-records-five-new-local-coronavirus-cases/12778446",
+      "title": "NSW records five new locally acquired coronavirus cases as Oran Park cluster expands",
+      "source": "ABCNews",
+      "date": "17 October 2020",
+      "time": "19:00",
+      "summary": "NSW recorded 7 new cases in total, with 2 being in hotel quarantine. The other five have been attributed to the Oran Park cluster which now has 18 cases."
+    },{
       "link": "https://www.theguardian.com/australia-news/2020/oct/16/victoria-set-to-ease-lockdown-rules-after-it-records-two-new-cases-and-no-deaths",
       "title": "Victoria set to ease lockdown rules after it records two new cases and no deaths ",
       "source": "TheGuardian",
