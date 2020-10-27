@@ -837,7 +837,7 @@
             "name": "Victoria",
             "text": {
                 "text_1": [
-                    "A number of restrictions will be eased from Sunday 11:59pm 18 October 2020. Details of the eased restrictions and Victoria's roadmap are found in the links below."
+                    "A number of restrictions will be eased from Tuesday 11:59pm 27 October 2020. Details of the eased restrictions and Victoria's roadmap are found in the links below."
                 ],
                 "ulist_1": [
                 ],
@@ -847,7 +847,14 @@
                 "ulist_2": [],
                 "text_2": [],
                 "citation": [
-                    {"link": "https://www.dhhs.vic.gov.au/summary-of-the-changes-to-restrictions-for-metropolitan-melbourne-and-regional-victoria","name":"Summary of changes to restrictions for metropolitan Melbourne and regional Victoria 18/10/2020 - Department of Health and Human Services"},
+                    {
+                        "link": "https://www.abc.net.au/news/2020-10-27/victoria-coronavirus-rules-explained-how-many-visitors-allowed/12817152",
+                        "name":"Victoria's coronavirus restrictions have changed to allow more visits to friends and family at home - ABC News"
+                    },
+                    {
+                        "link": "https://www.dhhs.vic.gov.au/summary-of-the-changes-to-restrictions-for-metropolitan-melbourne-and-regional-victoria",
+                        "name":"Summary of changes to restrictions for metropolitan Melbourne and regional Victoria 18/10/2020 - Department of Health and Human Services"
+                    },
                     {
                         "link": "https://www.theguardian.com/australia-news/2020/sep/06/victorias-roadmap-for-easing-coronavirus-lockdown-restrictions-what-you-need-to-know",
                         "name": "Victoria's roadmap for easing coronavirus lockdown restrictions: what you need to know"
