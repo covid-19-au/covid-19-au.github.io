@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
    {
+      "link": "https://www.sbs.com.au/news/home-visits-in-melbourne-allowed-once-again-from-tonight-under-eased-coronavirus-rules",
+      "title": "Home visits in Melbourne allowed once again from tonight under eased coronavirus rules",
+      "source": "SBSNews",
+      "date": "27 October 2020",
+      "time": "12:00",
+      "summary": "Melbournians will be able to have 2 adult visitors over per day from 11:59pm today."
+    }, {
       "link": "https://www.sbs.com.au/news/victorian-businesses-given-green-light-to-reopen-within-days-as-coronavirus-cases-plummet",
       "title": "Victorian businesses given green light to reopen within days as coronavirus cases plummet",
       "source": "SBSNews",
@@ -42,13 +49,6 @@
       "date": "21 October 2020",
       "time": "17:00",
       "summary": "NSW recorded 2 new locally acquired cases overnight. Religious services in the state will now be allowed to have up to 300 people attend from Friday, and rules around gym staffing will also be relaxed."
-    },{
-      "link": "https://www.sbs.com.au/news/vic-set-to-open-up-earlier-than-planned",
-      "title": "Vic set to open up earlier than planned",
-      "source": "SBSNews",
-      "date": "20 October 2020",
-      "time": "14:00",
-      "summary": "Victoria recorded one new case and no deaths overnight. The 14-day rolling average for new cases now stands at 6.4. State Premier Daniel Andrews said the state was well-placed to ease more restrictions sooner than expected."
     }
   ]
 }
