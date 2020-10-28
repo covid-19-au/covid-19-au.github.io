@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
    {
+      "link": "https://www.sbs.com.au/news/a-critical-period-virus-alerts-issued-for-six-new-sydney-venues-as-authorities-flag-christmas-warning",
+      "title": "'A critical period': Virus alerts issued for six new Sydney venues, as authorities flag Christmas warning",
+      "source": "SBSNews",
+      "date": "28 October 2020",
+      "time": "17:00",
+      "summary": "NSW Health has issued health alerts for six establishments across Sydney after after they were visited by a confirmed case of COVID-19."
+    },{
       "link": "https://www.sbs.com.au/news/home-visits-in-melbourne-allowed-once-again-from-tonight-under-eased-coronavirus-rules",
       "title": "Home visits in Melbourne allowed once again from tonight under eased coronavirus rules",
       "source": "SBSNews",
@@ -42,13 +49,6 @@
       "date": "21 October 2020",
       "time": "17:00",
       "summary": "Victoria recorded 3 new cases overnight, taking the 14-day rolling average to 6.2. One individual has tested positive for the virus again, after testing positive in June."
-    },{
-      "link": "https://www.sbs.com.au/news/nsw-relaxes-coronavirus-restrictions-for-places-of-worship-and-gyms-as-it-records-two-new-cases",
-      "title": "NSW relaxes coronavirus restrictions for places of worship and gyms as it records two new cases",
-      "source": "SBSNews",
-      "date": "21 October 2020",
-      "time": "17:00",
-      "summary": "NSW recorded 2 new locally acquired cases overnight. Religious services in the state will now be allowed to have up to 300 people attend from Friday, and rules around gym staffing will also be relaxed."
     }
   ]
 }
