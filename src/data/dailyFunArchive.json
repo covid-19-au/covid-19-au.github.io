@@ -1,6 +1,16 @@
 {
   "dailyFunStuff": [
-  {
+ {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=dSu5sXmsur4",
+          "description": "Geoengineering: A Horrible Idea We Might Have to Do"
+        }
+      ],
+      "type": "distraction",
+      "date": "29/10/2020"
+    }, {
       "image": [],
       "video": [
         {
