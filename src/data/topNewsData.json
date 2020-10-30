@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
    {
+      "link": "https://www.abc.net.au/news/2020-10-30/melbourne-foot-traffic-surge-sparks-post-lockdown-revival-hopes/12828376",
+      "title": "Melbourne CBD bounces back after lockdown lifted, pedestrian data shows",
+      "source": "ABCNews",
+      "date": "30 October 2020",
+      "time": "16:00",
+      "summary": "Melbourne council data found that 526,931 pedestrians were active in the CBD on Wednesday, 3 times the Wednesday average in recent weeks."
+    },{
       "link": "https://www.abc.net.au/news/2020-10-29/northern-territory-records-four-new-coronavirus-cases-new-delhi/12827178",
       "title": "Four new coronavirus cases detected in Darwin's Howard Springs quarantine facility after passengers arrive from India",
       "source": "ABCNews",
@@ -42,13 +49,6 @@
       "date": "24 October 2020",
       "time": "17:41",
       "summary": "Victoria recorded 7 new cases overnight, 6 were linked to known outbreak. The state government has asked all staff and students from two schools in North-East Melbourne to get tested for COVID-19."
-    },{
-      "link": "https://www.abc.net.au/news/2020-10-23/anti-lockdown-protesters-converge-on-melbourne-shrine/12706900",
-      "title": "Police arrest demonstrators at Melbourne protest against Victoria's coronavirus lockdown restrictions",
-      "source": "ABCNews",
-      "date": "23 October 2020",
-      "time": "20:30",
-      "summary": "Hundreds of protestors in Melbourne assembled today to call for an end to the lockdown. State Premier Daniel Andrews has described the protests as selfish and unhelpful."
     }
   ]
 }
