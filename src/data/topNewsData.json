@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
    {
+      "link": "https://www.sbs.com.au/news/australia-marks-first-24-hours-of-no-community-coronavirus-transmissions-in-almost-five-months",
+      "title": "Australia marks first 24 hours of no community coronavirus transmissions in almost five months",
+      "source": "SBSNews",
+      "date": "1 November 2020",
+      "time": "14:00",
+      "summary": "Health Minister Greg Hunt tweeted that today was the first time Australia went 24 hours with no community transmission of coronavirus reported since June 9th."
+    },{
       "link": "https://www.theguardian.com/world/2020/oct/31/nsw-reports-four-new-coronavirus-cases-as-victoria-police-arrest-anti-mask-protesters",
       "title": "NSW reports four new coronavirus cases as Victoria police arrest anti-mask protesters ",
       "source": "TheGuardian",
@@ -42,13 +49,6 @@
       "date": "26 October 2020",
       "time": "21:34",
       "summary": "A host of restrictions have been eased and Victorians will now be allowed to leave there homes for any reason as the state recorded 0 new cases overnight."
-    }, {
-      "link": "https://www.sbs.com.au/news/daniel-andrews-delays-easing-of-restrictions-as-coronavirus-cluster-in-melbourne-s-north-grows",
-      "title": "Daniel Andrews delays easing of restrictions as coronavirus cluster in Melbourne's north grows",
-      "source": "SBSNews",
-      "date": "25 October 2020",
-      "time": "18:00",
-      "summary": "Victoria recorded seven new coronavirus cases overnight prompting the state goverment to delay the easing of restrictions."
     }
   ]
 }
