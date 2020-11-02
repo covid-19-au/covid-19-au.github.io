@@ -1,6 +1,16 @@
 {
   "dailyFunStuff": [
- {
+{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=wvfR3XLXPvw",
+          "description": "Why Do Things Keep Evolving Into Crabs?"
+        }
+      ],
+      "type": "distraction",
+      "date": "2/11/2020"
+    }, {
       "image": [],
       "video": [
         {
