@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
    {
+      "link": "https://www.sbs.com.au/news/victoria-has-now-gone-six-days-without-recording-a-single-new-coronavirus-case",
+      "title": "Victoria has now gone six days without recording a single new coronavirus case",
+      "source": "SBSNews",
+      "date": "5 November 2020",
+      "time": "18:00",
+      "summary": "Melbourne's 14-day rolling average has now dropped to 1.4."
+    },{
       "link": "https://www.abc.net.au/news/2020-11-04/coronavirus-covidsafe-app-effectiveness-questioned-by-sa-police/12846556",
       "title": "COVIDSafe app of no 'material benefit' to coronavirus contact tracing, SA Police chief says",
       "source": "ABCNews",
@@ -35,13 +42,6 @@
       "date": "30 October 2020",
       "time": "16:00",
       "summary": "Melbourne council data found that 526,931 pedestrians were active in the CBD on Wednesday, 3 times the Wednesday average in recent weeks."
-    },{
-      "link": "https://www.abc.net.au/news/2020-10-29/northern-territory-records-four-new-coronavirus-cases-new-delhi/12827178",
-      "title": "Four new coronavirus cases detected in Darwin's Howard Springs quarantine facility after passengers arrive from India",
-      "source": "ABCNews",
-      "date": "29 October 2020",
-      "time": "16:00",
-      "summary": "Four Australians arriving in Darwin from New Delhi have tested positive for COVID-19. The NT goverment have said that the individuals are well and that they will remain at the quarantine facility."
     }
   ]
 }

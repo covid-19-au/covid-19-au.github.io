@@ -1,6 +1,17 @@
 {
   "dailyFunStuff": [
-{
+
+    {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=448QblQxsGY",
+          "description": "How to Cook 4 Regional Smashburgers with George Motz | Burger Scholar Sessions"
+        }
+      ],
+      "type": "distraction",
+      "date": "5/11/2020"
+    },{
       "image": [],
       "video": [
         {
