@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
    {
+      "link": "https://www.abc.net.au/news/2020-11-06/sa-now-has-more-active-coronavirus-cases-than-victoria/12858572",
+      "title": "SA now has more active coronavirus cases than Victoria with a child joining tally",
+      "source": "ABCNews",
+      "date": "6 November 2020",
+      "time": "18:00",
+      "summary": "SA Health announce one new case today, a child in quarantine. The state now has 17 active cases, of which 16 are people returning from overseas, and the remaining is a close contact. Victoria has 15."
+    },{
       "link": "https://www.sbs.com.au/news/victoria-has-now-gone-six-days-without-recording-a-single-new-coronavirus-case",
       "title": "Victoria has now gone six days without recording a single new coronavirus case",
       "source": "SBSNews",
@@ -28,20 +35,6 @@
       "date": "1 November 2020",
       "time": "14:00",
       "summary": "Health Minister Greg Hunt tweeted that today was the first time Australia went 24 hours with no community transmission of coronavirus reported since June 9th."
-    },{
-      "link": "https://www.theguardian.com/world/2020/oct/31/nsw-reports-four-new-coronavirus-cases-as-victoria-police-arrest-anti-mask-protesters",
-      "title": "NSW reports four new coronavirus cases as Victoria police arrest anti-mask protesters ",
-      "source": "TheGuardian",
-      "date": "31 October 2020",
-      "time": "16:53",
-      "summary": "One of the four cases in NSW was community transmitted, prompting authorities to warn that the threat of community transmission remains \"very real.\" Western Australia also recorded one new coronavirus case, a child in hotel quarantine."
-    },{
-      "link": "https://www.abc.net.au/news/2020-10-30/melbourne-foot-traffic-surge-sparks-post-lockdown-revival-hopes/12828376",
-      "title": "Melbourne CBD bounces back after lockdown lifted, pedestrian data shows",
-      "source": "ABCNews",
-      "date": "30 October 2020",
-      "time": "16:00",
-      "summary": "Melbourne council data found that 526,931 pedestrians were active in the CBD on Wednesday, 3 times the Wednesday average in recent weeks."
     }
   ]
 }
