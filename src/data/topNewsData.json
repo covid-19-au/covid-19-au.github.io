@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
-   {
+      {
+      "link": "https://www.theguardian.com/australia-news/2020/nov/08/victoria-travel-restrictions-scrapped-as-state-records-no-new-covid-cases-for-nine-days",
+      "title": "Victoria travel restrictions scrapped as state records no new Covid cases for nine days",
+      "source": "TheGuardian",
+      "date": "8 November 2020",
+      "time": "17:39",
+      "summary": "The 25km travel limit and the separation of Regional Victoria from Metropolitan Melbourne have come to an end as Victoria recorded no new cases for the ninth day in a row."
+    },{
       "link": "https://www.abc.net.au/news/2020-11-06/sa-now-has-more-active-coronavirus-cases-than-victoria/12858572",
       "title": "SA now has more active coronavirus cases than Victoria with a child joining tally",
       "source": "ABCNews",
@@ -28,13 +35,6 @@
       "date": "3 November 2020",
       "time": "19:30",
       "summary": "The rally occured in central Melbourne on Tuesday. Victoria Police released a statement emphasising their disappointment in, \"a large number of protestors who again showed disregard for the safety of the broader community and the directions of the Chief Health Officer.\""
-    },{
-      "link": "https://www.sbs.com.au/news/australia-marks-first-24-hours-of-no-community-coronavirus-transmissions-in-almost-five-months",
-      "title": "Australia marks first 24 hours of no community coronavirus transmissions in almost five months",
-      "source": "SBSNews",
-      "date": "1 November 2020",
-      "time": "14:00",
-      "summary": "Health Minister Greg Hunt tweeted that today was the first time Australia went 24 hours with no community transmission of coronavirus reported since June 9th."
     }
   ]
 }
