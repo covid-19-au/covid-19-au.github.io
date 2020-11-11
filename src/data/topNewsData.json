@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
       {
+      "link": "https://www.sbs.com.au/news/a-difficult-case-aged-care-worker-who-returned-to-south-australia-from-victoria-tests-positive-for-coronavirus",
+      "title": "'A difficult case': Aged care worker who returned to South Australia from Victoria tests positive for coronavirus",
+      "source": "SBSNews",
+      "date": "11 November 2020",
+      "time": ":",
+      "summary": "The Department of Health and Human Services has requested that anyone who visited Melbourne Central last Sunday between 2pm and 5pm, or were at Melbourne Airport's Terminal Four from noon to 1pm on Monday get themselves tested."
+    },{
       "link": "https://www.sbs.com.au/news/restrictions-on-household-gatherings-unlikely-to-ease-before-christmas-nsw-premier-warns",
       "title": "Restrictions on household gatherings unlikely to ease before Christmas, NSW premier warns",
       "source": "SBSNews",
@@ -28,13 +35,6 @@
       "date": "5 November 2020",
       "time": "18:00",
       "summary": "Melbourne's 14-day rolling average has now dropped to 1.4."
-    },{
-      "link": "https://www.abc.net.au/news/2020-11-04/coronavirus-covidsafe-app-effectiveness-questioned-by-sa-police/12846556",
-      "title": "COVIDSafe app of no 'material benefit' to coronavirus contact tracing, SA Police chief says",
-      "source": "ABCNews",
-      "date": "4 November 2020",
-      "time": "13:00",
-      "summary": "South Australian Police Commisioner Grant Stevens has expressed that the COVIDSafe application has been of \"no material benefit,\" to local health authorities. South Australia and other states are moving to introduce QR code scanning at venues to assist with contact tracing"
     }
   ]
 }
