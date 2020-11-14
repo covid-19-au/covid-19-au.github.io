@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
       {
+      "link": "https://www.abc.net.au/news/2020-11-14/nsw-coronavirus-local-cases-zero-for-seventh-day/12880366",
+      "title": "NSW Health reports seventh consecutive day of no locally acquired COVID-19 cases ",
+      "source": "SBSNews",
+      "date": "14 November 2020",
+      "time": "12:00",
+      "summary": "This is the states longest streak since October 7."
+    },{
       "link": "https://www.sbs.com.au/news/south-australia-will-reopen-its-border-to-victoria-in-less-than-three-weeks",
       "title": "South Australia will reopen its border to Victoria in less than three weeks",
       "source": "SBSNews",
