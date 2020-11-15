@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
       {
+      "link": "https://www.sbs.com.au/news/three-covid-cases-detected-in-sa-community",
+      "title": "Three COVID cases detected in SA community",
+      "source": "SBSNews",
+      "date": "15 November 2020",
+      "time": ":",
+      "summary": "A worker at a quarantine hotel has tested positive for COVID-19, along with two of their family members."
+    },{
       "link": "https://www.abc.net.au/news/2020-11-14/nsw-coronavirus-local-cases-zero-for-seventh-day/12880366",
       "title": "NSW Health reports seventh consecutive day of no locally acquired COVID-19 cases ",
       "source": "SBSNews",
@@ -35,13 +42,6 @@
       "date": "10 November 2020",
       "time": "18:00",
       "summary": "NSW Premier Gladys Berejiklian has revealed that Christmas celebrations could stay capped at twenty visitors even as the state recorded 3 days in a row without a locally acquired case."
-    },{
-      "link": "https://www.theguardian.com/australia-news/2020/nov/08/victoria-travel-restrictions-scrapped-as-state-records-no-new-covid-cases-for-nine-days",
-      "title": "Victoria travel restrictions scrapped as state records no new Covid cases for nine days",
-      "source": "TheGuardian",
-      "date": "8 November 2020",
-      "time": "17:39",
-      "summary": "The 25km travel limit and the separation of Regional Victoria from Metropolitan Melbourne have come to an end as Victoria recorded no new cases for the ninth day in a row."
     }
   ]
 }
