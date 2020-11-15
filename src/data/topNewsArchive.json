@@ -1,6 +1,13 @@
 {
   "archiveTopNews": [
     {
+      "link": "https://www.theguardian.com/australia-news/2020/nov/08/victoria-travel-restrictions-scrapped-as-state-records-no-new-covid-cases-for-nine-days",
+      "title": "Victoria travel restrictions scrapped as state records no new Covid cases for nine days",
+      "source": "TheGuardian",
+      "date": "8 November 2020",
+      "time": "17:39",
+      "summary": "The 25km travel limit and the separation of Regional Victoria from Metropolitan Melbourne have come to an end as Victoria recorded no new cases for the ninth day in a row."
+    },{
       "link": "https://www.abc.net.au/news/2020-11-06/sa-now-has-more-active-coronavirus-cases-than-victoria/12858572",
       "title": "SA now has more active coronavirus cases than Victoria with a child joining tally",
       "source": "ABCNews",
