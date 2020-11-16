@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
-      {
+     {
+      "link": "https://www.sbs.com.au/news/biggest-test-to-date-south-australian-premier-announces-new-restrictions-to-combat-coronavirus-cluster",
+      "title": "'Biggest test to date': South Australian premier announces new restrictions to combat coronavirus cluster",
+      "source": "SBSNews",
+      "date": "17 November 2020",
+      "time": "17:00",
+      "summary": "South Australia will be introducing a number of new restrictions after a cluster of 17 coronavirus cases was uncovered."
+    }, {
       "link": "https://www.sbs.com.au/news/three-covid-cases-detected-in-sa-community",
       "title": "Three COVID cases detected in SA community",
       "source": "SBSNews",
