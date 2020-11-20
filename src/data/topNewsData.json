@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
      {
+      "link": "https://www.canberratimes.com.au/story/7021793/victorian-border-reopens-to-act-but-sa-travellers-still-restricted/?src=rss",
+      "title": "Canberra lifts Victorian border restrictions, but rules remain for SA travel ",
+      "source": "TheCanberraTimes",
+      "date": "20 November 2020",
+      "time": "15:00",
+      "summary": "The border between Canberra and Victoria will reopen at 12.01am on Monday. However, visitors from South Australia will still be required to submit a COVID declaration."
+    }, {
       "link": "https://www.sbs.com.au/news/biggest-test-to-date-south-australian-premier-announces-new-restrictions-to-combat-coronavirus-cluster",
       "title": "'Biggest test to date': South Australian premier announces new restrictions to combat coronavirus cluster",
       "source": "SBSNews",
@@ -21,34 +28,5 @@
       "date": "14 November 2020",
       "time": "12:00",
       "summary": "This is the states longest streak since October 7."
-    },{
-      "link": "https://www.sbs.com.au/news/south-australia-will-reopen-its-border-to-victoria-in-less-than-three-weeks",
-      "title": "South Australia will reopen its border to Victoria in less than three weeks",
-      "source": "SBSNews",
-      "date": "13 November 2020",
-      "time": "15:00",
-      "summary": "From 1 December, Victorians entering South Australia will no longer have to quarantine."
-    },{
-      "link": "https://www.sbs.com.au/news/coronavirus-testing-ramped-up-in-western-sydney-as-nsw-records-fifth-straight-day-with-zero-local-cases",
-      "title": "Coronavirus testing ramped up in western Sydney as NSW records fifth straight day with zero local cases",
-      "source": "SBSNews",
-      "date": "12 November 2020",
-      "time": "17:00",
-      "summary": "The state is urging residents of northwest Sydney to get tested as traces of the virus were found in two local sewage pumping stations."
-    },{
-      "link": "https://www.sbs.com.au/news/a-difficult-case-aged-care-worker-who-returned-to-south-australia-from-victoria-tests-positive-for-coronavirus",
-      "title": "'A difficult case': Aged care worker who returned to South Australia from Victoria tests positive for coronavirus",
-      "source": "SBSNews",
-      "date": "11 November 2020",
-      "time": ":",
-      "summary": "The Department of Health and Human Services has requested that anyone who visited Melbourne Central last Sunday between 2pm and 5pm, or were at Melbourne Airport's Terminal Four from noon to 1pm on Monday get themselves tested."
-    },{
-      "link": "https://www.sbs.com.au/news/restrictions-on-household-gatherings-unlikely-to-ease-before-christmas-nsw-premier-warns",
-      "title": "Restrictions on household gatherings unlikely to ease before Christmas, NSW premier warns",
-      "source": "SBSNews",
-      "date": "10 November 2020",
-      "time": "18:00",
-      "summary": "NSW Premier Gladys Berejiklian has revealed that Christmas celebrations could stay capped at twenty visitors even as the state recorded 3 days in a row without a locally acquired case."
-    }
-  ]
+      }  ]
 }
