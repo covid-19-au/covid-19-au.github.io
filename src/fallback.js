@@ -165,7 +165,7 @@ function Fallback(props) {
         ></script>
         <a href="https://www.freecounterstat.com" title="free hit counter">
           <img
-            src="https://counter3.stat.ovh/private/freecounterstat.php?c=ly4m9kmug45da8x8ba6fchlharqeeqm1"
+            src="https://counter3.stat.ovh/private/freecounterstat.php?c=eqelrcc1kn76jw6xrdwhy5n12s2y5u1w"
             border="0"
             title="free hit counter"
             alt="free hit counter"
