@@ -1,6 +1,34 @@
 {
   "weeklyTopNews": [
-     {
+      {
+            "link": "https://www.sbs.com.au/news/south-australia-records-one-new-coronavirus-case-linked-to-adelaide-s-parafield-cluster",
+            "title": "South Australia records one new coronavirus case linked to Adelaide's Parafield cluster",
+            "source": "SBSNews",
+            "date": "23 November 2020",
+            "time": "13:12",
+      "summary": "Chief Public Health Officer Nicola Spurrier has revealed the latest case is a member of the extended family group linked to the original Parafield cluster."
+        },{
+            "link": "https://www.abc.net.au/news/2020-11-22/sa-coronavirus-businesses-reopen-after-lockdown/12909122",
+            "title": "Relief as SA businesses reopen after three-day lockdown",
+            "source": "ABCNews",
+            "date": "22 November 2020",
+            "time": "20:33",
+      "summary": "Tha planned six day lockdown has been eased early as the threat of widespread community transmission diminished. State Premier Steven Marshall express that the state made the right move by containing the outbreak quickly."
+        },{
+            "link": "https://www.sbs.com.au/news/larger-gatherings-allowed-and-mask-rules-relaxed-in-victoria-as-premier-outlines-further-easing-of-restrictions",
+            "title": "Larger gatherings allowed and mask rules relaxed in Victoria as premier outlines further easing of restrictions",
+            "source": "SBSNews",
+            "date": "22 November 2020",
+            "time": "11:52",
+      "summary": "A number of restrictions in Victoria have been eased with masks no longer required outdoors when social distancing can be maintained."
+        },{
+            "link": "https://www.sbs.com.au/news/people-urged-to-get-tested-after-coronavirus-fragments-detected-in-melbourne-sewage",
+            "title": "People urged to get tested after coronavirus fragments detected in Melbourne sewage",
+            "source": "SBSNews",
+            "date": "21 November 2020",
+            "time": "14:00",
+      "summary": "Residents of Altona and people that have visited the suburb recently are being asked to get tested."
+        },{
       "link": "https://www.canberratimes.com.au/story/7021793/victorian-border-reopens-to-act-but-sa-travellers-still-restricted/?src=rss",
       "title": "Canberra lifts Victorian border restrictions, but rules remain for SA travel ",
       "source": "CanberraTimes",
@@ -14,19 +42,5 @@
       "date": "17 November 2020",
       "time": "17:00",
       "summary": "South Australia will be introducing a number of new restrictions after a cluster of 17 coronavirus cases was uncovered."
-    }, {
-      "link": "https://www.sbs.com.au/news/three-covid-cases-detected-in-sa-community",
-      "title": "Three COVID cases detected in SA community",
-      "source": "SBSNews",
-      "date": "15 November 2020",
-      "time": ":",
-      "summary": "A worker at a quarantine hotel has tested positive for COVID-19, along with two of their family members."
-    },{
-      "link": "https://www.abc.net.au/news/2020-11-14/nsw-coronavirus-local-cases-zero-for-seventh-day/12880366",
-      "title": "NSW Health reports seventh consecutive day of no locally acquired COVID-19 cases ",
-      "source": "SBSNews",
-      "date": "14 November 2020",
-      "time": "12:00",
-      "summary": "This is the states longest streak since October 7."
-      }  ]
+    }]
 }
