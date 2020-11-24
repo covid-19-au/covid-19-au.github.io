@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
       {
+            "link": "https://www.sbs.com.au/news/two-new-coronavirus-cases-added-to-adelaide-s-parafield-cluster-a-couple-in-hotel-quarantine",
+            "title": "Two new coronavirus cases added to Adelaide's Parafield cluster - a couple in hotel quarantine",
+            "source": "SBSNews",
+            "date": "24 November 2020",
+            "time": "19:58",
+            "summary": "The two initially were thought to have contracted the virus overseas, but further genetic testing has revealed that they became infected while in isolation at Peppers Hotel."
+        },{
             "link": "https://www.sbs.com.au/news/south-australia-records-one-new-coronavirus-case-linked-to-adelaide-s-parafield-cluster",
             "title": "South Australia records one new coronavirus case linked to Adelaide's Parafield cluster",
             "source": "SBSNews",
@@ -35,12 +42,5 @@
       "date": "20 November 2020",
       "time": "15:00",
       "summary": "The border between Canberra and Victoria will reopen at 12.01am on Monday. However, visitors from South Australia will still be required to submit a COVID declaration."
-    }, {
-      "link": "https://www.sbs.com.au/news/biggest-test-to-date-south-australian-premier-announces-new-restrictions-to-combat-coronavirus-cluster",
-      "title": "'Biggest test to date': South Australian premier announces new restrictions to combat coronavirus cluster",
-      "source": "SBSNews",
-      "date": "17 November 2020",
-      "time": "17:00",
-      "summary": "South Australia will be introducing a number of new restrictions after a cluster of 17 coronavirus cases was uncovered."
     }]
 }
