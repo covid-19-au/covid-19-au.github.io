@@ -1,6 +1,20 @@
 {
   "weeklyTopNews": [
       {
+            "url": "https://www.theguardian.com/australia-news/2020/nov/25/south-australia-confirms-new-covid-case-after-announcing-hotel-quarantine-reforms",
+            "title": "South Australia confirms new Covid case after announcing hotel quarantine reforms",
+            "source": "TheGuardian",
+            "date": "25 November 2020",
+            "time": "21:04",
+            "summary":"The new case is a student from Woodville High School. Anyone that attended the school on Monday has been asked to isolate. "
+        },{
+            "url": "https://www.abc.net.au/news/2020-11-25/safe-wa-mandatory-contact-register-to-be-launched-for-businesses/12903504",
+            "title": "'A tiny inconvenience': WA venues to adopt mandatory COVID-19 contact register from next month",
+            "source": "ABCNews",
+            "date": "25 November 2020",
+            "time": "19:05",
+            "summary":"A number of West Australian venues will be legally required to keep a register of staff and patrons to assist with contact tracing."
+        },{
             "link": "https://www.sbs.com.au/news/two-new-coronavirus-cases-added-to-adelaide-s-parafield-cluster-a-couple-in-hotel-quarantine",
             "title": "Two new coronavirus cases added to Adelaide's Parafield cluster - a couple in hotel quarantine",
             "source": "SBSNews",
