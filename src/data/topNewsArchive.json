@@ -1,6 +1,20 @@
 {
   "archiveTopNews": [
    {
+            "link": "https://www.abc.net.au/news/2020-11-22/sa-coronavirus-businesses-reopen-after-lockdown/12909122",
+            "title": "Relief as SA businesses reopen after three-day lockdown",
+            "source": "ABCNews",
+            "date": "22 November 2020",
+            "time": "20:33",
+      "summary": "Tha planned six day lockdown has been eased early as the threat of widespread community transmission diminished. State Premier Steven Marshall express that the state made the right move by containing the outbreak quickly."
+        },{
+            "link": "https://www.sbs.com.au/news/larger-gatherings-allowed-and-mask-rules-relaxed-in-victoria-as-premier-outlines-further-easing-of-restrictions",
+            "title": "Larger gatherings allowed and mask rules relaxed in Victoria as premier outlines further easing of restrictions",
+            "source": "SBSNews",
+            "date": "22 November 2020",
+            "time": "11:52",
+      "summary": "A number of restrictions in Victoria have been eased with masks no longer required outdoors when social distancing can be maintained."
+        },{
             "link": "https://www.sbs.com.au/news/people-urged-to-get-tested-after-coronavirus-fragments-detected-in-melbourne-sewage",
             "title": "People urged to get tested after coronavirus fragments detected in Melbourne sewage",
             "source": "SBSNews",
