@@ -168,7 +168,7 @@ class StateComparisonChart extends React.Component {
         let instances = [];
 
         const TOTAL_IDX = 0;
-        const ACTIVE_IDX = 1;
+        const ACTIVE_IDX = 4;
 
         for (let day in stateData) {
             let arr = day.split("-");
@@ -435,7 +435,7 @@ class StateComparisonChart extends React.Component {
                         }
                     },
                     {
-                        text: i18next.t("homePage:status.confirmCase"),
+                        text: 'Active Cases',
                         top: '55%',
                         left: '5%',
                         textStyle: {
