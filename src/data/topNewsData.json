@@ -2,6 +2,13 @@
   "weeklyTopNews": [
       {
             "link": "https://www.abc.net.au/news/2020-11-30/nicola-spurrier-apologises-to-man-accused-of-quarantine-breach/12935578",
+            "title": "What will Australia’s COVID vaccination program look like? 4 key questions answered",
+            "source": "TheConversation",
+            "date": "02 December 2020",
+            "time": ":",
+            "summary":"Learn what Australia's vaccination program could look like."
+        },{
+            "link": "https://www.abc.net.au/news/2020-11-30/nicola-spurrier-apologises-to-man-accused-of-quarantine-breach/12935578",
             "title": "SA Chief Public Health Officer Nicola Spurrier apologises for wrongly suggesting man breached coronavirus quarantine",
             "source": "ABCNews",
             "date": "30 November 2020",
@@ -49,19 +56,5 @@
             "date": "25 November 2020",
             "time": "21:04",
             "summary":"The new case is a student from Woodville High School. Anyone that attended the school on Monday has been asked to isolate. "
-        },{
-            "link": "https://www.abc.net.au/news/2020-11-25/safe-wa-mandatory-contact-register-to-be-launched-for-businesses/12903504",
-            "title": "'A tiny inconvenience': WA venues to adopt mandatory COVID-19 contact register from next month",
-            "source": "ABCNews",
-            "date": "25 November 2020",
-            "time": "19:05",
-            "summary":"A number of West Australian venues will be legally required to keep a register of staff and patrons to assist with contact tracing."
-        },{
-            "link": "https://www.sbs.com.au/news/two-new-coronavirus-cases-added-to-adelaide-s-parafield-cluster-a-couple-in-hotel-quarantine",
-            "title": "Two new coronavirus cases added to Adelaide's Parafield cluster - a couple in hotel quarantine",
-            "source": "SBSNews",
-            "date": "24 November 2020",
-            "time": "19:58",
-            "summary": "The two initially were thought to have contracted the virus overseas, but further genetic testing has revealed that they became infected while in isolation at Peppers Hotel."
         }]
 }
