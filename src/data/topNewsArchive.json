@@ -1,6 +1,20 @@
 {
   "archiveTopNews": [
    {
+            "link": "https://www.sbs.com.au/news/victoria-is-one-day-from-eliminating-coronavirus-as-queensland-and-tasmania-set-to-reopen-borders",
+            "title": "Victoria is one day from eliminating coronavirus as Queensland and Tasmania set to reopen borders",
+            "source": "SBSNews",
+            "date": "26 November 2020",
+            "time": "15:00",
+            "summary":"Victoria extended its streak to 27 days with zero new coronavirus cases."
+        },{
+            "link": "https://www.theguardian.com/australia-news/2020/nov/25/south-australia-confirms-new-covid-case-after-announcing-hotel-quarantine-reforms",
+            "title": "South Australia confirms new Covid case after announcing hotel quarantine reforms",
+            "source": "TheGuardian",
+            "date": "25 November 2020",
+            "time": "21:04",
+            "summary":"The new case is a student from Woodville High School. Anyone that attended the school on Monday has been asked to isolate. "
+        },{
             "link": "https://www.sbs.com.au/news/south-australia-records-one-new-coronavirus-case-linked-to-adelaide-s-parafield-cluster",
             "title": "South Australia records one new coronavirus case linked to Adelaide's Parafield cluster",
             "source": "SBSNews",
