@@ -1,7 +1,17 @@
 {
   "dailyFunStuff": [
 
-    {
+   {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=E76vqlhmBlc",
+          "description": "How Humans Lost Their Fur"
+        }
+      ],
+      "type": "distraction",
+      "date": "4/12/2020"
+    }, {
       "image": [],
       "video": [
         {
