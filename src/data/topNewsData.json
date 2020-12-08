@@ -1,6 +1,13 @@
 {
   "weeklyTopNews": [
       {
+            "url": "https://www.abc.net.au/news/2020-12-08/no-active-coronavirus-cases-in-sa-as-restrictions-set-to-ease/12960028",
+            "title": "No active coronavirus cases in South Australia as restrictions set to ease",
+            "source": "ABCNews",
+            "date": "08 December 2020",
+            "time": "12:39",
+            "summary":"This is the first time South Australia has had zero active cases in two months."
+        },{
             "link": "https://www.abc.net.au/news/2020-12-07/second-negative-test-for-two-travellers-from-germany/12958688",
             "title": "More than 170 close contacts of pair who skipped quarantine free to leave isolation",
             "source": "ABCNews",
