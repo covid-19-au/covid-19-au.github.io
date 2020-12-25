@@ -43,7 +43,7 @@ class GeoDataPropertyAssignment {
      *
      * @returns {{caseDataInsts: [], polygons: {features: [], type: string}, geoDataInsts: [], points: {features: [], type: string}}}
      */
-    getAssignedData(dateRangeType, maxDateType) {
+    getAssignedData(dateRangeType, maxDateType, byPopulation) {
         let geoDataInsts = [];
         let caseDataInsts = [];
         let pointsAllVals = [],
@@ -64,7 +64,7 @@ class GeoDataPropertyAssignment {
             if (casesInst) {
                 // Get assigned points data
                 iPoints = this.__getCaseInfoGeoJSON(
-                    casesInst,
+                    casesInst, geoDataInst, byPopulation,
                     iPoints, null, dateRangeType, maxDateType,
                     parents, this.iso3166WithinView, true
                 );
@@ -77,7 +77,7 @@ class GeoDataPropertyAssignment {
 
                 // Get assigned polygon data
                 iPolygons = this.__getCaseInfoGeoJSON(
-                    casesInst,
+                    casesInst, geoDataInst, byPopulation,
                     iPolygons, null, dateRangeType, maxDateType,
                     parents, this.iso3166WithinView, false
                 );
@@ -141,7 +141,8 @@ class GeoDataPropertyAssignment {
      * @param iso3166WithinView
      * @param removeLargestItem
      */
-    __getCaseInfoGeoJSON(casesInst, inputGeoJSON, ageRange, dateRangeType, maxDateType,
+    __getCaseInfoGeoJSON(casesInst, geoDataInst, byPopulation,
+                         inputGeoJSON, ageRange, dateRangeType, maxDateType,
                          ignoreChildren, iso3166WithinView, removeLargestItem) {
 
         ignoreChildren = ignoreChildren || new Set();
@@ -292,7 +293,10 @@ class GeoDataPropertyAssignment {
             }
 
             // Assign properties
-            this.__assignProperties(feature, timeSeriesItem, timeSeries, regionType, ageRange);
+            this.__assignProperties(
+                feature, timeSeriesItem, timeSeries, regionType, ageRange,
+                geoDataInst, byPopulation
+            );
 
             if (properties.cases && properties.cases < min) {
                 min = properties.cases;
@@ -359,7 +363,7 @@ class GeoDataPropertyAssignment {
      * @param ageRange
      * @private
      */
-    __assignProperties(feature, timeSeriesItem, timeSeries, regionType, ageRange) {
+    __assignProperties(feature, timeSeriesItem, timeSeries, regionType, ageRange, geoDataInst, byPopulation) {
         let properties = feature.properties;
 
         if (timeSeriesItem.getDaysSince) {
@@ -370,9 +374,27 @@ class GeoDataPropertyAssignment {
             }
         }
 
-        properties['cases'] = timeSeriesItem.getValue();
-        properties['negcases'] = -timeSeriesItem.getValue();
-        properties['casesFmt'] = Fns.getCompactNumberRepresentation(timeSeriesItem.getValue(), 1);
+        if (byPopulation) {
+            let population = geoDataInst.getPopulation(regionType.getRegionChild());
+            let cases;
+
+            if (population && population > 100) {
+                cases = timeSeriesItem.getValue() / population * 1000000
+            } else {
+                // Don't show values if the population count is too low
+                // as the chance of there being outliers is too high!
+                cases = 0;
+            }
+
+            properties['cases'] = cases;
+            properties['negcases'] = -cases;
+            properties['casesFmt'] = Fns.getCompactNumberRepresentation(cases, 1);
+        } else {
+            properties['cases'] = timeSeriesItem.getValue();
+            properties['negcases'] = -timeSeriesItem.getValue();
+            properties['casesFmt'] = Fns.getCompactNumberRepresentation(timeSeriesItem.getValue(), 1);
+        }
+
         properties['casesSz'] = this._getCasesSize(feature);
         properties['casesTimeSeries'] = timeSeries;
     }
