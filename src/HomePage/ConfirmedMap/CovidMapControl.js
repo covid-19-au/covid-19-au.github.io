@@ -183,6 +183,7 @@ class CovidMapControl extends React.Component {
                     onchange={(e) => this._onControlsChange(e)}
                     dataType={this.props.dataType}
                     timePeriod={this.props.timePeriod}
+                    remoteData={this.remoteData}
                 />,
                 mapContainerChild
             );
@@ -304,7 +305,7 @@ class CovidMapControl extends React.Component {
                 let underlaySource = this.underlaySource = new MapBoxSource(map);
                 let casesSource = this.casesSource = new MapBoxSource(map);
                 let clusteredCaseSource = this.clusteredCaseSource = new ClusteredCaseSource(this.remoteData, map, null, null, null, feature => {
-                    if (this.covidMapControls.getDisplayGraphs()) {
+                    if (this.covidMapControls.isRateOfChangeModeSelected()) {
                         let r = feature.properties.casesTimeSeries && feature.properties.casesTimeSeries.length;
                         /*if (r) {
                             for (let val of feature.properties.casesTimeSeries) {
@@ -410,7 +411,8 @@ class CovidMapControl extends React.Component {
 
                 // Get the date range for the 7/14/21 day controls
                 let dateRangeType = null,
-                    currentDateType = this.__mapTimeSlider.getValue();
+                    currentDateType = this.__mapTimeSlider.getValue(),
+                    byPopulation = this.covidMapControls.getByPopulation();
 
                 if (this.covidMapControls.getTimePeriod()) {
                     dateRangeType = new DateRangeType(
@@ -420,7 +422,7 @@ class CovidMapControl extends React.Component {
                 }
 
                 this.__onMapMoveChange(
-                    this.__dataCollection.getAssignedData(dateRangeType, currentDateType),
+                    this.__dataCollection.getAssignedData(dateRangeType, currentDateType, byPopulation),
                     this.prevDataType, this.prevZoomLevel, true
                 );
             } else {
@@ -536,7 +538,7 @@ class CovidMapControl extends React.Component {
                 lngLatBounds, dataType, schemasForCases, iso3166WithinView, true
             );
             this.__onMapMoveChange(
-                dataCollectionNoDownload.getAssignedData(dateRangeType, currentDateType),
+                dataCollectionNoDownload.getAssignedData(dateRangeType, currentDateType, this.covidMapControls.getByPopulation()),
                 dataType, zoomLevel
             );
 
@@ -547,7 +549,7 @@ class CovidMapControl extends React.Component {
                 );
                 if (dataCollectionNoDownload.insts.length !== dataCollection.insts.length) {
                     this.__onMapMoveChange(
-                        dataCollection.getAssignedData(dateRangeType, currentDateType),
+                        dataCollection.getAssignedData(dateRangeType, currentDateType, this.covidMapControls.getByPopulation()),
                         dataType, zoomLevel
                     );
                 }
@@ -571,7 +573,8 @@ class CovidMapControl extends React.Component {
         } else {
             // Update the sources
             this.clusteredCaseSource.setData(
-                dataType, geoData.points, geoData.geoDataInsts, geoData.caseDataInsts
+                dataType, geoData.points, geoData.geoDataInsts, geoData.caseDataInsts,
+                this.covidMapControls.getByPopulation()
             );
             this.casesSource.setData(
                 dataType, geoData.polygons, geoData.geoDataInsts, geoData.caseDataInsts
@@ -589,7 +592,7 @@ class CovidMapControl extends React.Component {
             this.casesFillPolyLayer.updateLayer();
             //this.casesLinePolyLayer.updateLayer();
 
-            if (!this.covidMapControls.getDisplayGraphs()) {
+            if (!this.covidMapControls.isRateOfChangeModeSelected()) {
                 this.numbersCaseLayer.updateLayer(null, this.__mapTimeSlider.getValue());
                 this.numbersCaseLayer.fadeIn();
                 this.rateOfChangeCaseLayer.fadeOut();

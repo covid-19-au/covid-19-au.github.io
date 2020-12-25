@@ -258,6 +258,16 @@ class GeoData {
     }
 
     /**
+     * Get the population of the given regionChild.
+     * Returns null if no data available.
+     *
+     * @param regionChild
+     */
+    getPopulation(regionChild) {
+        return this.regionParentGeoData[regionChild]['population'] || null;
+    }
+
+    /**
      *
      * @returns {*}
      */

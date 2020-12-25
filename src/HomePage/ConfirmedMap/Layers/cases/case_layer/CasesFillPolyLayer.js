@@ -25,7 +25,7 @@ SOFTWARE.
 import CasesPopup from "./CasesPopup";
 import getMapBoxCaseColors from "../getMapBoxCaseColors";
 
-const FILL_OPACITY = 0.37;
+const FILL_OPACITY = 0.4;
 
 
 class CasesFillPolyLayer {

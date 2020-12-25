@@ -24,7 +24,7 @@ SOFTWARE.
 
 import React from "react"
 import DataTypeSelect from "./covid_map_controls/DataTypeSelect";
-import UnderlaySelect from "./covid_map_controls/UnderlaySelect";
+import ByPopulationCheckBox from "./covid_map_controls/ByPopulationCheckBox";
 
 
 class CovidMapControls extends React.Component {
@@ -36,7 +36,7 @@ class CovidMapControls extends React.Component {
     constructor(props) {
         super(props);
         this.mapContControls = React.createRef();
-        this.state = {};
+        this.state = JSON.parse(JSON.stringify(props));
     }
 
     /*******************************************************************
@@ -63,6 +63,14 @@ class CovidMapControls extends React.Component {
                                 onchange={(dataType, timePeriod) => this._onChangeType(dataType, timePeriod)}
                                 dataType={this.props.dataType}
                                 timePeriod={this.props.timePeriod}/>
+                <div style={{ float: "right" }}>
+                    <ByPopulationCheckBox
+                        ref={(el) => this.__byPopulationCheckBox = el}
+                        onChange={(newValue) => {
+                            return this.componentDidUpdate();
+                        }}
+                    />
+                </div>
             </div>
         );
     }
@@ -72,6 +80,9 @@ class CovidMapControls extends React.Component {
             dataType: this.getDataType(),
             timePeriod: this.getTimePeriod()
         })
+
+        // Don't display the "by population" checkbox if set to "rate of change" mode!!
+        this.__byPopulationCheckBox.setVisible(this.getByPopulationPossible());
     }
 
     /*******************************************************************
@@ -93,11 +104,6 @@ class CovidMapControls extends React.Component {
      */
     _onChangeType(dataType, timePeriod) {
         return this.componentDidUpdate();
-
-        this.setState({
-            dataType: dataType,
-            timePeriod: timePeriod
-        });
     }
 
     /**
@@ -109,41 +115,63 @@ class CovidMapControls extends React.Component {
      */
     _onChangeUnderlay(underlayCategory, underlay) {
         return this.componentDidUpdate();
-
-        this.setState({
-            underlayCategory: underlayCategory,
-            underlay: underlay
-        });
     }
 
     /*******************************************************************
      * Get value
      *******************************************************************/
 
-    getDisplayGraphs() {
-        return this.__dataTypeSelect.getDisplayGraphs();
+    /**
+     * Get whether the "rate of change" mode is currently selected,
+     * therefore overriding the all/7/21 days controls
+     *
+     * @returns {boolean}
+     */
+    isRateOfChangeModeSelected() {
+        return this.__dataTypeSelect.isRateOfChangeModeSelected();
     }
 
     /**
+     * Get whether "per capita" mode is possible in combination with the current selection
+     * TODO: Clarify whether certain kinds of data can't have "per capita" values!
+     *
+     * @returns {boolean}
+     */
+    getByPopulationPossible() {
+        let dataTypesAllow = this.props.remoteData.getConstants()[this.getDataType()].percapita;
+        let modeAllows = this.__dataTypeSelect.getByPopulationPossible();
+        return dataTypesAllow && modeAllows && !this.isRateOfChangeModeSelected();
+    }
+
+    /**
+     * Get whether the "by population" checkbox is currently checked
      *
      * @returns {*}
      */
-    getDataType() {
-        return this.__dataTypeSelect.getDataType();
-    }
+    getByPopulation() {return this.__byPopulationCheckBox.getValue();}
 
     /**
+     * Get the datatype, e.g. "active" or "total"
+     *
+     * @returns {*}
+     */
+    getDataType() {return this.__dataTypeSelect.getDataType();}
+
+    /**
+     * Get the current time period: null, 7, or 21
      *
      * @returns {DataTypeSelect._onTimePeriodChange.props}
      */
-    getTimePeriod() {
-        return this.__dataTypeSelect.getTimePeriod();
-    }
+    getTimePeriod() {return this.__dataTypeSelect.getTimePeriod();}
 
     /*******************************************************************
      * Enable/disable
      *******************************************************************/
 
+    /**
+     *
+     * @returns {*}
+     */
     getDisabled() {
         return this.state.disabled;
     }
@@ -154,10 +182,6 @@ class CovidMapControls extends React.Component {
     enable() {
         this.mapContControls.current.style.pointerEvents = 'all';
         this.state.disabled = false;
-
-        //this.setState({
-        //    disabled: false
-        //});
     }
 
     /**
@@ -166,10 +190,6 @@ class CovidMapControls extends React.Component {
     disable() {
         this.mapContControls.current.style.pointerEvents = 'none';
         this.state.disabled = true;
-
-        //this.setState({
-        //    disabled: true
-        //});
     }
 }
 

@@ -27,10 +27,6 @@ import Button from "@material-ui/core/Button";
 import React from "react";
 import getRemoteData from "../../../CrawlerData/RemoteData";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChartLine, faTable } from '@fortawesome/free-solid-svg-icons'
-
-
 
 class DataTypeSelect extends React.Component {
     /**
@@ -140,8 +136,8 @@ class DataTypeSelect extends React.Component {
                                 onClick={() => this._onTimePeriodChange(7)}>7 Days</Button>
                             <Button style={this.state.timePeriod === 21 ? activeStyles : inactiveStyles}
                                 onClick={() => this._onTimePeriodChange(21)}>21 Days</Button>
-                            <Button style={this.state.timePeriod === "graphs" ? activeStyles : inactiveStyles}
-                                    onClick={() => this._onTimePeriodChange("graphs")}>
+                            <Button style={this.state.timePeriod === "rateOfChange" ? activeStyles : inactiveStyles}
+                                    onClick={() => this._onTimePeriodChange("rateOfChange")}>
                                 <div style={{padding: "0px 6px 0px 6px"}}>
                                     Rate of Change
                                 </div>
@@ -208,49 +204,47 @@ class DataTypeSelect extends React.Component {
     /**
      * Enable the time period/datatype select controls
      */
-    enable() {
-        this.setState({
-            enabled: true
-        });
-    }
+    enable() {this.setState({ enabled: true });}
 
     /**
      * Disable the time period/datatype select controls
      */
-    disable() {
-        this.setState({
-            enabled: false
-        });
-    }
+    disable() {this.setState({ enabled: false });}
 
     /*******************************************************************
      * Get value
      *******************************************************************/
 
-    getDisplayGraphs() {
-        return this.state.timePeriod === 'graphs';
-    }
+    /**
+     * Get whether to display the "rate of change" graphs
+     * @returns {boolean}
+     */
+    isRateOfChangeModeSelected() {return this.state.timePeriod === 'rateOfChange';}
 
     /**
      *
+     * @returns {boolean}
+     */
+    getByPopulationPossible() {return this.state.timePeriod !== 'rateOfChange';}
+
+    /**
+     * Get the currently selected datatype, e.g. "total" or "active"
      * @returns {*}
      */
-    getDataType() {
-        return this.state.dataType;
-    }
+    getDataType() {return this.state.dataType;}
 
     /**
-     *
+     * Get the currently selected time period:
      * @returns {DataTypeSelect._onTimePeriodChange.props}
      */
     getTimePeriod() {
         if ((
                 !this.state.remoteData ||
                 this.state.remoteData.getConstants()[this.state.dataType].timeperiods // WARNING!!! ===============
-            ) && this.state.timePeriod !== 'graphs'
+            ) && this.state.timePeriod !== 'rateOfChange'
         ) {
             return this.state.timePeriod;
-        } else if (this.state.timePeriod === 'graphs') {
+        } else if (this.state.timePeriod === 'rateOfChange') {
             return 7;  // HACK!
         } else {
             return null;
