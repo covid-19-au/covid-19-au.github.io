@@ -102,9 +102,7 @@ class CovidMapControls extends React.Component {
      * @param timePeriod the time period as an integer (or null)
      * @private
      */
-    _onChangeType(dataType, timePeriod) {
-        return this.componentDidUpdate();
-    }
+    _onChangeType(dataType, timePeriod) {return this.componentDidUpdate();}
 
     /**
      * Called when the underlay select changes
@@ -113,9 +111,7 @@ class CovidMapControls extends React.Component {
      * @param underlay the underlay
      * @private
      */
-    _onChangeUnderlay(underlayCategory, underlay) {
-        return this.componentDidUpdate();
-    }
+    _onChangeUnderlay(underlayCategory, underlay) {return this.componentDidUpdate();}
 
     /*******************************************************************
      * Get value
@@ -127,9 +123,7 @@ class CovidMapControls extends React.Component {
      *
      * @returns {boolean}
      */
-    isRateOfChangeModeSelected() {
-        return this.__dataTypeSelect.isRateOfChangeModeSelected();
-    }
+    isRateOfChangeModeSelected() {return this.__dataTypeSelect.isRateOfChangeModeSelected();}
 
     /**
      * Get whether "per capita" mode is possible in combination with the current selection
@@ -172,9 +166,7 @@ class CovidMapControls extends React.Component {
      *
      * @returns {*}
      */
-    getDisabled() {
-        return this.state.disabled;
-    }
+    getDisabled() {return this.state.disabled;}
 
     /**
      * Enable all covid map controls
