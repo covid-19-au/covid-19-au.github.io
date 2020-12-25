@@ -1,5 +1,405 @@
 {
   "archiveTopNews": [
+   {
+            "link": "https://www.abc.net.au/news/2020-11-30/nicola-spurrier-apologises-to-man-accused-of-quarantine-breach/12935578",
+            "title": "SA Chief Public Health Officer Nicola Spurrier apologises for wrongly suggesting man breached coronavirus quarantine",
+            "source": "ABCNews",
+            "date": "30 November 2020",
+            "time": "19:00",
+            "summary":"She clarified that the individual was under no obligation to be in quarantine and no one had told him to do so. "
+        },{
+            "link": "https://www.sbs.com.au/news/south-australia-goes-on-covid-19-testing-blitz-after-infected-man-breaches-quarantine",
+            "title": "South Australia goes on COVID-19 testing blitz after infected man breaches quarantine",
+            "source": "SBSNews",
+            "date": "29 November 2020",
+            "time": "19:00",
+            "summary":"Visitors to a number of popular shopping centres in suburban Adelaide are being asked to test for COVID-19 after a man with coronavirus breached quarantine to visit them."
+        },{
+            "link": "https://www.sbs.com.au/news/south-australia-records-two-new-coronavirus-cases-linked-to-known-cluster",
+            "title": "South Australia records two new coronavirus cases linked to known cluster",
+            "source": "SBSNews",
+            "date": "28 November 2020",
+            "time": "14:00",
+            "summary":"The two people were already in quarantine and the parafield cluster has now expanded to 33 people."
+        },{
+            "link": "https://www.sbs.com.au/news/victoria-officially-eliminates-covid-19-after-recording-28-straight-days-without-a-new-infection",
+            "title": "Victoria officially 'eliminates' COVID-19, after recording 28 straight days without a new infection",
+            "source": "SBSNews",
+            "date": "27 November 2020",
+            "time": "09:00",
+            "summary":"Victoria has met the official milestone for 'eliminating' the coronavirus by recoding 28 days without a new infection. Victorians will also now be able to visit Tasmania for the first time in more than 8 months."
+        },{
+            "link": "https://www.abc.net.au/news/2020-11-27/coronavirus-alerts-issued-for-two-sa-shopping-centres/12926500",
+            "title": "Coronavirus alerts issued for two SA shopping centres as Black Friday puts authorities on edge",
+            "source": "ABCNews",
+            "date": "27 November 2020",
+            "time": "18:00",
+            "summary":"Shoppers attending today's Black Friday's sales have been urged by health authorities to wear masks."
+        },{
+            "link": "https://www.sbs.com.au/news/victoria-is-one-day-from-eliminating-coronavirus-as-queensland-and-tasmania-set-to-reopen-borders",
+            "title": "Victoria is one day from eliminating coronavirus as Queensland and Tasmania set to reopen borders",
+            "source": "SBSNews",
+            "date": "26 November 2020",
+            "time": "15:00",
+            "summary":"Victoria extended its streak to 27 days with zero new coronavirus cases."
+        },{
+            "link": "https://www.theguardian.com/australia-news/2020/nov/25/south-australia-confirms-new-covid-case-after-announcing-hotel-quarantine-reforms",
+            "title": "South Australia confirms new Covid case after announcing hotel quarantine reforms",
+            "source": "TheGuardian",
+            "date": "25 November 2020",
+            "time": "21:04",
+            "summary":"The new case is a student from Woodville High School. Anyone that attended the school on Monday has been asked to isolate. "
+        },{
+            "link": "https://www.sbs.com.au/news/south-australia-records-one-new-coronavirus-case-linked-to-adelaide-s-parafield-cluster",
+            "title": "South Australia records one new coronavirus case linked to Adelaide's Parafield cluster",
+            "source": "SBSNews",
+            "date": "23 November 2020",
+            "time": "13:12",
+      "summary": "Chief Public Health Officer Nicola Spurrier has revealed the latest case is a member of the extended family group linked to the original Parafield cluster."
+        },{
+            "link": "https://www.abc.net.au/news/2020-11-22/sa-coronavirus-businesses-reopen-after-lockdown/12909122",
+            "title": "Relief as SA businesses reopen after three-day lockdown",
+            "source": "ABCNews",
+            "date": "22 November 2020",
+            "time": "20:33",
+      "summary": "Tha planned six day lockdown has been eased early as the threat of widespread community transmission diminished. State Premier Steven Marshall express that the state made the right move by containing the outbreak quickly."
+        },{
+            "link": "https://www.sbs.com.au/news/larger-gatherings-allowed-and-mask-rules-relaxed-in-victoria-as-premier-outlines-further-easing-of-restrictions",
+            "title": "Larger gatherings allowed and mask rules relaxed in Victoria as premier outlines further easing of restrictions",
+            "source": "SBSNews",
+            "date": "22 November 2020",
+            "time": "11:52",
+      "summary": "A number of restrictions in Victoria have been eased with masks no longer required outdoors when social distancing can be maintained."
+        },{
+            "link": "https://www.sbs.com.au/news/people-urged-to-get-tested-after-coronavirus-fragments-detected-in-melbourne-sewage",
+            "title": "People urged to get tested after coronavirus fragments detected in Melbourne sewage",
+            "source": "SBSNews",
+            "date": "21 November 2020",
+            "time": "14:00",
+      "summary": "Residents of Altona and people that have visited the suburb recently are being asked to get tested."
+        },{
+      "link": "https://www.canberratimes.com.au/story/7021793/victorian-border-reopens-to-act-but-sa-travellers-still-restricted/?src=rss",
+      "title": "Canberra lifts Victorian border restrictions, but rules remain for SA travel ",
+      "source": "CanberraTimes",
+      "date": "20 November 2020",
+      "time": "15:00",
+      "summary": "The border between Canberra and Victoria will reopen at 12.01am on Monday. However, visitors from South Australia will still be required to submit a COVID declaration."
+    },{
+      "link": "https://www.sbs.com.au/news/biggest-test-to-date-south-australian-premier-announces-new-restrictions-to-combat-coronavirus-cluster",
+      "title": "'Biggest test to date': South Australian premier announces new restrictions to combat coronavirus cluster",
+      "source": "SBSNews",
+      "date": "17 November 2020",
+      "time": "17:00",
+      "summary": "South Australia will be introducing a number of new restrictions after a cluster of 17 coronavirus cases was uncovered."
+    }, {
+      "link": "https://www.sbs.com.au/news/three-covid-cases-detected-in-sa-community",
+      "title": "Three COVID cases detected in SA community",
+      "source": "SBSNews",
+      "date": "15 November 2020",
+      "time": ":",
+      "summary": "A worker at a quarantine hotel has tested positive for COVID-19, along with two of their family members."
+    },{
+      "link": "https://www.abc.net.au/news/2020-11-14/nsw-coronavirus-local-cases-zero-for-seventh-day/12880366",
+      "title": "NSW Health reports seventh consecutive day of no locally acquired COVID-19 cases ",
+      "source": "SBSNews",
+      "date": "14 November 2020",
+      "time": "12:00",
+      "summary": "This is the states longest streak since October 7."
+      }  ,{
+      "link": "https://www.sbs.com.au/news/south-australia-will-reopen-its-border-to-victoria-in-less-than-three-weeks",
+      "title": "South Australia will reopen its border to Victoria in less than three weeks",
+      "source": "SBSNews",
+      "date": "13 November 2020",
+      "time": "15:00",
+      "summary": "From 1 December, Victorians entering South Australia will no longer have to quarantine."
+    },{
+      "link": "https://www.sbs.com.au/news/coronavirus-testing-ramped-up-in-western-sydney-as-nsw-records-fifth-straight-day-with-zero-local-cases",
+      "title": "Coronavirus testing ramped up in western Sydney as NSW records fifth straight day with zero local cases",
+      "source": "SBSNews",
+      "date": "12 November 2020",
+      "time": "17:00",
+      "summary": "The state is urging residents of northwest Sydney to get tested as traces of the virus were found in two local sewage pumping stations."
+    },{
+      "link": "https://www.sbs.com.au/news/a-difficult-case-aged-care-worker-who-returned-to-south-australia-from-victoria-tests-positive-for-coronavirus",
+      "title": "'A difficult case': Aged care worker who returned to South Australia from Victoria tests positive for coronavirus",
+      "source": "SBSNews",
+      "date": "11 November 2020",
+      "time": ":",
+      "summary": "The Department of Health and Human Services has requested that anyone who visited Melbourne Central last Sunday between 2pm and 5pm, or were at Melbourne Airport's Terminal Four from noon to 1pm on Monday get themselves tested."
+    },{
+      "link": "https://www.sbs.com.au/news/restrictions-on-household-gatherings-unlikely-to-ease-before-christmas-nsw-premier-warns",
+      "title": "Restrictions on household gatherings unlikely to ease before Christmas, NSW premier warns",
+      "source": "SBSNews",
+      "date": "10 November 2020",
+      "time": "18:00",
+      "summary": "NSW Premier Gladys Berejiklian has revealed that Christmas celebrations could stay capped at twenty visitors even as the state recorded 3 days in a row without a locally acquired case."
+    }
+,{
+      "link": "https://www.theguardian.com/australia-news/2020/nov/08/victoria-travel-restrictions-scrapped-as-state-records-no-new-covid-cases-for-nine-days",
+      "title": "Victoria travel restrictions scrapped as state records no new Covid cases for nine days",
+      "source": "TheGuardian",
+      "date": "8 November 2020",
+      "time": "17:39",
+      "summary": "The 25km travel limit and the separation of Regional Victoria from Metropolitan Melbourne have come to an end as Victoria recorded no new cases for the ninth day in a row."
+    },{
+      "link": "https://www.abc.net.au/news/2020-11-06/sa-now-has-more-active-coronavirus-cases-than-victoria/12858572",
+      "title": "SA now has more active coronavirus cases than Victoria with a child joining tally",
+      "source": "ABCNews",
+      "date": "6 November 2020",
+      "time": "18:00",
+      "summary": "SA Health announce one new case today, a child in quarantine. The state now has 17 active cases, of which 16 are people returning from overseas, and the remaining is a close contact. Victoria has 15."
+    },{
+      "link": "https://www.sbs.com.au/news/victoria-has-now-gone-six-days-without-recording-a-single-new-coronavirus-case",
+      "title": "Victoria has now gone six days without recording a single new coronavirus case",
+      "source": "SBSNews",
+      "date": "5 November 2020",
+      "time": "18:00",
+      "summary": "Melbourne's 14-day rolling average has now dropped to 1.4."
+    },{
+      "link": "https://www.abc.net.au/news/2020-11-04/coronavirus-covidsafe-app-effectiveness-questioned-by-sa-police/12846556",
+      "title": "COVIDSafe app of no 'material benefit' to coronavirus contact tracing, SA Police chief says",
+      "source": "ABCNews",
+      "date": "4 November 2020",
+      "time": "13:00",
+      "summary": "South Australian Police Commisioner Grant Stevens has expressed that the COVIDSafe application has been of \"no material benefit,\" to local health authorities. South Australia and other states are moving to introduce QR code scanning at venues to assist with contact tracing"
+    },{
+      "link": "https://www.sbs.com.au/news/police-arrest-more-than-400-protesters-at-a-melbourne-anti-lockdown-rally",
+      "title": "Police arrest more than 400 protesters at a Melbourne anti-lockdown rally",
+      "source": "SBSNews",
+      "date": "3 November 2020",
+      "time": "19:30",
+      "summary": "The rally occured in central Melbourne on Tuesday. Victoria Police released a statement emphasising their disappointment in, \"a large number of protestors who again showed disregard for the safety of the broader community and the directions of the Chief Health Officer.\""
+    },{
+      "link": "https://www.sbs.com.au/news/australia-marks-first-24-hours-of-no-community-coronavirus-transmissions-in-almost-five-months",
+      "title": "Australia marks first 24 hours of no community coronavirus transmissions in almost five months",
+      "source": "SBSNews",
+      "date": "1 November 2020",
+      "time": "14:00",
+      "summary": "Health Minister Greg Hunt tweeted that today was the first time Australia went 24 hours with no community transmission of coronavirus reported since June 9th."
+    },{
+      "link": "https://www.theguardian.com/world/2020/oct/31/nsw-reports-four-new-coronavirus-cases-as-victoria-police-arrest-anti-mask-protesters",
+      "title": "NSW reports four new coronavirus cases as Victoria police arrest anti-mask protesters ",
+      "source": "TheGuardian",
+      "date": "31 October 2020",
+      "time": "16:53",
+      "summary": "One of the four cases in NSW was community transmitted, prompting authorities to warn that the threat of community transmission remains \"very real.\" Western Australia also recorded one new coronavirus case, a child in hotel quarantine."
+    },{
+      "link": "https://www.abc.net.au/news/2020-10-30/melbourne-foot-traffic-surge-sparks-post-lockdown-revival-hopes/12828376",
+      "title": "Melbourne CBD bounces back after lockdown lifted, pedestrian data shows",
+      "source": "ABCNews",
+      "date": "30 October 2020",
+      "time": "16:00",
+      "summary": "Melbourne council data found that 526,931 pedestrians were active in the CBD on Wednesday, 3 times the Wednesday average in recent weeks."
+    },{
+      "link": "https://www.abc.net.au/news/2020-10-29/northern-territory-records-four-new-coronavirus-cases-new-delhi/12827178",
+      "title": "Four new coronavirus cases detected in Darwin's Howard Springs quarantine facility after passengers arrive from India",
+      "source": "ABCNews",
+      "date": "29 October 2020",
+      "time": "16:00",
+      "summary": "Four Australians arriving in Darwin from New Delhi have tested positive for COVID-19. The NT goverment have said that the individuals are well and that they will remain at the quarantine facility."
+    },{
+      "link": "https://www.sbs.com.au/news/a-critical-period-virus-alerts-issued-for-six-new-sydney-venues-as-authorities-flag-christmas-warning",
+      "title": "'A critical period': Virus alerts issued for six new Sydney venues, as authorities flag Christmas warning",
+      "source": "SBSNews",
+      "date": "28 October 2020",
+      "time": "17:00",
+      "summary": "NSW Health has issued health alerts for six establishments across Sydney after after they were visited by a confirmed case of COVID-19."
+    },{
+      "link": "https://www.sbs.com.au/news/home-visits-in-melbourne-allowed-once-again-from-tonight-under-eased-coronavirus-rules",
+      "title": "Home visits in Melbourne allowed once again from tonight under eased coronavirus rules",
+      "source": "SBSNews",
+      "date": "27 October 2020",
+      "time": "12:00",
+      "summary": "Melbournians will be able to have 2 adult visitors over per day from 11:59pm today."
+    },{
+      "link": "https://www.sbs.com.au/news/victorian-businesses-given-green-light-to-reopen-within-days-as-coronavirus-cases-plummet",
+      "title": "Victorian businesses given green light to reopen within days as coronavirus cases plummet",
+      "source": "SBSNews",
+      "date": "26 October 2020",
+      "time": "21:34",
+      "summary": "A host of restrictions have been eased and Victorians will now be allowed to leave there homes for any reason as the state recorded 0 new cases overnight."
+    },{
+      "link": "https://www.sbs.com.au/news/daniel-andrews-delays-easing-of-restrictions-as-coronavirus-cluster-in-melbourne-s-north-grows",
+      "title": "Daniel Andrews delays easing of restrictions as coronavirus cluster in Melbourne's north grows",
+      "source": "SBSNews",
+      "date": "25 October 2020",
+      "time": "18:00",
+      "summary": "Victoria recorded seven new coronavirus cases overnight prompting the state goverment to delay the easing of restrictions."
+    },{
+      "link": "https://www.theguardian.com/australia-news/2020/oct/24/daniel-andrews-says-victorian-easing-of-coronavirus-restrictions-in-doubt-as-cluster-worsens",
+      "title": "Daniel Andrews says Victorian easing of coronavirus restrictions in doubt as cluster worsens ",
+      "source": "TheGuardian",
+      "date": "24 October 2020",
+      "time": "17:41",
+      "summary": "Victoria recorded 7 new cases overnight, 6 were linked to known outbreak. The state government has asked all staff and students from two schools in North-East Melbourne to get tested for COVID-19."
+    },{
+      "link": "https://www.abc.net.au/news/2020-10-23/anti-lockdown-protesters-converge-on-melbourne-shrine/12706900",
+      "title": "Police arrest demonstrators at Melbourne protest against Victoria's coronavirus lockdown restrictions",
+      "source": "ABCNews",
+      "date": "23 October 2020",
+      "time": "20:30",
+      "summary": "Hundreds of protestors in Melbourne assembled today to call for an end to the lockdown. State Premier Daniel Andrews has described the protests as selfish and unhelpful."
+    },{
+      "link": "https://www.sbs.com.au/news/victoria-records-three-new-coronavirus-cases-amid-questions-over-a-possible-reinfection",
+      "title": "Victoria records three new coronavirus cases amid questions over a possible reinfection",
+      "source": "SBSNews",
+      "date": "21 October 2020",
+      "time": "17:00",
+      "summary": "Victoria recorded 3 new cases overnight, taking the 14-day rolling average to 6.2. One individual has tested positive for the virus again, after testing positive in June."
+    },{
+      "link": "https://www.sbs.com.au/news/nsw-relaxes-coronavirus-restrictions-for-places-of-worship-and-gyms-as-it-records-two-new-cases",
+      "title": "NSW relaxes coronavirus restrictions for places of worship and gyms as it records two new cases",
+      "source": "SBSNews",
+      "date": "21 October 2020",
+      "time": "17:00",
+      "summary": "NSW recorded 2 new locally acquired cases overnight. Religious services in the state will now be allowed to have up to 300 people attend from Friday, and rules around gym staffing will also be relaxed."
+    },{
+      "link": "https://www.sbs.com.au/news/vic-set-to-open-up-earlier-than-planned",
+      "title": "Vic set to open up earlier than planned",
+      "source": "SBSNews",
+      "date": "20 October 2020",
+      "time": "14:00",
+      "summary": "Victoria recorded one new case and no deaths overnight. The 14-day rolling average for new cases now stands at 6.4. State Premier Daniel Andrews said the state was well-placed to ease more restrictions sooner than expected."
+    },{
+      "link": "https://www.sbs.com.au/news/tasmania-may-open-to-nsw-in-early-november-if-coronavirus-cases-remain-low",
+      "title": "Tasmania may open to NSW in early November if coronavirus cases remain low",
+      "source": "SBSNews",
+      "date": "19 October 2020",
+      "time": "17:00",
+      "summary": "State Premier Peter Gutwein is hopeful Tasmania will reopen to NSW in early November. He added that he will be providing an update on Friday or Monday."
+    },{
+      "link": "https://www.abc.net.au/news/2020-10-17/nsw-records-five-new-local-coronavirus-cases/12778446",
+      "title": "NSW records five new locally acquired coronavirus cases as Oran Park cluster expands",
+      "source": "ABCNews",
+      "date": "17 October 2020",
+      "time": "19:00",
+      "summary": "NSW recorded 7 new cases in total, with 2 being in hotel quarantine. The other five have been attributed to the Oran Park cluster which now has 18 cases."
+    },{
+      "link": "https://www.theguardian.com/australia-news/2020/oct/16/victoria-set-to-ease-lockdown-rules-after-it-records-two-new-cases-and-no-deaths",
+      "title": "Victoria set to ease lockdown rules after it records two new cases and no deaths ",
+      "source": "TheGuardian",
+      "date": "16 October 2020",
+      "time": "15:52",
+      "summary": "The numbers are Victoria's lowest daily increase since June. Melbourne's 14 day rolling average now sits at 8.7 cases."
+    },{
+      "link": "https://www.sbs.com.au/news/nsw-halts-easing-of-restrictions-after-recording-11-new-locally-acquired-cases",
+      "title": "NSW halts easing of restrictions after recording 11 new locally-acquired cases",
+      "source": "SBSNews",
+      "date": "14 October 2020",
+      "time": "13:00",
+      "summary": "NSW Premier Gladys Berejiklian announced 13 new cases of coronavirus in the state overnight including 11 locally-acquired cases. The number has caused the state government to halt its plans for easing restrictions."
+    },{
+      "link": "https://www.abc.net.au/news/2020-10-12/coronavirus-outbreak-on-vega-dream-sees-six-more-test-positive/12754056",
+      "title": "Coronavirus outbreak on ship off Port Hedland, the Vega Dream, sees six more crew members test positive",
+      "source": "ABCNews",
+      "date": "12 October 2020",
+      "time": "19:00",
+      "summary": "The Vega Dream iron ore bulk carrier anchored off Western Australia has now been confirmed to have 7 cases of coronavirus in total. "
+    },{
+      "link": "https://www.sbs.com.au/news/victoria-records-15-new-coronavirus-cases-as-thousands-of-students-return-to-in-class-learning",
+      "title": "Victoria records 15 new coronavirus cases as thousands of students return to in-class learning",
+      "source": "SBSNews",
+      "date": "12 October 2020",
+      "time": "15:00",
+      "summary": "Victoria's 14-day rolling average has now increased from 9.7 on Sunday to 10.3 today. State Premier Daniel Andrews described the number of new cases today as \"higher than he would like.\""
+    },{
+      "link": "https://www.sbs.com.au/news/australia-is-in-talks-to-ease-travel-restrictions-with-select-countries-as-coronavirus-infection-rate-falls",
+      "title": "Australia is in talks to ease travel restrictions with select countries as coronavirus infection rate falls",
+      "source": "SBSNews",
+      "date": "11 October 2020",
+      "time": "18:00",
+      "summary": "As coronavirus numbers decrease, Australia is in talks with a number of countries including Japan, South Korea, and Singapore to ease travel restrictions."
+    },{
+      "link": "https://www.theguardian.com/australia-news/2020/oct/10/daniel-andrews-says-it-is-unlikely-big-steps-will-be-taken-to-unwind-victorias-coronavirus-restrictions",
+      "title": "Daniel Andrews says it is 'unlikely' big steps will be taken to unwind Victoria's coronavirus restrictions",
+      "source": "TheGuardian",
+      "date": "10 October 2020",
+      "time": "13:57",
+      "summary": "Victorian Premier Daniel Andrews announced that although steps will be taken to ease restrictions on the 19th of October, they would not be as expansive as previously hoped. He called on Victorians to not lose hope, and the strategy is working. He emphasised that the easing of restrictions must be done properly."
+    }, {
+      "link": "https://www.sbs.com.au/news/victoria-records-11-new-coronavirus-cases-as-melbourne-s-14-day-average-continues-to-trend-down",
+      "title": "Victoria records 11 new coronavirus cases as Melbourne's 14-day average continues to trend down",
+      "source": "SBSNews",
+      "date": "08 October 2020",
+      "time": "11:00",
+      "summary": "The rolling 14-day average in Melbourne continues to decrease, reaching 9.7 today after 11 new cases were recorded."
+    },
+    {
+      "link": "https://www.sbs.com.au/news/almost-200-victorians-self-isolating-as-chadstone-coronavirus-cluster-grows-to-31-cases",
+      "title": "Almost 200 Victorians self-isolating, as Chadstone coronavirus cluster grows to 31 cases",
+      "source": "SBSNews",
+      "date": "07 October 2020",
+      "time": "15:00",
+      "summary": "Victoria has recorded 6 new cases and 2 deaths overnight. The outbreak at a butcher in Chadstone Shopping Centre has grown to 31 cases, and 177 people are now being asked to isolate as a precaution. Melbourne's 14-day rolling average is now 9.9."
+    }, 
+    {
+      "link": "https://www.abc.net.au/news/2020-10-06/coronavirus-queensland-cases-update-borders/12731476",
+      "title": "Queensland again records no new coronavirus cases but Health Minister warns testing numbers down.",
+      "source": "ABCNews",
+      "date": "06 October 2020",
+      "time": "17:00",
+      "summary": "Queensland recorded 25 days in a row without a recorded COVID-19 case that posed a risk of community transmission."
+    },{
+      "link": "https://www.theguardian.com/world/2020/oct/04/coronavirus-victoria-reports-12-cases-with-three-linked-to-melbourne-butchers-shop",
+      "title": "Coronavirus: Victoria reports 12 cases with three linked to Melbourne butcher ",
+      "source": "TheGuardian",
+      "date": "04 October 2020",
+      "time": "12:53",
+      "summary": "Three of the 12 new cases announced in Victoria today are linked to a butcher at Chadstone Shopping Centre. The 14-day rolling average is now 11.9."
+    },{
+      "link": "https://www.abc.net.au/news/2020-10-03/victoria-coronavirus-new-cases-eight-three-deaths/12728820",
+      "title": "Victoria records eight new coronavirus cases and three deaths as Melbourne's average falls, police patrol beaches",
+      "source": "SBSNews",
+      "date": "03 October 2020",
+      "time": "12:00",
+      "summary": "A large number of people were filmed flouting social distancing rules at St Kilda beach. Victoria Premier Daniel Andrews has expressed his \"disappointment\" in what he described as \"unacceptable\" scenes."
+    },{
+      "link": "https://www.sbs.com.au/news/new-south-wales-and-the-northern-territory-ready-to-open-their-borders-to-new-zealanders",
+      "title": "New South Wales and the Northern Territory ready to open their borders to New Zealanders",
+      "source": "SBSNews",
+      "date": "02 October 2020",
+      "time": "12:00",
+      "summary": "In a few weeks residents of New Zealand will be allowed to visit New South Wales and the Northern Territory without having to quarantine."
+    },
+    {
+      "link": "https://www.sbs.com.au/news/victoria-records-seven-more-coronavirus-cases-and-two-deaths-as-the-14-day-average-continues-falling",
+      "title": "Victoria records seven more coronavirus cases and two deaths as the 14-day average continues falling",
+      "source": "SBSNews",
+      "date": "02 October 2020",
+      "time": "12:00",
+      "summary": "Metropolitan Melbourne's 14-day new case average is now 12.8. The target for reducing restrictions on the 19th is a 14-day average of 5 or lower."
+    }, {
+      "link": "https://www.sbs.com.au/news/nsw-records-zero-locally-acquired-coronavirus-cases-for-fourth-consecutive-day",
+      "title": "NSW records zero locally acquired coronavirus cases for fourth consecutive day",
+      "source": "SBSNews",
+      "date": "29 September 2020",
+      "time": "12:00",
+      "summary": "NSW has now gone four days without recording a single locally acquired COVID-19 case. However, testing rates remain quite low with school holidays set to start."
+    },
+    {
+      "link": "https://www.sbs.com.au/news/daniel-andrews-says-victoria-so-so-close-to-taking-a-big-step-as-state-records-just-five-new-cases",
+      "title": "Daniel Andrews says Victoria 'so, so close' to taking a 'big step' as state records just five new cases",
+      "source": "SBSNews",
+      "date": "28 September 2020",
+      "time": "14:53",
+      "summary": "Victorian Premier Daniel Andrews today said that the state is close to taking a \"really big step\" after only announcing 5 new cases overnight. The 14-day rolling average of new cases in Metropolitan Melbourne is now down to 20.3. "
+    },
+    {
+      "link": "https://theconversation.com/curfew-lifted-and-covid-19-roadmap-is-ahead-of-schedule-as-melbourne-inches-towards-end-of-lockdown-146987",
+      "title": "Curfew lifted and COVID-19 roadmap is ‘ahead of schedule’ as Melbourne inches towards end of lockdown",
+      "source": "TheConversation",
+      "date": "27 September 2020",
+      "time": "15:19",
+      "summary": "Metropolitan Melbourne moves into step two of eased restrictions, and Victoria Premier Daniel Andrews announced that step three would be brought forward by one week to October 19th."
+    },
+    {
+      "link": "https://www.theguardian.com/world/2020/sep/26/victoria-records-one-death-and-12-new-cases-as-covid-19-numbers-continue-to-drop",
+      "title": "Daniel Andrews says he will have 'good news' on Melbourne's Covid restrictions on Sunday ",
+      "source": "TheGuardian",
+      "date": "26 September 2020",
+      "time": "18:13",
+      "summary": "Victorian Premier Daniel Andrews has teased a further easing of coronavirus restrictions after Victoria announced only 12 new cases overnight."
+    },
     {
       "link": "https://www.sbs.com.au/news/victoria-records-12-new-cases-as-daniel-andrews-promises-steady-and-safe-steps-to-ease-restrictions",
       "title": "Victoria records 12 new cases as Daniel Andrews promises 'steady and safe steps' to ease restrictions",

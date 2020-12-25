@@ -1,5 +1,592 @@
 {
   "dailyFunStuff": [
+
+  {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=zWeYCULC0UQ",
+          "description": "When Bats Took Flight"
+        }
+      ],
+      "type": "distraction",
+      "date": "8/12/2020"
+    }, {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=E76vqlhmBlc",
+          "description": "How Humans Lost Their Fur"
+        }
+      ],
+      "type": "distraction",
+      "date": "4/12/2020"
+    }, {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=KccWUhip8Lo",
+          "description": "Casually Explained: The Food of the World"
+        }
+      ],
+      "type": "distraction",
+      "date": "3/12/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=AyzsbSJyRKs",
+          "description": "Mimicry: A World of Imposters"
+        }
+      ],
+      "type": "distraction",
+      "date": "1/12/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=_ANNQKKwWGk",
+          "description": "The Humans That Lived Before Us"
+        }
+      ],
+      "type": "distraction",
+      "date": "30/11/2020"
+    },  {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=KrfcglOmBYw",
+          "description": "Zombie Starfish | Nature's Weirdest Events - BBC"
+        }
+      ],
+      "type": "distraction",
+      "date": "29/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=EdFJOkaI80g",
+          "description": "When Evolution Gets Weird"
+        }
+      ],
+      "type": "distraction",
+      "date": "28/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=xW1uRTIQzvA",
+          "description": "Vipers: Nature’s Most Dangerous Noodles"
+        }
+      ],
+      "type": "distraction",
+      "date": "27/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=y8kTYCex8RU&list=WL&index=6",
+          "description": "Sand Cat: The King of the Desert"
+        }
+      ],
+      "type": "distraction",
+      "date": "26/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=zav8i32PCio",
+          "description": "The Undertaker Takes Care of Business While Eating Spicy Wings | Hot Ones"
+        }
+      ],
+      "type": "distraction",
+      "date": "25/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=mFP_AjJeP-M",
+          "description": "The Insane Biology of: The Octopus"
+        }
+      ],
+      "type": "distraction",
+      "date": "24/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=Zt0pxG5dn8U",
+          "description": "THE 100 LEVELS OF Pokemon SOLO GUITAR"
+        }
+      ],
+      "type": "distraction",
+      "date": "21/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=2bko5GgK5v8",
+          "description": "Astartes - Part One"
+        }
+      ],
+      "type": "distraction",
+      "date": "17/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=FeJKJ5MoCHY&t=1s",
+          "description": "10 TOP Natural History Moments | BBC Earth"
+        }
+      ],
+      "type": "distraction",
+      "date": "16/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=E1KkQrFEl2I",
+          "description": "How Large Can a Bacteria get? Life & Size 3"
+        }
+      ],
+      "type": "distraction",
+      "date": "15/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=NoChroQIA10",
+          "description": "36 STRINGS BASS SOLO (World Record)"
+        }
+      ],
+      "type": "distraction",
+      "date": "14/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=QrEn666Q1mE",
+          "description": "The North Sea Tsunami: Britain’s Deadliest Disaster"
+        }
+      ],
+      "type": "distraction",
+      "date": "13/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=G0oKBPZODhM",
+          "description": "How Plankton Created A Bizarre Giant of the Seas"
+        }
+      ],
+      "type": "distraction",
+      "date": "12/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=B8ns0u_lxXU",
+          "description": "The First Guy To Ever Rob A Bank"
+        }
+      ],
+      "type": "distraction",
+      "date": "11/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=5wYI1G0ZDu0",
+          "description": "Wagakki Band - 五芒星 (Gobousei) + 焔 (Homura) / TOUR 2018 -oto no kairou- Live at Tokyo International F"
+        }
+      ],
+      "type": "distraction",
+      "date": "10/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=1ISgr-2qdK0",
+          "description": "인터스텔라 Interstellar Main Theme \"First Step\" - Hans Zimmer / Marimba cover"
+        }
+      ],
+      "type": "distraction",
+      "date": "9/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=ajavsMbCapY",
+          "description": "The Electoral College, explained"
+        }
+      ],
+      "type": "distraction",
+      "date": "8/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=-ntbeRiQ0cg",
+          "description": "How We Figured Out Fermentation"
+        }
+      ],
+      "type": "distraction",
+      "date": "7/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=yr3f5FCIFMI",
+          "description": "Shape of You (箏/Koto cover) - Ed Sheeran - TRiECHOES feat. DJ SHOTA"
+        }
+      ],
+      "type": "distraction",
+      "date": "6/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=448QblQxsGY",
+          "description": "How to Cook 4 Regional Smashburgers with George Motz | Burger Scholar Sessions"
+        }
+      ],
+      "type": "distraction",
+      "date": "5/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=DA0xBTxqxdM",
+          "description": "Red Panda Pabu Ambushes, Pounces On Mom"
+        }
+      ],
+      "type": "distraction",
+      "date": "4/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=WT934eTbmuY",
+          "description": "Why Pipe Organs Sound Scary"
+        }
+      ],
+      "type": "distraction",
+      "date": "3/11/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=wvfR3XLXPvw",
+          "description": "Why Do Things Keep Evolving Into Crabs?"
+        }
+      ],
+      "type": "distraction",
+      "date": "2/11/2020"
+    }, {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=UiFjONQDHNM",
+          "description": "Wildlife Predators: Tiger, Lion, Leopard and Jaguar - The Four Big Cats"
+        }
+      ],
+      "type": "distraction",
+      "date": "1/11/2020"
+    },{
+  "image": [],
+  "video": [
+    {
+      "link": "https://www.youtube.com/watch?v=CJjP4BHI0Us",
+      "description": "Jazz Pianist Reacts to Metal - Periphery's Rhythms"
+    }
+  ],
+  "type": "distraction",
+  "date": "31/10/2020"
+},{
+  "image": [],
+  "video": [
+    {
+      "link": "https://www.youtube.com/watch?v=KcMlPl9jArM&t=4s",
+      "description": "African Wildlife in 8K - Discover Botswana Wild World - Relax Video + African Wildlife Sounds"
+    }
+  ],
+  "type": "distraction",
+  "date": "30/10/2020"
+},{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=dSu5sXmsur4",
+          "description": "Geoengineering: A Horrible Idea We Might Have to Do"
+        }
+      ],
+      "type": "distraction",
+      "date": "29/10/2020"
+    }, {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=c9yscdB_hXY",
+          "description": "History Buffs: Bohemian Rhapsody Part One"
+        }
+      ],
+      "type": "distraction",
+      "date": "28/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=sz1ovZUA4nQ",
+          "description": "Matthew McConaughey Grunts it Out While Eating Spicy Wings | Hot Ones"
+        }
+      ],
+      "type": "distraction",
+      "date": "27/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=_vfdupZNKqo",
+          "description": "Jiggly cake — homemade giant Castella"
+        }
+      ],
+      "type": "distraction",
+      "date": "26/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=n-hKc2QhJzc",
+          "description": "What is panko, and why is it so much better than other breadcrumbs?"
+        }
+      ],
+      "type": "distraction",
+      "date": "25/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=p-SikBqk2PM",
+          "description": "Ice cream made with two bowls — no machine needed"
+        }
+      ],
+      "type": "distraction",
+      "date": "24/10/2020"
+    }, {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=IKnKYZFKMP0",
+          "description": "How 'Wild' was the Wild West (Short Animated Documentary)"
+        }
+      ],
+      "type": "distraction",
+      "date": "23/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=Jp5nV8ryEA4",
+          "description": "Honest Game Trailers | Among Us"
+        }
+      ],
+      "type": "distraction",
+      "date": "22/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=IY-HDrhaLZk",
+          "description": "The Insane Dutch Plan to Dam the North Sea"
+        }
+      ],
+      "type": "distraction",
+      "date": "21/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=ejZmfmxWNDI",
+          "description": "Ronald Koeman's New-Look Barcelona"
+        }
+      ],
+      "type": "distraction",
+      "date": "20/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=xuCn8ux2gbs",
+          "description": "history of the entire world, i guess"
+        }
+      ],
+      "type": "distraction",
+      "date": "19/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=l3DF6cHN02s",
+          "description": "5 System of a Down riffs on hurdy gurdy"
+        }
+      ],
+      "type": "distraction",
+      "date": "18/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=U9DyHthJ6LA",
+          "description": "Gordon Ramsay Savagely Critiques Spicy Wings | Hot Ones"
+        }
+      ],
+      "type": "distraction",
+      "date": "17/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=J2eU4Ol3IDU",
+          "description": "Binging with Babish: Restaurant Wars from Steven Universe"
+        }
+      ],
+      "type": "distraction",
+      "date": "16/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=mCpbpi7C4rQ",
+          "description": "Uprising - Muse - João Fuss"
+        }
+      ],
+      "type": "distraction",
+      "date": "15/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=JeUFrZtKkn8",
+          "description": "Margot Robbie Pushes Her Limits While Eating Spicy Wings | Hot Ones"
+        }
+      ],
+      "type": "distraction",
+      "date": "14/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=IJJ-XsQBUPI",
+          "description": "The Insanely Likable Career of Paul Rudd"
+        }
+      ],
+      "type": "distraction",
+      "date": "13/10/2020"
+    }, {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=rjQ65Lu1voU",
+          "description": "Mushroom risotto with homemade mushroom stock"
+        }
+      ],
+      "type": "distraction",
+      "date": "12/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=Pl7zXgqQlUI",
+          "description": "The Mandalorian Theme (Cello Cover) - Nicholas Yee"
+        }
+      ],
+      "type": "distraction",
+      "date": "11/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=cs8OYby6RrA",
+          "description": "One Pot Pastas | Basics with Babish"
+        }
+      ],
+      "type": "distraction",
+      "date": "10/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=lRoMp4PefEU",
+          "description": "The Problem With ANOTHER Live Action Lion King"
+        }
+      ],
+      "type": "distraction",
+      "date": "9/10/2020"
+    },{
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=CWu29PRCUvQ",
+          "description": "When Time Became History - The Human Era"
+        }
+      ],
+      "type": "distraction",
+      "date": "8/10/2020"
+    },
+    {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=05hTQC1CZko",
+          "description": "The Problem With Auto-Tune"
+        }
+      ],
+      "type": "distraction",
+      "date": "7/10/2020"
+    },
+    {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=FPx7X7k0HuM",
+          "description": "Nashville Hot Chicken | Basics with Babish"
+        }
+      ],
+      "type": "distraction",
+      "date": "6/10/2020"
+    },
+    {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=C2CVlvSSFO4",
+          "description": "BETTER THAN TAKEOUT – Sesame Chicken"
+        }
+      ],
+      "type": "distraction",
+      "date": "5/10/2020"
+    },
+    {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=zQm9Bk2bA_Q",
+          "description": "Weeknight Meals | Basics with Babish"
+        }
+      ],
+      "type": "distraction",
+      "date": "4/10/2020"
+    },
+    {
+      "image": [],
+      "video": [
+        {
+          "link": "https://www.youtube.com/watch?v=mKWNLDn93YU",
+          "description": "Chocolate Cake with Italian Meringue (Marshmallow Frosting)"
+        }
+      ],
+      "type": "distraction",
+      "date": "03/10/2020"
+    },
     {
       "image": [],
       "video": [

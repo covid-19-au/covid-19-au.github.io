@@ -837,28 +837,23 @@
             "name": "Victoria",
             "text": {
                 "text_1": [
-                    "The Victorian government has announced a roadmap for the easing of coronavirus restrictions. Stage 4 lockdown has been extended till 28 September",
-                    "13th September will mark a slight change in stage 4 restrictions:"
+                    "A number of restrictions will be eased from Tuesday 11:59pm 08 November 2020. Details of the eased restrictions and Victoria's roadmap are found in the links below."
                 ],
                 "ulist_1": [
-                    "Curfew wil then be from 9pm-5am (instead of the current 8pm-5am",
-                    "The exercise limit will go up to 2 hours a day instead of 1 (5km restriction still applies)",
-                    "People living alone can have one designated person visit",
-                    "Outdoor gatherings will be allowed for two people from different households or all members of the same household, for a maximum of 2 hours",
-                    "Remote learning will stake take place except for the children of essential workers when there is no adult at home",
-                    "Playgrounds will reopen",
-                    "Weddings for compassionate reasons will be allowed and can have up to five attendees",
-                    "Funerals will be capped at 10 people"
                 ],
                 "text_middle": [
-                    "Read more about the other stages in the article linked below."
+                  
                 ],
                 "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
-                        "link": "https://www.theguardian.com/australia-news/2020/sep/06/victorias-roadmap-for-easing-coronavirus-lockdown-restrictions-what-you-need-to-know",
-                        "name": "Victoria's roadmap for easing coronavirus lockdown restrictions: what you need to know"
+                        "link": "https://www.theguardian.com/australia-news/2020/oct/30/melbourne-stage-4-restrictions-victoria-lockdown-rules-covid-19-stage-four-metropolitan-metro-explained-what-you-need-to-know",
+                        "name":"Melbourne Covid lockdown rules and coronavirus restrictions explained - The Guardian"
+                    },
+                    {
+                        "link": "https://www.dhhs.vic.gov.au/victorias-restriction-levels-covid-19",
+                        "name":"Victoria's restriction levels - Department of Health and Human Services"
                     }
                 ]
             },
@@ -959,27 +954,16 @@
         {
             "name": "South Australia",
             "text": {
-                "text_1": [],
+                "text_1": ["A number of new restrictions will be introduced midnight 16 November in response to the new coronavirus cluster. Information about these restrictions can be found in the link below."],
                 "ulist_1": [
-                    "There is no limit on the number of people allowed, as long as there is no more than one person per two square metres",
-                    "Residents can have one visit per day. Up to two people can visit them at the same time for the purpose of providing care and support. As of 20 June, children under the age of 16 years can visit, and aged care facilities can approve additional visits if this is appropriate or necessary",
-                    "As of 29 June, restaurants, cafes, pubs, food courts, nightclubs and casinos can open, as well as standing hospitality venues. There is no limit on the number of people allowed, as long as there is no more than one person per two square metres. Drinking at a bar, or while standing, is allowed. Communal food, like buffets and salad bars, are not permitted",
-                    "There are no restrictions on travel within South Australia. Some Aboriginal communities across the state have chosen to close access to their townships and lands to non-essential outside visitors. Non-essential visitors to these communities have to quarantine for 14 days and be granted permission",
-                    "People from Queensland, WA, the NT and Tasmania can enter South Australia without having to quarantine for 14 days. But people from NSW and Victoria will have to – until 20 July, when the quarantine requirement will be lifted for all domestic travellers",
-                    "Weddings can have up to 75 attendees, not including the celebrant, venue staff or any other person required to facilitate the wedding. Up to 75 can also attend a funeral. This excludes those officiating the funeral or any staff required to carry out the funeral. If the ceremony involves food or drinks, no shared utensils can be used. Social distancing must be observed",
-                    "Attendance at religious gatherings is only limited by the two square metre rule",
-                    "You are allowed to shop for non-essential items",
-                    "Hairdressers and barbers, along with beauty salons, nail and tattoo parlours, non-therapeutic massage providers, spas, saunas and bathing can open, as long as the total number of people on site doesn’t exceed one person per two square metres",
-                    "Libraries, community and youth centres, cinemas, theatres, galleries and museums can have one patron per two square metres. Indoor play centres, arcades and amusement parks are also allowed to open. Swimming in public pools is allowed",
-                    "Gyms and indoor fitness classes can operate, subject to the one person per two square metres rule. Outdoor and indoor training and competitions for non-contact is allowed, as is the use of golf courses, tennis courts and public gym equipment"
-                ],
+                 ],
                 "text_middle": [],
                 "ulist_2": [],
                 "text_2": [],
                 "citation": [
                     {
-                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
-                        "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
+                        "link": "https://www.covid-19.sa.gov.au/restrictions-and-responsibilities",
+                        "name": "Restrictions and responsibilities - Government of South Australia"
                     }
                 ]
             },

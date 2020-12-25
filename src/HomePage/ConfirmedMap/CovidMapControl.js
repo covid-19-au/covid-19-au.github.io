@@ -58,8 +58,7 @@ import RateOfChangeCaseLayer from "./Layers/cases/RateOfChangeCaseLayer";
 let token = process.env.REACT_APP_MAP_API;
 mapboxgl.accessToken = token;
 
-const ENABLE_AXIOS_ANALYTICS = true;
-
+const ENABLE_AXIOS_ANALYTICS = false;
 
 // A "blank" style to allow for using vector data
 // without downloading from MapBox servers
