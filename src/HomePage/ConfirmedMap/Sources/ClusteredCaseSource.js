@@ -98,13 +98,13 @@ class ClusteredCaseSource extends MapBoxSource {
      * @param geoDataInsts
      * @param caseDataInsts
      */
-    setData(typeOfData, data, geoDataInsts, caseDataInsts) {
+    setData(typeOfData, data, geoDataInsts, caseDataInsts, byPopulation) {
         this.__isPercentile = typeOfData ?
             this.remoteData.getConstants()[typeOfData]['percentile'] : false;
 
         var currentZoom = parseInt(this.map.getZoom());
         //console.log(`current zoom: ${currentZoom}`);
-        let modifiedData = this.__getModifiedGeoJSONWithPointsJoined(data, currentZoom);
+        let modifiedData = this.__getModifiedGeoJSONWithPointsJoined(data, currentZoom, byPopulation);
         this.__clusteringBeingUsed = modifiedData.features.length !== data.features.length;
 
         return super.setData(typeOfData, modifiedData, geoDataInsts, caseDataInsts);
@@ -133,7 +133,7 @@ class ClusteredCaseSource extends MapBoxSource {
      * @param geoJSONData
      * @returns {*|GeoDataForDataSource.__getModifiedGeoJSONWithPointsJoined.props}
      */
-    __getModifiedGeoJSONWithPointsJoined(geoJSONData) {
+    __getModifiedGeoJSONWithPointsJoined(geoJSONData, byPopulation) {
         // Convert from pixels to lat/long so as
         // to be able to scale based on zoom level
         let coordinate1 = this.map.unproject([0, 0]),
@@ -224,29 +224,31 @@ class ClusteredCaseSource extends MapBoxSource {
                     numAdded[x] = 1;
                 }
 
-                for (let otherIndex of mergedMap.get(index)) {
-                    // TODO: Add info about which features were merged(?)
-                    var otherFeature =  geoJSONData['features'][otherIndex],
-                        otherProperties = otherFeature.properties;
-                    cases = cases + otherProperties['cases'];
-                    pcDivBy += 1;
+                if (!byPopulation) {
+                    for (let otherIndex of mergedMap.get(index)) {
+                        // TODO: Add info about which features were merged(?)
+                        var otherFeature = geoJSONData['features'][otherIndex],
+                            otherProperties = otherFeature.properties;
+                        cases = cases + otherProperties['cases'];
+                        pcDivBy += 1;
 
-                    for (let x=0; x<otherProperties['casesTimeSeries'].length; x++) {
-                        if (x+1 > newTimeSeries.length) {
-                            newTimeSeries.push(0);
+                        for (let x = 0; x < otherProperties['casesTimeSeries'].length; x++) {
+                            if (x + 1 > newTimeSeries.length) {
+                                newTimeSeries.push(0);
+                            }
+                            newTimeSeries[x] += otherProperties['casesTimeSeries'][x] || 0;
+                            numAdded[x] = (numAdded[x] || 0) + 1;
                         }
-                        newTimeSeries[x] += otherProperties['casesTimeSeries'][x] || 0;
-                        numAdded[x] = (numAdded[x]||0) + 1;
                     }
-                }
 
-                if (this.__isPercentile) {
-                    for (let x=0; x<newTimeSeries.length; x++) {
-                        newTimeSeries[x] /= numAdded[x]||1;
-                        newTimeSeries[x] = Math.round(newTimeSeries[x]);
+                    if (this.__isPercentile) {
+                        for (let x = 0; x < newTimeSeries.length; x++) {
+                            newTimeSeries[x] /= numAdded[x] || 1;
+                            newTimeSeries[x] = Math.round(newTimeSeries[x]);
+                        }
+                        cases /= pcDivBy;
+                        cases = Math.round(cases);
                     }
-                    cases /= pcDivBy;
-                    cases = Math.round(cases);
                 }
 
                 if (properties.label) {
@@ -258,7 +260,6 @@ class ClusteredCaseSource extends MapBoxSource {
                     } else {
                         properties.label = `${mergedMap.get(index).length+1} areas\n(${properties.label}, ...)`;
                     }
-
                 }
 
                 properties['cases'] = cases;
