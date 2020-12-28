@@ -1,4 +1,2993 @@
 [
+      {
+        "state": "NSW",
+        "area": "Manly",
+        "name": "Monitor: Wharf Bar",
+        "date": "12/12/20",
+        "time": "2:45pm to 3:15pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.7999365,
+            151.2828488
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Hornsby",
+        "name": "Monitor: Bistro, Hornsby Railway Hotel",
+        "date": "17/12/20",
+        "time": "6pm to 6:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7027651,
+            151.0958385
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Sydney",
+        "name": "Monitor: 1 Bligh St, Sydney",
+        "date": "17/12/20",
+        "time": "10:30am to 10:50am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6955269,
+            151.2958065
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Monitor: Aldi Mona Vale",
+        "date": "13/12/20",
+        "time": "12:45pm to 1:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.677469,
+            151.302379
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Auburn",
+        "name": "Monitor: Auburn Redyard Entertainment Centre",
+        "date": "20/12/20",
+        "time": "4pm to 5pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.8466803,
+            151.0439114
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Monitor: Australian Red Cross Op Shop - Avalon Beach",
+        "date": "15/12/20",
+        "time": "1pm to 2pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6376429,
+            151.3267153
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Balmain",
+        "name": "Monitor: Balmain Post Office",
+        "date": "22/12/20",
+        "time": "3:30pm to 4pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            33.8566409,
+            151.175229
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Monitor: Bayview Golf Club",
+        "date": "11/12/20",
+        "time": "11:45am to 12:45pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.67006317,
+            151.3014694
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Monitor: Bing Lee Gateway",
+        "date": "14/12/20",
+        "time": "4:30pm to 4:45pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.678538,
+            151.302133
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Bondi",
+        "name": "Monitor: Bondi Icebergs Club (Pool Deck Level)",
+        "date": "21/12/20",
+        "time": "7am to 8am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.89499817,
+            151.2744547
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Bondi",
+        "name": "Monitor: Bondi Icebergs Club (Pool Deck Level)",
+        "date": "20/12/20",
+        "time": "8am to 9:30am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.89499817,
+            151.2744547
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Monitor: Bunnings Belrose",
+        "date": "17/12/20",
+        "time": "4pm to 5pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.70229677,
+            151.211411
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Chippendale",
+        "name": "Monitor: Central Park Food Court",
+        "date": "17/12/20",
+        "time": "5pm to 6pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.865143,
+            151.2099
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Monitor: ChaRice Noodle Bar",
+        "date": "16/12/20",
+        "time": "1pm to 2:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.65542279,
+            151.31904
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "North Sydney",
+        "name": "Monitor: Cibo Caf\u00e9",
+        "date": "16/12/20",
+        "time": "12pm to 12:45pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.8399372,
+            151.2067919
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Monitor: Coles Mona Vale",
+        "date": "19/12/20",
+        "time": "12pm to 12:45pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.675533,
+            151.3061931
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Monitor: Coles Mona Vale",
+        "date": "13/12/20",
+        "time": "1pm to 3pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.675533,
+            151.3061931
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Monitor: Coles Newport",
+        "date": "11/12/20",
+        "time": "5pm to 7pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6538429,
+            151.321167
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Monitor: Coles Newport",
+        "date": "18/12/20",
+        "time": "9am to 10am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.65324223,
+            151.3208644
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Monitor: Coles Newport",
+        "date": "12/12/20",
+        "time": "3:15pm to 3:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6538429,
+            151.321167
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Monitor: Coles Newport",
+        "date": "15/12/20",
+        "time": "2pm to 2:15pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6538429,
+            151.321167
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Monitor: Coles Newport",
+        "date": "15/12/20",
+        "time": "8pm to 8:15pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6538429,
+            151.321167
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Monitor: Coles Newport",
+        "date": "09/12/20",
+        "time": "4pm to 4:20pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6538429,
+            151.321167
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Stanhope Gardens",
+        "name": "Monitor: Coles Stanhope Gardens",
+        "date": "19/12/20",
+        "time": "7am to 3:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7178651,
+            150.9207368
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Stanhope Gardens",
+        "name": "Monitor: Coles Stanhope Gardens",
+        "date": "20/12/20",
+        "time": "7am to 2pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7178651,
+            150.9207368
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Turramurra",
+        "name": "Monitor: Coles Turramurra",
+        "date": "18/12/20",
+        "time": "10:30am to 11am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7325258,
+            151.1251146
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Turramurra",
+        "name": "Monitor: Coles Turramurra",
+        "date": "17/12/20",
+        "time": "10am to 10:30am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7325258,
+            151.1251146
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Hornsby",
+        "name": "Monitor: Cotton On",
+        "date": "17/12/20",
+        "time": "10am to 10:20am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7046086,
+            151.1011093
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Cronulla",
+        "name": "Monitor: Cronulla Mall",
+        "date": "15/12/20",
+        "time": "8pm to 9pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -34.0554319,
+            151.1520512
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Cronulla",
+        "name": "Monitor: Cronulla Mall",
+        "date": "16/12/20",
+        "time": "3pm to 6pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -34.0554319,
+            151.1520512
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Davidson",
+        "name": "Monitor: Davidson Pizzeria",
+        "date": "18/12/20",
+        "time": "6:15pm to 6:45pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7443944,
+            151.1992449
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Collaroy",
+        "name": "Monitor: De\u2019assis Collaroy Caf\u00e9",
+        "date": "12/12/20",
+        "time": "9:15am to 10:10am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.73288026,
+            151.3014081
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Monitor: Fresh Delights Caf\u00e9, Belrose Super Centre",
+        "date": "17/12/20",
+        "time": "9am to 10am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7034771,
+            151.2131487
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Monitor: Harris Farm Markets Mona Vale",
+        "date": "13/12/20",
+        "time": "1pm to 3pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6758333,
+            151.3052778
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Monitor: Hungry Ghost Caf\u00e9",
+        "date": "13/12/20",
+        "time": "9:30am to 11am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.63587,
+            151.328969
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Monitor: Hungry Ghost Caf\u00e9",
+        "date": "15/12/20",
+        "time": "9:30am to 11am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.63587,
+            151.328969
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Monitor: KFC Mona Vale",
+        "date": "18/12/20",
+        "time": "12pm to 1pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.67676799,
+            151.2901335
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Hornsby",
+        "name": "Monitor: Kmart Hornsby",
+        "date": "17/12/20",
+        "time": "6:30pm to 7pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7046086,
+            151.1011093
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "North Ryde",
+        "name": "Monitor: Macquarie Shopping Centre",
+        "date": "13/12/20",
+        "time": "11am to 1pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7774883,
+            151.1159728
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Sydney",
+        "name": "Monitor: MLC Building food court",
+        "date": "15/12/20",
+        "time": "1pm to 2pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.86816864,
+            151.2091744
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "North Sydney",
+        "name": "Monitor: Mr Green and Co North Sydney",
+        "date": "16/12/20",
+        "time": "1pm to 2pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.83657937,
+            151.2080874
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Orange",
+        "name": "Monitor: Orange Central Square Shopping Centre",
+        "date": "19/12/20",
+        "time": "4:05pm to 4:15pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.2828439,
+            149.0980662
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Palm Beach",
+        "name": "Monitor: Pronto Creative Foods, Palm Beach",
+        "date": "16/12/20",
+        "time": "7:30am to 8:30am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.5995793,
+            151.319025
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Palm Beach",
+        "name": "Monitor: Pronto Creative Foods. Palm Beach",
+        "date": "17/12/20",
+        "time": "7:30am to 8:30am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.5995793,
+            151.319025
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Sydney",
+        "name": "Monitor: QVB - Level 3 - Santa Photos",
+        "date": "23/12/20",
+        "time": "10:15am to 11am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.865143,
+            151.2099
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Bayview",
+        "name": "Monitor: Rowland Reserve Dog Park",
+        "date": "17/12/20",
+        "time": "4pm to 5pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.66064423,
+            151.3042323
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Bayview",
+        "name": "Monitor: Rowland Reserve Dog Park",
+        "date": "16/12/20",
+        "time": "4pm to 5pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.66064423,
+            151.3042323
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Monitor: Royal Prince Alfred Yacht Club",
+        "date": "16/12/20",
+        "time": "4:30pm to 6pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.65612105,
+            151.3054527
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Monitor: Service NSW Warriewood Square",
+        "date": "15/12/20",
+        "time": "1:25pm to 2:05pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.69545275,
+            151.2966071
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Rozelle",
+        "name": "Monitor: Sir Reuben",
+        "date": "20/12/20",
+        "time": "11am to 11:30am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.8645707,
+            151.1673033
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Rose Bay",
+        "name": "Monitor: Star Nails",
+        "date": "20/12/20",
+        "time": "12:15pm to 1pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.8731558,
+            151.2470581
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Centennial Park",
+        "name": "Monitor: The Ian Potter Children's Wild Play Garden, Centennial Park",
+        "date": "22/12/20",
+        "time": "10am to 11:15am",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.8979799,
+            151.2401383
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Monitor: Warriewood Square",
+        "date": "17/12/20",
+        "time": "11am to 3pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6955269,
+            151.2958065
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Monitor: Warriewood Square",
+        "date": "08/12/20",
+        "time": "12:30pm to 2:15pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6955269,
+            151.2958065
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Monitor: Warriewood Square",
+        "date": "16/12/20",
+        "time": "11am to 12:15pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6955269,
+            151.2958065
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Monitor: Warriewood Square Nails",
+        "date": "15/12/20",
+        "time": "3:30pm to 4:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.6955269,
+            151.2958065
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Bondi Junction",
+        "name": "Monitor: Westfield Bondi Junction",
+        "date": "19/12/20",
+        "time": "10am to 1pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -34.0554319,
+            151.1520512
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Bondi Junction",
+        "name": "Monitor: Westfield Bondi Junction",
+        "date": "15/12/20",
+        "time": "1pm to 2:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -34.0554319,
+            151.1520512
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Brookvale",
+        "name": "Monitor: Westfield Warringah Mall",
+        "date": "19/12/20",
+        "time": "1:30pm to 2:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7672298,
+            151.2653826
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Brookvale",
+        "name": "Monitor: Westfield Warringah Mall",
+        "date": "16/12/20",
+        "time": "11:40am to 1:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.7672298,
+            151.2653826
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Monitor: Woolworths Avalon Beach",
+        "date": "14/12/20",
+        "time": "7pm to 7:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.636352,
+            151.329884
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Monitor: Woolworths Avalon Beach",
+        "date": "12/12/20",
+        "time": "12pm to 12:15pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.636352,
+            151.329884
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Monitor: Woolworths Avalon Beach",
+        "date": "13/12/20",
+        "time": "12pm to 5pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.636352,
+            151.329884
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Monitor: Woolworths Avalon Beach",
+        "date": "15/12/20",
+        "time": "5pm to 5:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.636352,
+            151.329884
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Monitor: Woolworths Avalon Beach",
+        "date": "15/12/20",
+        "time": "7pm to 7:30pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.636352,
+            151.329884
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Cronulla",
+        "name": "Monitor: Woolworths Metro Cronulla",
+        "date": "16/12/20",
+        "time": "11am to 12pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -34.0539432,
+            151.1504233
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Monitor: Woolworths Mona Vale",
+        "date": "12/12/20",
+        "time": "1pm to 3pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.676125,
+            151.302123
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Drummoyne",
+        "name": "Monitor: Zeus Street Greek",
+        "date": "22/12/20",
+        "time": "6pm to 6:15pm",
+        "description": "Monitor for symptoms",
+        "coor": [
+            -33.8566082,
+            151.144158
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Manly",
+        "name": "Isolate: Hotel Steyne",
+        "date": "12/12/20",
+        "time": "3pm to 3:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.7970838,
+            151.2856229
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Leichhardt",
+        "name": "Isolate: Massage Link",
+        "date": "18/12/20",
+        "time": "12:30pm to 1:15pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.8849112,
+            151.1469383
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Isolate: 4 Pines",
+        "date": "15/12/20",
+        "time": "6pm to 10pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.65602179,
+            151.3190677
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Isolate: 4 Pines",
+        "date": "16/12/20",
+        "time": "4:30pm to 9pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.65602179,
+            151.3190677
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Alma Avalon Restaurant",
+        "date": "16/12/20",
+        "time": "8:30pm to close",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.63644568,
+            151.3290368
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "10/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "18/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "25/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "14/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "21/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "12/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "19/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "20/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "13/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "17/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "24/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "15/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "22/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "16/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Anytime Fitness Avalon Beach",
+        "date": "23/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635934,
+            151.328658
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Berowra",
+        "name": "Isolate: Anytime Fitness Berowra",
+        "date": "17/12/20",
+        "time": "5:30am to 6:30am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.61154728,
+            151.1369647
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Berowra",
+        "name": "Isolate: Anytime Fitness Berowra",
+        "date": "16/12/20",
+        "time": "5:30am to 6:30am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.61154728,
+            151.1369647
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Kings Park",
+        "name": "Isolate: Anytime Fitness Kings Park",
+        "date": "20/12/20",
+        "time": "9:30am to 11:45am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.7523608,
+            150.912638
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Anytime Fitness Mona Vale",
+        "date": "14/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6734924,
+            151.3067474
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Anytime Fitness Mona Vale",
+        "date": "13/12/20",
+        "time": "2pm to 4pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6734924,
+            151.3067474
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Anytime Fitness Mona Vale",
+        "date": "17/12/20",
+        "time": "11:30am to 1pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6734924,
+            151.3067474
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Anytime Fitness Mona Vale",
+        "date": "16/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6734924,
+            151.3067474
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Beach RSL Club",
+        "date": "11/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.63519006,
+            151.328626
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Beach RSL Club",
+        "date": "14/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635373,
+            151.328588
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Beach RSL Club",
+        "date": "13/12/20",
+        "time": "8:30pm to 9:15pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635373,
+            151.328588
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Beach RSL Club",
+        "date": "13/12/20",
+        "time": "8:30pm to 9:15pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635373,
+            151.328588
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Beach RSL Club",
+        "date": "15/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635373,
+            151.328588
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Beach RSL Club",
+        "date": "16/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635373,
+            151.328588
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Beach Surf Life Saving Club",
+        "date": "15/12/20",
+        "time": "8:30am to 9am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.63583893,
+            151.3315385
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Bowlo (bowling club)",
+        "date": "13/12/20",
+        "time": "5pm to 7pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.634721,
+            151.327643
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Bowlo (bowling club)",
+        "date": "15/12/20",
+        "time": "3pm to 5pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.634721,
+            151.327643
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Avalon Bowlo (bowling club)",
+        "date": "15/12/20",
+        "time": "6pm to 8:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6345223,
+            151.3276377
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Bangkok Sidewalk Restaurant",
+        "date": "14/12/20",
+        "time": "7pm to 8pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.637489,
+            151.328358
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Barramee Thai Massage and Spa",
+        "date": "14/12/20",
+        "time": "2pm to 3:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.637817,
+            151.32881
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Barramee Thai Massage and Spa",
+        "date": "16/12/20",
+        "time": "2pm to 3:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.63769006,
+            151.3287765
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Blacktown",
+        "name": "Isolate: BodyFit Gym Blacktown",
+        "date": "18/12/20",
+        "time": "7am to 8am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.763831,
+            150.9199112
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Blacktown",
+        "name": "Isolate: BodyFit Gym Blacktown",
+        "date": "17/12/20",
+        "time": "7am to 8am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.763831,
+            150.9199112
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Blacktown",
+        "name": "Isolate: BodyFit Gym Blacktown",
+        "date": "16/12/20",
+        "time": "7am to 8am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.763831,
+            150.9199112
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Crows Nest",
+        "name": "Isolate: BoThai",
+        "date": "13/12/20",
+        "time": "4:30pm to 5:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.827042,
+            151.1984484
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Neutral Bay",
+        "name": "Isolate: Caf\u00e9 Junior",
+        "date": "13/12/20",
+        "time": "12:45pm to 2:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.8320896,
+            151.2212301
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Forster",
+        "name": "Isolate: Cafe Toscano (outdoor verandah area",
+        "date": "16/12/20",
+        "time": "6pm to 7:45pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -32.18040375,
+            152.5123199
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "St Leonards",
+        "name": "Isolate: Charlie & Franks",
+        "date": "16/12/20",
+        "time": "9am to 10am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.8231455,
+            151.1967104
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Auburn",
+        "name": "Isolate: Chicago Jones Coffee & Chocolate Maison",
+        "date": "20/12/20",
+        "time": "2:50pm to 4pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.84675691,
+            151.0452721
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Palm Beach",
+        "name": "Isolate: Coast Palm Beach Caf\u00e9",
+        "date": "13/12/20",
+        "time": "10am to 11am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.60326,
+            151.319895
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Alexandria",
+        "name": "Isolate: Cortex Gym Alexandria",
+        "date": "15/12/20",
+        "time": "Strength and Conditioning Class to ",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.9041649,
+            151.1927788
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Cronulla",
+        "name": "Isolate: Cronulla RSL Club",
+        "date": "16/12/20",
+        "time": "5pm to close",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -34.0562629,
+            151.1542968
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Manly",
+        "name": "Isolate: Donny's",
+        "date": "12/12/20",
+        "time": "3:15pm to 9pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.7973003,
+            151.283924
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Fitness First Mona Vale",
+        "date": "14/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6758537,
+            151.3046103
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Fitness First Mona Vale",
+        "date": "13/12/20",
+        "time": "2pm to 4pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6758537,
+            151.3046103
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Fitness First Mona Vale",
+        "date": "17/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6758537,
+            151.3046103
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Fitness First Mona Vale",
+        "date": "16/12/20",
+        "time": "8:30pm to 10pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6758537,
+            151.3046103
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Freshwater",
+        "name": "Isolate: G Fitness Freshwater",
+        "date": "15/12/20",
+        "time": "11am to 12:45pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.7797036,
+            151.29299
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Manly",
+        "name": "Isolate: Garfish Manly",
+        "date": "17/12/20",
+        "time": "7:10pm to 8:15pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.7999064,
+            151.2858698
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Lane Cove",
+        "name": "Isolate: Hair by Erika",
+        "date": "11/12/20",
+        "time": "2:30pm to 4:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.8143442,
+            151.1678241
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Manly",
+        "name": "Isolate: Hotel Steyne",
+        "date": "12/12/20",
+        "time": "3pm to 3:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.7970838,
+            151.2856229
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Kirribilli",
+        "name": "Isolate: Kirribilli Club",
+        "date": "14/12/20",
+        "time": "12pm to 3pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.844075,
+            151.209834
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Milsons Point",
+        "name": "Isolate: Kirribilli Hotel",
+        "date": "17/12/20",
+        "time": "12:45pm to 3pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.84563328,
+            151.212886
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Manly",
+        "name": "Isolate: Manly 16ft Skiff Sailing Club",
+        "date": "12/12/20",
+        "time": "12pm to 2:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.8033113,
+            151.2849729
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "North Narrabeen",
+        "name": "Isolate: Motorserve Narrabeen Car Servicing",
+        "date": "18/12/20",
+        "time": "10:30am to 2pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.7013,
+            151.297418
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Surry Hills",
+        "name": "Isolate: Nomad Restaurant",
+        "date": "16/12/20",
+        "time": "12:45pm to 2pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.87958471,
+            151.2108235
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Oceana Traders - Seafood Merchants",
+        "date": "14/12/20",
+        "time": "6pm to 8pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635333,
+            151.328626
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Oceana Traders - Seafood Merchants",
+        "date": "17/12/20",
+        "time": "6pm to 8pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635333,
+            151.328626
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Oceana Traders - Seafood Merchants",
+        "date": "15/12/20",
+        "time": "6pm to 8pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635333,
+            151.328626
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Oceana Traders - Seafood Merchants",
+        "date": "16/12/20",
+        "time": "6pm to 8pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.635333,
+            151.328626
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Manly",
+        "name": "Isolate: Old Manly Boatshed",
+        "date": "12/12/20",
+        "time": "9pm to 12:30am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.7985349,
+            151.2837359
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Paddington",
+        "name": "Isolate: Paddington Alimentari",
+        "date": "18/12/20",
+        "time": "5:30am to 6pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.88421451,
+            151.2304415
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Paddington",
+        "name": "Isolate: Paddington Alimentari",
+        "date": "19/12/20",
+        "time": "5:30am to 6pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.88421451,
+            151.2304415
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Paddington",
+        "name": "Isolate: Paddington Alimentari",
+        "date": "17/12/20",
+        "time": "5:30am to 6pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.88421451,
+            151.2304415
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Palm Beach",
+        "name": "Isolate: Palm Beach female change rooms",
+        "date": "13/12/20",
+        "time": "9am to 9:15am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.59914,
+            151.324517
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Sydney",
+        "name": "Isolate: Paragon Hotel Sports Bar",
+        "date": "16/12/20",
+        "time": "12:45pm to 3:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.86173789,
+            151.2103594
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Park House Hotel",
+        "date": "16/12/20",
+        "time": "8pm to 10pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.67620239,
+            151.3057978
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Pearly Nails and Beauty",
+        "date": "14/12/20",
+        "time": "4:30pm to 5:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6776023,
+            151.301158
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Penrith",
+        "name": "Isolate: Penrith RSL Club",
+        "date": "13/12/20",
+        "time": "1pm to 6pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.755244,
+            150.698318
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Pilates KX",
+        "date": "14/12/20",
+        "time": "7pm to 9pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.67846627,
+            151.3024073
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Cronulla",
+        "name": "Isolate: Pilgrims Vegetarian Caf\u00e9",
+        "date": "16/12/20",
+        "time": "11:30am to 2:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -34.0567641,
+            151.153352
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Macquarie Park",
+        "name": "Isolate: Premier Academy League Under 8s Macquarie University Soccer Fields Macquarie Park",
+        "date": "13/12/20",
+        "time": "9am to 10:45am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.76436449,
+            151.1147129
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Isolate: Restaurant Lovat",
+        "date": "15/12/20",
+        "time": "6:30pm to 8:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6561437,
+            151.3192007
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Erskineville",
+        "name": "Isolate: Rose of Australia",
+        "date": "15/12/20",
+        "time": "7pm to 9pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.89966008,
+            151.185457
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Auburn",
+        "name": "Isolate: Rosnay Golf Club Bistro",
+        "date": "20/12/20",
+        "time": "11:15am to 12:15pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.8644835,
+            151.0153818
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Isolate: Rusti Fig",
+        "date": "12/12/20",
+        "time": "9am to 10:30am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.6545409,
+            151.3208985
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Paddington",
+        "name": "Isolate: Salon X",
+        "date": "17/12/20",
+        "time": "9am to 8pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.60326,
+            151.319895
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Paddington",
+        "name": "Isolate: Salon X",
+        "date": "16/12/20",
+        "time": "9am to 6pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.60326,
+            151.319895
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Isolate: Sankaku Izakaya Newport",
+        "date": "17/12/20",
+        "time": "2:30pm to 3:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.65448052,
+            151.321246
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Woolloomooloo",
+        "name": "Isolate: Sienna Marina",
+        "date": "11/12/20",
+        "time": "12pm to 2pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.869365,
+            151.220224
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Sneaky Grind Caf\u00e9",
+        "date": "14/12/20",
+        "time": "9:30am to 11am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.637663,
+            151.329008
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Surry Hills",
+        "name": "Isolate: Strawberry Hills Hotel",
+        "date": "16/12/20",
+        "time": "3:30pm to 6pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.88619015,
+            151.2084061
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Sunset Diner",
+        "date": "11/12/20",
+        "time": "6:30pm to 8pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.63658032,
+            151.3290473
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Surf Life Saving Club",
+        "date": "14/12/20",
+        "time": "9am to 9:30am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.636044,
+            151.331517
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Surf Life Saving Club",
+        "date": "13/12/20",
+        "time": "9am to 9:30am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.636044,
+            151.331517
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Surf Life Saving Club",
+        "date": "15/12/20",
+        "time": "9am to 9:30am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.636044,
+            151.331517
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "St Peters",
+        "name": "Isolate: Sydney Trapeze School",
+        "date": "15/12/20",
+        "time": "10am to 12pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.90945528,
+            151.1752812
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Narrabeen",
+        "name": "Isolate: The Boatshed Cafe & Bar",
+        "date": "14/12/20",
+        "time": "2pm to 3pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.71672503,
+            151.2958594
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: The House Nail Salon",
+        "date": "14/12/20",
+        "time": "10:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.63570633,
+            151.3286476
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Turramurra",
+        "name": "Isolate: The Salon for Hair",
+        "date": "15/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.732687,
+            151.126701
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Turramurra",
+        "name": "Isolate: The Salon for Hair",
+        "date": "16/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.732687,
+            151.126701
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Turramurra",
+        "name": "Isolate: The Salon for Hair",
+        "date": "17/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.732687,
+            151.126701
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Turramurra",
+        "name": "Isolate: The Salon for Hair",
+        "date": "18/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.732687,
+            151.126701
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Narrabeen",
+        "name": "Isolate: The Sands",
+        "date": "15/12/20",
+        "time": "6pm to 8pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.7180957,
+            151.2987039
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Double Bay",
+        "name": "Isolate: Twenty-One Espresso",
+        "date": "15/12/20",
+        "time": "7:10pm to 9:10pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.8768056,
+            151.2426194
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: United Cinemas Avalon Beach",
+        "date": "15/12/20",
+        "time": "12pm to 2:15pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.63649617,
+            151.3286995
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Isolate: United Cinemas Warriewood",
+        "date": "15/12/20",
+        "time": "12pm to 2:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.69339684,
+            151.3022007
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Gordon",
+        "name": "Isolate: USA Nails",
+        "date": "17/12/20",
+        "time": "12:30pm to 1:30pm",
+        "description": "Get tested immediately and self-isolate for 14 days",
+        "coor": [
+            -33.75518132,
+            151.152525
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Rozelle",
+        "name": "Isolate: Local Bar Cafe",
+        "date": "16/12/20",
+        "time": "8:30am to 9:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8647639,
+            151.166082
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Rozelle",
+        "name": "Isolate: Local Bar Cafe",
+        "date": "17/12/20",
+        "time": "8:30am to 9:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8647639,
+            151.166082
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Rozelle",
+        "name": "Isolate: Local Bar Cafe",
+        "date": "18/12/20",
+        "time": "8:30am to 9:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8647639,
+            151.166082
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Rozelle",
+        "name": "Isolate: Local Bar Cafe",
+        "date": "19/12/20",
+        "time": "8:30am to 9:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8647639,
+            151.166082
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Rozelle",
+        "name": "Isolate: Local Bar Cafe",
+        "date": "20/12/20",
+        "time": "8:30am to 9:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8647639,
+            151.166082
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Leichhardt",
+        "name": "Isolate: Marketplace Leichardt",
+        "date": "19/12/20",
+        "time": "2pm to 2:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8849343,
+            151.1476119
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Balmain",
+        "name": "Isolate: Mr Cafe and Bar",
+        "date": "17/12/20",
+        "time": "9am to 10am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8561578,
+            151.1723759
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Waverley",
+        "name": "Isolate: Ruby's Diner",
+        "date": "17/12/20",
+        "time": "10am to 10:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.899312,
+            151.2524256
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Palm Beach",
+        "name": "Isolate: 2108 Espresso",
+        "date": "14/12/20",
+        "time": "8am to 9am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.59853492,
+            151.3248142
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Isolate: Anytime Fitness Belrose",
+        "date": "11/12/20",
+        "time": "9:45am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.73877723,
+            151.2111308
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Isolate: Anytime Fitness Belrose",
+        "date": "18/12/20",
+        "time": "9:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.73877723,
+            151.2111308
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Isolate: Anytime Fitness Belrose",
+        "date": "14/12/20",
+        "time": "9:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.73877723,
+            151.2111308
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Isolate: Anytime Fitness Belrose",
+        "date": "12/12/20",
+        "time": "9:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.73877723,
+            151.2111308
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Isolate: Anytime Fitness Belrose",
+        "date": "09/12/20",
+        "time": "9:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.73877723,
+            151.2111308
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Isolate: Anytime Fitness Belrose",
+        "date": "06/12/20",
+        "time": "9:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.73877723,
+            151.2111308
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Isolate: Anytime Fitness Belrose",
+        "date": "07/12/20",
+        "time": "9:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.73877723,
+            151.2111308
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Sydney",
+        "name": "Isolate: Arthouse Hotel",
+        "date": "17/12/20",
+        "time": "11:15am to 12:15pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.87215241,
+            151.207859
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Hornsby",
+        "name": "Isolate: Aura Threading and Beauty Hornsby",
+        "date": "17/12/20",
+        "time": "10am to 11am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.70357312,
+            151.1015764
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Australia Post - Avalon Beach Post Shop",
+        "date": "16/12/20",
+        "time": "3:30pm to 3:50pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.636303,
+            151.328406
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avoca Beach",
+        "name": "Isolate: Avoca Beach Hotel, Saltwater Bistro",
+        "date": "20/12/20",
+        "time": "7:30pm to 8:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.466519,
+            151.4131301
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Forster",
+        "name": "Isolate: Beach Bums Cafe",
+        "date": "17/12/20",
+        "time": "8am to 9am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -32.17796464,
+            152.5124124
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Forster",
+        "name": "Isolate: Beach Bums Cafe",
+        "date": "16/12/20",
+        "time": "8am to 9am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -32.17796464,
+            152.5124124
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Isolate: Belrose Hotel",
+        "date": "11/12/20",
+        "time": "12pm to 6pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.7332629,
+            151.2174357
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Riverstone",
+        "name": "Isolate: Blend @ Grantham Caf\u00e9",
+        "date": "16/12/20",
+        "time": "11am to 11:45am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.6559379,
+            150.8701992
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Isolate: Bowan Island Bakery",
+        "date": "18/12/20",
+        "time": "9am to 9:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.6538751,
+            151.3215428
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Auburn",
+        "name": "Isolate: Cafe Bodrum",
+        "date": "21/12/20",
+        "time": "2pm to 2:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.85166722,
+            151.0323916
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Cafe Relish",
+        "date": "17/12/20",
+        "time": "10:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.62722948,
+            151.3350373
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Careel Bay Dog Park & Hitchcock Park",
+        "date": "16/12/20",
+        "time": "7am to 7:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.6230914,
+            151.3330508
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Chillbar",
+        "date": "14/12/20",
+        "time": "10:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.63571697,
+            151.3296575
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Chillbar",
+        "date": "16/12/20",
+        "time": "10:30am to 11:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.63571697,
+            151.3296575
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Coffee Brothers Mona Vale",
+        "date": "12/12/20",
+        "time": "12pm to 1pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.67506793,
+            151.3067576
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Commonwealth Bank Avalon Beach",
+        "date": "15/12/20",
+        "time": "12pm to 12:15pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.636229,
+            151.328217
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Surry Hills",
+        "name": "Isolate: Cuckoo Callay on Crown",
+        "date": "15/12/20",
+        "time": "11am to 12pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.88605762,
+            151.2140262
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Isolate: Flower Power Garden Centre",
+        "date": "18/12/20",
+        "time": "8:45am to 9:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.6854512,
+            151.2918654
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Peakhurst",
+        "name": "Isolate: Forest Rangers FC, Little Rangers session at Gannons Park",
+        "date": "11/12/20",
+        "time": "4:30pm to 5:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.967852,
+            151.054654
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Homebush",
+        "name": "Isolate: Harris Farm Warehouse",
+        "date": "17/12/20",
+        "time": "2am to 1pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.86288836,
+            151.0753691
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Homebush",
+        "name": "Isolate: Harris Farm Warehouse",
+        "date": "15/12/20",
+        "time": "2am to 11am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.86288836,
+            151.0753691
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Homebush",
+        "name": "Isolate: Harris Farm Warehouse",
+        "date": "16/12/20",
+        "time": "2am to 11am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.86288836,
+            151.0753691
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Burwood",
+        "name": "Isolate: Hipster Clothing Store, Westfield Burwood",
+        "date": "19/12/20",
+        "time": "8am to 6pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.87445174,
+            151.106147
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Brookvale",
+        "name": "Isolate: Hi-Tek Aquariums",
+        "date": "16/12/20",
+        "time": "1:55pm to 2:55pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.76121675,
+            151.2739217
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Dee Why",
+        "name": "Isolate: HongFa BBQ Restaurant",
+        "date": "15/12/20",
+        "time": "4:30pm to 4:45pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.753926,
+            151.287014
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Rozelle",
+        "name": "Isolate: IGA Rozelle",
+        "date": "17/12/20",
+        "time": "8:25pm to 8:35pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8621802,
+            151.1710455
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Waitara",
+        "name": "Isolate: Jim\u2019s Cellars",
+        "date": "17/12/20",
+        "time": "7:15pm to 7:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.7066126,
+            151.1075799
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Paddington",
+        "name": "Isolate: London Hotel",
+        "date": "17/12/20",
+        "time": "8:15pm to 9:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8849315,
+            151.2299874
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Raymond Terrace",
+        "name": "Isolate: McDonalds Raymond Terrace",
+        "date": "15/12/20",
+        "time": "11:45am to 12:15pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -32.75926342,
+            151.7504521
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Isolate: McDonalds Warriewood",
+        "date": "17/12/20",
+        "time": "1:30pm to 2pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.69252587,
+            151.3031505
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Rosebery",
+        "name": "Isolate: Mentmore and Morley Caf\u00e9 and public toilets",
+        "date": "14/12/20",
+        "time": "10am to 3pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.915916,
+            151.203287
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Mitre 10 Avalon Beach",
+        "date": "15/12/20",
+        "time": "12pm to 12:20pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.636212,
+            151.328144
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Mitre 10 Mona Vale",
+        "date": "15/12/20",
+        "time": "8:30am to 5:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.67223084,
+            151.3075295
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Mitre 10 Mona Vale",
+        "date": "16/12/20",
+        "time": "8:30am to 5:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.67223084,
+            151.3075295
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Belrose",
+        "name": "Isolate: Nick Scali",
+        "date": "16/12/20",
+        "time": "10am to 5:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.703298,
+            151.213148
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Warriewood",
+        "name": "Isolate: Northern Beaches Indoor Sports Centre",
+        "date": "15/12/20",
+        "time": "6:30pm to 9:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.90485887,
+            151.1968703
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Nourished Wholefood Cafe and Lounge",
+        "date": "12/12/20",
+        "time": "7:15am to 7:40am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.636864,
+            151.32967
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Nourished Wholefood Cafe and Lounge",
+        "date": "13/12/20",
+        "time": "10am to 11am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.636864,
+            151.32967
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Crows Nest",
+        "name": "Isolate: Oliver Brown",
+        "date": "21/12/20",
+        "time": "10am to 10:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.82665576,
+            151.2020847
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Oliver\u2019s Pies",
+        "date": "14/12/20",
+        "time": "9am to 9:15am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.621818,
+            151.333599
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Oliver\u2019s Pies",
+        "date": "16/12/20",
+        "time": "3:30pm to 3:50pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.62088279,
+            151.3335627
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Palm Beach",
+        "name": "Isolate: Palm Beach Pool",
+        "date": "14/12/20",
+        "time": "9:30am to 10:30am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.600315,
+            151.326954
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Palm Beach",
+        "name": "Isolate: Palm Beach Pool",
+        "date": "16/12/20",
+        "time": "8am to 9am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.600315,
+            151.326954
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Cronulla",
+        "name": "Isolate: Paris Seafood Caf\u00e9",
+        "date": "15/12/20",
+        "time": "8:30pm to 9pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -34.0554319,
+            151.1520512
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Cronulla",
+        "name": "Isolate: Paris Seafood Caf\u00e9",
+        "date": "16/12/20",
+        "time": "3pm to 6pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -34.0554319,
+            151.1520512
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Balmain",
+        "name": "Isolate: P'nut Street Noodles Thai Restaurant",
+        "date": "16/12/20",
+        "time": "6pm to 6:15pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8558318,
+            151.1733852
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Darling Point",
+        "name": "Isolate: RAN Sailing Association, Navy Bear Caf\u00e9 and Christmas party",
+        "date": "13/12/20",
+        "time": "10am to 4pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8723473,
+            151.235264
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Isolate: Restaurant Lovat",
+        "date": "11/12/20",
+        "time": "6:30pm to 8:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.6563375,
+            151.3191603
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Sydney",
+        "name": "Isolate: Results Laser Clinic Sydney",
+        "date": "16/12/20",
+        "time": "12:30pm to 1pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8658061,
+            151.2079236
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Artarmon",
+        "name": "Isolate: Roof Racks World",
+        "date": "15/12/20",
+        "time": "2pm to 2:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.815406,
+            151.187337
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Avalon Beach",
+        "name": "Isolate: Sabiang Thai Restaurant",
+        "date": "13/12/20",
+        "time": "6pm to 8pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.6361271,
+            151.3290905
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Glebe",
+        "name": "Isolate: Sappho Books Cafe and Bar",
+        "date": "20/12/20",
+        "time": "11am to 12:30pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.88286492,
+            151.1919483
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Scoop Wholefoods",
+        "date": "18/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.6759177,
+            151.3053635
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Scoop Wholefoods",
+        "date": "19/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.6759177,
+            151.3053635
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mona Vale",
+        "name": "Isolate: Scoop Wholefoods",
+        "date": "17/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.6759177,
+            151.3053635
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mosman",
+        "name": "Isolate: Scoop Wholefoods",
+        "date": "17/12/20",
+        "time": "8am to 10am",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8241094,
+            151.2409242
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Mosman",
+        "name": "Isolate: Scoop Wholefoods",
+        "date": "16/12/20",
+        "time": "all day",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.8241094,
+            151.2409242
+        ]
+    },
+    {
+        "state": "NSW",
+        "area": "Newport",
+        "name": "Isolate: Shot Lab",
+        "date": "15/12/20",
+        "time": "11am to 12pm",
+        "description": "Get tested immediately and self-isolate until you get a negative result",
+        "coor": [
+            -33.65585578,
+            151.3193698
+        ]
+    },
+
   {
     "state": "NSW",
     "area": "",
