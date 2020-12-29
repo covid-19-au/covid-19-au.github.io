@@ -297,6 +297,13 @@ class CovidMapControl extends React.Component {
                     ]);
                 }
 
+                // Add markers: confirmed cases/hospitals
+                // only for tas/nt at this point
+                this.confirmedMarkers = [];
+                confirmedData.forEach((item) => {
+                    this.confirmedMarkers.push(new MarkerConfirmed(map, item));
+                });
+
                 const CASES_LINE_POLY_COLOR = 'rgba(202, 210, 211, 1.0)';
                 const UNDERLAY_LINE_POLY_COLOR = 'rgba(0,0,0,0.3)';
 
@@ -348,12 +355,25 @@ class CovidMapControl extends React.Component {
                 map.on('zoomend', () => {
                     this.onMapMoveChange();
                 });
+                //remove all popups
+                map.on('closeAllPopups', () => {
+                    this.casesFillPolyLayer.removePopups();
+                });
 
-                // Add markers: confirmed cases/hospitals
-                // only for tas/nt at this point
-                this.confirmedMarkers = [];
-                confirmedData.forEach((item) => {
-                    this.confirmedMarkers.push(new MarkerConfirmed(map, item));
+                //remove all popups
+                map.on('allowAllPopups', () => {
+                    this.casesFillPolyLayer.enablePopups();
+                });
+                map.on('click', ()=>{
+                    let markerPopup = false
+                    this.confirmedMarkers.forEach((item)=>{
+                        if (item.getPopupStatus()){
+                            markerPopup = true
+                        }
+                    })
+                    if(markerPopup) {
+                        this.casesFillPolyLayer.enablePopups();
+                    }
                 });
 
                 // Init analytics

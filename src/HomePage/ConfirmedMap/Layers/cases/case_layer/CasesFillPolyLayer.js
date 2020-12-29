@@ -147,6 +147,21 @@ class CasesFillPolyLayer {
             this.__shown = false;
         }
     }
+
+    /**
+     * Remove popups
+     */
+    removePopups() {
+        if (this.__shown) {
+            this.__casesPopup.disablePopups();
+        }
+    }
+
+    enablePopups() {
+        if (this.__shown) {
+            this.__casesPopup.enablePopups();
+        }
+    }
 }
 
 export default CasesFillPolyLayer;
