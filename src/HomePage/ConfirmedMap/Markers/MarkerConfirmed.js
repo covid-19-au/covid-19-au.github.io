@@ -48,7 +48,7 @@ class MarkerConfirmed {
             let popup = this._marker.getPopup();
             popup.isOpen()?this.map.fire('allowAllPopups'):
                 this.map.fire('closeAllPopups');
-           
+
             // Stop the case statistics dialog from showing
             evt.preventDefault();
             evt.stopPropagation();
