@@ -33,6 +33,9 @@ class MarkerConfirmed {
         el.style.cursor = 'pointer';
 
         el.onclick = (event) => {
+            let popup = this._marker.getPopup();
+            popup.isOpen()?this.map.fire('allowAllPopups'):
+            this.map.fire('closeAllPopups');
             event.preventDefault();
             return false;
         };
@@ -58,6 +61,13 @@ class MarkerConfirmed {
                     )
             )
             .addTo(this.map);
+    }
+
+    getPopupStatus() {
+        if(this._marker){
+            let popup = this._marker.getPopup();
+            return popup.isOpen()
+        }
     }
 
     show() {
