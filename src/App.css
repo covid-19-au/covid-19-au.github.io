@@ -580,3 +580,13 @@ h2 small {
         display: none;
     }
 }
+
+.mapboxgl-popup-close-button {
+  margin-top: 1px;
+  font-size: 3.5em;
+  margin-right: -7px;
+  color: gray;
+}
+.mapboxgl-popup.mapboxgl-popup-anchor-top {
+  max-width: 320px !important;
+}
