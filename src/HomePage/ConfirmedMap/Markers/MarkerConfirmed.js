@@ -1,4 +1,6 @@
 import confirmedImg from "../../../img/icon/confirmed-recent.png";
+import orangeImg from "../../../img/icon/orange_covid_pin.png";
+import redImg from "../../../img/icon/red_covid_pin.png";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl";
 
 
@@ -8,7 +10,8 @@ import mapboxgl from "mapbox-gl/dist/mapbox-gl";
 
 
 // Threshold for an 'old case', in days
-let OLD_CASE_DAYS = 21;
+let OLD_CASE_DAYS = 15;
+let __openPopup;
 
 
 class MarkerConfirmed {
@@ -28,15 +31,39 @@ class MarkerConfirmed {
         el.style.height = '20px';
         el.style.width = '20px';
         el.style.backgroundSize = 'cover';
-        el.style.backgroundImage = `url(${confirmedImg})`;
+
+        if (item['type'] === 'monitor') {
+            el.style.backgroundImage = `url(${orangeImg})`;
+        } else if (item['type'] === 'isolate') {
+            el.style.backgroundImage = `url(${redImg})`;
+        } else {
+            el.style.backgroundImage = `url(${confirmedImg})`;
+        }
+
         el.style.borderRadius = '50%';
         el.style.cursor = 'pointer';
 
-        el.onclick = (event) => {
+
+        el.onclick = evt => {
             let popup = this._marker.getPopup();
             popup.isOpen()?this.map.fire('allowAllPopups'):
-            this.map.fire('closeAllPopups');
-            event.preventDefault();
+                this.map.fire('closeAllPopups');
+           
+            // Stop the case statistics dialog from showing
+            evt.preventDefault();
+            evt.stopPropagation();
+
+            // Hide any existing open popups
+            if (__openPopup) {
+                __openPopup.remove()
+                __openPopup = null;
+            }
+
+            // Add the new popup, and register this
+            // one as being the currently open popup
+            this.popup.addTo(this.map);
+            __openPopup = this.popup
+
             return false;
         };
 
@@ -45,21 +72,18 @@ class MarkerConfirmed {
 
     _addMarker() {
         // make a marker for each feature and add to the map
+        this.popup = new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+                `<p style="margin:0; font-size: 1.3em"><b>Area:</b> ${this.item['area']}</p>` +
+                `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Venue:</b> ${this.item['venue']}</p>` +
+                `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Date:</b> ${this.item['date']}</p>` +
+                `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Time:</b> ${this.item['time']}</p>` +
+                `<p style="margin:0; margin-top: 8px; font-size: 1.3em; font-weight: bold">${this.item['description']}</p>`
+            )
         this._marker = new mapboxgl
             .Marker(this.el)
-            .setLngLat([
-                this.item['coor'][1],
-                this.item['coor'][0]
-            ])
-            .setPopup(
-                new mapboxgl
-                    .Popup({ offset: 25 }) // add popups
-                    .setHTML(
-                        `<h3 style="margin:0;">${this.item['name']}</h3>` +
-                        `<p style="margin:0;">${this.item['date']}</p>` +
-                        `<p style="margin:0;">${this.item['description']}</p>`
-                    )
-            )
+            .setLngLat([this.item['coor'][1], this.item['coor'][0]])
+            .setPopup(this.popup)
             .addTo(this.map);
     }
 
