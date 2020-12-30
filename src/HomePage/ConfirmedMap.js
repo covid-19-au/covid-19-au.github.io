@@ -85,7 +85,6 @@ class ConfirmedMap extends React.Component {
                                 increasing at an exponential rate. If they're below the dotted line, then things will get under control over
                                 time as less people are infected than were in the past.
                             </li>
-
                             <li style={{color: '#555'}}>
                                 <div style={{color: '#777', fontSize: '0.9em'}}>
                                     Regional data updated: <span ref={

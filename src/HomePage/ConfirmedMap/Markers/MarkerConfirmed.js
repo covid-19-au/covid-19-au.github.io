@@ -78,7 +78,11 @@ class MarkerConfirmed {
                 `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Venue:</b> ${this.item['venue']}</p>` +
                 `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Date:</b> ${this.item['date']}</p>` +
                 `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Time:</b> ${this.item['time']}</p>` +
-                `<p style="margin:0; margin-top: 8px; font-size: 1.3em; font-weight: bold">${this.item['description']}</p>`
+                `<p style="margin:0; margin-top: 8px; font-size: 1.3em; font-weight: bold">${this.item['description']}</p>` +
+                `<a style=" color: blue" href="https://www.health.nsw.gov.au/Infectious/covid-19/Pages/case-locations-and-alerts.aspx" 
+                    target="_blank" rel="noopener noreferrer">
+                    <u>Details</u>
+                 </a>`
             )
         this._marker = new mapboxgl
             .Marker(this.el)
