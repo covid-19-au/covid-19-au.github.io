@@ -367,6 +367,26 @@ class CovidMapControl extends React.Component {
                 map.on('zoomend', () => {
                     this.onMapMoveChange();
                 });
+                //remove all popups
+                map.on('closeAllPopups', () => {
+                    this.casesFillPolyLayer.removePopups();
+                });
+
+                //remove all popups
+                map.on('allowAllPopups', () => {
+                    this.casesFillPolyLayer.enablePopups();
+                });
+                map.on('click', ()=>{
+                    let markerPopup = false
+                    this.confirmedMarkers.forEach((item)=>{
+                        if (item.getPopupStatus()){
+                            markerPopup = true
+                        }
+                    })
+                    if(markerPopup) {
+                        this.casesFillPolyLayer.enablePopups();
+                    }
+                });
 
                 // Init analytics
                 if (ENABLE_AXIOS_ANALYTICS) {
