@@ -19,11 +19,11 @@ class MarkerConfirmed {
         this.map = map;
         this.item = item;
 
-        if (item['state'] === 'VIC' && item['area'].length > 0) {
-            item['description'] =
-                "This case number is just the suburb confirmed " +
-                "number, not the case number at this geo point.";
-        }
+        // if (item['state'] === 'VIC' && item['area'].length > 0) {
+        //     item['description'] =
+        //         "This case number is just the suburb confirmed " +
+        //         "number, not the case number at this geo point.";
+        // }
 
         // create a HTML element for each feature
         var el = this.el = document.createElement('div');
@@ -72,6 +72,7 @@ class MarkerConfirmed {
 
     _addMarker() {
         // make a marker for each feature and add to the map
+        let url = this.item['state']==='VIC'?"https://www.dhhs.vic.gov.au/case-locations-and-outbreaks":"https://www.health.nsw.gov.au/Infectious/covid-19/Pages/case-locations-and-alerts.aspx"
         this.popup = new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
                 `<p style="margin:0; font-size: 1.3em"><b>Area:</b> ${this.item['area']}</p>` +
@@ -79,7 +80,7 @@ class MarkerConfirmed {
                 `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Date:</b> ${this.item['date']}</p>` +
                 `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Time:</b> ${this.item['time']}</p>` +
                 `<p style="margin:0; margin-top: 8px; font-size: 1.3em; font-weight: bold">${this.item['description']}</p>` +
-                `<a style=" color: blue" href="https://www.health.nsw.gov.au/Infectious/covid-19/Pages/case-locations-and-alerts.aspx" 
+                `<a style=" color: blue" href=${url} 
                     target="_blank" rel="noopener noreferrer">
                     <u>Details</u>
                  </a>`
