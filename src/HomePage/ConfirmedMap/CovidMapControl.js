@@ -52,6 +52,7 @@ import BRIGHT_V9_MOD_STYLE from "./bright_v9_mod";
 import i18next from "../../i18n";
 import NumbersCaseLayer from "./Layers/cases/NumbersCaseLayer";
 import RateOfChangeCaseLayer from "./Layers/cases/RateOfChangeCaseLayer";
+import cm from "../../ColorManagement/ColorManagement";
 
 
 //Fetch Token from env
@@ -129,14 +130,21 @@ class CovidMapControl extends React.Component {
     componentDidMount() {
         this.__unmounted = false;
 
+        let mapboxStyle;
+        if (cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT) {
+            mapboxStyle = 'mapbox://styles/mapbox/light-v10?optimize=true';
+        } else if (cm.getColorSchemeType() === cm.COLOR_SCHEME_DARK) {
+            mapboxStyle = 'mapbox://styles/mapbox/dark-v10?optimize=true';
+        }
+
         const map = this.map = new mapboxgl.Map({
             container: this.mapContainer,
             //style: style,
-            //style: 'mapbox://styles/mapbox/light-v10?optimize=true',
+            style: mapboxStyle,
             //style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
             //style: 'mapbox://styles/mapbox/satellite-v9?optimize=true',
             //style: 'mapbox://styles/mapbox/bright-v9?optimize=true',
-            style: BRIGHT_V9_MOD_STYLE,
+            //style: BRIGHT_V9_MOD_STYLE,
             zoom: 1,
             maxZoom: 15.5,
 
@@ -276,7 +284,11 @@ class CovidMapControl extends React.Component {
                     zh: 'zh-Hans'
                 };
 
-                map.setPaintProperty('water', "fill-color", "#9fc4e1");
+                // Set the water color based on the color profile
+                if (cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT) {
+                    map.setPaintProperty('water', "fill-color", cm.getWaterColor().toString());
+                }
+
                 for (let id of [
                     'country_label_1', 'country_label_2',
                     'country_label_3', 'country_label_4',

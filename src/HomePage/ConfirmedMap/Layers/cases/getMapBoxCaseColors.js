@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
+import cm from "../../../../ColorManagement/ColorManagement";
 
 /**
  *
@@ -58,16 +59,16 @@ function getMapBoxCaseColors(
 
     // Special case for null values
     r.push(['==', ['get', 'cases'], null]);
-    r.push(nullColor);
+    r.push(nullColor.toString());
 
     if (!showForZero) {
         r.push(['==', ['get', 'cases'], 0]);
-        r.push(nullColor);
+        r.push(nullColor.toString());
     }
 
     // Emphasize the highest case value
     r.push(['==', ['get', 'cases'], caseVals[caseVals.length-1]]);
-    r.push(maxColor);
+    r.push(maxColor.toString());
 
     __extendForColorRange(
         r, quantiles, totalCases, caseVals, toNegColor, fromNegColor, true
@@ -76,17 +77,17 @@ function getMapBoxCaseColors(
     // SPECIAL CASE: Because we're using the quantiles from the positive
     // values for the negative, it's possible to miss -1 (or lower negatives)
     r.push(['<=', ['get', 'cases'], -1]);
-    r.push(`rgba(${fromNegColor[0]}, ${fromNegColor[1]}, ${fromNegColor[2]}, ${fromNegColor[3]})`);
+    r.push(fromNegColor.toString());
 
     __extendForColorRange(
         r, quantiles, totalCases, caseVals, fromColor, toColor, false
     );
 
     r.push(['<', ['get', 'cases'], caseVals[caseVals.length-1]]);
-    r.push(`rgba(${toColor[0]}, ${toColor[1]}, ${toColor[2]}, ${toColor[3]})`);
+    r.push(toColor.toString());
 
     // Fallback to this value if nothing else matches
-    r.push(nullColor);
+    r.push(nullColor.toString());
 
     //console.log(JSON.stringify(r));
     return r;
@@ -126,12 +127,7 @@ function __extendForColorRange(r, quantiles, totalCases, caseVals, fromColor, to
             r.push(['<=', ['get', 'cases'], val]);
         }
 
-        r.push(`rgba(` +
-            `${Math.round(fromColor[0]*(1.0-pc)+toColor[0]*pc)},` +
-            `${Math.round(fromColor[1]*(1.0-pc)+toColor[1]*pc)},` +
-            `${Math.round(fromColor[2]*(1.0-pc)+toColor[2]*pc)},` +
-            `${fromColor[3]*(1.0-pc)+toColor[3]*pc}` +
-        `)`)
+        r.push(cm.blendColors(fromColor, toColor, pc).toString());
     }
 }
 

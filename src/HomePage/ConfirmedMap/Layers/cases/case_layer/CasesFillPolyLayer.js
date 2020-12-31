@@ -24,6 +24,7 @@ SOFTWARE.
 
 import CasesPopup from "./CasesPopup";
 import getMapBoxCaseColors from "../getMapBoxCaseColors";
+import cm from "../../../../../ColorManagement/ColorManagement";
 
 const FILL_OPACITY = 0.4;
 
@@ -104,22 +105,14 @@ class CasesFillPolyLayer {
      * cases to allow for popup on click events
      */
     updateLayer(caseVals, typeOfData) {
-        let colors = [
-            'rgba(0,80,0,0.8)',
-            'rgba(0,0,80,0.0)',
-            'rgba(231,50,16,0.05)',
-            'rgba(231,50,16,0.1)',
-            'rgba(231,50,16,0.2)',
-            'rgba(231,50,16,0.4)',
-            'rgba(231,50,16,0.8)',
-            '#e72200'
-        ];
-
         let fillCaseVals = this.mapBoxSource.getPointsAllVals();
         let circleColor = getMapBoxCaseColors(
-                [255, 222, 207, 0.5], [231, 34, 0, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(182, 0, 15)',
-                [0, 80, 0, 0.4], [0, 80, 0, 1.0],
+                cm.getCaseColorPositive(1).setAlpha(0.05).lighten(40),
+                cm.getCaseColorPositive(100),
+                cm.getCaseColorPositive(0),
+                cm.getCaseColorMax(),
+                cm.getCaseColorNegative(1).setAlpha(0.05).lighten(40),
+                cm.getCaseColorNegative(100),
                 fillCaseVals, [0.0, 0.25, 0.75, 0.90, 0.95], 1
             );
 

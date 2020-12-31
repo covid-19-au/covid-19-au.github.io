@@ -14,6 +14,7 @@ import Paper from "@material-ui/core/Paper";
 
 import stateData from "../data/state.json"
 import stateColours from "./stateColours";
+import cm from "../ColorManagement/ColorManagement";
 
 
 let valuesMap = {
@@ -87,6 +88,7 @@ class StateCasesChart extends React.Component {
                 </Paper>
 
                 <ReactEchartsCore
+                    theme={cm.getEChartsTheme()}
                     key={this.__currentKey++}
                     echarts={echarts}
                     style={{

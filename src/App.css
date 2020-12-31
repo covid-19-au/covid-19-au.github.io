@@ -410,15 +410,20 @@ h2 small {
   height: 36px;
   justify-content: space-around;
   align-items: center;
-  background-color: #c5dff2;
-}
 
+}
 .navBarStuck {
   height: 36px;
   justify-content: space-around;
   align-items: center;
+}
+.light .navBar, .light .navBarStuck {
   background-color: #c5dff2;
   color: black;
+}
+.dark .navBar, .dark .navBarStuck {
+  background-color: #000f2b;
+  color: white;
 }
 
 .sticky {

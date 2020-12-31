@@ -33,6 +33,7 @@ import Tab from "@material-ui/core/Tab";
 
 import MapTimeSlider from "../ConfirmedMap/MapControls/MapTimeSlider";
 import {genderColorMapping} from "../../DataVis/Colors";
+import cm from "../../ColorManagement/ColorManagement";
 
 
 class GenderPieChart extends React.Component {
@@ -64,6 +65,7 @@ class GenderPieChart extends React.Component {
                 {
                     this.state.option ?
                         <ReactEchartsCore
+                            theme={cm.getEChartsTheme()}
                             echarts={echarts}
                             ref={el => {
                                 this.reactEChart = el

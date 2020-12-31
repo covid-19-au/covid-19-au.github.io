@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 import getMapBoxCaseColors from "../getMapBoxCaseColors";
+import cm from "../../../../../ColorManagement/ColorManagement";
 
 
 class CaseCityLabelsLayer {
@@ -89,18 +90,24 @@ class CaseCityLabelsLayer {
         }
 
         let textColor = getMapBoxCaseColors(
-                [187,122,121, 1.0], [182, 14, 28, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(169,0,15)',
-                [115,140,111, 1.0], [46,110,15, 1.0],
+                cm.getCaseTextColor().setAlpha(startOpacity),
+                cm.getCaseTextColor(),
+                cm.getCaseTextColor(),
+                cm.getCaseTextColor(),
+                cm.getCaseTextColor().setAlpha(startOpacity),
+                cm.getCaseTextColor(),
                 caseVals, [0.0, 0.25, 0.75, 0.90, 0.95], 1
             ),
             textHaloColor = getMapBoxCaseColors(
-                [255, 255, 255, startOpacity], [255, 255, 255, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(255, 255, 255)',
-                [255, 255, 255, startOpacity], [255, 255, 255, 1.0],
+                cm.getCaseTextColor('textHalo').setAlpha(startOpacity),
+                cm.getCaseTextColor('textHalo'),
+                cm.getCaseTextColor('textHalo'),
+                cm.getCaseTextColor('textHalo'),
+                cm.getCaseTextColor('textHalo').setAlpha(startOpacity),
+                cm.getCaseTextColor('textHalo'),
                 caseVals, [0.0, 0.25, 0.75, 0.90, 0.95], 1
             ),
-            hoverRectangleColor = "rgba(150, 10, 6, 0.9)";
+            hoverRectangleColor = cm.getHoverRectangleColor().toString();
 
         this.map.setPaintProperty(
             this.uniqueId+'citylabel', 'text-color', [

@@ -7,6 +7,7 @@ import 'echarts/lib/chart/bar';
 
 import { Series, BarSeries } from "./Series";
 import { colorMapping } from "./Colors";
+import cm from "../ColorManagement/ColorManagement";
 
 const lineBarTooltip = {
   trigger: "axis",
@@ -115,7 +116,10 @@ function GeneralBarChart({ state }) {
 
   return (
     <div>
-      <ReactEchartsCore echarts={echarts} option={barOption} />
+      <ReactEchartsCore
+          theme={cm.getEChartsTheme()}
+          echarts={echarts}
+          option={barOption} />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         Time in AEST, Last Update: {ageGenderUpdateTime}
       </span>

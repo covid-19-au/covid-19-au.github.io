@@ -32,6 +32,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 import MapTimeSlider from "../ConfirmedMap/MapControls/MapTimeSlider";
+import cm from "../../ColorManagement/ColorManagement";
 
 
 class PopulationPyramid extends React.Component {
@@ -63,6 +64,7 @@ class PopulationPyramid extends React.Component {
                 {
                     this.state.option ?
                         <ReactEchartsCore
+                            theme={cm.getEChartsTheme()}
                             echarts={echarts}
                             ref={el => {
                                 this.reactEChart = el

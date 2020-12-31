@@ -35,6 +35,7 @@ import 'echarts/lib/component/dataZoom';
 
 import {toPercentiles, getBarHandleIcon, getMaximumCombinedValue, percentilesTooltip, otherTooltip} from "./eChartsFns";
 import DataPointsCollection from "../CrawlerDataTypes/DataPointsCollection";
+import cm from "../../ColorManagement/ColorManagement";
 
 
 /**
@@ -78,6 +79,7 @@ class RegionalCasesBarChart extends React.Component {
                 </Paper>
 
                 <ReactEchartsCore
+                    theme={cm.getEChartsTheme()}
                     echarts={echarts}
                     ref={el => {this.reactEChart = el}}
                     option={this.state.option}

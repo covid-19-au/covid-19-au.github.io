@@ -13,6 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRss, faShareAlt } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import LightDarkSwitcher from "./ColorManagement/LightDarkSwitcher";
 
 
 export default function Header({ province }) {
@@ -132,6 +133,8 @@ export default function Header({ province }) {
                             }>
                         {i18next.t("nav:lang")}
                     </Button>
+
+                    <LightDarkSwitcher />
 
                     <Menu
                         id="simple-menu"

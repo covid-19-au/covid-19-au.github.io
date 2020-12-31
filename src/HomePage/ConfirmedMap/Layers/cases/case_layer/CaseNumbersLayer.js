@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
+import cm from "../../../../../ColorManagement/ColorManagement";
 
 
 class CaseNumbersLayer {
@@ -67,7 +68,7 @@ class CaseNumbersLayer {
                 'symbol-sort-key': ["get", "cases"]
             },
             paint: {
-                "text-color": "rgba(255, 255, 255, 1.0)",
+                "text-color": cm.getCaseTextColor().toString(),
                 //"text-opacity-transition": {duration: FADE_TRANSITION_DURATION},
             }
         });
@@ -111,17 +112,6 @@ class CaseNumbersLayer {
         } else {
             this.map.setLayoutProperty(this.uniqueId +'label', 'text-field', '{casesFmt}');
         }
-
-        let colors = [
-            'rgba(0,80,0,0.8)',
-            'rgba(0,0,80,0.0)',
-            '#ff9f85',
-            '#ff9f85',
-            '#ff5c30',
-            '#ff4817',
-            '#e73210',
-            '#e73210'
-        ];
 
         this.__caseVals = caseVals;
         this.__shown = true;

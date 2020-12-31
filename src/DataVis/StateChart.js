@@ -18,6 +18,7 @@ import AgeBarChart from "../HomePage/CrawlerDataVis/AgeBarChart";
 import getRemoteData from "../HomePage/CrawlerData/RemoteData";
 import GenderPieChart from "../HomePage/CrawlerDataVis/GenderPieChart";
 
+
 const stateNameMapping = {
     VIC: "Victoria",
     NSW: "New South Wales",

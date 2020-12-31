@@ -23,6 +23,7 @@ SOFTWARE.
  */
 import getMapBoxCaseColors from "../getMapBoxCaseColors";
 import MapBoxSource from "../../../Sources/MapBoxSource";
+import cm from "../../../../../ColorManagement/ColorManagement";
 
 
 let RECTANGLE_WIDTH = 25; //TODO: MOVE ME!!
@@ -93,13 +94,16 @@ class CaseRectangleLayer {
 
         let map = this.map;
         let rectangleColor = getMapBoxCaseColors(
-                [255, 222, 207, startOpacity], [231, 50, 16, 1.0],
-                'rgba(0, 0, 0, 0.0)', 'rgb(169, 0, 15)',
-                [164,192,160, startOpacity], [46,110,15, 1.0],
+                cm.getCaseColorPositive(0.01).setAlpha(startOpacity),
+                cm.getCaseColorPositive(1.0),
+                cm.getCaseColorPositive(0),
+                cm.getCaseColorMax(),
+                cm.getCaseColorNegative(0.01).setAlpha(startOpacity),
+                cm.getCaseColorNegative(1.0),
                 caseVals, [0.0, 0.25, 0.75, 0.90, 0.95], 1,
                 this.alwaysShow
             ),
-            hoverRectangleColor = "rgba(150, 10, 6, 0.9)";
+            hoverRectangleColor = cm.getHoverRectangleColor().toString();
 
         map.setPaintProperty(
             // Color circle by value

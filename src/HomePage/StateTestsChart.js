@@ -11,6 +11,7 @@ import i18next from '../i18n';
 
 import stateData from "../data/state.json"
 import stateColours from "./stateColours";
+import cm from "../ColorManagement/ColorManagement";
 
 
 class StateTestsChart extends React.Component {
@@ -47,6 +48,7 @@ class StateTestsChart extends React.Component {
         return (
             <>
                 <ReactEchartsCore
+                    theme={cm.getEChartsTheme()}
                     echarts={echarts}
                     style={{
                         height: "30vh",

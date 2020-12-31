@@ -12,6 +12,7 @@ import i18next from '../i18n';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
+import cm from "../ColorManagement/ColorManagement";
 
 
 class StateComparisonChart extends React.Component {
@@ -59,6 +60,7 @@ class StateComparisonChart extends React.Component {
         return (
             <>
                 <ReactEchartsCore
+                    theme={cm.getEChartsTheme()}
                     echarts={echarts}
                     style={{
                         height: "550px"

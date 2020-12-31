@@ -33,6 +33,7 @@ import 'echarts/lib/chart/treemap';
 import RegionType from "../CrawlerDataTypes/RegionType";
 import MapTimeSlider from "../ConfirmedMap/MapControls/MapTimeSlider";
 import DateType from "../CrawlerDataTypes/DateType";
+import cm from "../../ColorManagement/ColorManagement";
 
 
 /**
@@ -76,6 +77,7 @@ class RegionalCasesTreeMap extends React.Component {
                 </Paper>
 
                 <ReactEchartsCore
+                    theme={cm.getEChartsTheme()}
                     echarts={echarts}
                     ref={el => {this.reactEChart = el}}
                     option={this.state.option}

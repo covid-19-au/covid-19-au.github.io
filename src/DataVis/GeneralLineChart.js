@@ -10,6 +10,7 @@ import 'echarts/lib/chart/line';
 
 import { Series, LineSeries } from "./Series";
 import { colorMapping } from "./Colors";
+import cm from "../ColorManagement/ColorManagement";
 
 const lineBarTooltip = {
   trigger: "axis",
@@ -197,7 +198,11 @@ function GeneralLineChart({ state }) {
 
   return (
     <div>
-      <ReactEchartsCore echarts={echarts} option={lineOption} style={{height: "28vh"}} />
+      <ReactEchartsCore
+          theme={cm.getEChartsTheme()}
+          echarts={echarts}
+          option={lineOption}
+          style={{height: "28vh"}} />
       <span className="key" style={{ marginTop: "0.5rem" }}>
         Logarithmic Scale:&nbsp;
         <ButtonGroup size="small" aria-label="small outlined button group">

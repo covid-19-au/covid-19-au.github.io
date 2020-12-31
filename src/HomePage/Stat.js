@@ -11,6 +11,7 @@ import Button from "@material-ui/core/Button";
 // import i18n bundle
 import i18next from "../i18n";
 import Grid from "@material-ui/core/Grid";
+import cm from "../ColorManagement/ColorManagement";
 
 /**
  * Method for adding suffix to date
@@ -252,7 +253,7 @@ function UpdatesToday() {
     {
       //Cases
       color: "black",
-      borderColor: "#ff603c",
+      borderColor: cm.getStatusTextColor('confirmed'),
       padding: "1px",
       zIndex: 10,
       outline: "none",
@@ -265,7 +266,7 @@ function UpdatesToday() {
     {
       //Deaths
       color: "black",
-      borderColor: "#c11700",
+      borderColor: cm.getStatusTextColor('deaths'),
       padding: "1px",
       zIndex: 10,
       outline: "none",
@@ -278,7 +279,7 @@ function UpdatesToday() {
     {
       //Recoveries
       color: "black",
-      borderColor: "#00c177",
+      borderColor: cm.getStatusTextColor('recovered'),
       padding: "1px",
       zIndex: 10,
       outline: "none",
@@ -291,7 +292,7 @@ function UpdatesToday() {
     {
       //Tested
       color: "black",
-      borderColor: "#007cf2",
+      borderColor: cm.getStatusTextColor('tested'),
       padding: "1px",
       zIndex: 10,
       outline: "none",
@@ -304,7 +305,7 @@ function UpdatesToday() {
     {
       //No New Cases
       color: "black",
-      borderColor: "#00c177",
+      borderColor: cm.getStatusTextColor('noNewCases'),
       padding: "1px",
       zIndex: 10,
       outline: "none",
@@ -318,7 +319,7 @@ function UpdatesToday() {
 
   const dataStyles = [
     {
-      color: "#ff603c",
+      color: cm.getStatusTextColor('confirmed'),
       padding: "0px",
       border: "none",
       zIndex: 10,
@@ -327,7 +328,7 @@ function UpdatesToday() {
       fontSize: "80%",
     },
     {
-      color: "#c11700",
+      color: cm.getStatusTextColor('deaths'),
       padding: "0px",
       border: "none",
       zIndex: 10,
@@ -336,7 +337,7 @@ function UpdatesToday() {
       fontSize: "80%",
     },
     {
-      color: "#00c177",
+      color: cm.getStatusTextColor('recovered'),
       padding: "0px",
       border: "none",
       zIndex: 10,
@@ -345,7 +346,7 @@ function UpdatesToday() {
       fontSize: "80%",
     },
     {
-      color: "#007cf2",
+      color: cm.getStatusTextColor('tested'),
       padding: "0px",
       border: "none",
       zIndex: 10,
@@ -354,7 +355,7 @@ function UpdatesToday() {
       fontSize: "80%",
     },
     {
-      color: "#00c177",
+      color: cm.getStatusTextColor('noNewCases'),
       padding: "0px",
       border: "none",
       zIndex: 10,

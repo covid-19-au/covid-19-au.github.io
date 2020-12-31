@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 //import stateData from "../data/state.json"
 // import i18n bundle
 import i18next from '../i18n';
+import cm from "../ColorManagement/ColorManagement";
 
 
 export default function OverallTrend() {
@@ -144,6 +145,7 @@ export default function OverallTrend() {
         <div className="card">
             <h2>{i18next.t("homePage:overallTrend.title")}</h2>
             <ReactEchartsCore
+                theme={cm.getEChartsTheme()}
                 echarts={echarts}
                 style={{ minHeight: "400px" }}
                 option={

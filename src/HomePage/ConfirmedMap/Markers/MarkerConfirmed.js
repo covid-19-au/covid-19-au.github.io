@@ -31,6 +31,7 @@ class MarkerConfirmed {
         el.style.height = '20px';
         el.style.width = '20px';
         el.style.backgroundSize = 'cover';
+        el.style.opacity = '0.6'
 
         if (item['type'] === 'monitor') {
             el.style.backgroundImage = `url(${orangeImg})`;

@@ -35,7 +35,6 @@ export default function Navbar({ setNav, nav }) {
                 className={`sticky-wrapper ${isSticky ? "sticky" : ""}`}
                 ref={ref}
                 style={{
-                    background: "#c5dff2",
                     width: "100%"
                 }}
             >

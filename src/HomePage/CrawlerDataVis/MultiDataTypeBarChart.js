@@ -33,6 +33,7 @@ import 'echarts/lib/chart/bar';
 import {toPercentiles, getBarHandleIcon, percentilesTooltip, otherTooltip, roundUp, roundDown} from "./eChartsFns";
 import DataPointsCollection from "../CrawlerDataTypes/DataPointsCollection";
 import DateType from "../CrawlerDataTypes/DateType";
+import cm from "../../ColorManagement/ColorManagement";
 
 
 class MultiDataTypeBarChart extends React.Component {
@@ -65,6 +66,7 @@ class MultiDataTypeBarChart extends React.Component {
                 </Paper>
 
                 <ReactEchartsCore
+                    theme={cm.getEChartsTheme()}
                     echarts={echarts}
                     ref={el => {this.reactEChart = el}}
                     option={this.state.option}
@@ -223,6 +225,7 @@ class MultiDataTypeBarChart extends React.Component {
             maxDate: Math.max.apply(Math, Array.from(allDates)),
             minDate: Math.min.apply(Math, Array.from(allDates)),
             option: {
+                theme: cm.getEChartsTheme(),
                 legend: {
 
                 },
