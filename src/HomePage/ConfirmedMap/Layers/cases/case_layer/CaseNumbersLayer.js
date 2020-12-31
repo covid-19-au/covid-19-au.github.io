@@ -68,7 +68,7 @@ class CaseNumbersLayer {
                 'symbol-sort-key': ["get", "cases"]
             },
             paint: {
-                "text-color": cm.getCaseTextColor().toString(),
+                "text-color": cm.getCaseTextColor('casesNumber').toString(),
                 //"text-opacity-transition": {duration: FADE_TRANSITION_DURATION},
             }
         });

@@ -18,7 +18,7 @@ COLOR_SCHEMES[COLOR_SCHEME_DARK] = {
         'default': {
             'text': tinycolor('white'),
             'max': tinycolor('#ffffff'),
-            'positive': [tinycolor('#000'), tinycolor('#859fff')],
+            'positive': [tinycolor('#11235e'), tinycolor('#b4c3ff')],
             'negative': [tinycolor('rgb(46,110,15)'), tinycolor('rgb(164, 192, 160)')],
             'noData': tinycolor('rgba(0, 0, 0, 0.0)'),
             'zero': tinycolor('rgba(0, 0, 0, 0.0)')
@@ -32,6 +32,11 @@ COLOR_SCHEMES[COLOR_SCHEME_DARK] = {
             'noData': tinycolor('rgba(255, 255, 255, 0.0)'),
             'zero': tinycolor('rgba(255, 255, 255, 0.0)'),
         }
+    },
+    'caseText': {
+        'area': tinycolor('white'),
+        'areaHalo': tinycolor('black'),
+        'casesNumber': tinycolor('black')
     },
     'statusTexts': {
         'confirmed': tinycolor('rgb(255, 96, 60)'),
@@ -49,7 +54,7 @@ COLOR_SCHEMES[COLOR_SCHEME_LIGHT] = {
     'eChartsTheme': 'default',
     'hyperlink': tinycolor('#00f'),
     'hoverRectangle': tinycolor("rgb(6,25,150)"),
-    'waterColor': tinycolor('#f2f4f4'),
+    'waterColor': tinycolor('#30374e'),
     'cases': {
         'default': {
             'text': tinycolor('white'),
@@ -68,6 +73,11 @@ COLOR_SCHEMES[COLOR_SCHEME_LIGHT] = {
             'noData': tinycolor('rgba(0, 0, 0, 0.0)'),
             'zero': tinycolor('rgba(0, 0, 0, 0.0)'),
         }
+    },
+    'caseText': {
+        'area': tinycolor('black'),
+        'areaHalo': tinycolor('white'),
+        'casesNumber': tinycolor('white')
     },
     'statusTexts': {
         'confirmed': tinycolor('rgb(255, 96, 60)'),
@@ -158,6 +168,19 @@ class ColorManagement {
      * Case colors
      *****************************************************************/
 
+    /**
+     *
+     * @param key
+     * @returns {*}
+     */
+    getCaseTextColor(key) {
+        return this.__colorScheme['caseText'][key];
+    }
+
+    /**
+     *
+     * @returns {*}
+     */
     getHoverRectangleColor() {
         return this.__colorScheme['hoverRectangle'];
     }
@@ -178,11 +201,6 @@ class ColorManagement {
     getCaseColorMax(key) {
         key = key || 'default';
         return this.__colorScheme['cases'][key]['max'];
-    }
-
-    getCaseTextColor(key) {
-        key = key || 'default';
-        return this.__colorScheme['cases'][key]['text'];
     }
 
     /**

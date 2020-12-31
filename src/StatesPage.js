@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import statesSVG from "./statesSVG";
+import cm from "./ColorManagement/ColorManagement";
 
 let statesOrder = [
     "VIC",
@@ -21,7 +22,8 @@ class StatesPage extends React.Component {
     render() {
         const buttonStyles = {
             margin: "10px",
-            backgroundColor: "white",
+            backgroundColor: cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT ?
+                "white" : "black",
             variant: "outlined",
             textTransform: "none",
         };
@@ -61,7 +63,7 @@ class StatesPage extends React.Component {
                                             return out;
                                         })()}
                                         {React.cloneElement(statesSVG[stateName], {
-                                            fill: "#f0005c"
+                                            fill: cm.getCaseColorPositive(100)
                                         })}
                                     </g>
                                 </svg>

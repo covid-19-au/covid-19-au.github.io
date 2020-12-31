@@ -90,21 +90,21 @@ class CaseCityLabelsLayer {
         }
 
         let textColor = getMapBoxCaseColors(
-                cm.getCaseTextColor().setAlpha(startOpacity),
-                cm.getCaseTextColor(),
-                cm.getCaseTextColor(),
-                cm.getCaseTextColor(),
-                cm.getCaseTextColor().setAlpha(startOpacity),
-                cm.getCaseTextColor(),
+                cm.getCaseTextColor('area').setAlpha(startOpacity),
+                cm.getCaseTextColor('area'),
+                cm.getCaseTextColor('area'),
+                cm.getCaseTextColor('area'),
+                cm.getCaseTextColor('area').setAlpha(startOpacity),
+                cm.getCaseTextColor('area'),
                 caseVals, [0.0, 0.25, 0.75, 0.90, 0.95], 1
             ),
             textHaloColor = getMapBoxCaseColors(
-                cm.getCaseTextColor('textHalo').setAlpha(startOpacity),
-                cm.getCaseTextColor('textHalo'),
-                cm.getCaseTextColor('textHalo'),
-                cm.getCaseTextColor('textHalo'),
-                cm.getCaseTextColor('textHalo').setAlpha(startOpacity),
-                cm.getCaseTextColor('textHalo'),
+                cm.getCaseTextColor('areaHalo').setAlpha(startOpacity),
+                cm.getCaseTextColor('areaHalo'),
+                cm.getCaseTextColor('areaHalo'),
+                cm.getCaseTextColor('areaHalo'),
+                cm.getCaseTextColor('areaHalo').setAlpha(startOpacity),
+                cm.getCaseTextColor('areaHalo'),
                 caseVals, [0.0, 0.25, 0.75, 0.90, 0.95], 1
             ),
             hoverRectangleColor = cm.getHoverRectangleColor().toString();

@@ -40,12 +40,7 @@ class WorldPage extends React.Component {
         // spacing={gspace}
         return (
             <>
-            <div style={{
-                textAlign: 'center',
-                width: '100%',
-                background: 'lightYellow',
-                padding: "5px 0"
-            }}>
+            <div className="alert alert-info" role="alert" style={{width: "100vw", margin: 0}}>
                 <FontAwesomeIcon icon={faInfoCircle} /> As far as we know these are the most detailed covid-19 case stats anywhere on the web. Help us by <a class="citationLink" href="#" onClick={() => {
                     this.setState({socialMediaIconsShown: true});
                     return false;
@@ -57,15 +52,10 @@ class WorldPage extends React.Component {
                     onCancel={() => this.setState({socialMediaIconsShown: false})}
                 />
             </div>
-            <div style={{
-                    textAlign: 'center',
-                    width: '100%',
-                    background: '#FEE',
-                    padding: "5px 0"
-                }}>
-                    <FontAwesomeIcon icon={faExclamationCircle} /> <b>Note:</b> This page is based on preliminary data from
-                    the <a href="https://github.com/mcyph/global_subnational_covid_data" style={{color: '#1277d3'}}>global-subnational-covid-data</a> project,
-                    and may contain errors or inconsistencies.
+            <div className="alert alert-warning" role="alert" style={{width: "100vw", margin: 0}}>
+                    <FontAwesomeIcon icon={faExclamationCircle} /> <b>Note:</b> This page has data from
+                    the <a href="https://github.com/mcyph/global_subnational_covid_data" style={{color: '#1277d3'}}>global-subnational-covid-data</a> project
+                    which may contain errors or inconsistencies.
             </div>
             <div style={{width: '100%', maxWidth: '95vw'}}>
                 <Grid container justify="center" wrap="wrap" style={{width: '100%'}}>

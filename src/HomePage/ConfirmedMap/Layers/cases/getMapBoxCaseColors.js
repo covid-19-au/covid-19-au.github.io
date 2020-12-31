@@ -89,7 +89,7 @@ function getMapBoxCaseColors(
     // Fallback to this value if nothing else matches
     r.push(nullColor.toString());
 
-    //console.log(JSON.stringify(r));
+    console.log(JSON.stringify(r));
     return r;
 }
 

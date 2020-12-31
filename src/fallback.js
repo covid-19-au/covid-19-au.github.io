@@ -10,63 +10,53 @@ import ShareIcon from "@material-ui/icons/Share";
 import { makeStyles } from "@material-ui/core/styles";
 import PrivacyPolicy from "./PrivacyPolicy.js";
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    margin: "2px",
-    backgroundColor: "white",
-    variant: "outlined",
-    textTransform: "none",
-  },
-}));
-
 // ReactGA.initialize("UA-160673543-1",{gaoOptions:{siteSpeedSampleRate: 100}});
 function Fallback(props) {
-  const classes = useStyles();
-
   return (
     <div className="fallback">
-      <div>
+      <div style={{marginBottom: "10px", paddingTop: "10px"}}>
         <Button
+            color="primary"
+            variant="outlined"
           onClick={() => {
             ReactGA.event({ category: "Fallback", action: "share" });
             props.setModalVisibility(true);
           }}
-          variant="outlined"
           startIcon={<ShareIcon />}
-          className={classes.button}
         >
           Share this site
         </Button>
 
         <Button
+            color="primary"
           href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
           variant="outlined"
           startIcon={<FeedbackIcon />}
-          className={classes.button}
         >
           Feedback
         </Button>
         <Button
+            color="primary"
           href="/faq"
           variant="outlined"
           startIcon={<InfoSharpIcon />}
-          className={classes.button}
         >
           FAQ
         </Button>
         <Button
+            color="primary"
           href="https://github.com/covid-19-au/covid-19-au.github.io"
           variant="outlined"
           startIcon={<GitHubIcon />}
-          className={classes.button}
         >
           GitHub
         </Button>
         <Button
+            color="primary"
           href="/about-us"
           variant="outlined"
+
           startIcon={<PeopleIcon />}
-          className={classes.button}
         >
           About Us
         </Button>

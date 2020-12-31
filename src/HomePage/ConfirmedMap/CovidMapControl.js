@@ -132,7 +132,11 @@ class CovidMapControl extends React.Component {
 
         let mapboxStyle;
         if (cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT) {
-            mapboxStyle = 'mapbox://styles/mapbox/light-v10?optimize=true';
+            //mapboxStyle = 'mapbox://styles/mapbox/light-v10?optimize=true';
+            //mapboxStyle = 'mapbox://styles/mapbox/streets-v11?optimize=true';
+            //mapboxStyle = 'mapbox://styles/mapbox/bright-v9?optimize=true';
+            //mapboxStyle = 'mapbox://styles/mapbox/satellite-v9?optimize=true';
+            mapboxStyle = BRIGHT_V9_MOD_STYLE;
         } else if (cm.getColorSchemeType() === cm.COLOR_SCHEME_DARK) {
             mapboxStyle = 'mapbox://styles/mapbox/dark-v10?optimize=true';
         }
@@ -141,9 +145,6 @@ class CovidMapControl extends React.Component {
             container: this.mapContainer,
             //style: style,
             style: mapboxStyle,
-            //style: 'mapbox://styles/mapbox/streets-v11?optimize=true',
-            //style: 'mapbox://styles/mapbox/satellite-v9?optimize=true',
-            //style: 'mapbox://styles/mapbox/bright-v9?optimize=true',
             //style: BRIGHT_V9_MOD_STYLE,
             zoom: 1,
             maxZoom: 15.5,
@@ -285,9 +286,9 @@ class CovidMapControl extends React.Component {
                 };
 
                 // Set the water color based on the color profile
-                if (cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT) {
-                    map.setPaintProperty('water', "fill-color", cm.getWaterColor().toString());
-                }
+                //if (cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT) {
+                //    map.setPaintProperty('water', "fill-color", cm.getWaterColor().toString());
+                //}
 
                 for (let id of [
                     'country_label_1', 'country_label_2',

@@ -5,10 +5,13 @@
 .mapboxgl-popup-content {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+} .dark .mapboxgl-popup-content {
+    background: black !important;
 }
-/*.marker{*/
-  /*visibility: hidden;*/
-/*}*/
+.dark .mapboxgl-popup-tip {
+    border-bottom-color: black !important;
+    border-top-color: black !important;
+}
 
 .key{
   margin-left: 0px;
@@ -77,20 +80,23 @@ div.map-cont-controls {
     }
 /*}*/
 
-/*@media only screen and (min-width: 600px) {*/
-    div.map-cont-controls {
-        padding: 4px 6px 0 6px;
-        background: white;
-        position: absolute;
-        top: 8px;
-        left: 8px;
-        z-index: 500;
-        width: 30%;
-        min-width: 245px;
-        border-radius: 6px;
-        box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
-    }
-/*}*/
+
+div.map-cont-controls {
+    padding: 4px 6px 0 6px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 500;
+    width: 30%;
+    min-width: 245px;
+    border-radius: 6px;
+    box-shadow: -1px 0px 16px -4px rgba(189,189,189,1);
+} .light div.map-cont-controls {
+    background: white;
+} .dark div.map-cont-controls {
+    background: black;
+}
+
 
 .rainbow-text {
     /* https://w3bits.com/rainbow-text/ */

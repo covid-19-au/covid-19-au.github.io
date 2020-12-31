@@ -83,7 +83,7 @@ header i {
   color: #000000;
 }
 
-.table-footer > div {
+.light .table-footer > div {
   background: #e2e8ec;
 }
 
@@ -94,26 +94,49 @@ header i {
 .activeCase,
 .flightArea,
 .tested {
-  border: 1px solid #fff;
-  background-color: #f8f8f8;
   display: flex;
   justify-content: center;
   align-items: center;
+} .light .area,
+.light .confirmed,
+.light .death,
+.light .cured,
+.light .activeCase,
+.light .flightArea,
+.light .tested {
+  border: 1px solid #fff;
+  background-color: #f8f8f8;
+} .dark .area,
+.dark .confirmed,
+.dark .death,
+.dark .cured,
+.dark .activeCase,
+.dark .flightArea,
+.dark .tested {
+  border: 1px solid #000;
+  background-color: #151515;
 }
 
 .area {
   flex: 0.75;
   padding: 0.4rem 0;
   position: relative;
-  color: #212f3d;
   font-size: 0.7rem;
+} .light .area {
+  color: #212f3d;
+} .dark .area {
+  color: #b0c1ef;
 }
+
 .flightArea {
   font-size: 90%;
   flex: 3;
   padding: 0.4rem 0;
   position: relative;
+} .light .flightArea {
   color: #212f3d;
+} .dark .flightArea {
+  color: #b0c1ef;
 }
 
 .area.active::before {
@@ -136,6 +159,10 @@ header i {
   background-color: #bae1ff;
   filter: saturate(65%);
   font-size: 90%;
+} .light .area.header {
+  color: #bae1ff;
+} .dark .area.header {
+  color: #212f3d;
 }
 
 .confirmed,
@@ -241,10 +268,14 @@ header i {
 
 .fallback {
   padding: 0 1rem 1rem;
-  color: black;
   text-align: center;
   font-size: 70%;
+} .light .fallback {
+  color: black;
   background-color: #bae1ff;
+} .dark .fallback {
+  color: white;
+  background-color: #000615;
 }
 
 a {
@@ -594,4 +625,9 @@ h2 small {
 }
 .mapboxgl-popup.mapboxgl-popup-anchor-top {
   max-width: 320px !important;
+}
+
+
+.MuiButton-root {
+  text-transform: none !important;
 }

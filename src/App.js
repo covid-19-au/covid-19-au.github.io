@@ -6,9 +6,6 @@ import ReactGA from "react-ga";
 import Grid from "@material-ui/core/Grid";
 import { Alert } from '@material-ui/lab';
 
-import "bootstrap-scss/bootstrap.scss";
-import "./App.css";
-
 import keyBy from "lodash.keyby";
 import dayjs from "dayjs";
 import "dayjs/locale/en-au";
@@ -36,7 +33,16 @@ import stateCaseData from "./data/stateCaseData";
 import Header from './Header';
 import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
 import ColorManagement from "./ColorManagement/ColorManagement";
-import LightDarkSwitcher from "./ColorManagement/LightDarkSwitcher";
+
+// Include either dark or light css based on the saved settings
+if (ColorManagement.getColorSchemeType() === ColorManagement.COLOR_SCHEME_LIGHT) {
+  require("bootstrap-scss/bootstrap.scss");
+  //require("bootswatch/dist/flatly/bootstrap.min.css");
+} else {
+  require("bootswatch/dist/darkly/bootstrap.min.css");
+}
+require("./App.css");
+
 
 dayjs.extend(relativeTime);
 

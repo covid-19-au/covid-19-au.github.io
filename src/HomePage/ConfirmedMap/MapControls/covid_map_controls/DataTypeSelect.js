@@ -26,6 +26,7 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import React from "react";
 import getRemoteData from "../../../CrawlerData/RemoteData";
+import cm from "../../../../ColorManagement/ColorManagement";
 
 
 class DataTypeSelect extends React.Component {
@@ -69,7 +70,8 @@ class DataTypeSelect extends React.Component {
         const padding = '10px 6px';
 
         const activeStyles = {
-            color: 'black',
+            color: cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT ?
+                'black' : 'white',
             borderColor: '#8ccfff',
             paddingLeft: padding,
             paddingRight: padding,
@@ -80,7 +82,8 @@ class DataTypeSelect extends React.Component {
             flexGrow: 1,
         };
         const inactiveStyles = {
-            color: 'grey',
+            color: cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT ?
+                'grey' : 'grey',
             borderColor: '#e3f3ff',
             paddingLeft: padding,
             paddingRight: padding,

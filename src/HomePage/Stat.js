@@ -317,13 +317,27 @@ function UpdatesToday() {
     },
   ];
 
+  let backgroundColor,
+      inactiveTextColor,
+      activeTextColor;
+
+  if (cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT) {
+    backgroundColor = '#f2f4f4';
+    inactiveTextColor = "#ccd1d1";
+    activeTextColor = '#00c177';
+  } else {
+    backgroundColor = '#1a1a1a';
+    inactiveTextColor = "#2a2b2b";
+    activeTextColor = '#00c478';
+  }
+
   const dataStyles = [
     {
       color: cm.getStatusTextColor('confirmed'),
       padding: "0px",
       border: "none",
       zIndex: 10,
-      backgroundColor: "#f2f4f4",
+      backgroundColor: backgroundColor,
       fontWeight: "bold",
       fontSize: "80%",
     },
@@ -332,7 +346,7 @@ function UpdatesToday() {
       padding: "0px",
       border: "none",
       zIndex: 10,
-      backgroundColor: "#f2f4f4",
+      backgroundColor: backgroundColor,
       fontWeight: "bold",
       fontSize: "80%",
     },
@@ -341,7 +355,7 @@ function UpdatesToday() {
       padding: "0px",
       border: "none",
       zIndex: 10,
-      backgroundColor: "#f2f4f4",
+      backgroundColor: backgroundColor,
       fontWeight: "bold",
       fontSize: "80%",
     },
@@ -350,7 +364,7 @@ function UpdatesToday() {
       padding: "0px",
       border: "none",
       zIndex: 10,
-      backgroundColor: "#f2f4f4",
+      backgroundColor: backgroundColor,
       fontWeight: "bold",
       fontSize: "80%",
     },
@@ -359,16 +373,16 @@ function UpdatesToday() {
       padding: "0px",
       border: "none",
       zIndex: 10,
-      backgroundColor: "#f2f4f4",
+      backgroundColor: backgroundColor,
       fontWeight: "bold",
       fontSize: "80%",
     },
   ];
   const inactiveStyles = {
-    color: "#ccd1d1",
+    color: inactiveTextColor,
     padding: "0px",
     border: "none",
-    backgroundColor: "#f2f4f4",
+    backgroundColor: backgroundColor,
     fontSize: "80%",
   };
 
@@ -386,18 +400,18 @@ function UpdatesToday() {
   };
 
   const inactiveStylesStreak = {
-    color: "#ccd1d1",
+    color: inactiveTextColor,
     padding: "0px",
     border: "none",
-    backgroundColor: "#f2f4f4",
+    backgroundColor: backgroundColor,
     fontSize: "80%",
   };
 
   const activeStylesStreak = {
-    color: "#00c177",
+    color: activeTextColor,
     padding: "0px",
     border: "none",
-    backgroundColor: "#f2f4f4",
+    backgroundColor: backgroundColor,
     fontWeight: "bold",
     fontSize: "80%",
     textTransform: "none",

@@ -63,8 +63,7 @@ class ConfirmedMap extends React.Component {
                     width: "100%",
                     pointerEvents: "none",
                     marginTop: '-20px',
-                    zIndex: 5000,
-                    background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0.9) 15%)"
+                    zIndex: 5000
                 }}>
                     <span className="due">
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>

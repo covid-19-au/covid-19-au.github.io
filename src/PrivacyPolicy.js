@@ -31,13 +31,12 @@ export default function PrivacyPolicy() {
   return (
     <a>
       <Button
+          color="primary"
         variant="outlined"
         startIcon={<PolicyIcon />}
         onClick={handleClickOpen}
         style={{
           margin: "2px",
-          backgroundColor: "white",
-          variant: "outlined",
           textTransform: "none",
         }}
       >
