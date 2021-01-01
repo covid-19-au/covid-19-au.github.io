@@ -1,5 +1,163 @@
 [
-   {
+  {
+    "state": "VIC",
+    "area": "Black Rock",
+    "name": "Smile Buffalo Thai restaurant",
+    "venue": "Smile Buffalo Thai restaurant",
+    "type": "isolate",
+    "date": "21/12/20",
+    "time": "6:30pm to 9:40pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.9764135,
+      145.0166039
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Brighton",
+    "name": "Royal Brighton Yacht Club - outdoor dining",
+    "venue": "Royal Brighton Yacht Club - outdoor dining",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "12:00pm to 2:00pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.9091617,
+      144.9862206
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Brighton",
+    "name": "Sons of Mary Restaurant",
+    "venue": "Sons of Mary Restaurant",
+    "type": "isolate",
+    "date": "24/12/20",
+    "time": "10:00am to 11:05am",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.8978842,145.0021169
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Cheltenham",
+    "name": "Aldi Cheltenham",
+    "venue": "Aldi Cheltenham",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "02:00pm to 02:30pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.9558421,144.9984188
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "Albert and Co. Cafe - Bellevue Hotel",
+    "venue": "Albert and Co. Cafe - Bellevue Hotel",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "09:30am t0 10:45am",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      37.8815345,147.9782032
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "Esplanade Resort Lakes Entrance - Pool area",
+    "venue": "Esplanade Resort Lakes Entrance - Pool area",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "03:30pm to 04:30pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.8825759,147.9738097
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "Esplanade Resort Lakes Entrance - Hotel bar",
+    "venue": "Esplanade Resort Lakes Entrance - Hotel bar",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "05:30pm to 05:50pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.882846,147.9738186
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Mentone",
+    "name": "Bunnings Mentone",
+    "venue": "Bunnings Mentone",
+    "type": "isolate",
+    "date": "31/12/20",
+    "time": "08:00am to 08:30am",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.9768067,145.0673101
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Mentone",
+    "name": "Bunnings Mentone",
+    "venue": "Bunnings Mentone",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "07:30am to 08:00am",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.9768067,145.0673101
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Mordialloc",
+    "name": "Woodlands Golf Club - club bar",
+    "venue": "Woodlands Golf Club - club bar",
+    "type": "isolate",
+    "date": "28/12/20",
+    "time": "4:40pm to 5:15pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.999848,145.0957153
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Mordialloc",
+    "name": "Woodlands Golf Club - club bar",
+    "venue": "Woodlands Golf Club - club bar",
+    "type": "isolate",
+    "date": "23/12/20",
+    "time": "12:30pm to 1:30pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.999848,145.0957153
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Strathbogie",
+    "name": "Wonga Estate Strathbogie Ranges",
+    "venue": "Wonga Estate Strathbogie Ranges ",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "01:00pm to 02:00pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -36.8465596,145.7516827
+    ]
+  },
+  {
     "state": "VIC",
     "area": "Black Rock",
     "name": "Smile Buffalo Thai restaurant",
@@ -7,7 +165,7 @@
     "type": "isolate",
     "date": "21/12/20",
     "time": "",
-    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
     "coor": [
       -37.9764135,
       145.0166039
@@ -29,13 +187,26 @@
   },
   {
     "state": "VIC",
+    "area": "Leongatha",
+    "name": "Coral Fish and Chips",
+    "venue": "Coral Fish and Chips",
+    "type": "isolate",
+    "date": "27/12/20",
+    "time": "7:30am to 11:30am and 4:00pm to 7:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -38.4780086,145.9449895
+    ]
+  },
+  {
+    "state": "VIC",
     "area": "Doveton",
     "name": "Holy Family Parish Doveton Catholic",
     "venue": "Holy Family Parish Doveton Catholic",
     "type": "isolate",
     "date": "26/12/20",
     "time": "4:00pm to 6:00pm",
-    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
     "coor": [
       -37.9901534,
       145.2355391
@@ -71,6 +242,19 @@
   },
   {
     "state": "VIC",
+    "area": "Glen Waverley",
+    "name": "Village Century City",
+    "venue": "Village Century City",
+    "type": "isolate",
+    "date": "28/12/20",
+    "time": "2:45pm to 5:30pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure",
+    "coor": [
+      -37.8811195,145.1624592
+    ]
+  },
+  {
+    "state": "VIC",
     "area": "Mentone",
     "name": "Mentone/Parkdale Beach",
     "venue": "Mentone/Parkdale Beach",
@@ -95,6 +279,19 @@
     "coor": [
       -37.8991046,
       145.0880952
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Oakleigh",
+    "name": "Melissa Oakleigh Restaurant",
+    "venue": "Melissa Oakleigh Restaurant",
+    "type": "isolate",
+    "date": "28/12/20",
+    "time": "7:30pm to 8:15pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8990264,145.0880933
     ]
   },
   {
