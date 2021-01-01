@@ -142,10 +142,16 @@ code {
 
 .loading-pad {
     width: 176px;
-    background-color: white;
     padding: 10px 13px;
     box-sizing: border-box;
+} .light .loading-cont {
+    color: black;
+    background-color: white;
+} .dark .loading-cont {
+    color: white;
+    background-color: black;
 }
+
 .loading-pad-cont {
     position: relative;
 }

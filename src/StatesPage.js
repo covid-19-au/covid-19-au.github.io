@@ -1,4 +1,5 @@
 import React from "react";
+import { A } from "hookrouter";
 import Button from "@material-ui/core/Button";
 import statesSVG from "./statesSVG";
 import cm from "./ColorManagement/ColorManagement";
@@ -43,40 +44,41 @@ class StatesPage extends React.Component {
 
                 {
                     statesOrder.map((stateName) =>
-                        <Button href={"/state/"+stateName.toLowerCase()}
-                                variant="outlined"
-                                style={buttonStyles}>
-                            <div>
-                                <svg width={200}
-                                     height={200}
-                                     preserveAspectRatio="none"
-                                     viewBox="220 30 330 320">
-                                    <g>
-                                        {(() => {
-                                            let out = [];
-                                            for (let key in statesSVG) {
-                                                let elm = React.cloneElement(statesSVG[key], {
-                                                    fill: "#EEE"
-                                                });
-                                                out.push(elm);
-                                            }
-                                            return out;
-                                        })()}
-                                        {React.cloneElement(statesSVG[stateName], {
-                                            fill: cm.getCaseColorPositive(0.1)
-                                        })}
-                                    </g>
-                                </svg>
+                        <A href={"/state/"+stateName.toLowerCase()}>
+                            <Button variant="outlined"
+                                    style={buttonStyles}>
+                                <div>
+                                    <svg width={200}
+                                         height={200}
+                                         preserveAspectRatio="none"
+                                         viewBox="220 30 330 320">
+                                        <g>
+                                            {(() => {
+                                                let out = [];
+                                                for (let key in statesSVG) {
+                                                    let elm = React.cloneElement(statesSVG[key], {
+                                                        fill: "#EEE"
+                                                    });
+                                                    out.push(elm);
+                                                }
+                                                return out;
+                                            })()}
+                                            {React.cloneElement(statesSVG[stateName], {
+                                                fill: cm.getCaseColorPositive(0.1)
+                                            })}
+                                        </g>
+                                    </svg>
 
-                                <div style={{
-                                    textAlign: "center",
-                                    fontSize: "1.5em",
-                                    color: cm.getTextColor()
-                                }}>
-                                    { stateName }
+                                    <div style={{
+                                        textAlign: "center",
+                                        fontSize: "1.5em",
+                                        color: cm.getTextColor()
+                                    }}>
+                                        { stateName }
+                                    </div>
                                 </div>
-                            </div>
-                        </Button>
+                            </Button>
+                        </A>
                     )
                 }
             </div>
