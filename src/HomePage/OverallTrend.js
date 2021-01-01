@@ -283,8 +283,8 @@ export default function OverallTrend() {
 
                     {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                        <Button style={logScale ? inactiveStyles : activeStyles} onClick={() => setLogScale(false)}>{i18next.t("homePage:misc.offButton")}</Button>
-                        <Button style={logScale ? activeStyles : inactiveStyles} disableElevation={true} onClick={() => setLogScale(true)}>{i18next.t("homePage:misc.onButton")}</Button>
+                        <Button style={cm.getPillButtonColors(!logScale)} onClick={() => setLogScale(false)}>{i18next.t("homePage:misc.offButton")}</Button>
+                        <Button style={cm.getPillButtonColors(logScale)} disableElevation={true} onClick={() => setLogScale(true)}>{i18next.t("homePage:misc.onButton")}</Button>
                     </ButtonGroup>
                     <a
                         style={{

@@ -13,7 +13,7 @@ COLOR_SCHEMES[COLOR_SCHEME_DARK] = {
     'eChartsTheme': ECHARTS_DARK_THEME,
     'hyperlink': tinycolor('#00f'),
     'hoverRectangle': tinycolor("rgb(6,25,150)"),
-    'waterColor': tinycolor('#f2f4f4'),
+    //'waterColor': tinycolor('#a0cfdf'),
     'cases': {
         'default': {
             'text': tinycolor('white'),
@@ -54,7 +54,7 @@ COLOR_SCHEMES[COLOR_SCHEME_LIGHT] = {
     'eChartsTheme': 'default',
     'hyperlink': tinycolor('#00f'),
     'hoverRectangle': tinycolor("rgb(6,25,150)"),
-    'waterColor': tinycolor('#30374e'),
+    'waterColor': tinycolor('#9bc1d9'),
     'cases': {
         'default': {
             'text': tinycolor('white'),
@@ -124,7 +124,43 @@ class ColorManagement {
         if (i < 0) throw "";
         else if (i > 100) throw "";
         else if (i <= 1.0) return i;
-        else return i / 100.0;
+        else throw ""
+    }
+
+    /**
+     *
+     * @param toColor
+     * @param fromColor
+     * @param pc
+     * @returns {*}
+     */
+    blendColors(toColor, fromColor, pc) {
+        pc = this.__pc(pc);
+
+        if (fromColor._a == null)
+            fromColor._a = 1.0;
+        if (toColor._a == null)
+            toColor._a = 1.0;
+
+        let color1 = [
+            fromColor._r*pc, fromColor._g*pc, fromColor._b*pc, fromColor._a*pc
+        ];
+        let color2 = [
+            toColor._r*(1.0-pc), toColor._g*(1.0-pc), toColor._b*(1.0-pc),
+            toColor._a*(1.0-pc)
+        ];
+
+        //console.log(fromColor.toString()+' '+toColor.toString()+' '+pc)
+        //console.log(JSON.stringify(color1)+' '+JSON.stringify(color2))
+
+        return tinycolor(
+            `rgba(`+
+                `${Math.round(color1[0]+color2[0])}, `+
+                `${Math.round(color1[1]+color2[1])}, `+
+                `${Math.round(color1[2]+color2[2])}, `+
+                `${color1[3]+color2[3]}`+
+            `)`
+        );
     }
 
     /*****************************************************************
@@ -235,17 +271,30 @@ class ColorManagement {
         }
     }
 
-    blendColors(fromColor, toColor, pc) {
-        let color1 = [
-            fromColor._r*pc, fromColor._g*pc, fromColor._b*pc, fromColor._a*pc
-        ];
-        pc = 1.0 - pc;
-        let color2 = [
-            toColor._r*pc, toColor._g*pc, toColor._b*pc, toColor._a*pc
-        ];
-        return tinycolor(
-            `rgba(${Math.round(color1[0]+color2[0])}, ${Math.round(color1[1]+color2[1])}, ${Math.round(color1[2]+color2[2])}, ${Math.round(color1[3]+color2[3])})`
-        );
+    /*****************************************************************
+     * Various controls
+     *****************************************************************/
+
+    /**
+     *
+     * @returns {{color: (string)}}
+     */
+    getPillButtonColors(active) {
+        return active ? {
+            fontWeight: 'bold',
+            color: this.getColorSchemeType() === COLOR_SCHEME_LIGHT ?
+                'black' : 'white',
+            borderColor: "#8ccfff",
+            padding: "0px",
+            outline: "none",
+            zIndex: 10,
+        } : {
+            color: this.getColorSchemeType() === COLOR_SCHEME_LIGHT ?
+                '#666' : '#bbb',
+            borderColor: "#e3f3ff",
+            padding: "0px",
+            outline: "none",
+        };
     }
 
     /*****************************************************************

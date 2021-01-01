@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 // import i18n bundle
 import i18next from '../i18n';
 import ReactGA from "react-ga";
+import cm from "../ColorManagement/ColorManagement";
 
 
 class EChartglobalLog extends Component {
@@ -443,8 +444,8 @@ class EChartglobalLog extends Component {
 
                         {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                            <Button style={this.state.logScale ? this.props.inactiveStyles : this.props.activeStyles} onClick={() => this.setState({ logScale: false })}>{i18next.t("homePage:misc.offButton")}</Button>
-                            <Button style={this.state.logScale ? this.props.activeStyles : this.props.inactiveStyles} disableElevation={true} onClick={() => this.setState({ logScale: true })}>{i18next.t("homePage:misc.onButton")}</Button>
+                            <Button style={cm.getPillButtonColors(!this.state.logScale)} onClick={() => this.setState({ logScale: false })}>{i18next.t("homePage:misc.offButton")}</Button>
+                            <Button style={cm.getPillButtonColors(this.state.logScale)} disableElevation={true} onClick={() => this.setState({ logScale: true })}>{i18next.t("homePage:misc.onButton")}</Button>
                         </ButtonGroup>
                         <a
                             style={{

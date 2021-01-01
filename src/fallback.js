@@ -9,12 +9,21 @@ import FeedbackIcon from "@material-ui/icons/Feedback";
 import ShareIcon from "@material-ui/icons/Share";
 import { makeStyles } from "@material-ui/core/styles";
 import PrivacyPolicy from "./PrivacyPolicy.js";
+import cm from "./ColorManagement/ColorManagement";
 
 // ReactGA.initialize("UA-160673543-1",{gaoOptions:{siteSpeedSampleRate: 100}});
 function Fallback(props) {
+  let styles = {
+    backgroundColor: cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT ?
+      'white' : 'black',
+    color: cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT ?
+      'black': 'white',
+    margin: '0 4px 0 4px'
+  }
+
   return (
     <div className="fallback">
-      <div style={{marginBottom: "10px", paddingTop: "10px"}}>
+      <div style={{ marginBottom: "10px", paddingTop: "10px" }}>
         <Button
             color="primary"
             variant="outlined"
@@ -23,6 +32,7 @@ function Fallback(props) {
             props.setModalVisibility(true);
           }}
           startIcon={<ShareIcon />}
+            style={styles}
         >
           Share this site
         </Button>
@@ -32,6 +42,7 @@ function Fallback(props) {
           href="https://docs.google.com/forms/d/e/1FAIpQLSeX4RU-TomFmq8HAuwTI2_Ieah60A95Gz4XWIMjsyCxZVu7oQ/viewform?usp=sf_link"
           variant="outlined"
           startIcon={<FeedbackIcon />}
+            style={styles}
         >
           Feedback
         </Button>
@@ -40,6 +51,7 @@ function Fallback(props) {
           href="/faq"
           variant="outlined"
           startIcon={<InfoSharpIcon />}
+            style={styles}
         >
           FAQ
         </Button>
@@ -48,6 +60,7 @@ function Fallback(props) {
           href="https://github.com/covid-19-au/covid-19-au.github.io"
           variant="outlined"
           startIcon={<GitHubIcon />}
+            style={styles}
         >
           GitHub
         </Button>
@@ -55,12 +68,12 @@ function Fallback(props) {
             color="primary"
           href="/about-us"
           variant="outlined"
-
           startIcon={<PeopleIcon />}
+            style={styles}
         >
           About Us
         </Button>
-        <PrivacyPolicy></PrivacyPolicy>
+        <PrivacyPolicy buttonStyles={styles}></PrivacyPolicy>
       </div>
       <div>Template credits to: shfshanyue</div>
 

@@ -10,6 +10,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 // import i18n bundle
 import i18next from '../i18n';
 import GoogleMapDropin from "./GoogleMapDropin";
+import cm from "../ColorManagement/ColorManagement";
 
 function GoogleMap({ province, newData }) {
     // Colour gradients for the map: https://material.io/design/color/#tools-for-picking-colors
@@ -182,8 +183,11 @@ function GoogleMap({ province, newData }) {
         }
     };
 
+    const activeFontColor = cm.getPillButtonColors(true)['color'],
+          inactiveFontColor = cm.getPillButtonColors(false)['color'];
+
     const activeStyles = {
-        color: 'black',
+        color: activeFontColor,
         borderColor: '#8ccfff',
         // backgroundColor: '#e6ffff',
         padding: "1px",
@@ -195,7 +199,7 @@ function GoogleMap({ province, newData }) {
         marginBottom: "1rem"
     };
     const activeStylesPink = {
-        color: 'black',
+        color: activeFontColor,
         borderColor: '#f75c8d',
         // backgroundColor: '#ffe6e6',
         padding: "1px",
@@ -207,7 +211,7 @@ function GoogleMap({ province, newData }) {
         marginBottom: "1rem"
     };
     const activeStylesRed = {
-        color: 'black',
+        color: activeFontColor,
         borderColor: '#ff7e5f',
         // backgroundColor: '#ffe6e6',
         padding: "1px",
@@ -219,7 +223,7 @@ function GoogleMap({ province, newData }) {
         marginBottom: "1rem"
     };
     const inactiveStyles = {
-        color: 'grey',
+        color: inactiveFontColor,
         borderColor: '#e3f3ff',
         padding: "1px",
         outline: "none",
@@ -229,7 +233,7 @@ function GoogleMap({ province, newData }) {
         marginBottom: "1rem"
     };
     const inactiveStylesRed = {
-        color: 'grey',
+        color: inactiveFontColor,
         borderColor: '#fce7e6',
         padding: "1px",
         outline: "none",

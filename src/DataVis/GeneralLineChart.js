@@ -21,20 +21,6 @@ const lineBarTooltip = {
   },
 };
 
-const activeStyles = {
-  color: "black",
-  borderColor: "#8ccfff",
-  padding: "0px",
-  outline: "none",
-  zIndex: 10,
-};
-const inactiveStyles = {
-  color: "grey",
-  borderColor: "#e3f3ff",
-  padding: "0px",
-  outline: "none",
-};
-
 /**
  * get all date
  * @return {Array} list of all data
@@ -207,13 +193,13 @@ function GeneralLineChart({ state }) {
         Logarithmic Scale:&nbsp;
         <ButtonGroup size="small" aria-label="small outlined button group">
           <Button
-            style={logScale ? inactiveStyles : activeStyles}
+            style={cm.getPillButtonColors(!logScale)}
             onClick={() => setLogScale(false)}
           >
             Off
           </Button>
           <Button
-            style={logScale ? activeStyles : inactiveStyles}
+            style={cm.getPillButtonColors(logScale)}
             disableElevation={true}
             onClick={() => setLogScale(true)}
           >

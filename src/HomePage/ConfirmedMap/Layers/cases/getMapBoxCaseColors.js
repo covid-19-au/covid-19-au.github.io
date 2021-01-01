@@ -89,7 +89,7 @@ function getMapBoxCaseColors(
     // Fallback to this value if nothing else matches
     r.push(nullColor.toString());
 
-    console.log(JSON.stringify(r));
+    //console.log(JSON.stringify(r));
     return r;
 }
 
@@ -114,7 +114,7 @@ function __extendForColorRange(r, quantiles, totalCases, caseVals, fromColor, to
 
     for (let quantile of quantiles) {
         x++;
-        let pc = x / totalCases;
+        let pc = x / quantiles.length;
         let val = caseVals[Math.round(quantile*(caseVals.length-1))];
         if (negateVals) {
             val = -val;

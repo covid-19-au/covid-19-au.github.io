@@ -7,7 +7,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import Button from "@material-ui/core/Button";
 import PolicyIcon from "@material-ui/icons/Policy";
 
-export default function PrivacyPolicy() {
+export default function PrivacyPolicy({ buttonStyles }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -35,10 +35,7 @@ export default function PrivacyPolicy() {
         variant="outlined"
         startIcon={<PolicyIcon />}
         onClick={handleClickOpen}
-        style={{
-          margin: "2px",
-          textTransform: "none",
-        }}
+        style={buttonStyles}
       >
         Privacy
       </Button>

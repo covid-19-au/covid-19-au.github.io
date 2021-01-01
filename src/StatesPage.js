@@ -63,7 +63,7 @@ class StatesPage extends React.Component {
                                             return out;
                                         })()}
                                         {React.cloneElement(statesSVG[stateName], {
-                                            fill: cm.getCaseColorPositive(100)
+                                            fill: cm.getCaseColorPositive(0.1)
                                         })}
                                     </g>
                                 </svg>

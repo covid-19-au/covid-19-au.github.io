@@ -286,9 +286,9 @@ class CovidMapControl extends React.Component {
                 };
 
                 // Set the water color based on the color profile
-                //if (cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT) {
-                //    map.setPaintProperty('water', "fill-color", cm.getWaterColor().toString());
-                //}
+                if (cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT) {
+                    map.setPaintProperty('water', "fill-color", cm.getWaterColor().toString());
+                }
 
                 for (let id of [
                     'country_label_1', 'country_label_2',

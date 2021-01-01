@@ -248,11 +248,12 @@ function UpdatesToday() {
   }
 
   const fontSize = window.innerWidth > 767 ? "5rem" : "1rem";
+  const fontColor = cm.getPillButtonColors(true)['color'];
 
   const switchStyles = [
     {
       //Cases
-      color: "black",
+      color: fontColor,
       borderColor: cm.getStatusTextColor('confirmed'),
       padding: "1px",
       zIndex: 10,
@@ -265,7 +266,7 @@ function UpdatesToday() {
     },
     {
       //Deaths
-      color: "black",
+      color: fontColor,
       borderColor: cm.getStatusTextColor('deaths'),
       padding: "1px",
       zIndex: 10,
@@ -278,7 +279,7 @@ function UpdatesToday() {
     },
     {
       //Recoveries
-      color: "black",
+      color: fontColor,
       borderColor: cm.getStatusTextColor('recovered'),
       padding: "1px",
       zIndex: 10,
@@ -291,7 +292,7 @@ function UpdatesToday() {
     },
     {
       //Tested
-      color: "black",
+      color: fontColor,
       borderColor: cm.getStatusTextColor('tested'),
       padding: "1px",
       zIndex: 10,
@@ -304,7 +305,7 @@ function UpdatesToday() {
     },
     {
       //No New Cases
-      color: "black",
+      color: fontColor,
       borderColor: cm.getStatusTextColor('noNewCases'),
       padding: "1px",
       zIndex: 10,

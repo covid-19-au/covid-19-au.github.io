@@ -106,9 +106,9 @@ class StateCasesChart extends React.Component {
 
                         Logarithmic Scale:&nbsp;
                         <ButtonGroup size="small" aria-label="small outlined button group">
-                            <Button style={this.state.logScale ? inactiveStyles : activeStyles}
+                            <Button style={cm.getPillButtonColors(!this.state.logScale)}
                                     onClick={() => this.setLogScale(false)}>Off</Button>
-                            <Button style={this.state.logScale ? activeStyles : inactiveStyles}
+                            <Button style={cm.getPillButtonColors(this.state.logScale)}
                                     disableElevation={true}
                                     onClick={() => this.setLogScale(true)}>On</Button>
                         </ButtonGroup>

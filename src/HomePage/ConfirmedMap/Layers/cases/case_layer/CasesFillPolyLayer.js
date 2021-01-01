@@ -26,7 +26,7 @@ import CasesPopup from "./CasesPopup";
 import getMapBoxCaseColors from "../getMapBoxCaseColors";
 import cm from "../../../../../ColorManagement/ColorManagement";
 
-const FILL_OPACITY = 0.4;
+const FILL_OPACITY = 0.66;
 
 
 class CasesFillPolyLayer {
@@ -107,14 +107,16 @@ class CasesFillPolyLayer {
     updateLayer(caseVals, typeOfData) {
         let fillCaseVals = this.mapBoxSource.getPointsAllVals();
         let circleColor = getMapBoxCaseColors(
-                cm.getCaseColorPositive(1).setAlpha(0.05).lighten(40),
-                cm.getCaseColorPositive(100),
+                cm.getCaseColorPositive(0.01).setAlpha(0.05),
+                cm.getCaseColorPositive(1.0),
                 cm.getCaseColorPositive(0),
                 cm.getCaseColorMax(),
-                cm.getCaseColorNegative(1).setAlpha(0.05).lighten(40),
-                cm.getCaseColorNegative(100),
+                cm.getCaseColorNegative(0.01).setAlpha(0.05),
+                cm.getCaseColorNegative(1.0),
                 fillCaseVals, [0.0, 0.25, 0.75, 0.90, 0.95], 1
             );
+
+        console.log(JSON.stringify(circleColor));
 
         this.map.setPaintProperty(
             this.uniqueId + 'fillpoly', 'fill-color', [
