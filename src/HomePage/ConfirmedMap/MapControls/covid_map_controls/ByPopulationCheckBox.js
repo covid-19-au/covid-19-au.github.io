@@ -36,13 +36,16 @@ class ByPopulationCheckBox extends React.Component {
                             style={{
                                 padding: 0,
                                 paddingRight: "2px",
-                                margin: 0
+                                margin: 0,
+                                color: "inherit",
+                                marginBottom: "4px",
+                                display: "inline-block"
                             }}
                         />
                     }
                     label={
                         <Typography style={{
-                            fontSize: "0.8em"
+                            fontSize: "0.9em"
                         }}>By Population (Per Million)</Typography>
                     }
                     shrink={true}

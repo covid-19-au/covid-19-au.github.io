@@ -11,7 +11,7 @@ let COLOR_SCHEMES = {};
 
 COLOR_SCHEMES[COLOR_SCHEME_DARK] = {
     'eChartsTheme': ECHARTS_DARK_THEME,
-    'hyperlink': tinycolor('#00f'),
+    'hyperlink': tinycolor('#1277d3'),
     'hoverRectangle': tinycolor("rgb(6,25,150)"),
     //'waterColor': tinycolor('#a0cfdf'),
     'cases': {
@@ -282,8 +282,7 @@ class ColorManagement {
     getPillButtonColors(active) {
         return active ? {
             fontWeight: 'bold',
-            color: this.getColorSchemeType() === COLOR_SCHEME_LIGHT ?
-                'black' : 'white',
+            color: this.getTextColor(),
             borderColor: "#8ccfff",
             padding: "0px",
             outline: "none",
@@ -327,6 +326,16 @@ class ColorManagement {
      */
     getWaterColor() {
         return this.__colorScheme['waterColor'];
+    }
+
+    getTextColor() {
+        return this.getColorSchemeType() === COLOR_SCHEME_LIGHT ?
+            'black' : 'white'
+    }
+
+    getBackgroundColor() {
+        return this.getColorSchemeType() === COLOR_SCHEME_LIGHT ?
+            'white' : 'black'
     }
 }
 

@@ -388,7 +388,7 @@ function UpdatesToday() {
   };
 
   const inactiveStylesSwitch = {
-    color: "grey",
+    color: cm.getPillButtonColors(false)['color'],
     borderColor: "#e3e3e3",
     padding: "1px",
     outline: "none",

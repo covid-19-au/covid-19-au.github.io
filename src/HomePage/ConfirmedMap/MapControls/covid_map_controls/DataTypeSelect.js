@@ -70,8 +70,7 @@ class DataTypeSelect extends React.Component {
         const padding = '10px 6px';
 
         const activeStyles = {
-            color: cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT ?
-                'black' : 'white',
+            color: cm.getPillButtonColors(true)['color'],
             borderColor: '#8ccfff',
             paddingLeft: padding,
             paddingRight: padding,
@@ -82,8 +81,7 @@ class DataTypeSelect extends React.Component {
             flexGrow: 1,
         };
         const inactiveStyles = {
-            color: cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT ?
-                'grey' : 'grey',
+            color: cm.getPillButtonColors(false)['color'],
             borderColor: '#e3f3ff',
             paddingLeft: padding,
             paddingRight: padding,

@@ -24,12 +24,16 @@ const LightDarkSwitcher = () => {
       onHandleColor="#000"
       offHandleColor="#fff"
       checkedIcon={<FontAwesomeIcon icon={faSun} style={{
+        marginTop: "2px",
         color: "#fff",
-        width: "32px"
+        width: "32px",
+        verticalAlign: "baseline"
       }} />}
       uncheckedIcon={<FontAwesomeIcon icon={faMoon} style={{
+        marginTop: "2px",
         color: "#000",
-        width: "46px"
+        width: "46px",
+        verticalAlign: "baseline"
       }} />}
       onChange={handleThemeChange}
     />
