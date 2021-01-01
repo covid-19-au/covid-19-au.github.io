@@ -70,7 +70,8 @@ class StatesPage extends React.Component {
 
                                 <div style={{
                                     textAlign: "center",
-                                    fontSize: "1.5em"
+                                    fontSize: "1.5em",
+                                    color: cm.getTextColor()
                                 }}>
                                     { stateName }
                                 </div>
