@@ -1,100 +1,324 @@
 [
-   {
-    "state": "VIC",
-    "area": "Black Rock",
-    "name": "Smile Buffalo Thai restaurant",
-    "venue": "Smile Buffalo Thai restaurant",
-    "type": "isolate",
-    "date": "21/12/20",
-    "time": "",
-    "description": "Get tested immediately and self-isolate until you get a negative result",
-    "coor": [
-      -37.9764135,
-      145.0166039
-    ]
-  },
-  {
-    "state": "VIC",
-    "area": "Cape Schank",
-    "name": "National Golf Club, The Cups Drive",
-    "venue": "National Golf Club, The Cups Drive",
-    "type": "isolate",
-    "date": "30/12/20",
-    "time": "11:40am to 1:30pm",
-    "description": "Get tested immediately and self-isolate until you get a negative result",
-    "coor": [
-      -38.4604779,
-      144.8805392
-    ]
-  },
-  {
-    "state": "VIC",
-    "area": "Doveton",
-    "name": "Holy Family Parish Doveton Catholic",
-    "venue": "Holy Family Parish Doveton Catholic",
-    "type": "isolate",
-    "date": "26/12/20",
-    "time": "4:00pm to 6:00pm",
-    "description": "Get tested immediately and self-isolate until you get a negative result",
-    "coor": [
-      -37.9901534,
-      145.2355391
-    ]
-  },
-  {
-    "state": "VIC",
-    "area": "Fountain Gate Shopping Centre",
-    "name": "Kmart, Big W, Target, Millers, King of Gifts, Lo Costa",
-    "venue": "Fountain Gate Shopping Centre: Kmart, Big W, Target, Millers, King of Gifts, Lo Costa",
-    "type": "isolate",
-    "date": "26/12/20",
-    "time": "9:00am to 11:00am",
-    "description": "Get tested immediately and self-isolate until you get a negative result",
-    "coor": [
-      -38.0175584,
-      145.3016522
-    ]
-  },
-  {
-    "state": "VIC",
-    "area": "Glen Waverley",
-    "name": "Century City Walk and Mocha Jo’s",
-    "venue": "Century City Walk and Mocha Jo’s",
-    "type": "isolate",
-    "date": "28/12/20",
-    "time": "1:30pm to 5:00pm",
-    "description": "Get tested immediately and self-isolate until you get a negative result",
-    "coor": [
-      -37.8813612,
-      145.1624734
-    ]
-  },
   {
     "state": "VIC",
     "area": "Mentone",
-    "name": "Mentone/Parkdale Beach",
+    "name": "Isolate: Mentone/Parkdale Beach",
     "venue": "Mentone/Parkdale Beach",
     "type": "isolate",
     "date": "27/12/20",
-    "time": "10:00am to 4:30pm",
+    "time": "10:00am-4:30pm",
     "description": "Get tested immediately and self-isolate until you get a negative result",
     "coor": [
-      -38.0041379,
-      145.0734961
+      -37.99475898363823,
+      145.06834176191344
     ]
   },
   {
     "state": "VIC",
     "area": "Oakleigh",
-    "name": "Katialo restaurant, Eaton Mall",
+    "name": "Isolate: Katialo restaurant, Eaton Mall",
     "venue": "Katialo restaurant, Eaton Mall",
     "type": "isolate",
     "date": "28/12/20",
-    "time": "7:00pm to 8:15pm",
+    "time": "7:00pm-7:10pm",
     "description": "Get tested immediately and self-isolate until you get a negative result",
     "coor": [
-      -37.8991046,
-      145.0880952
+      -37.89910458579963,
+      145.09024925528513
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Oakleigh",
+    "name": "Isolate: Melissa Oakleigh Restaurant, Eaton Mall",
+    "venue": "Melissa Oakleigh Restaurant, Eaton Mall",
+    "type": "isolate",
+    "date": "28/12/20",
+    "time": "7:30pm - 8:15pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.89910458579963,
+      145.09024925528513
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Glen Waverley",
+    "name": "Isolate: Village Century City",
+    "venue": "Village Century City",
+    "type": "isolate",
+    "date": "28/12/20",
+    "time": "2:45pm-5:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8809138714316,
+      145.16359705793238
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Glen Waverley",
+    "name": "Isolate: Mocha Jo's",
+    "venue": "Mocha Jo's",
+    "type": "isolate",
+    "date": "28/12/20",
+    "time": "1:30pm-1:45pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8809138714316,
+      145.16359705793238
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Narre Warren",
+    "name": "Isolate: Fountain Gate Shopping Centre ((Kmart, Big W, Target, Millers, King of Gifts, Lo Costa)",
+    "venue": "Fountain Gate Shopping Centre ((Kmart, Big W, Target, Millers, King of Gifts, Lo Costa)",
+    "type": "isolate",
+    "date": "26/12/20",
+    "time": "9:00am-11:00am",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -38.01786149043695,
+      145.30384459526962
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Doveton",
+    "name": "Isolate: Holy Family Parish",
+    "venue": "Holy Family Parish",
+    "type": "isolate",
+    "date": "26/12/20",
+    "time": "4:00pm-6:30pm, 6:30pm (English service)",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.99011953671453,
+      145.23773852800457
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Black Rock",
+    "name": "Isolate: Smile Buffalo Thai restaurant",
+    "venue": "Smile Buffalo Thai restaurant",
+    "type": "isolate",
+    "date": "21/12/20",
+    "time": "6:30pm-9:40pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.97638808775176,
+      145.01660389939508
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Cape Schanck",
+    "name": "Isolate: National Golf Club",
+    "venue": "National Golf Club",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "11.40am-1.40pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -38.46138352928602,
+      144.88658682702766
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Mordialloc",
+    "name": "Isolate: Woodlands Golf Course",
+    "venue": "Woodlands Golf Course",
+    "type": "isolate",
+    "date": "23/12/20",
+    "time": "12:30pm-1:30pm; 23/12/20 8:00am-2:00pm; 28/12/20 4:40pm-5:15pm; 28/12/20 2pm-5:00pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.999184104994804,
+      145.09824067405137
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Brighton",
+    "name": "Isolate: Royal Brighton Yacht Club",
+    "venue": "Royal Brighton Yacht Club",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "12:00pm-2:00pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.90850143486338,
+      144.98632788835423
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Forest Hill",
+    "name": "Isolate: Forest Hill Chase Shopping Centre",
+    "venue": "Forest Hill Chase Shopping Centre",
+    "type": "isolate",
+    "date": "28/12/20",
+    "time": "12:00pm-2:00pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.835351443758924,
+      145.1647901158284
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Hallam",
+    "name": "Isolate: Coles (2 Princes Domain Drive)",
+    "venue": "Coles (2 Princes Domain Drive)",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "6:15pm - 6:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -38.00478106022391,
+      145.266342813578
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Moorabbin",
+    "name": "Isolate: COSTCO Moorabbin",
+    "venue": "COSTCO Moorabbin",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "10:45am- 12:15pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.97633017116853,
+      145.1082396423278
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Wonthaggi",
+    "name": "Isolate: Wonthaggi Plaza Shopping centre",
+    "venue": "Wonthaggi Plaza Shopping centre",
+    "type": "isolate",
+    "date": "28/12/20",
+    "time": "1:30pm-2.30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -38.60411689473665,
+      145.58589466102438
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Leongatha",
+    "name": "Isolate: Coral Fish and Chips",
+    "venue": "Coral Fish and Chips",
+    "type": "isolate",
+    "date": "27/12/20",
+    "time": "7:30am-11:30am, 4:00pm-7:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -38.477628336350215,
+      145.94863559434492
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Leongatha",
+    "name": "Isolate: Leongatha Golf Club",
+    "venue": "Leongatha Golf Club",
+    "type": "isolate",
+    "date": "27/12/20",
+    "time": "7:30am-11:30am",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -38.477628336350215,
+      145.94863559434492
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Cheltenham",
+    "name": "Isolate: Aldi (Bay Road)",
+    "venue": "Aldi (Bay Road)",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "2:00pm-2:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.95591874136898,
+      145.03343658085902
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Brighton",
+    "name": "Isolate: Sons of Mary Restaurant",
+    "venue": "Sons of Mary Restaurant",
+    "type": "isolate",
+    "date": "24/12/20",
+    "time": "10:00am-11:05am",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.89794289167958,
+      145.00439002927845
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "Isolate: Albert and Co. Cafe - Bellevue Hotel",
+    "venue": "Albert and Co. Cafe - Bellevue Hotel",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "9:30am-10:45am",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.88197710086579,
+      147.9763183064608
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "Isolate: Esplanade Resort",
+    "venue": "Esplanade Resort",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "3:30pm-4:30pm (pool); 29/12/2020  5:30pm-5:50pm (bar)",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.88197710086579,
+      147.9763183064608
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Mentone",
+    "name": "Isolate: Bunnings",
+    "venue": "Bunnings",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "07:30am-08:00am; 31/12/2020 8:00am-8:30am",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.97695043694273,
+      145.06911256455516
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Strathbogie",
+    "name": "Isolate: Wonga Estate Strathbogie Ranges",
+    "venue": "Wonga Estate Strathbogie Ranges",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "1:00pm-2:00pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -36.84660248857135,
+      145.7538606722592
     ]
   },
   {
