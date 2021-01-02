@@ -19,9 +19,9 @@
     "name": "Royal Brighton Yacht Club - outdoor dining",
     "venue": "Royal Brighton Yacht Club - outdoor dining",
     "type": "isolate",
-    "date": "29/12/20",
-    "time": "12:00pm to 2:00pm",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "date": "24/12/20",
+    "time": "10:00am-11:05am",
+    "description": "Get tested immediately and quarantine until you receive a negative result..",
     "coor": [
       -37.9091617,
       144.9862206
@@ -64,6 +64,71 @@
     "description": "Get tested immediately and quarantine for 14 days from the exposure.",
     "coor": [
       37.8815345,147.9782032
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "Chants Summer Carnival - Footbridge",
+    "venue": "Chants Summer Carnival - Footbridge",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "7:00pm-9:30pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.8559977,147.9666233
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "The Esplanade Resort and Spa",
+    "venue": "The Esplanade Resort and Spa",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "2:30pm-5:50pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.8825759,147.9738195
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "Lakes Boat Shed Cafe",
+    "venue": "Lakes Boat Shed Cafe",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "9:30am-10:30am",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.8808115,147.9744911
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "V/Line bus - Lakes Entrance to Bairnsdale",
+    "venue": "V/Line bus - Lakes Entrance to Bairnsdale",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "11:55am-12:30pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.875485,147.9871988
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Lakes Entrance",
+    "name": "Wyanga Winery",
+    "venue": "Wyanga Winery",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "1:00pm-2:00pm",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "coor": [
+      -37.8512067,147.981736
     ]
   },
   {
@@ -196,6 +261,136 @@
     "description": "Get tested immediately and self-isolate until you get a negative result",
     "coor": [
       -38.4780086,145.9449895
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Melbourne",
+    "name": "European Bier Cafe City",
+    "venue": "European Bier Cafe City",
+    "type": "isolate",
+    "date": "28/12/20",
+    "time": "8:00pm-9:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8128699,144.9690125
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Melbourne",
+    "name": "Fonda Mexican Flinders Lane",
+    "venue": "Fonda Mexican Flinders Lane",
+    "type": "isolate",
+    "date": "29/12/20",
+    "time": "6:00pm-7:00pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8148147,144.9711278
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Southbank",
+    "name": "Left Bank Melbourne Restaurant and Cocktail Bar",
+    "venue": "Left Bank Melbourne Restaurant and Cocktail Bar",
+    "type": "isolate",
+    "date": "25/12/20",
+    "time": "12:00pm-02:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8210084,144.9606727
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Southbank",
+    "name": "Rockpool Bar and Grill, Crown Casino",
+    "venue": "Rockpool Bar and Grill, Crown Casino",
+    "type": "isolate",
+    "date": "23/12/20",
+    "time": "8:00pm-10:00pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8234367,144.9558974
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Albert Park",
+    "name": "The Guilty Moose Cafe",
+    "venue": "The Guilty Moose Cafe",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "1:00pm to 1:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8460176,144.9477885
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Bairnsdale",
+    "name": "V/Line train Bairnsdale to Melbourne",
+    "venue": "V/Line train  Bairnsdale to Melbourne",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "12:45pm-4:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.828717,147.6251787
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Bairnsdale",
+    "name": "V/Line train Bairnsdale to Melbourne",
+    "venue": "V/Line train  Bairnsdale to Melbourne",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "12:45pm-4:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.828717,147.6251787
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Camberwell",
+    "name": "Crown Nails",
+    "venue": "Crown Nails",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "1:30pm-2:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.834012,145.0760418
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Camberwell",
+    "name": "Tao Dumplings",
+    "venue": "Tao Dumplings",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "12:30pm-1:30pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8300082,145.0538051
+    ]
+  },
+  {
+    "state": "VIC",
+    "area": "Caulfield",
+    "name": "Metro Train - Frankston line",
+    "venue": "Metro Train - Frankston line",
+    "type": "isolate",
+    "date": "30/12/20",
+    "time": "4:30pm-5:00pm",
+    "description": "Get tested immediately and self-isolate until you get a negative result",
+    "coor": [
+      -37.8773168,145.0379752
     ]
   },
   {
