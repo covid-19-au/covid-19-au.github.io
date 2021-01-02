@@ -21,7 +21,7 @@
     "type": "isolate",
     "date": "24/12/20",
     "time": "10:00am-11:05am",
-    "description": "Get tested immediately and quarantine until you receive a negative result..",
+    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
     "coor": [
       -37.9091617,
       144.9862206
@@ -35,7 +35,7 @@
     "type": "isolate",
     "date": "24/12/20",
     "time": "10:00am to 11:05am",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "Get tested immediately and quarantine until you receive a negative result.",
     "coor": [
       -37.8978842,145.0021169
     ]
@@ -45,10 +45,10 @@
     "area": "Cheltenham",
     "name": "Aldi Cheltenham",
     "venue": "Aldi Cheltenham",
-    "type": "isolate",
+    "type": "monitor",
     "date": "29/12/20",
     "time": "02:00pm to 02:30pm",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "If symptoms develop, immediately get tested and isolate until you receive a negative result.",
     "coor": [
       -37.9558421,144.9984188
     ]
@@ -61,7 +61,7 @@
     "type": "isolate",
     "date": "29/12/20",
     "time": "09:30am t0 10:45am",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "Get tested immediately and quarantine until you receive a negative result.",
     "coor": [
       37.8815345,147.9782032
     ]
@@ -74,7 +74,7 @@
     "type": "isolate",
     "date": "29/12/20",
     "time": "7:00pm-9:30pm",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "Get tested immediately and quarantine until you receive a negative result.",
     "coor": [
       -37.8559977,147.9666233
     ]
@@ -87,7 +87,7 @@
     "type": "isolate",
     "date": "29/12/20",
     "time": "2:30pm-5:50pm",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "Get tested immediately and quarantine until you receive a negative result.",
     "coor": [
       -37.8825759,147.9738195
     ]
@@ -100,7 +100,7 @@
     "type": "isolate",
     "date": "30/12/20",
     "time": "9:30am-10:30am",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "Get tested immediately and quarantine until you receive a negative result.",
     "coor": [
       -37.8808115,147.9744911
     ]
@@ -113,7 +113,7 @@
     "type": "isolate",
     "date": "30/12/20",
     "time": "11:55am-12:30pm",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "Get tested immediately and quarantine until you receive a negative result.",
     "coor": [
       -37.875485,147.9871988
     ]
@@ -126,7 +126,7 @@
     "type": "isolate",
     "date": "30/12/20",
     "time": "1:00pm-2:00pm",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "Get tested immediately and quarantine until you receive a negative result.",
     "coor": [
       -37.8512067,147.981736
     ]
@@ -139,7 +139,7 @@
     "type": "isolate",
     "date": "29/12/20",
     "time": "03:30pm to 04:30pm",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "Get tested immediately and quarantine until you receive a negative result.",
     "coor": [
       -37.8825759,147.9738097
     ]
@@ -152,7 +152,7 @@
     "type": "isolate",
     "date": "29/12/20",
     "time": "05:30pm to 05:50pm",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "Get tested immediately and quarantine until you receive a negative result.",
     "coor": [
       -37.882846,147.9738186
     ]
@@ -162,10 +162,10 @@
     "area": "Mentone",
     "name": "Bunnings Mentone",
     "venue": "Bunnings Mentone",
-    "type": "isolate",
+    "type": "monitor",
     "date": "31/12/20",
     "time": "08:00am to 08:30am",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "If symptoms develop, immediately get tested and isolate until you receive a negative result.",
     "coor": [
       -37.9768067,145.0673101
     ]
@@ -175,10 +175,10 @@
     "area": "Mentone",
     "name": "Bunnings Mentone",
     "venue": "Bunnings Mentone",
-    "type": "isolate",
+    "type": "monitor",
     "date": "30/12/20",
     "time": "07:30am to 08:00am",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
+    "description": "If symptoms develop, immediately get tested and isolate until you receive a negative result.",
     "coor": [
       -37.9768067,145.0673101
     ]
@@ -207,33 +207,6 @@
     "description": "Get tested immediately and quarantine for 14 days from the exposure.",
     "coor": [
       -37.999848,145.0957153
-    ]
-  },
-  {
-    "state": "VIC",
-    "area": "Strathbogie",
-    "name": "Wonga Estate Strathbogie Ranges",
-    "venue": "Wonga Estate Strathbogie Ranges ",
-    "type": "isolate",
-    "date": "29/12/20",
-    "time": "01:00pm to 02:00pm",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
-    "coor": [
-      -36.8465596,145.7516827
-    ]
-  },
-  {
-    "state": "VIC",
-    "area": "Black Rock",
-    "name": "Smile Buffalo Thai restaurant",
-    "venue": "Smile Buffalo Thai restaurant",
-    "type": "isolate",
-    "date": "21/12/20",
-    "time": "",
-    "description": "Get tested immediately and quarantine for 14 days from the exposure.",
-    "coor": [
-      -37.9764135,
-      145.0166039
     ]
   },
   {
