@@ -27,7 +27,7 @@ import Fns from "../ConfirmedMap/Fns";
 import LngLatBounds from "../CrawlerDataTypes/LngLatBounds";
 import GeoDataPropertyAssignment from "./GeoDataPropertyAssignment";
 
-import CasesWithManualAUStateData from "./CasesWithManualAUStateData";
+import CasesData from "./CasesData";
 import getRemoteData from "./RemoteData";
 
 
@@ -728,7 +728,7 @@ class DataDownloader {
                                 this._caseDataInsts[iDataType][regionSchema] = {};
                             }
 
-                            this._caseDataInsts[iDataType][regionSchema][iRegionParent] = new CasesWithManualAUStateData( //new CasesData(
+                            this._caseDataInsts[iDataType][regionSchema][iRegionParent] = new CasesData(
                                 caseData[iRegionParent], jsonData['date_ids'], jsonData['sub_headers'], jsonData['source_ids'],
                                 iDataType, jsonData['updated_dates'][regionSchema][iRegionParent],
                                 regionSchema, iRegionParent

@@ -31,6 +31,7 @@ import 'echarts/lib/chart/line';
 import React from "react";
 import ReactDOM from "react-dom";
 import Fns from "../../../Fns";
+import cm from "../../../../../ColorManagement/ColorManagement";
 
 
 class CasesPopup {
@@ -234,6 +235,7 @@ class CasesPopup {
 
         ReactDOM.render(
             <ReactEchartsCore
+                theme={cm.getEChartsTheme()}
                 echarts={echarts}
                 ref={el => {this.reactEChart = el}}
                 option={{
