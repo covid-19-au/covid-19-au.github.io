@@ -68,6 +68,11 @@ class ConfirmedMap extends React.Component {
                     <span className="due">
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
                             <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
+                                <b>Note:</b> the data in this map is automatically generated and isn't verified
+                                as frequently as other charts.
+                            </li>
+
+                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
                                 <b>🔍&nbsp;Zoom in</b> for regional numbers. <b>📬&nbsp;Postcode data</b> (Vic/NSW) at higher zoom levels.<br/>
                                 <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
                             </li>
