@@ -25,7 +25,7 @@ SOFTWARE.
 import Grid from "@material-ui/core/Grid";
 import React from "react";
 import WorldMap from "./HomePage/WorldMap";
-import {faInfoCircle, faExclamationCircle} from "@fortawesome/free-solid-svg-icons";
+import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SocialMediaShareModal from "./socialMediaShare/SocialMediaShareModal";
 import ReactGA from "react-ga";
@@ -51,11 +51,6 @@ class WorldPage extends React.Component {
                     visible={this.state.socialMediaIconsShown}
                     onCancel={() => this.setState({socialMediaIconsShown: false})}
                 />
-            </div>
-            <div className="alert alert-warning" role="alert" style={{width: "100vw", margin: 0, paddingLeft: "5vw"}}>
-                    <FontAwesomeIcon icon={faExclamationCircle} /> <b>Note:</b> This page has data from
-                    the <a href="https://github.com/mcyph/global_subnational_covid_data" style={{color: '#1277d3'}}>global-subnational-covid-data</a> project
-                    which may contain errors or inconsistencies.
             </div>
             <div style={{width: '100%', maxWidth: '95vw'}}>
                 <Grid container justify="center" wrap="wrap" style={{width: '100%'}}>

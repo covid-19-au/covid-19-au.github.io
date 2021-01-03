@@ -234,8 +234,8 @@ export default function Area({ area, onChange, data }) {
         included in the Queensland figure.
       </span>
       <br />
-      <span className="due" style={{ padding: 0, color: "#333" }}>
-          *See also the <A href="/state" className="citationLink" style={{color: "blue"}}>states page</A> for more detailed statistics.
+      <span className="due" style={{ padding: 0 }}>
+          *See also the <A href="/state" className="citationLink">states page</A> for more detailed statistics.
       </span>
     </div>
   );

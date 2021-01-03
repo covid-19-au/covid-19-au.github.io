@@ -30,6 +30,7 @@ import CovidMapControl from "./ConfirmedMap/CovidMapControl"
 import UpdatedDatesDisplay from "./ConfirmedMap/MapControls/UpdatedDatesDisplay";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChartLine} from "@fortawesome/free-solid-svg-icons";
+import {faExclamationCircle} from "@fortawesome/free-solid-svg-icons";
 
 
 class WorldMap extends React.Component {
@@ -63,18 +64,24 @@ class WorldMap extends React.Component {
 
                 <div ref={el => this.explanations = el} style={{
                     width: "100%",
-                    pointerEvents: "none",
+                    //pointerEvents: "none",
                     marginTop: '-20px',
                     zIndex: 5000
                 }}>
                     <span className="due">
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
-                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
+                            <li style={{marginBottom: '2px', paddingBottom: '0px'}}>
+                                <FontAwesomeIcon icon={faExclamationCircle} /> <b>Note:</b> This page has data from
+                                the <a href="https://github.com/mcyph/global_subnational_covid_data" style={{color: '#1277d3'}}>global-subnational-covid-data</a> project
+                                which may contain errors or inconsistencies.
+                            </li>
+
+                            <li style={{marginBottom: '2px', paddingBottom: '0px'}}>
                                 <span style={{fontWeight: 'bold'}}>🔍&nbsp;Zoom in</span> for regional numbers.
                                 <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
                             </li>
 
-                            <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>
+                            <li style={{marginBottom: "2px", paddingBottom: "0px"}}>
                                 The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>&nbsp;
                                 selects the <i>current day</i>. The 7/21 days controls show the current day's
                                 value minus the value 7 or 21 days before the current day. Negative numbers in this mode mean the
@@ -87,8 +94,8 @@ class WorldMap extends React.Component {
                                 time as less people are infected than were in the past.
                             </li>
 
-                            <li style={{color: '#555'}}>
-                                <div style={{color: '#777', fontSize: '0.9em'}}>
+                            <li>
+                                <div style={{fontSize: '0.9em'}}>
                                     World data updated: <span ref={
                                         (el) => this.__updatedSpan = el
                                     }><UpdatedDatesDisplay ref={el => {this.__updatedDatesDisplay = el}}/></span>

@@ -816,7 +816,7 @@ function Information({ hospitalData, columns, gspace }) {
                     </div>
                 </div>
 
-                <div className="card" id="hospitalList" >
+                {/*<div className="card" id="hospitalList" >
                     <h2 className="responsiveH2">Hospitals doing Coronavirus testing</h2>
 
                     <HospitalsMap />
@@ -828,7 +828,7 @@ function Information({ hospitalData, columns, gspace }) {
                             <Table className="formatMedia" columns={columns} data={hospitalData} />
                         </div>
                     </div>
-                </div >
+                </div >*/}
             </Grid>
         </Grid>
     );

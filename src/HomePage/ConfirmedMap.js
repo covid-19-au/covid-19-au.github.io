@@ -28,6 +28,7 @@ import CovidMapControl from "./ConfirmedMap/CovidMapControl"
 import UpdatedDatesDisplay from "./ConfirmedMap/MapControls/UpdatedDatesDisplay";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChartLine} from "@fortawesome/free-solid-svg-icons";
+import {A} from "hookrouter";
 
 
 class ConfirmedMap extends React.Component {
@@ -61,46 +62,58 @@ class ConfirmedMap extends React.Component {
 
                 <div ref={el => this.explanations = el} style={{
                     width: "100%",
-                    pointerEvents: "none",
+                    //pointerEvents: "none",
                     marginTop: '-20px',
                     zIndex: 5000
                 }}>
                     <span className="due">
                         <ul ref={this.accuracyWarning} style={{margin: '0px', padding: '5px 20px'}}>
-                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
-                                <b>Note:</b> the data in this map is automatically generated and isn't verified
-                                as frequently as other charts.
-                            </li>
-
-                            <li style={{color: '#555', marginBottom: '2px', paddingBottom: '0px'}}>
-                                <b>🔍&nbsp;Zoom in</b> for regional numbers. <b>📬&nbsp;Postcode data</b> (Vic/NSW) at higher zoom levels.<br/>
-                                <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
-                            </li>
-
-                            <li style={{color: "#555", marginBottom: "2px", paddingBottom: "0px"}}>
-                                The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>&nbsp;
-                                selects the <i>current day</i>. The 7/21 days controls show the current day's
-                                value minus the value 7 or 21 days before the current day. Negative numbers in this mode mean the
-                                value is that amount less than it was that many days ago.<br/>
-
-                                The <FontAwesomeIcon icon={faChartLine} />&nbsp;<b>Rate of Change</b> control
-                                graphs the exponential <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">change in growth</a> for
-                                each region over 50 days. If the cases plot goes above the dotted line, the number of people infected will keep
-                                increasing at an exponential rate. If they're below the dotted line, then things will get under control over
-                                time as less people are infected than were in the past.
-                            </li>
-                            <li style={{color: '#555'}}>
-                                <div style={{color: '#777', fontSize: '0.9em'}}>
-                                    Regional data updated: <span ref={
-                                        (el) => this.__updatedSpan = el
-                                    }><UpdatedDatesDisplay ref={el => {this.__updatedDatesDisplay = el}}/></span>
-                                </div>
-                            </li>
+                            {this.__getMessages()}
                         </ul>
                     </span>
                 </div>
             </div>
         );
+    }
+
+    __getMessages() {
+        return <>
+            <li style={{marginBottom: '2px', paddingBottom: '0px'}}>
+                <b>See also</b> for latest case locations and outbreaks:&nbsp;
+                <a className="citationLink" href={"https://www.dhhs.vic.gov.au/case-locations-and-outbreaks"}>Victoria DHHS</a> |&nbsp;
+                <a className="citationLink" href={"https://www.health.nsw.gov.au/Infectious/covid-19/Pages/case-locations-and-alerts.aspx"}>NSW Health</a>.
+            </li>
+
+            <li style={{marginBottom: '2px', paddingBottom: '0px'}}>
+                <b>Note:</b> the data in this map is automatically generated and isn't verified
+                as frequently as other charts.
+            </li>
+
+            <li style={{marginBottom: '2px', paddingBottom: '0px'}}>
+                <b>🔍&nbsp;Zoom in</b> for regional numbers. <b>📬&nbsp;Postcode data</b> (Vic/NSW) at higher zoom levels.&nbsp;
+                <b>🖱️&nbsp;Click</b> or <b>👆&nbsp;tap</b> regions for history over time.
+            </li>
+
+            <li style={{marginBottom: "2px", paddingBottom: "0px"}}>
+                The <input type="range" style={{width: "35px", height: "1em", pointerEvents: "none"}} /> <b>time slider</b>&nbsp;
+                selects the <i>current day</i>. The 7/21 days controls show the current day's
+                value minus the value 7 or 21 days before the current day. Negative numbers in this mode mean the
+                value is that amount less than it was that many days ago.<br/>
+
+                The <FontAwesomeIcon icon={faChartLine} />&nbsp;<b>Rate of Change</b> control
+                graphs the exponential <a href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">change in growth</a> for
+                each region over 50 days. If the cases plot goes above the dotted line, the number of people infected will keep
+                increasing at an exponential rate. If they're below the dotted line, then things will get under control over
+                time as less people are infected than were in the past.
+            </li>
+            <li>
+                <div style={{fontSize: '0.9em'}}>
+                    Regional data updated: <span ref={
+                        (el) => this.__updatedSpan = el
+                    }><UpdatedDatesDisplay ref={el => {this.__updatedDatesDisplay = el}}/></span>
+                </div>
+            </li>
+        </>
     }
 
     /**

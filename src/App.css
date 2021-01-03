@@ -448,11 +448,11 @@ h2 small {
   justify-content: space-around;
   align-items: center;
 }
-.light .navBar, .light .navBarStuck {
+.light .sticky-wrapper {
   background-color: #c5dff2;
   color: black;
 }
-.dark .navBar, .dark .navBarStuck {
+.dark .sticky-wrapper {
   background-color: #000f2b;
   color: white;
 }
@@ -492,23 +492,17 @@ h2 small {
   text-decoration: none !important;
 }
 
-.navCurrentPage {
+.navCurrentPage, .navCurrentPageSticky {
   border-bottom: #1277d3 solid 2px;
   color: #1277d3;
 }
 
-.navCurrentPageSticky {
-  border-bottom: black solid 2px;
-  color: black;
-}
-
 .citationLink {
-  color: blue;
   text-decoration: underline;
-}
-
-.citationLink:hover {
+} .light .citationLink {
   color: blue;
+} .dark .citationLink {
+  color: #1277d3;
 }
 
 .flightSearch {

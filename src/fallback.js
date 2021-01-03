@@ -80,7 +80,7 @@ function Fallback(props) {
       <div>
         This site is developed by a{" "}
         <a
-          style={{ color: "blue" }}
+            className="citationLink"
           href="https://github.com/covid-19-au/covid-19-au.github.io/blob/dev/README.md"
           target="_blank"
           rel="noopener noreferrer"
@@ -89,7 +89,7 @@ function Fallback(props) {
         </a>
         , for non-commercial use only. Support our{" "}
         <a
-          style={{ color: "blue" }}
+          className="citationLink"
           href="https://covid19onlinesurvey.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -117,7 +117,7 @@ function Fallback(props) {
         A big thank you to{" "}
         <a
           href="https://www.mapbox.com/"
-          style={{ color: "blue" }}
+          className="citationLink"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -126,7 +126,7 @@ function Fallback(props) {
         {""},{" "}
         <a
           href="https://www.slack.com/"
-          style={{ color: "blue" }}
+          className="citationLink"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -135,7 +135,7 @@ function Fallback(props) {
         {""},{" "}
         <a
           href="https://aws.amazon.com/"
-          style={{ color: "blue" }}
+          className="citationLink"
           target="_blank"
           rel="noopener noreferrer"
         >
