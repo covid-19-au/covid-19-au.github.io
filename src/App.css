@@ -1,17 +1,24 @@
-/* Start semantic UI */
-html, body {
-  font-size: 14px;
-}
-
 body {
   background-color: #f2f4f4;
   overflow-x: hidden;
 
   margin: 0;
-  line-height: 1.5;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-size: 1em !important;
+  line-height: 1.4em !important;
+}
+@media only screen and (max-width: 900px) {
+  body {
+    font-size: 0.95em !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 0.85em !important;
+  }
 }
 
 h1, h2, h3, h4, h5 {
@@ -83,7 +90,7 @@ header i {
   color: #000000;
 }
 
-.table-footer > div {
+.light .table-footer > div {
   background: #e2e8ec;
 }
 
@@ -94,26 +101,49 @@ header i {
 .activeCase,
 .flightArea,
 .tested {
-  border: 1px solid #fff;
-  background-color: #f8f8f8;
   display: flex;
   justify-content: center;
   align-items: center;
+} .light .area,
+.light .confirmed,
+.light .death,
+.light .cured,
+.light .activeCase,
+.light .flightArea,
+.light .tested {
+  border: 1px solid #fff;
+  background-color: #f8f8f8;
+} .dark .area,
+.dark .confirmed,
+.dark .death,
+.dark .cured,
+.dark .activeCase,
+.dark .flightArea,
+.dark .tested {
+  border: 1px solid #000;
+  background-color: #151515;
 }
 
 .area {
   flex: 0.75;
   padding: 0.4rem 0;
   position: relative;
-  color: #212f3d;
   font-size: 0.7rem;
+} .light .area {
+  color: #212f3d;
+} .dark .area {
+  color: #b0c1ef;
 }
+
 .flightArea {
   font-size: 90%;
   flex: 3;
   padding: 0.4rem 0;
   position: relative;
+} .light .flightArea {
   color: #212f3d;
+} .dark .flightArea {
+  color: #b0c1ef;
 }
 
 .area.active::before {
@@ -136,6 +166,10 @@ header i {
   background-color: #bae1ff;
   filter: saturate(65%);
   font-size: 90%;
+} .light .area.header {
+  color: #bae1ff;
+} .dark .area.header {
+  color: #212f3d;
 }
 
 .confirmed,
@@ -241,10 +275,14 @@ header i {
 
 .fallback {
   padding: 0 1rem 1rem;
-  color: black;
   text-align: center;
   font-size: 70%;
+} .light .fallback {
+  color: black;
   background-color: #bae1ff;
+} .dark .fallback {
+  color: white;
+  background-color: #000615;
 }
 
 a {
@@ -407,18 +445,23 @@ h2 small {
 }
 
 .navBar {
-  height: 36px;
+  height: 40px;
   justify-content: space-around;
   align-items: center;
-  background-color: #c5dff2;
-}
 
+}
 .navBarStuck {
-  height: 36px;
+  height: 40px;
   justify-content: space-around;
   align-items: center;
+}
+.light .sticky-wrapper {
   background-color: #c5dff2;
   color: black;
+}
+.dark .sticky-wrapper {
+  background-color: #000f2b;
+  color: white;
 }
 
 .sticky {
@@ -433,7 +476,7 @@ h2 small {
 
 .sticky-wrapper {
   position: relative;
-  height: 36px;
+  height: 40px;
 }
 
 .navItems {
@@ -456,23 +499,17 @@ h2 small {
   text-decoration: none !important;
 }
 
-.navCurrentPage {
+.navCurrentPage, .navCurrentPageSticky {
   border-bottom: #1277d3 solid 2px;
   color: #1277d3;
 }
 
-.navCurrentPageSticky {
-  border-bottom: black solid 2px;
-  color: black;
-}
-
 .citationLink {
-  color: blue;
   text-decoration: underline;
-}
-
-.citationLink:hover {
+} .light .citationLink {
   color: blue;
+} .dark .citationLink {
+  color: #1277d3;
 }
 
 .flightSearch {
@@ -540,7 +577,7 @@ h2 small {
   cursor: pointer;
 }
 .dailyIncrease {
-  font-size: 60%;
+  font-size: 90%;
 }
 
 .selection-grid {
@@ -554,9 +591,6 @@ h2 small {
   margin-top: -5px;
   margin-bottom: -10px;
   font-size: 1.1rem;
-}
-.dailyIncrease {
-  font-size: 60%;
 }
 
 .selection-grid {
@@ -589,4 +623,9 @@ h2 small {
 }
 .mapboxgl-popup.mapboxgl-popup-anchor-top {
   max-width: 320px !important;
+}
+
+
+.MuiButton-root {
+  text-transform: none !important;
 }
