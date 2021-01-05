@@ -86,11 +86,10 @@ class MarkerConfirmed {
                     <u>Details</u>
                  </a>`
             )
-        this._marker = new mapboxgl
-            .Marker(this.el)
-            .setLngLat([this.item['coor'][1], this.item['coor'][0]])
-            .setPopup(this.popup)
-            .addTo(this.map);
+        this._marker = new mapboxgl.Marker(this.el)
+                                   .setLngLat([this.item['long'], this.item['lat']])
+                                   .setPopup(this.popup)
+                                   .addTo(this.map);
     }
 
     getPopupStatus() {
