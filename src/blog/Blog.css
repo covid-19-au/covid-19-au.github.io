@@ -1,0 +1,154 @@
+.responsiveCardTop {
+    display: block;
+}
+
+@media screen and (max-width: 959px) {
+    .responsiveCardTop {
+        display: none;
+    }
+}
+
+.responsiveCardBottom {
+    display: none;
+}
+
+@media screen and (max-width: 959px) {
+    .responsiveCardBottom {
+        display: block;
+    }
+}
+
+.cardFormat {
+    margin-bottom: 2em
+}
+
+.noHover:hover {
+    text-decoration: none;
+    color: unset;
+}
+
+.blogSection {
+    width: 85%;
+}
+
+.blogText {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 4em;
+}
+
+@media screen and (max-width: 500px) {
+    .blogText {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .blogDateText {
+        font-size: 60%;
+    }
+}
+
+.classesRoot {
+    max-width: 900px;
+    width: 90%;
+}
+
+@media screen and (max-width: 959px) {
+    .classesRoot {
+        max-width: 800px;
+        width: 80%;
+    }
+}
+
+.classesH2 {
+    padding: 0;
+    border: none;
+}
+
+.blogImage {
+    width: '85%';
+    height: auto;
+}
+
+@media screen and (max-width: 959px) {
+    .blogImage {
+        width: '85%';
+        height: auto;
+    }
+}
+
+.blogThumbnail {
+    height: 220px;
+}
+
+@media screen and (max-width: 959px) {
+    .blogThumbnail {
+        height: 150px;
+    }
+}
+
+.filterDropDown {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filterBox {
+    max-width: 90%;
+    margin-bottom: 2em;
+    max-width: 900px;
+}
+
+@media screen and (max-width: 959px) {
+    .filterDropDown {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.filterText {
+    width: 220px;
+    height: auto;
+    min-height: 16px !important;
+}
+
+.MuiOutlinedInput-input {
+    padding: 6px 0 7px !important;
+}
+
+.cite {
+    font-size: 60%;
+}
+
+.surfacesTable {
+    max-width: 100%;
+}
+
+.surfacesHeader, .surfacesElement {
+    padding: 1rem;
+}
+
+@media screen and (max-width: 959px) {
+    .surfacesHeader, .surfacesElement {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .surfacesHeader, .surfacesElement {
+        padding: 3px;
+    }
+}
+
+.surfacesTable, .surfacesHeader, .surfacesElement {
+    border-spacing: 5px;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.surfacesHeader {
+    background-color: #bae1ff;
+}

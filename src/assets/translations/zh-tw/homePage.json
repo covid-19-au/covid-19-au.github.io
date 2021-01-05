@@ -1,0 +1,132 @@
+{
+  "misc": {
+    "loadingText": "載入中...",
+    "title": "澳大利亞的COVID-19",
+    "descrip": "實時報告",
+    "slogan": "保持冷靜，保持知情",
+    "onButton": "開",
+    "offButton": "關",
+    "logScale": "對數刻度："
+  },
+  "dataAck": {
+    "title": "數據來源",
+    "body1": "我們網站上的數據是公開可用的，並且可以從各種官方政府渠道獲得。確認的完整列表位於下面。",
+    "source1": "©新南威爾士州新南威爾士州衛生部。有關最新信息，請訪問",
+    "source2": "©昆士蘭州（Queensland Health），網址：",
+    "source3": "南澳大利亞州政府衛生局",
+    "source4": "澳大利亞首都特區政府，ACT Health，地址：",
+    "source5": "塔斯馬尼亞州政府。在",
+    "source6": "維多利亞州政府衛生與公共服務部",
+    "source7": "北領地政府",
+    "source8": "西澳大利亞州政府衛生部",
+    "body2": "我們不隸屬於這些組織，也不以任何方式得到它們的認可。我們是一個志工團隊，我們嚴格將收集的數據用於非商業，教育，報告和研究目的。務必確保數據準確無誤，不要重新組織或歪曲數據。",
+    "body3": "我們強烈建議本網站的用戶遵守其各自的地方和聯邦政府及當局提供的建議和法規。",
+    "body4": "如果您有任何疑問，請通過我們與我們聯繫",
+    "body5": "反饋表。",
+    "body6": "Covid-19-au，",
+    "body7": "保持鎮定，保持知情。",
+    "exitButton": "關"
+  },
+  "status": {
+    "title": "當前狀態",
+    "confirm": "已確認",
+    "No New Cases":"無新增",
+    "hospital": "在醫院",
+    "icu": "在ICU中",
+    "updateTitle": "每日更新狀態",
+    "note": "AEST時間，最近更新時間：",
+    "confirmCase": "確診病例",
+    "activeCase": "活躍案例",
+    "newCase": "新案例",
+    "newCaseWeek": "本週新增案例",
+    "active":"活躍案例",
+    "testConducted": "已檢測",
+    "total": "總",
+    "Cases": "案例",
+    "casePM": "案例/ 百萬人",
+    "Deaths": "死亡人數",
+    "Recoveries": "已康復",
+    "testPM": "已檢測/ 百萬人",
+    "positiveP": "陽性（％）",
+    "state": "州",
+    "Tested": "已檢測"
+  },
+  "caseByState": {
+    "title": "各州案例",
+    "buttonPrompt": "選擇地圖類型：",
+    "append1": "*關於新南威爾士州的康復人數我們目前沒有統一的數據來源。總康復人數的數據皆來自於政府的報告。",
+    "append2": "*點擊",
+    "append3": "詳細名稱"
+  },
+  "hospitalCaseMap": {
+    "title": "醫院和病例圖",
+    "hospitalLegend": "醫院或COVID-19評估中心",
+    "casesLegend": "7天前的案例",
+    "confirmedLegend": "最近確認的病例（不是全部，正在收集）",
+    "note1": "*僅首都領地，新州，維州和西澳等州顯示城市級別的數據¬，以及昆州的HHS數據。其他州尚有待開發。",
+    "marker": "標記："
+  },
+  "overallTrend": {
+    "title": "病例，死亡人數和康復人數"
+  },
+  "stateComparisons": {
+    "title": "狀態比較"
+  },
+  "chartCommon": {
+    "clickLegend": "*點擊圖註以添加/刪除圖形",
+    "clickPoint": "*點擊資料點獲取詳細數據",
+    "dottedLine": "*虛線表示未獲得新數據"
+  },
+  "globalChart": {
+    "title": "全球比較",
+    "selectAll": "全選",
+    "selectNo": "清空",
+    "updateNotice": "上次更新時間：",
+    "append0": "* Y軸上的每個數據點都是過去7天內新確診病例的總數。",
+    "append1": "*觀看這個",
+    "append2": "視頻",
+    "append3": " 獲得有關此圖的詳細說明！",
+    "append4": "*數據來源："
+  },
+  "flights": {
+    "title": "航班",
+    "searchButton": "搜索",
+    "searchPlaceholder": "輸入航班號，航線，到達日期",
+    "tableHeader1": "航班號",
+    "tableHeader2": "航空公司",
+    "tableHeader3": "航線",
+    "tableHeader4": "到達",
+    "tableHeader5": "相鄰的座位號"
+  },
+  "state": {
+    "NSW": "新州",
+    "VIC": "維州",
+    "QLD": "昆州",
+    "WA": "西澳",
+    "SA": "南澳",
+    "TAS": "塔州",
+    "ACT": "首都領地",
+    "NT": "北領地"
+  },
+  "country": {
+    "AU": "澳大利亞",
+    "Canada": "加拿大",
+    "China": "中國",
+    "Denmark": "丹麥",
+    "France": "法國",
+    "Germany": "德國",
+    "Iran": "伊朗",
+    "Italy": "意大利",
+    "Japan": "日本",
+    "South Korea": "南韓",
+    "NZ": "紐西蘭",
+    "Norway": "挪威",
+    "Singapore": "新加坡",
+    "Spain": "西班牙",
+    "Sweden": "瑞典",
+    "Switzerland": "瑞士",
+    "UK": "英國",
+    "US": "美國",
+    "India": "印度"
+  }
+}

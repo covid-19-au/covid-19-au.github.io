@@ -1,0 +1,57 @@
+{
+  "dailyDistraction": {
+    "title": "开心每一天",
+    "body1": "我们会在这里经常分享有趣的东西，因为我们相信在这样的时间大家需要一些正能量！",
+    "body2": "查看历史帖子！",
+    "link": "点击这里"
+  },
+  "informativeMedia": {
+    "title": "信息",
+    "media1Descrip": "冠状病毒解释了该怎么办。",
+    "media2Descrip": "如何正确洗手。",
+    "washingHandLink": "这是您可以保存的分步指南",
+    "media3Descrip": "如何正确佩戴和处置口罩。"
+  },
+  "generalInformation": {
+    "title": "一般信息"
+  },
+  "currentRegulation": {
+    "title": "现行法规"
+  },
+  "selfDiagnosis": {
+    "title": "认为您有COVID-19？"
+  },
+  "prevention": {
+    "title": "保护自己和他人"
+  },
+  "coronavirusHelpline": {
+    "title": "服务热线",
+    "subtitle": "冠状病毒帮助专线",
+    "sect1heading": "全国热线每周7天，每天24小时运行。",
+    "sect1point1": "有关国家帮助热线中冠状病毒（COVID-19）的信息，请拨打热线：",
+    "sect1point2": "如果您感到不适，请致电Healthdirect：",
+    "sect2heading": "一些州还设有专门的求助热线：",
+    "sect2point1": "维多利亚州：",
+    "sect2point2": "昆士兰州：",
+    "sect2point3": "北领地：",
+    "sect2point3part1": "如果您在达尔文市且需要安排检查，请致电：",
+    "sect2point4": "塔斯马尼亚州：",
+    "sect2point4part1d1": "如果您需要口译员，请致电塔斯马尼亚口译服务（TIS），电话为",
+    "sect2point4part1d2": " 告诉他们你的语言。",
+    "sect2point4part2": "告诉口译员您的名字，并且您正在致电塔斯马尼亚卫生部"
+  },
+  "interestingLinks": {
+    "title": "了解当前情况的其他有趣链接",
+    "point1": "冠状病毒：锤子和舞蹈",
+    "point2part1": "纽约时报",
+    "point2part2": " 和",
+    "point2part3": "经济学家",
+    "point2part4": " 使人们可以免费使用冠状病毒。真的很棒！"
+  },
+  "testingCentres": {
+    "title": "进行冠状病毒测试的医院清单",
+    "sect1heading": "注意：",
+    "sect1body": "对于塔斯马尼亚州的任何人，所有四个测试诊所都将不接受未进行预约的客户，任何认为自己可能需要测试的人都应首先通过以下方式联系公共卫生热线：",
+    "tableNote": "通过单击下面的状态下拉列表。"
+  }
+}
