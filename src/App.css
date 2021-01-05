@@ -1,17 +1,24 @@
-/* Start semantic UI */
-html, body {
-  font-size: 14px;
-}
-
 body {
   background-color: #f2f4f4;
   overflow-x: hidden;
 
   margin: 0;
-  line-height: 1.5;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-size: 1em !important;
+  line-height: 1.4em !important;
+}
+@media only screen and (max-width: 900px) {
+  body {
+    font-size: 0.95em !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 0.85em !important;
+  }
 }
 
 h1, h2, h3, h4, h5 {
@@ -438,13 +445,13 @@ h2 small {
 }
 
 .navBar {
-  height: 36px;
+  height: 40px;
   justify-content: space-around;
   align-items: center;
 
 }
 .navBarStuck {
-  height: 36px;
+  height: 40px;
   justify-content: space-around;
   align-items: center;
 }
@@ -469,7 +476,7 @@ h2 small {
 
 .sticky-wrapper {
   position: relative;
-  height: 36px;
+  height: 40px;
 }
 
 .navItems {
@@ -570,7 +577,7 @@ h2 small {
   cursor: pointer;
 }
 .dailyIncrease {
-  font-size: 60%;
+  font-size: 90%;
 }
 
 .selection-grid {
@@ -584,9 +591,6 @@ h2 small {
   margin-top: -5px;
   margin-bottom: -10px;
   font-size: 1.1rem;
-}
-.dailyIncrease {
-  font-size: 60%;
 }
 
 .selection-grid {

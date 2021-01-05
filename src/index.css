@@ -31,9 +31,9 @@ header .bg {
   z-index: -1;
   filter: brightness(0.6);
 } .light header .bg {
-  background-image: url(./img/bg/bg-12-aposles-blue.jpg);
+  background-image: url(assets/img/bg/bg-12-aposles-blue.jpg);
 } .dark header .bg {
-  background-image: url(./img/bg/Milky_way_-_southern_hemisphere_contrast_cropped.jpeg);
+  background-image: url(assets/img/bg/Milky_way_-_southern_hemisphere_contrast_cropped.jpeg);
 }
 
 h1 {

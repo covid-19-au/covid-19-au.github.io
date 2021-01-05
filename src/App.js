@@ -14,25 +14,25 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import all from "./data/overall";
 import provinces from "./data/area";
 
-import Fallback from "./fallback"
-import FAQPage from "./FAQPage";
-import DailyHistoryPage from "./DailyHistoryPage";
-import NewsPage from "./NewsPage";
-import InfoPage from "./InfoPage";
-import Navbar from "./Navbar";
-import HomePage from "./HomePage/HomePage";
-import StatesPage from "./StatesPage";
-import WorldPage from "./WorldPage";
-import BlogPage from "./BlogPage/BlogPage";
-import Blog from "./BlogPage/Blog";
-import AboutUsPage from "./aboutUs/AboutUsPage";
-import StateChart from "./DataVis/StateChart";
-import DashboardConfig from "./DashboardConfig"
+import Fallback from "./common/fallback"
+import FAQPage from "./faq/FAQPage";
+import DailyHistoryPage from "./daily_history/DailyHistoryPage";
+import NewsPage from "./news/NewsPage";
+import InfoPage from "./info/InfoPage";
+import Navbar from "./common/Navbar";
+import HomePage from "./home/HomePage";
+import StatesPage from "./states/StatesPage";
+import WorldPage from "./world/WorldPage";
+import BlogPage from "./blog/BlogPage";
+import Blog from "./blog/Blog";
+import AboutUsPage from "./about_us/AboutUsPage";
+import StateChart from "./common/data_vis/StateChart";
+import DashboardConfig from "./dashboard/DashboardConfig"
 
 import stateCaseData from "./data/stateCaseData";
-import Header from './Header';
-import SocialMediaShareModal from './socialMediaShare/SocialMediaShareModal';
-import ColorManagement from "./ColorManagement/ColorManagement";
+import Header from './common/Header';
+import SocialMediaShareModal from './common/social_media_share/SocialMediaShareModal';
+import ColorManagement from "./common/color_management/ColorManagement";
 
 // Include either dark or light css based on the saved settings
 if (ColorManagement.getColorSchemeType() === ColorManagement.COLOR_SCHEME_LIGHT) {
