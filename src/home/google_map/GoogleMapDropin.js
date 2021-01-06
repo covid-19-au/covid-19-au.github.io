@@ -1,5 +1,5 @@
 import React from 'react'
-import statesSVG from "../states/statesSVG";
+import statesSVG from "../../states/statesSVG";
 import ReactTooltip from "react-tooltip";
 
 

@@ -12,7 +12,7 @@ import PrivacyPolicy from "../privacy_policy/PrivacyPolicy.js";
 import cm from "./color_management/ColorManagement";
 
 // ReactGA.initialize("UA-160673543-1",{gaoOptions:{siteSpeedSampleRate: 100}});
-function Fallback(props) {
+function Footer(props) {
   let styles = {
     backgroundColor: cm.getColorSchemeType() === cm.COLOR_SCHEME_LIGHT ?
       'white' : 'black',
@@ -179,4 +179,4 @@ function Fallback(props) {
   );
 }
 
-export default Fallback;
+export default Footer;

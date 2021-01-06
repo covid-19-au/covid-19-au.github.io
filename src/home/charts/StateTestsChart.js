@@ -7,11 +7,11 @@ import 'echarts/lib/component/title';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 // import i18n bundle
-import i18next from '../assets/translations/i18n';
+import i18next from '../../assets/translations/i18n';
 
-import stateData from "../data/state.json"
-import stateColours from "./stateColours";
-import cm from "../common/color_management/ColorManagement";
+import stateData from "../../data/state.json"
+import stateColours from "../stateColours";
+import cm from "../../common/color_management/ColorManagement";
 
 
 class StateTestsChart extends React.Component {

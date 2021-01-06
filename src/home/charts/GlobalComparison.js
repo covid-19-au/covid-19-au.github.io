@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import globalConfirmed from '../data/time_series_covid19_confirmed_global.csv';
+import globalConfirmed from '../../data/time_series_covid19_confirmed_global.csv';
 import ReactEchartsCore from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
@@ -8,71 +8,33 @@ import 'echarts/lib/component/title';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 // import i18n bundle
-import i18next from '../assets/translations/i18n';
+import i18next from '../../assets/translations/i18n';
 import ReactGA from "react-ga";
-import cm from "../common/color_management/ColorManagement";
+import cm from "../../common/color_management/ColorManagement";
 
 
-class EChartglobalLog extends Component {
+class GlobalComparison extends Component {
     static defaultProps = {
         countryColours: {
-            AU: {
-                backgroundColor: '#00843D'
-            },
-            Canada: {
-                backgroundColor: '#ff8f75'
-            },
-            China: {
-                backgroundColor: '#eb3423'
-            },
-            Denmark: {
-                backgroundColor: '#8e9191'
-            },
-            France: {
-                backgroundColor: '#ed7d51'
-            },
-            Germany: {
-                backgroundColor: '#f9d649'
-            },
-            India: {
-                backgroundColor: '#f19d49'
-            },
-            Iran: {
-                backgroundColor: '#79d9b4'
-            },
-            Italy: {
-                backgroundColor: '#79aaf2'
-            },
-            Japan: {
-                backgroundColor: '#ff91a9'
-            },
-            NZ: {
-                backgroundColor: '#363636'
-            },
-            'South Korea': {
-                backgroundColor: '#8ccfff'
-            },
-            Norway: {
-                backgroundColor: '#855a8f'
-            },
-            Singapore: {
-                backgroundColor: '#8fc4c4'
-            },
-            Spain: {
-                backgroundColor: '#9fa4fc'
-            },
-            Sweden: {
-                backgroundColor: '#8a9fd4'
-            },
-            Switzerland: {
-                backgroundColor: '#c79e8f'
-            },
-            UK: {
-                backgroundColor: '#bf2a2c'
-            },
-            US: {
-                backgroundColor: '#4d538a'
-            }
+            AU: { backgroundColor: '#00843D' },
+            Canada: { backgroundColor: '#ff8f75' },
+            China: { backgroundColor: '#eb3423' },
+            Denmark: { backgroundColor: '#8e9191' },
+            France: { backgroundColor: '#ed7d51' },
+            Germany: { backgroundColor: '#f9d649' },
+            India: { backgroundColor: '#f19d49' },
+            Iran: { backgroundColor: '#79d9b4' },
+            Italy: { backgroundColor: '#79aaf2' },
+            Japan: { backgroundColor: '#ff91a9' },
+            NZ: { backgroundColor: '#363636' },
+            'South Korea': { backgroundColor: '#8ccfff' },
+            Norway: { backgroundColor: '#855a8f' },
+            Singapore: { backgroundColor: '#8fc4c4' },
+            Spain: { backgroundColor: '#9fa4fc' },
+            Sweden: { backgroundColor: '#8a9fd4' },
+            Switzerland: { backgroundColor: '#c79e8f' },
+            UK: { backgroundColor: '#bf2a2c' },
+            US: { backgroundColor: '#4d538a' }
         },
         activeStyles: {
             color: 'black',
@@ -475,4 +437,4 @@ class EChartglobalLog extends Component {
     }
 }
 
-export default EChartglobalLog;
+export default GlobalComparison;

@@ -25,9 +25,9 @@ SOFTWARE.
 import React from "react"
 
 import 'mapbox-gl/dist/mapbox-gl.css'
-import '../home/ConfirmedMap.css'
-import CovidMapControl from "../common/data_vis/ConfirmedMap/CovidMapControl"
-import UpdatedDatesDisplay from "../common/data_vis/ConfirmedMap/MapControls/UpdatedDatesDisplay";
+import '../home/confirmed_map/ConfirmedMap.css'
+import CovidMapControl from "../common/cases_map/ConfirmedMap/CovidMapControl"
+import UpdatedDatesDisplay from "../common/cases_map/ConfirmedMap/MapControls/UpdatedDatesDisplay";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChartLine} from "@fortawesome/free-solid-svg-icons";
 import {faExclamationCircle} from "@fortawesome/free-solid-svg-icons";

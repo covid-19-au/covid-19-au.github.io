@@ -1,10 +1,10 @@
 import React, { useState, Suspense, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
-import Area from "../home/Area";
-import NationalStatTiles from "../home/NationalStatTiles"
-import EChartGlobalLog from "../home/EChartGlobalLog";
+import CasesByStateTable from "../home/charts/CasesByStateTable";
+import NationalStatTiles from "../home/national_stat_tiles/NationalStatTiles"
+import EChartGlobalLog from "../home/charts/GlobalComparison";
 import country from "../data/country.json";
-import OverallTrend from "../home/OverallTrend";
+import NationalCasesDeathsRecoveries from "../home/charts/NationalCasesDeathsRecoveries";
 import Carousel from 'react-material-ui-carousel';
 import all from "../data/overall.json";
 import './DashboardConfig.css'
@@ -28,7 +28,7 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
                     />
                     <div className="card">
                         <Suspense fallback={<div className="loading">Loading...</div>}>
-                            <Area area={area} onChange={setProvince} data={myData} />
+                            <CasesByStateTable area={area} onChange={setProvince} data={myData} />
                         </Suspense>
                     </div>
                 </Grid>
@@ -37,7 +37,7 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
         <div>
             <Grid container spacing={0} justify="center" wrap="wrap">
                 <Grid item xs={11} >
-                    <OverallTrend />
+                    <NationalCasesDeathsRecoveries />
                 </Grid>
                 <Grid item xs={11} >
                     <EChartGlobalLog />

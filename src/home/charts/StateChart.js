@@ -4,19 +4,19 @@ import ageGenderData from "../../data/ageGender.json";
 import ReactGA from "react-ga";
 import latestAusData from "../../data/stateCaseData.json";
 
-import GeneralLineChart from "./GeneralLineChart";
-import renderStatus from "./renderStatus";
-import RegionalCasesBarChart from "./CrawlerDataVis/RegionalCasesBarChart";
-import MultiDataTypeBarChart from "./CrawlerDataVis/MultiDataTypeBarChart";
-import PopulationPyramid from "./CrawlerDataVis/PopulationPyramid";
-import RegionalCasesTreeMap from "./CrawlerDataVis/RegionalCasesTreeMap";
-import RegionType from "./CrawlerDataTypes/RegionType";
-import getDataDownloader from "./CrawlerData/DataDownloader";
-import ConfirmedMap from "../../home/ConfirmedMap"
-import Acknowledgement from "../Acknowledgment";
-import AgeBarChart from "./CrawlerDataVis/AgeBarChart";
-import getRemoteData from "./CrawlerData/RemoteData";
-import GenderPieChart from "./CrawlerDataVis/GenderPieChart";
+import GeneralLineChart from "../../common/data_vis/GeneralLineChart";
+import renderStatus from "../../common/data_vis/renderStatus";
+import RegionalCasesBarChart from "../../common/cases_map/CrawlerDataVis/RegionalCasesBarChart";
+import MultiDataTypeBarChart from "../../common/cases_map/CrawlerDataVis/MultiDataTypeBarChart";
+import PopulationPyramid from "../../common/cases_map/CrawlerDataVis/PopulationPyramid";
+import RegionalCasesTreeMap from "../../common/cases_map/CrawlerDataVis/RegionalCasesTreeMap";
+import RegionType from "../../common/cases_map/CrawlerDataTypes/RegionType";
+import getDataDownloader from "../../common/cases_map/CrawlerData/DataDownloader";
+import ConfirmedMap from "../confirmed_map/ConfirmedMap"
+import Acknowledgement from "../../common/Acknowledgment";
+import AgeBarChart from "../../common/cases_map/CrawlerDataVis/AgeBarChart";
+import getRemoteData from "../../common/cases_map/CrawlerData/RemoteData";
+import GenderPieChart from "../../common/cases_map/CrawlerDataVis/GenderPieChart";
 
 
 const stateNameMapping = {

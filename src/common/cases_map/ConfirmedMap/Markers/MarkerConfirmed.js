@@ -10,7 +10,7 @@ import mapboxgl from "mapbox-gl/dist/mapbox-gl";
 
 
 // Threshold for an 'old case', in days
-let OLD_CASE_DAYS = 15;
+let OLD_CASE_DAYS = 27;
 let __openPopup;
 
 
@@ -31,7 +31,8 @@ class MarkerConfirmed {
         el.style.height = '20px';
         el.style.width = '20px';
         el.style.backgroundSize = 'cover';
-        el.style.opacity = '0.6'
+
+        el.style.opacity = '0.8'
 
         if (item['type'] === 'monitor') {
             el.style.backgroundImage = `url(${orangeImg})`;
@@ -76,15 +77,16 @@ class MarkerConfirmed {
         let url = this.item['state']==='VIC'?"https://www.dhhs.vic.gov.au/case-locations-and-outbreaks":"https://www.health.nsw.gov.au/Infectious/covid-19/Pages/case-locations-and-alerts.aspx"
         this.popup = new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
-                `<p style="margin:0; font-size: 1.3em"><b>Area:</b> ${this.item['area']}</p>` +
-                `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Venue:</b> ${this.item['venue']}</p>` +
-                `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Date:</b> ${this.item['date']}</p>` +
-                `<p style="margin:0; margin-top: 5px; font-size: 1.3em"><b>Time:</b> ${this.item['time']}</p>` +
-                `<p style="margin:0; margin-top: 8px; font-size: 1.3em; font-weight: bold">${this.item['description']}</p>` +
-                `<a style=" color: blue" href=${url} 
-                    target="_blank" rel="noopener noreferrer">
-                    <u>Details</u>
-                 </a>`
+                `<p style="margin:0"><b>Area:</b> ${this.item['area']}</p>` +
+                `<p style="margin:0; margin-top: 5px"><b>Venue:</b> ${this.item['venue']}</p>` +
+                `<p style="margin:0; margin-top: 5px"><b>Date:</b> ${this.item['date']}</p>` +
+                `<p style="margin:0; margin-top: 5px"><b>Time:</b> ${this.item['time']}</p>` +
+                `<p style="margin:0; margin-top: 8px; font-weight: bold">${this.item['description']} ` +
+                    `<a style=" color: blue" href=${url} 
+                        target="_blank" rel="noopener noreferrer">` +
+                        `<u>Details...</u>` +
+                     `</a>` +
+                `</p>`
             )
         this._marker = new mapboxgl.Marker(this.el)
                                    .setLngLat([this.item['long'], this.item['lat']])

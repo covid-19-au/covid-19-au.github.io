@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga";
 import uuid from "react-uuid";
-import Acknowledgement from "../common/Acknowledgment"
+import Acknowledgement from "../../common/Acknowledgment"
 // import i18n bundle
-import i18next from '../assets/translations/i18n';
+import i18next from '../../assets/translations/i18n';
 
 const flightNoRegex = /^[A-Za-z]{2}\d*$/;
 const flightRouteRegex = /^[A-Za-z]*$/;
