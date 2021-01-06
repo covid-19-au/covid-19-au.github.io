@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import ReactGA from "react-ga";
-import ausPop from '../data/ausPop.json'
+import ausPop from '../../data/ausPop.json'
 
-import Acknowledgement from "../common/Acknowledgment"
+import Acknowledgement from "../../common/Acknowledgment"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 
 // import i18n bundle
-import i18next from '../assets/translations/i18n';
+import i18next from '../../assets/translations/i18n';
 import GoogleMapDropin from "./GoogleMapDropin";
-import cm from "../common/color_management/ColorManagement";
+import cm from "../../common/color_management/ColorManagement";
 
 function GoogleMap({ province, newData }) {
     // Colour gradients for the map: https://material.io/design/color/#tools-for-picking-colors

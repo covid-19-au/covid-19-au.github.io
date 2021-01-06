@@ -3,7 +3,7 @@ import React from "react";
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-import '../home/ConfirmedMap.css'
+import '../home/confirmed_map/ConfirmedMap.css'
 import hospitalData from "../data/mapdataHos.json"
 import hospitalImg from '../assets/img/icon/hospital.png'
 

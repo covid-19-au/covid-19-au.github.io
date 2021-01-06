@@ -1,9 +1,9 @@
 import uuid from "react-uuid";
 import React, { useState, useEffect } from "react";
-import stateData from "../data/state.json";
-import testedCases from "../data/testedCases.json";
+import stateData from "../../data/state.json";
+import testedCases from "../../data/testedCases.json";
 // import i18n bundle
-import i18next from "../assets/translations/i18n";
+import i18next from "../../assets/translations/i18n";
 import { A } from "hookrouter";
 
 const CONFIRMED = 1;
@@ -16,9 +16,7 @@ const REASSIGNED = 9;
 
 
 function ReassignedCaseDisclaimer({ reassignedData }) {
-
-  let displayStates = {}
-
+  let displayStates = {};
   for (let state in reassignedData) {
     if (reassignedData[state][1] > 0) {
       displayStates[state] = []
@@ -27,18 +25,16 @@ function ReassignedCaseDisclaimer({ reassignedData }) {
     }
   }
 
-  const display = []
-
+  const display = [];
   for (let state in displayStates) {
     display.push(
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         *{state} has {displayStates[state][0]} new cases, {displayStates[state][1]} previous cases have been reclassified
       </span>
-    )
+    );
   }
 
   return (
-
     <div>
       {
         display.map(item => (
@@ -47,12 +43,10 @@ function ReassignedCaseDisclaimer({ reassignedData }) {
         )
       }
     </div>
-  )
-
-
+  );
 }
 
-export default function Area({ area, onChange, data }) {
+export default function CasesByStateTable({ area, onChange, data }) {
   let totalRecovered = 0;
   for (let i = 0; i < data.length; i++) {
     totalRecovered += parseInt(data[i][3]);

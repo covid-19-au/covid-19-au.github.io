@@ -1,25 +1,23 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import keyBy from "lodash.keyby";
-import Area from "./Area";
-import Flights from "./Flights";
-import ConfirmedMap from "./ConfirmedMap";
-import NationalStatTiles from "./NationalStatTiles";
-import EChartGlobalLog from "./EChartGlobalLog";
+import CasesByStateTable from "./charts/CasesByStateTable";
+import Flights from "./flights/Flights";
+import ConfirmedMap from "./confirmed_map/ConfirmedMap";
+import NationalStatTiles from "./national_stat_tiles/NationalStatTiles";
+import EChartGlobalLog from "./charts/GlobalComparison";
 
 import flights from "../data/flight.json";
 import country from "../data/country.json";
 import all from "../data/overall.json";
 
-import OverallTrend from "./OverallTrend";
-//import StateCasesChart from "./StateCasesChart";
-//import StateTestsChart from "./StateTestsChart";
+import NationalCasesDeathsRecoveries from "./charts/NationalCasesDeathsRecoveries";
 import StateComparisonChart from "../common/data_vis/CrawlerDataVis/StateComparisonChart";
 import Acknowledgement from "../common/Acknowledgment";
 import i18next from "../assets/translations/i18n";
 import provinces from "../data/area.json";
-import GoogleMap from "./GoogleMap";
+import GoogleMap from "./google_map/GoogleMap";
 
 
 const provincesByName = keyBy(provinces, "name");
@@ -64,7 +62,7 @@ export default function HomePage({
                       }}
                       newData={myData}
                     />
-                    <Area area={area} onChange={setProvince} data={myData} />
+                    <CasesByStateTable area={area} onChange={setProvince} data={myData} />
                 </div>
             </Grid>
 
@@ -87,7 +85,7 @@ export default function HomePage({
                     <ConfirmedMap />
                 </div>
 
-                <OverallTrend />
+                <NationalCasesDeathsRecoveries />
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
@@ -125,8 +123,6 @@ export default function HomePage({
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
                 <EChartGlobalLog />
-
-                {/*<Ships />*/}
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>

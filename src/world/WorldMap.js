@@ -25,7 +25,7 @@ SOFTWARE.
 import React from "react"
 
 import 'mapbox-gl/dist/mapbox-gl.css'
-import '../home/ConfirmedMap.css'
+import '../home/confirmed_map/ConfirmedMap.css'
 import CovidMapControl from "../common/data_vis/ConfirmedMap/CovidMapControl"
 import UpdatedDatesDisplay from "../common/data_vis/ConfirmedMap/MapControls/UpdatedDatesDisplay";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";

@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import ageGenderData from "../../data/ageGender.json";
 import stateData from "../../data/state.json";
 import latestAusData from "../../data/stateCaseData.json";
-import Tag from "../../home/Tag";
+import Tag from "../tag/Tag";
 
 const stateNameMapping = {
   VIC: "Victoria",

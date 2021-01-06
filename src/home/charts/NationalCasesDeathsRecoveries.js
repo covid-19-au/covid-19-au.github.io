@@ -3,23 +3,22 @@ import ReactEchartsCore from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
 
-import countryData from "../data/country.json";
+import countryData from "../../data/country.json";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 
 //import stateData from "../data/state.json"
 // import i18n bundle
-import i18next from '../assets/translations/i18n';
-import cm from "../common/color_management/ColorManagement";
+import i18next from '../../assets/translations/i18n';
+import cm from "../../common/color_management/ColorManagement";
 
 
-export default function OverallTrend() {
-
+export default function NationalCasesDeathsRecoveries() {
     const [logScale, setLogScale] = useState(false);
 
-    let yAxisType = "value"
+    let yAxisType = "value";
     if (logScale) {
-        yAxisType = "log"
+        yAxisType = "log";
     }
 
     let monthTrans = {
@@ -38,108 +37,49 @@ export default function OverallTrend() {
     };
 
 
-    let dateData = []
-    let confirmedData = []
-    let deathData = []
-    let recoveryData = []
-    let activeData = []
-    let newConfirmed = []
-    let newDeath = []
-    //Create array of date data for x-axis
+    let dateData = [];
+    let confirmedData = [];
+    let deathData = [];
+    let recoveryData = [];
+    let activeData = [];
+    let newConfirmed = [];
+    let newDeath = [];
 
-    let preConfirmed = 0
-    let preDeath = 0
+    //Create array of date data for x-axis
+    let preConfirmed = 0;
+    let preDeath = 0;
+
     for (let key in countryData) {
         let arr = key.split("-");
         let date = new Date(arr[0], arr[1] - 1, arr[2]);
         let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-        dateData.push(labelName)
+        dateData.push(labelName);
 
-        confirmedData.push(countryData[key][0])
-        deathData.push(countryData[key][2])
-        recoveryData.push(countryData[key][1])
-        activeData.push(countryData[key][3])
+        confirmedData.push(countryData[key][0]);
+        deathData.push(countryData[key][2]);
+        recoveryData.push(countryData[key][1]);
+        activeData.push(countryData[key][3]);
 
-        newConfirmed.push(countryData[key][0] - preConfirmed)
-        newDeath.push(countryData[key][2] - preDeath)
+        newConfirmed.push(countryData[key][0] - preConfirmed);
+        newDeath.push(countryData[key][2] - preDeath);
 
-        preConfirmed = countryData[key][0]
-        preDeath = countryData[key][2]
-        // if (logScale) {
-        //     //log graph breaks if we include data before March 1st so we exclude that data here
-        //     if (date.getMonth() >= 2) {
-        //         let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-        //         dateData.push(labelName)
-
-        //         confirmedData.push(countryData[key][0])
-        //         deathData.push(countryData[key][2])
-        //         recoveryData.push(countryData[key][1])
-        //         activeData.push(countryData[key][3])
-
-        //         newConfirmed.push(countryData[key][0] - preConfirmed)
-        //         newDeath.push(countryData[key][2] - preDeath)
-
-        //         preConfirmed = countryData[key][0]
-        //         preDeath = countryData[key][2]
-        //     }
-        // }
-        // //if not log scale, we include all data
-        // else {
-        //     let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-        //     dateData.push(labelName)
-
-        //     confirmedData.push(countryData[key][0])
-        //     deathData.push(countryData[key][2])
-        //     recoveryData.push(countryData[key][1])
-        //     activeData.push(countryData[key][3])
-
-        //     newConfirmed.push(countryData[key][0] - preConfirmed)
-        //     newDeath.push(countryData[key][2] - preDeath)
-
-        //     preConfirmed = countryData[key][0]
-        //     preDeath = countryData[key][2]
-        // }
-
+        preConfirmed = countryData[key][0];
+        preDeath = countryData[key][2];
     }
-
-    //graph initial start point (2 weeks)
-    //let start = 100 - (14 / dateData.length * 100)
-    //let startPoint = parseInt(start)
 
     // set max Y value by rounding max data value to nearest 1000
-    let maxValue = parseInt(Math.max(...confirmedData))
-    let maxY
+    let maxY;
+    let maxValue = parseInt(Math.max(...confirmedData));
 
     if (logScale) {
-        maxY = Math.ceil(maxValue / 10000) * 10000
-    }
-    else {
-        maxY = Math.ceil(maxValue / 1000) * 1000
+        maxY = Math.ceil(maxValue / 10000) * 10000;
+    } else {
+        maxY = Math.ceil(maxValue / 1000) * 1000;
     }
 
     // set max Y value for new Cases Y axis
-    maxValue = parseInt(Math.max(...newConfirmed))
-    let maxY2 = Math.ceil(maxValue / 100) * 100
-
-    //let y1Interval = parseInt(Math.max(...confirmedData)) / 5
-    //let y2Interval = parseInt(Math.max(...newConfirmed)) / 5
-
-
-
-    const activeStyles = {
-        color: 'black',
-        borderColor: '#8ccfff',
-        padding: "0px",
-        outline: "none",
-        zIndex: 10
-    };
-    const inactiveStyles = {
-        color: 'grey',
-        borderColor: '#e3f3ff',
-        padding: "0px",
-        outline: "none"
-    };
-
+    maxValue = parseInt(Math.max(...newConfirmed));
+    let maxY2 = Math.ceil(maxValue / 100) * 100;
 
     return (
         <div className="card">
@@ -274,13 +214,11 @@ export default function OverallTrend() {
                             }
                         ]
                     }}
-
             />
             <span className="due">
                 <span className="key"><p>{i18next.t("homePage:chartCommon.clickLegend")}</p></span><br />
                 <span className="key"><p>{i18next.t("homePage:chartCommon.clickPoint")}</p></span><br />
                 <span className="key" style={{ marginTop: "0.5rem" }}>
-
                     {i18next.t("homePage:misc.logScale")}&nbsp;
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <Button style={cm.getPillButtonColors(!logScale)} onClick={() => setLogScale(false)}>{i18next.t("homePage:misc.offButton")}</Button>
@@ -303,12 +241,10 @@ export default function OverallTrend() {
                             <path
                                 d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
                         </svg>
-                        <div className="dataSource"></div>
+                        <div className="dataSource"/>
                     </a>
-
                 </span>
             </span>
         </div>
     )
-
 }
