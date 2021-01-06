@@ -101,9 +101,9 @@ class ColorManagement {
      */
     constructor() {
         // dark-mode media query matched or not
-        this.__preferredColorSchemeType = COLOR_SCHEME_DARK;
-            //window.matchMedia('(prefers-color-scheme: dark)').matches ?
-            //    COLOR_SCHEME_DARK : COLOR_SCHEME_LIGHT;
+        this.__preferredColorSchemeType = //COLOR_SCHEME_DARK;
+            window.matchMedia('(prefers-color-scheme: dark)').matches ?
+                COLOR_SCHEME_DARK : COLOR_SCHEME_LIGHT;
         this.__colorSchemeType =
             localStorage['colorSchemeType'] || this.__preferredColorSchemeType;
         this.__colorSchemeType = parseInt(this.__colorSchemeType);

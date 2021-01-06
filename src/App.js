@@ -14,7 +14,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import all from "./data/overall";
 import provinces from "./data/area";
 
-import Fallback from "./common/fallback"
+import Footer from "./common/Footer"
 import FAQPage from "./faq/FAQPage";
 import DailyHistoryPage from "./daily_history/DailyHistoryPage";
 import NewsPage from "./news/NewsPage";
@@ -26,7 +26,7 @@ import WorldPage from "./world/WorldPage";
 import BlogPage from "./blog/BlogPage";
 import Blog from "./blog/Blog";
 import AboutUsPage from "./about_us/AboutUsPage";
-import StateChart from "./common/data_vis/StateChart";
+import StateChart from "./home/charts/StateChart";
 import DashboardConfig from "./dashboard/DashboardConfig"
 
 import stateCaseData from "./data/stateCaseData";
@@ -297,7 +297,7 @@ function App() {
               </Grid>
               {routeResult}
               <Grid item xs={12}>
-                <Fallback setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
+                <Footer setModalVisibility={setModalVisibility} setNav={setNav} nav={nav} />
               </Grid>
             </Grid>
           </div>

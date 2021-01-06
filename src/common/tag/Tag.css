@@ -1,0 +1,21 @@
+.tag {
+  border-radius: 4px;
+  padding: 2px;
+  display: inline-block;
+  text-align: center;
+  flex: 1;
+  width: 100%;
+} .light .tag {
+  color: #7d7d7d;
+  background-color: #f2f4f4;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
+} .dark .tag {
+  color: #888;
+  background-color: #171515;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.05);
+}
+
+.number {
+  font-size: 1.2rem;
+  font-weight: 600;
+}

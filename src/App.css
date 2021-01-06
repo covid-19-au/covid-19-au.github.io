@@ -568,9 +568,13 @@ h2 small {
   border: none;
   margin: 0;
   padding: 0;
-  color: #888;
   cursor: pointer;
+} .light .hoverButton {
+  color: #666;
+} .dark .hoverButton {
+  color: #bbb;
 }
+
 .dataSource {
   padding-left: 0.2rem;
   margin-top: -0.05rem;
@@ -622,7 +626,8 @@ h2 small {
   color: gray;
 }
 .mapboxgl-popup.mapboxgl-popup-anchor-top {
-  max-width: 320px !important;
+  width: 80vw !important;
+  max-width: 350px !important;
 }
 
 
