@@ -6,17 +6,17 @@ import latestAusData from "../../data/stateCaseData.json";
 
 import GeneralLineChart from "../../common/data_vis/GeneralLineChart";
 import renderStatus from "../../common/data_vis/renderStatus";
-import RegionalCasesBarChart from "../../common/data_vis/CrawlerDataVis/RegionalCasesBarChart";
-import MultiDataTypeBarChart from "../../common/data_vis/CrawlerDataVis/MultiDataTypeBarChart";
-import PopulationPyramid from "../../common/data_vis/CrawlerDataVis/PopulationPyramid";
-import RegionalCasesTreeMap from "../../common/data_vis/CrawlerDataVis/RegionalCasesTreeMap";
-import RegionType from "../../common/data_vis/CrawlerDataTypes/RegionType";
-import getDataDownloader from "../../common/data_vis/CrawlerData/DataDownloader";
+import RegionalCasesBarChart from "../../common/cases_map/CrawlerDataVis/RegionalCasesBarChart";
+import MultiDataTypeBarChart from "../../common/cases_map/CrawlerDataVis/MultiDataTypeBarChart";
+import PopulationPyramid from "../../common/cases_map/CrawlerDataVis/PopulationPyramid";
+import RegionalCasesTreeMap from "../../common/cases_map/CrawlerDataVis/RegionalCasesTreeMap";
+import RegionType from "../../common/cases_map/CrawlerDataTypes/RegionType";
+import getDataDownloader from "../../common/cases_map/CrawlerData/DataDownloader";
 import ConfirmedMap from "../confirmed_map/ConfirmedMap"
 import Acknowledgement from "../../common/Acknowledgment";
-import AgeBarChart from "../../common/data_vis/CrawlerDataVis/AgeBarChart";
-import getRemoteData from "../../common/data_vis/CrawlerData/RemoteData";
-import GenderPieChart from "../../common/data_vis/CrawlerDataVis/GenderPieChart";
+import AgeBarChart from "../../common/cases_map/CrawlerDataVis/AgeBarChart";
+import getRemoteData from "../../common/cases_map/CrawlerData/RemoteData";
+import GenderPieChart from "../../common/cases_map/CrawlerDataVis/GenderPieChart";
 
 
 const stateNameMapping = {

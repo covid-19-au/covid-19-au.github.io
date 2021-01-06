@@ -13,7 +13,7 @@ import country from "../data/country.json";
 import all from "../data/overall.json";
 
 import NationalCasesDeathsRecoveries from "./charts/NationalCasesDeathsRecoveries";
-import StateComparisonChart from "../common/data_vis/CrawlerDataVis/StateComparisonChart";
+import StateComparisonChart from "../common/cases_map/CrawlerDataVis/StateComparisonChart";
 import Acknowledgement from "../common/Acknowledgment";
 import i18next from "../assets/translations/i18n";
 import provinces from "../data/area.json";

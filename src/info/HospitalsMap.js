@@ -7,8 +7,8 @@ import '../home/confirmed_map/ConfirmedMap.css'
 import hospitalData from "../data/mapdataHos.json"
 import hospitalImg from '../assets/img/icon/hospital.png'
 
-import MarkerHospital from "../common/data_vis/ConfirmedMap/Markers/MarkerHospital"
-import BRIGHT_V9_MOD_STYLE from "../common/data_vis/ConfirmedMap/bright_v9_mod";
+import MarkerHospital from "../common/cases_map/ConfirmedMap/Markers/MarkerHospital"
+import BRIGHT_V9_MOD_STYLE from "../common/cases_map/ConfirmedMap/bright_v9_mod";
 
 
 //Fetch Token from env

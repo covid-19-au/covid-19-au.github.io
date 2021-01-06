@@ -32,7 +32,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 import MapTimeSlider from "../ConfirmedMap/MapControls/MapTimeSlider";
-import {genderColorMapping} from "../Colors";
+import {genderColorMapping} from "../../data_vis/Colors";
 import cm from "../../color_management/ColorManagement";
 
 
