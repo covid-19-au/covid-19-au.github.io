@@ -2,15 +2,14 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import keyBy from "lodash.keyby";
-import CasesByStateTable from "./charts/CasesByStateTable";
+import CasesByStateTable from "../states/CasesByStateTable";
 import Flights from "./flights/Flights";
 import ConfirmedMap from "./confirmed_map/ConfirmedMap";
 import NationalStatTiles from "./national_stat_tiles/NationalStatTiles";
 import EChartGlobalLog from "./charts/GlobalComparison";
 
-import flights from "../data/flight.json";
+import flights from "./flights/flight.json";
 import country from "../data/country.json";
-import all from "../data/overall.json";
 
 import NationalCasesDeathsRecoveries from "./charts/NationalCasesDeathsRecoveries";
 import StateComparisonChart from "../common/cases_map/CrawlerDataVis/StateComparisonChart";
@@ -43,7 +42,7 @@ export default function HomePage({
                     </h2>
 
                     <NationalStatTiles
-                        {...{ ...all, ...overall }}
+                        {...{ ...overall }}
                         name={province && province.name}
                         data={myData}
                         countryData={country}

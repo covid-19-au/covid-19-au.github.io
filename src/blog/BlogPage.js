@@ -1,5 +1,5 @@
 import React from "react";
-import blogData from "../data/blogPosts.json";
+import blogData from "./blogPosts.json";
 import uuid from "uuid";
 import { DiscussionEmbed } from 'disqus-react';
 import './Blog.css';

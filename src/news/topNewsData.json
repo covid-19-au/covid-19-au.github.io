@@ -1,0 +1,47 @@
+{
+  "weeklyTopNews": [
+      {
+            "url": "https://www.abc.net.au/news/2020-12-08/no-active-coronavirus-cases-in-sa-as-restrictions-set-to-ease/12960028",
+            "title": "No active coronavirus cases in South Australia as restrictions set to ease",
+            "source": "ABCNews",
+            "date": "08 December 2020",
+            "time": "12:39",
+            "summary":"This is the first time South Australia has had zero active cases in two months."
+        },{
+            "link": "https://www.abc.net.au/news/2020-12-07/second-negative-test-for-two-travellers-from-germany/12958688",
+            "title": "More than 170 close contacts of pair who skipped quarantine free to leave isolation",
+            "source": "ABCNews",
+            "date": "07 December 2020",
+            "time": "19:45",
+            "summary":"This was announced after the pair tested negative for the virus."
+        },
+        {
+            "link": "https://www.sbs.com.au/news/queensland-and-wa-announce-they-will-reopen-borders-in-time-for-christmas",
+            "title": "Queensland and WA announce they will reopen borders in time for Christmas",
+            "source": "SBSNews",
+            "date": "07 December 2020",
+            "time": "19:30",
+            "summary":"These decisions ahve been made now that fears of community transmission in Sydney have been laid to rest and after South Australia recorded no cases this week."
+        },{
+            "link": "https://www.sbs.com.au/news/australia-remains-on-track-to-give-its-first-coronavirus-vaccinations-by-march-next-year",
+            "title": "Australia remains on track to give its first coronavirus vaccinations by March next year",
+            "source": "SBSNews",
+            "date": "03 December 2020",
+            "time": "13:00",
+            "summary":"Federal Health Minister Greg Hunt says Australian citizens can expect COVID-19 vaccinations in March next year, starting with health care workers and the elderly."
+        },{
+            "link": "https://www.sbs.com.au/news/wa-could-delay-reopening-borders-after-nsw-hotel-quarantine-worker-tested-positive-for-coronavirus",
+            "title": "WA could delay reopening borders after NSW hotel quarantine worker tested positive for coronavirus",
+            "source": "SBSNews",
+            "date": "03 December 2020",
+            "time": "15:00",
+            "summary":"Genomic testing is underway to determine how the worker acquired the virus."
+        },{
+            "link": "https://www.abc.net.au/news/2020-11-30/nicola-spurrier-apologises-to-man-accused-of-quarantine-breach/12935578",
+            "title": "What will Australia’s COVID vaccination program look like? 4 key questions answered",
+            "source": "TheConversation",
+            "date": "02 December 2020",
+            "time": ":",
+            "summary":"Learn what Australia's vaccination program could look like."
+        }]
+}

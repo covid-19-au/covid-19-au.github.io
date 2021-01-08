@@ -1,0 +1,1617 @@
+{
+    "generalCovidInfo": [
+        {
+            "name": "What is coronavirus?",
+            "text": {
+                "text_1": [
+                    "Coronaviruses are a group of viruses that can affect humans and animals. In humans, coronaviruses can cause mild illness, such as the common cold and gastrointestinal infections, as well as more severe illness, such as that caused by SARS (Severe Acute Respiratory Syndrome) and MERS (Middle East Respiratory Syndrome)."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "What is COVID-19?",
+            "text": {
+                "text_1": [
+                    "There is currently an outbreak of a disease called ‘COVID-19’, which is caused by a new strain of coronavirus. COVID-19 causes a spectrum of illness, from mild to very severe. The outbreak was first identified in Wuhan, Hubei Province, China, and has spread to many other countries. The virus can be spread from person to person, so good hygiene is very important in slowing the spread of infection."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "What are the symptoms of COVID-19?",
+            "text": {
+                "text_1": [
+                    "The key symptoms of COVID-19 are:"
+                ],
+                "ulist_1": [
+                    "fever",
+                    "cough",
+                    "shortness of breath",
+                    "sore throat"
+                ],
+                "ulist_2": [],
+                "text_2": [
+                    "Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days.",
+                    "In more severe cases, COVID-19 can also result in pneumonia. Current estimates of the time it takes for symptoms to develop after being exposed to the virus that causes COVID-19 range from 2-14 days."
+                ],
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "How does COVID-19 spread?",
+            "text": {
+                "text_1": [
+                    "People can catch COVID-19 from others who have the virus. The disease can spread from person to person through small droplets from the nose or mouth which are spread when a person with COVID-19 coughs or exhales. These droplets land on objects and surfaces around the person. Other people then catch COVID-19 by touching these objects or surfaces, then touching their eyes, nose or mouth. People can also catch COVID-19 if they breathe in droplets from a person with COVID-19 who coughs out or exhales droplets."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Is there a cure or vaccine?",
+            "text": {
+                "text_1": [
+                    "There are currently no vaccines or specific treatment that protect against COVID-19.",
+                    "Early diagnosis and general supportive care are important. Most of the time, symptoms will resolve on their own. People who have serious disease with complications can be cared for in hospital."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Who is most at risk of getting COVID-19?",
+            "text": {
+                "text_1": [
+                    "In Australia, the people most at risk of getting the virus are those who have:"
+                ],
+                "ulist_1": [
+                    "Recently been in in a high risk country or region (mainland China, Iran, Italy or Korea)",
+                    "Been in close contact with someone who has a confirmed case of COVID-19"
+                ],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Who is most at risk of getting a serious infection?",
+            "text": {
+                "text_1": [
+                    "Based on what we know about coronaviruses, those most at risk of serious infection are:"
+                ],
+                "ulist_1": [
+                    "People with compromised immune systems (such as people who have cancer)",
+                    "Elderly people",
+                    "Aboriginal and Torres Strait Islander peoples (as they have higher rates of chronic illness)",
+                    "People with chronic medical conditions",
+                    "People in group residential settings",
+                    "People in detention facilities"
+                ],
+                "ulist_2": [],
+                "text_2": [
+                    "It is important for all individuals to practice good hygiene and carry out social distancing to reduce the likelihood of the disease spreading to the more vulnerable parts of the population."
+                ],
+                "citation": [
+                    {
+                        "name": "Protect yourself and others - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect-yourself-and-others"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Should I be Bulk-Buying to prepare?",
+            "text": {
+                "text_1": [
+                    "There is no need to bulk-buy products at supermarkets including toilet paper, paracetamol and canned food.",
+                    "It is prudent for households to have a small stock of non-perishable groceries to cover the event that in the coming months the household has been asked to self-isolate for 14 days."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "What else should I not be doing?",
+            "text": {
+                "text_1": [
+                    "The following measures are not effective against COVID-19:"
+                ],
+                "ulist_1": [
+                    "Smoking",
+                    "Wearing multiple masks",
+                    "Taking antibiotics"
+                ],
+                "ulist_2": [],
+                "text_2": [
+                    "More information about coronavirus myths can be found in the site below."
+                ],
+                "citation": [
+                    {
+                        "name": "Coronavirus disease (COVID-19) advice for the public: Myth busters - World Health Organization",
+                        "link": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters"
+                    }
+                ]
+            }
+        }
+    ],
+    "haveCovid": [
+        {
+            "name": "What should I do?",
+            "text": {
+                "text_1": [
+                    "If you have recently travelled overseas or had contact with a confirmed case of COVID-19, you should closely monitor yourself for symptoms for 14 days of leaving an overseas country or after your last contact with someone who has COVID-19.",
+                    "If you are within that 14 day period and concerned that you may have symptoms, it’s important that you take steps to reduce the risk of transmission and arrange to get tested if required."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "How do I seek medical attention for COVID-19?",
+            "text": {
+                "text_1": [
+                    "If you have recently travelled overseas or had contact with a confirmed case of COVID-19, you should closely monitor yourself for symptoms for 14 days of leaving an overseas country or after your last contact with someone who has COVID-19.",
+                    "If you are within that 14 day period and concerned that you may have symptoms, it’s important that you take steps to reduce the risk of transmission and arrange to get tested if required. Take the following steps:"
+                ],
+                "ulist_1": [
+                    "Limit your exposure to other people by isolating yourself at home (if you were not already in home quarantine).",
+                    "Call your GP and let them know you’re worried you may have COVID-19. Calling ahead will allow your GP to provide advice and plan for your visit. You should not visit your GP without calling ahead. Testing will be arranged by your GP if they determine it is necessary.",
+                    "If you can’t see your GP, you can visit a Respiratory Assessment Clinic. Staff at these clinics will assess your risk of COVID-19 and test you if needed. You do not need to call ahead.",
+                    "When travelling to the GP or Respiratory Assessment Clinic, do not attend any public places, such as shops or cafes/restaurants, on the way. If possible, you should travel using a private mode of transport, such as a private car, to minimise exposure to others.",
+                    "However, if using public transport is your only option, you should wear a mask, avoid direct contact with other people (including other passengers, drivers and transport staff), cough/sneeze into your elbow, and wash your hands before and after you travel.",
+                    "You do not need to visit the Emergency Department unless you have severe symptoms, such as shortness of breath, chest pain or very high fever."
+                ],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Protect yourself and others - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect-yourself-and-others"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Should I be tested for COVID-19?",
+            "text": {
+                "text_1": [
+                    "As of Friday 24th of April, the national cabinet has increased the testing criteria toinclude anyone with acute respiratory symptoms, such as a cough, sore throat, runny nose, cold symptoms or flu-like symptoms.",
+                    "If you meet any of these criteria, your doctor can request you are tested for COVID-19. It is important to remember that many people with symptoms similar to COVID-19 will not have the virus. There is no need get tested for people who feel well and do not meet the criteria above.",
+                    "It may take a few days for you to get your test results. In this time, if you have serious symptoms, you will be kept in the hospital and isolated from other patients to keep them safe. If your doctor says you are well enough to go home, you should self-isolate at home and take measures to protect yourself and others."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Australia ramps up coronavirus testing to include anyone with respiratory symptoms - SBS News",
+                        "link": "https://www.sbs.com.au/news/australia-ramps-up-coronavirus-testing-to-include-anyone-with-respiratory-symptoms"
+                    },
+                    {
+                        "name": "How to get a coronavirus test: who is eligible, how many have been done and how are they carried out - ABC News",
+                        "link": "https://www.abc.net.au/news/2020-03-27/coronavirus-covid-19-testing-criteria-eligibility/12097990"
+                    },
+                    {
+                        "name": "COVID-19 - Frequently Asked Questions - NSW Ministry of Health",
+                        "link": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx"
+                    },
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "What does isolate in your home mean? ",
+            "text": {
+                "text_1": [
+                    "If you have been diagnosed with COVID-19, you must stay at home to prevent it spreading to other people. You might also be asked to stay at home if you may have been exposed to the virus. ",
+                    "Staying at home means you: "
+                ],
+                "ulist_1": [
+                    "Do not go to public places such as work, school, shopping centres, childcare or university ",
+                    "Ask someone to get food and other necessities for you and leave them at your front door ",
+                    "Do not let visitors in — only people who usually live with you should be in your home  "
+                ],
+                "ulist_2": [],
+                "text_2": [
+                    "You do not need to wear a mask in your home. If you need to go out to seek medical attention, wear a surgical mask (if you have one) to protect others.",
+                    "All people who arrive in Australia from midnight 15 March 2020, or think they may have been in close contact with a confirmed case of coronavirus, are required to self-isolate for 14 days.",
+                    "Refer to the sources below for more information."
+                ],
+                "citation": [
+                    {
+                        "name": "Home isolation guidance when unwell (suspected or confirmed cases) - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-about-home-isolation-when-unwell-suspected-or-confirmed-cases.pdf"
+                    },
+                    {
+                        "name": "Isolation guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-isolation-guidance_7.pdf"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Who needs to isolate? ",
+            "text": {
+                "text_1": [
+                    "All people who arrive in Australia from midnight 15 March 2020, or think they may have been in close contact with a confirmed case of coronavirus, are required to self-isolate for 14 days.",
+                    "Under the current lockdown, the government is also asking people who are not confirmed or suspected COVID-19 cases not to leave their homes unless they need to for groceries, exercise, medical needs, care or support or work which cannot be from home. "
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently asked questions - Australian Government Department of Health",
+                        "link": "https://www.pm.gov.au/media/update-coronavirus-measures-24-March-2020"
+                    }
+                ]
+            }
+        }
+    ],
+    "protect": [
+        {
+            "name": "How can I protect myself and others?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "The best way to protect yourself from COVID-19 is the same way you would protect yourself from catching flu or other respiratory illness:"
+                ],
+                "ulist_1": [
+                    "Clean your hands for at least 20 seconds with soap and water, or use an alcohol-based sanitiser with at least 60% alcohol. [Refer to the image at the top of the page]",
+                    "Cover your sneeze or cough with your elbow or with tissue.",
+                    "Dispose of tissues properly",
+                    "Avoid touching your eyes, nose and mouth.",
+                    "Clean and disinfect surfaces and frequently used objects such as phones, wallets, and keys regularly",
+                    "Avoid close contact with people who are ill.",
+                    "Stay home if you are sick.",
+                    "Avoid non-essential travel",
+                    "Wear a surgical mask if you are coughing or sneezing. Note there is little evidence to suggest that widespread use of surgical masks in healthy people prevents transmission in public.",
+                    "Get your flu shot when it’s available. Getting the flu and COVID-19 at the same time can make you very ill.",
+                    "Practice social distancing",
+                    "Abide by all government lockdown regulations and recommendations"
+                ],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Protect yourself and others - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19#protect-yourself-and-others"
+                    }
+                ]
+            },
+            "video_1": []
+        },
+        {
+            "name": "What is Social Distancing?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "Social distancing is one way to help slow the spread of viruses such as COVID-19. Social distancing includes staying at home when you are unwell, avoiding large public gatherings if they’re not essential, keeping a distance of 1.5 metres between you and other people whenever possible and minimising physical contact such as shaking hands, especially with people at higher risk of developing serious symptoms, such as older people and people with existing health conditions."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "COVID-19 - Frequently asked questions - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-frequently-asked-questions_5.pdf"
+                    }
+                ]
+            },
+            "video_1": []
+        },
+        {
+            "name": "What is the theory behind social distancing?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "The current scientific consensus is that this virus can be spread within 2 meters (6 feet) if somebody coughs. Otherwise, the droplets fall to the ground and don’t infect you.",
+                    "The worst infection then becomes through surfaces: The virus survives for up to 9 days on different surfaces such as metal, ceramics and plastics. That means things like doorknobs, tables, or elevator buttons can be terrible infection vectors.",
+                    "The only way to truly reduce that is with social distancing: Keeping people home as much as possible, for as long as possible until this recedes."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Coronavirus: Why You Must Act Now - Tomas Pueyo",
+                        "link": "https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca"
+                    }
+                ]
+            },
+            "video_1": []
+        },
+        {
+            "name": "What does it mean when people say, ‘flatten the curve’ and ‘raise the line’ and how does social distancing help?",
+            "image_1": [
+                "https://i2.wp.com/flowingdata.com/wp-content/uploads/2020/03/flatten-the-curve-smaller.gif?fit=670%2C565&ssl=1"
+            ],
+            "video_1": [
+                {
+                    "link": "https://www.youtube.com/watch?v=D7uQwQTRDew",
+                    "desc": "Beating Coronavirus, Flatten the Curve, Raise the Line"
+                }
+            ],
+            "text": {
+                "text_1": [
+                    "“Flattening the curve,” refers to reducing the spread of the virus to ensure that the health system is not overloaded. “Raising the line,” refers to increasing the capacity of the health system. It is imperative that everyone do their part to flatten the curve and raise the line through social distancing and practicing good hygiene, to reduce the impact of the pandemic.",
+                    "Additional information about “flattening the curve,” and “raising the line,” can be found in the resources below."
+                ],
+                "ulist_1": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Coronavirus: The Hammer and the Dance - Tomas Pueyo",
+                        "link": "https://medium.com/@tomaspueyo/coronavirus-the-hammer-and-the-dance-be9337092b56"
+                    },
+                    {
+                        "name": "Coronavirus: Why You Must Act Now - Tomas Pueyo",
+                        "link": "https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "How do I practice social distancing in public?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "Social distancing in public means people:"
+                ],
+                "ulist_1": [
+                    "Stay at home unless is absolutely necessary",
+                    "Keep 1.5 metres away from others",
+                    "Avoid physical greetings such as handshaking, hugs and kisses",
+                    "Use tap and pay instead of cash",
+                    "Travel at quiet times and avoid crowds",
+                    "Avoid public gatherings and at risk groups",
+                    "Practise good hygiene"
+                ],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
+                ]
+            },
+            "video_1": []
+        },
+        {
+            "name": "How do I practice social distancing at home?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "To reduce the spread of germs:"
+                ],
+                "ulist_1": [
+                    "Stay at home unless going out is absolutely necessary",
+                    "Keep visitors to a minimum",
+                    "Reduce visits to the shops — instead, buy more goods and services online if you can for pick-up, pre-order or delivery",
+                    "Carefully consider what travel and outings are necessary, both individual and family",
+                    "Regularly disinfect surfaces that are touched a lot, such as tables, kitchen benches and doorknobs",
+                    "Increase ventilation in the home by opening windows or adjust air conditioning"
+                ],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
+                ]
+            },
+            "video_1": []
+        },
+        {
+            "name": "What if people in my household are ill?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "Households where people are ill (ie have an undiagnosed respiratory illness or fever), in addition to the measures above, should:"
+                ],
+                "ulist_1": [
+                    "Care for the sick person in a single room if possible ",
+                    "Keep the number of carers to a minimum ",
+                    "Keep the door to the sick person’s room closed and, if possible, a window open ",
+                    "Wear a surgical mask when you are in the same room as the sick person. The sick person should also wear a mask",
+                    "Protect other vulnerable family members by keeping them away from the sick person. At-risk people include those over 65 years or people with a chronic illness. If possible, find them somewhere else to live while the family member is sick."
+                ],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
+                ]
+            },
+            "video_1": []
+        },
+        {
+            "name": "How do I practice social distancing at work?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "To reduce the spread of germs in the workplace:"
+                ],
+                "ulist_1": [
+                    "Stay at home unless is absolutely necessary",
+                    "Stop handshaking as a greeting ",
+                    "Hold meetings via video conferencing or phone call ",
+                    "Defer large meetings ",
+                    "Hold essential meetings outside in the open air if possible ",
+                    "Promote good hand and sneeze/cough hygiene and provide hand sanitisers for all staff and workers ",
+                    "Eat lunch at your desk or outside rather than in the lunch room ",
+                    "Regularly clean and disinfect surfaces that many people touch",
+                    "Open windows or adjust air conditioning for more ventilation",
+                    "Limit food handling and sharing of food in the workplace ",
+                    "Avoid non-essential travel",
+                    "Promote strict hygiene among food preparation (canteen) staff and their close contacts",
+                    "Consider if you can reschedule, stagger or cancel non-essential meetings"
+                ],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
+                ]
+            },
+            "video_1": []
+        },
+        {
+            "name": "How can my children practice social distancing in school?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "To reduce the spread of germs in the schools:"
+                ],
+                "ulist_1": [
+                    "Wash hands with soap and water or use hand sanitiser when entering school and at regular intervals",
+                    "Stop activities that lead to mixing between classes and years",
+                    "Avoid queuing",
+                    "Cancel school assemblies",
+                    "Have a regular handwashing schedule",
+                    "Regularly clean and disinfect surfaces that many people touch",
+                    "Conduct lessons outdoors where possible ",
+                    "Consider opening windows and adjusting conditioning for more ventilation ",
+                    "Promote strictest hygiene among food preparation (canteen) staff and their close contacts"
+                ],
+                "ulist_2": [],
+                "text_2": [
+                    "If your child is sick, they must not go to school or childcare. You must keep them at home and away from others."
+                ],
+                "citation": [
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    }
+                ]
+            },
+            "video_1": []
+        },
+        {
+            "name": "What else can I do to help reduce the spread?",
+            "image_1": [],
+            "text": {
+                "text_1": [
+                    "To help reduce the spread of coronavirus, WHO also recommends: "
+                ],
+                "ulist_1": [
+                    "Wash your hands frequently using soap and water or alcohol-based hand rub",
+                    "Avoid touching your eyes, nose and mouth",
+                    "Cover your mouth and nose with your bent elbow or a tissue when you cough or sneeze",
+                    "Stay at home if you feel sick",
+                    "If you have a fever, cough or difficulty breathing, seek medical attention early – be sure to call in advance and follow the directions of your local health authority",
+                    "Stay informed and follow advice given by your healthcare provider"
+                ],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Q&A on coronaviruses (COVID-19) - World Health Organization",
+                        "link": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+                    }
+                ]
+            },
+            "video_1": []
+        }
+    ],
+    "regulations": [
+        {
+            "name": "What are the current government limits on indoor and outdoor gatherings?",
+            "text": {
+                "text_1": [
+                    "As of March 30th, both indoor and outdoor gatherings have been limited to two persons only. Exceptions to this limit include:"
+                ],
+                "ulist_1": [
+                    "People of the same household going out together",
+                    "Weddings are restricted to no more than five people, including the couple, the celebrant and the witnesses. The 4 square metre rule and social distancing must be observed.",
+                    "Funerals must be limited to no more than 10 people. The 4 square metre rule and social distancing must be observed.",
+                    "Family units"
+                ],
+                "text_middle": [
+                    "It is recommended that you stay home except for:"
+                ],
+                "ulist_2": [
+                    "Shopping for what you need - food and necessary supplies",
+                    "Medical or health care needs, including compassionate requirements",
+                    "Exercise in compliance with the public gathering requirements",
+                    "Work and study if you can’t work or learn remotely"
+                ],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Limits on public gatherings for coronavirus (COVID-19) - Australia Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/limits-on-public-gatherings-for-coronavirus-covid-19"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "What are the current government limits on public facilities and businesses?",
+            "text": {
+                "text_1": [
+                    "The following facilities have been restricted from opening as of 30th of March:"
+                ],
+                "ulist_1": [
+                    "Pubs, registered and licensed clubs (excluding bottle shops attached to these venues), hotels (excluding accommodation)",
+                    "Gyms and indoor sporting venues",
+                    "Cinemas, entertainment venues, casinos and night clubs",
+                    "Restaurants and cafes will be restricted to takeaway and/or home delivery",
+                    "Religious gatherings, places of worship or funerals (in enclosed spaces and other than very small groups and where the 1 person per 4 square metre rule applies)",
+                    "Food courts (except for take away)",
+                    "Auction houses, real estate auctions and open houses",
+                    "Personal services (beauty, nail, tanning, waxing and tattoo salons)",
+                    "Spa and massage parlours, excluding health related services such as physiotherapy",
+                    "Amusement parks, arcades and play centres (indoor and outdoor)",
+                    "Strip clubs, brothels and sex on premises venues.",
+                    "Galleries, national institutions, historic sites and museums",
+                    "Health clubs, fitness centres, yoga, barre and spin facilities, saunas, bathhouses and wellness centres and swimming pools",
+                    "Community facilities such as community halls, libraries and youth centres, RSL and PCYC",
+                    "Gaming and gambling venues",
+                    "Indoor and outdoor markets (excluding food markets). States and territories will make their own announcements about this.",
+                    "Playgrounds, skate parks and outside gyms in public places will be closed",
+                    "Bootcamps will be reduced to two persons, including the trainer."
+                ],
+                "ulist_2": [],
+                "text_middle": [],
+                "text_2": [
+                    "These measures also apply to the outdoor areas associated with each of these venues. Australians should expect these measures to be in place for at least 6 months. Isolated remote community hubs are not included in these restrictions. ",
+                    "Public transport is considered essential and, at this stage, the 100 person limit does not apply. If traveling on public transport, always use appropriate social distancing and hygiene practices, and avoid non-essential travel.",
+                    "There are special regulations are in place for visiting aged-care facilities. More information can be found in the sources below."
+                ],
+                "citation": [
+                    {
+                        "name": "National Cabinet Statement",
+                        "link": "https://www.pm.gov.au/media/national-cabinet-statement"
+                    },
+                    {
+                        "name": "Fact Sheet: For families and residents on restricted visits to residential aged care facilities - Australian Government",
+                        "link": "https://health.govcms.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-for-families-and-residents-on-restricted-visits-to-residential-aged-care-facilities_0.pdf"
+                    },
+                    {
+                        "name": "Limits on public gatherings for coronavirus (COVID-19) - Australia Government Department of Health",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/limits-on-public-gatherings-for-coronavirus-covid-19"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "What about places of worship?",
+            "text": {
+                "text_1": [
+                    "From 3 April, churches and other places of worship, will be considered places of work so services can be streamed to the community. This will ensure that religious services, including Easter services, remain accessibleto congregations. Services may be conducted and streamed providing:"
+                ],
+                "ulist_1": [
+                    "Only essential staff are present",
+                    "The venue/facility remains closed to the public",
+                    "Social distancing principles are adhered to — 1 person per 4 square metres"
+                ],
+                "ulist_2": [],
+                "text_middle": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Limits on public gatherings for coronavirus (COVID-19) ",
+                        "link": "https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/limits-on-public-gatherings-for-coronavirus-covid-19"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Travel Restrictions:",
+            "text": {
+                "text_1": [
+                    "All people entering Australia must self-isolate for 14 days. You may board a domestic flight to your intended destination in Australia to self-isolate there. You can travel to Australia if you are an Australian citizen, a permanent resident, an immediate family member of an Australian citizen or permanent resident or are a New Zealand citizen usually resident in Australia. If you are an immediate family member holding a temporary visa you will need to provide evidence of your relationship. Exemptions to the 14-day mandatory quarantine period for international travellers are listed below."
+                ],
+                "ulist_1": [
+                    "Aviation crew",
+                    "Maritime crew excluding crew ships",
+                    "Unaccompanied minors – they are required to self-quarantine with a parentor guardian at home",
+                    "Transit passengers under certain circumstances",
+                    "Diplomats",
+                    "People may be exempt on a case-by-case basis on compassionate or medical grounds"
+                ],
+                "ulist_2": [],
+                "text_middle": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "name": "Social distancing guidance - Australian Government Department of Health",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/03/coronavirus-covid-19-information-on-social-distancing_0.pdf"
+                    },
+                    {
+                        "name": "COVID-19 (Coronavirus​) and the Australian border - Australian Government Department of Home Affairs",
+                        "link": "https://www.homeaffairs.gov.au/news-media/current-alerts/novel-coronavirus?fbclid=IwAR0CobpLulNLJmwXM4YM8nuctTyg9NgWCf8z7iXfu3cwiQZM-nNC0E0pnyc"
+                    },
+                    {
+                        "name": "Update on coronavirus measures",
+                        "link": "https://www.pm.gov.au/media/update-coronavirus-measures-220320"
+                    },
+                    {
+                        "name": "Exemptions to the 14 day mandatory quarantine period for international travellers",
+                        "link": "https://www.health.gov.au/sites/default/files/documents/2020/04/coronavirus-covid-19-exemptions-to-the-14-day-mandatory-quarantine-period_0.pdf"
+                    }
+                ]
+            }
+        }
+    ],
+    "stateRegulations": [
+        {
+            "name": "Queensland",
+            "text": {
+                "text_1": [
+                    "From 22/08/2020, gatherings at homes across greater Brisbane will be limited to a maximum of 10 people. The regions affected by the restrictions are: Brisbane, Ipswich, Logan, Scenic Rim, Lockyer Valley, Somerset, Moreton and Redlands. Gatherings outside of Greater Brisbane will be limited to 30 people.",
+                    "From 1am Saturday, August 1st the Queensland will close its borders to all residents from Greater Sydney.",
+                    "From 1am Saturday, August 8th, Queensland will close its borders to Victoria and the ACT.",
+                    "All Queensland residents who return from \"declared coronavirus hotspots\" will be sent to mandatory hotel quarantine for 14 days at their own expense.",
+                    "Restrictions:"
+                ],
+                "ulist_1": [
+                    "Up to 20 adults from different households are allowed to visit another home. The state government has tentatively announced that, from 10 July, up to 100 people may be allowed to gather in your home (for those of you who have homes big enough to accommodate 100 guests).",
+                    "Up to 20 people can gather outside. The plan is that from 10 July, up to 100 people will be allowed to gather inside and outside.",
+                    "Residential aged care residents can have one visit per day, for up to two hours. A maximum of two people can visit for the purpose of providing care and support",
+                    "Restaurants, cafes, pubs, registered clubs, RSL clubs and hotels (with a Covid-Safe Checklist) can seat up to 20 patrons at any one time, as long as they can allow four square metres per person. Places in the outback are allowed up to 50 locals (who must show proof of residence) at any one time. Casinos are allowed to seat diners, but bars and gaming will have to stay closed. From 10 July, up to 100 people will be allowed to dine in. Food courts will be allowed to reopen. Under stage 3 rules, expected to be introduced in July, a venue’s attendance limit will require four square metres per person",
+                    "You are allowed to travel anywhere in Queensland for recreational purposes, other than in certain designated remote communities. Camping and holiday accommodation sites, including caravan parks, are allowed to open",
+                    "Entry into Queensland is prohibited unless you have applied for and been granted an exemption. But Queensland is set to open its borders from 10 July, as long as case numbers remain low.",
+                    "Up to 20 people can attend a wedding. Funerals can have up to 100 guests from 16 June. The next of kin at funeral services is required to collect contact information for all attendees and keep the list for at least eight weeks to facilitate contact tracing, if required. A maximum of 100 people should be allowed to attend weddings from 10 July",
+                    "Up to 20 people can visit a place of worship or attend a religious ceremony. This number will increase to 100 people from 10 July",
+                    "You are allowed to shop for non-essential items",
+                    "Beauty therapy and nail salons, tanning salons, tattoo parlours, spas, and non-therapeutic massage parlours (with a Covid-Safe checklist) can open to up to 100 people on site.",
+                    "Libraries, along with museums, art galleries, and historic sites, can have 20 visitors at a time. Indoor cinemas, concert venues, theatres, arenas, auditoriums, stadiums, nightclubs, outdoor amusement parks, zoos and arcades are set to reopen on 10 July. All venues will be allowed to host up to 100 people at a time on site",
+                    "Gyms, health clubs, yoga studios and community sports clubs can reopen to 20 people at a time. Up to 20 people can gather outside, play non-contact sport, and participate in outdoor group training and bot camps. Parks, playgrounds, skateparks and pools are open to up to 20 people at a time. The state government plans to increase this number to 100 people from 10 July"
+                ],
+                "text_middle": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.abc.net.au/news/2020-08-22/coronavirus-cases-linked-to-brisbane-youth-detention-centre/12585448",
+                        "name": "Six new coronavirus cases linked to Brisbane Youth Detention Centre as restrictions are reimposed across Queensland - ABC News"
+                    },
+                    {
+                        "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
+                        "name": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today - ABC News"
+                    },
+                    {
+                        "link": "https://www.news.com.au/national/queensland/news/disappointing-qld-reports-two-new-virus-cases/news-story/a71c1efc65e261d398fdf83e6cc2697c",
+                        "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
+                    },
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
+                        "name": "Qld borders shut to Greater Sydney region amid coronavirus outbreak"
+                    }
+                ]
+            },
+            "lastUpdated": "22 August 2020"
+        },
+        {
+            "name": "New South Wales",
+            "text": {
+                "text_1": [
+                    "From 12:01am Friday August 7th, anyone entering NSW from Victoria will be placed in mandatory hotel quarantine for 14 days at their own expense. Exceptions will be made for those experiencing financial hardships. The new rule does not apply to border communities.",
+                    "Restrictions:"
+                ],
+                "ulist_1": [
+                    "Currently 20 people from different households can visit your home. There is no limit to the number of guests you can have over per day, as long as there are no more than 20 at a time and guests can stay overnight",
+                    "Currently public gatherings of up to 20 people are allowed. From 1 July community sport for children and adults returns in full, including contact sports. From that date, the Public Health Act says organisers must ensure that venues do not exceed the four square metre per person rule, up to a limit of 500 participants (which includes players, officials and spectators). Associations must also have a Covid 19-safety plan",
+                    "NSW Health provides guidelines for residential aged care facilities. Residents should only have one daily visit with a maximum of two visitors (immediately family or close friends), no large group visits or gatherings, and all visits should be short and take place in the resident’s room, outdoors or a specified area (instead of a communal area)",
+                    "Up to 50 people can dine-in at cafes, bistros, and restaurants, as long as there are four square metres of space allowed per person. Pubs, registered clubs and casinos, and cellar doors that serve food are also allowed to open their dining areas. However, alcohol can only be purchased with food, or to takeaway. A maximum of 10 people are allowed per booking. However, gatherings for or immediately after a wedding are allowed up to 20 guests. Gatherings immediately after a funeral or memorial service are allowed to book for up to 50 guests as long as the venue can accommodate that many people. All diners must provide their name and contact details, including a phone number or email address, to allow for contact tracing. Food courts can also reopen. From 1 July, the number of people allowed inside an indoor venue will be determined by the one person per four square metre rule",
+                    "There are no limitations on travelling within the state, including for a holiday. A number of caravan parks and camping grounds have also reopened",
+                    "Residents are allowed to leave NSW, and visitors don’t need to quarantine. Since 1 June, anyone in Australia has been able to travel to regional NSW for a holiday",
+                    "Up to 20 people, plus the couple, those conducting the wedding, the photographer and the videographer, are allowed at weddings in NSW. Those attending will have to provide their name and contact details for contact tracing, if necessary. There is now no limit on the number of people allowed to attend a funeral, as long as there are four square metres per person if held indoors",
+                    "Yes, 50 people can attend religious gatherings and places of worship, as long as the four square metres physical distancing rule can be observed. The states chief health officer has urged congregations to reconsider activities that might spread the virus-like group singing and passing round of collection baskets. From 1 July, the number of people allowed inside indoor venues will be determined by the one person per four square metres rule",
+                    "You are allowed to shop for non-essential items",
+                    "Hairdressers and barbers can open, but must allow four square metres per person within the premises and should minimise personal contact with the customer. Nail, waxing, tanning, and beauty salons can open to 10 customers at a time. There can only one person per four square metres (including staff) on the premises, and providers must have a Covid-19 Safety Plan. Tattoo and massage parlours are allowed to reopen, with restricted numbers",
+                    "Museums, galleries and libraries are allowed to reopen to guests, as long as four square metres is allowed per person and they have a Covid-19 safety plan. Groups and tours aren’t allowed to run, and all library returns will go through a 24-hour quarantine. National Trust and Historic Houses Trust properties can open, as long as they follow the four square metres rule (including staff). Indoor cinemas and theatres must stay closed. From 1 July, the number of people allowed inside indoor venues will be determined by the one person per four square metres rule. For venues with 40,000 seats or less, attendance must not exceed 25% of capacity.",
+                    "Gyms, fitness centres and studios (like dance studios) are allowed to open for up to 10 people per class, and a maximum of 100 people per venue. Indoor pools and saunas will also be allowed to reopen, with restricted numbers. Up to 10 people can gather in public, meaning that outdoor boot camps and non-contact sports are allowed. You can use outdoor gym equipment in public places, with caution, and engage in recreational activities like fishing, hunting and boating. Up to 10 people can swim in outdoor pools at a time. You can contact your local council to see if parks and beaches are open in your area; most historic sites and some beaches in national parks have been closed. From 1 July, children’s community sport competitions will be allowed to restart"
+                ],
+                "text_middle": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.abc.net.au/news/2020-08-05/new-coronavirus-measures-borders-quarantine-child-care/12526836",
+                        "name": "Coronavirus border restrictions, NSW quarantine rules and Victoria child care measures announced today - ABC News"
+                    },
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
+                        "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "05 August 2020"
+        },
+        {
+            "name": "Victoria",
+            "text": {
+                "text_1": [
+                    "A number of restrictions will be eased from Tuesday 11:59pm 08 November 2020. Details of the eased restrictions and Victoria's roadmap are found in the links below."
+                ],
+                "ulist_1": [
+                ],
+                "text_middle": [
+                  
+                ],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/oct/30/melbourne-stage-4-restrictions-victoria-lockdown-rules-covid-19-stage-four-metropolitan-metro-explained-what-you-need-to-know",
+                        "name":"Melbourne Covid lockdown rules and coronavirus restrictions explained - The Guardian"
+                    },
+                    {
+                        "link": "https://www.dhhs.vic.gov.au/victorias-restriction-levels-covid-19",
+                        "name":"Victoria's restriction levels - Department of Health and Human Services"
+                    }
+                ]
+            },
+            "lastUpdated": "06 September 2020"
+        },
+        {
+            "name": "Tasmania",
+            "text": {
+                "text_1": [
+                    "Restrictions:"
+                ],
+                "ulist_1": [
+                    "You can have up to 20 visitors over",
+                    "Up to 500 people are allowed in an undivided outdoor space",
+                    "As of Monday 22 June, residents in aged care facilities can have multiple visits of two people, with no restrictions on the length of visits or the total number of visitors they receive in a day. Residents are permitted to go outside on trips, and hairdressers can be allowed in. Children under 16 can also be allowed in. Additional visitors are allowed for the purpose of end of life support, or if needed to reduce distress and confusion given a residents’ medical condition",
+                    "There is no limit on where you can go within the state",
+                    "All non-essential travellers to Tasmania, including returning residents, must quarantine for 14 days upon arrival. Non-Tasmanian residents must carry out their quarantine in government-provided accommodation",
+                    "You are allowed to leave your home to use businesses or services that are allowed to operate, which includes retail stores",
+                    "Hairdressers and barbers can open. Beauty services and day spas can reopen withno cap on the number of people allowed inside, as long as there is one person per four square metres. Saunas and bathhouses will be allowed to open from 13 July",
+                    "Up to 250 people can attend each undivided space in indoor recreational facilities, such as libraries, arcades, play centres, cinemas, museums, national institutions, historic sites, and galleries, the two square metre rule permitting. Up to 500 people are also allowed per undivided outdoor space.",
+                    "Up to 250 people are allowed in an undivided indoor venue, as long as there are two square metres per person. A multi-purpose Outdoor gathering limits have increased to 500. Full contact training and full competition sport (contact and non-contact) is allowed, as is the sharing of equipment, change rooms and other facilities"
+                ],
+                "text_middle": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
+                        "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "04 July 2020"
+        },
+        {
+            "name": "Australian Capital Territory",
+            "text": {
+                "text_1": [
+                    "Restrictions:"
+                ],
+                "ulist_1": [
+                    "There is no limit on household visitors",
+                    "Up to 100 people can gather together outdoors",
+                    "Residents can have one visit per day, of up to two people, for the purposes of providing care and support. Visits cannot last more than two hours. Those aged 16 years or younger can only visit on compassionate grounds for the purpose of visiting a resident at the end of life",
+                    "Restaurants, cafes and other hospitality venues offering seated dining can host up to 100 patrons in each indoor or outdoor space, as long as there is one person per four square metres. This limit excludes staff. Bars, pubs, and clubs can serve alcohol in groups of up to 10 seated patrons, without a meal. From 10 July, food courts will be allowed to open to seated patrons",
+                    "There is no limit on where you can travel",
+                    "There are no border restrictions",
+                    "Up to 100 guests can attend weddings or funerals, as long as there is no more than one person per four square metres. Under stage 3 rules, expected to be introduced in July, attendance limits will require four square metres per person",
+                    "Up to 100 people, the four square metre rule permitting, can attend religious ceremonies and places of worship, not counting those conducting the ceremony",
+                    "You are allowed to shop for non-essential items",
+                    "Hairdressers and barbers are allowed. Beauty therapy businesses, including nail salons, tanning and waxing services, day spas, including massage parlous and tattoo businesses are allowed to reopen to up to 100 people, but cannot exceed one person per four square metres, including staff. They must keep a record of customers to enable contact tracing, if needed",
+                    "Up to 100 people are allowed at cinemas and movie theatres, indoor amusement centres, arcades, outdoor and indoor play centres, betting agencies, outdoor amusements and attractions, community and youth centres, galleries, museums, national institutions, libraries historic sites and zoos. There can only be one person per four square metres throughout the venue. Organised tour groups of up to 20 people (excluding staff) will be permitted, as long as they run for less than two hours. Audiences must remain seated at live performances",
+                    "Indoor gyms and fitness centres are allowed to reopen to up to 100 people in any enclosed space, as long as there is only one person per four square metres. Patrons are allowed to take part in circuit training, individual weight training, and use gym equipment. That includes yoga, barre, pilates, and spin facilities, boot camps, personal training, swimming pools, organised sport activities, and dance classes. Up to 20 people can take part in outdoor bootcamps and other non-contact training or sport. Full contact training for sport, dance and martial arts, as well as circuit training, is allowed. Communal facilities, such as change rooms, can reopen if a risk assessment has been done and a strict cleaning regime has been put in place."
+                ],
+                "text_middle": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
+                        "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "04 July 2020"
+        },
+        {
+            "name": "Northern Territory",
+            "text": {
+                "text_1": [
+                    "Restrictions:"
+                ],
+                "ulist_1": [
+                    "There are no limits on gathering in the NT, but you should maintain physical distancing",
+                    "Residents can have up to two visitors at a time, and visits should be kept short. Children aged 16 years and under are not allowed to visit those in aged care facilities, except for special circumstances",
+                    "All businesses are allowed to reopen as long as they have a Covid-19 plan. The two-hour limit has been lifted, meaning night clubs can reopen. You will be able to purchase alcohol from a bar. Licensed gaming activities, including TAB, will start again",
+                    "There are no restrictions on travel within the Northern Territory",
+                    "Unless you have been granted an exemption, anyone entering the Northern Territory must complete 14 days of mandatory self-quarantine. International arrivals still have to undertake a Government-mandated and supervised quarantine, and are required to pay $2,500 per person, or $5,000 for a family of two or more, to cover the cost. The NT will open its borders to domestic travellers on 17 July",
+                    "There is no limit on the number of attendees at a wedding or a funeral",
+                    "There is no limit on how many people can attend a place of worship at the same time. However, you cannot be there for more than 2 hours.",
+                    "You are allowed to shop for non-essential items",
+                    "Hairdressers, and nail, massage and tanning salons, tattoo and piercing parlours and any other beauty services can open",
+                    "Public libraries, art galleries, museums, zoos, cinemas and theatres, music halls, nightclubs, amusement parks, community centres, stadiums, sporting facility and similar entertainment venues can open",
+                    "Gyms, fitness studios, and indoor training activities like Cross Fit are allowed to operate. You can also officiate, participate and support team sports, like football, basketball, soccer and netball"
+                ],
+                "text_middle": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
+                        "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "31 May 2020"
+        },
+        {
+            "name": "South Australia",
+            "text": {
+                "text_1": ["A number of new restrictions will be introduced midnight 16 November in response to the new coronavirus cluster. Information about these restrictions can be found in the link below."],
+                "ulist_1": [
+                 ],
+                "text_middle": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.covid-19.sa.gov.au/restrictions-and-responsibilities",
+                        "name": "Restrictions and responsibilities - Government of South Australia"
+                    }
+                ]
+            },
+            "lastUpdated": "04 July 2020"
+        },
+        {
+            "name": "Western Australia",
+            "text": {
+                "text_1": [],
+                "ulist_1": [
+                    " Since 27 June, you can have as many guests over as long as there is no more than one person per two square metres",
+                    "There is no limit on the number of people allowed at public gatherings",
+                    "Each resident in an aged care facility can have one care and support visit a day, with up to two visitors at a time. Only immediate social supports, like family members and close friends, professional help or advocacy services can attend",
+                    "Cafes and restaurants (including in pubs, bars, hotels, casinos, clubs) can open to up to seated diners, with one person per every two square metres. Venues are allowed to serve food and alcohol to non-seated patrons. There is no requirement for businesses to maintain a patron register",
+                    "Residents are allowed to leave their homes for recreational activities including picnics, fishing, boating or camping. Recreational travel to most nearby regions is now allowed, except to some remote Aboriginal communities",
+                    "You cannot enter Western Australia unless you are granted an exemption on application. There is no date for when the interstate border will reopen",
+                    "There is no limit on the number of people who can gather together, as long as there is no more than one person per two square metres",
+                    "Attendance at religious gatherings is only limited by the two square metre rule",
+                    "You are allowed to shop for non-essential items",
+                    "All beauty services, including nail, tanning and waxing salons, as well as saunas, bath houses, wellness centres, float centres, spas and massage centres may reopen, for up to one person per two square metres",
+                    "Community facilities, libraries, galleries, museums, theatres, auditoriums, cinemas, and concert venues can all reopen, along with Perth Zoo, wildlife and amusement parks, arcades, skate rinks and indoor play centres. All venues can have as many people, as long as there is one person per two square metres. The two square metre rule only includes staff if the venue holds more than 500 patrons. There is a 50% capacity cap on major sport and entertainment venues, such as the Optus Stadium, HBF Park and RAC Arena. All events are allowed, except for large scale, multi-stage music festivals. Unseated performances can go ahead at concert halls, live music venues, bars, pubs and nightclubs, and the casino gaming floor will be allowed to reopen under temporary restrictions",
+                    "Gyms, health clubs, and indoor sports centres can reopen for up to one person per two square metres. Gyms can operate unstaffed but must undergo regular cleaning. Contact sport and training can also recommence, and playgrounds, outdoor gym equipment and skate parks can be used"
+                ],
+                "text_middle": [],
+                "ulist_2": [],
+                "text_2": [],
+                "citation": [
+                    {
+                        "link": "https://www.theguardian.com/australia-news/2020/jul/03/covid-19-restrictions-australia-coronavirus-lockdown-rules-update-how-far-can-travel-border-social-distancing-nsw-victoria-queensland-qld-wa-sa-act-how-many-people-over-house",
+                        "name": "Australia’s coronavirus lockdown rules and restrictions explained: how far can I travel, and can I have people over?  - The Guardian"
+                    }
+                ]
+            },
+            "lastUpdated": "04 July 2020"
+        }
+    ],
+    "helplinesTranslated": {
+        "national": "1800020080",
+        "healthDirect": "1800022222",
+        "vic": "1800675398",
+        "qld": "13432584",
+        "nt": "1800008002",
+        "ntPublicHealth": "89228044",
+        "tas": "1800671738",
+        "tasInterpreter": "131450",
+        "tasHealth": "1800671738"
+    },
+    "coronavirusHelplines": {
+        "name": "Coronavirus Helplines",
+        "text": {
+            "text_1": [
+                "National Coronavirus helplines are operating 24 hours a day, seven days a week."
+            ],
+            "numberList_1": [
+                {
+                    "text": "For information on coronavirus (COVID-19) at the National Helpline:",
+                    "numberLink": "1800020080",
+                    "numberDisplay": "1800 020 080"
+                },
+                {
+                    "text": "If you are feeling unwell, call Healthdirect:",
+                    "numberLink": "1800022222",
+                    "numberDisplay": "1800 022 222"
+                }
+            ],
+            "text_2": [
+                "Some states have dedicated helplines as well: "
+            ],
+            "numberList_2": [
+                {
+                    "text": "Victoria:",
+                    "numberLink": "1800675398",
+                    "numberDisplay": "1800 675 398"
+                },
+                {
+                    "text": "Queensland:",
+                    "numberLink": "13432584",
+                    "numberDisplay": "13 432 584"
+                },
+                {
+                    "text": "Northern Territory:",
+                    "numberLink": "1800008002",
+                    "numberDisplay": "1800 008 002",
+                    "extras": [
+                        {
+                            "text": "If you are in Darwin and need to arrange testing call the Public Health Unit on: ",
+                            "numberLink": "89228044",
+                            "numberDisplay": "8922 8044"
+                        }
+                    ]
+                },
+                {
+                    "text": "Tasmania:",
+                    "numberLink": "1800671738",
+                    "numberDisplay": "1800 671 738",
+                    "extras": [
+                        {
+                            "text": "If you need an interpreter, phone the Tasmanian Interpreting Service (TIS) and tell them your language on",
+                            "numberLink": "131450",
+                            "numberDisplay": "13 14 50"
+                        },
+                        {
+                            "text": "Tell the interpreter your name and that you’re calling the Tasmanian Department of Health:",
+                            "numberLink": "1800671738",
+                            "numberDisplay": "1800 671 738"
+                        }
+                    ]
+                }
+            ],
+            "citation": []
+        }
+    },
+    "helplines": [
+        {
+            "name": "Violence / Abuse Helplines",
+            "text": {
+                "text_1": [],
+                "numberList_1": [
+                    {
+                        "text": "1800Respect",
+                        "numberLink": "1800737732",
+                        "numberDisplay": "1800 737 732",
+                        "extras": [
+                            {
+                                "text": "For confidential information, counselling and support service about sexual assault, domestic or family violence and abuse"
+                            },
+                            {
+                                "text": "Available 24/7"
+                            },
+                            {
+                                "link": "https://www.1800respect.org.au/",
+                                "text": " Online chat services also available"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Relationships Australia",
+                        "numberLink": "1800737732",
+                        "numberDisplay": "1800 737 732",
+                        "extras": [
+                            {
+                                "text": "Support groups and counselling on relationships, and for abusive and abused partners."
+                            },
+                            {
+                                "link": "http://www.relationships.org.au/",
+                                "text": "For the cost of a local call."
+                            }
+                        ]
+                    }
+                ],
+                "text_2": [],
+                "numberList_2": [],
+                "citation": []
+            }
+        },
+        {
+            "name": "Mental Health Helplines",
+            "text": {
+                "text_1": [],
+                "numberList_1": [
+                    {
+                        "text": "Lifeline",
+                        "numberLink": "131114",
+                        "numberDisplay": "13 11 14",
+                        "extras": [
+                            {
+                                "text": "Crisis counselling, support groups and suicide prevention services"
+                            },
+                            {
+                                "link": "www.lifeline.org.au",
+                                "text": "24-hour telephone services"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Suicide Callback Services",
+                        "numberLink": "1300659467",
+                        "numberDisplay": "1300 659 467",
+                        "extras": [
+                            {
+                                "text": "Free telephone service to support people at risk of suicide and their carers"
+                            },
+                            {
+                                "text": "50 minute telephone counselling sessions can be scheduled"
+                            },
+                            {
+                                "link": "https://www.suicidecallbackservice.org.au/",
+                                "text": "Operates 7 days a week"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "BeyondBlue",
+                        "numberLink": "1300224636",
+                        "numberDisplay": "1300 22 4636",
+                        "extras": [
+                            {
+                                "text": "Information and counselling for depression and anxiety"
+                            },
+                            {
+                                "text": "Available 24/7"
+                            },
+                            {
+                                "link": "www.beyondblue.org.au",
+                                "text": "Online chat services also available"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Kids Helpline",
+                        "numberLink": "1800551800",
+                        "numberDisplay": "1800 55 1800",
+                        "extras": [
+                            {
+                                "text": "Free, confidential and private counselling service specifically for children and young people aged 5 to 25"
+                            },
+                            {
+                                "link": "www.kidshelp.com.au",
+                                "text": "Available 24/7"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Mensline Australia",
+                        "numberLink": "1300789978",
+                        "numberDisplay": "1300 789 978",
+                        "extras": [
+                            {
+                                "link": "www.mensline.org.au",
+                                "text": "Free, confidential and anonymous telephone counselling service for men needingemotional support or in crisis"
+                            }
+                        ]
+                    }
+                ],
+                "text_2": [],
+                "numberList_2": [],
+                "citation": []
+            }
+        }
+    ],
+    "stateTesting": [
+        {
+            "name": "New South Wales",
+            "text": {
+                "text_1": [
+                    "To be tested for COVID-19 in NSW, you must be experiencing acute cold or flu-like symptoms and must have returned from overseas, have been in contact withsomeone from overseas or been in contact with a positive case of COVID-19.",
+                    "If you live in an identified hotspot, you may be tested if you are experiencing symptoms such as a fever, running nose, or cough.",
+                    "Testing is recommended for all returning overseas travellers who develop symptoms within 14 days of return, contacts of cases who develop symptoms, people admitted to hospital with severe respiratory infection irrespective of travel history, other special circumstances such as where there is an outbreak of respiratory infections without an identified cause such as flu."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Victoria",
+            "text": {
+                "text_1": [
+                    "Any Victorian with a fever, shortness of breath, cough or sore throat can now be tested for coronavirus."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Queensland",
+            "text": {
+                "text_1": [
+                    "Queensland have announced an expansion of their testing capabilities, allowing anyone with a fever or flu like symptoms to be tested for COVID-19 if there were living in Brisbane, the Gold Coast or Cairns. The three locations were chosen on the basis of increases rates of community transmission.",
+                    "The state's more general testing criteria includes people with a fever or respiratory illness or people living in high-risk locations such as aged care facilities.",
+                    "Aged care or healthcare workers, and those who identify as Aboriginal in a regional or remote community are also eligible for testing."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Western Australia",
+            "text": {
+                "text_1": [
+                    "General public and high-risk staff will be tested if they meet the following criteria:"
+                ],
+                "list_1": [
+                    "presenting with a fever (≥38°C) or a history of a fever in the last few days OR",
+                    "an acute respiratory infection e.g. shortness of breath, cough, sore throat"
+                ],
+                "text_2": [
+                    "Anyone in a high-risk setting where two or more people have either of the above symptoms can get tested.",
+                    "High-risk settings include:"
+                ],
+                "list_2": [
+                    "Aged and residential care",
+                    "Rural and remote Aboriginal communities",
+                    "Detention centres",
+                    "Correctional facilities",
+                    "Boarding schools",
+                    "Military barracks or equivalent",
+                    "Geographically localised areas with increased risk of community transmission",
+                    "Cruise ship passengers or returned travellers (international and domestic)."
+                ],
+                "text_3": [
+                    "This also includes healthcare workers, including aged care and disability workers,and Western Australian Police Officers."
+                ],
+                "citation": [
+                    {
+                        "name": "Coronavirus (COVID-19) Frequently asked questions - Government of Western Australia, Department of Health",
+                        "link": "https://ww2.health.wa.gov.au/~/media/Files/Corporate/general%20documents/Infectious%20diseases/PDF/Coronavirus/coronavirus-faqs.pdf"
+                    },
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "South Australia",
+            "text": {
+                "text_1": [
+                    "To be eligible for testing in South Australia, you must be experiencing symptoms consistent with COVID-19 and have travelled overseas or interstate within the last 14 days or have been in contact with a confirmed case of the virus.",
+                    "If you are an aged care or health care worker, you are also eligible for testing.",
+                    "People with symptoms who have been at Adelaide Airport, Angaston, Nuriootpa, Tanuda, Lyndoch or Williamstown in the past 14 days are also being asked to get tested."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Tasmania",
+            "text": {
+                "text_1": [
+                    "To be eligible for testing in Tasmania, you must be experiencing symptoms consistent with COVID-19 and have travelled overseas or interstate within the last 14 days or have been in contact with a confirmed case of the virus.",
+                    "If you are an aged care or health care worker, you are also eligible for testing.",
+                    "If you live in North West Tasmania and have any respiratory symptoms, you can request a test.",
+                    "Anyone who thinks they may need testing should contact the Public Health Hotline on 1800 671 738. These clinics are not open for walk up testing. Your GP can also refer you for testing if you meet national testing guidelines."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Testing for COVID-19 - Tasmanian Government",
+                        "link": "https://www.coronavirus.tas.gov.au/keeping-yourself-safe/testing-for-covid19"
+                    },
+                    {
+                        "name": "Increased coronavirus testing for North West Tasmania - Sarah Courtney, Minister for Health",
+                        "link": "http://www.premier.tas.gov.au/releases/increased_coronavirus_testing_for_north_west_tasmania"
+                    },
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "22 April 2020"
+            }
+        },
+        {
+            "name": "Northern Territory",
+            "text": {
+                "text_1": [
+                    "To be tested in the Northern Territory, you must be showing symptoms compatible with COVID-19 and fit one of the following criteria:"
+                ],
+                "list_1": [
+                    "You have returned from interstate or overseas in the past 14 days and",
+                    "You have been in close contact with a confirmed case of coronavirus in the last 14 days",
+                    "You have a deVere community-acquired pneumonia and there is no obvious cause",
+                    "You are a health care worker who works directly with COVID-19 patients"
+                ],
+                "text_2": [
+                    "Police, emergency workers, correctional officers, educators, childcare workers, aged care and disability workers and retail pharmacists are also eligible for testing if symptoms develop."
+                ],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        },
+        {
+            "name": "Australian Capital Territory",
+            "text": {
+                "text_1": [
+                    "The ACT has random testing at Weston Creek and a drive-through testing clinic at Epic (Exhibition Park in Canberra), where anyone with coronavirus symptoms can get tested.",
+                    "You should also be tested for COVID-19 if:"
+                ],
+                "list_1": [
+                    "You recently travelled overseas or on a cruise ship, and have developed symptoms of COVID-19 within 14 days of returning back to Australia",
+                    "You have been in contact with someone who has confirmed COVID-19 and you develop symptoms of COVID-19 within 14 days of last contact",
+                    "You are a healthcare or aged care worker with recent onset of respiratory symptoms or fever irrespective of travel history.",
+                    "You live in a high-risk setting (such as an aged care or other residential care facility, boarding school, military operational setting, correctional facility or detention centre) and have symptoms of COVID-19.",
+                    "You have a link to a setting where COVID-19 outbreaks have occurred, or have travelled to a geographically localised area within Australia where there is elevated risk of community transmission, and have symptoms of COVID-19."
+                ],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "Getting tested - ACT Government",
+                        "link": "https://www.covid19.act.gov.au/protecting-yourself-and-others/getting-tested"
+                    },
+                    {
+                        "name": "Can I get tested for coronavirus in Australia? A state-by-state breakdown - The Guardian",
+                        "link": "https://www.theguardian.com/australia-news/2020/apr/07/can-i-get-tested-for-coronavirus-in-australia-a-state-by-state-breakdown"
+                    },
+                    {
+                        "name": "The eligibility requirements you must meet to be tested for COVID-19 in each state - 9 News",
+                        "link": "https://www.9news.com.au/national/coronavirus-testing-near-me-how-to-get-tested-where-eligibility-criteria-australia-states-explainer/4c006e43-301c-41a3-ab85-1de23d0d6b20"
+                    }
+                ],
+                "lastUpdated": "15 April 2020"
+            }
+        }
+    ],
+    "tracingApp": [
+        {
+            "name": "What is the COVIDSafe?",
+            "text": {
+                "text_1": [
+                    "On Sunday 26th April, the Australian government is launched an app ‘COVIDSafe’ that aims to identify people who may have come into contact with someone who has coronavirus so the user can give the information to health authorities. The COVIDSafe app is based on Singapore's Tracetogether software, which records the Bluetooth connections a phone makes with others, as part of what's being called a \"Bluetooth handshake\"."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "26 April 2020"
+            }
+        },
+        {
+            "name": "How will it work?",
+            "text": {
+                "text_1": [
+                    "That app works by using Bluetooth to record when people are within 1.5m of another user for 15 minutes. The two apps exchange anonymised IDs, which are stored encrypted on phones and deleted after 21 days.",
+                    "If someone is infected with coronavirus, authorities can upload the list of anonymised IDs for the past 14 days for contact tracing.",
+                    "The data will remain securely encrypted on your phone unless you test positive for COVID-19, in which case it would be accessed by state health authorities."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "26 April 2020"
+            }
+        },
+        {
+            "name": "What personal data will be collected?",
+            "text": {
+                "text_1": [
+                    "People who downloaded the app will be asked to add their name, age range, postcode and phone number. The app also collects information about phone models and signal strength, and anonymised app analytics data."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "26 April 2020"
+            }
+        },
+        {
+            "name": "Can the app trace my location?",
+            "text": {
+                "text_1": [
+                    "Deputy chief medical officer Paul Kelly said the app would not track location. The Singapore version of the app does not track location, either."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "26 April 2020"
+            }
+        },
+        {
+            "name": "Will it be mandatory?",
+            "text": {
+                "text_1": [
+                    "Scott Morrison has said consent would be key to the app, indicating it would not be mandatory, and people would share information through the app only if they consented to it. The government’s target for uptake of the app is 40% of the population to make it effective."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "26 April 2020"
+            }
+        },
+        {
+            "name": "Should I be concerned about my privacy?",
+            "text": {
+                "text_1": [
+                    "The government says the app is safe and personal information will be handled in accordance with the Privacy Act 1988 and the Biosecurity Determination 2020.",
+                    "A report by the ABC this week flagged a contract for COVIDSafe's data storage was given to US-based retail giant Amazon, further raising concerns about whether Australians' data could be passed onto third parties.",
+                    "On Sunday, Mr Hunt moved to quash some of those concerns, saying data would only be stored in Australia and would only be accessible by state and territory health authorities."
+                ],
+                "list_1": [],
+                "text_2": [],
+                "list_2": [],
+                "text_3": [],
+                "citation": [
+                    {
+                        "name": "What is COVIDSafe, Australia's controversial new contact tracing app?",
+                        "link": "https://www.sbs.com.au/news/what-is-covidsafe-australia-s-controversial-new-contact-tracing-app"
+                    },
+                    {
+                        "name": "Australia's coronavirus contact tracing app: what we know so far - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far"
+                    },
+                    {
+                        "name": "Privacy concerns persist over Australia's coronavirus tracing app  - The Guardian",
+                        "link": "https://www.theguardian.com/world/2020/apr/20/privacy-concerns-persist-over-australias-coronavirus-tracing-app"
+                    }
+                ],
+                "lastUpdated": "26 April 2020"
+            }
+        }
+    ]
+}

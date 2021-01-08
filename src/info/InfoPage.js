@@ -12,8 +12,8 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import dailyFun from "../data/dailyFun.json"
-import information from "../data/info.json";
+import dailyFun from "./dailyFun.json"
+import information from "./info.json";
 import mapDataHos from "../data/mapdataHos.json";
 import HospitalsMap from "./HospitalsMap"
 // import i18n bundle
