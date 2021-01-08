@@ -256,14 +256,14 @@ class MultiDataTypeBarChart extends React.Component {
                     axisLabel: {
                         formatter: this.__mode === 'percentiles' ? "{value}%" : '{value}'
                     },
-                    min: this.__mode === 'percentiles' ? 0 : value => {
+                    /*min: this.__mode === 'percentiles' ? 0 : value => {
                         this.__calcMaxMinVals();
                         return roundDown(this.__minValue);
                     },
                     max: this.__mode === 'percentiles' ? 100 : value => {
                         this.__calcMaxMinVals();
                         return roundUp(this.__maxValue);
-                    }
+                    }*/
                 },
                 dataZoom: [
                     {

@@ -4,7 +4,7 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import DailyHistory from "../data/dailyFunArchive.json"
+import DailyHistory from "../info/dailyFunArchive.json"
 import uuid from "react-uuid";
 import ReactPlayer from "react-player";
 import ReactHtmlParser from 'react-html-parser';

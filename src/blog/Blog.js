@@ -1,5 +1,5 @@
 import React, { useState, Component } from "react";
-import blogData from "../data/blogPosts.json";
+import blogData from "./blogPosts.json";
 import uuid from "react-uuid";
 import "./Blog.css";
 import {A} from "hookrouter";

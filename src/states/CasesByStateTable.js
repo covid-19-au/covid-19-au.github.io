@@ -1,9 +1,9 @@
 import uuid from "react-uuid";
 import React, { useState, useEffect } from "react";
-import stateData from "../../data/state.json";
-import testedCases from "../../data/testedCases.json";
+import stateData from "../data/state.json";
+import testedCases from "../data/testedCases.json";
 // import i18n bundle
-import i18next from "../../assets/translations/i18n";
+import i18next from "../assets/translations/i18n";
 import { A } from "hookrouter";
 
 const CONFIRMED = 1;

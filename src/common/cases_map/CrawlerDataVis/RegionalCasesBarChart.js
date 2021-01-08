@@ -262,7 +262,7 @@ class RegionalCasesBarChart extends React.Component {
                     axisLabel: {
                         formatter: this.__mode === 'percentiles' ? "{value}%" : '{value}'
                     },
-                    max: this.__mode === 'percentiles' ? 100 : getMaximumCombinedValue(series)
+                    //max: this.__mode === 'percentiles' ? 100 : getMaximumCombinedValue(series)
                 },
                 dataZoom: [
                     {

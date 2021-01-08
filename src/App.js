@@ -11,7 +11,6 @@ import dayjs from "dayjs";
 import "dayjs/locale/en-au";
 import relativeTime from "dayjs/plugin/relativeTime";
 
-import all from "./data/overall";
 import provinces from "./data/area";
 
 import Footer from "./common/Footer"
@@ -26,7 +25,7 @@ import WorldPage from "./world/WorldPage";
 import BlogPage from "./blog/BlogPage";
 import Blog from "./blog/Blog";
 import AboutUsPage from "./about_us/AboutUsPage";
-import StateChart from "./home/charts/StateChart";
+import StateChart from "./states/StateChart";
 import DashboardConfig from "./dashboard/DashboardConfig"
 
 import stateCaseData from "./data/stateCaseData";
@@ -169,7 +168,6 @@ function App() {
     }));
 
   const area = province ? provincesByName[province.name].cities : provinces;
-  const overall = province ? province : all;
   const [nav, setNav] = useState("Home");
   // This is used to set the state of the page for navbar CSS styling.
   const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
@@ -179,7 +177,7 @@ function App() {
 
   // Set the routes for each page and pass in props.
   const routes = {
-    "/": () => <HomePage province={province} overall={overall} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
+    "/": () => <HomePage province={province} overall={province} myData={myData} area={area} data={data} setProvince={setProvince} gspace={gspace} />,
     "/info": () => <InfoPage columns={columns} gspace={gspace} />,
     "/news": () => <NewsPage province={province} gspace={gspace} />,
     "/faq": () => <FAQPage />,
@@ -214,7 +212,7 @@ function App() {
                                     dataType={"status_active"}
                                     timePeriod={null} />,
 
-    "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={overall} inputData={data} setProvince={setProvince} area={area} />,
+    "/dashboard": () => <DashboardConfig province={province} myData={myData} overall={province} inputData={data} setProvince={setProvince} area={area} />,
     "/blog": () => <Blog />,
     "/blog/:id": ({ id }) => <Blog id={id} />,
     "/blog/post/:id": ({ id }) => <BlogPage id={id} />,

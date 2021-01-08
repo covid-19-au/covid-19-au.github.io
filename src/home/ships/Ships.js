@@ -1,6 +1,6 @@
 import React from "react";
 import Acknowledgement from "../../common/Acknowledgment";
-import ships from "../../data/ship.json";
+import ships from "./ship.json";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";

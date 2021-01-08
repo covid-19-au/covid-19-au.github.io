@@ -1,22 +1,21 @@
 import React, { Fragment } from "react";
 import Grid from "@material-ui/core/Grid";
-import ageGenderData from "../../data/ageGender.json";
 import ReactGA from "react-ga";
-import latestAusData from "../../data/stateCaseData.json";
+import latestAusData from "../data/stateCaseData.json";
 
-import GeneralLineChart from "../../common/data_vis/GeneralLineChart";
-import renderStatus from "../../common/data_vis/renderStatus";
-import RegionalCasesBarChart from "../../common/cases_map/CrawlerDataVis/RegionalCasesBarChart";
-import MultiDataTypeBarChart from "../../common/cases_map/CrawlerDataVis/MultiDataTypeBarChart";
-import PopulationPyramid from "../../common/cases_map/CrawlerDataVis/PopulationPyramid";
-import RegionalCasesTreeMap from "../../common/cases_map/CrawlerDataVis/RegionalCasesTreeMap";
-import RegionType from "../../common/cases_map/CrawlerDataTypes/RegionType";
-import getDataDownloader from "../../common/cases_map/CrawlerData/DataDownloader";
-import ConfirmedMap from "../confirmed_map/ConfirmedMap"
-import Acknowledgement from "../../common/Acknowledgment";
-import AgeBarChart from "../../common/cases_map/CrawlerDataVis/AgeBarChart";
-import getRemoteData from "../../common/cases_map/CrawlerData/RemoteData";
-import GenderPieChart from "../../common/cases_map/CrawlerDataVis/GenderPieChart";
+import GeneralLineChart from "../common/data_vis/GeneralLineChart";
+import renderStatus from "../common/data_vis/renderStatus";
+import RegionalCasesBarChart from "../common/cases_map/CrawlerDataVis/RegionalCasesBarChart";
+import MultiDataTypeBarChart from "../common/cases_map/CrawlerDataVis/MultiDataTypeBarChart";
+import PopulationPyramid from "../common/cases_map/CrawlerDataVis/PopulationPyramid";
+import RegionalCasesTreeMap from "../common/cases_map/CrawlerDataVis/RegionalCasesTreeMap";
+import RegionType from "../common/cases_map/CrawlerDataTypes/RegionType";
+import getDataDownloader from "../common/cases_map/CrawlerData/DataDownloader";
+import ConfirmedMap from "../home/confirmed_map/ConfirmedMap"
+import Acknowledgement from "../common/Acknowledgment";
+import AgeBarChart from "../common/cases_map/CrawlerDataVis/AgeBarChart";
+import getRemoteData from "../common/cases_map/CrawlerData/RemoteData";
+import GenderPieChart from "../common/cases_map/CrawlerDataVis/GenderPieChart";
 
 
 const stateNameMapping = {
@@ -30,14 +29,6 @@ const stateNameMapping = {
     NT: "Northern Territory",
 };
 
-/**
- * get choosen state data
- * @param {String} state user chosed state
- * @return {Object} object which contains age and gender data for a specific state. Return null if the choosen state data is not available
- */
-function getExpectStateData(state) {
-    return state.toUpperCase() in ageGenderData ? ageGenderData[state] : null;
-}
 
 class StateChart extends React.Component {
     constructor(props) {
@@ -251,9 +242,9 @@ class StateChart extends React.Component {
             'source_under_investigation',
             'source_overseas'
         ]) {
-            if (regionParent.toLowerCase() === 'au-vic') {
-                dataType += '_active';
-            }
+            //if (regionParent.toLowerCase() === 'au-vic') {
+            //    dataType += '_active';
+            //}
 
             let casesInst = await this.dataDownloader.getCaseData(
                 dataType, 'admin_1', 'au'
@@ -266,7 +257,7 @@ class StateChart extends React.Component {
         this.multiDataTypeAreaChart.setCasesInst(
             casesInsts,
             new RegionType('admin_1', 'au', regionParent),
-            regionParent.toLowerCase() === 'au-vic'
+            //regionParent.toLowerCase() === 'au-vic'
         );
     }
 
