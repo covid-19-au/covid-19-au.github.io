@@ -23,7 +23,7 @@ SOFTWARE.
  */
 
 import ConfirmedMapFns from "../../ConfirmedMap/Fns";
-import shipData from "../../../../data/ship.json"
+import shipData from "../../../../home/ships/ship.json"
 
 
 function getPossibleShips() {

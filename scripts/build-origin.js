@@ -16,12 +16,6 @@ const fs = require('fs')
 //   fs.writeFileSync('./src/data/countries.json', countries)
 // }
 //
-// const loadOverall = async data => {
-//   const overall = data
-//     .match(/window.getStatisticsService = (.*?)}catch/)[1]
-//   fs.writeFileSync('./src/data/overall.json', overall)
-// }
-//
 // const loadCityList = async data => {
 //   const cityList = data
 //     .match(/window.getAreaStat = (.*?)}catch/)[1]

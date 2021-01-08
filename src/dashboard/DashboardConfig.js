@@ -1,12 +1,11 @@
 import React, { useState, Suspense, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
-import CasesByStateTable from "../home/charts/CasesByStateTable";
+import CasesByStateTable from "../states/CasesByStateTable";
 import NationalStatTiles from "../home/national_stat_tiles/NationalStatTiles"
 import EChartGlobalLog from "../home/charts/GlobalComparison";
 import country from "../data/country.json";
 import NationalCasesDeathsRecoveries from "../home/charts/NationalCasesDeathsRecoveries";
 import Carousel from 'react-material-ui-carousel';
-import all from "../data/overall.json";
 import './DashboardConfig.css'
 import Header from '../common/Header';
 
@@ -21,7 +20,7 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
             <Grid container spacing={0} justify="center" wrap="wrap">
                 <Grid item xs={11} >
                     <NationalStatTiles
-                        {...{ ...all, ...overall }}
+                        {...{ ...overall }}
                         name={province && province.name}
                         data={myData}
                         countryData={country}
@@ -65,7 +64,7 @@ export default function DashBoardConfig({ province, myData, overall, inputData, 
     //         <Grid item xs={11} className="removePadding">
 
     //             <NationalStatTiles
-    //                 {...{ ...all, ...overall }}
+    //                 {...{ ...overall }}
     //                 name={province && province.name}
     //                 data={myData}
     //                 countryData={country}
