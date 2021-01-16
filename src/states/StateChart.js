@@ -46,6 +46,19 @@ class StateChart extends React.Component {
                 <div className="card">
                     <h2>Infection Sources</h2>
                     <MultiDataTypeBarChart ref={(el) => this.multiDataTypeAreaChart = el} />
+
+                    <h5 style={{marginTop: "12px", fontWeight: "bold"}}>Definitions:</h5>
+                    <ul>
+                        <li><b>Confirmed:</b> Those who contracted COVID-19 in Australia
+                            from another known case.</li>
+                        <li><b>Community:</b> Those who contracted COVID-19 from
+                            an Australian case, but the source is unknown.</li>
+                        <li><b>Under Investigation:</b> Those who contracted COVID-19 from
+                            an Australian case where the source is unknown, but currently
+                            under investigation by contact tracers.</li>
+                        <li><b>Overseas:</b> Those who contracted COVID-19
+                            while either overseas or at sea.</li>
+                    </ul>
                 </div>
             </Grid>
         );
