@@ -223,7 +223,7 @@ class StateComparisonChart extends React.Component {
             let date = new Date(arr[0], arr[1] - 1, arr[2]);
             const cases = stateData[day];
 
-            if (date.getMonth() > 1) {
+            if (date.getMonth() >1) {
                 if (date.getMonth() === 2) {
                     if (date.getDate() >= 18) {
                         instances.push(cases[state][3]);
@@ -232,6 +232,9 @@ class StateComparisonChart extends React.Component {
                 else if (date.getMonth() > 2) {
                     instances.push(cases[state][3]);
                 }
+            }
+            else {
+                instances.push(cases[state][3]);
             }
         }
         return instances;
@@ -264,11 +267,13 @@ class StateComparisonChart extends React.Component {
                         dateData.push(labelName);
                     }
                 }
-                else {
+            else {
                     let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
-                    dateData.push(labelName);
-                }
+                    dateData.push(labelName);}
             }
+            else {
+                let labelName = date.getDate().toString() + "-" + monthTrans[date.getMonth()];
+                dateData.push(labelName);}
         }
         return dateData;
     }
