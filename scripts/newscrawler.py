@@ -66,10 +66,6 @@ def newscrawler(hour_offset, filter_by, file_to_write, output_type="json"):
             "name": "Australian Government Department of Health",
         },
         {
-            "link": "https://www.health.nsw.gov.au/_layouts/feed.aspx?xsl=1&web=/news&page=4ac47e14-04a9-4016-b501-65a23280e841&wp=baabf81e-a904-44f1-8d59-5f6d56519965&pageurl=/news/Pages/rss-nsw-health.aspx",
-            "name": "New South Wales Government - Health",
-        },
-        {
             "link": "https://www2.health.vic.gov.au/rss/health-alerts-and-advisories",
             "name": "Victoria State Government",
         },
@@ -85,14 +81,6 @@ def newscrawler(hour_offset, filter_by, file_to_write, output_type="json"):
         {
             "link": "http://newsroom.nt.gov.au/api/RSS/NewsroomIndex",
             "name": "Northern Territory Government",
-        },
-        {
-            "link": "http://statements.qld.gov.au/Feed/Latest/25",
-            "name": "Queensland Government",
-        },
-        {
-            "link": "http://statements.qld.gov.au/Feed/minister-for-health-and-minister-for-ambulance-services",
-            "name": "Queensland Government",
         },
         {
             "link": "https://www.brisbanetimes.com.au/rss/national/queensland.xml",
