@@ -408,6 +408,10 @@ class CovidMapControl extends React.Component {
                             this.confirmedMarkers.push(new MarkerConfirmed(map, item));
                         });
                     });
+                // Temp solution
+                confirmedData.forEach((item) => {
+                    this.confirmedMarkers.push(new MarkerConfirmed(map, item));
+                });
             };
             onLoad();
         };
