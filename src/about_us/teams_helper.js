@@ -18,7 +18,7 @@ const Developers = {
         {
             name: "Han Wang",
             linkedin: "https://www.linkedin.com/in/han-wang-64166599/",
-            email: "",
+            email: "freddie.wanah@gmail.com",
             github: "",
             website: "",
             fileName: "Han.png",
@@ -581,6 +581,17 @@ const Contributor = {
             github: "",
             website: "",
             fileName: "Yaoye.png"
+        },
+        {
+            name: "Han Hu",
+            linkedin: "",
+            email: "huhanthu@qq.com",
+            github: "",
+            website: "",
+            fileName: "",
+            items: [
+                "Website testing"
+            ]
         },
     ]
 };
