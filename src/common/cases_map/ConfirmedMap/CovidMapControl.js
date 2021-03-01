@@ -398,20 +398,21 @@ class CovidMapControl extends React.Component {
                 }
                 this.onMapMoveChange();
 
-                this.remoteData
-                    .downloadFromRemote('case_locations.json')
-                    .then(resp => {
-                        return resp.json();
-                    })
-                    .then(confirmedData => {
-                        confirmedData.forEach((item) => {
-                            this.confirmedMarkers.push(new MarkerConfirmed(map, item));
-                        });
-                    });
-                // Temp solution
-                confirmedData.forEach((item) => {
-                    this.confirmedMarkers.push(new MarkerConfirmed(map, item));
-                });
+                // Hide the case markers
+                // this.remoteData
+                //     .downloadFromRemote('case_locations.json')
+                //     .then(resp => {
+                //         return resp.json();
+                //     })
+                //     .then(confirmedData => {
+                //         confirmedData.forEach((item) => {
+                //             this.confirmedMarkers.push(new MarkerConfirmed(map, item));
+                //         });
+                //     });
+                // // Temp solution
+                // confirmedData.forEach((item) => {
+                //     this.confirmedMarkers.push(new MarkerConfirmed(map, item));
+                // });
             };
             onLoad();
         };
