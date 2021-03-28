@@ -30,6 +30,7 @@
   "status": {
     "title": "현황",
     "confirm": "확진자",
+    "vaccination": "백신 접종",
     "death": "사망자",
     "recover": "완치",
     "tested": "검사건수",

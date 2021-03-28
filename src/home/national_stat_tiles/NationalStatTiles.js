@@ -78,6 +78,7 @@ export default function NationalStatTiles({
   data,
   countryData,
   activeCount,
+  vaccineCount,
   hospitalCount,
   icuCount,
 }) {
@@ -86,6 +87,7 @@ export default function NationalStatTiles({
   let curedCountIncrease = 0;
   let testedCountIncrease = 0;
   let activeCountIncrease = 0;
+  let vaccineCountIncrease = 0;
   let hospitalCountIncrease = 0;
   let icuCountIncrease = 0;
   if (data && countryData) {
@@ -95,6 +97,7 @@ export default function NationalStatTiles({
     curedCount = 0;
     activeCount = 0;
     hospitalCount = 0;
+    vaccineCount = 0;
     icuCount = 0;
     for (let i = 0; i < data.length; i++) {
       confirmedCount += parseInt(data[i][1]);
@@ -103,6 +106,7 @@ export default function NationalStatTiles({
       activeCount += parseInt(data[i][5]);
       hospitalCount += parseInt(data[i][6]);
       icuCount += parseInt(data[i][7]);
+      vaccineCount += parseInt(data[i][10])
 
       if (data[i][4] === "N/A") {
         //do nothing
@@ -121,6 +125,7 @@ export default function NationalStatTiles({
     activeCountIncrease = activeCount - lastTotal[3];
     hospitalCountIncrease = hospitalCount - lastTotal[5];
     icuCountIncrease = icuCount - lastTotal[6];
+    vaccineCountIncrease = vaccineCount - lastTotal[7];
   } else {
     confirmedCount = 0;
     deadCount = 0;
@@ -129,6 +134,7 @@ export default function NationalStatTiles({
     activeCount = 0;
     hospitalCount = 0;
     icuCount = 0;
+    vaccineCount = 0
   }
 
   return (
@@ -182,7 +188,7 @@ export default function NationalStatTiles({
         <Grid item xs={6} sm={3} lg={3} xl={3}>
           <Tag
             number={curedCount}
-            fColor={"#00c177"}
+            fColor={"#00c117"}
             increased={curedCountIncrease}
             typeOfCases={"Recovered"}
           >
@@ -197,6 +203,44 @@ export default function NationalStatTiles({
             </button>
           </Tag>
         </Grid>
+        <Grid item xs={6} sm={3} lg={3} xl={3}>
+          <Tag
+              number={activeCount}
+              fColor={"#f75c8d"}
+              increased={activeCountIncrease}
+              typeOfCases={"Active Cases"}
+          >
+            <button
+                className="hoverButton"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                data-html="true"
+                title="<em>Existing confirmed cases that have not yet recovered.</em>"
+            >
+              {i18next.t("homePage:status.active")}
+            </button>
+          </Tag>
+        </Grid>
+
+        <Grid item xs={6} sm={3} lg={3} xl={3}>
+          <Tag
+              number={vaccineCount}
+              fColor={"#4ac100"}
+              increased={vaccineCountIncrease}
+              typeOfCases={"Vaccination"}
+          >
+            <button
+                className="hoverButton"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                data-html="true"
+                title="<em>Number of doses get injected.</em>"
+            >
+              {i18next.t("homePage:status.vaccination")}
+            </button>
+          </Tag>
+        </Grid>
+
         <Grid item xs={6} sm={3} lg={3} xl={3}>
           <Tag
             number={testedCount}
@@ -216,25 +260,7 @@ export default function NationalStatTiles({
           </Tag>
         </Grid>
 
-        <Grid item xs={4} sm={3} lg={3} xl={3}>
-          <Tag
-            number={activeCount}
-            fColor={"#f75c8d"}
-            increased={activeCountIncrease}
-            typeOfCases={"Active Cases"}
-          >
-            <button
-              className="hoverButton"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="<em>Existing confirmed cases that have not yet recovered.</em>"
-            >
-              {i18next.t("homePage:status.active")}
-            </button>
-          </Tag>
-        </Grid>
-        <Grid item xs={4} sm={3} lg={4} xl={4}>
+        <Grid item xs={6} sm={3} lg={3} xl={3}>
           <Tag
             number={hospitalCount}
             fColor={"#9d71ea"}
@@ -252,7 +278,7 @@ export default function NationalStatTiles({
             </button>
           </Tag>
         </Grid>
-        <Grid item xs={4} sm={3} lg={3} xl={3}>
+        <Grid item xs={6} sm={3} lg={3} xl={3}>
           <Tag
             number={icuCount}
             fColor={"#00aac1"}

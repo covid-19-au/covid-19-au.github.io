@@ -26,6 +26,8 @@ class GoogleMapDropin extends React.Component {
                             {(() => {
                                 let out = [];
                                 for (let dataItem of this.props.data.slice(1)) {
+                                    if(dataItem[0].f === "Cth"||dataItem[0].f === "GP")
+                                    {continue;}
                                     let ref = React.createRef();
                                     this.statePathElmRefs[dataItem[0].f] = ref;
 

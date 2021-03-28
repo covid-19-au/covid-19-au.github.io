@@ -30,6 +30,7 @@
   "status": {
     "title": "Số liệu",
     "confirm": "Ca nhiễm",
+    "vaccination": "tiêm chủng",
     "hospital": "Nằm viện",
     "icu": "ICU",
     "No New Cases":"No New Cases",

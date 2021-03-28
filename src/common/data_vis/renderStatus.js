@@ -49,11 +49,13 @@ function numberWithCommas(x) {
 function renderStatus(state) {
   let lastData = getLastData(state.toUpperCase());
   let latestData = latestAusData["values"];
+  console.log(lastData)
   for (let i = 0; i < latestData.length; i++) {
     if (latestData[i][0].toString() === state.toUpperCase()) {
-      latestData = latestData[i].slice(1, latestData.length);
+      latestData = latestData[i].slice(1, latestData[i].length);
     }
   }
+  console.log(latestData)
 
   return (
     <div>
@@ -120,6 +122,42 @@ function renderStatus(state) {
         </Grid>
         <Grid item xs={6} sm={4} lg={3}>
           <Tag
+              number={numberWithCommas(latestData[4])}
+              fColor={"#f75c8d"}
+              increased={latestData[4] - lastData[4]}
+              typeOfCases={"Active"}
+          >
+            <button
+                className="hoverButton"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                data-html="true"
+                title="<em>Existing confirmed cases that have not yet recovered.</em>"
+            >
+              Active
+            </button>
+          </Tag>
+        </Grid>
+        <Grid item xs={6} sm={4} lg={3}>
+          <Tag
+              number={numberWithCommas(latestData[9])}
+              fColor={"#4ac100"}
+              increased={latestData[9] - lastData[7]}
+              typeOfCases={"Tested"}
+          >
+            <button
+                className="hoverButton"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                data-html="true"
+                title="<em>Number of doses get injected.</em>"
+            >
+              Vaccination
+            </button>
+          </Tag>
+        </Grid>
+        <Grid item xs={6} sm={4} lg={3}>
+          <Tag
             number={numberWithCommas(latestData[3])}
             fColor={"#007cf2"}
             increased={latestData[3] - lastData[3]}
@@ -136,25 +174,8 @@ function renderStatus(state) {
             </button>
           </Tag>
         </Grid>
-        <Grid item xs={4} sm={4} lg={3}>
-          <Tag
-            number={numberWithCommas(latestData[4])}
-            fColor={"#f75c8d"}
-            increased={latestData[4] - lastData[4]}
-            typeOfCases={"Active"}
-          >
-            <button
-              className="hoverButton"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="<em>Existing confirmed cases that have not yet recovered.</em>"
-            >
-              Active
-            </button>
-          </Tag>
-        </Grid>
-        <Grid item xs={4} sm={4} lg={3}>
+
+        <Grid item xs={6} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[5])}
             fColor={"#9d71ea"}
@@ -172,7 +193,7 @@ function renderStatus(state) {
             </button>
           </Tag>
         </Grid>
-        <Grid item xs={4} sm={4} lg={3}>
+        <Grid item xs={6} sm={4} lg={3}>
           <Tag
             number={numberWithCommas(latestData[6])}
             fColor={"#00aac1"}

@@ -127,6 +127,10 @@ export default function ScrollDialog() {
                                                                                                 rel="noopener noreferrer" style={{ color: "#5499C7" }}>https://ww2.health.wa.gov.au/Home</a></p>
                             </ListItem>
                             <ListItem>
+                                <p> COVID Live for vaccination data at <a href="https://covidlive.com.au/" target="_blank"
+                                                                              rel="noopener noreferrer" style={{ color: "#5499C7" }}>https://covidlive.com.au</a></p>
+                            </ListItem>
+                            <ListItem>
                                 <p> Map underlay data from the Australian Bureau of Statistics
                                     under the Creative Commons Attribution 4.0 International license at <a href="https://www.abs.gov.au/" target="_blank"
                                                                                                 rel="noopener noreferrer" style={{ color: "#5499C7" }}>https://www.abs.gov.au/</a></p>

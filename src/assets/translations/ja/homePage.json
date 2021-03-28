@@ -30,6 +30,7 @@
   "status": {
     "title": "感染動向",
     "confirm": "確認済み",
+    "vaccination": "予防接種",
     "hospital": "入院中",
     "icu": "ICU",
     "updateTitle": "毎日の最新感染動向",
