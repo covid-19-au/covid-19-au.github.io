@@ -13,6 +13,7 @@ const TESTED = 4;
 const ACTIVE = 5;
 const NONEWCASES = 8;
 const REASSIGNED = 9;
+const Vaccine = 10;
 
 
 function ReassignedCaseDisclaimer({ reassignedData }) {
@@ -65,9 +66,10 @@ export default function CasesByStateTable({ area, onChange, data }) {
   };
   const reassignedCases = {}
   let i = 0
-  while (i < data.length) {
+  while (i < data.length-2) {
     let currentState = data[i][0]
     reassignedCases[data[i][0]] = []
+    currentState==="GP"||currentState==="Cth"?reassignedCases[data[i][0]].push(data[i][CONFIRMED]):
     reassignedCases[data[i][0]].push(data[i][CONFIRMED] - lastTotal[currentState][0])
     reassignedCases[data[i][0]].push(parseInt(data[i][REASSIGNED]))
     reassignedCases[currentState][0] = reassignedCases[currentState][0] + reassignedCases[currentState][1]
@@ -79,7 +81,8 @@ export default function CasesByStateTable({ area, onChange, data }) {
       testedCases[
       Object.keys(testedCases)[Object.keys(testedCases).length - 1]
       ];
-    return data.map((x) => (
+    let stateData = data
+    return stateData.slice(0,8).map((x) => (
       <div
         role={"button"}
         aria-label={getAriaLabel(...x)}
@@ -94,6 +97,11 @@ export default function CasesByStateTable({ area, onChange, data }) {
         {/*<div className="death">{ x.deadCount }</div>*/}
         {/*<div className="cured">{ x.curedCount }</div>*/}
         <div className={"area"}>
+          {x[0]==="Cth"||x[0]==="GP"?(
+              <strong>
+                {x[0]}{" "}
+              </strong>
+          ):(
           <A
             href={`/state/${x[0].toLowerCase()}`}
             onClick={() => {
@@ -113,11 +121,11 @@ export default function CasesByStateTable({ area, onChange, data }) {
                 <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 011.659-.753l5.48 4.796a1 1 0 010 1.506z" />
               </svg>
             </strong>
-          </A>
+          </A>)}
         </div>
         <div className="confirmed">
-          {reassignedCases[x[0]][1] > 0 ? <strong>{numberWithCommas(x[CONFIRMED])}*</strong> : <strong>{numberWithCommas(x[CONFIRMED])}</strong>}&nbsp;
-          {x[NONEWCASES] === "true" ? (
+          {x[0]==="Cth"||x[0]==="GP"? (" "):(reassignedCases[x[0]][1] > 0 ? <strong>{numberWithCommas(x[CONFIRMED])}*</strong> : <strong>{numberWithCommas(x[CONFIRMED])}</strong>)}&nbsp;
+          {x[0]==="Cth"||x[0]==="GP"? null :x[NONEWCASES] === "true" ? (
             <div className="dailyIncrease">(+0)</div>
           ) : (
               <div className="dailyIncrease">
@@ -130,38 +138,38 @@ export default function CasesByStateTable({ area, onChange, data }) {
             )}
         </div>
         <div className="death">
-          {x[0] === "NSW" || x[0] === "QLD" ? (
+          {x[0]==="Cth"||x[0]==="GP"? null :x[0] === "NSW" || x[0] === "QLD" ? (
             <strong> {numberWithCommas(x[DEATH])}&#x5e; </strong>
           ) : (
               <strong> {numberWithCommas(x[DEATH])} </strong>
             )}
           &nbsp;
           <div className="dailyIncrease">
-            {x[DEATH] - lastTotal[x[0]][1] > 0
+            {x[0]==="Cth"||x[0]==="GP"? null :x[DEATH] - lastTotal[x[0]][1] > 0
               ? ` (+${x[2] - lastTotal[x[0]][1]})`
               : null}
           </div>
         </div>
-        <div className="cured">
-          {<strong> {numberWithCommas(x[CURED])} </strong>}
-          <div className="dailyIncrease">
-            {x[CURED] - lastTotal[x[0]][2] > 0
-              ? `(+${x[3] - lastTotal[x[0]][2]})`
-              : null}
-          </div>
-        </div>
         <div className="activeCase">
-          {<strong> {numberWithCommas(x[ACTIVE])} </strong>}&nbsp;
+          {x[0]==="Cth"||x[0]==="GP"? null :<strong> {numberWithCommas(x[ACTIVE])} </strong>}&nbsp;
           <div className="dailyIncrease">
-            {x[ACTIVE] - lastTotal[x[0]][4] > 0
+            {x[0]==="Cth"||x[0]==="GP"? null :x[ACTIVE] - lastTotal[x[0]][4] > 0
               ? `(+${x[ACTIVE] - lastTotal[x[0]][4]})`
               : x[ACTIVE] - lastTotal[x[0]][4] < 0
                 ? `(-${lastTotal[x[0]][4] - x[ACTIVE]})`
                 : null}
           </div>
         </div>
+        <div className="cured">
+          {numberWithCommasLarge(numberWithCommas(x[Vaccine]))}
+          <div className="dailyIncrease">
+            {x[0]==="Cth"||x[0]==="GP"? null :x[Vaccine] - lastTotal[x[0]][7] > 0
+                ? `(+${numberWithCommasLarge(x[10] - lastTotal[x[0]][7])})`
+                : null}
+          </div>
+        </div>
         <div className="tested">{
-          numberWithCommasLarge(x[TESTED])
+          x[0]==="Cth"||x[0]==="GP"? null :numberWithCommasLarge(x[TESTED])
 
         }</div>
       </div>
@@ -182,10 +190,10 @@ export default function CasesByStateTable({ area, onChange, data }) {
           {numberWithCommas(sumRow(CONFIRMED, data))}
         </div>
         <div className="death">{numberWithCommas(sumRow(DEATH, data))}</div>
-        <div className="cured">{numberWithCommas(sumRow(CURED, data))}</div>
         <div className="activeCase">
           {numberWithCommas(sumRow(ACTIVE, data))}
         </div>
+        <div className="cured">{`${numberWithCommas(sumRow(Vaccine, data))}*`}</div>
         <div className="tested">
           {numberWithCommasLarge(sumRow(TESTED, data))}
         </div>
@@ -205,12 +213,12 @@ export default function CasesByStateTable({ area, onChange, data }) {
         <div className="death header deathtitle">
           {i18next.t("homePage:status.Deaths")}
         </div>
-        <div className="cured header recoveredtitle">
-          {i18next.t("homePage:status.Recoveries")}
-        </div>
         <div className="activeCase header activetitle">
           {i18next.t("homePage:status.active")}
         </div>
+          <div className="cured header recoveredtitle">
+              {i18next.t("homePage:status.vaccination")}
+          </div>
         <div className="tested header testedtitle">
           {i18next.t("homePage:status.Tested")}
         </div>
@@ -219,6 +227,10 @@ export default function CasesByStateTable({ area, onChange, data }) {
       <Total data={data} />
 
       <ReassignedCaseDisclaimer reassignedData={reassignedCases} />
+        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
+        <sup>*</sup> {`Total Vaccine doses also include Commonwealth Government: ${numberWithCommas(data[8][Vaccine])} and GP Clinics: ${numberWithCommas(data[9][Vaccine])}. `}
+      </span>
+        <br />
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         <sup>&#x5e;</sup> NSW active cases are locally acquired COVID-19 cases with onset in the last four weeks.
       </span>
@@ -229,7 +241,7 @@ export default function CasesByStateTable({ area, onChange, data }) {
       </span>
       <br />
       <span className="due" style={{ padding: 0 }}>
-          *See also the <A href="/state" className="citationLink">states page</A> for more detailed statistics.
+          See also the <A href="/state" className="citationLink">states page</A> for more detailed statistics.
       </span>
     </div>
   );

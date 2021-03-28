@@ -30,6 +30,7 @@
   "status": {
     "title": "当前状态",
     "confirm": "已确认",
+    "vaccination": "疫苗接种",
     "hospital": "在医院",
     "icu": "在ICU中",
     "updateTitle": "每日更新状态",

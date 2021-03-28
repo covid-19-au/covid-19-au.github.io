@@ -125,10 +125,10 @@ header i {
 }
 
 .area {
-  flex: 0.75;
+  flex: 0.8;
   padding: 0.4rem 0;
   position: relative;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
 } .light .area {
   color: #212f3d;
 } .dark .area {
@@ -217,7 +217,8 @@ header i {
 }
 
 .cured {
-  color: #00c177;
+  /*color: #00c177;*/
+  color: #4ac100;
   flex: 1.3;
 }
 

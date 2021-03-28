@@ -30,6 +30,7 @@
   "status": {
     "title": "當前狀態",
     "confirm": "已確認",
+    "vaccination": "預防接種",
     "No New Cases":"無新增",
     "hospital": "在醫院",
     "icu": "在ICU中",
