@@ -193,7 +193,7 @@ export default function CasesByStateTable({ area, onChange, data }) {
         <div className="activeCase">
           {numberWithCommas(sumRow(ACTIVE, data))}
         </div>
-        <div className="cured">{`${numberWithCommas(sumRow(Vaccine, data))}*`}</div>
+        <div className="cured">{`${numberWithCommas(sumRow(Vaccine, data))}`}</div>
         <div className="tested">
           {numberWithCommasLarge(sumRow(TESTED, data))}
         </div>
@@ -227,10 +227,10 @@ export default function CasesByStateTable({ area, onChange, data }) {
       <Total data={data} />
 
       <ReassignedCaseDisclaimer reassignedData={reassignedCases} />
-        <span className="due" style={{ fontSize: "80%", padding: 0 }}>
-        <sup>*</sup> {`Total Vaccine doses also include Commonwealth Government: ${numberWithCommas(data[8][Vaccine])} and GP Clinics: ${numberWithCommas(data[9][Vaccine])}. `}
-      </span>
-        <br />
+      {/*  <span className="due" style={{ fontSize: "80%", padding: 0 }}>*/}
+      {/*  <sup>*</sup> {`Total Vaccine doses also include Commonwealth Government: ${numberWithCommas(data[8][Vaccine])} and GP Clinics: ${numberWithCommas(data[9][Vaccine])}. `}*/}
+      {/*</span>*/}
+      {/*  <br />*/}
       <span className="due" style={{ fontSize: "80%", padding: 0 }}>
         <sup>&#x5e;</sup> NSW active cases are locally acquired COVID-19 cases with onset in the last four weeks.
       </span>
