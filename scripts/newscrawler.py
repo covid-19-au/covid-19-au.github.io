@@ -201,5 +201,8 @@ if __name__ == "__main__":
 
     # rss feeds link file
     FTOWRITE = "src/data/timelinedata.json"
-    json_string = newscrawler(HOUR_OFFSET, FILTER_BY, FTOWRITE, output_type="json")
+    try:
+        json_string = newscrawler(HOUR_OFFSET, FILTER_BY, FTOWRITE, output_type="json")
+    except:
+        pass
 
