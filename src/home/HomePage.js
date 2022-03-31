@@ -66,23 +66,23 @@ export default function HomePage({
             </Grid>
 
             <Grid style={{minWidth: '45%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                <div className="card" style={{
-                    display: 'flex',
-                    flexDirection: 'column'
-                }}>
-                    <h2 style={{ display: 'flex' }}
-                            aria-label="Casemap">Case Map<div
-                        style={{
-                                alignSelf: "flex-end",
-                                marginLeft: "auto",
-                                fontSize: "60%"
-                            }}>
-                            <Acknowledgement>
-                            </Acknowledgement>
-                        </div>
-                    </h2>
-                    <ConfirmedMap />
-                </div>
+                {/*<div className="card" style={{*/}
+                {/*    display: 'flex',*/}
+                {/*    flexDirection: 'column'*/}
+                {/*}}>*/}
+                {/*    <h2 style={{ display: 'flex' }}*/}
+                {/*            aria-label="Casemap">Case Map<div*/}
+                {/*        style={{*/}
+                {/*                alignSelf: "flex-end",*/}
+                {/*                marginLeft: "auto",*/}
+                {/*                fontSize: "60%"*/}
+                {/*            }}>*/}
+                {/*            <Acknowledgement>*/}
+                {/*            </Acknowledgement>*/}
+                {/*        </div>*/}
+                {/*    </h2>*/}
+                {/*    <ConfirmedMap />*/}
+                {/*</div>*/}
 
                 <NationalCasesDeathsRecoveries />
             </Grid>
