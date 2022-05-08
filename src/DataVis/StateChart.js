@@ -107,27 +107,27 @@ class StateChart extends React.Component {
                     {this.props.state !== 'NT' && this.props.state !== 'TAS' && this.props.state !== 'ACT' ? genderBalance : ''}
                 </Grid>
 
-                <Grid style={{minWidth: '48%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>
-                    <div className="card" style={{
-                        display: 'flex',
-                        flexDirection: 'column'
-                    }}>
-                        <h2 style={{ display: 'flex' }}
-                            aria-label="Casemap">Case Map<div style={{
-                                alignSelf: "flex-end",
-                                marginLeft: "auto",
-                                fontSize: "60%"
-                            }}>
-                                <Acknowledgement>
-                                </Acknowledgement>
-                            </div>
-                        </h2>
-                        <ConfirmedMap stateName={'AU-'+this.props.state}
-                                      dataType={this.props.dataType}
-                                      timePeriod={this.props.timePeriod}
-                                      height={"60vh"}/>
-                    </div>
-                </Grid>
+                {/*<Grid style={{minWidth: '48%', maxWidth: '700px'}} item xs={11} sm={11} md={10} lg={5}>*/}
+                {/*    <div className="card" style={{*/}
+                {/*        display: 'flex',*/}
+                {/*        flexDirection: 'column'*/}
+                {/*    }}>*/}
+                {/*        <h2 style={{ display: 'flex' }}*/}
+                {/*            aria-label="Casemap">Case Map<div style={{*/}
+                {/*                alignSelf: "flex-end",*/}
+                {/*                marginLeft: "auto",*/}
+                {/*                fontSize: "60%"*/}
+                {/*            }}>*/}
+                {/*                <Acknowledgement>*/}
+                {/*                </Acknowledgement>*/}
+                {/*            </div>*/}
+                {/*        </h2>*/}
+                {/*        <ConfirmedMap stateName={'AU-'+this.props.state}*/}
+                {/*                      dataType={this.props.dataType}*/}
+                {/*                      timePeriod={this.props.timePeriod}*/}
+                {/*                      height={"60vh"}/>*/}
+                {/*    </div>*/}
+                {/*</Grid>*/}
 
                 {true ? (
                     <Fragment>

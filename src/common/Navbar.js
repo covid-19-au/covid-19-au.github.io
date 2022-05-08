@@ -66,14 +66,14 @@ export default function Navbar({ setNav, nav }) {
                           <strong><FontAwesomeIcon icon={faChartLine} className="fas desktop-only" /> States</strong>
                         </A>
 
-                        <A
-                                    className={`navItems ${
-                                        window.location.pathname === "/world" && !isSticky ? "navCurrentPage " : ""
-                                        } ${window.location.pathname === "/world" && isSticky ? "navCurrentPageSticky" : ""} `}
-                                    onClick={onClick} href="/world"
-                                >
-                          <strong><FontAwesomeIcon icon={faGlobeAsia} className="fas desktop-only" /> World</strong>
-                        </A>
+                        {/*<A*/}
+                        {/*            className={`navItems ${*/}
+                        {/*                window.location.pathname === "/world" && !isSticky ? "navCurrentPage " : ""*/}
+                        {/*                } ${window.location.pathname === "/world" && isSticky ? "navCurrentPageSticky" : ""} `}*/}
+                        {/*            onClick={onClick} href="/world"*/}
+                        {/*        >*/}
+                        {/*  <strong><FontAwesomeIcon icon={faGlobeAsia} className="fas desktop-only" /> World</strong>*/}
+                        {/*</A>*/}
 
                                 <A
                                     className={`navItems ${

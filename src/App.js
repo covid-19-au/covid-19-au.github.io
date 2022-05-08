@@ -21,7 +21,7 @@ import InfoPage from "./info/InfoPage";
 import Navbar from "./common/Navbar";
 import HomePage from "./home/HomePage";
 import StatesPage from "./states/StatesPage";
-import WorldPage from "./world/WorldPage";
+// import WorldPage from "./world/WorldPage";
 import BlogPage from "./blog/BlogPage";
 import Blog from "./blog/Blog";
 import AboutUsPage from "./about_us/AboutUsPage";
@@ -182,7 +182,7 @@ function App() {
     "/news": () => <NewsPage province={province} gspace={gspace} />,
     "/faq": () => <FAQPage />,
     "/dailyHistory": () => <DailyHistoryPage />,
-    "/world": () => <WorldPage />,
+    // "/world": () => <WorldPage />,
     "/state": () => <StatesPage />,
 
     // Remember to update these based on how many
