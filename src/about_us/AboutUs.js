@@ -34,6 +34,27 @@ const AboutUs = () => {
                     The team at Covid-19-au wish the everyone good health and safety, and we hope that our platform has been helpful in informing you of the situation.
                     We will continue to maintain and update our site and hope that you can support us by sharing it with your friends and family.
                 </Typography>
+                <h1 className="aboutUsHeadings">Related Publications</h1>
+                <Typography variant="body1" gutterBottom>
+                    During the development of this dashboard, we summarised lessons learned, analysed users' requirements, and finished thw following two research projects:
+                    <ul style={{
+                        padding: "0px 0px 0px 25px",
+                        margin: "0",
+                        listStyleType: "disc",
+                        lineHeight: "1.3em",
+                    }}>
+                        <li>
+                            [ICSE-22-SEIS] <b>Software Engineers Response to Public Crisis: Lessons Learnt from Spontaneously Building an Informative COVID-19 Dashboard</b>
+                            <i>The 44th International Conference on Software Engineering, Software Engineering in Society Track</i>
+                            <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2204.08674" >preprint</a>
+                        </li>
+                        <li>
+                            [TSC-21] <b>An Empirical Study on How Well Do COVID-19 Information Dashboards Service User Information Needs</b>
+                            <i>IEEE Transactions on Services Computing</i>
+                            <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2206.00103" >preprint</a>
+                        </li>
+                    </ul>
+                </Typography>
                 <h1 className="aboutUsHeadings">How you can help us</h1>
                 <Typography variant="body1" gutterBottom>
                     To improve our site, we are working with researchers from Monash University and Rochester Institute of Technology, to investigate how our users seek information about COVID-19. We would be very grateful, if you could fill in this 10-min survey.
