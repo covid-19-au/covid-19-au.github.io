@@ -44,13 +44,13 @@ const AboutUs = () => {
                         lineHeight: "1.3em",
                     }}>
                         <li>
-                            [ICSE-22-SEIS] <b>Software Engineers Response to Public Crisis: Lessons Learnt from Spontaneously Building an Informative COVID-19 Dashboard</b>
-                            <i>The 44th International Conference on Software Engineering, Software Engineering in Society Track</i>
-                            <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2204.08674" >preprint</a>
+                            [ICSE-22-SEIS] <b>Software Engineers Response to Public Crisis: Lessons Learnt from Spontaneously Building an Informative COVID-19 Dashboard</b><br/>
+                            <i>The 44th International Conference on Software Engineering, Software Engineering in Society Track</i><br/>
+                            <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2204.08674" >preprint</a><br/>
                         </li>
                         <li>
-                            [TSC-21] <b>An Empirical Study on How Well Do COVID-19 Information Dashboards Service User Information Needs</b>
-                            <i>IEEE Transactions on Services Computing</i>
+                            [TSC-21] <b>An Empirical Study on How Well Do COVID-19 Information Dashboards Service User Information Needs</b><br/>
+                            <i>IEEE Transactions on Services Computing</i><br/>
                             <a className="citationLink" target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2206.00103" >preprint</a>
                         </li>
                     </ul>

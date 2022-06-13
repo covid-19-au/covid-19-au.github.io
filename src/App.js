@@ -287,7 +287,7 @@ function App() {
               {window.location.href === "http://localhost:3008/" || window.location.href === "http://covid-19-au.com/" || window.location.href === "https://covid-19-au.com/" ?
                 <Alert style={{ width: '100%' }} severity="info">
                     <p style={{ fontSize: "0.85rem" }} className="card-text">
-                      Notice: <u>https://covid-19-au.com</u> is the only valid url of our website, others that linked to our website are not related to us.
+                      Notice: To check our research publications, please visit the <a rel="noopener noreferrer" href="/about-us" ><u>About Us</u></a> page.
                     </p>
                 </Alert> : <div />}
               <Grid item xs={12} className="removePadding">
