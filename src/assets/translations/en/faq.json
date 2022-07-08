@@ -10,7 +10,7 @@
         "sect3":"Is the dashboard copyrighted?",
         "sect3bod1":"If you are a government agency, you may use the data for your own purposes, provided you credit to Dr Chunyang Chen. All data, mapping and analysis (website, copyright 2020 Chunyang Chen, all rights reserved) are provided to the public strictly for educational and academic research purposes. Screenshots of the website are permissible so long as the appropriate credit is outlined.",
         "sect4":"How often is the dashboard information updated?",
-        "sect4bod1":"The map is maintained hourly throughout the day through a combination of manual and automated updating methods. Occasional maintenance can result in slower updates.",
+        "sect4bod1":"The map is maintained daily throughout the day through a combination of manual and automated updating methods. Occasional maintenance can result in slower updates.",
         "sect5":"What are the sources of data informing the dashboard?",
         "sect5bod1":"The data sources include the Department of Health in each Australian state ",
         "sect5bod2":", and key news outlets such as the ",
